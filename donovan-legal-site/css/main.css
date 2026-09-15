@@ -1,0 +1,2478 @@
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+  /* Opt out of browser/OS forced dark mode (Opera, Android WebView, Chrome
+     auto-dark) — this site is designed light-only. Without this, forced dark
+     inverts the header and turns the dark logo/menu invisible on a dark bg. */
+  color-scheme: light;
+}
+::-moz-selection {
+  background: #107a4d;
+  text-shadow: none;
+}
+::selection {
+  background: #107a4d;
+  text-shadow: none;
+}
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* ==========================================================================
+ Author's custom styles
+ ========================================================================== */
+
+ @font-face {
+  font-family: 'Trajan Pro';
+  src: url('../webfonts/TrajanPro-Bold.woff2') format('woff2'),
+      url('../webfonts/TrajanPro-Bold.woff') format('woff'),
+      url('../webfonts/TrajanPro-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham Light';
+  src: url('../webfonts/Gotham-Light.woff2') format('woff2'),
+      url('../webfonts/Gotham-Light.woff') format('woff'),
+      url('../webfonts/Gotham-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham Medium';
+  src: url('../webfonts/Gotham-Medium.woff2') format('woff2'),
+      url('../webfonts/Gotham-Medium.woff') format('woff'),
+      url('../webfonts/Gotham-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham Bold';
+  src: url('../webfonts/Gotham-Bold.woff2') format('woff2'),
+      url('../webfonts/Gotham-Bold.woff') format('woff'),
+      url('../webfonts/Gotham-Bold.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+body{
+  color: #000;
+  margin: 0;
+  padding: 0;
+  background-color: #F5F5F0;
+  font-family: "Gotham Medium";
+  height: 100%;
+  /* Mobile safety: never let content force a horizontal scroll / get cut off. */
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* ── Global mobile-safety guards (small screens: text fitting the width) ────── */
+img, svg, video, iframe, table { max-width: 100%; }
+img { height: auto; }
+h1, h2, h3, h4, h5, p, li, a, span, div { overflow-wrap: break-word; word-wrap: break-word; }
+pre, code { white-space: pre-wrap; word-break: break-word; }
+@media (max-width: 575.98px) {
+  /* keep long headings and hero text inside the viewport on phones */
+  h1 { font-size: clamp(1.5rem, 7vw, 2.2rem); line-height: 1.2; }
+  h2 { font-size: clamp(1.25rem, 6vw, 1.8rem); line-height: 1.25; }
+  .container, .container-fluid { padding-left: 15px; padding-right: 15px; }
+}
+.content-pa ul{
+  font-family: "Open Sans";
+}
+p{
+  font-family: "Open Sans";
+}
+.box{
+  padding: 10px;
+  height: 100vh;
+  width: 100%;
+}
+.box-contact{
+  padding: 10px;
+  height: 100vh;
+  width: 100%;
+}
+.box-inside{
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.border-grey{
+  border: 1px solid #ddd;
+  width: 100%;
+  height: 100%;
+}
+.border-body{
+  padding: 10px;
+  border: 1px solid #ddd;
+  width: 100%;
+  height: 100%;
+}
+.border-body-home {
+  padding: 10px;
+  border: 1px solid #ddd;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box-center, .box-center-keep{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%) translateX(-50%);
+}
+.box-center-home{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box-img{
+  text-align: center;
+}
+.navigation{
+  display: block;
+}
+.box-img-home{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.base-logo{
+  position: relative;
+  width: 100%;
+}
+.landing-logo{
+  max-height: 420px;
+}
+a.img-hover{
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: ease-in-out 300ms;
+}
+a.img-hover:hover{
+  opacity: 0;
+}
+.mobile-hover-logo{
+  position: relative;
+}
+a.mobile-hover{
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: ease-in-out 300ms;
+}
+a.mobile-hover:hover{
+  opacity: 0;
+}
+.tagline{
+  font-family: "Trajan Pro";
+  letter-spacing: 4px;
+  text-align: center;
+  font-size: 27px;
+  color: #107a4d;
+}
+.coming-soon{
+  font-family: "Trajan Pro";
+  letter-spacing: 4px;
+  text-align: center;
+  font-size: 40px;
+  color: #000;
+}
+.yellow{
+  color: #107a4d;
+}
+.green{
+  color: #107a4d;
+}
+.bold{
+  font-weight: bold;
+}
+.tagline span:nth-of-type(8){
+  color: #107a4d;
+}
+.tagline span:nth-of-type(9){
+  color: #107a4d;
+}
+.tagline span:nth-of-type(10){
+  color: #107a4d;
+}
+.tagline span:nth-of-type(11){
+  color: #107a4d;
+}
+.tagline span:nth-of-type(12){
+  color: #107a4d;
+}
+.tagline span:nth-of-type(13){
+  color: #107a4d;
+}
+.tagline span:nth-of-type(14){
+  color: #107a4d;
+}
+.coming-soon span:nth-of-type(7) {
+  color: #107a4d;
+}
+.coming-soon span:nth-of-type(8){
+  color: #107a4d;
+}
+.coming-soon span:nth-of-type(9){
+  color: #107a4d;
+}
+.coming-soon span:nth-of-type(10){
+  color: #107a4d;
+}
+.copy{
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  font-family: "Open Sans";
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 13px;
+  z-index: -1;
+}
+.copy-inside{
+  font-family: "Open Sans";
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  margin-top: 180px;
+}
+.copy-keep{
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  font-family: "Open Sans";
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 13px;
+}
+ul.menu{
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  padding-left: 0;
+}
+ul.menu li{
+  display: inline-block;
+  text-align: center;
+  padding: 10px 20px;
+}
+ul.menu li:after{
+  content: "|";
+  display: inline-block;
+  padding-left: 30px;
+}
+ul.menu li:last-child::after{
+  display: none;
+}
+ul.menu li a{
+  color: #000;
+  letter-spacing: 2px;
+  transition: ease-in-out 250ms;
+}
+ul.menu li a:hover, ul.menu li button:hover{
+  color: #0a5a37;
+  text-decoration: none;
+}
+.top-icon{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  line-height: 1.5;
+  font-size: 12px;
+  background: #fff;
+}
+.btn-plus{
+  position: relative;
+  width: 20px;
+  height: 20px;
+  line-height: 0;
+  font-size: 12px;
+}
+.btn-plus::after{
+  content: "\f067";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  top: 9px;
+  left: 4px;
+  position: absolute;
+  z-index: -1;
+}
+.hide{
+  display: none;
+}
+.dropdown-item.active, .dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: #f9f9f9;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 35px !important;
+  left: 0;
+  z-index: 10000;
+  display: none;
+  float: left;
+  min-width: 10rem;
+  padding: .5rem 0;
+  margin: .125rem 0 0;
+  font-size: 14px;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 0;
+  will-change: none;
+}
+.dropdown-menu{
+  transform: none !important;
+}
+.img-firm{
+  background-size: cover;
+  background-color: #090909;
+  text-align: center;
+  width: 100%;
+  min-height: 150px;
+  background: url(../img/firm-img.png) no-repeat center center;
+  background-size: cover;
+}
+.g-light{
+  font-family: "Gotham Light";
+}
+.g-bold{
+  font-family: "Gotham Bold";
+}
+.title{
+  font-size: 40px;
+  letter-spacing: 3px;
+  margin: 25px 0;
+}
+.title-inside{
+  font-size: 30px;
+  letter-spacing: 3px;
+  margin-bottom: 25px;
+}
+.quote, .quote-pa{
+  background: #107a4d;
+  color: #fff;
+  padding: 50px 30px 20px 30px;
+  font-family: "Open Sans";
+  font-weight: 300;
+  position: relative;
+}
+.quote{
+  font-size: 25px;
+}
+.quote-pa{
+  font-size: 18px;
+}
+.quote h1, .quote-history h1{
+  font-family: "Nunito Sans";
+  font-size: 95px;
+  margin: 0;
+  line-height: 0.5em;
+}
+.quote p, .quote-history p{
+  display: block;
+}
+.bg-quote{
+  position: relative;
+  background: #107a4d;
+  z-index: -1;
+}
+.quote-history{
+  padding: 40px 50px;
+  color: #fff;
+  font-family: "Open Sans";
+  font-size: 25px;
+  font-weight: 300;
+  height: 100%;
+  position: relative;
+}
+.move-up{
+  margin-top: -50px;
+}
+a.btn-twitter{
+  display: inline-block;
+  border-radius: 30px;
+  padding: 10px 25px;
+  color: #fff;
+  font-size: 16px;
+  font-family: "Gotham Bold";
+  background: #107a4d;
+  text-transform: uppercase;
+  text-align: center;
+  transition: ease-in-out 200ms;
+  margin: 20px 0;
+}
+a.btn-twitter:hover{
+  color: #fff;
+  background: #0a5a37;
+}
+.btn.focus, .btn:focus {
+  outline: 0;
+  box-shadow: none;
+}
+.menu-icon{
+  max-height: 40px;
+  margin-right: 15px;
+}
+.box-menu{
+  text-align: left !important;
+  padding: 15px 0;
+  min-height: 120px;
+  margin-left: 20px;
+}
+.box-menu a{
+  color: #000;
+  transition: ease-in-out 250ms;
+}
+.box-menu a:hover{
+  color: #107a4d;
+  text-decoration: none;
+}
+.name{
+  font-size: 19px;
+  font-weight: bold;
+  text-align: right;
+  line-height: 2;
+  position: relative;
+  margin-bottom: 30px;
+  display: block;
+}
+.big-screen{
+  min-height: 930px;
+  width: 100%;
+  padding: 10px;
+}
+.border-inside{
+  border: 1px solid #ddd;
+  min-height: 930px;
+}
+.list-paul{
+  list-style-type: decimal;
+  font-family: "Open Sans";
+  margin-bottom: 25px;
+  display: block;
+}
+.list-paul li{
+  margin-bottom: 10px;
+}
+hr {
+  margin: 10px 0;
+}
+.w-100{
+  width: 100%;
+  font-family: "Open Sans";
+}
+.number{
+  width: 10%;
+}
+.top-35{
+  margin-top: 35px;
+}
+.bottom-2{
+  margin-bottom: 20px;
+}
+.bottom-30{
+  margin-bottom: 30px;
+}
+.bottom-50{
+  margin-bottom: 30px;
+}
+.bottom-70{
+  margin-bottom: 70px;
+}
+.circle{
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 15px;
+}
+.white{
+  border: 1px solid #ddd;
+}
+.black{
+  background: #000;
+}
+.green-bg{
+  background: #107a4d;
+}
+.box-practice{
+  margin-top: 150px;
+}
+.margin-practice{
+  margin-top: 70px;
+  margin-bottom: 30px;
+}
+.fs-18px{
+  font-size: 18px !important;
+}
+.box-logo-info{
+  position: relative;
+  display: block;
+  width: 100%;
+}
+.move-logo{
+  margin-top: -228px !important;
+}
+.pin {
+  position: relative;
+  margin: auto;
+  max-width: 550px;
+}
+.pin img {
+  display: block;
+  max-width: 100%;
+  text-align: center;
+}
+
+.pin-popup {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 99;
+  display: inline-block;
+  padding: 15px;
+  background-color: #fff;
+  transition: all 300ms ease-in;
+  transform: translate(-50%,-50%);
+  box-shadow: 0 0 24px rgba(0,0,0,0.22);
+  opacity: 0;
+  visibility: hidden;
+  border-radius: 5px;
+}
+.popup-1, .popup-4, .popup-5, .popup-6{
+  width: 200px;
+}
+.popup-2{
+  width: 500px;
+}
+.popup-3{
+  width: 250px;
+}
+
+.pin-popup > *:first-child { margin-top: 0; }
+.pin-popup > *:last-child { margin-bottom: 0; }
+
+.pin-popup.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.marker {
+  position: absolute;
+  z-index: 1;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  line-height: 20px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  background-color: rgba(193,162,33,0.5);
+  transition: all 350ms;
+}
+.marker:hover {
+  background-color: rgba(193,162,33,0.2);
+}
+.marker-inside{
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  line-height: 10px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  background-color: rgba(193,162,33,0.7);
+}
+
+.pin-item {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+
+.pin-item1 {
+  top: 7%;
+  left: 48.2%;
+}
+
+.pin-item2 {
+  top: 30%;
+  left: 48.2%;
+}
+
+.pin-item3 {
+  top: 45%;
+  left: 64%;
+}
+
+.pin-item4 {
+  bottom: 3%;
+  right: 7%;
+}
+
+.pin-item5 {
+  top: 30%;
+  left: 54.2%;
+}
+
+.pin-item6 {
+  bottom: 20%;
+  left: 12%;
+}
+
+.pin-popup {
+  position: absolute;
+  left: 50px;
+  transform: translateY(-50%);
+}
+.pin-popup:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  width: 30px;
+  height: 1px;
+  background-color: rgba(193,162,33,1);
+}
+.pin-popup.edge {
+  left: auto;
+  right: calc(100% + 24px);
+}
+a.link-yellow{
+  color: #107a4d;
+  transition: ease-in-out 100ms;
+}
+a.link-yellow:hover{
+  color: #0a5a37;
+  text-decoration: none;
+}
+a.link-green{
+  color: #107a4d;
+  transition: ease-in-out 100ms;
+}
+a.link-green:hover{
+  color: #0a5a37;
+  text-decoration: none;
+}
+.cmm-logo{
+  position: relative;
+}
+.cmm-logo-hover{
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: ease-in-out 300ms;
+}
+.cmm-logo-hover:hover{
+  opacity: 0;
+}
+.logo{
+  position: relative;
+  max-width: 115px; /* 2026-09-06: base-hover.png is cropped to its mark; 115px is the old visual size */
+}
+.logo-hover{
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: ease-in-out 300ms;
+}
+.logo-hover:hover{
+  opacity: 0;
+}
+.navbar-nav .nav-link {
+  color: #000;
+  text-transform: uppercase;
+  transition: ease-in-out 200ms;
+  font-family: "Gotham Medium";
+}
+.navbar-nav .nav-link:hover {
+  color: #0a5a37;
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding-right: .8rem;
+  padding-left: .8rem;
+}
+.disclaimer-link{
+  color: #000;
+  transition: ease-in-out 100ms;
+}
+.disclaimer-link:hover, .dropdown-item:hover{
+  color: #0a5a37;
+  text-decoration: none;
+}
+
+.cmm-bg{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
+.cmm-bg-inside{
+  background-size: auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.login-bg{
+  background-size: auto;
+  background-position: top 30% center;
+  background-repeat: no-repeat;
+}
+.box-coming-soon{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+.menubar{
+  margin-bottom: 20px;
+}
+.menu-nav-mobile{
+  margin-top: 20px;
+}
+.menu-nav-mobile li{
+  text-align: center;
+}
+#navbar-menu{
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+}
+#pa-accordion .card{
+  background: #fff;
+  border-color: transparent;
+}
+#pa-accordion .card-header{
+  background: #fff;
+  border: 0;
+  padding: 10px 0;
+  font-weight: bold;
+  font-size: 20px;
+  border-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#pa-accordion .card-body{
+  padding: 10px 0 10px 10px;
+}
+#pa-accordion .plus-icon:after {
+  content: "\f068"; 
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  float: right; 
+  color: #107a4d;
+}
+#pa-accordion .plus-icon:hover:after,
+#pa-accordion .plus-icon.collapsed:hover:after {
+  color: #107a4d;
+}
+#pa-accordion .plus-icon.collapsed:after {
+  content: "\f067";
+}
+.content-pa, .box-practice{
+  margin-top: 75px;
+}
+.keep-m{
+  margin-top: 150px;
+}
+.experience-list{
+  list-style: disc;
+  padding-left: 18px;
+}
+.experience-list li{
+  margin-bottom: 15px;
+}
+.light{
+  font-family: "Gotham medium";
+}
+.breadcrumb {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: .75rem 0;
+  margin-bottom: 1rem;
+  list-style: none;
+  background-color: transparent;
+  border-radius: 0;
+  margin-top: 75px;
+}
+.animate__delay-1{
+  -webkit-animation-delay:1.1s;
+  animation-delay:1.1s;
+  -webkit-animation-delay:calc(var(--animate-delay)*1.1);
+  animation-delay:calc(var(--animate-delay)*1.1)
+}
+.animate__delay-1-5{
+  -webkit-animation-delay:1.5s;
+  animation-delay:1.5s;
+  -webkit-animation-delay:calc(var(--animate-delay)*1.5);
+  animation-delay:calc(var(--animate-delay)*1.5)
+}
+.animate__delay-1-8{
+  -webkit-animation-delay:1.8s;
+  animation-delay:1.8s;
+  -webkit-animation-delay:calc(var(--animate-delay)*1.8);
+  animation-delay:calc(var(--animate-delay)*1.8)
+}
+.animate__delay-2-5{
+  -webkit-animation-delay:2.5s;
+  animation-delay:2.5s;
+  -webkit-animation-delay:calc(var(--animate-delay)*2.5);
+  animation-delay:calc(var(--animate-delay)*2.5)
+}
+.animate__delay-31{
+  -webkit-animation-delay:3.1s;
+  animation-delay:3.1s;
+  -webkit-animation-delay:calc(var(--animate-delay)*3.1);
+  animation-delay:calc(var(--animate-delay)*3.1)
+}
+.animate__delay-32{
+  -webkit-animation-delay:3.2s;
+  animation-delay:3.2s;
+  -webkit-animation-delay:calc(var(--animate-delay)*3.2);
+  animation-delay:calc(var(--animate-delay)*3.2)
+}
+.animate__delay-33{
+  -webkit-animation-delay:3.3s;
+  animation-delay:3.3s;
+  -webkit-animation-delay:calc(var(--animate-delay)*3.3);
+  animation-delay:calc(var(--animate-delay)*3.3)
+}
+@media (min-width:767.98px){
+  .mobile-hover-logo{
+    display: none;
+  }
+}
+@media (min-width:768px){
+  .menu-mobile{
+    display: none;
+  }
+}
+/* humberger
+--------------------------------*/
+.hamburger .line{
+  width: 25px;
+  height: 2px;
+  border-radius: 25px;
+  background-color: #000;
+  display: table-caption;
+  margin: 2px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.hamburger:hover{
+  cursor: pointer;
+}
+
+@media (min-width: 992px) {
+  .hamburger {
+      display: none;
+  }
+}
+
+.nav-mobile-overlay {
+  visibility: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  width: 0;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  z-index: 1031;
+  transition: all 350ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  font-family: "Gotham Medium";
+}
+.nav-mobile-overlay.open {
+  visibility: visible;
+  width: 100%;
+}
+.nav-mobile-wrapper {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 350ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.nav-mobile-overlay.open .nav-mobile-wrapper {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 350ms;
+}
+.nav-mobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+}
+.nav-mobile .nav-mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+.nav-mobile .nav-mobile-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 30px 0 45px;
+  text-align: center;
+}
+.nav-mobile .nav-mobile-list .mobile-menu-item {
+  font-size: 16px;
+  color: #000;
+  margin: 20px 0;
+  text-transform: uppercase;
+}
+.nav-mobile .nav-mobile-list .mobile-menu-item.active {
+  font-weight: bold;
+  color: #000;
+}
+.nav-mobile .nav-mobile-list .mobile-menu-item:hover,
+.nav-mobile .nav-mobile-list .mobile-menu-item:focus,
+.nav-mobile .nav-mobile-list .mobile-menu-item button:hover,
+.nav-mobile .nav-mobile-list .mobile-menu-item button:focus {
+  color: #0a5a37;
+  text-decoration: none;
+}
+.btn-close{
+  padding-top: 50px;
+  padding-right: 30px;
+}
+.btn-plus{
+  padding: 3px;
+}
+@media (max-width: 992px) {
+  #menu-desktop {
+      display: none;
+  }
+}
+@media (min-width: 992px){
+  .navbar-expand-lg .navbar-nav .dropdown-menu {
+    position: absolute;
+    top: 35px !important;
+  }
+}
+@media (min-width:576px) and (max-width:768px){
+  ul.menu{
+    display: inline-block ;
+  }
+  .move-up{
+    margin-top: 0;
+  }
+  .menu-mobile{
+    display: none;
+  }
+  .popup-2{
+    width: 300px;
+  }
+  .popup-3{
+    width: 200px;
+  }
+}
+@media (max-width:575.98px){
+  .navbar {
+    padding: .5rem 0;
+  }
+  .base-logo{
+    display: none;
+  }
+  .logo{
+    text-align: center;
+    max-width: 96px;
+  }
+  .menu-desktop{
+    display: none;
+  }
+  .dropdown-menu {
+    position: static;
+    z-index: 999;
+    left: 50% !important;
+    top: 35px !important;
+    transform: translateX(-50%) !important;
+  }
+  .dropdown-item {
+    text-align: center;
+  }
+  .border-body-home{
+    display: flex;
+    flex-direction: column;
+  }
+
+  ul.menu li{
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    padding: 10px 15px;
+  }
+  ul.menu li:after{
+    display: none;
+  }
+  .menu-icon {
+    max-height: 20px;
+    margin-right: 5px;
+  }
+  ul.menu li a {
+    color: #000;
+    letter-spacing: 0px;
+    font-size: 11px;
+  }
+  .box-menu {
+    padding-top: 10px;
+    padding-bottom: 0 !important;
+    min-height: 20px;
+  }
+  .menu-on-mobile{
+    margin-bottom: 10px;
+  }
+  .move-up{
+    margin-top: 10px;
+  }
+  .box-center {
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+  .box-center {
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+  .box {
+    padding: 10px;
+    height: 100%;
+  }
+  .box-keep{
+    height: 100vh;
+  }
+  .tagline{
+    margin-top: 15px;
+    font-size: 15px;
+  }
+  .box-center-home {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: none;
+    padding: 20% 0 30%;
+}
+  .copy-inside {
+    margin: 30px 0;
+  }
+  .copy {
+    width: 100%;
+    position: relative;
+    padding: 0 30px;
+    margin-top: 50px;
+    bottom: 15px;
+  }
+  .border-body{
+    padding: 0;
+  }
+  .copy-mobile{
+    position: relative;
+    margin: 50px 0 30px;
+  }
+  .box-contact{
+    height: 100%;
+    width: fit-content;
+  }
+  .box-center-keep{
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    padding: 30px 0;
+  }
+  .copy-keep{
+    position: relative;
+    bottom: 0;
+    left: 0;
+    transform: none;
+    margin: 30px 0;
+  }
+  .copy-login{
+    position: absolute;
+    bottom: 20px;
+  }
+  #practice{
+    padding-left: 20%;
+  }
+  .box-practice {
+    margin-top: 50px;
+  }
+  .coming-soon{
+    font-size: 30px;
+  }
+  .img-firm{
+    min-height: 200px;
+  }
+  .img-firm img{
+    display: none;
+    min-height: 200px;
+  }
+  .margin-practice{
+    margin-top: 70px;
+    margin-bottom: 50px;
+  }
+  .margin-practice-mobile{
+    margin-top: 70px;
+    margin-bottom: 50px;
+  }
+  .box-practice h5{
+    font-size: 17px;
+  }
+  .popup-1, .popup-4{
+    width: 160px;
+  }
+  .popup-2{
+    width: 300px;
+  }
+  .popup-3{
+    width: 200px;
+  }
+  .pin-popup {
+    position: absolute;
+    left: 10px;
+    top: 100%;
+    transform: translateY(0) translateX(-50%);
+  }
+  .pin-popup:before {
+    display: none;
+  }
+  .title{
+    font-size: 35px;
+    letter-spacing: 3px;
+    margin: 25px 0;
+  }
+  .popup-6{
+    transform: translateX(-20%);
+  }
+  .popup-4{
+    transform: translateX(-70%);
+  }
+  .quote-pa{
+    margin-bottom: 30px;
+  }
+  .content-pa{
+    margin-top: 50px;
+  }
+}
+/* ==========================================================================
+ Helper classes
+ ========================================================================== */
+ 
+.hidden {
+  display: none !important;
+}
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+  white-space: inherit;
+}
+.invisible {
+  visibility: hidden;
+}
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+ 
+/* ==========================================================================
+   Responsive Styles
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 1.25dppx),
+       (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+ 
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+  *,
+  *:before,
+  *:after {
+      background: transparent !important;
+      color: #000 !important; /* Black prints faster */
+      -webkit-box-shadow: none !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+  }
+  a,
+  a:visited {
+      text-decoration: underline;
+  }
+  a[href]:after {
+      content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+      content: " (" attr(title) ")";
+  }
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+      content: "";
+  }
+  pre {
+      white-space: pre-wrap !important;
+  }
+  pre,
+  blockquote {
+      border: 1px solid #999;
+      page-break-inside: avoid;
+  }
+  thead {
+      display: table-header-group;
+  }
+  tr,
+  img {
+      page-break-inside: avoid;
+  }
+  p,
+  h2,
+  h3 {
+      orphans: 3;
+      widows: 3;
+  }
+  h2,
+  h3 {
+      page-break-after: avoid;
+  }
+}
+
+/* ==========================================================================
+   Homepage hero — dark band (Option A treatment)
+   Added 2026 as part of color palette migration
+   ========================================================================== */
+
+.hero-dark {
+  background: #1a1a1a;
+  color: #F5F5F0;
+  padding: 4rem 2rem 3.5rem 2rem;
+  margin: -10px -10px 0 -10px; /* breaks out of the .box padding */
+  text-align: center;
+  border-bottom: 3px solid #107a4d;
+}
+
+.hero-dark .firm-name {
+  font-family: "Gotham Bold", "Open Sans", sans-serif;
+  font-size: 3.5rem;
+  letter-spacing: 4px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.hero-dark .firm-name .firm-name-light {
+  color: #F5F5F0;
+  font-weight: 300;
+}
+
+.hero-dark .firm-name .firm-name-accent {
+  color: #107a4d;
+  font-weight: 700;
+}
+
+.hero-dark .firm-tagline {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 1.5px;
+  margin-top: 1rem;
+  color: #F5F5F0;
+  opacity: 0.95;
+}
+
+.hero-dark .firm-credentials {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  margin-top: 1rem;
+  color: #C0C0C0;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .hero-dark {
+    padding: 2.5rem 1rem 2rem 1rem;
+  }
+  .hero-dark .firm-name {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+  .hero-dark .firm-tagline {
+    font-size: 1rem;
+  }
+}
+
+/* Light-theme blockquote styling for testimonials and pull quotes
+   (replaces the dark-bg rgba(255,255,255,0.03) treatment used on
+   testimonial blocks built before the palette migration) */
+
+.lt-blockquote {
+  padding: 1.75rem 2rem;
+  border-left: 3px solid #107a4d;
+  background: rgba(16, 122, 77, 0.04);
+  margin: 1.5rem 0;
+}
+
+.lt-blockquote p.attribution {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  color: #4a4a4a;
+}
+
+/* Practice-area card on homepage */
+
+.home-practice-card {
+  padding: 1.5rem;
+  border: 1px solid #d4d4d0;
+  background: #fff;
+  height: 100%;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.home-practice-card:hover {
+  border-color: #107a4d;
+  box-shadow: 0 2px 12px rgba(16, 122, 77, 0.08);
+}
+
+.home-practice-card h5 a {
+  color: #107a4d;
+  text-decoration: none;
+}
+
+.home-practice-card h5 a:hover {
+  color: #0a5a37;
+}
+
+/* Disclaimer / fine-print panel */
+
+.disclaimer-panel {
+  margin-top: 4rem;
+  padding: 1.5rem 1.75rem;
+  border-top: 1px solid #d4d4d0;
+  border-bottom: 1px solid #d4d4d0;
+  font-size: 0.9rem;
+  color: #4a4a4a;
+}
+
+/* Section divider for homepage */
+.section-divider {
+  border-top: 1px solid #d4d4d0;
+  padding-top: 2.5rem;
+  margin-top: 3rem;
+}
+
+/* ==========================================================================
+   Homepage redesign — full-bleed hero, banded sections, image overlays
+   Added 2026
+   ========================================================================== */
+
+/* ----- HERO BANNER ----- */
+
+.hero-banner {
+  position: relative;
+  width: 100%;
+  min-height: 580px;
+  background-size: cover;
+  background-position: center center;
+  background-color: #1a1a1a;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(26,26,26,0.45) 0%, rgba(26,26,26,0.65) 60%, rgba(26,26,26,0.78) 100%);
+  z-index: 1;
+}
+
+.hero-banner-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 5rem 2rem 4.5rem 2rem;
+  max-width: 1100px;
+  width: 100%;
+}
+
+.hero-banner-content .firm-name {
+  font-family: "Gotham Bold", "Open Sans", sans-serif;
+  font-size: 4rem;
+  letter-spacing: 5px;
+  line-height: 1.1;
+  margin: 0 0 1.25rem 0;
+  color: #F5F5F0;
+}
+
+.hero-banner-content .firm-name .firm-name-light {
+  font-weight: 300;
+  color: #F5F5F0;
+}
+
+.hero-banner-content .firm-name .firm-name-accent {
+  font-weight: 700;
+  color: #107a4d;
+}
+
+.hero-banner-content .firm-tagline {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  margin: 0 0 2.5rem 0;
+  color: #F5F5F0;
+  font-style: italic;
+}
+
+.hero-banner-content .practice-bar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 2.5rem 0 2rem 0;
+  padding: 1.25rem 0;
+  border-top: 1px solid rgba(245, 245, 240, 0.25);
+  border-bottom: 1px solid rgba(245, 245, 240, 0.25);
+}
+
+.hero-banner-content .practice-bar a {
+  color: #F5F5F0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  padding: 0.25rem 1.5rem;
+  text-decoration: none;
+  border-right: 1px solid rgba(245, 245, 240, 0.25);
+  transition: color 200ms ease;
+}
+
+.hero-banner-content .practice-bar a:last-child {
+  border-right: none;
+}
+
+.hero-banner-content .practice-bar a:hover {
+  color: #107a4d;
+}
+
+.hero-banner-content .credentials-line {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: #C0C0C0;
+  text-transform: uppercase;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .hero-banner {
+    min-height: 480px;
+  }
+  .hero-banner-content {
+    padding: 3rem 1rem 3rem 1rem;
+  }
+  .hero-banner-content .firm-name {
+    font-size: 2.4rem;
+    letter-spacing: 3px;
+  }
+  .hero-banner-content .firm-tagline {
+    font-size: 1.05rem;
+  }
+  .hero-banner-content .practice-bar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .hero-banner-content .practice-bar a {
+    border-right: none;
+    padding: 0.4rem 0;
+  }
+  .hero-banner-content .credentials-line {
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+  }
+}
+
+/* ----- BANDED SECTIONS ----- */
+
+.section-band-light {
+  background: #F5F5F0;
+  padding: 4.5rem 0 4rem 0;
+}
+
+.section-band-white {
+  background: #FFFFFF;
+  padding: 4.5rem 0 4rem 0;
+}
+
+.section-band-dark {
+  position: relative;
+  background-color: #1a1a1a;
+  background-size: cover;
+  background-position: center;
+  padding: 5rem 0 4.5rem 0;
+  color: #F5F5F0;
+  overflow: hidden;
+}
+
+.section-band-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26,26,26,0.85) 0%, rgba(26,26,26,0.92) 100%);
+  z-index: 1;
+}
+
+.section-band-dark > * {
+  position: relative;
+  z-index: 2;
+}
+
+.section-band-dark h2,
+.section-band-dark h3,
+.section-band-dark h4 {
+  color: #F5F5F0;
+}
+
+.section-band-dark .accent {
+  color: #107a4d;
+}
+
+.section-band-dark p {
+  color: #F5F5F0;
+}
+
+/* ----- SECTION TITLES ----- */
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.section-title .section-title-pre {
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  font-size: 0.85rem;
+  letter-spacing: 4px;
+  color: #6b6b6b;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.section-title h2 {
+  font-family: "Gotham Bold", "Open Sans", sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #107a4d;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.section-band-dark .section-title h2 {
+  color: #107a4d;
+}
+
+.section-band-dark .section-title .section-title-pre {
+  color: #C0C0C0;
+}
+
+/* Phones: the uppercase section headings (e.g. "FULL CYCLE REPRESENTATION")
+   are 2.25rem + 2px tracking and overrun 360px screens — scale them down and
+   tighten tracking so long words fit. Matches .section-title h2 specificity so
+   it actually wins. */
+@media (max-width: 575.98px) {
+  .section-title h2 {
+    font-size: clamp(1.3rem, 6vw, 1.8rem);
+    letter-spacing: 1px;
+  }
+  .section-title .section-title-pre {
+    letter-spacing: 2.5px;
+  }
+}
+
+/* ----- PRACTICE AREA CARDS (refined) ----- */
+
+.practice-card-v2 {
+  background: #FFFFFF;
+  border: 1px solid #d4d4d0;
+  padding: 2rem 1.75rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 250ms ease, transform 250ms ease, box-shadow 250ms ease;
+}
+
+.practice-card-v2:hover {
+  border-color: #107a4d;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(16, 122, 77, 0.12);
+}
+
+.practice-card-v2 h3 {
+  font-family: "Gotham Bold", "Open Sans", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #107a4d !important;
+  text-transform: uppercase;
+  margin: 0 0 1rem 0;
+}
+
+.practice-card-v2 h3 a,
+.practice-card-v2 h3 a:link,
+.practice-card-v2 h3 a:visited,
+.practice-card-v2 h3 a:hover {
+  color: #107a4d !important;
+  text-decoration: none;
+}
+
+.practice-card-v2 p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #1a1a1a;
+  margin: 0 0 1.25rem 0;
+  flex-grow: 1;
+}
+
+.practice-card-v2 .learn-more {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #107a4d !important;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-top: auto;
+}
+
+.practice-card-v2 .learn-more:hover {
+  color: #0a5a37 !important;
+}
+
+/* ----- FORCE GREEN ON ALL LINKS WITHIN HOMEPAGE SECTIONS (override Bootstrap blue) ----- */
+
+.home-section a:not(.btn):not(.dropdown-item):not(.nav-link):not(.mobile-menu-item) {
+  color: #107a4d;
+  text-decoration: none;
+}
+
+.home-section a:not(.btn):not(.dropdown-item):not(.nav-link):not(.mobile-menu-item):hover {
+  color: #0a5a37;
+}
+
+/* Override any inline blue link colors */
+.home-section h1 a,
+.home-section h2 a,
+.home-section h3 a,
+.home-section h4 a,
+.home-section h5 a {
+  color: #107a4d !important;
+}
+
+/* ----- LIGHT BLOCKQUOTE (refined for new homepage) ----- */
+
+.lt-blockquote-large {
+  padding: 2.25rem 2.75rem;
+  border-left: 4px solid #107a4d;
+  background: rgba(16, 122, 77, 0.05);
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+.lt-blockquote-large p.quote-text {
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: #1a1a1a;
+  margin-bottom: 1.25rem;
+}
+
+.lt-blockquote-large p.quote-attribution {
+  font-size: 0.95rem;
+  color: #4a4a4a;
+  margin: 0;
+}
+
+.lt-blockquote-large p.quote-attribution strong {
+  color: #1a1a1a;
+}
+
+/* ----- CTA BAND ----- */
+
+.cta-band {
+  position: relative;
+  background-color: #1a1a1a;
+  background-size: cover;
+  background-position: center;
+  padding: 5rem 0 4.5rem 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.cta-band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26,26,26,0.75) 0%, rgba(26,26,26,0.88) 100%);
+  z-index: 1;
+}
+
+.cta-band > * {
+  position: relative;
+  z-index: 2;
+}
+
+.cta-band h2 {
+  color: #F5F5F0;
+  font-family: "Gotham Bold", "Open Sans", sans-serif;
+  font-size: 2rem;
+  letter-spacing: 3px;
+  margin-bottom: 1.5rem;
+}
+
+.cta-band p {
+  color: #F5F5F0;
+  max-width: 720px;
+  margin: 0 auto 2rem auto;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.cta-band .btn-cta {
+  display: inline-block;
+  padding: 0.9rem 2.5rem;
+  background: #107a4d;
+  color: #FFFFFF;
+  font-family: "Gotham Bold", "Open Sans", sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background 250ms ease, transform 200ms ease;
+}
+
+.cta-band .btn-cta:hover {
+  background: #0a5a37;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* ----- BREAK OUT OF .container CONSTRAINT FOR FULL-BLEED HOMEPAGE BANDS ----- */
+/* Wrapper that lets a section span the full body inside the .border-grey wrapper */
+
+.full-bleed {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  width: 100vw;
+  max-width: 100vw;
+}
+
+/* When inside the bordered container, constrain to that width minus borders */
+.border-grey .full-bleed {
+  margin-left: -1px;
+  margin-right: -1px;
+  width: calc(100% + 2px);
+}
+
+/* ==========================================================================
+   Z-INDEX FIX — dropdowns must appear above hero banner and section bands
+   Added 2026
+   ========================================================================== */
+
+/* The container holding the navigation must create a stacking context above hero/banded sections below it */
+.box > .border-grey > .container {
+  position: relative;
+  z-index: 100;
+}
+
+/* Navbar itself needs explicit positioning for z-index to apply */
+nav.navbar.menubar {
+  position: relative;
+  z-index: 100;
+}
+
+/* Dropdown menu must be above everything else */
+.navbar .dropdown-menu,
+.navbar.menubar .dropdown-menu {
+  z-index: 1000 !important;
+}
+
+/* ============================================================================
+   ENGAGEMENT TIER CARDS (engagement.html)
+   Three-column tier layout (Gold / Platinum / Reserve) with lifecycle phase
+   sections per card. Stacks to single column on mobile.
+   ============================================================================ */
+.engagement-tiers {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.tier-card {
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  border-top: 6px solid;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.tier-card.tier-gold     { border-top-color: #C9A961; }
+.tier-card.tier-platinum { border-top-color: #8a8b8d; }
+.tier-card.tier-reserve  { border-top-color: #0a5a37; background: #fafaf5; }
+.tier-card.tier-diamond  { border-top-color: #5E8B9E; }
+
+.tier-header {
+  padding: 2rem 1.75rem 1.5rem 1.75rem;
+  text-align: center;
+  border-bottom: 1px solid #e0e0d8;
+}
+.tier-header-gold     { background: linear-gradient(180deg, #fff8e7 0%, #FFFFFF 100%); }
+.tier-header-platinum { background: linear-gradient(180deg, #f0f0f0 0%, #FFFFFF 100%); }
+.tier-header-reserve  { background: linear-gradient(180deg, #0a5a37 0%, #107a4d 100%); color: #FFFFFF; }
+.tier-header-diamond  { background: linear-gradient(180deg, #eaf1f4 0%, #FFFFFF 100%); }
+
+.tier-badge {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 6px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.4rem;
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  border: 2px solid #1a1a1a;
+}
+.tier-gold .tier-badge     { color: #7d6218; border-color: #C9A961; }
+.tier-platinum .tier-badge { color: #4a4a4a; border-color: #8a8b8d; }
+.tier-diamond .tier-badge  { color: #3a5f70; border-color: #5E8B9E; }
+.tier-badge-reserve        { color: #FFFFFF !important; border-color: #FFFFFF !important; background: transparent; }
+
+.tier-scarcity {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  color: #7d6218;
+  font-weight: 700;
+  margin-bottom: 0.85rem;
+  text-transform: uppercase;
+}
+.tier-tagline {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1.4rem;
+  margin: 0.7rem 0 0.75rem 0;
+  color: #1a1a1a;
+  line-height: 1.2;
+}
+.tier-header-reserve .tier-tagline { color: #FFFFFF; }
+.tier-fit {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #4a4a4a;
+  font-style: italic;
+}
+.tier-header-reserve .tier-fit { color: #E8E8E0; }
+
+.tier-body {
+  padding: 1.5rem 1.75rem 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.tier-phase {
+  margin-bottom: 1.5rem;
+}
+.tier-phase-label {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 2.5px;
+  font-weight: 700;
+  color: #FFFFFF;
+  padding: 0.35rem 0.75rem;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+.tier-phase-acquisition { background: #107a4d; }
+.tier-phase-ownership   { background: #107a4d; }
+.tier-phase-disposition { background: #0a5a37; }
+
+.tier-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.tier-list li {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #1a1a1a;
+  padding: 0.35rem 0 0.35rem 1.1rem;
+  position: relative;
+}
+.tier-list li::before {
+  content: "\2014";
+  position: absolute;
+  left: 0;
+  color: #107a4d;
+  font-weight: 700;
+}
+
+.tier-exclusions {
+  margin-top: auto;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.1rem;
+  background: rgba(212, 160, 23, 0.08);
+  border-left: 3px solid #d4a017;
+}
+.tier-exclusions-label {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #7d6218;
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+}
+.tier-exclusions p {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: #4a4a4a;
+  margin-bottom: 0;
+}
+
+.tier-cta {
+  display: block;
+  text-align: center;
+  padding: 0.95rem 1rem;
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.88rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #FFFFFF !important;
+  transition: all 0.2s ease;
+}
+.tier-cta:hover { text-decoration: none; opacity: 0.92; }
+.tier-cta-gold     { background: #7d6218; }
+.tier-cta-platinum { background: #6a6a6c; }
+.tier-cta-reserve  { background: #0a5a37; }
+.tier-cta-diamond  { background: #4c7080; }
+
+/* JORDAN-MEMBERS-MARKETING — secondary link from each card on engagement.html to
+   that tier's public marketing page (membership-<tier>.html). Sits above the CTA
+   and reads as a text link, so the primary "Schedule Consultation" action keeps
+   its visual weight. */
+.tier-learn {
+  display: block;
+  text-align: center;
+  margin-bottom: 0.85rem;
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #107a4d;
+}
+.tier-learn:hover { color: #0a5a37; text-decoration: underline; }
+.tier-header-reserve + .tier-body .tier-learn { color: #0a5a37; }
+
+/* Mobile: stack the three tier cards */
+@media (max-width: 991px) {
+  .engagement-tiers {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+@media (max-width: 600px) {
+  .tier-header { padding: 1.5rem 1.25rem 1.25rem 1.25rem; }
+  .tier-body { padding: 1.25rem 1.25rem 1.5rem 1.25rem; }
+  .tier-tagline { font-size: 1.2rem; }
+  .tier-list li { font-size: 0.85rem; }
+  .tier-badge { font-size: 0.9rem; letter-spacing: 4px; }
+}
+
+/* ============================================================================
+   BRAND TREATMENT — TIER NAMES (GOLD, PLATINUM, RESERVE)
+   The three Donovan Legal membership tiers each render with a distinct brand
+   color treatment so the tier system is visually parallel anywhere the names
+   appear together (navigation, tier badges, body prose, headlines).
+
+     GOLD     - deep champagne (#7d6218 text/fill, #C9A961 card accent), full word
+     PLATINUM - cool graphite (#6a6a6c text/fill, #8a8b8d card accent), full word
+     RESERVE  - "RE" in firm green (#107a4d), "SERVE" inherits — the case shift
+                inside the all-caps word is the brand cue, reminding the reader
+                that the firm's practice is Real Estate.
+
+   Usage (always all-caps so the three tiers stay visually parallel):
+     <span class="brand-gold">GOLD</span>
+     <span class="brand-platinum">PLATINUM</span>
+     <span class="brand-reserve"><span class="re">RE</span>SERVE</span>
+
+   The wrappers inherit font-weight, font-size, and letter-spacing from the
+   parent — works in nav items, badges, body prose, headlines without further
+   configuration. !important is used on the color values so the brand
+   treatment survives embedded <style> blocks on individual tool pages.
+
+   DO NOT use these classes for incidental "gold/platinum/reserve" mentions
+   (gold prices, platinum standard, capital reserves, etc.). Brand only.
+   ============================================================================ */
+.brand-gold,
+.brand-platinum,
+.brand-diamond,
+.brand-reserve { white-space: nowrap; }
+.brand-gold     { color: #7d6218 !important; }
+.brand-platinum { color: #6a6a6c !important; }
+.brand-diamond  { color: #4c7080 !important; }
+.brand-reserve .re {
+  color: #107a4d !important;
+  font-weight: inherit;
+}
+
+/* ── SEO (2026-07-18 audit): practice-page heading semantics ─────────────────
+   On the practice pages the page's real topic ("EMINENT DOMAIN", "LEASING" ...)
+   was marked up as <h5>, while a generic "PRACTICE AREAS" was the <h1> - so 12
+   pages all shared one non-descriptive H1 and none declared their own subject.
+   The topic is now the <h1> and the section heading is an <h2>.
+   normalize.css sizes h1 at 2em, which would have enlarged that heading ~2.4x,
+   so pin the promoted heading back to the h5 rendering it already had. This rule
+   is purely to keep the design byte-identical - nothing moves. */
+h1.page-topic { font-size: 0.83em; margin-top: 1.67em; font-weight: bold; }
+
+/* ── JORDAN-LAUNCH-POLISH (2026-07-21): click-to-call, email, social ─────────
+   All presentation lives here, NOT in style="" attributes. The CSP in
+   functions/_middleware.js currently still carries style-src 'unsafe-inline',
+   but that is a tracked debt due to be tightened; markup added now must not be
+   what blocks that refactor later.
+
+   Brand: green #107a4d (hover #0a5a37, matching .disclaimer-link:hover),
+   cream #F5F5F0, Gotham with the site's Open Sans fallback stack. */
+
+/* ── JORDAN-HEADER-UTILITY-BAR: where the TOP bar's rules live ───────────────
+   The header utility bar shares this brand palette but its rules are NOT here —
+   they are in css/dl-utility-bar.css, injected by
+   functions/_lib/utility-bar-inject.js.
+
+   WHY, so nobody moves them in later: 26 of the 141 pages that receive the bar do
+   not load this file at all (the gold/platinum/diamond/reserve tier areas, the
+   eight controversy-roadmap posts, engagement-scoping, 404) — they are standalone
+   documents with their own <style> blocks and no site chrome. A .dl-ubar rule
+   placed here would ship an UNSTYLED bar on all 26, and injecting main.css into
+   them to compensate would repaint documents that deliberately carry their own
+   styling. The bar's sheet is injected next to the markup instead, which is the
+   same arrangement css/perch-layer.css already uses.
+
+   The block below is the FOOTER connect block and is unchanged by that ticket. */
+
+/* Footer connect block — sits directly above .copy-inside on every page. */
+.dl-connect {
+  text-align: center;
+  padding: 2.5rem 1rem 0.5rem;
+  margin-top: 40px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+/* !important is required: the homepage-wide link rule
+   `.home-section a:not(.btn):not(.dropdown-item):not(.nav-link):not(.mobile-menu-item)`
+   scores (0,5,1) and outranks this (0,1,0) selector, repainting the label and its
+   currentColor icon #107a4d on the #107a4d pill. body carries .home-section, so it
+   matches every page. Same reason the .practice-card-v2 rules above use !important. */
+.dl-connect-cta {
+  display: inline-block;
+  background: #107a4d;
+  color: #FFFFFF !important;
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.9rem 2.5rem;
+  border-radius: 30px;
+  transition: background-color ease-in-out 150ms;
+}
+.dl-connect-cta:hover,
+.dl-connect-cta:focus {
+  background: #0a5a37;
+  color: #FFFFFF !important;
+  text-decoration: none;
+}
+.dl-connect-cta .dl-ico {
+  margin-right: 0.6rem;
+  vertical-align: -0.15em;
+}
+
+/* Direct contact line (phone + email) */
+.dl-connect-direct {
+  margin: 1.4rem 0 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.dl-connect-direct a {
+  color: #107a4d;
+  text-decoration: none;
+  transition: ease-in-out 100ms;
+}
+.dl-connect-direct a:hover,
+.dl-connect-direct a:focus {
+  color: #0a5a37;
+  text-decoration: underline;
+}
+.dl-connect-sep {
+  color: #999;
+  margin: 0 0.6rem;
+}
+
+/* Social icon row */
+.dl-social {
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.9rem;
+}
+.dl-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #107a4d;
+  border-radius: 50%;
+  color: #107a4d;
+  transition: ease-in-out 150ms;
+}
+.dl-social a:hover,
+.dl-social a:focus {
+  background: #107a4d;
+  color: #FFFFFF;
+}
+.dl-social svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  display: block;
+}
+
+/* Sticky action bar — mobile only, pinned to the bottom of the viewport.
+   Rendered as the last element before </body> so no ancestor can create a
+   containing block and break position: fixed.
+
+   ── WHY BOOKING LEADS AND CALLING SITS UNDER IT ─────────────────────────────
+   This bar was a single full-width tel: link. The most valuable fixed position
+   on a phone screen was spending itself on the lower-intent action: a call has
+   to be answered to be worth anything, is lost entirely outside office hours,
+   and leaves no record when it is missed. A booking is captured whatever the
+   hour, arrives with the qualifier answers attached, and lands on the calendar
+   without anyone picking up.
+
+   Calling is not demoted so much as made legible. Stacked rather than split, it
+   keeps the full width for the primary AND shows the number as text, so a
+   visitor can read it without tapping anything — which a narrow icon-only
+   button could not do. The suite asserts exactly one tel: anchor inside this
+   bar; the stack keeps that true. */
+.dl-callbar {
+  display: none;
+}
+@media (max-width: 767px) {
+  .dl-callbar {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100003;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.18);
+    /* The iPhone home indicator sits over the bottom ~34px in Safari. Without
+       this the call strip is under it and the bar reads as clipped. */
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    background: #0a5a37;
+  }
+  .dl-callbar a {
+    display: block;
+    text-align: center;
+    font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .dl-callbar a:hover,
+  .dl-callbar a:focus {
+    text-decoration: none;
+  }
+
+  /* PRIMARY — full width. Champagne gold on dark green, matching the Book
+     buttons in the page CTA blocks so the bar reads as the same action, not a
+     new one. Dark text on gold, never white: #C9A961 against #FFFFFF is 1.9:1
+     and fails AA outright, while against #0a3d24 it clears 7:1 and passes AAA.
+     min-height is the WCAG 2.1 AA target floor; the padding already clears it,
+     and this holds if the font ever renders shorter than it does today. */
+  .dl-callbar-book {
+    background: #C9A961;
+    /* Same cascade loss as .dl-connect-cta above — this anchor scores (0,1,1). */
+    color: #0a3d24 !important;
+    padding: 0.95rem 1rem;
+    min-height: 48px;
+    font-size: 0.92rem;
+    letter-spacing: 1.7px;
+  }
+  .dl-callbar-book:hover,
+  .dl-callbar-book:focus {
+    background: #b8974f;
+    color: #0a3d24 !important;
+  }
+
+  /* SECONDARY — a thinner strip carrying the number as readable text, so it can
+     be read without tapping. Shorter than the AA target floor would demand of a
+     sole control, which is why the number is also a link in the utility bar and
+     the footer: this strip is a convenience, not the only route to it. */
+  .dl-callbar-call {
+    background: #0a5a37;
+    color: #FFFFFF !important;
+    padding: 0.55rem 1rem;
+    font-size: 0.76rem;
+    letter-spacing: 1.3px;
+  }
+  .dl-callbar-call:hover,
+  .dl-callbar-call:focus {
+    background: #084729;
+    color: #FFFFFF !important;
+  }
+
+  .dl-callbar .dl-ico {
+    margin-right: 0.45rem;
+    vertical-align: -0.15em;
+  }
+  /* Keep the bar from covering the copyright line it floats over. The bar is
+     taller than the single-row version it replaced, so this grew with it. */
+  .copy-inside {
+    padding-bottom: 96px;
+  }
+  .dl-connect-cta {
+    padding: 0.8rem 1.6rem;
+    font-size: 0.85rem;
+    letter-spacing: 1.8px;
+  }
+}
+
+.dl-ico {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  display: inline-block;
+}
+
+/* Privacy-policy section utilities — replace the style="margin-top: 2rem" /
+   style="color: inherit; text-decoration: underline" that the older sections on
+   disclaimer.html carry inline. Same rendering, no style attribute. */
+.dl-policy-h {
+  margin-top: 2rem;
+}
+.dl-policy-link {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* ============================================================================
+   JORDAN-195A — WCAG 2.1 AA CONTRAST + FOCUS REMEDIATION (issue #195)
+   Measured by scripts/a11y/a11y-sweep.mjs (axe-core 4.13.0, WCAG 2 AA tag set)
+   against all 84 sitemap URLs. See docs/A11Y-SWEEP-FINDINGS.md for the baseline.
+
+   The bulk of the fix is above this block: the brand green, the tier brand
+   colours and their hover states were re-valued in place, because the failure
+   was a THEME defect (1537 failing nodes on 84/84 pages), not a page defect.
+
+   What is left here are the cases where the site never declared a colour of its
+   own and inherited a VENDOR default that fails AA. bootstrap.min.css loads
+   before this sheet on every page, so an equal-specificity rule here wins on
+   source order. These are site-wide element defaults, not per-page patches.
+   ============================================================================ */
+
+/* Bootstrap's default link blue (#007bff) fails at 3.63 on the site's cream
+   (#f5f5f0). It reaches unstyled prose links — 24 nodes across 15 article and
+   tool pages. Links that already carry a site colour are more specific and are
+   unaffected.
+
+   This value is pinned between two opposing thresholds, so do not "just darken"
+   it. A prose link must clear 4.5:1 against the page background (1.4.3) AND
+   3:1 against the body text it sits in (1.4.1, axe `link-in-text-block`) —
+   because colour is the only thing distinguishing it. Darkening toward the
+   background satisfies the first and breaks the second: #0a5cb8 measures 5.93
+   on cream but only 2.68 against the #1a1a1a body text. #1668c9 clears both
+   (4.98 on cream, 5.44 on white, 3.20 against body text). */
+a {
+  color: #1668c9;
+}
+
+/* Bootstrap's `.breadcrumb-item.active` muted grey (#6c757d) fails at 4.28 on
+   cream — 8 nodes, one per legacy practice page. */
+.breadcrumb-item.active {
+  color: #5f666c;
+}
+
+/* Bootstrap's `code` pink (#e83e8c) fails at 3.81 on white. */
+code {
+  color: #bf2469;
+}
+
+/* The RESERVE brand mark paints "RE" in the firm green, and it is the one token
+   that is placed on BOTH light and dark surfaces. No single green satisfies both:
+   clearing 4.5:1 against white caps its luminance at 0.183, clearing 4.5:1
+   against #1a1a1a demands at least 0.230. So the mark is split by context.
+
+   The old #169B62 sat on the dark side of that trade — 4.89 on #1a1a1a (pass)
+   but 3.56 on white (fail). Re-valuing the brand green to #107a4d moves it to
+   the light side (5.37 on white) and would have taken the dark surfaces down
+   with it (3.24 on #1a1a1a), so every dark container the mark appears on is
+   enumerated here and gets the light green instead. This list is exhaustive as
+   measured across the 84-page sweep; a NEW dark surface carrying the mark must
+   be added to it. */
+.tier-cta-reserve .brand-reserve .re,
+.tier-header-reserve .brand-reserve .re,
+.reserve-expansion .brand-reserve .re,
+.gate-primary .brand-reserve .re,
+.phases .brand-reserve .re,
+.preview-footer .brand-reserve .re {
+  color: #8fd3b6 !important;
+}
+
+/* ── WCAG 2.4.7 Focus Visible — contact form ─────────────────────────────────
+   The seven controls on /contact resolve to `outline-style: none` with
+   `outline-width: 3px`: contact.html's own <style> block sets `outline: none`,
+   and the shorthand resets width to `medium` (3px) and colour to currentColor
+   while leaving style `none` — so 3px of nothing is painted. Its companion
+   `border-color` change is real but it is transitioned over 200ms, which means
+   it paints nothing at the instant focus lands and nothing at all when
+   transitions are frozen.
+
+   That <style> block is in the page and cannot be edited from here, so this
+   rule wins on specificity instead: `form.contact-form input:focus` scores
+   (0,2,2) against the page rule's (0,2,1). The indicator is an outline, which
+   is not in the page's `transition` list, so it paints immediately and does not
+   depend on animation being live. `:focus` rather than `:focus-visible` so the
+   ring is present for every focus route the probe and a real user can take. */
+form.contact-form input:focus,
+form.contact-form select:focus,
+form.contact-form textarea:focus {
+  outline: 3px solid #0a5a37;
+  outline-offset: 2px;
+  border-color: #0a5a37;
+}

@@ -1,0 +1,196 @@
+/* ── SHELDON-PAUL-NAV (#227) — the served navigation ─────────────────────────
+ *
+ * Injected next to the nav markup by functions/_lib/nav-inject.js, for the same
+ * reason css/dl-footer-loc.css and css/dl-ubar.css are: not every nav-bearing
+ * page's stylesheet set is identical, and a rule added to css/main.css would
+ * ship unstyled on the ones that differ.
+ *
+ * DELIBERATELY SMALL. Everything the nav needs is already in css/main.css —
+ * .navbar-nav, .nav-link, .dropdown-menu, .dropdown-item, .mobile-menu-item,
+ * .mobile-parent, .btn-plus, .collapse, .nav-mobile-* and the z-index stack are
+ * all defined there and all 113 nav-bearing pages load it. The only thing that
+ * is genuinely new is the SECOND LEVEL under TAX, which this site has never had:
+ * .dropdown-menu is a flat, single-column, absolutely-positioned panel and
+ * nothing in main.css or bootstrap.min.css positions a panel inside a panel.
+ *
+ * The nav is served identically to every page, so anything here that is not
+ * about the TAX menu would be a site-wide restyle riding in on a nav ticket.
+ *
+ * ── WHAT SHELDON-NAV-R2 REMOVED, AND WHY IT IS NOT "OTHER NAV STYLING" ───────
+ *
+ * The `.dl-nav-wide` block that used to be here existed for exactly one thing:
+ * the nineteen-item flat TAX panel, which needed two columns and a `70vh` cap to
+ * stay on screen. R2 nests the fifteen controversy pages, so TAX is a four-item
+ * panel and no page emits `dl-nav-wide` any more. It had to go rather than sit
+ * dead, for a reason beyond tidiness: its `overflow-y: auto` establishes a scroll
+ * container, and a scroll container CLIPS an absolutely-positioned child that
+ * overflows it. A flyout that opens to the right of the panel would have been cut
+ * off at the panel's edge — visible as a sliver, with no error anywhere. */
+
+/* ── The second-level group, desktop ────────────────────────────────────────
+ *
+ * The whole group, so the flyout has something to be positioned against.
+ * `.dropdown-menu` in main.css is `position: absolute` but sets no containing
+ * block for its own children.
+ *
+ * Flex-WRAPPED rather than nested inside a head element: the toggle and the panel
+ * it controls have to stay SIBLINGS for `~` to reach from one to the other (see
+ * the note in nav-inject.js). Row one is the link and its toggle; the panel takes
+ * a full-width row of its own, which is what it needs in the one context where it
+ * is not absolutely positioned. */
+.navbar.menubar .dropdown-menu .dl-subnav {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+/* `.dropdown-item` is `display: block; width: 100%` in bootstrap.min.css, so the
+ * link is told to share its row rather than claim it, and the toggle is sized to
+ * its glyph. */
+.navbar.menubar .dropdown-menu .dl-subnav-parent {
+  flex: 1 1 auto;
+  width: auto;
+  /* 2026-09-05: the group label and its chevron share one line. Long labels
+   * (CONTROVERSY, HIGH NET WORTH DIVORCE, REAL ESTATE & TAX PLANNING) were
+   * wrapping and dropping the chevron onto a second line. */
+  white-space: nowrap;
+}
+
+/* A dropdown that carries nested groups needs the width for the longest label
+ * plus the chevron; bootstrap's 10rem minimum was the cause of the wrap. */
+.navbar.menubar .dropdown-menu:has(.dl-subnav) {
+  min-width: 20rem;
+}
+
+/* A real <button>, so it is in the tab order and operable with Enter and Space.
+ * Everything visual is stripped back to the panel's own surface — the affordance
+ * is the chevron, which turns when bootstrap's collapse plugin flips
+ * `aria-expanded`, and the state is read from that attribute rather than from a
+ * class this stylesheet would have to keep in step. */
+.navbar.menubar .dropdown-menu .dl-subnav-toggle {
+  flex: 0 0 auto;
+  padding: .25rem .9rem .25rem .35rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.navbar.menubar .dropdown-menu .dl-subnav-toggle .fa {
+  transition: transform 150ms ease-in-out;
+}
+
+.navbar.menubar .dropdown-menu .dl-subnav-toggle[aria-expanded="true"] .fa {
+  transform: rotate(90deg);
+}
+
+/* The flyout itself. `display: none` here rather than relying on `.collapse`
+ * alone: `.collapse:not(.show)` is what hides it when the toggle drives it, and
+ * this is what hides it when nothing has driven it at all. Both are overridden
+ * by the reveal rules below, which are more specific than either. */
+.navbar.menubar .dropdown-menu .dl-subnav-menu {
+  display: none;
+  flex: 0 0 100%;
+  min-width: 20rem;
+  padding: .5rem 0;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, .15);
+}
+
+/* Long labels wrap instead of forcing the flyout wider than the viewport —
+ * "Foreign Accounts & Voluntary Disclosure" is the one that decides this. */
+.navbar.menubar .dropdown-menu .dl-subnav-item {
+  white-space: normal;
+}
+
+@media (min-width: 992px) {
+  /* Beside the panel, not below it. `top: -.5rem` cancels `.dropdown-menu`'s own
+   * top padding so the first flyout item lines up with CONTROVERSY. */
+  .navbar.menubar .dropdown-menu .dl-subnav-menu {
+    position: absolute;
+    top: -.5rem;
+    left: 100%;
+    /* Above the panel it flies out of; that panel is already `z-index: 1000
+     * !important` in main.css, and a child in the same stacking context needs to
+     * beat its siblings, not the world. */
+    z-index: 1;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  /* Three ways in, and the two that are not the toggle are why this is a menu
+   * and not a form control:
+   *   aria-expanded the toggle's own state, maintained by bootstrap's collapse
+   *   :hover        the pointer affordance the first level already has
+   *   :focus-within the keyboard path — tabbing INTO the flyout keeps it open,
+   *                 which is what stops a tab off the toggle from closing the
+   *                 panel out from under the focus that just entered it
+   *
+   * Written as THREE rules and not one group on purpose. An unsupported selector
+   * anywhere in a comma-separated group invalidates the entire rule, so pairing
+   * `:focus-within` with `:hover` would mean a browser that lacks the first also
+   * loses the second. Split, each degrades on its own. */
+  .navbar.menubar .dropdown-menu .dl-subnav-toggle[aria-expanded="true"] ~ .dl-subnav-menu {
+    display: block;
+  }
+
+  .navbar.menubar .dropdown-menu .dl-subnav:hover > .dl-subnav-menu {
+    display: block;
+  }
+
+  .navbar.menubar .dropdown-menu .dl-subnav:focus-within > .dl-subnav-menu {
+    display: block;
+  }
+}
+
+/* ── The second-level group, mobile ─────────────────────────────────────────
+ *
+ * Below the lg breakpoint main.css hides `#menu-desktop` outright and the
+ * overlay takes over, so nothing above this point renders. The nested accordion
+ * reuses the `.mobile-parent` shape one level in: indented, smaller, and with its
+ * own collapse driven by its own toggle. */
+.nav-mobile .nav-mobile-list .dl-subnav-mobile {
+  margin: 10px 0;
+}
+
+/* The nested panel is inside the TAX panel, which is itself a `.collapse`, so
+ * this must not re-declare display — `.collapse:not(.show)` already owns that on
+ * both levels and a `display` here would fight the plugin. */
+.nav-mobile .nav-mobile-list .dl-subnav-mobile-menu {
+  padding-left: .75rem;
+}
+
+.nav-mobile .nav-mobile-list .dl-subnav-mobile-menu .dl-subnav-item {
+  font-size: 14px;
+  white-space: normal;
+}
+
+/* Nine top-level items in the space eight used to occupy. Only the horizontal
+ * padding moves; the type, colour and hover transition stay in main.css so the
+ * bar still matches the rest of the chrome. */
+@media (min-width: 992px) {
+  .navbar.menubar .navbar-expand-lg .navbar-nav .nav-link,
+  .navbar.menubar .navbar-nav .nav-link {
+    padding-right: .6rem;
+    padding-left: .6rem;
+  }
+}
+
+/* 2026-09-06: nine items on the bar. Two-word labels (REAL ESTATE, SPECIAL COUNSEL,
+ * CLIENT PORTAL) were wrapping to two lines and throwing the spacing off. Keep each
+ * label on one line and let the padding, not a line break, absorb the width. */
+.navbar.menubar #menu-desktop > .nav-item > .nav-link {
+  white-space: nowrap;
+}
+@media (min-width: 992px) and (max-width: 1399px) {
+  .navbar.menubar #menu-desktop > .nav-item > .nav-link {
+    padding-left: .55rem;
+    padding-right: .55rem;
+    letter-spacing: .5px;
+    font-size: 15px;
+  }
+}

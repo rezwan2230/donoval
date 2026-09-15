@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Material Participation &amp; REPS Tracker | Donovan Legal PLLC</title>
+<meta name="description" content="Free contemporaneous time log for IRC §469: every hour characterized against Reg. §1.469-5T, the seven material-participation tests and the Real Estate Professional 750-hour and more-than-half tests. Educational tool; your data stays in your browser.">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/favicon.png">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&amp;display=swap" rel="stylesheet">
+<style>
+  @font-face{font-family:'Trajan Pro';src:url('webfonts/TrajanPro-Bold.woff2') format('woff2'),url('webfonts/TrajanPro-Bold.woff') format('woff');font-weight:700;font-display:swap}
+  @font-face{font-family:'Gotham Light';src:url('webfonts/Gotham-Light.woff2') format('woff2'),url('webfonts/Gotham-Light.woff') format('woff');font-display:swap}
+  @font-face{font-family:'Gotham Medium';src:url('webfonts/Gotham-Medium.woff2') format('woff2'),url('webfonts/Gotham-Medium.woff') format('woff');font-display:swap}
+  @font-face{font-family:'Gotham Bold';src:url('webfonts/Gotham-Bold.woff') format('woff'),url('webfonts/Gotham-Bold.ttf') format('truetype');font-display:swap}
+  :root{
+    --forest:#0A4A2A; --emerald:#107A4D; --emerald-soft:#EAF3EE;
+    --gold:#C9A961; --gold-lt:#D9C089; --cream:#F5F5F0;
+    --ink:#1a1a1a; --body:#3D3D3D; --mute:#707070; --mute2:#8B8B8B;
+    --line:#d4d4d0; --panel:#FAF9F5; --white:#FFFFFF;
+    --pass:#107A4D; --warn:#C08A2E; --fail:#B0413E;
+    --display:'Trajan Pro','Gotham Bold',Georgia,serif;
+    --serif:'Gotham Bold','Open Sans',system-ui,sans-serif;
+    --sans:'Open Sans','Segoe UI',system-ui,-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box} html,body{margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--body);background:var(--cream);line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  header.mast{background:var(--forest);color:#fff;padding:30px 0 26px}
+  .mast .wrap{display:flex;flex-direction:column;gap:4px}
+  .word{font-family:var(--display);font-size:22px;letter-spacing:3px;font-weight:700;color:#fff}
+  .mast-top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .mast-logo img{height:42px;width:auto;display:block}
+  .mast-back{font-family:var(--sans);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-lt);text-decoration:none;font-weight:600;white-space:nowrap}
+  .mast-back:hover{color:#fff;text-decoration:none}
+  .word small{display:block;font-family:var(--sans);font-size:9px;letter-spacing:5px;color:var(--gold-lt);font-weight:600;margin-top:2px}
+  .gold-rule{height:2px;width:54px;background:var(--gold);margin:14px 0 0}
+  h1{font-family:var(--serif);font-size:30px;color:#fff;margin:18px 0 2px;font-weight:700}
+  .eyebrow{font-size:11px;letter-spacing:3px;color:var(--gold-lt);font-weight:700;text-transform:uppercase}
+  .sub{color:#CFE3D6;font-size:14.5px;max-width:840px;margin-top:6px}
+  main{padding:28px 0 60px}
+  .card{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:22px 24px;margin-bottom:22px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .card h2{font-family:var(--serif);font-size:20px;color:var(--ink);margin:0 0 3px;font-weight:700}
+  .card .cite{font-size:12px;color:var(--mute2);letter-spacing:.3px;margin-bottom:14px}
+  .gate-tag{display:inline-block;font-size:10.5px;letter-spacing:2px;font-weight:700;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+  .grid{display:grid;gap:14px 18px}
+  .g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g5{grid-template-columns:1.5fr 1.2fr 1fr 1fr .8fr}
+  label{display:block;font-size:12px;font-weight:600;color:var(--mute);letter-spacing:.4px;margin-bottom:4px;text-transform:uppercase}
+  input,select,textarea{width:100%;font-family:var(--sans);font-size:14.5px;color:var(--ink);padding:8px 10px;border:1px solid var(--line);border-radius:4px;background:#fff}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--emerald);box-shadow:0 0 0 2px var(--emerald-soft)}
+  textarea{resize:vertical;min-height:46px;line-height:1.45}
+  .req{color:var(--fail)}
+  .ck{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--body);margin-top:24px}
+  .ck input{width:auto}
+  .btn{font-family:var(--sans);font-size:13.5px;font-weight:600;letter-spacing:.3px;padding:9px 16px;border-radius:4px;border:1px solid transparent;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--emerald);color:#fff}.btn-primary:hover{background:#107a4d}
+  .btn-ghost{background:#fff;color:var(--forest);border-color:var(--line)}.btn-ghost:hover{border-color:var(--emerald);color:var(--emerald)}
+  .btn-sm{padding:6px 12px;font-size:12.5px}
+  .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+
+  details.framework{background:var(--panel);border:1px solid var(--line);border-radius:6px;margin-bottom:22px;overflow:hidden}
+  details.framework>summary{cursor:pointer;padding:16px 22px;font-family:var(--serif);font-size:16px;font-weight:700;color:var(--forest);list-style:none}
+  details.framework>summary::-webkit-details-marker{display:none}
+  details.framework>summary::before{content:"▸ ";color:var(--gold)}
+  details.framework[open]>summary::before{content:"▾ "}
+  .fwbody{padding:0 22px 20px}
+  .fwgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px}
+  .fwblock h4{font-size:12.5px;letter-spacing:.5px;text-transform:uppercase;color:var(--forest);margin:10px 0 6px;border-bottom:1px solid var(--line);padding-bottom:4px}
+  .fwblock p{font-size:12.5px;color:var(--body);margin:5px 0}
+  .fwblock .rc{color:var(--mute2);font-style:italic}
+  .fwblock .em{color:var(--forest);font-weight:700}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:10px}
+  th{text-align:left;font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:var(--mute);font-weight:700;padding:8px;border-bottom:2px solid var(--line)}
+  td{padding:8px;border-bottom:1px solid var(--line);color:var(--body);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  .num{text-align:right;font-variant-numeric:tabular-nums}
+  .del{color:var(--fail);cursor:pointer;font-weight:700;border:none;background:none;font-size:14px}
+  .pill{font-size:10px;font-weight:700;letter-spacing:.3px;padding:2px 7px;border-radius:3px;text-transform:uppercase;display:inline-block}
+  .pill.counts{background:var(--emerald-soft);color:var(--forest)}
+  .pill.mgmt{background:#F3EEE2;color:#8a6d2f}
+  .pill.excl{background:#F4E7E6;color:var(--fail)}
+  .pill.inv{background:#EAEFF4;color:#3b5566}
+  .pill.rptb{background:#E6F0EA;color:var(--forest)}
+  .pill.nonre{background:#EFEFEC;color:var(--mute)}
+  .pill.hold{background:#F1ECF4;color:#5b4a6b}
+  .pill.lp{background:#F4E7E6;color:var(--fail)}
+
+  .chip{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;letter-spacing:.4px;padding:4px 10px;border-radius:20px;text-transform:uppercase;white-space:nowrap}
+  .chip.pass{background:var(--emerald-soft);color:var(--pass)}
+  .chip.warn{background:#F7EFDD;color:var(--warn)}
+  .chip.fail{background:#F6E5E4;color:var(--fail)}
+  .chip .dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+
+  .gauges{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .gauge{border:1px solid var(--line);border-radius:6px;padding:16px 18px;background:var(--panel)}
+  .gauge .gtitle{font-size:13px;font-weight:700;color:var(--ink)}
+  .gauge .gcite{font-size:11px;color:var(--mute2);margin:1px 0 12px}
+  .bar{height:12px;border-radius:7px;background:#ECEAE3;overflow:hidden;position:relative}
+  .bar>i{display:block;height:100%;border-radius:7px;background:var(--emerald);transition:width .3s,background .3s}
+  .gnum{display:flex;justify-content:space-between;align-items:baseline;margin-top:8px}
+  .gbig{font-family:var(--serif);font-size:24px;font-weight:700;color:var(--ink)}
+  .gtarget{font-size:12px;color:var(--mute)}
+
+  .verdict{display:flex;align-items:center;gap:14px;margin-top:16px;padding:14px 18px;border-radius:6px;border:1px solid var(--line);background:#fff}
+  .verdict .vlabel{font-family:var(--serif);font-size:16px;font-weight:700;color:var(--ink)}
+  .verdict.qual{background:var(--emerald-soft);border-color:#BFE0CD}
+  .verdict.no{background:#FBF2F1;border-color:#EBD2D0}
+  .verdict.part{background:#FBF6EA;border-color:#ECDFC2}
+
+  .actcard{border:1px solid var(--line);border-radius:6px;margin-top:14px;background:#fff;overflow:hidden}
+  .acthead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:13px 16px;background:var(--panel);border-bottom:1px solid var(--line)}
+  .actname{font-family:var(--serif);font-size:16px;font-weight:700;color:var(--ink)}
+  .lpbanner{font-size:11.5px;color:var(--fail);background:#FBF2F1;padding:6px 16px;border-bottom:1px solid #EBD2D0}
+  .tests{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line)}
+  .tcell{background:#fff;padding:11px 13px}
+  .tcell .tk{font-size:10.5px;font-weight:700;color:var(--mute);letter-spacing:.3px}
+  .tcell .tv{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--ink);margin:2px 0}
+  .tcell .tn{font-size:10.5px;color:var(--mute2);line-height:1.35}
+  .tcell.met{background:var(--emerald-soft)} .tcell.met .tv{color:var(--forest)}
+  .tcell.fc{background:#FBF6EA}
+  .tcell.na{background:#F4F3F0} .tcell.na .tv{color:var(--mute2);font-size:13px}
+
+  .helper{font-size:12px;color:var(--forest);background:var(--emerald-soft);border:1px solid #CFE6D8;border-radius:5px;padding:9px 12px;margin-top:8px;min-height:20px}
+  .helper.invwarn{background:#EAEFF4;border-color:#CBD8E2;color:#2f4655}
+  .helper b{color:inherit} .helper .ex{color:var(--mute);font-style:italic}
+  .note{font-size:12.5px;color:var(--mute);background:var(--emerald-soft);border-left:3px solid var(--emerald);padding:10px 14px;border-radius:0 4px 4px 0;margin-top:14px}
+  .note b{color:var(--forest)}
+  .warnbox{font-size:12.5px;color:#7a4a16;background:#FBF6EA;border-left:3px solid var(--gold);padding:10px 14px;border-radius:0 4px 4px 0;margin-top:12px}
+  .traps{font-size:12.5px;color:var(--body);margin-top:10px}.traps li{margin-bottom:4px}
+  .miniact{display:flex;gap:8px;align-items:center;padding:8px 10px;border:1px solid var(--line);border-radius:5px;margin-bottom:8px;background:#fff;flex-wrap:wrap}
+  .miniact .an{font-weight:700;color:var(--ink);font-size:13.5px}
+  .dur-bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:6px;padding:12px 16px;margin-bottom:20px;font-size:12.5px;color:var(--body)}
+  .dur-bar.ok{border-left-color:var(--emerald)} .dur-bar.alert{border-left-color:var(--fail)}
+  .dur-bar .dstat{flex:1;min-width:240px;line-height:1.45} .dur-bar b{color:var(--ink)}
+  .dur-bar .dwarn{color:var(--fail);font-weight:700} .dur-bar .dok{color:var(--forest);font-weight:700}
+  .dur-bar .dactions{display:flex;gap:8px;flex-wrap:wrap}
+  .print-only{display:none}
+  @media print{
+    .print-only{display:block;margin-top:6px;break-inside:avoid}
+    .to-title{font-family:var(--serif);font-size:18px;font-weight:700;color:#1a1a1a;margin:0 0 2px}
+    .to-meta{font-size:12px;color:#444;margin-bottom:12px}
+    .cert{margin-top:20px;border:1px solid #999;border-radius:4px;padding:14px 16px;font-size:12px;color:#222;line-height:1.5}
+    .cert .sig{margin-top:30px;display:flex;gap:48px}
+    .cert .sigline{flex:1;border-top:1px solid #444;padding-top:4px;font-size:11px;color:#555}
+  }
+  footer.disc{border-top:1px solid var(--line);padding:22px 0 50px;font-size:11.5px;color:var(--mute2);font-style:italic;line-height:1.6}
+  @media(max-width:820px){.g2,.g3,.g4,.g5,.gauges,.fwgrid{grid-template-columns:1fr}.tests{grid-template-columns:1fr 1fr}h1{font-size:24px}}
+  @media print{body{background:#fff}.no-print{display:none!important}header.mast{background:#fff;color:var(--forest);border-bottom:2px solid var(--gold)}.word,h1,.gbig,.actname,.vlabel,.tv{color:var(--ink)!important}.sub,.eyebrow{color:var(--mute)!important}.card,.actcard{break-inside:avoid;box-shadow:none}details.framework{display:none}}
+</style>
+  <script src="/js/page/tool-material-participation-tracker.js" defer></script>
+</head>
+<body>
+<header class="mast">
+  <div class="wrap">
+    <div class="mast-top">
+      <a href="index.html" class="mast-logo"><img src="img/Donovan-Logo-v2-transparent-white.png" alt="Donovan Legal PLLC"></a>
+      <a href="index.html" class="mast-back">&larr; donovan.law</a>
+    </div>
+    <div class="gold-rule"></div>
+    <div class="eyebrow" style="margin-top:16px">Open Tool &middot; Educational</div>
+    <h1>Material Participation &amp; REPS Tracker</h1>
+    <p class="sub">A reg-anchored time log for IRC §469. Every hour is characterized against §1.469-5T(f); investor-capacity work is counted when you are directly involved in day-to-day management or operations (the (f)(2)(ii)(B) exception most people miss). All seven tests are scored per activity — respecting the limited-partner restriction and the §1.469-5(h)(3) pass-through look-back — then carried into the Real Estate Professional 750/50% gate.</p>
+  </div>
+</header>
+
+<main class="wrap">
+        <div class="dl-tool-disclaimer" role="note" style="margin:1rem 0 1.5rem; padding:0.9rem 1.1rem; background:#F4F1E8; border-left:4px solid #C9A961; border-radius:4px; font-size:0.92rem; line-height:1.55; color:#1F2A24;"><strong>Educational tool &mdash; not legal advice.</strong> This tool is provided by Donovan Legal PLLC for educational and illustrative purposes only. It applies simplified assumptions to what you enter, may not reflect current law or your circumstances, and its output is an estimate or a discussion draft &mdash; not advice, and not a document to file or sign. Using it does not create an attorney&ndash;client relationship. Do not act on any output without advice specific to your facts from a qualified professional.<span style="display:block; margin-top:0.45rem; font-size:0.82rem; color:#5A6660;">Law current as of September 2026 &middot; model reviewed September 4, 2026.</span></div>
+
+  <!-- DURABILITY / BACKUP BAR -->
+  <div class="dur-bar no-print" id="durBar"><div class="dstat">Loading…</div></div>
+
+  <!-- REG FRAMEWORK -->
+  <details class="framework">
+    <summary>The regulatory framework this tool encodes — §1.469-5(f), -5T(a)–(f), -5(h)(3)</summary>
+    <div class="fwbody">
+      <div class="fwgrid">
+        <div class="fwblock">
+          <h4>What is "participation" — §1.469-5(f) / -5T(f)</h4>
+          <p><b>(f)(1)</b> Any work done by an individual — <i>without regard to the capacity</i> — in connection with an activity in which the individual owns an interest is participation, except as the rest of (f) provides.</p>
+          <p><b>(f)(2)(i)</b> Work not customarily done by owners is disregarded if a principal purpose is to avoid the passive-loss rules. <span class="rc">Anti-abuse — excluded.</span></p>
+          <p><b>(f)(2)(ii)(A)</b> Work in an <i>investor</i> capacity — studying/reviewing financial statements, preparing analyses for one's own use, monitoring in a non-managerial capacity — is not participation.</p>
+          <p><b>(f)(2)(ii)(B)</b> <span class="em">Exception:</span> that same work <span class="em">is</span> participation if the individual is directly involved in the day-to-day <i>management or operations</i> of the activity. <span class="rc">Investor work is not automatically excluded — a common error.</span></p>
+          <p><b>(f)(3) / §469(h)(5)</b> A spouse's participation is counted, jointly filing or not, owner or not.</p>
+          <p><b>(f)(4)</b> Proof by any reasonable means; a contemporaneous narrative log is the practical standard.</p>
+        </div>
+        <div class="fwblock">
+          <h4>The seven tests — §1.469-5T(a)</h4>
+          <p><b>(a)(1)</b> &gt;500 hours. <b>(a)(2)</b> substantially all the participation of all individuals (owners and non-owners). <b>(a)(3)</b> &gt;100 hours and not less than any other individual. <b>(a)(4)</b> significant participation activities aggregating &gt;500 hours. <b>(a)(5)</b> 5 of the prior 10 years. <b>(a)(6)</b> a personal-service activity, 3 prior years. <b>(a)(7)</b> facts and circumstances (100-hr floor; management limited by (b)(2)).</p>
+          <h4>Pass-through coordination</h4>
+          <p><b>§1.469-5(h)(3)</b> A year in which the taxpayer materially participated in a <i>partnership or S-corporation</i> activity (and took its income/deduction into account under §1.469-2T(e)(1)) counts as a material-participation year when applying the (a)(5) and (a)(6) look-backs in later years.</p>
+          <p><b>§1.469-5T(e)</b> An interest held as a <i>limited partner</i> can establish material participation <span class="em">only</span> under Test 1, 5, or 6 — unless the individual is also a general partner in the same entity for the year ((e)(3)(ii)).</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- SETTINGS + ACTIVITIES -->
+  <section class="card no-print">
+    <h2>Engagement &amp; activities</h2>
+    <div class="cite">Define each activity as its §1.469-4 appropriate economic unit, tagged with its §469(c)(7)(C) RPTB type and how the interest is held. Nothing leaves your browser.</div>
+    <div class="grid g3">
+      <div><label>Taxpayer name</label><input id="tpName" value="Taxpayer"></div>
+      <div><label>Spouse name (if MFJ)</label><input id="spName" value="Spouse"></div>
+      <div><label>Tax year</label><input id="year" type="number" value="2026"></div>
+    </div>
+
+    <h4 style="font-size:12.5px;letter-spacing:.5px;text-transform:uppercase;color:var(--forest);margin:18px 0 8px">Activities</h4>
+    <div id="actList"></div>
+    <div class="grid g5" style="margin-top:10px;align-items:end">
+      <div><label>Activity name</label><input id="naName" placeholder="e.g. 14 Bayshore Dr (STR)"></div>
+      <div><label>RPTB type — §469(c)(7)(C)</label>
+        <select id="naType">
+          <optgroup label="Real property trade/business">
+            <option>Rental</option><option>Operation</option><option>Management</option><option>Leasing</option>
+            <option>Brokerage</option><option>Development</option><option>Redevelopment</option><option>Construction</option>
+            <option>Reconstruction</option><option>Acquisition</option><option>Conversion</option>
+          </optgroup>
+          <optgroup label="Other"><option value="Non-RE trade/business">Non-RE trade/business</option></optgroup>
+        </select>
+      </div>
+      <div><label>How held</label>
+        <select id="naHold" data-dvn-on="change" data-dvn-do="toggleGP()">
+          <option value="Direct">Direct ownership</option>
+          <option value="GP">General partner interest</option>
+          <option value="LLC">LLC member</option>
+          <option value="SCorp">S-corp shareholder</option>
+          <option value="LP">Limited partner interest</option>
+        </select>
+      </div>
+      <div><label>Prior yrs MP (of 10)</label><input id="naPrior" type="number" min="0" max="10" value="0"></div>
+      <div style="display:flex;gap:8px"><button class="btn btn-primary" style="flex:1" data-dvn-on="click" data-dvn-do="addActivity()">Add</button></div>
+    </div>
+    <div class="grid g3" style="margin-top:10px">
+      <div class="ck" id="gpWrap" style="display:none;margin-top:0"><input type="checkbox" id="naGP"><label style="margin:0;text-transform:none;font-weight:400;color:var(--body)">Also a general partner this year — lifts the §1.469-5T(e)(3)(ii) limited-partner restriction</label></div>
+      <div class="ck" style="margin-top:0"><input type="checkbox" id="naPSA"><label style="margin:0;text-transform:none;font-weight:400;color:var(--body)">Personal-service activity (enables Test 6)</label></div>
+    </div>
+    <div class="warnbox" style="margin-top:14px"><b>Prior-year history (Tests 5 &amp; 6):</b> count years materially participated in the last 10 — <b>including</b> years you materially participated through a partnership or S corporation, which carry forward under §1.469-5(h)(3). 5+ clears Test 5; 3+ clears Test 6 for a personal-service activity.</div>
+  </section>
+
+  <!-- TIME LOG ENTRY -->
+  <section class="card no-print">
+    <h2>Log time</h2>
+    <div class="cite">Pick the category that fits the work — the tool shows its regulatory treatment and an exam-ready description to model. A detailed description is required on every entry.</div>
+    <div class="grid g4">
+      <div><label>Date</label><input type="date" id="eDate"></div>
+      <div><label>Who</label>
+        <select id="ePerson" data-dvn-on="change" data-dvn-do="onPersonChange()"><option value="taxpayer">Taxpayer</option><option value="spouse">Spouse</option><option value="other">Other individual</option></select>
+      </div>
+      <div id="otherWrap" style="display:none"><label>Other individual's name</label><input id="eOther" placeholder="e.g. Property manager"></div>
+      <div id="compWrap" style="display:none"><label>Compensated for management?</label><select id="eComp"><option value="0">No</option><option value="1">Yes</option></select></div>
+      <div><label>Activity</label><select id="eActivity"></select></div>
+    </div>
+    <div class="grid g2" style="margin-top:12px">
+      <div><label>Participation category — §1.469-5T(f)</label><select id="eCat" data-dvn-on="change" data-dvn-do="onCatChange()"></select></div>
+      <div><label>Hours</label><input type="number" id="eHours" min="0" step="0.25" placeholder="0.0"></div>
+    </div>
+    <div class="helper" id="catHelper">Select a category to see its regulatory treatment and a sample description.</div>
+    <div id="ddWrap" style="display:none;margin-top:12px">
+      <label>Directly involved in day-to-day management or operations of this activity? — §1.469-5T(f)(2)(ii)(B)</label>
+      <select id="eDD"><option value="0">No — investor capacity, does not count</option><option value="1">Yes — counts as participation under the (B) exception</option></select>
+    </div>
+    <div style="margin-top:12px"><label>Description of work performed <span class="req">*required</span></label>
+      <textarea id="eDesc" placeholder="Describe the specific work in operational terms — what was done, where, for how long, and (for investor-type work) the day-to-day management/operations role that brings it within (f)(2)(ii)(B)."></textarea>
+    </div>
+    <div class="btn-row"><button class="btn btn-primary" data-dvn-on="click" data-dvn-do="addEntry()">Add entry to log</button></div>
+  </section>
+
+  <!-- GATE 1: REP -->
+  <section class="card">
+    <span class="gate-tag">Gate 1 of 2 · turns off the per se passive rule</span>
+    <h2>Real Estate Professional qualification</h2>
+    <div class="cite">§469(c)(7)(B) — a year-by-year <b>fact test</b>. <b>One spouse alone</b> must clear <b>both</b> prongs, counting only hours in RPTBs that spouse materially participates in. Spouses do not combine here.</div>
+    <div class="grid g3 no-print" style="margin-bottom:6px"><div><label>Test this spouse</label>
+      <select id="repWho" data-dvn-on="change" data-dvn-do="render()"><option value="taxpayer">Taxpayer</option><option value="spouse">Spouse</option></select></div></div>
+    <div class="gauges">
+      <div class="gauge">
+        <div class="gtitle">Prong 1 — &gt; 750 hours in RPTBs</div>
+        <div class="gcite">Counted hours in materially-participated RPTBs</div>
+        <div class="bar"><i id="fill750"></i></div>
+        <div class="gnum"><span class="gbig" id="num750">0</span><span class="gtarget">target &gt; 750 hrs</span></div>
+        <div style="margin-top:10px"><span class="chip fail" id="chip750"><span class="dot"></span>0 hrs</span></div>
+      </div>
+      <div class="gauge">
+        <div class="gtitle">Prong 2 — &gt; 50% of all working time</div>
+        <div class="gcite">RPTB hours ÷ all personal-service trade/business hours</div>
+        <div class="bar"><i id="fill50"></i></div>
+        <div class="gnum"><span class="gbig" id="num50">0%</span><span class="gtarget">target &gt; 50%</span></div>
+        <div style="margin-top:10px"><span class="chip fail" id="chip50"><span class="dot"></span>0%</span></div>
+      </div>
+    </div>
+    <div class="verdict" id="repVerdict"><span class="vlabel" id="repVLabel">Not yet a REP</span><span class="chip fail" id="repChip"><span class="dot"></span>Both prongs required</span></div>
+    <ul class="traps">
+      <li><b>The 50% prong sinks most W-2 earners</b> — a full-time non-RE job means RPTB time can't exceed half of total working time.</li>
+      <li><b>Only RPTBs you materially participate in count toward 750.</b> RPTB activities where this spouse alone hasn't cleared a material-participation test are excluded from the qualifying total.</li>
+    </ul>
+    <div class="note"><b>Aggregation election — §469(c)(7)(A) / Reg. §1.469-9(g):</b> a separate, material-participation tool that treats all rentals as one activity so MP is tested once across the portfolio. Needed when the spouse leans on rental time; unnecessary when a construction business or full-time brokerage already clears 750/50%. Binding on future qualifying years; late relief under Rev. Proc. 2011-34.</div>
+  </section>
+
+  <!-- GATE 2: MP -->
+  <section class="card">
+    <span class="gate-tag">Gate 2 of 2 · frees the loss</span>
+    <h2>Material participation — by activity</h2>
+    <div class="cite">§1.469-5T(a) — any <b>one</b> of seven tests, scored <b>per activity</b>. Taxpayer + spouse hours combine (§469(h)(5)); a limited-partner interest is limited to Tests 1/5/6 (§1.469-5T(e)); the facts-and-circumstances test applies the (b)(2) management limitation.</div>
+    <div id="mpZone"><p style="color:var(--mute);font-size:13.5px">Add an activity and log hours — each activity is scored across all seven tests here.</p></div>
+  </section>
+
+  <!-- LOG TABLE -->
+  <section class="card">
+    <h2>Time log</h2>
+    <div class="cite">Contemporaneous, reg-characterized entries. This is the exam record.</div>
+    <table id="logTable">
+      <thead><tr><th>Date</th><th>Who</th><th>Activity</th><th>Category</th><th class="num">Hrs</th><th>Description of work</th><th class="no-print"></th></tr></thead>
+      <tbody id="logBody"></tbody>
+    </table>
+    <div class="btn-row no-print">
+      <button class="btn btn-ghost" data-dvn-on="click" data-dvn-do="exportCSV()">Export CSV (audit file)</button>
+      <button class="btn btn-ghost" data-dvn-on="click" data-dvn-do="exportJSON()">Save backup (JSON)</button>
+      <button class="btn btn-ghost" data-dvn-on="click" data-dvn-do="__click('#imp')">Load backup</button>
+      <input type="file" id="imp" accept="application/json" style="display:none" data-dvn-on="change" data-dvn-do="importJSON(event)">
+      <button class="btn btn-ghost" data-dvn-on="click" data-dvn-do="window.print()">Print / PDF</button>
+      <button class="btn btn-ghost" style="margin-left:auto;color:var(--fail)" data-dvn-on="click" data-dvn-do="clearAll()">Clear all</button>
+    </div>
+  </section>
+  <!-- PRINT-ONLY TURNOVER RECORD -->
+  <section class="print-only" id="turnover"></section>
+      <div class="dl-endcap no-print" style="margin:2.5rem 0 1rem; padding:1.5rem 1.5rem; background:#0a5a37; border-radius:8px; color:#F5F5F0;">
+        <p style="margin:0 0 0.4rem; font-size:1.25rem; font-weight:700; letter-spacing:0.01em;">The log is the case. The hours are the evidence.</p>
+        <p style="margin:0 0 1.1rem; font-size:0.98rem; line-height:1.55; color:#E8EFE9;">When the IRS challenges a &sect;469 position, the taxpayer with a contemporaneous, reg-anchored record usually wins and the taxpayer reconstructing hours from a calendar usually loses. Keep the log here; bring it to the attorney who will defend it before the year closes.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:0.75rem;">
+          <a href="/book" style="display:inline-block; padding:0.75rem 1.25rem; background:#C9A961; color:#084B2E; font-weight:800; text-decoration:none; border-radius:6px;">Book a Free Consultation &mdash; no charge, 30 minutes</a>
+          <a href="tel:+15616666022" target="_top" style="display:inline-block; padding:0.75rem 1.25rem; border:2px solid #C9A961; color:#F5F5F0; font-weight:700; text-decoration:none; border-radius:6px;">Call (561) 666-6022</a>
+        </div>
+        <p style="margin:1rem 0 0; font-size:0.8rem; color:#D5BD85;">This tool is educational only and is not legal or tax advice. Scheduling does not create an attorney&ndash;client relationship.</p>
+      </div>
+      </main>
+
+<footer class="disc"><div class="wrap">
+  This tool assists with the contemporaneous documentation and regulatory characterization of participation hours under IRC §469 and Treas. Reg. §§1.469-5 and -5T. It is provided for organizational purposes only, does not constitute legal or tax advice, and does not create an attorney–client relationship. Several determinations are inherently fact-specific — including whether work is "customarily done by owners" (§1.469-5T(f)(2)(i)), whether involvement rises to direct day-to-day management or operations (§1.469-5T(f)(2)(ii)(B)), whether an interest is a limited-partnership interest (§1.469-5T(e)), whether the facts-and-circumstances test is met (§1.469-5T(a)(7)/(b)), and whether the "substantially all" threshold is satisfied. The tool applies documented heuristics and flags these; it does not render legal conclusions. Confirm all positions with counsel before filing. © Donovan Legal PLLC 2026. Attorney advertising.
+  <div style="margin-top:12px;font-style:normal;font-family:var(--sans);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute)">Educational tool · <a href="tools.html" style="color:var(--emerald);text-decoration:none;font-weight:600">All tools</a> · <a href="/book" style="color:var(--emerald);text-decoration:none;font-weight:600">Book a free consultation</a></div>
+</div></footer>
+
+  <!-- B3: dispatches data-dvn-on/-do, the CSP-safe replacement for inline on*= handlers. -->
+  <script src="/js/inline-actions.js" defer></script>
+<style>
+    /* 2026-09-05: this page does not load main.css; the shared footer block needs its own sizing */
+    .dl-connect { text-align:center; font-family:'Open Sans', Arial, sans-serif; }
+    .dl-connect .dl-connect-cta { display:inline-block; margin:0 0 0.75rem; padding:0.7rem 1.1rem; background:#0a5a37; color:#F5F5F0; text-decoration:none; font-weight:700; letter-spacing:1px; text-transform:uppercase; font-size:0.8rem; border-radius:4px; }
+    .dl-connect .dl-connect-cta svg, .dl-connect .dl-ico { width:16px; height:16px; vertical-align:-2px; margin-right:6px; fill:currentColor; }
+    .dl-connect .dl-connect-direct { margin:0.5rem 0; font-size:0.92rem; }
+    .dl-connect .dl-connect-direct a { color:#0a5a37; text-decoration:none; font-weight:600; }
+    .dl-connect .dl-social { display:flex; justify-content:center; gap:14px; margin:0.75rem 0; }
+    .dl-connect .dl-social a { display:inline-flex; width:36px; height:36px; align-items:center; justify-content:center; border:1px solid #d4d4d0; border-radius:50%; color:#0a5a37; }
+    .dl-connect .dl-social svg { width:18px; height:18px; fill:currentColor; }
+    .dl-connect .copy-inside { font-size:0.8rem; color:#5A6660; margin-top:0.75rem; }
+    .dl-connect .copy-inside a { color:#0a5a37; }
+    .dl-callbar { display:none; }
+    @media (max-width:767px) {
+      .dl-callbar { display:block; position:fixed; left:0; right:0; bottom:0; z-index:100003; box-shadow:0 -2px 12px rgba(0,0,0,.18); padding-bottom:env(safe-area-inset-bottom,0px); background:#0a5a37; }
+      .dl-callbar a { display:block; text-align:center; text-transform:uppercase; text-decoration:none; font-family:'Open Sans', Arial, sans-serif; font-weight:700; letter-spacing:1.5px; min-height:48px; padding:0.95rem 1rem; }
+      .dl-callbar-book { background:#C9A961; color:#0a3d24; }
+      .dl-callbar-call { color:#F5F5F0; }
+      .dl-callbar-call svg { width:16px; height:16px; fill:currentColor; vertical-align:-2px; margin-right:6px; }
+      body { padding-bottom: 120px; }
+    }
+  </style>
+  <footer style="margin:2.5rem auto 0; max-width:1100px; padding:1.5rem 1rem 2rem; text-align:center; font-family:'Open Sans', Arial, sans-serif; font-size:0.9rem; color:#2f3b35; border-top:1px solid #d4d4d0;">
+<!-- JORDAN-LAUNCH-POLISH: click-to-call / email / social. Styles live in css/main.css. -->
+      <div class="dl-connect">
+        <a class="dl-connect-cta" href="tel:+15616666022" target="_top"><svg class="dl-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.03-.24c1.12.37 2.33.57 3.56.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>Click Here To Call Donovan Legal</a>
+        <p class="dl-connect-direct">
+          <a href="tel:+15616666022" target="_top">(561) 666-6022</a>
+          <span class="dl-connect-sep">|</span>
+          <a href="mailto:info@donovan.law" target="_top">info@donovan.law</a>
+        </p>
+        <ul class="dl-social">
+          <li><a href="https://www.facebook.com/people/Donovan-Legal-PLLC/61590654057720/" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.324.103a8.16 8.16 0 0 1 1.021.215v3.324c-.153-.015-.33-.03-.582-.045a8.98 8.98 0 0 0-.594-.023c-.673 0-1.194.092-1.583.276a1.73 1.73 0 0 0-.786.732c-.179.303-.256.68-.256 1.155v1.821h3.86l-.334 1.847-.335 1.82h-3.191v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647z"/></svg></a></li>
+          <li><a href="https://www.tiktok.com/@donovan.legal" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on TikTok" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a></li>
+          <li><a href="https://www.instagram.com/donovan_legalpllc" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227a3.81 3.81 0 0 1-.899 1.382 3.744 3.744 0 0 1-1.38.896c-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421a3.716 3.716 0 0 1-1.379-.899 3.644 3.644 0 0 1-.9-1.38c-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.846-10.405a1.441 1.441 0 0 1-2.881 0 1.441 1.441 0 0 1 2.881 0z"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/company/donovan-legal-pllc/" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="copy-inside margin-practice">&copy; Donovan Legal PLLC. 2026. | <a class="disclaimer-link" href="disclaimer.html">DISCLAIMER</a></div>
+</footer>
+  <div class="dl-callbar">
+    <a class="dl-callbar-book" href="/book" data-dl-cta="callbar_book">Book a Free Consultation</a>
+    <a class="dl-callbar-call" href="tel:+15616666022" target="_top"><svg class="dl-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.03-.24c1.12.37 2.33.57 3.56.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>or call (561) 666-6022</a>
+  </div>
+</body>
+</html>

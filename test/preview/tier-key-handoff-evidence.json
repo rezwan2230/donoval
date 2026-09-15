@@ -1,0 +1,164 @@
+{
+  "base": "https://a2eef1e9.donovan-site.pages.dev",
+  "checks": [
+    {
+      "name": "0. the Preview is serving its own assets",
+      "pass": true,
+      "detail": "attempt 1"
+    },
+    {
+      "name": "1.gold — /gold/ is still guarded, unauthenticated",
+      "pass": true,
+      "detail": "HTTP 401 · WWW-Authenticate: Basic realm=\"Donovan Legal - Gold Members\", charset=\"UTF-8\""
+    },
+    {
+      "name": "1.gold.challenge — the 401 carries a Basic challenge (this is what prompts a real member)",
+      "pass": true,
+      "detail": "Basic realm=\"Donovan Legal - Gold Members\", charset=\"UTF-8\""
+    },
+    {
+      "name": "1.platinum — /platinum/ is still guarded, unauthenticated",
+      "pass": true,
+      "detail": "HTTP 401 · WWW-Authenticate: Basic realm=\"Donovan Legal - Platinum Members\", charset=\"UTF-8\""
+    },
+    {
+      "name": "1.platinum.challenge — the 401 carries a Basic challenge (this is what prompts a real member)",
+      "pass": true,
+      "detail": "Basic realm=\"Donovan Legal - Platinum Members\", charset=\"UTF-8\""
+    },
+    {
+      "name": "1.diamond — /diamond/ is still guarded, unauthenticated",
+      "pass": true,
+      "detail": "HTTP 401 · WWW-Authenticate: Basic realm=\"Donovan Legal - Diamond Members\", charset=\"UTF-8\""
+    },
+    {
+      "name": "1.diamond.challenge — the 401 carries a Basic challenge (this is what prompts a real member)",
+      "pass": true,
+      "detail": "Basic realm=\"Donovan Legal - Diamond Members\", charset=\"UTF-8\""
+    },
+    {
+      "name": "1.reserve — /reserve/ is still guarded, unauthenticated",
+      "pass": true,
+      "detail": "HTTP 401 · WWW-Authenticate: Basic realm=\"Donovan Legal - Reserve Members\", charset=\"UTF-8\""
+    },
+    {
+      "name": "1.reserve.challenge — the 401 carries a Basic challenge (this is what prompts a real member)",
+      "pass": true,
+      "detail": "Basic realm=\"Donovan Legal - Reserve Members\", charset=\"UTF-8\""
+    },
+    {
+      "name": "2.0 the deployed module exports the tier predicate",
+      "pass": true
+    },
+    {
+      "name": "2.gold — the DEPLOYED channel refuses navigate /gold/",
+      "pass": true,
+      "detail": "host.go calls: [] · refused: tier_basic_auth"
+    },
+    {
+      "name": "2.platinum — the DEPLOYED channel refuses navigate /platinum/",
+      "pass": true,
+      "detail": "host.go calls: [] · refused: tier_basic_auth"
+    },
+    {
+      "name": "2.diamond — the DEPLOYED channel refuses navigate /diamond/",
+      "pass": true,
+      "detail": "host.go calls: [] · refused: tier_basic_auth"
+    },
+    {
+      "name": "2.reserve — the DEPLOYED channel refuses navigate /reserve/",
+      "pass": true,
+      "detail": "host.go calls: [] · refused: tier_basic_auth"
+    },
+    {
+      "name": "2.control — an ordinary navigate STILL reaches host.go",
+      "pass": true,
+      "detail": "[\"/contact.html\"]"
+    },
+    {
+      "name": "2.control-book — /book still navigates (the booking path is untouched)",
+      "pass": true,
+      "detail": "[\"/book.html\"]"
+    },
+    {
+      "name": "3.gold — the DEPLOYED swap-policy still excludes /gold/ as tier-basic-auth",
+      "pass": true,
+      "detail": "tier-basic-auth"
+    },
+    {
+      "name": "3.platinum — the DEPLOYED swap-policy still excludes /platinum/ as tier-basic-auth",
+      "pass": true,
+      "detail": "tier-basic-auth"
+    },
+    {
+      "name": "3.diamond — the DEPLOYED swap-policy still excludes /diamond/ as tier-basic-auth",
+      "pass": true,
+      "detail": "tier-basic-auth"
+    },
+    {
+      "name": "3.reserve — the DEPLOYED swap-policy still excludes /reserve/ as tier-basic-auth",
+      "pass": true,
+      "detail": "tier-basic-auth"
+    },
+    {
+      "name": "3.control — ordinary content pages are still interceptable",
+      "pass": true,
+      "detail": "engagement:null contact:null"
+    },
+    {
+      "name": "4./engagement — still served",
+      "pass": true,
+      "detail": "HTTP 200 · 38259 bytes"
+    },
+    {
+      "name": "4./contact — still served",
+      "pass": true,
+      "detail": "HTTP 200 · 36738 bytes"
+    },
+    {
+      "name": "4./book — still served",
+      "pass": true,
+      "detail": "HTTP 200 · 29121 bytes"
+    },
+    {
+      "name": "4./real-estate — still served",
+      "pass": true,
+      "detail": "HTTP 200 · 29825 bytes"
+    },
+    {
+      "name": "4./home — still served",
+      "pass": true,
+      "detail": "HTTP 200 · 45169 bytes"
+    },
+    {
+      "name": "4./tools — still served",
+      "pass": true,
+      "detail": "HTTP 200 · 92500 bytes"
+    },
+    {
+      "name": "5.do_page_action — refuses an unauthenticated call (401), so nothing was queued",
+      "pass": true,
+      "detail": "HTTP 401"
+    },
+    {
+      "name": "5.get_page_actions — refuses an unauthenticated call (401), so nothing was queued",
+      "pass": true,
+      "detail": "HTTP 401"
+    }
+  ],
+  "writes": [
+    {
+      "endpoint": "/fn/do_page_action",
+      "status": 401,
+      "queued": false
+    },
+    {
+      "endpoint": "/fn/get_page_actions",
+      "status": 401,
+      "queued": false
+    }
+  ],
+  "verdict": "GO",
+  "summary": "29/29 checks pass",
+  "note": "The authenticated tool bodies and Paula’s Retell enum are NOT verifiable here — see docs/SHELDON-PERCH-TIER-KEY-HANDOFF.md §7."
+}

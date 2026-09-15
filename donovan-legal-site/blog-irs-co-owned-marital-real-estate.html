@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>When One Spouse Owes: Co-Owned Real Estate | Donovan Legal</title>
+  <meta name="description" content="When only one spouse owes federal tax, how the IRS reaches the couple's real estate turns on how title is held. Lien and §7403 forced-sale analysis.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="When One Spouse Owes: How the IRS Reaches Co-Owned Marital Real Estate">
+  <meta property="og:site_name" content="Donovan Legal PLLC">
+  <meta property="og:url" content="https://www.donovan.law/blog-irs-co-owned-marital-real-estate">
+  <meta property="og:description" content="When only one spouse owes federal tax, how the IRS reaches the couple's real estate depends on how title is held. A guide to the lien and a § 7403 forced sale across sole ownership, tenancy in common, joint tenancy with survivorship, and community property — with tenancy by the entirety treated separately.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://www.donovan.law/img/PKD Headshot.jpg">
+  <meta property="article:author" content="Paul K. Donovan">
+  <meta property="article:published_time" content="2026-06-09">
+  <meta property="article:section" content="Tax Controversy">
+  <link rel="apple-touch-icon" href="img/favicon.png">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link href="site.webmanifest" rel="manifest" />
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/fontawesome.min.css" rel="stylesheet" />
+  <link href="css/normalize.css" rel="stylesheet" />
+  <link href="css/main.css?v=20260721a" rel="stylesheet" />
+  <link href="css/animate.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;display=swap"
+    rel="stylesheet" />
+
+  <style>
+    .box > .border-grey > .container:first-of-type {
+      position: relative !important;
+      z-index: 9999 !important;
+    }
+    nav.navbar.menubar {
+      position: relative !important;
+      z-index: 9999 !important;
+    }
+    nav.navbar .nav-item.dropdown {
+      position: relative !important;
+    }
+    .navbar .dropdown-menu,
+    .navbar.menubar .dropdown-menu,
+    nav.navbar .dropdown-menu {
+      z-index: 99999 !important;
+      position: absolute !important;
+    }
+
+    /* Article-specific styles */
+    .article-meta {
+      font-family: "Open Sans", sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #6b6b6b;
+      margin: 1.25rem 0 0.5rem 0;
+    }
+    .article-meta .post-category {
+      color: #107A4D;
+      font-weight: 700;
+    }
+    .article-meta .post-divider {
+      color: #C0C0C0;
+      margin: 0 0.6rem;
+    }
+    .article-headline {
+      font-family: "Gotham Bold", "Open Sans", sans-serif;
+      font-size: 2.1rem;
+      line-height: 1.25;
+      color: #1a1a1a;
+      margin: 0.5rem 0 1.5rem 0;
+    }
+    .article-byline {
+      font-family: "Open Sans", sans-serif;
+      font-size: 0.95rem;
+      color: #4a4a4a;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #d4d4d0;
+    }
+    .article-byline a {
+      color: #107A4D !important;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px dotted #107A4D;
+    }
+    .article-body {
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.08rem;
+      line-height: 1.78;
+      color: #1a1a1a;
+    }
+    .article-body p {
+      margin-bottom: 1.4rem;
+    }
+    .article-body h4 {
+      font-family: "Gotham Bold", "Open Sans", sans-serif;
+      font-size: 1.3rem;
+      color: #107A4D;
+      margin: 2.5rem 0 1rem 0;
+      letter-spacing: 0.5px;
+    }
+    .article-body em {
+      font-style: italic;
+    }
+    .article-body strong {
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+    .article-disclaimer {
+      margin-top: 3rem;
+      padding: 1.5rem 1.75rem;
+      background: #f5f5f0;
+      border-left: 3px solid #107A4D;
+      font-family: "Open Sans", sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #4a4a4a;
+    }
+    .article-related {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #d4d4d0;
+      font-family: "Open Sans", sans-serif;
+    }
+    .article-related a {
+      color: #107A4D !important;
+      font-weight: 600;
+    }
+    .article-back {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      font-family: "Gotham Bold", "Open Sans", sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .article-back a {
+      color: #107A4D !important;
+      text-decoration: none;
+    }
+
+    /* Diagram + callout styles (added for new articles) */
+    .dlfig{margin:2.4rem 0;text-align:center}
+    .dlfig svg{max-width:100%;height:auto;border:1px solid #e3e1d8;background:#fcfcfa;border-radius:4px}
+    .dlfig figcaption{font-family:"Open Sans",sans-serif;font-size:0.82rem;color:#6b6b6b;margin-top:0.7rem;letter-spacing:0.3px;font-style:italic}
+    .dlcallout{margin:2rem 0;padding:1.2rem 1.5rem;background:#f5f7f4;border-left:3px solid #C9A961}
+    .dlcallout, .dlcallout *{font-family:"Open Sans",sans-serif !important;font-size:0.97rem;line-height:1.62;color:#2a2a2a}
+    .dlcallout .lbl{display:block;font-family:"Gotham Bold","Open Sans",sans-serif !important;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:#806633;margin-bottom:0.45rem}
+    .dltable{width:100%;border-collapse:collapse;margin:2rem 0;font-family:"Open Sans",sans-serif;font-size:0.9rem}
+    .dltable th{background:#0a5a37;color:#fff;text-align:left;padding:0.55rem 0.8rem;font-weight:600;font-size:0.8rem;letter-spacing:0.4px}
+    .dltable td{padding:0.55rem 0.8rem;border-bottom:1px solid #e3e1d8;vertical-align:top;color:#1a1a1a}
+    .dltable tr:nth-child(even) td{background:#faf9f5}
+    .cat-chip{display:inline-block;padding:0.12rem 0.55rem;border-radius:3px;font-family:"Gotham Bold","Open Sans",sans-serif;font-size:0.68rem;letter-spacing:1px;text-transform:uppercase;color:#fff;margin-right:0.25rem}
+    .cat-c{background:#107A4D}.cat-a{background:#8a6f1f}.cat-t{background:#537A8B}
+    /* Call-to-action block */
+    .dlcta{margin:3rem 0 0.5rem 0;padding:1.85rem 2rem;background:#0a5a37;border-radius:6px}
+    .dlcta .dlcta-head{font-family:"Gotham Bold","Open Sans",sans-serif;font-size:1.28rem;color:#ffffff;margin-bottom:0.55rem;letter-spacing:0.3px;line-height:1.3}
+    .dlcta p{font-family:"Open Sans",sans-serif !important;font-size:0.98rem !important;line-height:1.62 !important;color:#e6efe9 !important;margin:0 0 1.25rem 0 !important}
+    .dlcta .dlcta-btn{display:inline-block;background:#C9A961;color:#1a1a1a !important;font-family:"Gotham Bold","Open Sans",sans-serif;font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;padding:0.72rem 1.55rem;border-radius:4px;text-decoration:none;font-weight:700;border:none}
+    .dlcta .dlcta-btn:hover{background:#d8bd7e}
+
+    /* grouped Practice dropdown */
+    .dropdown-menu .dd-area, .collapse .dd-area{font-weight:800 !important;color:#107A4D !important;text-transform:uppercase;letter-spacing:.6px;margin-top:.35rem}
+    .dropdown-menu .dd-sub{padding-left:1.7rem !important}
+    .collapse .dd-sub{padding-left:1.5rem !important}
+
+    /* cascading Practice flyout (desktop) */
+    .dropdown-menu[aria-labelledby="navbarDropdown2"]{min-width:215px}
+    .practice-flyout-host .flyout-item{position:relative}
+    .flyout-item > .dd-area{display:flex;justify-content:space-between;align-items:center;font-weight:800 !important;color:#107A4D !important;text-transform:uppercase;letter-spacing:.5px}
+    .flyout-item .flyout-caret{margin-left:1rem;color:#107A4D;font-weight:700}
+    .flyout-item > .flyout-sub{display:none;position:absolute;top:-.35rem;left:100%;min-width:235px;background:#fff;border:1px solid rgba(0,0,0,.12);box-shadow:0 8px 24px rgba(0,0,0,.16);padding:.4rem 0;border-radius:4px;z-index:100002}
+    .flyout-item:hover > .flyout-sub{display:block}
+    .flyout-item > .flyout-sub .dropdown-item{padding-top:.42rem;padding-bottom:.42rem}
+
+    /* mobile nested Practice accordion */
+    .nav-mobile .mobile-parent .mm-parent-label{color:#000;text-decoration:none}
+    .nav-mobile .mobile-parent .mm-parent-label:hover{color:#107a4d}
+    .nav-mobile .m-area-toggle{display:block;width:100%;background:none;border:none;font-size:15px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#107A4D;padding:.45rem 0;margin:.5rem 0 .15rem;cursor:pointer}
+    .nav-mobile .m-area-toggle::after{content:" +";font-weight:700}
+    .nav-mobile .m-area-toggle[aria-expanded="true"]::after{content:" \2212"}
+    .nav-mobile #menu2 .dropdown-item.dd-sub{font-size:14px}
+  </style>
+  <link rel="canonical" href="https://www.donovan.law/blog-irs-co-owned-marital-real-estate">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","datePublished":"2026-06-09","headline":"When One Spouse Owes: How the IRS Reaches Co-Owned Marital Real Estate","url":"https://www.donovan.law/blog-irs-co-owned-marital-real-estate","author":{"@type":"Organization","name":"Donovan Legal PLLC"},"publisher":{"@type":"Organization","name":"Donovan Legal PLLC","logo":{"@type":"ImageObject","url":"https://www.donovan.law/img/favicon.png"}}}</script>
+</head>
+
+<body>
+  <div class="box h-100">
+    <div class="border-grey">
+      <div class="container">
+        <nav class="navbar menubar padding-0 navbar-expand-lg d-flex align-items-center justify-content-between">
+          <div class="logo animate__animated animate__fadeIn animate__delay-1s">
+            <a href="index.html"><img class="logo" src="img/base-hover.png" / alt="Donovan Legal PLLC logo"></a>
+          </div>
+
+          <div class="burger-toggle animate__animated animate__fadeIn animate__delay-1s">
+            <div class="hamburger">
+              <span class="line"></span>
+              <span class="line"></span>
+              <span class="line"></span>
+            </div>
+          </div>
+
+          <ul id="menu-desktop" class="navbar-nav ml-auto animate__animated animate__fadeIn animate__delay-1s">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">HOME</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="ourfirm.html">ABOUT</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                <a class="dropdown-item" href="ourfirm.html">THE FIRM</a>
+                <a class="dropdown-item" href="profile.html">PAUL DONOVAN, JD, CPA, CCM</a>
+                <a class="dropdown-item" href="tefera.html">DR. TEFERA BEYENE, PhD, CPA</a>
+                <a class="dropdown-item" href="wendy.html">WENDY CARDENAS</a>
+                <a class="dropdown-item" href="leidy.html">LEIDY MEZA</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="practice.html">PRACTICE</a>
+              <div class="dropdown-menu practice-flyout-host" aria-labelledby="navbarDropdown2">
+                <div class="flyout-item">
+                  <a class="dropdown-item dd-area" href="tax.html">TAX<span class="flyout-caret">&rsaquo;</span></a>
+                  <div class="flyout-sub">
+                    <a class="dropdown-item" href="tax-planning.html">Planning</a>
+                    <a class="dropdown-item" href="tax-compliance.html">Compliance</a>
+                    <a class="dropdown-item" href="tax-controversy.html">Controversy</a>
+                  </div>
+                </div>
+                <div class="flyout-item">
+                  <a class="dropdown-item dd-area" href="real-estate.html">REAL ESTATE<span class="flyout-caret">&rsaquo;</span></a>
+                  <div class="flyout-sub">
+                    <a class="dropdown-item" href="re-acquisition.html">Acquisition</a>
+                    <a class="dropdown-item" href="re-ownership.html">Ownership</a>
+                    <a class="dropdown-item" href="re-disposition.html">Disposition</a>
+                  </div>
+                </div>
+                <div class="flyout-item">
+                  <a class="dropdown-item dd-area" href="special-counsel.html">SPECIAL COUNSEL<span class="flyout-caret">&rsaquo;</span></a>
+                  <div class="flyout-sub">
+                    <a class="dropdown-item" href="special-counsel.html#divorce">Divorce &amp; Marital Dissolution</a>
+                    <a class="dropdown-item" href="special-counsel.html#estate-trust">Estate, Trust &amp; Probate Disputes</a>
+                    <a class="dropdown-item" href="special-counsel.html#business-divorce">Business Divorce</a>
+                    <a class="dropdown-item" href="special-counsel.html#litigation-damages">Litigation Damages &amp; Settlement Tax</a>
+                  </div>
+                </div>
+              
+              
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="experience.html">EXPERIENCE</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="testimonials.html">TESTIMONIALS</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="blog.html">RESOURCES</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                <a class="dropdown-item" href="blog.html">BLOG</a>
+                <a class="dropdown-item" href="tools.html">TOOLS</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="engagement.html">MEMBERS</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
+                <a class="dropdown-item" href="gold/"><span class="brand-gold">GOLD</span></a>
+                <a class="dropdown-item" href="platinum/"><span class="brand-platinum">PLATINUM</span></a>
+                <a class="dropdown-item" href="diamond/"><span class="brand-diamond">DIAMOND</span></a>
+                <a class="dropdown-item" href="reserve/"><span class="brand-reserve"><span class="re">RE</span>SERVE</span></a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">CONTACT</a>
+            </li>
+          </ul>
+
+          <nav class="nav-mobile-overlay">
+            <div class="nav-mobile-wrapper">
+              <div class="container">
+                <div class="nav-mobile">
+                  <div class="nav-mobile-header">
+                    <div class="btn-close menu"><i class="fa fa-times"></i></div>
+                  </div>
+                  <div class="nav-mobile-list">
+                    <a href="index.html" class="mobile-menu-item">HOME</a>
+                    <a href="ourfirm.html" class="mobile-menu-item" data-toggle="collapse" data-target="#menu1"
+                      aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                      <span id="theFirm">ABOUT</span>
+                      <button id="btn-tf" class="btn btn-plus" data-toggle="collapse" data-target="#menu1"
+                        aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                        <div id="fa-tf" class="top-icon hidden"><i class="fa fa-minus"></i></div>
+                      </button>
+                      <div class="collapse" id="menu1">
+                        <a class="dropdown-item" href="ourfirm.html">THE FIRM</a>
+                        <a class="dropdown-item" href="profile.html">PAUL DONOVAN, JD, CPA, CCM</a>
+                        <a class="dropdown-item" href="tefera.html">DR. TEFERA BEYENE, PhD, CPA</a>
+                        <a class="dropdown-item" href="wendy.html">WENDY CARDENAS</a>
+                        <a class="dropdown-item" href="leidy.html">LEIDY MEZA</a>
+                      </div>
+                    </a>
+                    <div class="mobile-menu-item mobile-parent">
+                      <a href="practice.html" class="mm-parent-label">PRACTICE</a>
+                      <button id="btn-tp" class="btn btn-plus" data-toggle="collapse" data-target="#menu2"
+                        aria-controls="menu2" aria-expanded="false" aria-label="Toggle Practice">
+                        <div id="fa-tp" class="top-icon hidden"><i class="fa fa-minus"></i></div>
+                      </button>
+                      <div class="collapse" id="menu2">
+                        <button class="m-area-toggle" data-toggle="collapse" data-target="#m2-tax" aria-controls="m2-tax" aria-expanded="false">TAX</button>
+                        <div class="collapse" id="m2-tax">
+                          <a class="dropdown-item dd-sub" href="tax.html">Tax Overview</a>
+                          <a class="dropdown-item dd-sub" href="tax-planning.html">Planning</a>
+                          <a class="dropdown-item dd-sub" href="tax-compliance.html">Compliance</a>
+                          <a class="dropdown-item dd-sub" href="tax-controversy.html">Controversy</a>
+                        </div>
+                        <button class="m-area-toggle" data-toggle="collapse" data-target="#m2-re" aria-controls="m2-re" aria-expanded="false">REAL ESTATE</button>
+                        <div class="collapse" id="m2-re">
+                          <a class="dropdown-item dd-sub" href="real-estate.html">Real Estate Overview</a>
+                          <a class="dropdown-item dd-sub" href="re-acquisition.html">Acquisition</a>
+                          <a class="dropdown-item dd-sub" href="re-ownership.html">Ownership</a>
+                          <a class="dropdown-item dd-sub" href="re-disposition.html">Disposition</a>
+                        </div>
+                        <button class="m-area-toggle" data-toggle="collapse" data-target="#m2-sc" aria-controls="m2-sc" aria-expanded="false">SPECIAL COUNSEL</button>
+                        <div class="collapse" id="m2-sc">
+                          <a class="dropdown-item dd-sub" href="special-counsel.html">Special Counsel Overview</a>
+                          <a class="dropdown-item dd-sub" href="special-counsel.html#divorce">Divorce &amp; Marital Dissolution</a>
+                          <a class="dropdown-item dd-sub" href="special-counsel.html#estate-trust">Estate, Trust &amp; Probate Disputes</a>
+                          <a class="dropdown-item dd-sub" href="special-counsel.html#business-divorce">Business Divorce</a>
+                          <a class="dropdown-item dd-sub" href="special-counsel.html#litigation-damages">Litigation Damages &amp; Settlement Tax</a>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="experience.html" class="mobile-menu-item">EXPERIENCE</a>
+                    <a href="testimonials.html" class="mobile-menu-item">TESTIMONIALS</a>
+                    <a href="blog.html" class="mobile-menu-item" data-toggle="collapse" data-target="#menu3"
+                      aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                      <span id="theResources">RESOURCES</span>
+                      <button id="btn-tr" class="btn btn-plus" data-toggle="collapse" data-target="#menu3"
+                        aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                        <div id="fa-tr" class="top-icon hidden"><i class="fa fa-minus"></i></div>
+                      </button>
+                      <div class="collapse" id="menu3">
+                        <a class="dropdown-item" href="blog.html">BLOG</a>
+                        <a class="dropdown-item" href="tools.html">TOOLS</a>
+                      </div>
+                    </a>
+                    <a href="engagement.html" class="mobile-menu-item" data-toggle="collapse" data-target="#menu4"
+                      aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                      <span id="theMembers">MEMBERS</span>
+                      <button id="btn-tm" class="btn btn-plus" data-toggle="collapse" data-target="#menu4"
+                        aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                        <div id="fa-tm" class="top-icon hidden"><i class="fa fa-minus"></i></div>
+                      </button>
+                      <div class="collapse" id="menu4">
+                        <a class="dropdown-item" href="gold/"><span class="brand-gold">GOLD</span></a>
+                        <a class="dropdown-item" href="platinum/"><span class="brand-platinum">PLATINUM</span></a>
+                        <a class="dropdown-item" href="diamond/"><span class="brand-diamond">DIAMOND</span></a>
+                        <a class="dropdown-item" href="reserve/"><span class="brand-reserve"><span class="re">RE</span>SERVE</span></a>
+                      </div>
+                    </a>
+                    <a href="contact.html" class="mobile-menu-item">CONTACT</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </nav>
+      </div>
+
+      <div class="box-practice keep-m">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+
+              <div class="article-meta animate__animated animate__fadeIn animate__delay-1-5">
+                <span class="post-category">TAX CONTROVERSY</span>
+                <span class="post-divider">&middot;</span>
+                <span>June 9, 2026</span>
+                <span class="post-divider">&middot;</span>
+                <span>13 min read</span>
+              </div>
+
+              <h1 class="article-headline animate__animated animate__fadeIn animate__delay-1-5">When One Spouse Owes: How the IRS Reaches Co-Owned Marital Real Estate</h1>
+
+              <div class="article-byline animate__animated animate__fadeIn animate__delay-1-8">
+                By <a href="profile.html">Paul K. Donovan, JD, CPA, CCM</a>
+              </div>
+
+              <div class="article-body animate__animated animate__fadeIn animate__delay-2s">
+                <p>When one spouse owes the IRS and the other does not, the question every couple asks is the same: can the government take the house? The answer is not yes or no &mdash; it is &ldquo;it depends on how the deed reads.&rdquo; The federal tax lien reaches only what the liable spouse actually owns, so the form of co-ownership controls almost everything. This post walks through the common-law ownership forms a married couple uses; <strong>tenancy by the entirety</strong> follows a materially different set of rules and is treated in its own <a href="blog-tenancy-by-entirety-federal-tax-lien.html">companion post</a>.</p>
+
+                <h4>The starting principle: the lien reaches the liable spouse&rsquo;s interest</h4>
+                <p>Under &#167;&nbsp;6321, the lien attaches to &ldquo;all property and rights to property&rdquo; of the delinquent taxpayer &mdash; and only of that taxpayer. It does not attach to the non-liable spouse&rsquo;s separate interest. For real estate, the practical route to collection is rarely an administrative seizure; it is a judicial foreclosure suit under &#167;&nbsp;7403, where a court can order a sale and divide the proceeds. So the analysis always begins by asking exactly what interest the liable spouse holds.</p>
+
+                <figure class="dlfig"><svg viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dlfig-1"><defs><marker id="ah" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#6b6b6b"/></marker></defs><rect x="16" y="34" width="170" height="98" rx="6" fill="#ffffff" stroke="#d4d4d0" stroke-width="1"/><rect x="16" y="34" width="170" height="27" rx="6" fill="#5E8B9E"/><rect x="16" y="54" width="170" height="7" fill="#5E8B9E"/><text x="101.0" y="51.5" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">ONE SPOUSE OWES</text><text x="101.0" y="76" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.1" fill="#1a1a1a" text-anchor="middle">only one spouse</text><text x="101.0" y="90.5" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.1" fill="#1a1a1a" text-anchor="middle">is liable for</text><text x="101.0" y="105.0" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.1" fill="#1a1a1a" text-anchor="middle">the federal tax</text><rect x="206" y="34" width="170" height="98" rx="6" fill="#ffffff" stroke="#d4d4d0" stroke-width="1"/><rect x="206" y="34" width="170" height="27" rx="6" fill="#0a5a37"/><rect x="206" y="54" width="170" height="7" fill="#0a5a37"/><text x="291.0" y="51.5" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">LIEN ATTACHES</text><text x="291.0" y="76" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.1" fill="#1a1a1a" text-anchor="middle">to the liable</text><text x="291.0" y="90.5" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.1" fill="#1a1a1a" text-anchor="middle">spouse’s interest</text><text x="291.0" y="105.0" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.1" fill="#1a1a1a" text-anchor="middle">only · § 6321</text><rect x="396" y="34" width="170" height="98" rx="6" fill="#ffffff" stroke="#d4d4d0" stroke-width="1"/><rect x="396" y="34" width="170" height="27" rx="6" fill="#8a6f1f"/><rect x="396" y="54" width="170" height="7" fill="#8a6f1f"/><text x="481.0" y="51.5" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">IRS ENFORCES</text><text x="481.0" y="76" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.1" fill="#1a1a1a" text-anchor="middle">sell that share, or</text><text x="481.0" y="90.5" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.1" fill="#1a1a1a" text-anchor="middle">a § 7403 sale of the</text><text x="481.0" y="105.0" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.1" fill="#1a1a1a" text-anchor="middle">whole (Rodgers)</text><rect x="586" y="34" width="170" height="98" rx="6" fill="#ffffff" stroke="#d4d4d0" stroke-width="1"/><rect x="586" y="34" width="170" height="27" rx="6" fill="#169B62"/><rect x="586" y="54" width="170" height="7" fill="#169B62"/><text x="671.0" y="51.5" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">CO-OWNER PAID</text><text x="671.0" y="76" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.1" fill="#1a1a1a" text-anchor="middle">non-liable owner</text><text x="671.0" y="90.5" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.1" fill="#1a1a1a" text-anchor="middle">compensated for</text><text x="671.0" y="105.0" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.1" fill="#1a1a1a" text-anchor="middle">their share</text><line x1="186" y1="83.0" x2="205" y2="83.0" stroke="#6b6b6b" stroke-width="1.7" marker-end="url(#ah)"/><line x1="376" y1="83.0" x2="395" y2="83.0" stroke="#6b6b6b" stroke-width="1.7" marker-end="url(#ah)"/><line x1="566" y1="83.0" x2="585" y2="83.0" stroke="#6b6b6b" stroke-width="1.7" marker-end="url(#ah)"/><rect x="16" y="150" width="728" height="52" rx="6" fill="#f5f7f4" stroke="#d4d4d0" stroke-width="1"/><text x="380" y="170" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.4" fill="#1a1a1a" text-anchor="middle">How much the IRS recovers turns on the form of co-ownership. The non-liable spouse’s own separate property stays</text><text x="380" y="187" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.4" fill="#1a1a1a" text-anchor="middle">out of reach — absent a nominee, alter-ego, or fraudulent-transfer theory.</text></svg><figcaption id="dlfig-1">For every co-ownership form except tenancy by the entirety, the analysis is the same shape: the lien reaches the liable spouse&rsquo;s interest, and a &#167;&nbsp;7403 sale can reach the whole &mdash; with the co-owner paid their share.</figcaption></figure>
+
+                <h4>Separate (sole) ownership</h4>
+                <p>The simplest cases. If the liable spouse owns the property alone, the entire property is exposed &mdash; the lien attaches to all of it, and the IRS can seize and sell it or foreclose. If instead the property is the <em>non-liable</em> spouse&rsquo;s separate property, the lien does not attach at all. The only way the IRS reaches it is by showing the title is not what it appears &mdash; that the non-liable spouse holds it as a <strong>nominee</strong>, that an entity is the taxpayer&rsquo;s <strong>alter ego</strong>, or that the property was moved by a <strong>fraudulent transfer</strong>. Those theories are the subject of a <a href="blog-transferee-nominee-alter-ego.html">separate post</a>.</p>
+
+                <h4>Tenancy in common</h4>
+                <p>Tenants in common each own an undivided fractional share &mdash; not necessarily equal &mdash; and two features matter here. First, a tenant-in-common interest is <strong>freely transferable</strong>, so the IRS can levy on and sell the liable spouse&rsquo;s fractional share, or alternatively foreclose under &#167;&nbsp;7403 and sell the entire property, compensating the non-liable co-tenant from the proceeds. Second, there is <strong>no right of survivorship</strong>: the interest passes by will or intestacy, which means the federal tax lien <em>survives the taxpayer&rsquo;s death</em> and continues to encumber that share as it passes to the heirs. Death does not clear the lien from a tenancy-in-common interest.</p>
+
+                <h4>Joint tenancy with right of survivorship</h4>
+                <p>Joint tenancy adds a survivorship feature, and it produces the most counter-intuitive results. The lien attaches to the liable joint tenant&rsquo;s interest, and the majority rule is that the entire property may be sold under &#167;&nbsp;7403 with the other joint owner compensated. But two wrinkles change the picture. First, in some states the attachment or enforcement of the lien <strong>severs</strong> the joint tenancy, converting it into a tenancy in common and extinguishing survivorship. Second, survivorship itself cuts both ways: if the liable joint tenant <em>dies first</em>, the interest is extinguished and the lien generally falls away as to the property, leaving the survivor to take it free; but if the liable joint tenant <em>outlives</em> the co-owner, the lien expands to encumber the <em>entire</em> property. A handful of states &mdash; Wisconsin and Connecticut among them &mdash; are exceptions where the lien survives the debtor&rsquo;s death.</p>
+
+                <div class="dlcallout"><span class="lbl">Joint tenancy: survivorship cuts both ways</span>If the liable joint tenant dies first, the lien generally falls away as to the property and the survivor takes free. If that spouse outlives the co-owner, the lien expands to the whole property. (Wisconsin and Connecticut are noted exceptions where the lien survives death.)</div>
+
+                <h4>Community property &mdash; a note for other states</h4>
+                <p>Florida and Massachusetts are common-law states, so the forms above are the relevant ones for most clients here. But for a client in a community-property state, the result can be harsher than any of the above: because each spouse holds a present, vested one-half interest in community property and the community is generally liable for debts, one spouse&rsquo;s <em>separate</em> federal tax debt can reach the <em>entire</em> community in many such states. The rules vary by state, and converting community property into joint-tenancy form carries its own tax consequences &mdash; it is a question to run down jurisdiction by jurisdiction.</p>
+
+                <table class="dltable">
+                  <thead><tr><th>How title is held</th><th>What the lien reaches</th><th>Forced sale</th><th>At death</th></tr></thead>
+                  <tbody>
+                    <tr><td>Liable spouse&rsquo;s separate property</td><td>The entire property</td><td>Levy/seize or &#167;&nbsp;7403</td><td>Lien follows the estate</td></tr>
+                    <tr><td>Non-liable spouse&rsquo;s separate property</td><td>Nothing, absent nominee/transfer</td><td>No</td><td>&mdash;</td></tr>
+                    <tr><td>Tenancy in common</td><td>The liable spouse&rsquo;s fractional share</td><td>Sell the share, or &#167;&nbsp;7403 (whole)</td><td>No survivorship &mdash; lien follows the share to heirs</td></tr>
+                    <tr><td>Joint tenancy (survivorship)</td><td>The liable spouse&rsquo;s interest</td><td>&#167;&nbsp;7403 (whole); co-owner paid</td><td>Liable JT dies first &rarr; lien gone; survives &rarr; lien on whole</td></tr>
+                    <tr><td>Community property (CP states)</td><td>Often the entire community</td><td>Yes</td><td>State-specific</td></tr>
+                  </tbody>
+                </table>
+
+                <h4>The forced-sale framework that ties it together</h4>
+                <p>Across all of these forms, the IRS&rsquo;s heavy tool is the same: a &#167;&nbsp;7403 suit asking a federal court to sell the <em>entire</em> property and distribute the proceeds by the parties&rsquo; interests, with the non-liable co-owner compensated for their share. That power comes from <em>United States v. Rodgers</em>, 461 U.S. 677 (1983), and the court retains limited equitable discretion to decline a forced sale. The mechanics of that suit &mdash; reducing the assessment to judgment and foreclosing &mdash; are covered in our <a href="blog-foreclose-federal-tax-lien-suit.html">foreclosure post</a>.</p>
+
+                <div class="dlcallout"><span class="lbl">Title form is destiny</span>The same couple, the same debt, but a different line on the deed produces very different exposure. Before anything else in a collection matter touching the family home, read the deed and check what state law says about that ownership form&rsquo;s survivorship and severance rules.</div>
+
+                <h4>The defenses</h4>
+                <p>The defenses follow the principle. Pin down that the lien reaches only the liable spouse&rsquo;s actual interest; establish the non-liable spouse&rsquo;s separate ownership where it exists; pursue innocent-spouse relief on the underlying liability if the facts support it; contest any nominee, alter-ego, or fraudulent-transfer theory the IRS asserts; and, in a &#167;&nbsp;7403 action, press the <em>Rodgers</em> equities and the valuation of each owner&rsquo;s interest. In joint tenancy, timing and survivorship are themselves part of the analysis.</p>
+
+                <h4>The practical takeaway</h4>
+                <p>For co-owned marital real estate outside a tenancy by the entirety, title form is destiny: it dictates what the lien reaches, whether the IRS can force a sale of the whole, and what death does to the lien. Know exactly how the deed reads and what the governing state law provides &mdash; and recognize that tenancy by the entirety, the strongest shield of all, plays by a different rulebook entirely.</p>
+              </div>
+
+              <div class="dlcta">
+                <div class="dlcta-head">Is the IRS pursuing your home over one spouse&rsquo;s tax debt?</div>
+                <p>Donovan Legal defends individuals and businesses across the full arc of IRS enforcement &mdash; examination, collection, and controversy &mdash; from the first notice through Appeals and the courtroom. When only one spouse owes, how much the IRS can reach turns on how the deed is held and what state law provides. We start by reading the title and the survivorship rules &mdash; before the government does.</p>
+                <a href="contact.html" class="dlcta-btn">Request a consultation &rarr;</a>
+              </div>
+
+              <div class="article-related">
+                <p style="margin-bottom: 0.5rem;">Related: <a href="tax-controversy.html">Tax Controversy</a> &middot; <a href="blog-tenancy-by-entirety-federal-tax-lien.html">Tenancy by the Entirety &amp; the Federal Tax Lien</a> &middot; <a href="blog-foreclose-federal-tax-lien-suit.html">Foreclosing the Federal Tax Lien</a> &middot; <a href="blog-notice-of-federal-tax-lien.html">The Notice of Federal Tax Lien</a></p>
+              </div>
+
+              <div class="article-disclaimer">
+                <strong>Disclaimer.</strong> This article is provided for general informational purposes only and does not constitute legal or tax advice. Each tax and legal matter is fact-specific and depends on applicable law, jurisdiction, and individual circumstances. Readers should consult qualified counsel before acting on any information in this article. Reading this article does not create an attorney-client relationship with Donovan Legal PLLC or any of its attorneys. Donovan Legal PLLC, 301 W. Atlantic Avenue, Suite 5, Delray Beach, Florida 33444.
+              </div>
+
+              <div class="article-back">
+                <a href="blog.html">&larr; All Tax Notes</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JORDAN-LAUNCH-POLISH: click-to-call / email / social. Styles live in css/main.css. -->
+      <div class="dl-connect">
+        <a class="dl-connect-cta" href="tel:+15616666022"><svg class="dl-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.03-.24c1.12.37 2.33.57 3.56.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>Click Here To Call Donovan Legal</a>
+        <p class="dl-connect-direct">
+          <a href="tel:+15616666022">(561) 666-6022</a>
+          <span class="dl-connect-sep">|</span>
+          <a href="mailto:info@donovan.law">info@donovan.law</a>
+        </p>
+        <ul class="dl-social">
+          <li><a href="https://www.facebook.com/people/Donovan-Legal-PLLC/61590654057720/" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.324.103a8.16 8.16 0 0 1 1.021.215v3.324c-.153-.015-.33-.03-.582-.045a8.98 8.98 0 0 0-.594-.023c-.673 0-1.194.092-1.583.276a1.73 1.73 0 0 0-.786.732c-.179.303-.256.68-.256 1.155v1.821h3.86l-.334 1.847-.335 1.82h-3.191v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647z"/></svg></a></li>
+          <li><a href="https://www.tiktok.com/@donovan.legal" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on TikTok" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a></li>
+          <li><a href="https://www.instagram.com/donovan_legalpllc" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227a3.81 3.81 0 0 1-.899 1.382 3.744 3.744 0 0 1-1.38.896c-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421a3.716 3.716 0 0 1-1.379-.899 3.644 3.644 0 0 1-.9-1.38c-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.846-10.405a1.441 1.441 0 0 1-2.881 0 1.441 1.441 0 0 1 2.881 0z"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/company/donovan-legal-pllc/" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="copy-inside margin-practice">&copy; Donovan Legal PLLC. 2026. | <a class="disclaimer-link" href="disclaimer.html">DISCLAIMER</a></div>
+    </div>
+  </div>
+  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/js/vendor/jquery-fallback.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+  <!-- JORDAN-LAUNCH-POLISH: sticky click-to-call bar (mobile only, see css/main.css). -->
+  <div class="dl-callbar">
+    <a class="dl-callbar-book" href="/book" data-dl-cta="callbar_book">Book a Free Consultation</a>
+    <a class="dl-callbar-call" href="tel:+15616666022"><svg class="dl-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.03-.24c1.12.37 2.33.57 3.56.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>or call (561) 666-6022</a>
+  </div>
+</body>
+
+</html>

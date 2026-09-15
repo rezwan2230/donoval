@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Short-Term Rentals and the 100-Hour Test | Donovan Legal</title>
+  <meta name="description" content="How the §469 short-term rental exception, the 100-hour test, and OBBBA bonus depreciation combine for W-2 earners, and where the strategy fails.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="The Short-Term Rental Tax Strategy: Material Participation, the 100-Hour Test, and What W-2 Earners Need to Understand">
+  <meta property="og:site_name" content="Donovan Legal PLLC">
+  <meta property="og:url" content="https://www.donovan.law/blog-short-term-rental-material-participation">
+  <meta property="og:description" content="The §469 STR exception, the 100-hour material participation test, and the bonus depreciation rules that make the strategy work — and where it fails.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://www.donovan.law/img/PKD Headshot.jpg">
+  <meta property="article:author" content="Paul K. Donovan">
+  <meta property="article:published_time" content="2026-05-05">
+  <meta property="article:section" content="Tax Planning">
+  <link rel="apple-touch-icon" href="img/favicon.png">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link href="site.webmanifest" rel="manifest" />
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/fontawesome.min.css" rel="stylesheet" />
+  <link href="css/normalize.css" rel="stylesheet" />
+  <link href="css/main.css?v=20260721a" rel="stylesheet" />
+  <link href="css/animate.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;display=swap"
+    rel="stylesheet" />
+
+  <style>
+    .box > .border-grey > .container:first-of-type {
+      position: relative !important;
+      z-index: 9999 !important;
+    }
+    nav.navbar.menubar {
+      position: relative !important;
+      z-index: 9999 !important;
+    }
+    nav.navbar .nav-item.dropdown {
+      position: relative !important;
+    }
+    .navbar .dropdown-menu,
+    .navbar.menubar .dropdown-menu,
+    nav.navbar .dropdown-menu {
+      z-index: 99999 !important;
+      position: absolute !important;
+    }
+
+    /* Article-specific styles */
+    .article-meta {
+      font-family: "Open Sans", sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #6b6b6b;
+      margin: 1.25rem 0 0.5rem 0;
+    }
+    .article-meta .post-category {
+      color: #107A4D;
+      font-weight: 700;
+    }
+    .article-meta .post-divider {
+      color: #C0C0C0;
+      margin: 0 0.6rem;
+    }
+    .article-headline {
+      font-family: "Gotham Bold", "Open Sans", sans-serif;
+      font-size: 2.1rem;
+      line-height: 1.25;
+      color: #1a1a1a;
+      margin: 0.5rem 0 1.5rem 0;
+    }
+    .article-byline {
+      font-family: "Open Sans", sans-serif;
+      font-size: 0.95rem;
+      color: #4a4a4a;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #d4d4d0;
+    }
+    .article-byline a {
+      color: #107A4D !important;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px dotted #107A4D;
+    }
+    .article-body {
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.08rem;
+      line-height: 1.78;
+      color: #1a1a1a;
+    }
+    .article-body p {
+      margin-bottom: 1.4rem;
+    }
+    .article-body h4 {
+      font-family: "Gotham Bold", "Open Sans", sans-serif;
+      font-size: 1.3rem;
+      color: #107A4D;
+      margin: 2.5rem 0 1rem 0;
+      letter-spacing: 0.5px;
+    }
+    .article-body em {
+      font-style: italic;
+    }
+    .article-body strong {
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+    .article-disclaimer {
+      margin-top: 3rem;
+      padding: 1.5rem 1.75rem;
+      background: #f5f5f0;
+      border-left: 3px solid #107A4D;
+      font-family: "Open Sans", sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #4a4a4a;
+    }
+    .article-related {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #d4d4d0;
+      font-family: "Open Sans", sans-serif;
+    }
+    .article-related a {
+      color: #107A4D !important;
+      font-weight: 600;
+    }
+    .article-back {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      font-family: "Gotham Bold", "Open Sans", sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .article-back a {
+      color: #107A4D !important;
+      text-decoration: none;
+    }
+
+    /* grouped Practice dropdown */
+    .dropdown-menu .dd-area, .collapse .dd-area{font-weight:800 !important;color:#107A4D !important;text-transform:uppercase;letter-spacing:.6px;margin-top:.35rem}
+    .dropdown-menu .dd-sub{padding-left:1.7rem !important}
+    .collapse .dd-sub{padding-left:1.5rem !important}
+
+    /* cascading Practice flyout (desktop) */
+    .dropdown-menu[aria-labelledby="navbarDropdown2"]{min-width:215px}
+    .practice-flyout-host .flyout-item{position:relative}
+    .flyout-item > .dd-area{display:flex;justify-content:space-between;align-items:center;font-weight:800 !important;color:#107A4D !important;text-transform:uppercase;letter-spacing:.5px}
+    .flyout-item .flyout-caret{margin-left:1rem;color:#107A4D;font-weight:700}
+    .flyout-item > .flyout-sub{display:none;position:absolute;top:-.35rem;left:100%;min-width:235px;background:#fff;border:1px solid rgba(0,0,0,.12);box-shadow:0 8px 24px rgba(0,0,0,.16);padding:.4rem 0;border-radius:4px;z-index:100002}
+    .flyout-item:hover > .flyout-sub{display:block}
+    .flyout-item > .flyout-sub .dropdown-item{padding-top:.42rem;padding-bottom:.42rem}
+
+    /* mobile nested Practice accordion */
+    .nav-mobile .mobile-parent .mm-parent-label{color:#000;text-decoration:none}
+    .nav-mobile .mobile-parent .mm-parent-label:hover{color:#107a4d}
+    .nav-mobile .m-area-toggle{display:block;width:100%;background:none;border:none;font-size:15px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#107A4D;padding:.45rem 0;margin:.5rem 0 .15rem;cursor:pointer}
+    .nav-mobile .m-area-toggle::after{content:" +";font-weight:700}
+    .nav-mobile .m-area-toggle[aria-expanded="true"]::after{content:" \2212"}
+    .nav-mobile #menu2 .dropdown-item.dd-sub{font-size:14px}
+  </style>
+  <link rel="canonical" href="https://www.donovan.law/blog-short-term-rental-material-participation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","datePublished":"2026-05-05","headline":"The Short-Term Rental Tax Strategy: Material Participation, the 100-Hour Test, and What W-2 Earners Need to Understand","url":"https://www.donovan.law/blog-short-term-rental-material-participation","author":{"@type":"Organization","name":"Donovan Legal PLLC"},"publisher":{"@type":"Organization","name":"Donovan Legal PLLC","logo":{"@type":"ImageObject","url":"https://www.donovan.law/img/favicon.png"}}}</script>
+</head>
+
+<body>
+  <div class="box h-100">
+    <div class="border-grey">
+      <div class="container">
+        <nav class="navbar menubar padding-0 navbar-expand-lg d-flex align-items-center justify-content-between">
+          <div class="logo animate__animated animate__fadeIn animate__delay-1s">
+            <a href="index.html"><img class="logo" src="img/base-hover.png" / alt="Donovan Legal PLLC logo"></a>
+          </div>
+
+          <div class="burger-toggle animate__animated animate__fadeIn animate__delay-1s">
+            <div class="hamburger">
+              <span class="line"></span>
+              <span class="line"></span>
+              <span class="line"></span>
+            </div>
+          </div>
+
+          <ul id="menu-desktop" class="navbar-nav ml-auto animate__animated animate__fadeIn animate__delay-1s">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">HOME</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="ourfirm.html">ABOUT</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                <a class="dropdown-item" href="ourfirm.html">THE FIRM</a>
+                <a class="dropdown-item" href="profile.html">PAUL DONOVAN, JD, CPA, CCM</a>
+                <a class="dropdown-item" href="tefera.html">DR. TEFERA BEYENE, PhD, CPA</a>
+                <a class="dropdown-item" href="wendy.html">WENDY CARDENAS</a>
+                <a class="dropdown-item" href="leidy.html">LEIDY MEZA</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="practice.html">PRACTICE</a>
+              <div class="dropdown-menu practice-flyout-host" aria-labelledby="navbarDropdown2">
+                <div class="flyout-item">
+                  <a class="dropdown-item dd-area" href="tax.html">TAX<span class="flyout-caret">&rsaquo;</span></a>
+                  <div class="flyout-sub">
+                    <a class="dropdown-item" href="tax-planning.html">Planning</a>
+                    <a class="dropdown-item" href="tax-compliance.html">Compliance</a>
+                    <a class="dropdown-item" href="tax-controversy.html">Controversy</a>
+                  </div>
+                </div>
+                <div class="flyout-item">
+                  <a class="dropdown-item dd-area" href="real-estate.html">REAL ESTATE<span class="flyout-caret">&rsaquo;</span></a>
+                  <div class="flyout-sub">
+                    <a class="dropdown-item" href="re-acquisition.html">Acquisition</a>
+                    <a class="dropdown-item" href="re-ownership.html">Ownership</a>
+                    <a class="dropdown-item" href="re-disposition.html">Disposition</a>
+                  </div>
+                </div>
+                <div class="flyout-item">
+                  <a class="dropdown-item dd-area" href="special-counsel.html">SPECIAL COUNSEL<span class="flyout-caret">&rsaquo;</span></a>
+                  <div class="flyout-sub">
+                    <a class="dropdown-item" href="special-counsel.html#divorce">Divorce &amp; Marital Dissolution</a>
+                    <a class="dropdown-item" href="special-counsel.html#estate-trust">Estate, Trust &amp; Probate Disputes</a>
+                    <a class="dropdown-item" href="special-counsel.html#business-divorce">Business Divorce</a>
+                    <a class="dropdown-item" href="special-counsel.html#litigation-damages">Litigation Damages &amp; Settlement Tax</a>
+                  </div>
+                </div>
+              
+              
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="experience.html">EXPERIENCE</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="testimonials.html">TESTIMONIALS</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="blog.html">RESOURCES</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                <a class="dropdown-item" href="blog.html">BLOG</a>
+                <a class="dropdown-item" href="tools.html">TOOLS</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="engagement.html">MEMBERS</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
+                <a class="dropdown-item" href="gold/"><span class="brand-gold">GOLD</span></a>
+                <a class="dropdown-item" href="platinum/"><span class="brand-platinum">PLATINUM</span></a>
+                <a class="dropdown-item" href="diamond/"><span class="brand-diamond">DIAMOND</span></a>
+                <a class="dropdown-item" href="reserve/"><span class="brand-reserve"><span class="re">RE</span>SERVE</span></a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">CONTACT</a>
+            </li>
+          </ul>
+
+          <nav class="nav-mobile-overlay">
+            <div class="nav-mobile-wrapper">
+              <div class="container">
+                <div class="nav-mobile">
+                  <div class="nav-mobile-header">
+                    <div class="btn-close menu"><i class="fa fa-times"></i></div>
+                  </div>
+                  <div class="nav-mobile-list">
+                    <a href="index.html" class="mobile-menu-item">HOME</a>
+                    <a href="ourfirm.html" class="mobile-menu-item" data-toggle="collapse" data-target="#menu1"
+                      aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                      <span id="theFirm">ABOUT</span>
+                      <button id="btn-tf" class="btn btn-plus" data-toggle="collapse" data-target="#menu1"
+                        aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                        <div id="fa-tf" class="top-icon hidden"><i class="fa fa-minus"></i></div>
+                      </button>
+                      <div class="collapse" id="menu1">
+                        <a class="dropdown-item" href="ourfirm.html">THE FIRM</a>
+                        <a class="dropdown-item" href="profile.html">PAUL DONOVAN, JD, CPA, CCM</a>
+                        <a class="dropdown-item" href="tefera.html">DR. TEFERA BEYENE, PhD, CPA</a>
+                        <a class="dropdown-item" href="wendy.html">WENDY CARDENAS</a>
+                        <a class="dropdown-item" href="leidy.html">LEIDY MEZA</a>
+                      </div>
+                    </a>
+                    <div class="mobile-menu-item mobile-parent">
+                      <a href="practice.html" class="mm-parent-label">PRACTICE</a>
+                      <button id="btn-tp" class="btn btn-plus" data-toggle="collapse" data-target="#menu2"
+                        aria-controls="menu2" aria-expanded="false" aria-label="Toggle Practice">
+                        <div id="fa-tp" class="top-icon hidden"><i class="fa fa-minus"></i></div>
+                      </button>
+                      <div class="collapse" id="menu2">
+                        <button class="m-area-toggle" data-toggle="collapse" data-target="#m2-tax" aria-controls="m2-tax" aria-expanded="false">TAX</button>
+                        <div class="collapse" id="m2-tax">
+                          <a class="dropdown-item dd-sub" href="tax.html">Tax Overview</a>
+                          <a class="dropdown-item dd-sub" href="tax-planning.html">Planning</a>
+                          <a class="dropdown-item dd-sub" href="tax-compliance.html">Compliance</a>
+                          <a class="dropdown-item dd-sub" href="tax-controversy.html">Controversy</a>
+                        </div>
+                        <button class="m-area-toggle" data-toggle="collapse" data-target="#m2-re" aria-controls="m2-re" aria-expanded="false">REAL ESTATE</button>
+                        <div class="collapse" id="m2-re">
+                          <a class="dropdown-item dd-sub" href="real-estate.html">Real Estate Overview</a>
+                          <a class="dropdown-item dd-sub" href="re-acquisition.html">Acquisition</a>
+                          <a class="dropdown-item dd-sub" href="re-ownership.html">Ownership</a>
+                          <a class="dropdown-item dd-sub" href="re-disposition.html">Disposition</a>
+                        </div>
+                        <button class="m-area-toggle" data-toggle="collapse" data-target="#m2-sc" aria-controls="m2-sc" aria-expanded="false">SPECIAL COUNSEL</button>
+                        <div class="collapse" id="m2-sc">
+                          <a class="dropdown-item dd-sub" href="special-counsel.html">Special Counsel Overview</a>
+                          <a class="dropdown-item dd-sub" href="special-counsel.html#divorce">Divorce &amp; Marital Dissolution</a>
+                          <a class="dropdown-item dd-sub" href="special-counsel.html#estate-trust">Estate, Trust &amp; Probate Disputes</a>
+                          <a class="dropdown-item dd-sub" href="special-counsel.html#business-divorce">Business Divorce</a>
+                          <a class="dropdown-item dd-sub" href="special-counsel.html#litigation-damages">Litigation Damages &amp; Settlement Tax</a>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="experience.html" class="mobile-menu-item">EXPERIENCE</a>
+                    <a href="testimonials.html" class="mobile-menu-item">TESTIMONIALS</a>
+                    <a href="blog.html" class="mobile-menu-item" data-toggle="collapse" data-target="#menu3"
+                      aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                      <span id="theResources">RESOURCES</span>
+                      <button id="btn-tr" class="btn btn-plus" data-toggle="collapse" data-target="#menu3"
+                        aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                        <div id="fa-tr" class="top-icon hidden"><i class="fa fa-minus"></i></div>
+                      </button>
+                      <div class="collapse" id="menu3">
+                        <a class="dropdown-item" href="blog.html">BLOG</a>
+                        <a class="dropdown-item" href="tools.html">TOOLS</a>
+                      </div>
+                    </a>
+                    <a href="engagement.html" class="mobile-menu-item" data-toggle="collapse" data-target="#menu4"
+                      aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                      <span id="theMembers">MEMBERS</span>
+                      <button id="btn-tm" class="btn btn-plus" data-toggle="collapse" data-target="#menu4"
+                        aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                        <div id="fa-tm" class="top-icon hidden"><i class="fa fa-minus"></i></div>
+                      </button>
+                      <div class="collapse" id="menu4">
+                        <a class="dropdown-item" href="gold/"><span class="brand-gold">GOLD</span></a>
+                        <a class="dropdown-item" href="platinum/"><span class="brand-platinum">PLATINUM</span></a>
+                        <a class="dropdown-item" href="diamond/"><span class="brand-diamond">DIAMOND</span></a>
+                        <a class="dropdown-item" href="reserve/"><span class="brand-reserve"><span class="re">RE</span>SERVE</span></a>
+                      </div>
+                    </a>
+                    <a href="contact.html" class="mobile-menu-item">CONTACT</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </nav>
+      </div>
+
+      <div class="box-practice keep-m">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+
+              <div class="article-meta animate__animated animate__fadeIn animate__delay-1-5">
+                <span class="post-category">TAX PLANNING</span>
+                <span class="post-divider">&middot;</span>
+                <span>May 5, 2026</span>
+                <span class="post-divider">&middot;</span>
+                <span>12 min read</span>
+              </div>
+
+              <h1 class="article-headline animate__animated animate__fadeIn animate__delay-1-5">The Short-Term Rental Tax Strategy: Material Participation, the 100-Hour Test, and What W-2 Earners Need to Understand</h1>
+
+              <div class="article-byline animate__animated animate__fadeIn animate__delay-1-8">
+                By <a href="profile.html">Paul K. Donovan, JD, CPA, CCM</a>
+              </div>
+
+              <div class="article-body animate__animated animate__fadeIn animate__delay-2s">
+
+                <p>The short-term rental tax strategy has become one of the most-discussed planning techniques in the high-income W-2 earner&rsquo;s playbook. Properly structured, it can convert a real estate investment into a substantial federal tax deduction in the first year of ownership. Improperly structured &mdash; which is more common than the strategy&rsquo;s online enthusiasts acknowledge &mdash; it produces nothing but a depreciation schedule that runs forever and a notice from the IRS that arrives two years later.</p>
+
+                <p>This article walks through the actual mechanics: how &sect;&nbsp;469 normally treats rental real estate, why short-term rentals fall outside that classification, what material participation actually requires, where the strategy most commonly fails, and how the restored 100% bonus depreciation under the One Big Beautiful Bill Act of 2025 amplifies (but does not change) the underlying analysis.</p>
+
+                <h4>Why &sect;&nbsp;469 Normally Blocks W-2 Earners From Real Estate Losses</h4>
+
+                <p>The Internal Revenue Code generally treats rental real estate as a passive activity under &sect;&nbsp;469(c)(2). Losses from passive activities can only offset passive income, not W-2 wages, active business income, or portfolio income (interest, dividends, capital gains). The remaining loss is suspended under &sect;&nbsp;469(b) and carried forward until the taxpayer either has passive income to absorb it or disposes of the property in a fully taxable transaction.</p>
+
+                <p>This rule exists for a reason. Real estate has long been used to generate paper losses through depreciation that real economic owners use to offset other income, and Congress determined in 1986 that such losses should be quarantined absent active participation. The result is that for the typical W-2 earner who buys a long-term rental property, the depreciation deduction the property generates is not currently usable. It accumulates as a suspended passive loss.</p>
+
+                <h4>The Short-Term Rental Exception</h4>
+
+                <p>The classification of an activity as a &ldquo;rental&rdquo; under &sect;&nbsp;469 is itself defined by reference to a regulation. Treasury Regulation &sect;&nbsp;1.469-1T(e)(3)(ii) carves out six categories of activities that are <em>not</em> &ldquo;rental&rdquo; for &sect;&nbsp;469 purposes, even though they involve the use of property by customers. The first &mdash; and by far the most consequential for individual planning &mdash; is the rule that an activity is not a rental activity if &ldquo;the average period of customer use for such property is seven days or less.&rdquo;</p>
+
+                <p>This is the regulation behind what is colloquially called the &ldquo;short-term rental loophole&rdquo; or simply &ldquo;the 7-day rule.&rdquo; If the customers&rsquo; average stay across the year is one week or less &mdash; typical for an Airbnb, VRBO, or vacation rental &mdash; the property is not a &ldquo;rental&rdquo; for &sect;&nbsp;469 purposes. The activity is analyzed under the general &sect;&nbsp;469 framework as a trade or business activity. The only question that remains for loss-utilization purposes is whether the taxpayer materially participates.</p>
+
+                <p>A second category in the same regulation, less commonly invoked, applies where the average period of customer use is 30 days or less <em>and</em> significant personal services are provided in connection with making the property available for use. This covers higher-end serviced rentals and certain hospitality models.</p>
+
+                <h4>Material Participation: The Seven Tests</h4>
+
+                <p>Material participation is determined under &sect;&nbsp;469(h) and Treasury Regulation &sect;&nbsp;1.469-5T, which provides seven alternative tests. Satisfying any one of the seven establishes material participation and unlocks current deductibility of the activity&rsquo;s losses against other income (subject to subsequent limitations like &sect;&nbsp;461(l), addressed in a separate article). The seven tests, in summary, are:</p>
+
+                <p>(1) Participation of more than 500 hours during the year. (2) Participation that constitutes substantially all of the participation in the activity by all individuals (including non-owners). (3) Participation of more than 100 hours during the year, with the taxpayer&rsquo;s participation being not less than that of any other individual. (4) Significant participation aggregation &mdash; participation in the activity exceeds 100 hours, and aggregate significant-participation activity hours exceed 500. (5) Material participation in the activity for any 5 of the preceding 10 years. (6) For personal-service activities, material participation in any 3 prior years. (7) A facts-and-circumstances test based on regular, continuous, and substantial participation, with a 100-hour minimum.</p>
+
+                <h4>The 100-Hour Test &mdash; And Where It Goes Wrong</h4>
+
+                <p>For the typical W-2 earner buying a single short-term rental property, Test 3 is usually the only viable path. Test 3 requires <em>both</em> that (i) the taxpayer participates in the activity for more than 100 hours during the year, <em>and</em> (ii) the taxpayer&rsquo;s participation is not less than the participation of any other individual.</p>
+
+                <p>The first prong &mdash; spending more than 100 hours &mdash; is easily satisfied for most owner-operators if the hours are accurately tracked. Cleaning, maintenance, guest communications, listing management, supply runs, repairs, and similar activities accumulate quickly across a year of self-managed operation.</p>
+
+                <p>The second prong is where the strategy most often fails. &ldquo;Other individuals&rdquo; is broad. It includes the cleaning crew, the on-site manager, the co-host, the maintenance contractor, the handyman, the lawn service, and most consequentially the property management company if one is engaged. The taxpayer&rsquo;s hours must equal or exceed the hours of every other individual involved in the activity, considered separately. (Note: this is per-individual, not aggregate. The taxpayer must beat the highest-hour outsider, not the sum of all outsiders.)</p>
+
+                <p>For a self-managed property where the owner does the bulk of the operating work and uses contractors only for specific tasks, Test 3 is achievable. For a property managed by a full-service company &mdash; Vacasa, Evolve, AvantStay, or any similar service &mdash; the management company&rsquo;s hours will almost always exceed any individual owner&rsquo;s 100 hours. The strategy fails before the property is even purchased.</p>
+
+                <p>The mistake most commonly made: a taxpayer engages a full-service property manager because that is the operationally easy choice, then claims material participation under Test 3 because they personally spent 110 hours on the property over the year. The IRS asks how many hours the management company spent. The answer is invariably more than 110. Material participation is denied. The depreciation deductions that the cost segregation study generated are quarantined as suspended passive losses, useless against W-2 income.</p>
+
+                <h4>The Real Estate Professional Alternative</h4>
+
+                <p>The other path to current deductibility under &sect;&nbsp;469 is qualifying as a &ldquo;real estate professional&rdquo; under &sect;&nbsp;469(c)(7). To qualify, a taxpayer must satisfy two requirements: (i) more than 50% of the personal services performed by the taxpayer in all trades or businesses during the year must be performed in real property trades or businesses in which the taxpayer materially participates, <em>and</em> (ii) the taxpayer must perform more than 750 hours of services during the year in real property trades or businesses in which the taxpayer materially participates.</p>
+
+                <p>For a W-2 employee in any non-real-estate field, real estate professional status is unavailable as a practical matter. The 50% test cannot be satisfied because the taxpayer&rsquo;s primary employment, by definition, is not in a real property trade or business. The 750-hour test is sometimes satisfied; the 50% test almost never is for a working professional. (Spousal qualification is permitted &mdash; only one spouse needs to qualify if the couple files jointly &mdash; which is why some planning involves the non-employed spouse becoming the real estate professional.)</p>
+
+                <h4>Combining With Bonus Depreciation</h4>
+
+                <p>What makes the short-term rental strategy mathematically powerful is the combination of material participation with cost segregation and bonus depreciation. The OBBBA permanently restored 100% bonus depreciation under &sect;&nbsp;168(k) for property both acquired and placed in service after January 19, 2025.</p>
+
+                <p>For a short-term rental property purchased for $1,000,000 with $200,000 allocated to land and $800,000 to the building, a typical cost segregation study might reclassify 25% to 30% of the building basis to 5-, 7-, or 15-year MACRS property &mdash; say $200,000. That reclassified amount is eligible for 100% bonus depreciation in year one. Add normal first-year straight-line depreciation on the remaining $600,000 of building basis (approximately $11,000 under the 27.5-year residential rental schedule with half-year convention), and the property generates roughly $211,000 of first-year depreciation deductions. Combined with operating expenses and interest, the property may produce a paper loss of $250,000 or more in year one for a property with modest operating cash flow.</p>
+
+                <p>Whether the taxpayer can <em>use</em> that loss against W-2 income depends entirely on the &sect;&nbsp;469 analysis above &mdash; and, if the loss is large, on the &sect;&nbsp;461(l) excess-business-loss limitation, addressed in a separate article.</p>
+
+                <h4>State Tax Conformity</h4>
+
+                <p>Federal &sect;&nbsp;168(k) bonus depreciation applies for federal income tax purposes only. For state income tax, the picture varies dramatically. Most state tax systems require an addback of bonus depreciation, with the depreciation then allowed over the regular MACRS or state-specific recovery period.</p>
+
+                <p>The small minority of states that currently conform to federal bonus depreciation under OBBBA include Alabama, Colorado, Kansas, Louisiana (subject to new rules effective 2026), Missouri, Montana, Oklahoma (with limitations), and Utah. New Mexico conformed historically but enacted decoupling legislation effective May 2026.</p>
+
+                <p>The states that decouple from bonus depreciation &mdash; requiring an addback at the state level &mdash; include California, New York, New Jersey, Massachusetts, Pennsylvania, Connecticut, Maryland, Virginia (currently frozen), Illinois, Michigan, Delaware (which decoupled in November 2025), and most others.</p>
+
+                <p>States with no individual income tax &mdash; Florida, Texas, Tennessee, South Dakota, Nevada, Wyoming, Alaska, New Hampshire (which taxes only interest and dividends, ending in 2027), and Washington (no individual income tax but a 7% capital gains tax on amounts above a threshold) &mdash; obviate this issue for individual taxpayers. For an STR investor in a state with no income tax, federal benefit equals total benefit. For an STR investor in California or New York, the state-level addback substantially dilutes the apparent federal benefit. Investors should model the after-state-tax economics, not just the federal headline.</p>
+
+                <h4>Reading the Strategy Carefully</h4>
+
+                <p>The short-term rental tax strategy is real, and properly structured it provides genuine tax benefit. The failure points are also real and they tend to be the same ones across most failed planning attempts: a property management arrangement that defeats the 100-hour test; inadequate or non-contemporaneous time tracking that cannot withstand audit scrutiny; an aggressive cost segregation study without engineering substantiation; failure to model state-level decoupling; and the assumption that &sect;&nbsp;461(l) is not relevant when the loss is substantial.</p>
+
+                <p>The strategy works for the right taxpayer with the right property, properly documented, with the right professional team. It does not work as a generic shortcut, and it has many failure points buried inside what appears to be a simple plan. Engagement of qualified counsel before &mdash; not after &mdash; the property is acquired is the single most cost-effective step in the planning process.</p>
+
+                            </div>
+
+              <div class="article-related">
+                <p style="margin-bottom: 0.5rem;">Related practice areas: <a href="tax-planning.html">Tax Planning</a> &middot; <a href="real-estate.html">Real Estate</a></p>
+              </div>
+
+              <div class="article-disclaimer">
+                <strong>Disclaimer.</strong> This article is provided for general informational purposes only and does not constitute legal or tax advice. Each tax and legal matter is fact-specific and depends on applicable law, jurisdiction, and individual circumstances. Readers should consult qualified counsel before acting on any information in this article. Reading this article does not create an attorney-client relationship with Donovan Legal PLLC or any of its attorneys. Donovan Legal PLLC, 301 W. Atlantic Avenue, Suite 5, Delray Beach, Florida 33444.
+              </div>
+
+              <div class="article-back">
+                <a href="blog.html">&larr; All Tax Notes</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JORDAN-LAUNCH-POLISH: click-to-call / email / social. Styles live in css/main.css. -->
+      <div class="dl-connect">
+        <a class="dl-connect-cta" href="tel:+15616666022"><svg class="dl-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.03-.24c1.12.37 2.33.57 3.56.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>Click Here To Call Donovan Legal</a>
+        <p class="dl-connect-direct">
+          <a href="tel:+15616666022">(561) 666-6022</a>
+          <span class="dl-connect-sep">|</span>
+          <a href="mailto:info@donovan.law">info@donovan.law</a>
+        </p>
+        <ul class="dl-social">
+          <li><a href="https://www.facebook.com/people/Donovan-Legal-PLLC/61590654057720/" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.324.103a8.16 8.16 0 0 1 1.021.215v3.324c-.153-.015-.33-.03-.582-.045a8.98 8.98 0 0 0-.594-.023c-.673 0-1.194.092-1.583.276a1.73 1.73 0 0 0-.786.732c-.179.303-.256.68-.256 1.155v1.821h3.86l-.334 1.847-.335 1.82h-3.191v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647z"/></svg></a></li>
+          <li><a href="https://www.tiktok.com/@donovan.legal" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on TikTok" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a></li>
+          <li><a href="https://www.instagram.com/donovan_legalpllc" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227a3.81 3.81 0 0 1-.899 1.382 3.744 3.744 0 0 1-1.38.896c-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421a3.716 3.716 0 0 1-1.379-.899 3.644 3.644 0 0 1-.9-1.38c-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.846-10.405a1.441 1.441 0 0 1-2.881 0 1.441 1.441 0 0 1 2.881 0z"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/company/donovan-legal-pllc/" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="copy-inside margin-practice">&copy; Donovan Legal PLLC. 2026. | <a class="disclaimer-link" href="disclaimer.html">DISCLAIMER</a></div>
+    </div>
+  </div>
+  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/js/vendor/jquery-fallback.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+  <!-- JORDAN-LAUNCH-POLISH: sticky click-to-call bar (mobile only, see css/main.css). -->
+  <div class="dl-callbar">
+    <a class="dl-callbar-book" href="/book" data-dl-cta="callbar_book">Book a Free Consultation</a>
+    <a class="dl-callbar-call" href="tel:+15616666022"><svg class="dl-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.03-.24c1.12.37 2.33.57 3.56.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>or call (561) 666-6022</a>
+  </div>
+</body>
+
+</html>

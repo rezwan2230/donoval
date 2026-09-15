@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 1360 656" role="img" aria-labelledby="unfiled-t unfiled-d">
+<title id="unfiled-t">How options narrow in an unfiled-return matter</title>
+<desc id="unfiled-d">A timeline showing four stages of an unfiled return matter and how the available options narrow at each one: before any contact from the Service, after a notice is issued, after a substitute return is filed, and after assessment when the matter is in collection.</desc>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#12643F"/></marker></defs>
+<rect width="1360" height="656" fill="#F6F5F1"/>
+<text x="52" y="56" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" letter-spacing="3.4" font-weight="700" fill="#C9A961">UNFILED RETURNS</text>
+<text x="52" y="100" font-family="Georgia, 'Times New Roman', serif" font-size="32" font-weight="700" fill="#1B1B1B">Every option you have is a function of when you start.</text>
+<text x="52" y="130" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" fill="#434343">The law does not get worse as time passes. Your position does.</text>
+<line x1="52" y1="152" x2="1308" y2="152" stroke="#C9A961" stroke-width="1.4"/>
+<line x1="72" y1="232" x2="1288" y2="232" stroke="#C9A961" stroke-width="2"/>
+<circle cx="205.0" cy="232" r="14" fill="#C9A961" stroke="#C9A961" stroke-width="2.4"/>
+<text x="205.0" y="204" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" letter-spacing="1.6" font-weight="700" fill="#C9A961">WIDEST</text>
+<rect x="52" y="268" width="306" height="176" rx="3" fill="#0C5334" stroke="#0C5334" stroke-width="1.6"/>
+<text x="68" y="294" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="1.8" font-weight="700" fill="#C9A961">BEFORE ANY CONTACT</text>
+<text x="68" y="320" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#F6F5F1"></text>
+<text x="68" y="347" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#C6D8CC">Voluntary disclosure available</text>
+<text x="68" y="364" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#C6D8CC">Penalty structure at its best</text>
+<text x="68" y="381" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#C6D8CC">Criminal exposure addressable</text>
+<text x="68" y="398" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#C6D8CC">You choose the timing</text>
+<circle cx="521.0" cy="232" r="11" fill="#F6F5F1" stroke="#C9A961" stroke-width="2.4"/>
+<text x="521.0" y="204" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" letter-spacing="1.6" font-weight="700" fill="#C9A961">NARROWING</text>
+<rect x="368" y="268" width="306" height="176" rx="3" fill="#FFFFFF" stroke="#0C5334" stroke-width="1.6"/>
+<text x="384" y="294" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="1.8" font-weight="700" fill="#C9A961">NOTICE ISSUED</text>
+<text x="384" y="320" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#0C5334"></text>
+<text x="384" y="347" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">Service already has third-party data</text>
+<text x="384" y="364" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">Voluntary is harder to establish</text>
+<text x="384" y="381" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">Response deadlines now govern</text>
+<circle cx="837.0" cy="232" r="11" fill="#F6F5F1" stroke="#C9A961" stroke-width="2.4"/>
+<text x="837.0" y="204" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" letter-spacing="1.6" font-weight="700" fill="#C9A961">NARROWER</text>
+<rect x="684" y="268" width="306" height="176" rx="3" fill="#FFFFFF" stroke="#0C5334" stroke-width="1.6"/>
+<text x="700" y="294" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="1.8" font-weight="700" fill="#C9A961">SUBSTITUTE RETURN FILED</text>
+<text x="700" y="320" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#0C5334"></text>
+<text x="700" y="347" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">No deductions allowed</text>
+<text x="700" y="364" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">No basis in sale proceeds</text>
+<text x="700" y="381" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">Worst filing status applied</text>
+<circle cx="1153.0" cy="232" r="11" fill="#F6F5F1" stroke="#C9A961" stroke-width="2.4"/>
+<text x="1153.0" y="204" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" letter-spacing="1.6" font-weight="700" fill="#C9A961">NARROWEST</text>
+<rect x="1000" y="268" width="306" height="176" rx="3" fill="#FFFFFF" stroke="#8C2026" stroke-width="1.6"/>
+<text x="1016" y="294" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="1.8" font-weight="700" fill="#C9A961">ASSESSED &amp; IN COLLECTION</text>
+<text x="1016" y="320" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#8C2026"></text>
+<text x="1016" y="347" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">Correct return still helps</text>
+<text x="1016" y="364" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">But liens may already be filed</text>
+<text x="1016" y="381" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">Levy exposure is live</text>
+<text x="52" y="536" font-family="Georgia, 'Times New Roman', serif" font-size="19" font-weight="700" fill="#1B1B1B">Nothing on this line is reversible.</text>
+<text x="52" y="562" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13.5" fill="#434343">Every step to the right removes an option that existed at the step before it. The only variable you control is where on the line you start.</text>
+<line x1="52" y1="576" x2="1308" y2="576" stroke="#DAD8D2" stroke-width="1"/>
+<text x="52" y="600" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" fill="#6E6E6E">General information about federal tax procedure — not legal advice.</text>
+<text x="52" y="617" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" fill="#6E6E6E">Whether a voluntary disclosure is available turns on facts specific to the matter.</text>
+<text x="1308" y="600" text-anchor="end" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" letter-spacing="1.6" font-weight="700" fill="#C9A961">DONOVAN LEGAL PLLC · DELRAY BEACH, FLORIDA</text>
+</svg>

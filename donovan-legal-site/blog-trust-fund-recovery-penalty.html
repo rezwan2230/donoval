@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>The Trust Fund Recovery Penalty (§6672) | Donovan Legal</title>
+  <meta name="description" content="How unpaid payroll tax becomes a personal debt under §6672: the responsible-person and willfulness prongs, the Form 4180 interview, and Letter 1153.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="The Trust Fund Recovery Penalty: How a Company’s Payroll Tax Becomes Your Personal Debt">
+  <meta property="og:site_name" content="Donovan Legal PLLC">
+  <meta property="og:url" content="https://www.donovan.law/blog-trust-fund-recovery-penalty">
+  <meta property="og:description" content="A detailed guide to the Trust Fund Recovery Penalty under IRC § 6672 — what the 100% penalty reaches, the two-prong responsible-person and willfulness test, how the IRS builds a case through the Form 4180 interview, the Letter 1153 60-day appeal window, the divisible-tax refund route, joint-and-several liability, and how to fight an assessment.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://www.donovan.law/img/PKD Headshot.jpg">
+  <meta property="article:author" content="Paul K. Donovan">
+  <meta property="article:published_time" content="2026-06-09">
+  <meta property="article:section" content="Tax Controversy">
+  <link rel="apple-touch-icon" href="img/favicon.png">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link href="site.webmanifest" rel="manifest" />
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/fontawesome.min.css" rel="stylesheet" />
+  <link href="css/normalize.css" rel="stylesheet" />
+  <link href="css/main.css?v=20260721a" rel="stylesheet" />
+  <link href="css/animate.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;display=swap"
+    rel="stylesheet" />
+
+  <style>
+    .box > .border-grey > .container:first-of-type {
+      position: relative !important;
+      z-index: 9999 !important;
+    }
+    nav.navbar.menubar {
+      position: relative !important;
+      z-index: 9999 !important;
+    }
+    nav.navbar .nav-item.dropdown {
+      position: relative !important;
+    }
+    .navbar .dropdown-menu,
+    .navbar.menubar .dropdown-menu,
+    nav.navbar .dropdown-menu {
+      z-index: 99999 !important;
+      position: absolute !important;
+    }
+
+    /* Article-specific styles */
+    .article-meta {
+      font-family: "Open Sans", sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #6b6b6b;
+      margin: 1.25rem 0 0.5rem 0;
+    }
+    .article-meta .post-category {
+      color: #107A4D;
+      font-weight: 700;
+    }
+    .article-meta .post-divider {
+      color: #C0C0C0;
+      margin: 0 0.6rem;
+    }
+    .article-headline {
+      font-family: "Gotham Bold", "Open Sans", sans-serif;
+      font-size: 2.1rem;
+      line-height: 1.25;
+      color: #1a1a1a;
+      margin: 0.5rem 0 1.5rem 0;
+    }
+    .article-byline {
+      font-family: "Open Sans", sans-serif;
+      font-size: 0.95rem;
+      color: #4a4a4a;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #d4d4d0;
+    }
+    .article-byline a {
+      color: #107A4D !important;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px dotted #107A4D;
+    }
+    .article-body {
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.08rem;
+      line-height: 1.78;
+      color: #1a1a1a;
+    }
+    .article-body p {
+      margin-bottom: 1.4rem;
+    }
+    .article-body h4 {
+      font-family: "Gotham Bold", "Open Sans", sans-serif;
+      font-size: 1.3rem;
+      color: #107A4D;
+      margin: 2.5rem 0 1rem 0;
+      letter-spacing: 0.5px;
+    }
+    .article-body em {
+      font-style: italic;
+    }
+    .article-body strong {
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+    .article-disclaimer {
+      margin-top: 3rem;
+      padding: 1.5rem 1.75rem;
+      background: #f5f5f0;
+      border-left: 3px solid #107A4D;
+      font-family: "Open Sans", sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #4a4a4a;
+    }
+    .article-related {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #d4d4d0;
+      font-family: "Open Sans", sans-serif;
+    }
+    .article-related a {
+      color: #107A4D !important;
+      font-weight: 600;
+    }
+    .article-back {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      font-family: "Gotham Bold", "Open Sans", sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .article-back a {
+      color: #107A4D !important;
+      text-decoration: none;
+    }
+
+    /* Diagram + callout styles (added for new articles) */
+    .dlfig{margin:2.4rem 0;text-align:center}
+    .dlfig svg{max-width:100%;height:auto;border:1px solid #e3e1d8;background:#fcfcfa;border-radius:4px}
+    .dlfig figcaption{font-family:"Open Sans",sans-serif;font-size:0.82rem;color:#6b6b6b;margin-top:0.7rem;letter-spacing:0.3px;font-style:italic}
+    .dlcallout{margin:2rem 0;padding:1.2rem 1.5rem;background:#f5f7f4;border-left:3px solid #C9A961}
+    .dlcallout, .dlcallout *{font-family:"Open Sans",sans-serif !important;font-size:0.97rem;line-height:1.62;color:#2a2a2a}
+    .dlcallout .lbl{display:block;font-family:"Gotham Bold","Open Sans",sans-serif !important;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:#806633;margin-bottom:0.45rem}
+    .dltable{width:100%;border-collapse:collapse;margin:2rem 0;font-family:"Open Sans",sans-serif;font-size:0.9rem}
+    .dltable th{background:#0a5a37;color:#fff;text-align:left;padding:0.55rem 0.8rem;font-weight:600;font-size:0.8rem;letter-spacing:0.4px}
+    .dltable td{padding:0.55rem 0.8rem;border-bottom:1px solid #e3e1d8;vertical-align:top;color:#1a1a1a}
+    .dltable tr:nth-child(even) td{background:#faf9f5}
+    .cat-chip{display:inline-block;padding:0.12rem 0.55rem;border-radius:3px;font-family:"Gotham Bold","Open Sans",sans-serif;font-size:0.68rem;letter-spacing:1px;text-transform:uppercase;color:#fff;margin-right:0.25rem}
+    .cat-c{background:#107A4D}.cat-a{background:#8a6f1f}.cat-t{background:#537A8B}
+    /* Call-to-action block */
+    .dlcta{margin:3rem 0 0.5rem 0;padding:1.85rem 2rem;background:#0a5a37;border-radius:6px}
+    .dlcta .dlcta-head{font-family:"Gotham Bold","Open Sans",sans-serif;font-size:1.28rem;color:#ffffff;margin-bottom:0.55rem;letter-spacing:0.3px;line-height:1.3}
+    .dlcta p{font-family:"Open Sans",sans-serif !important;font-size:0.98rem !important;line-height:1.62 !important;color:#e6efe9 !important;margin:0 0 1.25rem 0 !important}
+    .dlcta .dlcta-btn{display:inline-block;background:#C9A961;color:#1a1a1a !important;font-family:"Gotham Bold","Open Sans",sans-serif;font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;padding:0.72rem 1.55rem;border-radius:4px;text-decoration:none;font-weight:700;border:none}
+    .dlcta .dlcta-btn:hover{background:#d8bd7e}
+
+    /* grouped Practice dropdown */
+    .dropdown-menu .dd-area, .collapse .dd-area{font-weight:800 !important;color:#107A4D !important;text-transform:uppercase;letter-spacing:.6px;margin-top:.35rem}
+    .dropdown-menu .dd-sub{padding-left:1.7rem !important}
+    .collapse .dd-sub{padding-left:1.5rem !important}
+
+    /* cascading Practice flyout (desktop) */
+    .dropdown-menu[aria-labelledby="navbarDropdown2"]{min-width:215px}
+    .practice-flyout-host .flyout-item{position:relative}
+    .flyout-item > .dd-area{display:flex;justify-content:space-between;align-items:center;font-weight:800 !important;color:#107A4D !important;text-transform:uppercase;letter-spacing:.5px}
+    .flyout-item .flyout-caret{margin-left:1rem;color:#107A4D;font-weight:700}
+    .flyout-item > .flyout-sub{display:none;position:absolute;top:-.35rem;left:100%;min-width:235px;background:#fff;border:1px solid rgba(0,0,0,.12);box-shadow:0 8px 24px rgba(0,0,0,.16);padding:.4rem 0;border-radius:4px;z-index:100002}
+    .flyout-item:hover > .flyout-sub{display:block}
+    .flyout-item > .flyout-sub .dropdown-item{padding-top:.42rem;padding-bottom:.42rem}
+
+    /* mobile nested Practice accordion */
+    .nav-mobile .mobile-parent .mm-parent-label{color:#000;text-decoration:none}
+    .nav-mobile .mobile-parent .mm-parent-label:hover{color:#107a4d}
+    .nav-mobile .m-area-toggle{display:block;width:100%;background:none;border:none;font-size:15px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#107A4D;padding:.45rem 0;margin:.5rem 0 .15rem;cursor:pointer}
+    .nav-mobile .m-area-toggle::after{content:" +";font-weight:700}
+    .nav-mobile .m-area-toggle[aria-expanded="true"]::after{content:" \2212"}
+    .nav-mobile #menu2 .dropdown-item.dd-sub{font-size:14px}
+  </style>
+  <link rel="canonical" href="https://www.donovan.law/blog-trust-fund-recovery-penalty">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","datePublished":"2026-06-09","headline":"The Trust Fund Recovery Penalty: How a Company’s Payroll Tax Becomes Your Personal Debt","url":"https://www.donovan.law/blog-trust-fund-recovery-penalty","author":{"@type":"Organization","name":"Donovan Legal PLLC"},"publisher":{"@type":"Organization","name":"Donovan Legal PLLC","logo":{"@type":"ImageObject","url":"https://www.donovan.law/img/favicon.png"}}}</script>
+</head>
+
+<body>
+  <div class="box h-100">
+    <div class="border-grey">
+      <div class="container">
+        <nav class="navbar menubar padding-0 navbar-expand-lg d-flex align-items-center justify-content-between">
+          <div class="logo animate__animated animate__fadeIn animate__delay-1s">
+            <a href="index.html"><img class="logo" src="img/base-hover.png" / alt="Donovan Legal PLLC logo"></a>
+          </div>
+
+          <div class="burger-toggle animate__animated animate__fadeIn animate__delay-1s">
+            <div class="hamburger">
+              <span class="line"></span>
+              <span class="line"></span>
+              <span class="line"></span>
+            </div>
+          </div>
+
+          <ul id="menu-desktop" class="navbar-nav ml-auto animate__animated animate__fadeIn animate__delay-1s">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">HOME</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="ourfirm.html">ABOUT</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                <a class="dropdown-item" href="ourfirm.html">THE FIRM</a>
+                <a class="dropdown-item" href="profile.html">PAUL DONOVAN, JD, CPA, CCM</a>
+                <a class="dropdown-item" href="tefera.html">DR. TEFERA BEYENE, PhD, CPA</a>
+                <a class="dropdown-item" href="wendy.html">WENDY CARDENAS</a>
+                <a class="dropdown-item" href="leidy.html">LEIDY MEZA</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="practice.html">PRACTICE</a>
+              <div class="dropdown-menu practice-flyout-host" aria-labelledby="navbarDropdown2">
+                <div class="flyout-item">
+                  <a class="dropdown-item dd-area" href="tax.html">TAX<span class="flyout-caret">&rsaquo;</span></a>
+                  <div class="flyout-sub">
+                    <a class="dropdown-item" href="tax-planning.html">Planning</a>
+                    <a class="dropdown-item" href="tax-compliance.html">Compliance</a>
+                    <a class="dropdown-item" href="tax-controversy.html">Controversy</a>
+                  </div>
+                </div>
+                <div class="flyout-item">
+                  <a class="dropdown-item dd-area" href="real-estate.html">REAL ESTATE<span class="flyout-caret">&rsaquo;</span></a>
+                  <div class="flyout-sub">
+                    <a class="dropdown-item" href="re-acquisition.html">Acquisition</a>
+                    <a class="dropdown-item" href="re-ownership.html">Ownership</a>
+                    <a class="dropdown-item" href="re-disposition.html">Disposition</a>
+                  </div>
+                </div>
+                <div class="flyout-item">
+                  <a class="dropdown-item dd-area" href="special-counsel.html">SPECIAL COUNSEL<span class="flyout-caret">&rsaquo;</span></a>
+                  <div class="flyout-sub">
+                    <a class="dropdown-item" href="special-counsel.html#divorce">Divorce &amp; Marital Dissolution</a>
+                    <a class="dropdown-item" href="special-counsel.html#estate-trust">Estate, Trust &amp; Probate Disputes</a>
+                    <a class="dropdown-item" href="special-counsel.html#business-divorce">Business Divorce</a>
+                    <a class="dropdown-item" href="special-counsel.html#litigation-damages">Litigation Damages &amp; Settlement Tax</a>
+                  </div>
+                </div>
+              
+              
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="experience.html">EXPERIENCE</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="testimonials.html">TESTIMONIALS</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="blog.html">RESOURCES</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                <a class="dropdown-item" href="blog.html">BLOG</a>
+                <a class="dropdown-item" href="tools.html">TOOLS</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="engagement.html">MEMBERS</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
+                <a class="dropdown-item" href="gold/"><span class="brand-gold">GOLD</span></a>
+                <a class="dropdown-item" href="platinum/"><span class="brand-platinum">PLATINUM</span></a>
+                <a class="dropdown-item" href="diamond/"><span class="brand-diamond">DIAMOND</span></a>
+                <a class="dropdown-item" href="reserve/"><span class="brand-reserve"><span class="re">RE</span>SERVE</span></a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">CONTACT</a>
+            </li>
+          </ul>
+
+          <nav class="nav-mobile-overlay">
+            <div class="nav-mobile-wrapper">
+              <div class="container">
+                <div class="nav-mobile">
+                  <div class="nav-mobile-header">
+                    <div class="btn-close menu"><i class="fa fa-times"></i></div>
+                  </div>
+                  <div class="nav-mobile-list">
+                    <a href="index.html" class="mobile-menu-item">HOME</a>
+                    <a href="ourfirm.html" class="mobile-menu-item" data-toggle="collapse" data-target="#menu1"
+                      aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                      <span id="theFirm">ABOUT</span>
+                      <button id="btn-tf" class="btn btn-plus" data-toggle="collapse" data-target="#menu1"
+                        aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                        <div id="fa-tf" class="top-icon hidden"><i class="fa fa-minus"></i></div>
+                      </button>
+                      <div class="collapse" id="menu1">
+                        <a class="dropdown-item" href="ourfirm.html">THE FIRM</a>
+                        <a class="dropdown-item" href="profile.html">PAUL DONOVAN, JD, CPA, CCM</a>
+                        <a class="dropdown-item" href="tefera.html">DR. TEFERA BEYENE, PhD, CPA</a>
+                        <a class="dropdown-item" href="wendy.html">WENDY CARDENAS</a>
+                        <a class="dropdown-item" href="leidy.html">LEIDY MEZA</a>
+                      </div>
+                    </a>
+                    <div class="mobile-menu-item mobile-parent">
+                      <a href="practice.html" class="mm-parent-label">PRACTICE</a>
+                      <button id="btn-tp" class="btn btn-plus" data-toggle="collapse" data-target="#menu2"
+                        aria-controls="menu2" aria-expanded="false" aria-label="Toggle Practice">
+                        <div id="fa-tp" class="top-icon hidden"><i class="fa fa-minus"></i></div>
+                      </button>
+                      <div class="collapse" id="menu2">
+                        <button class="m-area-toggle" data-toggle="collapse" data-target="#m2-tax" aria-controls="m2-tax" aria-expanded="false">TAX</button>
+                        <div class="collapse" id="m2-tax">
+                          <a class="dropdown-item dd-sub" href="tax.html">Tax Overview</a>
+                          <a class="dropdown-item dd-sub" href="tax-planning.html">Planning</a>
+                          <a class="dropdown-item dd-sub" href="tax-compliance.html">Compliance</a>
+                          <a class="dropdown-item dd-sub" href="tax-controversy.html">Controversy</a>
+                        </div>
+                        <button class="m-area-toggle" data-toggle="collapse" data-target="#m2-re" aria-controls="m2-re" aria-expanded="false">REAL ESTATE</button>
+                        <div class="collapse" id="m2-re">
+                          <a class="dropdown-item dd-sub" href="real-estate.html">Real Estate Overview</a>
+                          <a class="dropdown-item dd-sub" href="re-acquisition.html">Acquisition</a>
+                          <a class="dropdown-item dd-sub" href="re-ownership.html">Ownership</a>
+                          <a class="dropdown-item dd-sub" href="re-disposition.html">Disposition</a>
+                        </div>
+                        <button class="m-area-toggle" data-toggle="collapse" data-target="#m2-sc" aria-controls="m2-sc" aria-expanded="false">SPECIAL COUNSEL</button>
+                        <div class="collapse" id="m2-sc">
+                          <a class="dropdown-item dd-sub" href="special-counsel.html">Special Counsel Overview</a>
+                          <a class="dropdown-item dd-sub" href="special-counsel.html#divorce">Divorce &amp; Marital Dissolution</a>
+                          <a class="dropdown-item dd-sub" href="special-counsel.html#estate-trust">Estate, Trust &amp; Probate Disputes</a>
+                          <a class="dropdown-item dd-sub" href="special-counsel.html#business-divorce">Business Divorce</a>
+                          <a class="dropdown-item dd-sub" href="special-counsel.html#litigation-damages">Litigation Damages &amp; Settlement Tax</a>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="experience.html" class="mobile-menu-item">EXPERIENCE</a>
+                    <a href="testimonials.html" class="mobile-menu-item">TESTIMONIALS</a>
+                    <a href="blog.html" class="mobile-menu-item" data-toggle="collapse" data-target="#menu3"
+                      aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                      <span id="theResources">RESOURCES</span>
+                      <button id="btn-tr" class="btn btn-plus" data-toggle="collapse" data-target="#menu3"
+                        aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                        <div id="fa-tr" class="top-icon hidden"><i class="fa fa-minus"></i></div>
+                      </button>
+                      <div class="collapse" id="menu3">
+                        <a class="dropdown-item" href="blog.html">BLOG</a>
+                        <a class="dropdown-item" href="tools.html">TOOLS</a>
+                      </div>
+                    </a>
+                    <a href="engagement.html" class="mobile-menu-item" data-toggle="collapse" data-target="#menu4"
+                      aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                      <span id="theMembers">MEMBERS</span>
+                      <button id="btn-tm" class="btn btn-plus" data-toggle="collapse" data-target="#menu4"
+                        aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                        <div id="fa-tm" class="top-icon hidden"><i class="fa fa-minus"></i></div>
+                      </button>
+                      <div class="collapse" id="menu4">
+                        <a class="dropdown-item" href="gold/"><span class="brand-gold">GOLD</span></a>
+                        <a class="dropdown-item" href="platinum/"><span class="brand-platinum">PLATINUM</span></a>
+                        <a class="dropdown-item" href="diamond/"><span class="brand-diamond">DIAMOND</span></a>
+                        <a class="dropdown-item" href="reserve/"><span class="brand-reserve"><span class="re">RE</span>SERVE</span></a>
+                      </div>
+                    </a>
+                    <a href="contact.html" class="mobile-menu-item">CONTACT</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </nav>
+      </div>
+
+      <div class="box-practice keep-m">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+
+              <div class="article-meta animate__animated animate__fadeIn animate__delay-1-5">
+                <span class="post-category">TAX CONTROVERSY</span>
+                <span class="post-divider">&middot;</span>
+                <span>June 9, 2026</span>
+                <span class="post-divider">&middot;</span>
+                <span>14 min read</span>
+              </div>
+
+              <h1 class="article-headline animate__animated animate__fadeIn animate__delay-1-5">The Trust Fund Recovery Penalty: How a Company&rsquo;s Payroll Tax Becomes Your Personal Debt</h1>
+
+              <div class="article-byline animate__animated animate__fadeIn animate__delay-1-8">
+                By <a href="profile.html">Paul K. Donovan, JD, CPA, CCM</a>
+              </div>
+
+              <div class="article-body animate__animated animate__fadeIn animate__delay-2s">
+                <p>Of all the ways an IRS matter can follow a person home, the Trust Fund Recovery Penalty is the most direct. A corporation or LLC ordinarily shields its owners and officers from the entity&rsquo;s debts &mdash; but the TFRP is the great exception. Under <strong>&#167;&nbsp;6672</strong>, the unpaid <em>trust-fund</em> portion of a business&rsquo;s payroll taxes can be assessed personally against the people who ran its finances, in full, even after the company is gone. For a closely held real estate or operating business, it is the liability most likely to reach the individual behind the entity. Here is how it works, and how it is fought.</p>
+
+                <h4>What the penalty actually is</h4>
+                <p>When a business pays wages, it withholds income tax and the employee&rsquo;s share of Social Security and Medicare. Those withheld dollars are not the company&rsquo;s money &mdash; &#167;&nbsp;7501 deems them held <em>in trust</em> for the United States. The TFRP, often called the &ldquo;100% penalty,&rdquo; equals the entire unpaid trust-fund amount. Crucially, it reaches only the trust-fund piece &mdash; the withheld income tax and the <em>employee&rsquo;s</em> share of FICA &mdash; not the employer&rsquo;s matching share or the federal unemployment tax. It is a collection device more than a punishment: it lets the government recover the withheld trust-fund taxes from the individuals responsible when the entity cannot or will not pay, and it survives the company&rsquo;s dissolution or bankruptcy.</p>
+
+                <h4>The two-prong test: responsibility and willfulness</h4>
+                <p>Personal liability under &#167;&nbsp;6672 requires <em>both</em> elements, and the IRS must establish each. The first is being a <strong>responsible person</strong>. The term is defined broadly under &#167;&nbsp;6671(b): it is anyone with the status, duty, and authority to direct the company&rsquo;s finances &mdash; in practice, the person who can decide which creditors get paid and when. Officers, directors, members, bookkeepers with check-signing authority, and sometimes outsiders such as lenders can all qualify. Title is not controlling; effective control over disbursements is.</p>
+                <p>The second is <strong>willfulness</strong>. In this context willfulness does not require a bad motive or an intent to defraud. It means a voluntary, conscious, and intentional decision &mdash; classically, paying other creditors (suppliers, landlords, even net payroll) while knowing the trust-fund taxes were due and unpaid. Reckless disregard of an obvious risk that the taxes were not being paid is enough. That is why the element so often turns on a single question: once you knew the deposits were behind, what did you do with the available cash?</p>
+
+                <figure class="dlfig"><svg viewBox="0 0 760 392" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dlfig-1"><defs><marker id="ah" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#6b6b6b"/></marker></defs><rect x="44" y="24" width="300" height="168" rx="6" fill="#ffffff" stroke="#d4d4d0" stroke-width="1"/><rect x="44" y="24" width="300" height="32" rx="6" fill="#169B62"/><rect x="44" y="49" width="300" height="7" fill="#169B62"/><text x="194.0" y="44.5" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">RESPONSIBLE PERSON</text><text x="194.0" y="74" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.3" font-style="italic" fill="#6b6b6b" text-anchor="middle">status, duty &amp; authority</text><circle cx="60" cy="89.5" r="2.3" fill="#169B62"/><text x="69" y="93" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.8" fill="#1a1a1a" text-anchor="start">Decides which bills get paid</text><circle cx="60" cy="107.5" r="2.3" fill="#169B62"/><text x="69" y="111" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.8" fill="#1a1a1a" text-anchor="start">Signs checks / runs payroll</text><circle cx="60" cy="125.5" r="2.3" fill="#169B62"/><text x="69" y="129" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.8" fill="#1a1a1a" text-anchor="start">Officer, member, or employee</text><circle cx="60" cy="143.5" r="2.3" fill="#169B62"/><text x="69" y="147" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.8" fill="#1a1a1a" text-anchor="start">§ 6671(b) — defined broadly</text><rect x="416" y="24" width="300" height="168" rx="6" fill="#ffffff" stroke="#d4d4d0" stroke-width="1"/><rect x="416" y="24" width="300" height="32" rx="6" fill="#8a6f1f"/><rect x="416" y="49" width="300" height="7" fill="#8a6f1f"/><text x="566.0" y="44.5" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">WILLFULNESS</text><text x="566.0" y="74" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.3" font-style="italic" fill="#6b6b6b" text-anchor="middle">voluntary, conscious, intentional</text><circle cx="432" cy="89.5" r="2.3" fill="#8a6f1f"/><text x="441" y="93" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.8" fill="#1a1a1a" text-anchor="start">Knew the taxes were due</text><circle cx="432" cy="107.5" r="2.3" fill="#8a6f1f"/><text x="441" y="111" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.8" fill="#1a1a1a" text-anchor="start">Paid other creditors first</text><circle cx="432" cy="125.5" r="2.3" fill="#8a6f1f"/><text x="441" y="129" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.8" fill="#1a1a1a" text-anchor="start">Reckless disregard counts</text><circle cx="432" cy="143.5" r="2.3" fill="#8a6f1f"/><text x="441" y="147" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.8" fill="#1a1a1a" text-anchor="start">No evil motive required</text><line x1="194" y1="192" x2="194" y2="212" stroke="#6b6b6b" stroke-width="1.6"/><line x1="566" y1="192" x2="566" y2="212" stroke="#6b6b6b" stroke-width="1.6"/><line x1="194" y1="212" x2="566" y2="212" stroke="#6b6b6b" stroke-width="1.6"/><text x="380" y="208" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#0a5a37" text-anchor="middle">AND</text><line x1="380" y1="212" x2="380" y2="250" stroke="#6b6b6b" stroke-width="1.7" marker-end="url(#ah)"/><rect x="196" y="252" width="368" height="56" rx="6" fill="#a8472a"/><text x="380" y="276" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">PERSONAL LIABILITY · § 6672</text><text x="380" y="296" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#fbe9e2" text-anchor="middle">100% of the trust-fund tax · joint &amp; several</text><rect x="44" y="326" width="672" height="44" rx="6" fill="#f5f7f4" stroke="#d4d4d0" stroke-width="1"/><text x="380" y="353" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.6" fill="#1a1a1a" text-anchor="middle">Trust-fund tax = withheld income tax + the employee’s share of FICA (§ 7501) — not the employer’s share.</text></svg><figcaption id="dlfig-1">Personal liability requires both prongs. Being a responsible person is not enough without willfulness, and willfulness is irrelevant if you had no responsibility.</figcaption></figure>
+
+                <h4>How the IRS builds the case</h4>
+                <p>A revenue officer assigned an unpaid employment-tax account investigates who controlled the money. The centerpiece is the <strong>Form 4180</strong> interview &mdash; the &ldquo;Report of Interview With Individual Relative to Trust Fund Recovery Penalty.&rdquo; Its questions are engineered to pin down both prongs: who signed checks, who decided which bills were paid, who dealt with the payroll company, and when each person learned the deposits were missed. Every answer goes into the file and is used to support an assessment. This is precisely the stage at which an unrepresented person, trying to be helpful, talks themselves into liability.</p>
+
+                <figure class="dlfig"><svg viewBox="0 0 760 246" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dlfig-2"><defs><marker id="ah" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#6b6b6b"/></marker></defs><rect x="16" y="24" width="132" height="84" rx="6" fill="#ffffff" stroke="#d4d4d0" stroke-width="1"/><rect x="16" y="24" width="132" height="30" rx="6" fill="#5E8B9E"/><rect x="16" y="47" width="132" height="7" fill="#5E8B9E"/><text x="82.0" y="43.3" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#fff" text-anchor="middle">UNPAID 941</text><text x="82.0" y="71" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.8" fill="#1a1a1a" text-anchor="middle">Trust-fund tax</text><text x="82.0" y="86.5" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.8" fill="#1a1a1a" text-anchor="middle">withheld + FICA</text><rect x="166" y="24" width="132" height="84" rx="6" fill="#ffffff" stroke="#d4d4d0" stroke-width="1"/><rect x="166" y="24" width="132" height="30" rx="6" fill="#5E8B9E"/><rect x="166" y="47" width="132" height="7" fill="#5E8B9E"/><text x="232.0" y="43.3" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#fff" text-anchor="middle">TFRP REVIEW</text><text x="232.0" y="71" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.8" fill="#1a1a1a" text-anchor="middle">Form 4180</text><text x="232.0" y="86.5" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.8" fill="#1a1a1a" text-anchor="middle">interview</text><rect x="316" y="24" width="132" height="84" rx="6" fill="#ffffff" stroke="#d4d4d0" stroke-width="1"/><rect x="316" y="24" width="132" height="30" rx="6" fill="#8a6f1f"/><rect x="316" y="47" width="132" height="7" fill="#8a6f1f"/><text x="382.0" y="43.3" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#fff" text-anchor="middle">LETTER 1153</text><text x="382.0" y="71" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.8" fill="#1a1a1a" text-anchor="middle">+ Form 2751</text><text x="382.0" y="86.5" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.8" fill="#1a1a1a" text-anchor="middle">proposed assess.</text><rect x="466" y="24" width="132" height="84" rx="6" fill="#ffffff" stroke="#d4d4d0" stroke-width="1"/><rect x="466" y="24" width="132" height="30" rx="6" fill="#169B62"/><rect x="466" y="47" width="132" height="7" fill="#169B62"/><text x="532.0" y="43.3" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#fff" text-anchor="middle">60 DAYS</text><text x="532.0" y="71" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.8" fill="#1a1a1a" text-anchor="middle">Appeal to</text><text x="532.0" y="86.5" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.8" fill="#1a1a1a" text-anchor="middle">IRS Appeals</text><rect x="616" y="24" width="132" height="84" rx="6" fill="#ffffff" stroke="#d4d4d0" stroke-width="1"/><rect x="616" y="24" width="132" height="30" rx="6" fill="#a8472a"/><rect x="616" y="47" width="132" height="7" fill="#a8472a"/><text x="682.0" y="43.3" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#fff" text-anchor="middle">ASSESSED</text><text x="682.0" y="71" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.8" fill="#1a1a1a" text-anchor="middle">100% · § 6672</text><text x="682.0" y="86.5" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.8" fill="#1a1a1a" text-anchor="middle">lien &amp; levy on you</text><line x1="148" y1="66.0" x2="165" y2="66.0" stroke="#6b6b6b" stroke-width="1.7" marker-end="url(#ah)"/><line x1="298" y1="66.0" x2="315" y2="66.0" stroke="#6b6b6b" stroke-width="1.7" marker-end="url(#ah)"/><line x1="448" y1="66.0" x2="465" y2="66.0" stroke="#6b6b6b" stroke-width="1.7" marker-end="url(#ah)"/><line x1="598" y1="66.0" x2="615" y2="66.0" stroke="#6b6b6b" stroke-width="1.7" marker-end="url(#ah)"/><line x1="532.0" y1="108" x2="532.0" y2="150" stroke="#6b6b6b" stroke-width="1.7" marker-end="url(#ah)"/><rect x="300" y="152" width="444" height="62" rx="6" fill="#f5f7f4" stroke="#d4d4d0" stroke-width="1"/><rect x="300" y="152" width="444" height="26" rx="6" fill="#0a5a37"/><rect x="300" y="171" width="444" height="7" fill="#0a5a37"/><text x="522" y="170" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">IF THE 60 DAYS LAPSE — THE DIVISIBLE-TAX ROUTE</text><text x="522" y="197" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.5" fill="#1a1a1a" text-anchor="middle">Pay one employee’s tax · file Form 843 refund claim · sue for refund in court.</text></svg><figcaption id="dlfig-2">The path from an unpaid Form 941 to a personal assessment. The Form 4180 interview and the 60-day Letter 1153 window are the two moments that decide the case.</figcaption></figure>
+
+                <h4>The notice that starts your clock</h4>
+                <p>If the revenue officer concludes a person is both responsible and willful, the IRS issues <strong>Letter 1153</strong> with <strong>Form 2751</strong>, the proposed assessment, which lists each tax period and its trust-fund balance. The letter opens a <strong>60-day</strong> window (75 days if you are outside the United States) to file a written protest with the Independent Office of Appeals. Form 2751 carries an &ldquo;agree&rdquo; box: signing it waives the appeal and authorizes the IRS to assess the penalty against you immediately, after which it can lien and levy your personal assets. The single most damaging mistake in a TFRP matter is signing that box, or letting the 60 days lapse, without advice.</p>
+
+                <div class="dlcallout"><span class="lbl">The 60-day letter is the moment</span>Treat <strong>Letter 1153</strong> like a summons. It opens a 60-day window (75 if abroad) to contest responsibility and willfulness before Appeals &mdash; the last forum where you can fight the merits without first paying. Do not sign Form 2751&rsquo;s &ldquo;agree&rdquo; box, and do not explain your way through a Form 4180 interview without counsel; both convert a defensible position into a personal assessment.</div>
+
+                <h4>How to fight it &mdash; before assessment</h4>
+                <p>The protest is where the case is usually won or lost. The work is factual: assemble the Forms 941 and 941-X, deposit records, bank signature cards, and a timeline of who controlled the money and who knew what, when. The aim is to defeat one prong or the other &mdash; to show the client lacked real authority over disbursements (not a responsible person), or that available funds were encumbered by a lender&rsquo;s lockbox so that payment was not a free, willful choice. There is also a statute defense: the penalty generally must be assessed within the &#167;&nbsp;6501 three-year period running from the Form 941, and a Letter 1153 issued after that period &mdash; or never properly issued &mdash; can invalidate the assessment.</p>
+
+                <div class="dlcallout"><span class="lbl">Reasonable cause is not a defense</span>Unlike the late-filing and late-payment penalties, the TFRP has <strong>no reasonable-cause exception</strong>. Financial distress, a dishonest partner, or a good-faith belief that the company would catch up does not excuse it. The only defenses are that the person was not responsible, or that the failure was not willful &mdash; so the fight is always about those two facts, never about justification.</div>
+
+                <h4>If you miss the 60 days &mdash; the divisible-tax route</h4>
+                <p>Once the penalty is assessed, the ordinary <em>Flora</em> full-payment rule would seem to require paying the entire liability before suing for a refund. The TFRP escapes that because it is a <strong>divisible tax</strong>: a responsible person can pay the trust-fund tax attributable to a <em>single employee</em> for one quarter, file a claim for refund on <strong>Form 843</strong>, and on denial sue for refund in district court or the Court of Federal Claims, where the government counterclaims for the balance. It is slower and costlier than the administrative appeal, and &#167;&nbsp;6672(c) sets conditions (including a bond) to stay collection during the suit &mdash; but it preserves a path to contest liability after the 60 days have run.</p>
+
+                <h4>When more than one person is on the hook</h4>
+                <p>The IRS routinely asserts the TFRP against several people at once &mdash; multiple officers, a controller, a managing member. Each is <strong>jointly and severally</strong> liable for the full trust-fund amount, though the government collects the total only once across all of them and the entity. A responsible person who pays more than a proportionate share is not without recourse: &#167;&nbsp;6672(d) grants a right of <strong>contribution</strong> against the other responsible persons, enforceable in a separate civil action.</p>
+
+                <table class="dltable">
+                  <thead><tr><th>Document</th><th>What it is</th><th>Why it matters</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Form 941</strong></td><td>The employer&rsquo;s quarterly employment-tax return</td><td>Establishes the unpaid trust-fund tax and starts the assessment clock</td></tr>
+                    <tr><td><strong>Form 4180</strong></td><td>The TFRP interview record</td><td>The IRS builds responsibility and willfulness from your own answers</td></tr>
+                    <tr><td><strong>Letter 1153 + Form 2751</strong></td><td>Proposed assessment of the penalty</td><td>Opens the 60-day appeal window; signing the &ldquo;agree&rdquo; box ends the fight</td></tr>
+                    <tr><td><strong>Form 843</strong></td><td>Claim for refund</td><td>The entry point to the divisible-tax refund suit after assessment</td></tr>
+                  </tbody>
+                </table>
+
+                <h4>After assessment</h4>
+                <p>If the penalty is assessed and not overturned, it becomes a personal liability collected like any other &mdash; with the lien and levy machinery, and the Collection Due Process rights that attach to them. Those CDP hearings can address <em>how</em> the IRS collects (installment agreement, offer in compromise, currently-not-collectible status based on personal finances) but generally cannot re-litigate the underlying liability if there was a prior opportunity to contest it through the Letter 1153 protest. That is one more reason the pre-assessment window matters so much: it is the cleanest, and often the only, chance to challenge whether the penalty should exist at all.</p>
+
+                <h4>The practical takeaway</h4>
+                <p>Two moments decide a Trust Fund Recovery Penalty case, and both come early: the <strong>Form 4180 interview</strong>, where the IRS gathers the facts of responsibility and willfulness, and the <strong>60-day Letter 1153 window</strong>, where those facts can still be contested before Appeals without paying. By the time a personal lien or levy appears, the merits are usually settled. The right move on the first sign of an employment-tax problem &mdash; a missed deposit, an RO&rsquo;s call, a request to schedule a 4180 &mdash; is to involve counsel before anyone speaks for the record.</p>
+              </div>
+
+              <div class="dlcta">
+                <div class="dlcta-head">Facing a Trust Fund Recovery Penalty?</div>
+                <p>Donovan Legal defends individuals and businesses across the full arc of IRS enforcement &mdash; examination, collection, and controversy &mdash; from the first notice through Appeals and the courtroom. A Letter 1153 or a request to schedule a Form 4180 interview is the moment to involve counsel &mdash; while responsibility and willfulness are still being decided, not after the penalty lands on you personally.</p>
+                <a href="contact.html" class="dlcta-btn">Request a consultation &rarr;</a>
+              </div>
+
+              <div class="article-related">
+                <p style="margin-bottom: 0.5rem;">Related: <a href="tax-controversy.html">Tax Controversy</a> &middot; <a href="blog-irs-levy.html">IRS Levies</a> &middot; <a href="blog-notice-of-federal-tax-lien.html">The Notice of Federal Tax Lien</a> &middot; <a href="blog-controversy-roadmap-6-collection-alternatives.html">Collection Alternatives</a></p>
+              </div>
+
+              <div class="article-disclaimer">
+                <strong>Disclaimer.</strong> This article is provided for general informational purposes only and does not constitute legal or tax advice. Each tax and legal matter is fact-specific and depends on applicable law, jurisdiction, and individual circumstances. Readers should consult qualified counsel before acting on any information in this article. Reading this article does not create an attorney-client relationship with Donovan Legal PLLC or any of its attorneys. Donovan Legal PLLC, 301 W. Atlantic Avenue, Suite 5, Delray Beach, Florida 33444.
+              </div>
+
+              <div class="article-back">
+                <a href="blog.html">&larr; All Tax Notes</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JORDAN-LAUNCH-POLISH: click-to-call / email / social. Styles live in css/main.css. -->
+      <div class="dl-connect">
+        <a class="dl-connect-cta" href="tel:+15616666022"><svg class="dl-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.03-.24c1.12.37 2.33.57 3.56.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>Click Here To Call Donovan Legal</a>
+        <p class="dl-connect-direct">
+          <a href="tel:+15616666022">(561) 666-6022</a>
+          <span class="dl-connect-sep">|</span>
+          <a href="mailto:info@donovan.law">info@donovan.law</a>
+        </p>
+        <ul class="dl-social">
+          <li><a href="https://www.facebook.com/people/Donovan-Legal-PLLC/61590654057720/" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.324.103a8.16 8.16 0 0 1 1.021.215v3.324c-.153-.015-.33-.03-.582-.045a8.98 8.98 0 0 0-.594-.023c-.673 0-1.194.092-1.583.276a1.73 1.73 0 0 0-.786.732c-.179.303-.256.68-.256 1.155v1.821h3.86l-.334 1.847-.335 1.82h-3.191v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647z"/></svg></a></li>
+          <li><a href="https://www.tiktok.com/@donovan.legal" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on TikTok" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a></li>
+          <li><a href="https://www.instagram.com/donovan_legalpllc" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227a3.81 3.81 0 0 1-.899 1.382 3.744 3.744 0 0 1-1.38.896c-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421a3.716 3.716 0 0 1-1.379-.899 3.644 3.644 0 0 1-.9-1.38c-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.846-10.405a1.441 1.441 0 0 1-2.881 0 1.441 1.441 0 0 1 2.881 0z"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/company/donovan-legal-pllc/" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="copy-inside margin-practice">&copy; Donovan Legal PLLC. 2026. | <a class="disclaimer-link" href="disclaimer.html">DISCLAIMER</a></div>
+    </div>
+  </div>
+  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/js/vendor/jquery-fallback.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+  <!-- JORDAN-LAUNCH-POLISH: sticky click-to-call bar (mobile only, see css/main.css). -->
+  <div class="dl-callbar">
+    <a class="dl-callbar-book" href="/book" data-dl-cta="callbar_book">Book a Free Consultation</a>
+    <a class="dl-callbar-call" href="tel:+15616666022"><svg class="dl-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.03-.24c1.12.37 2.33.57 3.56.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>or call (561) 666-6022</a>
+  </div>
+</body>
+
+</html>

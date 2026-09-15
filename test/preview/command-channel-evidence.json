@@ -1,0 +1,398 @@
+{
+  "order": "SHELDON-PERCH-COMMAND-CHANNEL",
+  "base": "https://e234a1e1.donovan-site.pages.dev",
+  "startedAt": "2026-07-26T00:02:23.870Z",
+  "steps": [
+    {
+      "name": "the router is on and ready for this deployment",
+      "ok": true,
+      "detail": {
+        "ready": true,
+        "container": "#perch-main",
+        "errors": []
+      }
+    },
+    {
+      "name": "the persistent layer mounted outside the swap container",
+      "ok": true,
+      "detail": {
+        "hasContainer": true,
+        "hasLayer": true,
+        "hasOrb": false,
+        "layerInsideContainer": false,
+        "orbInsideContainer": false,
+        "isDirectSibling": true,
+        "orbInsideLayer": false,
+        "layerParent": "div",
+        "containerParent": "div",
+        "ok": true
+      }
+    },
+    {
+      "name": "the command channel EXISTS on a content page (was: null)",
+      "ok": true,
+      "detail": {
+        "commandChannel": {
+          "polling": false,
+          "callId": null,
+          "polls": 0,
+          "commands": 0,
+          "prefillPending": false,
+          "log": []
+        },
+        "qualifierMounted": true
+      }
+    },
+    {
+      "name": "the qualifier element exists, inside the layer (was: absent)",
+      "ok": true,
+      "detail": {
+        "present": true,
+        "inLayer": true,
+        "perchGlobal": "object"
+      }
+    },
+    {
+      "name": "window.__perch is locked on (was: null)",
+      "ok": true,
+      "detail": {
+        "present": true,
+        "inLayer": true,
+        "perchGlobal": "object"
+      }
+    },
+    {
+      "name": "exactly one concierge — the launcher, not a second shell orb",
+      "ok": true,
+      "detail": {
+        "launcher": true,
+        "shellOrb": false
+      }
+    },
+    {
+      "name": "bindCall() — the seam js/donovan-widget.js calls — accepted the call",
+      "ok": true,
+      "detail": {
+        "ok": true
+      }
+    },
+    {
+      "name": "the poll loop is REALLY running against /fn/page-poll, with the header credential",
+      "ok": true,
+      "detail": {
+        "livePolls": 2,
+        "withThisCallId": 2
+      }
+    },
+    {
+      "name": "and the layer agrees it is polling",
+      "ok": true,
+      "detail": {
+        "polling": true,
+        "callId": "set",
+        "polls": 2,
+        "commands": 0,
+        "prefillPending": false,
+        "log": []
+      }
+    },
+    {
+      "name": "the probe does not print the bridge credential",
+      "ok": true,
+      "detail": {
+        "leaked": false
+      }
+    },
+    {
+      "name": "THE HEADLINE: a goto command actually navigates the page",
+      "ok": true,
+      "detail": {
+        "url": "/tax-controversy",
+        "swapsBefore": 0,
+        "swapsAfter": 1,
+        "documentLoads": 0,
+        "instanceBefore": "perch-xqbch0ki",
+        "instanceAfter": "perch-xqbch0ki",
+        "audioBefore": {
+          "clock": 2.7706666666666666,
+          "state": "running"
+        },
+        "audioAfter": {
+          "clock": 3.7813333333333334,
+          "state": "running"
+        }
+      }
+    },
+    {
+      "name": "…as a SWAP, not a document load",
+      "ok": true,
+      "detail": {
+        "url": "/tax-controversy",
+        "swapsBefore": 0,
+        "swapsAfter": 1,
+        "documentLoads": 0,
+        "instanceBefore": "perch-xqbch0ki",
+        "instanceAfter": "perch-xqbch0ki",
+        "audioBefore": {
+          "clock": 2.7706666666666666,
+          "state": "running"
+        },
+        "audioAfter": {
+          "clock": 3.7813333333333334,
+          "state": "running"
+        }
+      }
+    },
+    {
+      "name": "…and the persistent layer is the same instance afterwards",
+      "ok": true,
+      "detail": {
+        "url": "/tax-controversy",
+        "swapsBefore": 0,
+        "swapsAfter": 1,
+        "documentLoads": 0,
+        "instanceBefore": "perch-xqbch0ki",
+        "instanceAfter": "perch-xqbch0ki",
+        "audioBefore": {
+          "clock": 2.7706666666666666,
+          "state": "running"
+        },
+        "audioAfter": {
+          "clock": 3.7813333333333334,
+          "state": "running"
+        }
+      }
+    },
+    {
+      "name": "…and the live call resource survived it (clock advanced, context running)",
+      "ok": true,
+      "detail": {
+        "before": {
+          "clock": 2.7706666666666666,
+          "state": "running"
+        },
+        "after": {
+          "clock": 3.7813333333333334,
+          "state": "running"
+        }
+      }
+    },
+    {
+      "name": "goto_home lands on the homepage WITHOUT a document load (the call survives)",
+      "ok": true,
+      "detail": {
+        "url": "/home",
+        "swaps": 1,
+        "documentLoads": 0,
+        "instanceStable": true
+      }
+    },
+    {
+      "name": "THE HEADLINE: open_qualifier renders a visible, tappable card",
+      "ok": true,
+      "detail": {
+        "present": true,
+        "display": "flex",
+        "rect": {
+          "w": 1280,
+          "h": 720
+        },
+        "cardRect": {
+          "w": 440,
+          "h": 433
+        },
+        "heading": "What type of matter would you like to discuss?",
+        "options": [
+          "tax",
+          "real_estate",
+          "other",
+          "not_sure_matter"
+        ],
+        "topOfCardIsInsideCard": true,
+        "probe": {
+          "mounted": true,
+          "open": true,
+          "lang": "en",
+          "step": 0,
+          "answered": 0,
+          "callId": "set"
+        },
+        "overLauncher": {
+          "zIndex": "80",
+          "hitIsModal": true
+        }
+      }
+    },
+    {
+      "name": "…and the card knows the live call id",
+      "ok": true,
+      "detail": {
+        "mounted": true,
+        "open": true,
+        "lang": "en",
+        "step": 0,
+        "answered": 0,
+        "callId": "set"
+      }
+    },
+    {
+      "name": "…and the orb is UNDER the open card, not on top of it",
+      "ok": true,
+      "detail": {
+        "zIndex": "80",
+        "hitIsModal": true
+      }
+    },
+    {
+      "name": "the completed card POSTs to /fn/qualifier_submit with the live call id",
+      "ok": true,
+      "detail": {
+        "tapped": [
+          "real_estate",
+          "acquisition",
+          "FL",
+          "yourself",
+          "1_5m_3m",
+          "5m_15m"
+        ],
+        "submit": {
+          "matter_category": "real_estate",
+          "matter": "real_estate",
+          "matter_sub": "acquisition",
+          "state": "FL",
+          "for_whom": "yourself",
+          "income_band": "1_5m_3m",
+          "net_worth_band": "5m_15m",
+          "language": "en",
+          "source": "verifier",
+          "call_id": "verify-cmdchan-okriqvk0"
+        },
+        "note": "captured and ABORTED — it forwards to Vantage /upsert-lead"
+      }
+    },
+    {
+      "name": "the call id on the submit IS the one bound to the channel",
+      "ok": true,
+      "detail": {
+        "expected": "verify-cmdchan-okriqvk0",
+        "got": "verify-cmdchan-okriqvk0"
+      }
+    },
+    {
+      "name": "and the caller sees the done card",
+      "ok": true,
+      "detail": {
+        "text": "All setThanks — that’s what I needed\n      Paula has it. She’ll pull up the calendar so you can pick a time.\n      Conti"
+      }
+    },
+    {
+      "name": "the channel is still polling after three navigations",
+      "ok": true,
+      "detail": {
+        "polling": true,
+        "callId": "set",
+        "polls": 7,
+        "commands": 3,
+        "prefillPending": false,
+        "log": [
+          {
+            "cmd": "navigate",
+            "target": "/tax-controversy.html",
+            "via": "host.go"
+          },
+          {
+            "cmd": "navigate",
+            "target": "/index.html",
+            "via": "host.go"
+          },
+          {
+            "cmd": "open_qualifier",
+            "via": "openQualifier"
+          }
+        ]
+      }
+    },
+    {
+      "name": "releaseCall() stops it",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "NOTHING reached the booking write path",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "no CSP violation — the modules are same-origin externals",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "no uncaught page errors",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "the SHELL at /perch still serves and still builds its own concierge",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "orb": true,
+        "qual": true,
+        "iframe": true,
+        "frameSrc": "/home.html",
+        "layerInShell": false,
+        "writes": []
+      }
+    }
+  ],
+  "writes": [],
+  "qualifierSubmits": [
+    {
+      "matter_category": "real_estate",
+      "matter": "real_estate",
+      "matter_sub": "acquisition",
+      "state": "FL",
+      "for_whom": "yourself",
+      "income_band": "1_5m_3m",
+      "net_worth_band": "5m_15m",
+      "language": "en",
+      "source": "verifier",
+      "call_id": "verify-cmdchan-okriqvk0"
+    }
+  ],
+  "livePolls": [
+    {
+      "header": "verify-cmdchan-okriqvk0",
+      "mode": "passthrough"
+    },
+    {
+      "header": "verify-cmdchan-okriqvk0",
+      "mode": "passthrough"
+    }
+  ],
+  "console": [
+    {
+      "type": "log",
+      "text": "[perch] page-control → {cmd: navigate, target: /tax-controversy.html}"
+    },
+    {
+      "type": "log",
+      "text": "[perch] page-control → {cmd: navigate, target: /index.html}"
+    },
+    {
+      "type": "log",
+      "text": "[perch] page-control → {cmd: open_qualifier, payload: Object}"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    }
+  ],
+  "pageErrors": [],
+  "cspViolations": [],
+  "finishedAt": "2026-07-26T00:02:36.309Z",
+  "passed": 27,
+  "failed": 0,
+  "verdict": "GO"
+}

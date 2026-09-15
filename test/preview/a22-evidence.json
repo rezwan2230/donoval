@@ -1,0 +1,2482 @@
+{
+  "order": "SHELDON-PERCH-A22-SWUP",
+  "ticket": 52,
+  "base": "https://sheldon-perch-a22-swup.donovan-site.pages.dev",
+  "startedAt": "2026-07-24T23:33:13.672Z",
+  "pageSet": {
+    "interceptable": 95,
+    "swept": 94,
+    "quick": false
+  },
+  "steps": [
+    {
+      "name": "the router is injected and wired on Preview",
+      "ok": true,
+      "detail": {
+        "container": "#perch-main",
+        "layerRouterRegistered": true,
+        "chrome": {
+          "ok": true,
+          "nav": true,
+          "jquery": true
+        }
+      }
+    },
+    {
+      "name": "the persistent layer mounted outside the container",
+      "ok": true,
+      "detail": {
+        "hasContainer": true,
+        "hasLayer": true,
+        "hasOrb": false,
+        "layerInsideContainer": false,
+        "orbInsideContainer": false,
+        "isDirectSibling": true,
+        "orbInsideLayer": false,
+        "layerParent": "div",
+        "containerParent": "div",
+        "ok": true
+      }
+    },
+    {
+      "name": "swept 94 interceptable pages in one document",
+      "ok": true,
+      "detail": {
+        "failures": 0,
+        "swaps": 94,
+        "failed": [],
+        "documentLoads": 0
+      }
+    },
+    {
+      "name": "no full document reload occurred during the sweep",
+      "ok": true,
+      "detail": {
+        "reloads": 0,
+        "where": []
+      }
+    },
+    {
+      "name": "the persistent layer and its live resource survived every swap",
+      "ok": true,
+      "detail": {
+        "instanceId": "perch-ea9pb8u0",
+        "audioFrom": {
+          "clock": 0,
+          "state": "running"
+        },
+        "audioTo": {
+          "clock": 48.392,
+          "state": "running"
+        },
+        "ticks": 496
+      }
+    },
+    {
+      "name": "every `.html` link resolved to its clean URL in the address bar",
+      "ok": true,
+      "detail": {
+        "dirty": []
+      }
+    },
+    {
+      "name": "the booking-gate reveal fires after a contact → book swap",
+      "ok": true,
+      "detail": {
+        "present": true,
+        "gateHidden": true,
+        "liveVisible": true,
+        "widgetBooted": true,
+        "turnstileLoaded": true,
+        "dlReady": true
+      }
+    },
+    {
+      "name": "and it fired because the end-of-body widget was adopted, not by luck",
+      "ok": true,
+      "detail": [
+        "/js/dl-init.js",
+        "/js/page/booking-gate.js",
+        "https://challenges.cloudflare.com/turnstile/v0/api.js",
+        "/js/booking-widget.js"
+      ]
+    },
+    {
+      "name": "a DEEP tier URL reaches the edge and challenges for Basic auth",
+      "ok": true,
+      "detail": {
+        "path": "/diamond/tool-economics",
+        "status": 401,
+        "authHeader": "Basic realm=\"Donovan Legal - Diamond Members\", charset=\"UTF-8\"",
+        "routerGoneWithTheOldDocument": true,
+        "swapsBefore": 1
+      }
+    },
+    {
+      "name": "a page with no site chrome hard-navigates rather than stripping the destination",
+      "ok": true,
+      "detail": {
+        "from": "/blog-controversy-roadmap-0-overview",
+        "chrome": {
+          "ok": false,
+          "nav": false,
+          "jquery": false
+        },
+        "documentLoads": 1,
+        "destinationHasNav": true
+      }
+    },
+    {
+      "name": "spike F2 — the input formatter is re-attached on a RETURN visit",
+      "ok": true,
+      "detail": {
+        "firstVisit": true,
+        "present": true,
+        "attached": true
+      }
+    },
+    {
+      "name": "and the calculator still computes a real result after the swap",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "total": "$500,000",
+        "at15": "$300,000"
+      }
+    },
+    {
+      "name": "§5 row 11 — GA4 page_view is a reported PENDING stub, not a silent gap",
+      "ok": true,
+      "detail": {
+        "step": 11,
+        "name": "GA4 manual page_view",
+        "status": "pending",
+        "detail": {
+          "reason": "no GA4 tag on this site — the G- measurement id is an external blocker (HANDOFF.md:120, A0.3 §3.8)"
+        }
+      }
+    },
+    {
+      "name": "§5 rows 7 and 8 are reported as deferred to Phase 3, not dropped",
+      "ok": true,
+      "detail": {
+        "rows": [
+          "1:ok",
+          "2:replaced",
+          "3:ok",
+          "4:survives",
+          "5:absent",
+          "6:covered",
+          "7:deferred",
+          "8:deferred",
+          "9:ok",
+          "10:ok",
+          "11:pending"
+        ]
+      }
+    },
+    {
+      "name": "zero CSP violations",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "zero uncaught page errors",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "the §5 recipe reported no broken row on any swap",
+      "ok": true,
+      "detail": null
+    }
+  ],
+  "swaps": [
+    {
+      "to": "/404",
+      "url": "/404",
+      "urlIsClean": true,
+      "swaps": 1,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 0.16,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/about-membership",
+      "url": "/engagement",
+      "urlIsClean": true,
+      "swaps": 2,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 0.6613333333333333,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog",
+      "url": "/blog",
+      "urlIsClean": true,
+      "swaps": 3,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 1.1706666666666667,
+        "state": "running"
+      },
+      "adopted": [
+        "/js/dl-init.js",
+        "/js/page/blog-filter.js"
+      ],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-461l-excess-business-loss-and-172-nol",
+      "url": "/blog-461l-excess-business-loss-and-172-nol",
+      "urlIsClean": true,
+      "swaps": 4,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 1.68,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-augusta-rule-280a-g",
+      "url": "/blog-augusta-rule-280a-g",
+      "urlIsClean": true,
+      "swaps": 5,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 2.2,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-bramblett-phelan-two-entity-structure",
+      "url": "/blog-bramblett-phelan-two-entity-structure",
+      "urlIsClean": true,
+      "swaps": 6,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 2.7306666666666666,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-character-amount-timing",
+      "url": "/blog-character-amount-timing",
+      "urlIsClean": true,
+      "swaps": 7,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 3.24,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-civil-fraud-eggshell-audit",
+      "url": "/blog-civil-fraud-eggshell-audit",
+      "urlIsClean": true,
+      "swaps": 8,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 3.76,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-conservation-easement-settlement",
+      "url": "/blog-conservation-easement-settlement",
+      "urlIsClean": true,
+      "swaps": 9,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 4.28,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-controversy-roadmap-0-overview",
+      "url": "/blog-controversy-roadmap-0-overview",
+      "urlIsClean": true,
+      "swaps": 10,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 4.810666666666667,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-controversy-roadmap-1-processing-assessment",
+      "url": "/blog-controversy-roadmap-1-processing-assessment",
+      "urlIsClean": true,
+      "swaps": 11,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 5.32,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-controversy-roadmap-2-exam",
+      "url": "/blog-controversy-roadmap-2-exam",
+      "urlIsClean": true,
+      "swaps": 12,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 5.850666666666666,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-controversy-roadmap-3-exam-alternatives",
+      "url": "/blog-controversy-roadmap-3-exam-alternatives",
+      "urlIsClean": true,
+      "swaps": 13,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 6.370666666666667,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-controversy-roadmap-4-appeals",
+      "url": "/blog-controversy-roadmap-4-appeals",
+      "urlIsClean": true,
+      "swaps": 14,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 6.872,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-controversy-roadmap-5-collection",
+      "url": "/blog-controversy-roadmap-5-collection",
+      "urlIsClean": true,
+      "swaps": 15,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 7.392,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-controversy-roadmap-6-collection-alternatives",
+      "url": "/blog-controversy-roadmap-6-collection-alternatives",
+      "urlIsClean": true,
+      "swaps": 16,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 7.92,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-controversy-roadmap-7-litigation",
+      "url": "/blog-controversy-roadmap-7-litigation",
+      "urlIsClean": true,
+      "swaps": 17,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 8.432,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-criminal-tax-overview",
+      "url": "/blog-criminal-tax-overview",
+      "urlIsClean": true,
+      "swaps": 18,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 8.941333333333333,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-currently-not-collectible-csed",
+      "url": "/blog-currently-not-collectible-csed",
+      "urlIsClean": true,
+      "swaps": 19,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 9.461333333333334,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-fbar-foreign-account-penalties",
+      "url": "/blog-fbar-foreign-account-penalties",
+      "urlIsClean": true,
+      "swaps": 20,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 9.981333333333334,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-firpta-foreign-sellers",
+      "url": "/blog-firpta-foreign-sellers",
+      "urlIsClean": true,
+      "swaps": 21,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 10.512,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-foreclose-federal-tax-lien-suit",
+      "url": "/blog-foreclose-federal-tax-lien-suit",
+      "urlIsClean": true,
+      "swaps": 22,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 11.032,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-irs-audit-notice-what-to-do",
+      "url": "/blog-irs-audit-notice-what-to-do",
+      "urlIsClean": true,
+      "swaps": 23,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 11.541333333333334,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-irs-co-owned-marital-real-estate",
+      "url": "/blog-irs-co-owned-marital-real-estate",
+      "urlIsClean": true,
+      "swaps": 24,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 12.050666666666666,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-irs-levy",
+      "url": "/blog-irs-levy",
+      "urlIsClean": true,
+      "swaps": 25,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 12.581333333333333,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-irs-summons",
+      "url": "/blog-irs-summons",
+      "urlIsClean": true,
+      "swaps": 26,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 13.112,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-jeopardy-termination-assessments",
+      "url": "/blog-jeopardy-termination-assessments",
+      "urlIsClean": true,
+      "swaps": 27,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 13.621333333333334,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-kwong-covid-deadlines",
+      "url": "/blog-kwong-covid-deadlines",
+      "urlIsClean": true,
+      "swaps": 28,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 14.152,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-material-participation-seven-tests",
+      "url": "/blog-material-participation-seven-tests",
+      "urlIsClean": true,
+      "swaps": 29,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 14.661333333333333,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-notice-of-federal-tax-lien",
+      "url": "/blog-notice-of-federal-tax-lien",
+      "urlIsClean": true,
+      "swaps": 30,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 15.181333333333333,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-partnership-agreement-tax-document",
+      "url": "/blog-partnership-agreement-tax-document",
+      "urlIsClean": true,
+      "swaps": 31,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 15.690666666666667,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-passport-revocation-tax-debt",
+      "url": "/blog-passport-revocation-tax-debt",
+      "urlIsClean": true,
+      "swaps": 32,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 16.21066666666667,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-penalty-regime-6751b",
+      "url": "/blog-penalty-regime-6751b",
+      "urlIsClean": true,
+      "swaps": 33,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 16.730666666666668,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-per-se-passive-rule-exceptions",
+      "url": "/blog-per-se-passive-rule-exceptions",
+      "urlIsClean": true,
+      "swaps": 34,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 17.261333333333333,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-real-estate-professional-status-reps",
+      "url": "/blog-real-estate-professional-status-reps",
+      "urlIsClean": true,
+      "swaps": 35,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 17.781333333333333,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-short-term-rental-material-participation",
+      "url": "/blog-short-term-rental-material-participation",
+      "urlIsClean": true,
+      "swaps": 36,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 18.290666666666667,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-short-term-rental-play",
+      "url": "/blog-short-term-rental-play",
+      "urlIsClean": true,
+      "swaps": 37,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 18.82133333333333,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-subdivision-basis-allocation",
+      "url": "/blog-subdivision-basis-allocation",
+      "urlIsClean": true,
+      "swaps": 38,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 19.341333333333335,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-substitute-for-return",
+      "url": "/blog-substitute-for-return",
+      "urlIsClean": true,
+      "swaps": 39,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 19.850666666666665,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-tax-opinions",
+      "url": "/blog-tax-opinions",
+      "urlIsClean": true,
+      "swaps": 40,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 20.370666666666665,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-tenancy-by-entirety-federal-tax-lien",
+      "url": "/blog-tenancy-by-entirety-federal-tax-lien",
+      "urlIsClean": true,
+      "swaps": 41,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 20.890666666666668,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-transferee-nominee-alter-ego",
+      "url": "/blog-transferee-nominee-alter-ego",
+      "urlIsClean": true,
+      "swaps": 42,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 21.4,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/blog-trust-fund-recovery-penalty",
+      "url": "/blog-trust-fund-recovery-penalty",
+      "urlIsClean": true,
+      "swaps": 43,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 21.92,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/book",
+      "url": "/book",
+      "urlIsClean": true,
+      "swaps": 44,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 22.450666666666667,
+        "state": "running"
+      },
+      "adopted": [
+        "/js/page/booking-gate.js",
+        "https://challenges.cloudflare.com/turnstile/v0/api.js",
+        "/js/booking-widget.js"
+      ],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/business-formation",
+      "url": "/entity-formation",
+      "urlIsClean": true,
+      "swaps": 45,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 22.981333333333332,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/business-law",
+      "url": "/business-law",
+      "urlIsClean": true,
+      "swaps": 46,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 23.501333333333335,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/contracts",
+      "url": "/contracts",
+      "urlIsClean": true,
+      "swaps": 47,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 24,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/desclimer",
+      "url": "/disclaimer",
+      "urlIsClean": true,
+      "swaps": 48,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 24.530666666666665,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/development",
+      "url": "/development",
+      "urlIsClean": true,
+      "swaps": 49,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 25.050666666666668,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/disclaimer",
+      "url": "/disclaimer",
+      "urlIsClean": true,
+      "swaps": 50,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 25.56,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/eminent-domain",
+      "url": "/eminent-domain",
+      "urlIsClean": true,
+      "swaps": 51,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 26.072,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/engagement",
+      "url": "/engagement",
+      "urlIsClean": true,
+      "swaps": 52,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 26.592,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/entity-formation",
+      "url": "/entity-formation",
+      "urlIsClean": true,
+      "swaps": 53,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 27.101333333333333,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/experience",
+      "url": "/experience",
+      "urlIsClean": true,
+      "swaps": 54,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 27.632,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/financing",
+      "url": "/re-financing",
+      "urlIsClean": true,
+      "swaps": 55,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 28.16,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/formation",
+      "url": "/entity-formation",
+      "urlIsClean": true,
+      "swaps": 56,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 28.672,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/home",
+      "url": "/home",
+      "urlIsClean": true,
+      "swaps": 57,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 29.2,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/leasing",
+      "url": "/leasing",
+      "urlIsClean": true,
+      "swaps": 58,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 29.730666666666668,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/leidy",
+      "url": "/leidy",
+      "urlIsClean": true,
+      "swaps": 59,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 30.250666666666667,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/litigation",
+      "url": "/litigation",
+      "urlIsClean": true,
+      "swaps": 60,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 30.752,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/login",
+      "url": "/login",
+      "urlIsClean": true,
+      "swaps": 61,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 31.272,
+        "state": "running"
+      },
+      "adopted": [
+        "/js/page/login-coming-soon.js"
+      ],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/members/about-membership",
+      "url": "/engagement",
+      "urlIsClean": true,
+      "swaps": 62,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 31.8,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/ourfirm",
+      "url": "/ourfirm",
+      "urlIsClean": true,
+      "swaps": 63,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 32.312,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/practice",
+      "url": "/practice",
+      "urlIsClean": true,
+      "swaps": 64,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 32.821333333333335,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/profile",
+      "url": "/profile",
+      "urlIsClean": true,
+      "swaps": 65,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 33.352,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/property-acquisition",
+      "url": "/property-acquisition",
+      "urlIsClean": true,
+      "swaps": 66,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 33.88,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/re-acquisition",
+      "url": "/re-acquisition",
+      "urlIsClean": true,
+      "swaps": 67,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 34.392,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/re-disposition",
+      "url": "/re-disposition",
+      "urlIsClean": true,
+      "swaps": 68,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 34.912,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/re-financing",
+      "url": "/re-financing",
+      "urlIsClean": true,
+      "swaps": 69,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 35.432,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/re-ownership",
+      "url": "/re-ownership",
+      "urlIsClean": true,
+      "swaps": 70,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 35.94133333333333,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/re-transaction",
+      "url": "/property-acquisition",
+      "urlIsClean": true,
+      "swaps": 71,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 36.464,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/real-estate",
+      "url": "/real-estate",
+      "urlIsClean": true,
+      "swaps": 72,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 36.992,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/special-counsel",
+      "url": "/special-counsel",
+      "urlIsClean": true,
+      "swaps": 73,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 37.501333333333335,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/tax",
+      "url": "/tax",
+      "urlIsClean": true,
+      "swaps": 74,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 38.032,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/tax-compliance",
+      "url": "/tax-compliance",
+      "urlIsClean": true,
+      "swaps": 75,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 38.541333333333334,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/tax-controversies",
+      "url": "/tax-controversy",
+      "urlIsClean": true,
+      "swaps": 76,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 39.050666666666665,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/tax-controversy",
+      "url": "/tax-controversy",
+      "urlIsClean": true,
+      "swaps": 77,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 39.58133333333333,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/tax-planning",
+      "url": "/tax-planning",
+      "urlIsClean": true,
+      "swaps": 78,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 40.090666666666664,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/taxation",
+      "url": "/tax",
+      "urlIsClean": true,
+      "swaps": 79,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 40.61066666666667,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/tefera",
+      "url": "/tefera",
+      "urlIsClean": true,
+      "swaps": 80,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 41.13066666666667,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/testimonials",
+      "url": "/testimonials",
+      "urlIsClean": true,
+      "swaps": 81,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 41.64,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/the-cmm",
+      "url": "/practice",
+      "urlIsClean": true,
+      "swaps": 82,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 42.16,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/the-cmm2",
+      "url": "/practice",
+      "urlIsClean": true,
+      "swaps": 83,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 42.68,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/tool-capital-gains",
+      "url": "/tool-capital-gains",
+      "urlIsClean": true,
+      "swaps": 84,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 43.192,
+        "state": "running"
+      },
+      "adopted": [
+        "/js/page/tool-capital-gains.js",
+        "/js/page/input-formatter.js",
+        "/js/inline-actions.js"
+      ],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/tool-cost-segregation",
+      "url": "/tool-cost-segregation",
+      "urlIsClean": true,
+      "swaps": 85,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 43.712,
+        "state": "running"
+      },
+      "adopted": [
+        "/js/page/tool-cost-segregation.js"
+      ],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/tool-deal-builder",
+      "url": "/tool-deal-builder",
+      "urlIsClean": true,
+      "swaps": 86,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 44.221333333333334,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/tool-deal-builder-preview",
+      "url": "/tool-deal-builder-preview",
+      "urlIsClean": true,
+      "swaps": 87,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 44.752,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/tool-economics",
+      "url": "/tool-economics",
+      "urlIsClean": true,
+      "swaps": 88,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 45.26133333333333,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/tool-entity-formation-multi",
+      "url": "/tool-entity-formation-multi",
+      "urlIsClean": true,
+      "swaps": 89,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 45.781333333333336,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/tool-irs-notice-guide",
+      "url": "/tool-irs-notice-guide",
+      "urlIsClean": true,
+      "swaps": 90,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 46.29066666666667,
+        "state": "running"
+      },
+      "adopted": [
+        "/js/page/tool-irs-notice-guide.js"
+      ],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/tool-oic-rcp-estimator",
+      "url": "/tool-oic-rcp-estimator",
+      "urlIsClean": true,
+      "swaps": 91,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 46.81066666666667,
+        "state": "running"
+      },
+      "adopted": [
+        "/js/page/tool-oic-rcp-estimator.js"
+      ],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/tool-structuring",
+      "url": "/tool-structuring",
+      "urlIsClean": true,
+      "swaps": 92,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 47.32,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/tools",
+      "url": "/tools",
+      "urlIsClean": true,
+      "swaps": 93,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 47.85066666666667,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    },
+    {
+      "to": "/wendy",
+      "url": "/wendy",
+      "urlIsClean": true,
+      "swaps": 94,
+      "documentLoads": 0,
+      "hasContainer": true,
+      "layerAlive": true,
+      "instanceStable": true,
+      "ticksAdvanced": true,
+      "audio": {
+        "clock": 48.370666666666665,
+        "state": "running"
+      },
+      "adopted": [],
+      "refusedUnlisted": [],
+      "recipeBroken": [],
+      "error": null,
+      "audioAdvanced": true,
+      "onlyAllowListed": true,
+      "noUnlistedRefusals": true
+    }
+  ],
+  "console": [
+    "log: [Donovan formatter] attached 2 currency + 0 percent inputs",
+    "log: [Donovan formatter] attached 2 currency + 0 percent inputs",
+    "log: [Donovan formatter] attached 2 currency + 5 percent inputs",
+    "log: [Donovan formatter] attached 0 currency + 0 percent inputs",
+    "log: [Donovan formatter] attached 0 currency + 0 percent inputs",
+    "log: [Donovan formatter] attached 0 currency + 0 percent inputs",
+    "log: [Donovan formatter] attached 0 currency + 0 percent inputs",
+    "log: [Donovan formatter] attached 0 currency + 0 percent inputs",
+    "log: [Donovan formatter] attached 4 currency + 0 percent inputs",
+    "log: [Donovan formatter] attached 0 currency + 0 percent inputs",
+    "log: [Donovan formatter] attached 0 currency + 0 percent inputs",
+    "log: [Donovan formatter] attached 0 currency + 0 percent inputs",
+    "error: Failed to load resource: the server responded with a status of 401 ()",
+    "error: Error: <svg> attribute height: Expected length, \"auto\".",
+    "log: [Donovan formatter] attached 2 currency + 0 percent inputs",
+    "log: [Donovan formatter] attached 2 currency + 0 percent inputs",
+    "log: [Donovan formatter] attached 0 currency + 0 percent inputs",
+    "log: [Donovan formatter] attached 2 currency + 0 percent inputs"
+  ],
+  "cspViolations": [],
+  "pageErrors": [],
+  "loadEvents": 6,
+  "verdict": {
+    "routerReady": true,
+    "sweptPages": 94,
+    "swapFailures": 0,
+    "fullReloadsDuringSweep": 0,
+    "passed": true
+  },
+  "boot": {
+    "router": {
+      "ready": true,
+      "container": "#perch-main",
+      "swaps": 0,
+      "layerRouterRegistered": true,
+      "chrome": {
+        "ok": true,
+        "nav": true,
+        "jquery": true
+      },
+      "errors": [],
+      "ignored": [],
+      "log": []
+    },
+    "layer": {
+      "instanceId": "perch-ea9pb8u0",
+      "ticks": 8,
+      "uptimeMs": 831.8000000119209,
+      "hostFallback": false,
+      "callLive": null,
+      "callUptimeMs": null,
+      "concierge": {
+        "kind": "widget",
+        "count": 1,
+        "allInLayer": true,
+        "insideContainer": false
+      },
+      "resources": {},
+      "placement": {
+        "hasContainer": true,
+        "hasLayer": true,
+        "hasOrb": false,
+        "layerInsideContainer": false,
+        "orbInsideContainer": false,
+        "isDirectSibling": true,
+        "orbInsideLayer": false,
+        "layerParent": "div",
+        "containerParent": "div",
+        "ok": true
+      }
+    }
+  },
+  "reveal": {
+    "gate": {
+      "present": true,
+      "gateHidden": true,
+      "liveVisible": true,
+      "widgetBooted": true,
+      "turnstileLoaded": true,
+      "dlReady": true
+    },
+    "adopted": [
+      "/js/dl-init.js",
+      "/js/page/booking-gate.js",
+      "https://challenges.cloudflare.com/turnstile/v0/api.js",
+      "/js/booking-widget.js"
+    ]
+  },
+  "returnVisit": {
+    "firstVisit": true,
+    "back": {
+      "present": true,
+      "attached": true
+    },
+    "computed": {
+      "ok": true,
+      "total": "$500,000",
+      "at15": "$300,000"
+    },
+    "recipe": {
+      "rows": [
+        {
+          "step": 1,
+          "name": "head sync",
+          "status": "ok",
+          "detail": {
+            "title": null,
+            "canonical": null
+          }
+        },
+        {
+          "step": 2,
+          "name": "re-execute page scripts",
+          "status": "replaced",
+          "detail": {
+            "by": "the swap-policy.js adoption allow-list — an allow-list of external files, never a re-execution of the incoming markup"
+          }
+        },
+        {
+          "step": 3,
+          "name": "site nav outside the container",
+          "status": "ok",
+          "detail": {
+            "targets": 11,
+            "inside": []
+          }
+        },
+        {
+          "step": 4,
+          "name": "delegated handlers (bootstrap data-api, inline-actions, members-gate, tel/mailto escape)",
+          "status": "survives",
+          "detail": {
+            "why": "all bound on `document`"
+          }
+        },
+        {
+          "step": 5,
+          "name": "booking widget boot()",
+          "status": "absent",
+          "detail": {
+            "reason": "js/booking-widget.js not loaded on this page"
+          }
+        },
+        {
+          "step": 6,
+          "name": "/book unlock gate",
+          "status": "covered",
+          "detail": {
+            "by": "js/page/booking-gate.js registered through DL.ready; it re-runs on the dl:content-swapped event this router dispatches"
+          }
+        },
+        {
+          "step": 7,
+          "name": "re-hand the call id (set_call_id)",
+          "status": "deferred",
+          "detail": {
+            "to": "Phase 3 — the postMessage booking control channel, out of scope for #52"
+          }
+        },
+        {
+          "step": 8,
+          "name": "re-deliver prefill",
+          "status": "deferred",
+          "detail": {
+            "to": "Phase 3 — same control channel"
+          }
+        },
+        {
+          "step": 9,
+          "name": "vantage beacon: pushState only",
+          "status": "ok",
+          "detail": {
+            "pushStateHooked": true,
+            "reloaded": false
+          }
+        },
+        {
+          "step": 10,
+          "name": "input formatter re-attach",
+          "status": "ok",
+          "detail": {
+            "currency": 2,
+            "percent": 0
+          }
+        },
+        {
+          "step": 11,
+          "name": "GA4 manual page_view",
+          "status": "pending",
+          "detail": {
+            "reason": "no GA4 tag on this site — the G- measurement id is an external blocker (HANDOFF.md:120, A0.3 §3.8)"
+          }
+        }
+      ],
+      "broken": []
+    }
+  },
+  "finishedAt": "2026-07-24T23:34:11.386Z"
+}

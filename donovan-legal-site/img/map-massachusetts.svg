@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1360 830" role="img" aria-labelledby="mamap-t mamap-d" class="dl-statemap">
+<title id="mamap-t">Massachusetts tax audit and appeal roadmap</title>
+<desc id="mamap-d">A station map of a Massachusetts Department of Revenue tax dispute: the audit, the Notice of Intent to Assess with a 30-day window to request a pre-assessment conference on Form DR-1, the Notice of Assessment, the application for abatement on Form ABT, review by the Office of Appeals with its six-month deemed-denial rule, the Notice of Abatement Determination, appeal to the Appellate Tax Board within 60 days, and onward to the Massachusetts Appeals Court.</desc>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#12643F"/></marker></defs>
+<style>.stn rect{transition:fill .18s ease,stroke-width .18s ease}.stn:hover rect,.stn:focus rect{fill:#EDF3EF;stroke-width:2.8}.stn:focus{outline:none}.stn:focus rect{stroke:#C9A961}</style>
+<rect width="1360" height="830" fill="#F6F5F1"/>
+<text x="52" y="56" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" letter-spacing="3.4" font-weight="700" fill="#C9A961">STATE ROADMAP · MASSACHUSETTS</text>
+<text x="52" y="100" font-family="Georgia, 'Times New Roman', serif" font-size="32" font-weight="700" fill="#1B1B1B">The Massachusetts Tax Appeal</text>
+<text x="52" y="130" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" fill="#434343">Two appeal windows — one before assessment, one after — and an independent board at the end.</text>
+<line x1="52" y1="152" x2="1308" y2="152" stroke="#C9A961" stroke-width="1.4"/>
+<a href="/massachusetts-tax-appeal#audit" class="stn" aria-label="The Audit">
+<g id="ma1">
+<rect x="52" y="196" width="312" height="126" rx="3" fill="#FFFFFF" stroke="#0C5334" stroke-width="1.6"/>
+<text x="68" y="222" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="1.8" fill="#C9A961" font-weight="700">STATION 1</text>
+<text x="68" y="248" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#0C5334" font-weight="700">The Audit</text>
+<text x="68" y="276" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">DOR examination of the return</text>
+<text x="68" y="293" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">or of the account.</text>
+</g></a>
+<line x1="368" y1="259.0" x2="514" y2="259.0" stroke="#12643F" stroke-width="1.6" marker-end="url(#ar)"/>
+<a href="/massachusetts-tax-appeal#nia" class="stn" aria-label="Notice of Intent to Assess — NIA">
+<g id="ma2">
+<rect x="524" y="196" width="312" height="126" rx="3" fill="#FFFFFF" stroke="#0C5334" stroke-width="1.6"/>
+<text x="540" y="222" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="1.8" fill="#C9A961" font-weight="700">STATION 2</text>
+<text x="540" y="248" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#0C5334" font-weight="700">Notice of Intent</text>
+<text x="540" y="270" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#0C5334" font-weight="700">to Assess — NIA</text>
+<text x="540" y="298" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">Pre-assessment, and the least</text>
+<text x="540" y="315" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">expensive place to resolve it.</text>
+</g></a>
+<line x1="840" y1="259.0" x2="986" y2="259.0" stroke="#12643F" stroke-width="1.6" marker-end="url(#ar)"/>
+<g>
+<rect x="857.0" y="237.0" width="118.0" height="44" rx="22.0" fill="#F3EBD9"/>
+<rect x="857.0" y="237.0" width="118.0" height="44" rx="22.0" fill="none" stroke="#C9A961" stroke-width="2.2"/>
+<text x="916.0" y="255.0" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0C5334">30 DAYS</text>
+<text x="916.0" y="272.0" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10" letter-spacing="0.6" fill="#434343">FORM DR-1</text>
+</g>
+<a href="/massachusetts-tax-appeal#noa" class="stn" aria-label="Notice of Assessment">
+<g id="ma3">
+<rect x="996" y="196" width="312" height="126" rx="3" fill="#FFFFFF" stroke="#0C5334" stroke-width="1.6"/>
+<text x="1012" y="222" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="1.8" fill="#C9A961" font-weight="700">STATION 3</text>
+<text x="1012" y="248" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#0C5334" font-weight="700">Notice of Assessment</text>
+<text x="1012" y="276" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">The tax is assessed and</text>
+<text x="1012" y="293" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">collection rights attach.</text>
+</g></a>
+<line x1="1152.0" y1="326" x2="1152.0" y2="396" stroke="#12643F" stroke-width="1.6" marker-end="url(#ar)"/>
+<g>
+<rect x="1059.4" y="342.0" width="185.2" height="44" rx="22.0" fill="#F3EBD9"/>
+<rect x="1059.4" y="342.0" width="185.2" height="44" rx="22.0" fill="none" stroke="#C9A961" stroke-width="1.2"/>
+<text x="1152.0" y="360.0" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0C5334">3 YR / 2 YR / 1 YR</text>
+<text x="1152.0" y="377.0" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10" letter-spacing="0.6" fill="#434343">LATEST OF — FORM ABT</text>
+</g>
+<a href="/massachusetts-tax-appeal#abatement" class="stn" aria-label="Application for Abatement — ABT">
+<g id="ma4">
+<rect x="996" y="406" width="312" height="126" rx="3" fill="#FFFFFF" stroke="#0C5334" stroke-width="1.6"/>
+<text x="1012" y="432" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="1.8" fill="#C9A961" font-weight="700">STATION 4</text>
+<text x="1012" y="458" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#0C5334" font-weight="700">Application for</text>
+<text x="1012" y="480" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#0C5334" font-weight="700">Abatement — ABT</text>
+<text x="1012" y="508" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">The post-assessment route,</text>
+<text x="1012" y="525" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">filed with the DOR.</text>
+</g></a>
+<line x1="992" y1="469.0" x2="846" y2="469.0" stroke="#12643F" stroke-width="1.6" marker-end="url(#ar)"/>
+<g>
+<rect x="854.2" y="447.0" width="123.6" height="44" rx="22.0" fill="#F3EBD9"/>
+<rect x="854.2" y="447.0" width="123.6" height="44" rx="22.0" fill="none" stroke="#C9A961" stroke-width="1.2"/>
+<text x="916.0" y="465.0" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0C5334">6 MONTHS</text>
+<text x="916.0" y="482.0" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10" letter-spacing="0.6" fill="#434343">OR DEEMED DENIED</text>
+</g>
+<a href="/massachusetts-tax-appeal#appeals" class="stn" aria-label="Office of Appeals">
+<g id="ma5">
+<rect x="524" y="406" width="312" height="126" rx="3" fill="#FFFFFF" stroke="#0C5334" stroke-width="1.6"/>
+<text x="540" y="432" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="1.8" fill="#C9A961" font-weight="700">STATION 5</text>
+<text x="540" y="458" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#0C5334" font-weight="700">Office of Appeals</text>
+<text x="540" y="486" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">Six months to act — or the</text>
+<text x="540" y="503" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">application is deemed denied.</text>
+</g></a>
+<line x1="520" y1="469.0" x2="374" y2="469.0" stroke="#12643F" stroke-width="1.6" marker-end="url(#ar)"/>
+<a href="/massachusetts-tax-appeal#determination" class="stn" aria-label="Notice of Abatement Determination">
+<g id="ma6">
+<rect x="52" y="406" width="312" height="126" rx="3" fill="#FFFFFF" stroke="#0C5334" stroke-width="1.6"/>
+<text x="68" y="432" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="1.8" fill="#C9A961" font-weight="700">STATION 6</text>
+<text x="68" y="458" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#0C5334" font-weight="700">Notice of Abatement</text>
+<text x="68" y="480" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#0C5334" font-weight="700">Determination</text>
+<text x="68" y="508" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">The Commissioner decides.</text>
+<text x="68" y="525" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">The clock runs from its date.</text>
+</g></a>
+<line x1="208.0" y1="536" x2="208.0" y2="606" stroke="#12643F" stroke-width="1.6" marker-end="url(#ar)"/>
+<g>
+<rect x="112.6" y="552.0" width="190.8" height="44" rx="22.0" fill="#F3EBD9"/>
+<rect x="112.6" y="552.0" width="190.8" height="44" rx="22.0" fill="none" stroke="#C9A961" stroke-width="2.2"/>
+<text x="208.0" y="570.0" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0C5334">60 DAYS</text>
+<text x="208.0" y="587.0" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10" letter-spacing="0.6" fill="#434343">OR 6 MONTHS IF DEEMED DENIED</text>
+</g>
+<text x="524" y="579.0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" letter-spacing="2.6" font-weight="700" fill="#C9A961">AN INDEPENDENT TRIBUNAL</text>
+<a href="/massachusetts-tax-appeal#atb" class="stn" aria-label="Appellate Tax Board">
+<g id="ma7">
+<rect x="52" y="616" width="312" height="126" rx="3" fill="#0C5334" stroke="#0C5334" stroke-width="1.6"/>
+<text x="68" y="642" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="1.8" fill="#C9A961" font-weight="700">STATION 7</text>
+<text x="68" y="668" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#F6F5F1" font-weight="700">Appellate Tax Board</text>
+<text x="68" y="696" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#C6D8CC">Independent of the DOR. Heard</text>
+<text x="68" y="713" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#C6D8CC">without paying the tax first.</text>
+</g></a>
+<line x1="368" y1="679.0" x2="514" y2="679.0" stroke="#12643F" stroke-width="1.6" marker-end="url(#ar)"/>
+<a href="/massachusetts-tax-appeal#appeals-court" class="stn" aria-label="Mass. Appeals Court">
+<g id="ma8">
+<rect x="524" y="616" width="312" height="126" rx="3" fill="#0C5334" stroke="#0C5334" stroke-width="1.6"/>
+<text x="540" y="642" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="1.8" fill="#C9A961" font-weight="700">STATION 8</text>
+<text x="540" y="668" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#F6F5F1" font-weight="700">Mass. Appeals Court</text>
+<text x="540" y="696" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#C6D8CC">Either party may appeal</text>
+<text x="540" y="713" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#C6D8CC">the Board's decision.</text>
+</g></a>
+<text x="996" y="650" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#1B1B1B">The contrast with Florida</text>
+<text x="996" y="678" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">Massachusetts hears the appeal whether or</text>
+<text x="996" y="696" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">not the tax has been paid. Florida's circuit</text>
+<text x="996" y="714" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">court route requires payment or a bond.</text>
+<text x="996" y="732" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#6E6E6E">That difference sets the order of battle.</text>
+<line x1="52" y1="750" x2="1308" y2="750" stroke="#DAD8D2" stroke-width="1"/>
+<text x="52" y="774" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" fill="#6E6E6E">Deadlines per G.L. c. 62C §§ 37 and 39, G.L. c. 58A § 6, and DOR Administrative Procedure 629. General information about tax procedure — not legal advice.</text>
+<text x="52" y="791" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" fill="#6E6E6E">Procedure turns on facts and dates specific to each matter. Before acting on a notice, consult counsel.</text>
+<text x="1308" y="774" text-anchor="end" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" letter-spacing="1.6" font-weight="700" fill="#C9A961">DONOVAN LEGAL PLLC · DELRAY BEACH, FLORIDA</text>
+</svg>

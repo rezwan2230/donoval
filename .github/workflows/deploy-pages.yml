@@ -1,0 +1,176 @@
+name: Deploy (Cloudfare Pages)
+# Git-driven deploys for the Direct-Upload Pages project `donovan-site`.
+# Direct-Upload projects cannot use native Cloudflare Git integration, so this
+# runs `wrangler pages deploy` from CI instead of anyone's laptop. NEW sites
+# should be created Git-connected instead (see the Agent_OS deploy standard).
+#
+# Repo secrets required (Settings -> Secrets and variables -> Actions):
+#   CLOUDFLARE_API_TOKEN   - Account · Cloudflare Pages · Edit
+#   CLOUDFLARE_ACCOUNT_ID  - aad3aed11a2118a035263e9469e2da1d
+#
+# SECURITY HARDENING (Dr. Insane SECURITY DELTA, F-1 + F-2):
+#   F-1  The production-branch guard now FAILS CLOSED. curl --fail-with-body +
+#        `set -euo pipefail` + an explicit .success/non-empty check mean a 403,
+#        an expired token, an error document or a network blip ABORTS the deploy
+#        instead of letting an empty production_branch slip a push through to prod.
+#   F-2  No GitHub context is interpolated into any `run:` body. github.ref_name
+#        and the resolved branch are passed via `env:` and referenced as "$REF" /
+#        "$PB", so a crafted branch name cannot inject shell with the CF token in
+#        scope. A branch-name allow-list adds defense in depth.
+#   Also: the preview job is skipped on the default branch outright — a push to
+#   `main` never reaches a preview deploy even if the API guard were bypassed.
+
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: "Type deploy-production to deploy to PRODUCTION (main only)"
+        required: true
+        default: ""
+
+concurrency:
+  group: deploy-${{ github.ref_name }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  deployments: write
+
+env:
+  CF_PROJECT: donovan-site
+
+jobs:
+  # Tests gate every deploy. Root-level suite, Node 22 (the glob needs v21+).
+  test:
+    name: Test (root suite, Node 22)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+      - run: npm ci
+      - run: npm test
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
+
+  # Tree-integrity: refuse to deploy a ref that is NOT the rebuilt site. `main`
+  # is still the raw GoDaddy import (no functions/, no _headers), and deploying
+  # it would strip tier-auth, the consent gate and the CSP off the live project.
+  guard:
+    name: Tree-integrity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Required shipped-site files must be present
+        run: |
+          req=(
+            donovan-legal-site/_headers
+            donovan-legal-site/functions/_middleware.js
+            donovan-legal-site/functions/_lib/tier-auth.js
+            donovan-legal-site/functions/_lib/consent-ticket.js
+            donovan-legal-site/functions/_lib/abuse.js
+          )
+          miss=0
+          for f in "${req[@]}"; do
+            [ -e "$f" ] || { echo "::error::missing $f"; miss=$((miss+1)); }
+          done
+          if [ "$miss" -gt 0 ]; then
+            echo "::error::tree-integrity FAILED ($miss missing) - this ref is not the shipped site (looks like the pre-rebuild import). Refusing to deploy."
+            exit 1
+          fi
+          echo "tree-integrity OK - all required files present"
+
+  # PREVIEW: feature-branch pushes only. Skipped on the default branch (that path
+  # is production, via workflow_dispatch). Fails closed if the production branch
+  # cannot be confirmed.
+  preview:
+    name: Deploy Preview
+    if: github.event_name == 'push' && github.ref_name != github.event.repository.default_branch
+    needs: [test, guard]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refuse if this branch is the production branch (fail-closed)
+        env:
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          REF: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          # F-2: branch-name allow-list — an odd ref never reaches wrangler or a shell.
+          case "$REF" in
+            *[!A-Za-z0-9._/-]*) echo "::error::unsafe branch name '$REF' - refusing."; exit 1 ;;
+          esac
+          # F-1: fail closed. --fail-with-body makes a non-2xx abort; we then require
+          # success==true AND a non-empty production_branch before trusting the answer.
+          resp="$(curl -sS --fail-with-body \
+            "https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT}/pages/projects/${CF_PROJECT}" \
+            -H "Authorization: Bearer ${CF_TOKEN}")" || {
+              echo "::error::Cloudflare API call failed - cannot confirm production branch. Refusing to deploy (fail-closed)."; exit 1; }
+          ok="$(printf '%s' "$resp" | jq -r '.success')"
+          PB="$(printf '%s' "$resp" | jq -r '.result.production_branch // empty')"
+          if [ "$ok" != "true" ] || [ -z "$PB" ]; then
+            echo "::error::Could not resolve production_branch (success=$ok, pb='$PB'). Refusing to deploy (fail-closed)."; exit 1
+          fi
+          echo "production_branch=$PB this_ref=$REF"
+          if [ "$PB" = "$REF" ]; then
+            echo "::error::'$REF' IS the production branch - use workflow_dispatch for production."; exit 1
+          fi
+      - name: wrangler pages deploy (preview)
+        # Native working-directory guarantees CWD is donovan-legal-site, so wrangler
+        # reads ./wrangler.jsonc (pages_build_output_dir ".") AND compiles ./functions
+        # into Pages Functions. REF is passed via env (F-2), never interpolated into run.
+        working-directory: donovan-legal-site
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          REF: ${{ github.ref_name }}
+        run: npx --yes wrangler@3 pages deploy --project-name=donovan-site --branch="$REF"
+
+  # PRODUCTION: manual only, main only, typed confirmation, protected environment.
+  # The guard job blocks this until main actually contains the rebuilt site
+  # (i.e. after PR #1 is merged), so it cannot deploy the GoDaddy import.
+  production:
+    name: Deploy PRODUCTION (manual)
+    if: >-
+      github.event_name == 'workflow_dispatch' &&
+      github.ref_name == 'main' &&
+      github.event.inputs.confirm == 'deploy-production'
+    needs: [test, guard]
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - name: Resolve production branch (fail-closed)
+        id: pb
+        env:
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          resp="$(curl -sS --fail-with-body \
+            "https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT}/pages/projects/${CF_PROJECT}" \
+            -H "Authorization: Bearer ${CF_TOKEN}")" || {
+              echo "::error::Cloudflare API call failed - refusing to deploy (fail-closed)."; exit 1; }
+          ok="$(printf '%s' "$resp" | jq -r '.success')"
+          PB="$(printf '%s' "$resp" | jq -r '.result.production_branch // empty')"
+          if [ "$ok" != "true" ] || [ -z "$PB" ]; then
+            echo "::error::Could not resolve production_branch (success=$ok, pb='$PB'). Refusing (fail-closed)."; exit 1
+          fi
+          case "$PB" in
+            *[!A-Za-z0-9._/-]*) echo "::error::unsafe production_branch '$PB' - refusing."; exit 1 ;;
+          esac
+          echo "branch=$PB" >> "$GITHUB_OUTPUT"
+          echo "resolved production_branch=$PB"
+      - name: wrangler pages deploy (production)
+        working-directory: donovan-legal-site
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PB: ${{ steps.pb.outputs.branch }}
+        run: npx --yes wrangler@3 pages deploy --project-name=donovan-site --branch="$PB"

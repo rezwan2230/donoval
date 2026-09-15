@@ -1,0 +1,99 @@
+/* ── Floating booking widget: video circle + Book CTA ───────────────────────
+ * Injected at the edge on every page (functions/_lib/book-float-inject.js).
+ * The circle holds Paul's intro video, static behind a poster until clicked
+ * (click = user gesture = sound allowed). The pill beside it books.
+ * Raised well above the bottom edge on desktop, and above the mobile
+ * Book/Call utility bars so nothing is covered. */
+
+.dl-book-float {
+  position: fixed;
+  right: 22px;
+  bottom: 150px;
+  z-index: 2147483000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* the video circle, a real <button> for keyboard + screen readers */
+.dl-bf-media {
+  width: 76px;
+  height: 76px;
+  padding: 0;
+  border: 2px solid #C9A961;
+  border-radius: 50%;
+  background: #0A3D24;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.30);
+  transition: transform 160ms ease;
+}
+.dl-bf-media:hover, .dl-bf-media:focus-visible { transform: scale(1.05); }
+.dl-bf-media:focus-visible { outline: 3px solid #C9A961; outline-offset: 3px; }
+.dl-bf-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.dl-bf-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 40, 25, 0.30);
+  transition: opacity 180ms ease;
+  pointer-events: none;
+}
+.dl-bf-play::before {
+  content: '';
+  display: block;
+  width: 0; height: 0;
+  border-left: 18px solid #F6F5F1;
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+  margin-left: 4px;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,.5));
+}
+
+/* the Book pill — just the words, they know whose site they're on */
+.dl-bf-cta {
+  display: block;
+  padding: 13px 20px;
+  /* 2026-09-06 (Paul): the pill was rendering as green text and hard to read on some pages; the site's
+     link rules were winning. Colors are now non-negotiable. */
+  background: #0C5334 !important;
+  border: 2px solid #C9A961;
+  border-radius: 999px;
+  color: #F6F5F1 !important;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 15px;
+  font-weight: 700;
+  white-space: nowrap;
+  text-decoration: none;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.30);
+  transition: transform 160ms ease;
+}
+.dl-bf-cta:hover, .dl-bf-cta:focus-visible { transform: translateY(-2px); color: #FFFFFF !important; background: #0a5a37 !important; }
+.dl-bf-cta:link, .dl-bf-cta:visited { color: #F6F5F1 !important; }
+.dl-bf-cta:focus-visible { outline: 3px solid #C9A961; outline-offset: 3px; }
+
+/* mobile: present but compact, riding clearly above the bottom utility bars */
+@media (max-width: 768px) {
+  .dl-book-float { right: 12px; bottom: 170px; gap: 8px; }
+  .dl-bf-media { width: 62px; height: 62px; }
+  /* 2026-09-05 (Paul): on phones the fixed bottom bar already carries "Book a
+     Free Consultation" and "Call". The pill beside the video duplicated it and
+     covered content, so on phones the widget is the video circle alone. */
+  .dl-bf-cta { display: none; }
+}
+
+/* 2026-09-05: the widget sat above the mobile menu (its z-index is deliberately
+   the highest on the page) and covered the menu's lower items. While the menu
+   overlay is open the widget steps out of the way. */
+body:has(.nav-mobile-overlay.open) .dl-book-float { display: none; }
+
+/* the booking flow itself: no doorbell inside the house */
+body.dl-bf-suppress .dl-book-float { display: none; }

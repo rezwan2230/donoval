@@ -1,0 +1,25 @@
+{
+  "name": "donovan-legal",
+  "private": true,
+  "type": "module",
+  "description": "Donovan Legal PLLC — Cloudflare Pages site + Perch voice concierge functions.",
+  "scripts": {
+    "test": "node --test \"test/**/*.test.mjs\"",
+    "test:hygiene": "node --test \"hygiene/**/*.test.mjs\"",
+    "test:watch": "node --test --watch \"test/**/*.test.mjs\"",
+    "build:es-js": "esbuild donovan-legal-site/src/engagement-scoping.jsx --bundle --minify --format=iife --target=es2019 --define:process.env.NODE_ENV=\\\"production\\\" --outfile=donovan-legal-site/js/engagement-scoping.js",
+    "build:es-css": "tailwindcss -c tailwind.engagement-scoping.config.js -i donovan-legal-site/src/engagement-scoping.css -o donovan-legal-site/css/engagement-scoping.css --minify",
+    "build:es": "npm run build:es-js && npm run build:es-css"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.12",
+    "html-rewriter-wasm": "^0.4.1",
+    "jsdom": "^24.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.19"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

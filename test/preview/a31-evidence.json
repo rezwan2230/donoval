@@ -1,0 +1,432 @@
+{
+  "order": "SHELDON-PERCH-A31-BOOKING-DOM",
+  "ticket": 56,
+  "base": "https://fd6f9f05.donovan-site.pages.dev",
+  "startedAt": "2026-07-25T14:49:11.949Z",
+  "steps": [
+    {
+      "name": "1. the router is injected and ready on Preview",
+      "ok": true,
+      "detail": {
+        "ready": true,
+        "container": "#perch-main",
+        "layerRouterRegistered": true,
+        "errors": []
+      }
+    },
+    {
+      "name": "2. no iframe and no perch-inject.js in this document",
+      "ok": true,
+      "detail": {
+        "topLevel": true,
+        "iframes": 0,
+        "perchInjected": false
+      }
+    },
+    {
+      "name": "3. the layer reports the direct path armed (routerActive is the gate itself)",
+      "ok": true,
+      "detail": {
+        "routerActive": true,
+        "widgetPresent": false,
+        "gatePublished": false
+      }
+    },
+    {
+      "name": "4. /book arrived by content swap, in the same document, still no iframe",
+      "ok": true,
+      "detail": {
+        "via": "existing-link",
+        "path": "/book",
+        "instanceId": "perch-kvfhwquq",
+        "swaps": 1,
+        "iframes": 0,
+        "perchInjected": false,
+        "layerBefore": "perch-kvfhwquq"
+      }
+    },
+    {
+      "name": "5. the unlock gate revealed the form (§3.3, through DL.ready on the swap)",
+      "ok": true,
+      "detail": {
+        "gate": "none",
+        "live": "block",
+        "widgetBooted": true
+      }
+    },
+    {
+      "name": "6. the widget API and the published gate are both reachable in this document",
+      "ok": true,
+      "detail": {
+        "widgetPresent": true,
+        "gatePublished": true,
+        "methods": [
+          "prefill",
+          "selectType",
+          "selectSlot",
+          "showDate"
+        ]
+      }
+    },
+    {
+      "name": "7a. set_call_id landed on window.__perchCallId by direct DOM",
+      "ok": true,
+      "detail": {
+        "perchCallId": "a31-preview-probe"
+      }
+    },
+    {
+      "name": "7b. booking_prefill was accepted and acked (so call.js stops re-delivering)",
+      "ok": true,
+      "detail": {
+        "prefill": {
+          "name": true,
+          "email": true,
+          "phone": true,
+          "notes": true
+        },
+        "acked": true
+      }
+    },
+    {
+      "name": "7c. booking_select_type loaded availability for a real appointment type",
+      "ok": true,
+      "detail": {
+        "typeId": "consult",
+        "step": "DATE_PICK",
+        "result": {
+          "handled": true,
+          "cmd": "booking_select_type",
+          "via": "DLBooking.selectType",
+          "result": null
+        }
+      }
+    },
+    {
+      "name": "7d. booking_show_date OPENED a real date and did NOT advance to FORM",
+      "ok": true,
+      "detail": {
+        "day": "2026-07-27",
+        "step": "DATE_PICK",
+        "selectedDay": "2026-07-27",
+        "selectedSlot": null,
+        "timeButtons": 8,
+        "result": {
+          "handled": true,
+          "cmd": "booking_show_date",
+          "via": "DLBooking.showDate",
+          "result": {
+            "ok": true
+          }
+        }
+      }
+    },
+    {
+      "name": "7e. booking_select_slot selected a real slot and advanced to FORM",
+      "ok": true,
+      "detail": {
+        "day": "2026-07-27",
+        "time": "9:00 AM",
+        "step": "FORM",
+        "selected": "2026-07-27T13:00:00.000Z",
+        "result": {
+          "handled": true,
+          "cmd": "booking_select_slot",
+          "via": "DLBooking.selectSlot",
+          "result": {
+            "ok": true
+          }
+        }
+      }
+    },
+    {
+      "name": "7f. the prefilled values reached the real form inputs",
+      "ok": true,
+      "detail": {
+        "name": "A31 Preview Probe",
+        "email": "a31-probe@example.invalid",
+        "phone": "(561) 555-0142",
+        "notes": "SHELDON-PERCH-A31 verification — not a real enquiry"
+      }
+    },
+    {
+      "name": "8. DL.revealBookingGate() re-opens the form for a same-URL navigate",
+      "ok": true,
+      "detail": {
+        "before": {
+          "gate": "block",
+          "live": "none"
+        },
+        "result": {
+          "revealed": true
+        },
+        "after": {
+          "gate": "none",
+          "live": "block"
+        }
+      }
+    },
+    {
+      "name": "9. the caller is standing at an unpressed Confirm button and nothing was written",
+      "ok": true,
+      "detail": {
+        "writes": [],
+        "confirmPresent": true,
+        "confirmLabel": "Confirm Appointment",
+        "step": "FORM"
+      }
+    },
+    {
+      "name": "10. the shell runs with no router and no layer — the production path",
+      "ok": true,
+      "detail": {
+        "hasRouter": false,
+        "hasLayer": false,
+        "hasContainer": false,
+        "iframes": 1
+      }
+    },
+    {
+      "name": "11. the iframe postMessage path still works unchanged with the router off",
+      "ok": true,
+      "detail": {
+        "path": "/book",
+        "perchInjected": true,
+        "injectDelayMs": 504,
+        "callId": "a31-preview-shell",
+        "prefill": {
+          "name": true,
+          "email": true,
+          "phone": true,
+          "notes": false
+        },
+        "liveDisplay": "block"
+      }
+    },
+    {
+      "name": "12. nothing anywhere in this run wrote to the booking path",
+      "ok": true,
+      "detail": {
+        "writes": []
+      }
+    }
+  ],
+  "writes": [],
+  "console": [
+    {
+      "type": "warning",
+      "text": "No available adapters."
+    },
+    {
+      "type": "startGroupCollapsed",
+      "text": ""
+    },
+    {
+      "type": "debug",
+      "text": "Error"
+    },
+    {
+      "type": "log",
+      "text": "/.*.*=.*/"
+    },
+    {
+      "type": "log",
+      "text": "/.*.*=.*/"
+    },
+    {
+      "type": "log",
+      "text": "function () { [native code] }"
+    },
+    {
+      "type": "log",
+      "text": "function () { [native code] }"
+    },
+    {
+      "type": "log",
+      "text": "JSHandle@node"
+    },
+    {
+      "type": "log",
+      "text": "JSHandle@node"
+    },
+    {
+      "type": "count",
+      "text": "\u0000: 1"
+    },
+    {
+      "type": "count",
+      "text": "\u0000: 1"
+    },
+    {
+      "type": "debug",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "type": "debug",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "type": "dir",
+      "text": " Error"
+    },
+    {
+      "type": "dir",
+      "text": " Error"
+    },
+    {
+      "type": "dirxml",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "type": "dirxml",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "type": "error",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "type": "error",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "type": "info",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "type": "info",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "type": "log",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "type": "log",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "type": "table",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "type": "table",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "type": "trace",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "type": "trace",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "type": "warning",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "type": "warning",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "type": "endGroup",
+      "text": "console.groupEnd"
+    },
+    {
+      "type": "warning",
+      "text": "OTS parsing error: Size of decompressed WOFF 2.0 is less than compressed size"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_[half_]float is not enabled"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_[half_]float is not enabled"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_[half_]float is not enabled"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "type": "warning",
+      "text": "[.WebGL-0x3b9c0494d800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "type": "warning",
+      "text": "[.WebGL-0x3b9c0494d800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    }
+  ],
+  "pageErrors": [
+    "Uncaught TurnstileError: [Cloudflare Turnstile] Error: 600010."
+  ],
+  "cspViolations": [],
+  "finishedAt": "2026-07-25T14:49:20.732Z",
+  "pass": true,
+  "failed": []
+}

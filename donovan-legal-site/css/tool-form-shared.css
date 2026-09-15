@@ -1,0 +1,178 @@
+/* ============================================================================
+ * Donovan Legal PLLC — Shared Tool Form Styles
+ * ============================================================================
+ * Layout and responsive rules used across all calculator tools (1031, capital
+ * gains, cost-seg, FIRPTA, OIC/RCP, STR analyzer, rental analyzer, etc.).
+ *
+ * Goals:
+ *   - Numeric input fields capped at sensible max widths so they don't span
+ *     full columns the way a free-text comment field would.
+ *   - Inputs formatted by DonovanInputFormatter (.dl-currency, .dl-percent)
+ *     get consistent presentation across tools.
+ *   - Mobile (<= 720px): form rows collapse to single column, typography
+ *     scales down, tables become horizontally scrollable instead of breaking
+ *     the viewport, headline values shrink.
+ *   - Mobile (<= 480px): further compression for phone viewports.
+ *
+ * Load this AFTER main.css so its rules cascade on top of the base layout.
+ * ============================================================================ */
+
+/* -----------------------------------------------------------------------
+ * Input field width constraints
+ * -----------------------------------------------------------------------
+ * Cap numeric inputs at widths that match the data they hold. A purchase
+ * price of $999,999,999 needs ~14 characters; a percentage of 99.9% needs
+ * ~6. Without caps the inputs stretch to fill their column, which looks
+ * sloppy on desktop and offers no benefit on any screen size.
+ */
+.dl-currency,
+.tool-form input[type="text"].dl-currency,
+.tool-form input[type="number"].dl-currency {
+  max-width: 16ch;
+  text-align: right;
+}
+.dl-percent,
+.tool-form input[type="text"].dl-percent,
+.tool-form input[type="number"].dl-percent {
+  max-width: 8ch;
+  text-align: right;
+}
+
+/* The .input-prefix / .input-suffix decorations (existing pattern in the
+ * tools) wrap an input with a leading "$" or trailing "%" pill. Make sure
+ * those wrappers don't expand beyond the natural width of their input. */
+.tool-form .input-prefix,
+.tool-form .input-suffix {
+  display: inline-flex;
+  align-items: stretch;
+  max-width: 100%;
+  width: auto;
+}
+.tool-form .input-prefix > input,
+.tool-form .input-suffix > input {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Date inputs are naturally narrow */
+.tool-form input[type="date"] {
+  max-width: 14ch;
+}
+
+/* Free-text inputs keep their natural full-column width — they hold names,
+ * descriptions, comments and benefit from breathing room. */
+
+/* -----------------------------------------------------------------------
+ * Form layout: row of label-input pairs that collapses on narrow screens
+ * ----------------------------------------------------------------------- */
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.5rem;
+  margin-bottom: 1rem;
+}
+.form-row.form-row-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.form-row.form-row-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;  /* allow grid items to shrink below content width */
+}
+.form-group label {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.35;
+}
+.form-group .field-help {
+  font-size: 0.78rem;
+  color: #555;
+  line-height: 1.45;
+  margin-top: 0.1rem;
+}
+
+/* -----------------------------------------------------------------------
+ * Responsive — Tablet and below
+ * ----------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .form-row,
+  .form-row.form-row-3,
+  .form-row.form-row-4 {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  /* Now that each input has its own row, let it grow to a sensible width */
+  .dl-currency,
+  .dl-percent,
+  .tool-form input[type="text"].dl-currency,
+  .tool-form input[type="text"].dl-percent,
+  .tool-form input[type="number"].dl-currency,
+  .tool-form input[type="number"].dl-percent {
+    max-width: 100%;
+  }
+
+  /* Step cards / preset bars: more breathing room reduction */
+  .step-card { padding: 1rem 1.1rem; }
+  .presets-bar { padding: 1rem 1.1rem; }
+
+  /* Headline numbers shrink so they don't overflow */
+  .headline-value { font-size: 1.55rem !important; }
+  .summary-card .value { font-size: 1.4rem !important; }
+
+  /* Result tables can't fit on phone screens — let them scroll horizontally
+   * within a wrapper so the table doesn't blow up the viewport. */
+  .multi-year-table,
+  .dispo-table,
+  .strategy-comparison-table {
+    font-size: 0.78rem;
+  }
+  .multi-year-table-wrapper,
+  .dispo-table-wrapper,
+  .strategy-comparison-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Tier banner stacks on mobile */
+  .tier-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+}
+
+/* -----------------------------------------------------------------------
+ * Responsive — Phone
+ * ----------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  /* Step headers slightly smaller */
+  .step-card h4 { font-size: 1.05rem; }
+
+  /* Preset buttons stack in a single column */
+  .presets-buttons {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Reduce side padding on body wrappers so content uses more of the viewport */
+  .box-practice .container { padding-left: 1rem; padding-right: 1rem; }
+
+  /* Headline panel cards stack */
+  .headline-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Summary cards 1 column on phones */
+  .summary-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Result table cell padding reduction so they actually fit */
+  .multi-year-table th, .multi-year-table td,
+  .dispo-table th, .dispo-table td,
+  .strategy-comparison-table th, .strategy-comparison-table td {
+    padding: 0.35rem 0.45rem;
+  }
+}

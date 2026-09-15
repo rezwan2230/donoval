@@ -1,0 +1,1043 @@
+/* ============================================================================
+ * Donovan Legal PLLC — Entity Formation, Multi-Member LLC (Simplified)
+ * Tool-specific stylesheet
+ * ----------------------------------------------------------------------------
+ * Load order:   main.css → tool-form-shared.css → tool-entity-formation-multi.css
+ *
+ * Conventions:
+ *   - .oa-* classes mirror the Reserve 12-step Operating Agreement tool so the
+ *     two stylesheets can be unified in a future pass without HTML changes.
+ *   - Tier theming is driven by data-tier on .tool-header (set in the HTML
+ *     wrapper). Platinum = cool silver; Reserve = brand emerald two-tone.
+ *   - Document preview pane (.oa-doc-preview .doc-page) is print-grade so
+ *     users can print to PDF directly from the browser.
+ *
+ * Colors (sourced from main.css to stay consistent across the site):
+ *   #169B62  firm emerald (RE in two-tone treatment, links, primary accents)
+ *   #C9A961  gold tier
+ *   #8a8b8d  platinum silver
+ *   #0A4A2A  deep firm green (signature, header bar)
+ *   #F5F5F0  paper / page background
+ *   #d4d4d0  divider lines
+ *   #1a1a1a  body copy
+ * ============================================================================ */
+
+/* ----------------------------------------------------------------------------
+ * Tool header bar — sticky, distinguishes tier
+ * ---------------------------------------------------------------------------- */
+.tool-header {
+  background: #0A4A2A;
+  color: #fff;
+  padding: 0.85rem 0;
+  border-bottom: 3px solid #169B62;
+}
+.tool-header-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tool-header-brand {
+  font-family: "Trajan Pro", "Gotham Bold", serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  color: #fff;
+}
+.tool-header-brand .brand-platinum {
+  color: #c5c6c8 !important;
+  letter-spacing: 0.12em;
+}
+.tool-header-brand .brand-reserve .re {
+  color: #5fc88e !important; /* lighter emerald for contrast against deep-green header */
+}
+.tool-header-back {
+  color: #fff;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  opacity: 0.85;
+  transition: opacity 0.15s ease;
+}
+.tool-header-back:hover { opacity: 1; }
+
+/* Tier eyebrow badge (sits below the title bar on the gate page) */
+.oa-tier-badge {
+  display: inline-block;
+  padding: 0.3rem 0.85rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
+/* ----------------------------------------------------------------------------
+ * Shell — sidebar + main pane
+ * ---------------------------------------------------------------------------- */
+.oa-shell {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 0;
+  min-height: calc(100vh - 60px);
+  background: #F5F5F0;
+}
+
+.oa-sidebar {
+  background: #1a1a1a;
+  color: #e8e8e6;
+  padding: 1.75rem 1.25rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+.oa-sidebar-title {
+  font-family: "Trajan Pro", "Gotham Bold", serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+.oa-sidebar-subtitle {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: #999;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.oa-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  flex: 1;
+}
+.oa-nav-item {
+  display: block;
+  padding: 0.7rem 0.85rem;
+  color: #c8c8c6;
+  font-size: 0.88rem;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+  border-left: 3px solid transparent;
+}
+.oa-nav-item:hover {
+  background: #2a2a2a;
+  color: #fff;
+  text-decoration: none;
+}
+.oa-nav-active {
+  background: #2a2a2a;
+  color: #fff;
+  border-left-color: #169B62;
+  font-weight: 600;
+}
+.oa-nav-generate {
+  margin-top: 0.5rem;
+  border-top: 1px solid #333;
+  padding-top: 1.1rem;
+}
+
+.oa-sidebar-footer {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid #333;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.oa-sidebar-footer .oa-btn-ghost {
+  text-align: left;
+  background: transparent;
+  border: 1px solid #444;
+  color: #c8c8c6;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.8rem;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.oa-sidebar-footer .oa-btn-ghost:hover {
+  background: #2a2a2a;
+  border-color: #169B62;
+  color: #fff;
+}
+.oa-sidebar-footer .oa-btn-warn {
+  border-color: #6b3a3a;
+  color: #c89d9d;
+}
+.oa-sidebar-footer .oa-btn-warn:hover {
+  background: #3a2222;
+  border-color: #c89d9d;
+  color: #fff;
+}
+
+/* ----------------------------------------------------------------------------
+ * Main pane
+ * ---------------------------------------------------------------------------- */
+.oa-main {
+  padding: 2rem 2.5rem 3rem;
+  max-width: 980px;
+  overflow-x: hidden;
+}
+
+.oa-panel {
+  display: none;
+  animation: oaFadeIn 0.18s ease-out;
+}
+.oa-panel-active {
+  display: block;
+}
+@keyframes oaFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.oa-panel-header {
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #d4d4d0;
+}
+.oa-panel-eyebrow {
+  font-size: 0.73rem;
+  letter-spacing: 0.16em;
+  color: #169B62;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.oa-panel-header h2 {
+  font-family: "Trajan Pro", "Gotham Bold", serif;
+  font-size: 1.7rem;
+  letter-spacing: 0.02em;
+  color: #0A4A2A;
+  margin: 0 0 0.65rem;
+  line-height: 1.2;
+}
+.oa-panel-sub {
+  font-size: 0.95rem;
+  color: #4a4a4a;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 720px;
+}
+
+/* ----------------------------------------------------------------------------
+ * Form fields
+ * ---------------------------------------------------------------------------- */
+.oa-field {
+  margin-bottom: 1.5rem;
+}
+.oa-field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.oa-field-grid .oa-field {
+  margin-bottom: 0;
+}
+.oa-field-wide {
+  grid-column: 1 / -1;
+}
+.oa-field-check {
+  align-self: end;
+}
+
+.oa-field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #1a1a1a;
+  margin-bottom: 0.4rem;
+}
+.oa-req {
+  color: #b8501e;
+  font-weight: 700;
+}
+
+.oa-field input[type="text"],
+.oa-field input[type="number"],
+.oa-field input[type="date"],
+.oa-field select,
+.oa-field textarea {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  font-size: 0.92rem;
+  font-family: inherit;
+  border: 1px solid #c4c4c0;
+  border-radius: 3px;
+  background: #fff;
+  color: #1a1a1a;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  box-sizing: border-box;
+}
+.oa-field input:focus,
+.oa-field select:focus,
+.oa-field textarea:focus {
+  outline: none;
+  border-color: #169B62;
+  box-shadow: 0 0 0 3px rgba(22, 155, 98, 0.12);
+}
+.oa-field textarea {
+  font-family: inherit;
+  line-height: 1.5;
+  resize: vertical;
+}
+.oa-field select {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #6b6b6b 50%),
+                    linear-gradient(135deg, #6b6b6b 50%, transparent 50%);
+  background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 2rem;
+}
+
+.oa-help {
+  font-size: 0.83rem;
+  color: #5a5a5a;
+  line-height: 1.5;
+  margin: 0.4rem 0 0;
+}
+
+/* Checkboxes */
+.oa-checks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.oa-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.9rem;
+  font-weight: normal !important;
+  line-height: 1.45;
+  cursor: pointer;
+  color: #2a2a2a;
+}
+.oa-check input[type="checkbox"] {
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #169B62;
+}
+.oa-check strong {
+  color: #1a1a1a;
+}
+
+/* Subheaders & callouts */
+.oa-subhdr,
+.oa-subheader {
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0A4A2A;
+  font-weight: 700;
+  margin: 1.75rem 0 0.85rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #d4d4d0;
+}
+.oa-callout {
+  padding: 0.85rem 1.1rem;
+  border-radius: 3px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.oa-callout-info {
+  background: #f0f7f3;
+  border-left: 3px solid #169B62;
+  color: #1f4030;
+}
+.oa-callout strong {
+  color: #0A4A2A;
+}
+
+/* ----------------------------------------------------------------------------
+ * Buttons
+ * ---------------------------------------------------------------------------- */
+.oa-btn-primary,
+.oa-btn-secondary,
+.oa-btn-ghost {
+  display: inline-block;
+  padding: 0.65rem 1.4rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+.oa-btn-primary {
+  background: #169B62;
+  color: #fff;
+  border-color: #169B62;
+}
+.oa-btn-primary:hover {
+  background: #128054;
+  border-color: #128054;
+}
+.oa-btn-secondary {
+  background: #fff;
+  color: #169B62;
+  border-color: #169B62;
+}
+.oa-btn-secondary:hover {
+  background: #f0f7f3;
+}
+.oa-btn-ghost {
+  background: transparent;
+  color: #4a4a4a;
+  border-color: #c4c4c0;
+}
+.oa-btn-ghost:hover {
+  background: #ececea;
+  color: #1a1a1a;
+}
+.oa-btn-warn {
+  color: #8e3a1a;
+  border-color: #d4a899;
+}
+.oa-btn-warn:hover {
+  background: #f5e8e0;
+  color: #b8501e;
+  border-color: #b8501e;
+}
+.oa-btn-large {
+  font-size: 1rem;
+  padding: 0.95rem 2rem;
+}
+.oa-btn-secondary-sm {
+  display: inline-block;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.82rem;
+  font-family: inherit;
+  font-weight: 600;
+  border-radius: 3px;
+  cursor: pointer;
+  background: #fff;
+  color: #169B62;
+  border: 1px solid #169B62;
+}
+.oa-btn-secondary-sm:hover { background: #f0f7f3; }
+
+/* Panel navigation row */
+.oa-panel-nav {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #d4d4d0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ----------------------------------------------------------------------------
+ * Dynamic lists — members, etc.
+ * ---------------------------------------------------------------------------- */
+.oa-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.oa-list-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.oa-empty {
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #6b6b6b;
+  background: #ececea;
+  border: 1px dashed #c4c4c0;
+  border-radius: 4px;
+}
+
+.oa-member-row {
+  background: #fff;
+  border: 1px solid #d4d4d0;
+  border-radius: 4px;
+  padding: 1rem 1.1rem 0.85rem;
+  position: relative;
+}
+.oa-member-num {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #169B62;
+  margin-bottom: 0.6rem;
+}
+.oa-member-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0.85rem 1rem;
+}
+.oa-member-grid .oa-field { margin-bottom: 0; }
+.oa-member-grid .oa-field-wide { grid-column: 1 / -1; }
+.oa-member-grid .oa-field-check { grid-column: 1 / -1; }
+.oa-member-actions {
+  margin-top: 0.85rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.oa-summary-line {
+  font-size: 0.9rem;
+  color: #4a4a4a;
+  padding: 0.2rem 0;
+}
+.oa-summary-line strong { color: #1a1a1a; }
+
+#members_summary {
+  margin: 1.25rem 0 0.5rem;
+  padding: 0.9rem 1.1rem;
+  background: #f0f7f3;
+  border-left: 3px solid #169B62;
+  border-radius: 0 3px 3px 0;
+}
+
+/* ----------------------------------------------------------------------------
+ * Status indicators
+ * ---------------------------------------------------------------------------- */
+.oa-ok { color: #169B62; font-weight: 600; }
+.oa-warn { color: #b8501e; font-weight: 600; }
+
+.oa-warn-block,
+.oa-ok-block {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: 4px;
+}
+.oa-warn-block {
+  background: #fdf5ef;
+  border-left: 4px solid #b8501e;
+}
+.oa-warn-block h3 {
+  color: #8e3a1a;
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+}
+.oa-warn-block ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 0.9rem;
+}
+.oa-warn-block li {
+  margin-bottom: 0.35rem;
+  color: #4a3a30;
+}
+.oa-ok-block {
+  background: #f0f7f3;
+  border-left: 4px solid #169B62;
+}
+.oa-ok-block h3 {
+  color: #0A4A2A;
+  font-size: 1rem;
+  margin: 0 0 0.4rem;
+}
+.oa-ok-block p { margin: 0; font-size: 0.9rem; color: #2a3a30; }
+
+/* ----------------------------------------------------------------------------
+ * Review summary grid
+ * ---------------------------------------------------------------------------- */
+.oa-review-summary {
+  margin-bottom: 1.5rem;
+}
+.oa-review-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+.oa-review-section {
+  background: #fff;
+  border: 1px solid #d4d4d0;
+  border-radius: 4px;
+  padding: 1rem 1.15rem;
+}
+.oa-review-section h3 {
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #0A4A2A;
+  margin: 0 0 0.65rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #ececea;
+}
+.oa-review-section dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 0.35rem 0.85rem;
+  font-size: 0.86rem;
+}
+.oa-review-section dt {
+  color: #6b6b6b;
+  font-weight: 500;
+}
+.oa-review-section dd {
+  margin: 0;
+  color: #1a1a1a;
+}
+
+/* ----------------------------------------------------------------------------
+ * Action row & document tabs
+ * ---------------------------------------------------------------------------- */
+.oa-action-row {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.oa-doc-tabs {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  border-bottom: 2px solid #d4d4d0;
+}
+.oa-doc-tab {
+  padding: 0.6rem 1.1rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  color: #6b6b6b;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.oa-doc-tab:hover {
+  color: #1a1a1a;
+}
+.oa-doc-tab-active {
+  color: #169B62;
+  border-bottom-color: #169B62;
+}
+
+.oa-doc-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+  padding: 0.85rem 1rem;
+  background: #ececea;
+  border-radius: 4px;
+}
+.oa-doc-actions-note {
+  font-size: 0.82rem;
+  color: #6b6b6b;
+  margin-left: 0.5rem;
+}
+
+.oa-doc-preview {
+  background: #fff;
+  border: 1px solid #d4d4d0;
+  padding: 0;
+  max-height: 70vh;
+  overflow-y: auto;
+  border-radius: 4px;
+}
+
+.oa-final-disclaimer {
+  margin-top: 2rem;
+  padding: 1.1rem 1.3rem;
+  background: #f5f5f0;
+  border-left: 4px solid #C9A961;
+  font-size: 0.87rem;
+  line-height: 1.55;
+  color: #2a2a2a;
+}
+.oa-final-disclaimer strong { color: #0A4A2A; }
+
+/* ----------------------------------------------------------------------------
+ * Document content styling — print-grade
+ * ---------------------------------------------------------------------------- */
+.doc-page {
+  padding: 2.5rem 3rem;
+  font-family: "Gotham Light", "Open Sans", sans-serif;
+  font-size: 11pt;
+  line-height: 1.55;
+  color: #1a1a1a;
+  background: #fff;
+}
+.doc-page h1,
+.doc-page h2,
+.doc-page h3 {
+  font-family: "Trajan Pro", "Gotham Bold", serif;
+  color: #0A4A2A;
+}
+.doc-page h2 {
+  font-size: 13pt;
+  letter-spacing: 0.04em;
+  margin: 1.5rem 0 0.65rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #d4d4d0;
+}
+.doc-page h3 {
+  font-size: 11pt;
+  margin: 1.15rem 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.doc-page p {
+  margin: 0 0 0.85rem;
+  text-align: justify;
+}
+.doc-page strong { color: #0A4A2A; }
+.doc-page em { font-style: italic; }
+
+.doc-header {
+  text-align: center;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #0A4A2A;
+}
+.doc-firm {
+  font-family: "Trajan Pro", "Gotham Bold", serif;
+  font-size: 14pt;
+  letter-spacing: 0.1em;
+  color: #0A4A2A;
+}
+.doc-firm-sub {
+  font-size: 9pt;
+  letter-spacing: 0.04em;
+  color: #6b6b6b;
+  margin-top: 0.2rem;
+  margin-bottom: 0.65rem;
+}
+.doc-draft-badge {
+  display: inline-block;
+  font-size: 8pt;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  color: #b8501e;
+  border: 1px solid #b8501e;
+  padding: 0.2rem 0.65rem;
+  border-radius: 2px;
+  margin: 0.4rem 0 0.85rem;
+}
+.doc-title {
+  font-family: "Trajan Pro", "Gotham Bold", serif;
+  font-size: 18pt;
+  color: #0A4A2A;
+  margin: 0.65rem 0 0.3rem;
+  letter-spacing: 0.02em;
+}
+.doc-company {
+  font-size: 12pt;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.2rem;
+}
+.doc-date {
+  font-size: 10pt;
+  color: #6b6b6b;
+  font-style: italic;
+}
+
+.doc-disclaimer {
+  background: #fdf5ef;
+  border-left: 3px solid #b8501e;
+  padding: 0.85rem 1rem;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  color: #4a3a30;
+  margin-bottom: 1.25rem;
+}
+.doc-disclaimer strong { color: #8e3a1a; }
+
+.doc-defs {
+  margin: 0 0 1rem;
+}
+.doc-defs dt {
+  font-weight: 700;
+  color: #0A4A2A;
+  margin-top: 0.5rem;
+}
+.doc-defs dd {
+  margin: 0 0 0.5rem 1.5rem;
+  text-align: justify;
+}
+
+.doc-numbered,
+.doc-bullets {
+  margin: 0 0 0.85rem 0;
+  padding-left: 1.5rem;
+}
+.doc-numbered li,
+.doc-bullets li {
+  margin-bottom: 0.45rem;
+  text-align: justify;
+}
+
+.doc-roster {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.5rem 0 1rem;
+  font-size: 10pt;
+}
+.doc-roster th,
+.doc-roster td {
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+  border-bottom: 1px solid #d4d4d0;
+}
+.doc-roster th {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: #f5f5f0;
+  color: #0A4A2A;
+  font-size: 9pt;
+  text-transform: uppercase;
+}
+
+.doc-sigs {
+  margin-top: 1.5rem;
+}
+.doc-sig-block {
+  margin-bottom: 1.5rem;
+  page-break-inside: avoid;
+}
+.doc-sig-line {
+  font-size: 12pt;
+  letter-spacing: 0.05em;
+  color: #999;
+  margin-bottom: 0.3rem;
+}
+.doc-sig-name {
+  font-weight: 700;
+  color: #0A4A2A;
+  font-size: 10pt;
+}
+.doc-sig-type {
+  font-size: 9pt;
+  color: #6b6b6b;
+  font-style: italic;
+}
+.doc-sig-byname,
+.doc-sig-title {
+  font-size: 10pt;
+  color: #6b6b6b;
+  margin-top: 0.25rem;
+}
+
+.doc-sub-block {
+  background: #f5f5f0;
+  border: 1px solid #d4d4d0;
+  padding: 1rem 1.25rem;
+  margin-top: 0.5rem;
+  font-size: 10pt;
+}
+
+.doc-pre {
+  background: #f5f5f0;
+  padding: 0.85rem 1rem;
+  font-family: "Courier New", monospace;
+  font-size: 9.5pt;
+  white-space: pre-wrap;
+  border: 1px solid #d4d4d0;
+  border-radius: 3px;
+}
+
+/* ----------------------------------------------------------------------------
+ * Flash message (saved / loaded confirmation)
+ * ---------------------------------------------------------------------------- */
+.oa-flash {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  padding: 0.7rem 1.1rem;
+  background: #0A4A2A;
+  color: #fff;
+  font-size: 0.88rem;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: all 0.2s ease;
+  z-index: 9999;
+}
+.oa-flash-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ----------------------------------------------------------------------------
+ * Access gate (root /tool-entity-formation-multi.html upgrade prompt)
+ * ---------------------------------------------------------------------------- */
+.tool-gate-page {
+  background: #F5F5F0;
+  min-height: calc(100vh - 60px);
+  padding: 3rem 1.5rem;
+}
+.tool-gate-card {
+  max-width: 760px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid #d4d4d0;
+  border-top: 4px solid #C9A961;
+  padding: 2.5rem 3rem;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+}
+.tool-gate-eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  color: #C9A961;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.tool-gate-card h1 {
+  font-family: "Trajan Pro", "Gotham Bold", serif;
+  font-size: 2rem;
+  color: #0A4A2A;
+  margin: 0 0 1rem;
+  line-height: 1.2;
+}
+.tool-gate-lede {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #2a2a2a;
+  margin: 0 0 1.5rem;
+}
+.tool-gate-feature-block {
+  background: #f5f5f0;
+  border-left: 3px solid #169B62;
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+  font-size: 0.93rem;
+  color: #2a2a2a;
+  line-height: 1.55;
+}
+.tool-gate-feature-block strong { color: #0A4A2A; }
+.tool-gate-tiers {
+  display: flex;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.tool-gate-cta {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.85rem 1.75rem;
+  background: #0A4A2A;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 3px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  font-size: 0.95rem;
+  transition: background 0.15s ease;
+}
+.tool-gate-cta:hover { background: #169B62; color: #fff; text-decoration: none; }
+.tool-gate-finepoint {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #ececea;
+  font-size: 0.85rem;
+  color: #6b6b6b;
+  line-height: 1.5;
+}
+
+/* ----------------------------------------------------------------------------
+ * Responsive — collapse sidebar at <= 900px
+ * ---------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .oa-shell {
+    grid-template-columns: 1fr;
+  }
+  .oa-sidebar {
+    position: relative;
+    height: auto;
+    padding: 1.25rem 1rem;
+  }
+  .oa-nav { gap: 0; }
+  .oa-main {
+    padding: 1.5rem 1.25rem 2.5rem;
+  }
+  .oa-field-grid,
+  .oa-member-grid,
+  .oa-review-grid {
+    grid-template-columns: 1fr;
+  }
+  .doc-page { padding: 1.5rem 1.25rem; font-size: 10.5pt; }
+  .doc-page h1, .doc-page h2 { font-size: 12pt; }
+  .oa-doc-tabs { overflow-x: auto; }
+}
+
+@media (max-width: 600px) {
+  .tool-header-inner { padding: 0 1rem; }
+  .tool-header-brand { font-size: 0.95rem; }
+  .tool-gate-card { padding: 1.75rem 1.25rem; }
+  .tool-gate-card h1 { font-size: 1.55rem; }
+}
+
+/* ----------------------------------------------------------------------------
+ * Print — for "Print / Save as PDF" output
+ * ---------------------------------------------------------------------------- */
+@media print {
+  /* Forced watermark on every printed page (2026-09-04): the draft is educational and not for signature. */
+  body::before { content: 'DRAFT \2014 EDUCATIONAL \2014 NOT FOR SIGNATURE'; position: fixed; top: 42%; left: 0; right: 0; text-align: center; transform: rotate(-28deg); font-family: 'Open Sans', Arial, sans-serif; font-size: 22pt; font-weight: 800; letter-spacing: 2px; color: rgba(176, 31, 36, 0.14); white-space: nowrap; z-index: 9999; pointer-events: none; }
+  body::after { content: 'Donovan Legal PLLC \2014 educational drafting tool. Not legal advice, not reviewed by counsel, not for filing or signature. donovan.law/book'; position: fixed; bottom: 0.25in; left: 0; right: 0; text-align: center; font-family: 'Open Sans', Arial, sans-serif; font-size: 8pt; color: #B01F24; }
+  .tool-header,
+  .oa-sidebar,
+  .oa-panel-header,
+  .oa-action-row,
+  .oa-doc-tabs,
+  .oa-doc-actions,
+  .oa-final-disclaimer,
+  .oa-flash,
+  .oa-panel-nav {
+    display: none !important;
+  }
+  .oa-shell {
+    grid-template-columns: 1fr;
+    background: #fff;
+  }
+  .oa-main {
+    padding: 0;
+    max-width: 100%;
+  }
+  .oa-doc-preview {
+    border: none;
+    max-height: none;
+    overflow: visible;
+  }
+  .doc-page {
+    padding: 0;
+    page-break-after: always;
+  }
+  .doc-page h2 {
+    page-break-after: avoid;
+  }
+  body {
+    background: #fff;
+  }
+}

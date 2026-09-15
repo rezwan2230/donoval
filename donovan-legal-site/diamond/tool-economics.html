@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Deal Economics Tool &mdash; Donovan RESERVE</title>
+  <meta name="description" content="Reserve-tier financial-feasibility tool: 30 deal-type archetypes spanning for-sale residential, hold residential, commercial, hospitality, mixed-use, development, and specialty. Produces feasibility memorandum, sources &amp; uses, capital stack, pro forma, deal-level IRR, sensitivity grid, break-even analysis, and a 10-tab Excel workbook." />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="apple-touch-icon" href="../img/favicon.png" />
+  <link rel="icon" type="image/png" href="../img/favicon.png" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <link href="../css/tool-economics.css" rel="stylesheet" />
+  <script src="/js/tier/reserve.js"></script>
+</head>
+<body>
+
+  <!-- ============================================================
+       MAIN TOOL — cPanel basic-auth at /reserve/ is the access gate
+       ============================================================ -->
+  <div id="tool_main">
+
+    <div class="tool-header" data-tier="reserve">
+      <div class="tool-header-inner">
+        <span class="tool-header-brand">DONOVAN&nbsp;&nbsp;<span class="brand-reserve"><span class="re">RE</span>SERVE</span></span>
+        <a href="../index.html" class="tool-header-back">&larr; donovan.law</a>
+      </div>
+    </div>
+
+    <div class="econ-shell">
+
+      <!-- ===========================================================
+           SIDEBAR NAV
+           =========================================================== -->
+      <aside class="econ-sidebar">
+        <div class="econ-sidebar-title">Deal Economics</div>
+        <div class="econ-sidebar-subtitle">Feasibility &middot; RESERVE-tier</div>
+        <nav class="econ-nav">
+          <a href="#" class="econ-nav-item econ-nav-active" data-panel="setup">1. Setup &amp; Archetype</a>
+          <a href="#" class="econ-nav-item" data-panel="acquisition">2. Acquisition &amp; Development</a>
+          <a href="#" class="econ-nav-item" data-panel="revenue">3. Revenue &amp; OpEx</a>
+          <a href="#" class="econ-nav-item" data-panel="capital">4. Capital Stack</a>
+          <a href="#" class="econ-nav-item" data-panel="exit">5. Exit &amp; Sensitivity</a>
+          <a href="#" class="econ-nav-item econ-nav-generate" data-panel="results">6. Run &amp; Results</a>
+        </nav>
+        <div class="econ-sidebar-footer">
+          <button id="btn_econ_save"  class="econ-btn-ghost">Save Draft</button>
+          <button id="btn_econ_load"  class="econ-btn-ghost">Load Draft</button>
+          <button id="btn_econ_clear" class="econ-btn-ghost econ-btn-warn">Reset</button>
+        </div>
+      </aside>
+
+      <!-- ===========================================================
+           MAIN PANEL
+           =========================================================== -->
+      <main class="econ-main">
+
+        <!-- ================================================
+             PANEL 1 — SETUP & ARCHETYPE
+             ================================================ -->
+        <section class="econ-panel econ-panel-active" data-panel="setup">
+          <div class="econ-panel-header">
+            <div class="econ-panel-eyebrow">Section 1 of 6</div>
+            <h2>Setup &amp; Archetype</h2>
+            <p class="econ-panel-sub">Identify the matter and asset, then select an archetype. Thirty presets span for-sale residential through specialty (NNN, LIHTC, QOZ). Each preset pre-populates a complete capital stack and operating model that you customize from there.</p>
+          </div>
+
+          <!-- ===== HANDOFF BANNER (sibling-tool data) ===== -->
+          <div id="econ_handoff_banner" class="econ-handoff-banner" style="display:none;"></div>
+
+          <!-- ===== STRUCTURAL ARCHETYPE PRESETS ===== -->
+          <div class="econ-preset-bar">
+            <div class="econ-preset-bar-header">
+              <strong>START WITH A DEAL-TYPE ARCHETYPE</strong>
+              <span class="econ-preset-bar-sub">Thirty starting points across residential (for-sale and hold), commercial, hospitality, mixed-use, ground-up development, and specialty (NNN, LIHTC, QOZ, sale-leaseback, land entitlement). Pick the closest archetype; refine from there.</span>
+            </div>
+            <div id="econ_preset_grid" class="econ-preset-grid">
+              <!-- Populated by JS from ECON_PRESETS -->
+            </div>
+            <div id="econ_preset_status" class="econ-preset-status" style="display:none;"></div>
+          </div>
+
+          <div class="econ-callout econ-callout-info">
+            <strong>Scope of Thread 1.</strong> This build delivers feasibility-level economics: 30-preset library, sources &amp; uses, capital stack analysis, year-by-year pro forma with NOI and DSCR, deal-level IRR and MOIC, two-variable sensitivity grid, break-even analysis, feasibility memorandum, and 10-tab Excel workbook (three tabs populated with live formulas; seven tabs structured). Per-partner waterfall execution, &sect; 704(b) capital-account maintenance, depreciation with cost-segregation overlay, and disposition mechanics with &sect; 1245/1250 recapture ship in subsequent threads.
+          </div>
+
+          <div class="econ-field-grid">
+            <div class="econ-field">
+              <label>Project Name <span class="econ-req">*</span></label>
+              <input type="text" id="project_name" placeholder="e.g., Atlantic Apartments" />
+            </div>
+            <div class="econ-field">
+              <label>Matter Number</label>
+              <input type="text" id="matter_no" placeholder="e.g., 2026-0042" />
+            </div>
+          </div>
+
+          <div class="econ-field-grid">
+            <div class="econ-field">
+              <label>Effective Date</label>
+              <input type="date" id="effective_date" />
+            </div>
+            <div class="econ-field">
+              <label>Asset Class</label>
+              <select id="asset_class">
+                <option value="residential">Residential</option>
+                <option value="commercial">Commercial</option>
+                <option value="hospitality">Hospitality</option>
+                <option value="mixed_use">Mixed-Use</option>
+                <option value="development">Development</option>
+                <option value="specialty">Specialty</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="econ-field-grid">
+            <div class="econ-field">
+              <label>Formation Jurisdiction</label>
+              <select id="jurisdiction"></select>
+              <p class="econ-help">State of entity formation.</p>
+            </div>
+            <div class="econ-field">
+              <label>Asset Location State</label>
+              <select id="asset_location_state"></select>
+              <p class="econ-help">Physical state of the asset; drives transfer-tax computation at exit.</p>
+            </div>
+          </div>
+
+          <div class="econ-field-grid">
+            <div class="econ-field">
+              <label>Cash Flow Profile</label>
+              <select id="cash_flow_profile">
+                <option value="hold">Hold (Operating)</option>
+                <option value="for_sale">For Sale</option>
+                <option value="hospitality">Hospitality (RevPAR)</option>
+                <option value="mixed_use">Mixed-Use</option>
+                <option value="development">Development (Build + Hold)</option>
+              </select>
+            </div>
+            <div class="econ-field">
+              <label>Hold Period (Years)</label>
+              <input type="number" id="hold_period_years" min="1" max="30" step="1" value="5" />
+            </div>
+          </div>
+
+          <div class="econ-field">
+            <label>Exit Strategy</label>
+            <select id="exit_strategy">
+              <option value="hold_and_exit">Hold and Exit at Sale</option>
+              <option value="sell_at_completion">Sell at Completion</option>
+              <option value="1031_exchange">&sect; 1031 Like-Kind Exchange</option>
+              <option value="refi_recap">Refinance and Recapitalize</option>
+            </select>
+          </div>
+        </section>
+
+        <!-- ================================================
+             PANEL 2 — ACQUISITION & DEVELOPMENT
+             ================================================ -->
+        <section class="econ-panel" data-panel="acquisition">
+          <div class="econ-panel-header">
+            <div class="econ-panel-eyebrow">Section 2 of 6</div>
+            <h2>Acquisition &amp; Development</h2>
+            <p class="econ-panel-sub">Acquisition price, closing-cost overlay, and the development budget where applicable. Lease-up costs and pre-opening (hospitality) costs surface conditionally.</p>
+          </div>
+
+          <div class="econ-field-grid">
+            <div class="econ-field">
+              <label>Acquisition Price ($)</label>
+              <input type="number" id="acquisition_price" step="1000" />
+            </div>
+            <div class="econ-field">
+              <label>Closing Costs (% of acquisition)</label>
+              <input type="number" id="closing_costs_pct" step="0.001" min="0" max="0.10" />
+            </div>
+          </div>
+          <div class="econ-field-grid">
+            <div class="econ-field">
+              <label>Due Diligence Costs ($)</label>
+              <input type="number" id="due_diligence_costs" step="1000" />
+            </div>
+            <div class="econ-field">
+              <label>Financing Fees (% of debt)</label>
+              <input type="number" id="financing_fees_pct" step="0.001" min="0" max="0.05" />
+            </div>
+          </div>
+          <div class="econ-field-grid">
+            <div class="econ-field">
+              <label>Debt Placement Fee (% of debt)</label>
+              <input type="number" id="debt_placement_fee_pct" step="0.001" min="0" max="0.03" />
+            </div>
+            <div class="econ-field">
+              <label>Property Tax Basis (% of acquisition)</label>
+              <input type="number" id="property_tax_basis_pct" step="0.001" min="0" max="0.05" />
+              <p class="econ-help">Y1 property tax = acquisition price &times; basis; grown 2%/yr.</p>
+            </div>
+          </div>
+
+          <div class="econ-subsection">
+            <h3>Development Budget</h3>
+            <div class="econ-field-grid">
+              <div class="econ-field">
+                <label>Development Present</label>
+                <select id="development_present">
+                  <option value="false">No</option>
+                  <option value="true">Yes</option>
+                </select>
+              </div>
+              <div class="econ-field">
+                <label>Hard Costs ($)</label>
+                <input type="number" id="hard_costs" step="1000" />
+              </div>
+            </div>
+            <div class="econ-field-grid">
+              <div class="econ-field">
+                <label>Soft Costs ($)</label>
+                <input type="number" id="soft_costs" step="1000" />
+                <p class="econ-help">Architecture, engineering, permits, legal, financing closing.</p>
+              </div>
+              <div class="econ-field">
+                <label>Contingency (% of hard costs)</label>
+                <input type="number" id="contingency_pct" step="0.01" min="0" max="0.30" />
+              </div>
+            </div>
+            <div class="econ-field-grid">
+              <div class="econ-field">
+                <label>Interest Reserve ($)</label>
+                <input type="number" id="interest_reserve" step="1000" />
+              </div>
+              <div class="econ-field">
+                <label>Lease-Up Costs (TI/LC) ($)</label>
+                <input type="number" id="lease_up_costs" step="1000" />
+              </div>
+            </div>
+            <div class="econ-field">
+              <label>Pre-Opening Costs (Hospitality FF&amp;E + Ramp) ($)</label>
+              <input type="number" id="pre_opening_costs" step="1000" />
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================
+             PANEL 3 — REVENUE & OPEX
+             ================================================ -->
+        <section class="econ-panel" data-panel="revenue">
+          <div class="econ-panel-header">
+            <div class="econ-panel-eyebrow">Section 3 of 6</div>
+            <h2>Revenue &amp; OpEx</h2>
+            <p class="econ-panel-sub">Revenue model branches by asset class: residential (units &times; rent), commercial (sqft &times; rent PSF), hospitality (RevPAR), for-sale (sales velocity). Operating expenses use an EGR ratio plus per-asset-class reserves.</p>
+          </div>
+
+          <div class="econ-subsection">
+            <h3>Residential Revenue (units &times; rent)</h3>
+            <div class="econ-field-grid">
+              <div class="econ-field">
+                <label>Units Count</label>
+                <input type="number" id="units_count" step="1" />
+              </div>
+              <div class="econ-field">
+                <label>Avg Monthly Rent per Unit ($)</label>
+                <input type="number" id="avg_unit_rent_monthly" step="10" />
+              </div>
+            </div>
+            <div class="econ-field-grid">
+              <div class="econ-field">
+                <label>Rent Growth (%/yr)</label>
+                <input type="number" id="rent_growth_pct" step="0.001" min="-0.10" max="0.20" />
+              </div>
+              <div class="econ-field">
+                <label>Vacancy (%)</label>
+                <input type="number" id="vacancy_pct" step="0.001" min="0" max="0.50" />
+              </div>
+            </div>
+            <div class="econ-field">
+              <label>Other Income (% of rent)</label>
+              <input type="number" id="other_income_pct_of_rent" step="0.001" min="0" max="0.20" />
+            </div>
+          </div>
+
+          <div class="econ-subsection">
+            <h3>Commercial Revenue (sqft &times; rent PSF)</h3>
+            <div class="econ-field-grid">
+              <div class="econ-field">
+                <label>Rentable Sq Ft</label>
+                <input type="number" id="rentable_sqft" step="100" />
+              </div>
+              <div class="econ-field">
+                <label>Annual Base Rent (PSF, $)</label>
+                <input type="number" id="annual_base_rent_psf" step="0.50" />
+              </div>
+            </div>
+            <div class="econ-field">
+              <label>Commercial Rent Growth (%/yr)</label>
+              <input type="number" id="rent_growth_commercial_pct" step="0.001" min="-0.10" max="0.20" />
+            </div>
+          </div>
+
+          <div class="econ-subsection">
+            <h3>Hospitality Revenue (RevPAR)</h3>
+            <div class="econ-field-grid">
+              <div class="econ-field">
+                <label>Rooms Count</label>
+                <input type="number" id="rooms_count" step="1" />
+              </div>
+              <div class="econ-field">
+                <label>Average Daily Rate (ADR, $)</label>
+                <input type="number" id="avg_daily_rate" step="5" />
+              </div>
+            </div>
+            <div class="econ-field-grid">
+              <div class="econ-field">
+                <label>Occupancy (%)</label>
+                <input type="number" id="occupancy_pct" step="0.01" min="0" max="1" />
+              </div>
+              <div class="econ-field">
+                <label>RevPAR Growth (%/yr)</label>
+                <input type="number" id="revpar_growth_pct" step="0.001" min="-0.10" max="0.15" />
+              </div>
+            </div>
+            <div class="econ-field-grid">
+              <div class="econ-field">
+                <label>F&amp;B (% of room revenue)</label>
+                <input type="number" id="fnb_pct_of_rooms" step="0.01" min="0" max="1" />
+              </div>
+              <div class="econ-field">
+                <label>Other Dept (% of room revenue)</label>
+                <input type="number" id="other_dept_pct_of_rooms" step="0.01" min="0" max="0.5" />
+              </div>
+            </div>
+          </div>
+
+          <div class="econ-subsection">
+            <h3>For-Sale Revenue (sales velocity)</h3>
+            <div class="econ-field-grid">
+              <div class="econ-field">
+                <label>Total Units to Sell</label>
+                <input type="number" id="total_units_to_sell" step="1" />
+              </div>
+              <div class="econ-field">
+                <label>Avg Sale Price per Unit ($)</label>
+                <input type="number" id="avg_sale_price" step="1000" />
+              </div>
+            </div>
+            <div class="econ-field-grid">
+              <div class="econ-field">
+                <label>Sales Velocity (units/month)</label>
+                <input type="number" id="sales_velocity_units_per_month" step="0.5" />
+              </div>
+              <div class="econ-field">
+                <label>Sale Price Growth (%/yr)</label>
+                <input type="number" id="sale_price_growth_pct" step="0.001" min="-0.10" max="0.15" />
+              </div>
+            </div>
+          </div>
+
+          <div class="econ-subsection">
+            <h3>Operating Expenses</h3>
+            <div class="econ-field-grid">
+              <div class="econ-field">
+                <label>OpEx Ratio (% of EGR)</label>
+                <input type="number" id="opex_ratio" step="0.01" min="0" max="1" />
+              </div>
+              <div class="econ-field">
+                <label>OpEx Growth (%/yr)</label>
+                <input type="number" id="opex_growth_pct" step="0.001" min="-0.05" max="0.10" />
+              </div>
+            </div>
+            <div class="econ-field-grid">
+              <div class="econ-field">
+                <label>CapEx Reserve per Unit ($/yr)</label>
+                <input type="number" id="capex_reserve_per_unit" step="10" />
+              </div>
+              <div class="econ-field">
+                <label>TI/LC Reserve (PSF/yr)</label>
+                <input type="number" id="ti_lc_reserve_per_sqft" step="0.10" />
+              </div>
+            </div>
+            <div class="econ-field-grid">
+              <div class="econ-field">
+                <label>FF&amp;E Reserve (% of revenue)</label>
+                <input type="number" id="ff_e_reserve_pct_of_revenue" step="0.01" min="0" max="0.10" />
+              </div>
+              <div class="econ-field">
+                <label>Insurance per Unit ($/yr)</label>
+                <input type="number" id="insurance_per_unit" step="10" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================
+             PANEL 4 — CAPITAL STACK
+             ================================================ -->
+        <section class="econ-panel" data-panel="capital">
+          <div class="econ-panel-header">
+            <div class="econ-panel-eyebrow">Section 4 of 6</div>
+            <h2>Capital Stack</h2>
+            <p class="econ-panel-sub">Capital classes ranked from senior debt (1) through GP carry (6). Each preset ships a complete pre-populated stack; this section shows the loaded stack. Class-level editing (add / modify class) lands in Thread 2 once allocation methodology controls are wired.</p>
+          </div>
+          <div id="econ_capital_classes_list" class="econ-cap-list">
+            <!-- Populated by JS -->
+          </div>
+          <div class="econ-callout econ-callout-info" style="margin-top:1rem;">
+            <strong>Thread 2:</strong> per-class promote tiers, &sect; 704(c) method, &sect; 752 debt-allocation method, QIO + minimum-gain chargebacks, and allocation methodology (traditional / targeted-capital / layer-cake) become first-class controls.
+          </div>
+        </section>
+
+        <!-- ================================================
+             PANEL 5 — EXIT & SENSITIVITY
+             ================================================ -->
+        <section class="econ-panel" data-panel="exit">
+          <div class="econ-panel-header">
+            <div class="econ-panel-eyebrow">Section 5 of 6</div>
+            <h2>Exit Assumptions &amp; Sensitivity</h2>
+            <p class="econ-panel-sub">Exit cap rate, disposition costs, and the two-variable sensitivity grid axes.</p>
+          </div>
+
+          <div class="econ-field-grid">
+            <div class="econ-field">
+              <label>Going-In Cap Rate</label>
+              <input type="number" id="going_in_cap_rate" step="0.001" min="0.02" max="0.20" />
+            </div>
+            <div class="econ-field">
+              <label>Exit Cap Rate</label>
+              <input type="number" id="exit_cap_rate" step="0.001" min="0.02" max="0.20" />
+              <p class="econ-help">Donovan Legal convention: spread to going-in (+50 bps default).</p>
+            </div>
+          </div>
+
+          <div class="econ-subsection">
+            <h3>Disposition Costs (Itemized)</h3>
+            <p class="econ-help">State transfer-tax bps applied automatically per asset-location state. Brokerage and legal layered separately.</p>
+            <div class="econ-field-grid">
+              <div class="econ-field">
+                <label>Brokerage (% of gross sale)</label>
+                <input type="number" id="disposition_brokerage_pct" step="0.0025" min="0" max="0.05" />
+              </div>
+              <div class="econ-field">
+                <label>Legal &amp; Title ($)</label>
+                <input type="number" id="disposition_legal_psf" step="100" />
+              </div>
+            </div>
+            <div class="econ-field">
+              <label>Other Disposition Costs ($)</label>
+              <input type="number" id="disposition_other_costs" step="100" />
+            </div>
+          </div>
+
+          <div class="econ-callout econ-callout-info">
+            Sensitivity grid axes are inferred from the cash-flow profile (hold: rent growth &times; exit cap; for-sale: sales velocity &times; sale price; hospitality: occupancy &times; ADR). Custom axes ship in Thread 2.
+          </div>
+        </section>
+
+        <!-- ================================================
+             PANEL 6 — RUN & RESULTS
+             ================================================ -->
+        <section class="econ-panel" data-panel="results">
+          <div class="econ-panel-header">
+            <div class="econ-panel-eyebrow">Section 6 of 6</div>
+            <h2>Run Model &amp; Results</h2>
+            <p class="econ-panel-sub">Execute the feasibility model. Results render the post-Run dashboard, the full feasibility memorandum (DRAFT), and a 10-tab Excel workbook with live formulas in Tabs 1&ndash;3.</p>
+          </div>
+
+          <div class="econ-run-bar">
+            <button id="btn_econ_run" class="econ-run-btn">Run Feasibility Model</button>
+          </div>
+
+          <div id="econ_results_panel" style="display:none;">
+            <!-- KPI Cards -->
+            <div class="econ-kpi-grid">
+              <div class="econ-kpi-card">
+                <div class="econ-kpi-card-label">Total Capital</div>
+                <div class="econ-kpi-card-value" id="econ_kpi_total_cap">&mdash;</div>
+              </div>
+              <div class="econ-kpi-card">
+                <div class="econ-kpi-card-label">Total Debt</div>
+                <div class="econ-kpi-card-value" id="econ_kpi_total_debt">&mdash;</div>
+              </div>
+              <div class="econ-kpi-card">
+                <div class="econ-kpi-card-label">Total Equity</div>
+                <div class="econ-kpi-card-value" id="econ_kpi_total_eq">&mdash;</div>
+              </div>
+              <div class="econ-kpi-card">
+                <div class="econ-kpi-card-label">LTV at Acquisition</div>
+                <div class="econ-kpi-card-value" id="econ_kpi_ltv">&mdash;</div>
+              </div>
+              <div class="econ-kpi-card">
+                <div class="econ-kpi-card-label">LTC</div>
+                <div class="econ-kpi-card-value" id="econ_kpi_ltc">&mdash;</div>
+              </div>
+              <div class="econ-kpi-card">
+                <div class="econ-kpi-card-label">Deal IRR</div>
+                <div class="econ-kpi-card-value" id="econ_kpi_deal_irr">&mdash;</div>
+              </div>
+              <div class="econ-kpi-card">
+                <div class="econ-kpi-card-label">Deal MOIC</div>
+                <div class="econ-kpi-card-value" id="econ_kpi_moic">&mdash;</div>
+              </div>
+              <div class="econ-kpi-card">
+                <div class="econ-kpi-card-label">Year 1 DSCR</div>
+                <div class="econ-kpi-card-value" id="econ_kpi_y1_dscr">&mdash;</div>
+              </div>
+            </div>
+
+            <!-- Action bar -->
+            <div class="econ-action-bar">
+              <button id="btn_econ_download_excel" class="econ-action-btn econ-action-btn-primary">Download Excel Workbook</button>
+              <button id="btn_econ_print" class="econ-action-btn">Print / Save Memo as PDF</button>
+              <button id="btn_econ_continue_structuring" class="econ-action-btn">Continue to Structuring Tool &rarr;</button>
+            </div>
+
+            <!-- Memo preview pane -->
+            <div id="econ_memo_preview" class="econ-memo-preview"></div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SCRIPTS — tier flag, engine, SheetJS for download
+       ============================================================ -->
+  <script src="../js/tool-economics.js" defer></script>
+  <script src="../js/vendor/xlsx-writer.js" defer></script>
+
+</body>
+</html>

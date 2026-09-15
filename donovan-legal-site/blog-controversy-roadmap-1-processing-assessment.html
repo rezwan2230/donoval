@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Processing and Assessment | Roadmap Part 1 | Donovan Legal</title>
+<meta name="description" content="How a filed return is processed and assessed, the math-error and underreporter paths that change your tax before any audit, and the roads out.">
+<style>
+  :root{--ink:#16242F;--mute:#5A7181;--bg:#FCFCFB;--panel:#FFFFFF;--line:#E2E8EC;
+        --emer:#01873F;--gold:#C9A961;--teal:#357E91;--indigo:#5B62A8;--sienna:#AE6038;
+        --serif:Georgia,'Times New Roman',serif;--sans:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;}
+  *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.72;font-size:18px;-webkit-font-smoothing:antialiased}
+  .article{max-width:1120px;margin:0 auto;padding:0 28px 80px}
+  .prose{max-width:720px;margin:0 auto}
+  .masthead{max-width:1120px;margin:0 auto;padding:22px 28px 0;display:flex;align-items:center;justify-content:space-between}
+  .brand{font-weight:700;letter-spacing:1.5px;font-size:13px}.brand .re{color:var(--emer)}
+  .masthead .tag{color:var(--mute);font-size:12px;letter-spacing:1px}
+  .rule{max-width:1120px;margin:14px auto 0;padding:0 28px}.rule hr{border:0;border-top:2px solid var(--emer);margin:0}
+  header.post{padding:46px 0 8px}
+  .backlink{display:inline-block;color:var(--mute);font-size:13px;letter-spacing:.4px;margin-bottom:18px}
+  .backlink:hover{color:var(--emer)}
+  /* JORDAN-195: gold as TEXT on the #FCFCFB page reads 2.19:1 and fails. --gold
+     itself stays the band fill (.num, and .closing .sig on the dark block, where
+     it reads 7.75:1) and is deliberately not re-valued. */
+  .eyebrow{color:#806633;font-weight:700;letter-spacing:2.4px;font-size:12.5px;text-transform:uppercase;margin:0 0 14px}
+  h1{font-family:var(--serif);font-weight:400;font-size:46px;line-height:1.08;margin:0 0 18px;letter-spacing:-.3px}
+  .standfirst{font-family:var(--serif);font-style:italic;color:var(--mute);font-size:21px;line-height:1.5;margin:0}
+  .meta{color:var(--mute);font-size:13.5px;letter-spacing:.4px;margin:22px 0 0;padding-top:16px;border-top:1px solid var(--line)}
+  .disclaimer{background:#FAF7EF;border:1px solid #E9DFC4;border-left:4px solid var(--gold);border-radius:10px;padding:18px 22px;margin:30px auto 8px;max-width:720px;font-size:15px;line-height:1.6;color:#4a4634}
+  .disclaimer b{color:var(--ink)}
+  figure.map{margin:40px 0 18px}
+  .map-frame{background:#F2F5F7;border:1px solid var(--line);border-radius:14px;padding:18px;overflow:hidden}
+  .roadmap-svg{display:block}
+  figcaption{color:var(--mute);font-size:13.5px;text-align:center;margin-top:12px;font-style:italic}
+  h2{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.15;margin:52px 0 6px;letter-spacing:-.2px}
+  .kicker{color:var(--emer);font-weight:700;letter-spacing:1.6px;font-size:12px;text-transform:uppercase;margin:0 0 12px}
+  p{margin:0 0 18px}.lead{font-size:19.5px}
+  .roads{list-style:none;padding:0;margin:22px 0 8px}
+  .roads li{padding:16px 0 16px 18px;border-left:3px solid var(--line);margin-bottom:4px}
+  .roads li.exam{border-color:var(--teal)}.roads li.coll{border-color:var(--sienna)}
+  .roads li.closed{border-color:var(--emer)}.roads li.gold{border-color:var(--gold)}
+  .roads h3{margin:0 0 4px;font-size:18px;font-family:var(--sans);font-weight:700}
+  .roads h3 .pt{font-size:11px;font-weight:700;color:#fff;background:var(--mute);border-radius:9px;padding:2px 8px;margin-left:8px;letter-spacing:.4px;vertical-align:2px}
+  .roads h3 .pt.t{background:var(--teal)}.roads h3 .pt.s{background:var(--sienna)}
+  .roads p{margin:0;color:var(--mute);font-size:16px;line-height:1.55}
+  .clockline{background:#FAF7EF;border-radius:10px;padding:14px 18px;margin:8px 0 0;font-size:15.5px;color:#4a4634}
+  .clockline b{color:var(--ink)}
+  .next{display:flex;gap:14px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:30px 0 0}
+  .next .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--teal);color:#fff;font-weight:700;display:inline-flex;align-items:center;justify-content:center;font-size:13px}
+  .next .t{font-weight:700}.next .d{color:var(--mute);font-size:15px}
+  .closing{background:#0E1B26;color:#EDEFEC;border-radius:14px;padding:34px;margin:50px auto 0;max-width:1120px}
+  .closing h2{color:#fff;margin-top:0;font-size:27px}.closing p{color:#C5D0D6;font-size:17px}
+  /* JORDAN-195: the closing block is dark (#0E1B26), so the page link colour
+     darkened for the light body (--emer #01873F) reads only 3.77:1 on it. Light
+     and dark cannot share one value here, so this block keeps the lighter
+     emerald, which is 4.75:1 against #0E1B26. */
+  .closing a{color:#019A48 /* a11y:dark-surface */}
+  .closing .sig{color:var(--gold);font-style:italic;font-family:var(--serif);font-size:18px;margin-top:10px}
+  footer{max-width:1120px;margin:46px auto 0;padding:24px 28px 60px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  footer .fine{color:var(--mute);font-size:12.5px;max-width:720px;line-height:1.5}
+  footer .fm{text-align:right}footer .fm b{letter-spacing:1px}
+  footer .fm span{display:block;color:var(--mute);font-style:italic;font-size:12px;font-family:var(--serif)}
+  a{color:var(--emer);text-decoration:none}
+  /* JORDAN-195 (link-in-text-block, WCAG 1.4.1): a link inside running text must
+     be tellable from that text by something other than colour. The rule above
+     strips the underline site-wide on these posts, so the eight body cross-links
+     added by #197 were distinguished by hue alone - axe measured 2.33:1 against
+     the surrounding text, against a 3:1 floor. Scoped to <a> inside a paragraph
+     so the station cards and the masthead links are untouched: those carry their
+     own inline text-decoration:none, which wins over this rule anyway. */
+  p a{text-decoration:underline}a:hover{text-decoration:underline}
+  a:focus-visible{outline:2px solid var(--emer);outline-offset:3px;border-radius:2px}
+  code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em;background:#EEF2F4;padding:1px 5px;border-radius:4px}
+  @media (max-width:720px){body{font-size:17px}h1{font-size:32px}h2{font-size:24px}.standfirst{font-size:18px}.closing{padding:26px 22px}footer{flex-direction:column;align-items:flex-start}footer .fm{text-align:left}}
+</style>
+  <link rel="canonical" href="https://www.donovan.law/blog-controversy-roadmap-1-processing-assessment">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Donovan Legal PLLC">
+  <meta property="og:url" content="https://www.donovan.law/blog-controversy-roadmap-1-processing-assessment">
+  <meta property="og:title" content="Processing → the Assessment Station | Tax Controversy Roadmap Part 1 | Donovan Legal">
+  <meta property="og:description" content="How a filed return is processed and assessed, the math-error and underreporter paths that change your tax before any audit, and the roads out of the Assessment Station. Part 1 of the Donovan Legal Tax Controversy Roadmap.">
+  <meta property="og:image" content="https://www.donovan.law/img/firm-img.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Processing → the Assessment Station | Tax Controversy Roadmap Part 1 | Donovan Legal">
+  <meta name="twitter:description" content="How a filed return is processed and assessed, the math-error and underreporter paths that change your tax before any audit, and the roads out of the Assessment Station. Part 1 of the Donovan Legal Tax Controversy Roadmap.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Processing → the Assessment Station | Tax Controversy Roadmap Part 1","url":"https://www.donovan.law/blog-controversy-roadmap-1-processing-assessment","author":{"@type":"Organization","name":"Donovan Legal PLLC"},"publisher":{"@type":"Organization","name":"Donovan Legal PLLC","logo":{"@type":"ImageObject","url":"https://www.donovan.law/img/favicon.png"}}}</script>
+</head>
+<body>
+<div class="masthead"><a class="brand" href="index.html" style="color:inherit;text-decoration:none">DONOVAN <span class="re">LEGAL</span></a><div class="tag"><a href="blog.html" style="color:inherit;text-decoration:none">&larr; All Tax Notes</a></div></div>
+<div class="rule"><hr></div>
+<div class="article">
+  <header class="post prose">
+    <a class="backlink" href="blog-controversy-roadmap-0-overview.html">← Part 0 · The Tax Controversy Roadmap (Overview)</a>
+    <p class="eyebrow">Tax Controversy Roadmap — Part 1</p>
+    <h1>Processing → the Assessment Station</h1>
+    <p class="standfirst">How a filed return becomes a legal liability — and the roads that lead out of the Assessment Station.</p>
+    <p class="meta">Donovan Legal&nbsp;·&nbsp;Tax Controversy Practice</p>
+  </header>
+  <div class="disclaimer"><b>This post is part of a high-level series.</b> It explains federal tax procedure in general terms and is not legal advice; reading it does not create an attorney–client relationship. Procedure turns on facts and deadlines specific to each matter, and the response windows described below are short and often cannot be extended. Before acting on a notice, consult counsel.</div>
+  <figure class="map"><div class="map-frame"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1480 860" width="100%" height="auto" class="roadmap-svg" role="img" aria-label="Detail map: return processing into the Assessment Station and the roads out — examination, collection, and refund or closed" font-family="'Helvetica Neue',Arial,sans-serif">
+<rect width="1480" height="860" fill="#F2F5F7"/>
+<text x="70" y="58" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" fill="#C9A961" font-weight="700" text-anchor="start" letter-spacing="2">TAX CONTROVERSY ROADMAP · PART 1</text>
+<text x="70" y="96" font-family="Georgia,'Times New Roman',serif" font-size="35" fill="#16242F" font-weight="400" text-anchor="start">Processing → the Assessment Station</text>
+<text x="72" y="122" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#5E7686" font-weight="400" text-anchor="start" font-style="italic">How a return becomes a liability — and the roads out of the Assessment Station.</text>
+<rect x="72" y="138" width="360" height="3" fill="#019A48"/>
+<text x="1410" y="58" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="700" text-anchor="end" letter-spacing="1.5">DETAIL MAP</text>
+<line x1="251.0" y1="490" x2="319.0" y2="490" stroke="#019A48" stroke-width="3" stroke-linecap="round"/>
+<polygon points="318.0,490 308.2,483 308.2,497" fill="#019A48"/>
+<line x1="501.0" y1="490" x2="565.0" y2="490" stroke="#019A48" stroke-width="3" stroke-linecap="round"/>
+<circle cx="565.0" cy="490" r="4" fill="#019A48"/>
+<line x1="565.0" y1="330" x2="565.0" y2="650" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="565.0" y1="330" x2="629.0" y2="330" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="628.0,330 618.2,323 618.2,337" fill="#90A2AD"/>
+<circle cx="565.0" cy="330" r="4" fill="#90A2AD"/>
+<line x1="565.0" y1="650" x2="629.0" y2="650" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="628.0,650 618.2,643 618.2,657" fill="#90A2AD"/>
+<circle cx="565.0" cy="650" r="4" fill="#90A2AD"/>
+<line x1="565.0" y1="490" x2="867.5" y2="490" stroke="#019A48" stroke-width="3" stroke-linecap="round"/>
+<circle cx="565.0" cy="490" r="4" fill="#019A48"/>
+<line x1="811.0" y1="330" x2="867.5" y2="330" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<circle cx="867.5" cy="330" r="4" fill="#90A2AD"/>
+<line x1="811.0" y1="650" x2="867.5" y2="650" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<circle cx="867.5" cy="650" r="4" fill="#90A2AD"/>
+<line x1="867.5" y1="330" x2="867.5" y2="650" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<circle cx="867.5" cy="490" r="4" fill="#019A48"/>
+<line x1="867.5" y1="490" x2="924.0" y2="490" stroke="#019A48" stroke-width="3" stroke-linecap="round"/>
+<polygon points="923.0,490 913.2,483 913.2,497" fill="#019A48"/>
+<line x1="1106.0" y1="490" x2="1167.5" y2="490" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<circle cx="1167.5" cy="490" r="4" fill="#90A2AD"/>
+<line x1="1167.5" y1="330" x2="1167.5" y2="650" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="1167.5" y1="330" x2="1229.0" y2="330" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="1228.0,330 1218.2,323 1218.2,337" fill="#90A2AD"/>
+<circle cx="1167.5" cy="330" r="4" fill="#90A2AD"/>
+<line x1="1167.5" y1="490" x2="1229.0" y2="490" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="1228.0,490 1218.2,483 1218.2,497" fill="#90A2AD"/>
+<line x1="1167.5" y1="650" x2="1229.0" y2="650" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="1228.0,650 1218.2,643 1218.2,657" fill="#90A2AD"/>
+<circle cx="1167.5" cy="650" r="4" fill="#90A2AD"/>
+<line x1="720" y1="262.0" x2="720" y2="284.0" stroke="#90A2AD" stroke-width="2" stroke-linecap="round"/>
+<line x1="720" y1="696.0" x2="720" y2="718.0" stroke="#90A2AD" stroke-width="2" stroke-linecap="round"/>
+<rect x="71.0" y="448.0" width="182" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="69.0" y="444.0" width="182" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="69.0" y="444.0" width="6.5" height="92" fill="#019A48"/>
+<rect x="69.0" y="444.0" width="6.5" height="13" rx="6" fill="#019A48"/>
+<text x="163" y="480.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Return Filed</text>
+<text x="163" y="498.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Form 1040 /</text>
+<text x="163" y="513.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">business return</text>
+<rect x="321.0" y="448.0" width="182" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="319.0" y="444.0" width="182" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="319.0" y="444.0" width="6.5" height="92" fill="#019A48"/>
+<rect x="319.0" y="444.0" width="6.5" height="13" rx="6" fill="#019A48"/>
+<text x="413" y="480.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Return Processing</text>
+<text x="413" y="498.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Matching · errors · refunds</text>
+<text x="413" y="513.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">holds: Letter 12C · CP05</text>
+<rect x="631.0" y="288.0" width="182" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="629.0" y="284.0" width="182" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="629.0" y="284.0" width="6.5" height="92" fill="#C9A961"/>
+<rect x="629.0" y="284.0" width="6.5" height="13" rx="6" fill="#C9A961"/>
+<text x="723" y="320.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="14" fill="#16242F" font-weight="700" text-anchor="middle">Math / Clerical Error</text>
+<text x="723" y="338.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Summary assessment</text>
+<text x="723" y="353.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">CP11 (due) · CP12 (refund)</text>
+<rect x="631.0" y="608.0" width="182" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="629.0" y="604.0" width="182" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="629.0" y="604.0" width="6.5" height="92" fill="#3C8DA3"/>
+<rect x="629.0" y="604.0" width="6.5" height="13" rx="6" fill="#3C8DA3"/>
+<text x="723" y="640.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="14" fill="#16242F" font-weight="700" text-anchor="middle">Underreporter (AUR)</text>
+<text x="723" y="658.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">CP2000 — proposed change</text>
+<text x="723" y="673.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">unresolved → CP3219A</text>
+<rect x="926.0" y="436.0" width="182" height="116" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="924.0" y="432.0" width="182" height="116" rx="12" fill="#FFFFFF" stroke="#C9A961" stroke-width="2.5"/>
+<rect x="924.0" y="432.0" width="6.5" height="116" fill="#C9A961"/>
+<rect x="924.0" y="432.0" width="6.5" height="13" rx="6" fill="#C9A961"/>
+<text x="1018" y="465.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Assessment Station</text>
+<text x="1018" y="483.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Tax recorded · §6201 / §6203</text>
+<text x="1018" y="498.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Notice &amp; Demand ≤60 days</text>
+<text x="1018" y="513.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">§6303 → CP14 (21-day)</text>
+<text x="1018" y="528.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">CSED begins · §6502</text>
+<rect x="1231.0" y="288.0" width="182" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="1229.0" y="284.0" width="182" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="1229.0" y="284.0" width="6.5" height="92" fill="#3C8DA3"/>
+<rect x="1229.0" y="284.0" width="6.5" height="13" rx="6" fill="#3C8DA3"/>
+<text x="1323" y="320.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Examination</text>
+<text x="1323" y="338.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Return selected</text>
+<text x="1323" y="353.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">for audit</text>
+<rect x="1347.4" y="292.0" width="55.599999999999994" height="18" rx="9" fill="#3C8DA3"/>
+<text x="1375.2" y="305.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.4">PART 2</text>
+<rect x="1231.0" y="448.0" width="182" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="1229.0" y="444.0" width="182" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="1229.0" y="444.0" width="6.5" height="92" fill="#C06A3E"/>
+<rect x="1229.0" y="444.0" width="6.5" height="13" rx="6" fill="#C06A3E"/>
+<text x="1323" y="480.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Collection</text>
+<text x="1323" y="498.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Balance due —</text>
+<text x="1323" y="513.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">liens &amp; levies</text>
+<rect x="1347.4" y="452.0" width="55.599999999999994" height="18" rx="9" fill="#C06A3E"/>
+<text x="1375.2" y="465.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.4">PART 5</text>
+<rect x="1231.0" y="608.0" width="182" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="1229.0" y="604.0" width="182" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="1229.0" y="604.0" width="6.5" height="92" fill="#019A48"/>
+<rect x="1229.0" y="604.0" width="6.5" height="13" rx="6" fill="#019A48"/>
+<text x="1323" y="640.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Refund / Closed</text>
+<text x="1323" y="658.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Issued — or offset to a</text>
+<text x="1323" y="673.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">debt (CP49 · §6402)</text>
+<rect x="672.0" y="216.0" width="96" height="46" rx="10" fill="#C9A961"/>
+<rect x="672.0" y="216.0" width="96" height="14" rx="7" fill="#FFFFFF" opacity="0.18"/>
+<circle cx="690.0" cy="239.0" r="9" fill="none" stroke="#16242F" stroke-width="2"/>
+<line x1="690.0" y1="239.0" x2="690.0" y2="234.0" stroke="#16242F" stroke-width="2" stroke-linecap="round"/>
+<line x1="690.0" y1="239.0" x2="694.0" y2="241.0" stroke="#16242F" stroke-width="2" stroke-linecap="round"/>
+<text x="730" y="238.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="19" fill="#16242F" font-weight="700" text-anchor="middle">60</text>
+<text x="730" y="253.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="#16242F" font-weight="700" text-anchor="middle">§6213(b)</text>
+<text x="720" y="207.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle" font-style="italic">60 days to abate → forces deficiency procedures (Part 2)</text>
+<rect x="672.0" y="718.0" width="96" height="46" rx="10" fill="#C9A961"/>
+<rect x="672.0" y="718.0" width="96" height="14" rx="7" fill="#FFFFFF" opacity="0.18"/>
+<circle cx="690.0" cy="741.0" r="9" fill="none" stroke="#16242F" stroke-width="2"/>
+<line x1="690.0" y1="741.0" x2="690.0" y2="736.0" stroke="#16242F" stroke-width="2" stroke-linecap="round"/>
+<line x1="690.0" y1="741.0" x2="694.0" y2="743.0" stroke="#16242F" stroke-width="2" stroke-linecap="round"/>
+<text x="730" y="740.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="19" fill="#16242F" font-weight="700" text-anchor="middle">30</text>
+<text x="730" y="755.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="#16242F" font-weight="700" text-anchor="middle">CP2000</text>
+<text x="720" y="773.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle" font-style="italic">No response → CP3219A (90-day SNOD) → Tax Court (Part 7)</text>
+<line x1="70" y1="800" x2="1410" y2="800" stroke="#C4D0D8" stroke-width="1.5"/>
+<text x="70" y="826" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" fill="#16242F" font-weight="700" text-anchor="start" letter-spacing="0.5">PART 1 OF THE SERIES.</text>
+<text x="232" y="826" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" fill="#5E7686" font-weight="400" text-anchor="start">General information about tax procedure — not legal advice. Deadlines run from the date on the notice.</text>
+<text x="1410" y="820" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" fill="#16242F" font-weight="700" text-anchor="end" letter-spacing="1">DONOVAN LEGAL</text>
+<text x="1410" y="837" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10.5" fill="#5E7686" font-weight="400" text-anchor="end" font-style="italic">One firm. One signature. Full-arc defense.</text>
+</svg></div>
+    <figcaption>Part 1: from a filed return through processing to the Assessment Station, and the roads out.</figcaption></figure>
+  
+<div class="prose">
+  <h2>From paper to liability</h2>
+  <p class="lead">Processing sounds passive — the IRS receiving a return and filing it away. It is not. Processing is where your number can change before a human ever looks at your file, and where the first deadlines begin to run.</p>
+  <p>Two things happen here. The return is checked against what third parties already reported, and the tax is recorded as a liability. By the time a return leaves the Assessment Station, it has become a legal debt, a refund, or a candidate for audit — and the date it was assessed quietly governs everything that can happen in collection for the next decade.</p>
+
+  <h2>What return processing actually does</h2>
+  <p>The IRS matches the return against its own data, corrects what it can, and either issues a refund or records a balance. Where information is missing, it pauses and asks: a <code>Letter 12C</code> requests items left off the return. Where a refund is under review, a <code>CP05</code> holds it pending verification. Most returns clear this stage without incident. Two paths do not — and both can raise your tax without any audit at all.</p>
+
+  <h2>Two ways your number changes during processing</h2>
+  <ul class="roads">
+    <li class="gold">
+      <h3>Math or clerical error</h3>
+      <p>Where entries don't reconcile, the IRS may use its <em>math-error authority</em> to assess the correction on the spot — a summary assessment, without the usual deficiency procedures. You'll see a <code>CP11</code> (balance due) or <code>CP12</code> (overpayment). It does not say "math error" on its face, and most people simply pay it.</p>
+    </li>
+    <li class="exam">
+      <h3>Underreporter (AUR)</h3>
+      <p>An automated program compares your return to third-party forms — W-2s, 1099s, K-1s. A mismatch generates a <code>CP2000</code> proposing additional tax. It is a proposal, not a bill. But it carries a clock, and ignoring it converts the proposal into a formal deficiency.</p>
+    </li>
+  </ul>
+  <div class="clockline"><b>The clocks here are easy to miss.</b> A math-error notice gives you <b>60 days</b> to demand abatement (IRC §6213(b)) — which forces the IRS back into normal deficiency procedures and preserves your right to Tax Court; let it pass and that right is gone. A <code>CP2000</code> gives you roughly <b>30 days</b> to respond; no response escalates to a <code>CP3219A</code>, the 90-day Statutory Notice of Deficiency, after which the only forum left is the U.S. Tax Court (covered in Part 7).</div>
+
+  <h2>The Assessment Station — the pivot</h2>
+  <p>However it gets there, the return reaches the moment the entire system turns on: <strong>assessment</strong>. The tax is formally recorded (IRC §§6201, 6203). Within 60 days, the IRS must issue notice and demand for payment (§6303) — that notice is the <code>CP14</code>, the first balance-due letter, requesting payment within 21 days.</p>
+  <p>One date matters more than any other here: the date of assessment starts the <strong>Collection Statute Expiration Date (CSED)</strong> — the ten-year clock under §6502 within which the IRS must collect. Every collection decision that follows is measured against it.</p>
+
+  <h2>The roads out of the Assessment Station</h2>
+  <p>From here, a return takes one of a few roads — and the first three of these are the subject of the posts that follow.</p>
+  <ul class="roads">
+    <li class="closed"><h3>Refund or closed</h3><p>If nothing is owed, the matter closes. A refund is issued — or, if you owe another debt, it's offset and applied to that balance (a <code>CP49</code>; non-tax debts are taken through the Treasury Offset Program under §6402).</p></li>
+    <li class="exam"><h3>Examination<span class="pt t">PART 2</span></h3><p>If the return is selected for audit, it enters the Exam Station. What gets built — or not built — in that record governs everything downstream.</p></li>
+    <li class="coll"><h3>Collection<span class="pt s">PART 5</span></h3><p>If tax is assessed and unpaid, the matter moves into collection: the notice stream first, then liens and levies.</p></li>
+  </ul>
+  <p>Two of the processing paths loop back into the dispute system: a timely math-error abatement pushes the matter into deficiency procedures (the gateway to Exam, Part 2), and an unanswered <code>CP2000</code> becomes a Notice of Deficiency headed for Tax Court (Part 7).</p>
+
+  <h2>Why this station matters</h2>
+  <p>The Assessment Station is where an abstract dispute becomes a concrete liability — and where the clocks that govern the rest of the journey start to run. Read a processing notice as what it is: not the end of a conversation, but the start of one, on a timetable the IRS has already set.</p>
+</div>
+
+<div class="prose">
+  <a class="next" href="blog-controversy-roadmap-2-exam.html"><span class="n">2</span><span><span class="t">Next — Part 2: The Exam Station</span><br><span class="d">How audits run, and why the record built there governs everything after.</span></span></a>
+</div>
+
+  <div class="closing">
+    <h2>One firm, the full arc</h2>
+    <p>A processing notice can look like a clerical formality and still cost a forum if it's set aside. The roads out of the Assessment Station — exam, collection, the courts — connect, and the decisions made here narrow or widen what's possible later. Donovan Legal represents taxpayers across the entire arc, under one signature.</p>
+    <p>For how the firm handles notices and proposed assessments, see <a href="irs-notice.html">IRS Notices &amp; Assessments</a>.</p>
+    <p class="sig">One firm. One signature. Full-arc defense.</p>
+  </div>
+</div>
+<footer>
+  <div class="fine"><b>General information, not legal advice.</b> This post describes federal tax procedure in general terms and does not address the facts or deadlines of any particular matter. It does not create an attorney–client relationship. If you have received a notice from the IRS, consult qualified counsel promptly — many response windows are short and cannot be extended.</div>
+  <div class="fm"><b>DONOVAN LEGAL</b><span>One firm. One signature. Full-arc defense.</span></div>
+</footer>
+</body>
+</html>

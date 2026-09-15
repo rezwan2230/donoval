@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Reserve · Member Portal — Donovan Legal PLLC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="../img/favicon.png">
+<link rel="apple-touch-icon" href="../img/favicon.png">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
+<style>
+  @font-face{font-family:'Trajan Pro';src:url('../webfonts/TrajanPro-Bold.woff2') format('woff2'),url('../webfonts/TrajanPro-Bold.woff') format('woff');font-weight:700;font-display:swap}
+  @font-face{font-family:'Gotham Medium';src:url('../webfonts/Gotham-Medium.woff2') format('woff2'),url('../webfonts/Gotham-Medium.woff') format('woff');font-display:swap}
+  @font-face{font-family:'Gotham Bold';src:url('../webfonts/Gotham-Bold.woff') format('woff'),url('../webfonts/Gotham-Bold.ttf') format('truetype');font-display:swap}
+  :root{--accent:#0a5a37;--accent-dk:#063d25;--emerald:#107A4D;--ink:#1a1a1a;--body:#454545;--mute:#8a8a82;--line:#d9d6cc;--paper:#F5F5F0}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Open Sans',-apple-system,system-ui,sans-serif;color:var(--body);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+  a{color:inherit}
+  /* header */
+  .phead{background:#fff;border-bottom:3px solid var(--accent)}
+  .phead .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:18px 32px}
+  /* JORDAN-SITE-UX-FIXES-R1: the SAME box the site header logo gets. css/main.css
+     resolves img.logo to {max-width:115px (.logo); height:auto (img)} — this portal
+     loads no main.css, so the two declarations are restated here rather than
+     re-derived. The 34px height they replace is why the mark rendered a fifth of
+     its site size on the four portals. test/header-logo-invariant.test.mjs reads
+     BOTH sides and fails if they diverge again. */
+  .phead-logo img{max-width:115px;height:auto;display:block}
+  .phead-right{display:flex;align-items:center;gap:24px}
+  .ptier{font-family:'Gotham Bold','Open Sans',sans-serif;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent-dk)}
+  .pback{font-family:'Gotham Medium','Open Sans',sans-serif;font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute);text-decoration:none}
+  .pback:hover{color:var(--emerald)}
+  /* welcome */
+  .welcome .wrap{padding:60px 32px 46px}
+  .eyebrow{font-family:'Gotham Bold','Open Sans',sans-serif;font-size:11.5px;letter-spacing:3px;text-transform:uppercase;color:var(--accent-dk);margin-bottom:16px}
+  .welcome h1{font-family:'Trajan Pro','Gotham Bold',Georgia,serif;font-size:42px;line-height:1.12;color:var(--ink);font-weight:700;letter-spacing:.5px}
+  .welcome .rule{width:52px;height:2px;background:var(--accent);margin:24px 0 22px}
+  .welcome p{font-size:15px;color:#555;max-width:640px}
+  /* tools */
+  .tools .wrap{padding:8px 32px 70px}
+  .tools h2{font-family:'Gotham Bold','Open Sans',sans-serif;font-size:12.5px;letter-spacing:3px;text-transform:uppercase;color:var(--ink);margin-bottom:22px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:20px}
+  .card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-top:3px solid var(--accent);padding:26px 26px 22px;text-decoration:none;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
+  .card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.07);border-color:var(--emerald);border-top-color:var(--emerald);text-decoration:none}
+  .card .nm{font-family:'Gotham Bold','Open Sans',sans-serif;font-size:16.5px;color:var(--ink);line-height:1.3;margin-bottom:10px}
+  .card .ds{font-size:13.5px;color:#5e5e5e;line-height:1.62;flex:1}
+  .card .op{font-family:'Gotham Bold','Open Sans',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--emerald);margin-top:18px}
+  .card.pending{opacity:.62;border-top-color:#c9c7bf;cursor:default}
+  .card.pending:hover{transform:none;box-shadow:none;border-color:var(--line);border-top-color:#c9c7bf}
+  .card .soon{font-family:'Gotham Bold','Open Sans',sans-serif;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:#9a9a92;margin-top:18px}
+  /* footer */
+  .pfoot{background:#fff;border-top:1px solid var(--line)}
+  .pfoot .wrap{padding:30px 32px 50px}
+  .pfoot .conf{font-family:'Gotham Bold','Open Sans',sans-serif;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--accent-dk);margin-bottom:10px}
+  .pfoot p{font-size:12px;color:var(--mute);line-height:1.7;max-width:760px}
+  .pfoot a{color:var(--emerald);text-decoration:none;font-weight:600}
+  @media(max-width:600px){.welcome h1{font-size:30px}.grid{grid-template-columns:1fr}.phead .wrap{padding:16px 20px}.wrap{padding-left:20px;padding-right:20px}}
+</style>
+</head>
+<body>
+  <header class="phead"><div class="wrap">
+    <a class="phead-logo" href="index.html"><img src="../img/base-hover.png" alt="Donovan Legal PLLC logo"></a>
+    <div class="phead-right">
+      <span class="ptier">Reserve Member</span>
+      <a class="pback" href="../index.html">Return to donovan.law</a>
+    </div>
+  </div></header>
+
+  <section class="welcome"><div class="wrap">
+    <div class="eyebrow">Reserve Membership &middot; A Private Membership of One Hundred</div>
+    <h1>Member No.&nbsp;</h1>
+    <div class="rule"></div>
+    <p>Welcome back. Reserve is limited to one hundred members and is held by number. Your tools and engagement materials are below; your file is privileged, confidential, and reserved to you.</p>
+  </div></section>
+
+  <section class="tools"><div class="wrap">
+    <h2>Your Tools &amp; Resources</h2>
+    <div class="grid">
+      <a class="card" href="tool-rental-real-estate-tax-strategy-analyzer.html">
+        <div class="nm">Strategic Tax Modeling &mdash; DLTS Overlay</div>
+        <div class="ds">Full tax-strategy modeling with the Donovan Legal Tax Strategy overlay enabled &mdash; depreciation engines, disposition comparison, and a 25-cell sensitivity map.</div>
+        <span class="op">Open &rarr;</span>
+      </a>
+      <a class="card" href="tool-1031-exchange.html">
+        <div class="nm">&sect;&nbsp;1031 Like-Kind Exchange</div>
+        <div class="ds">Forward, reverse, drop-and-swap, and multi-property exchange analysis with recapture allocation, basis bifurcation, and deferred-tax detail.</div>
+        <span class="op">Open &rarr;</span>
+      </a>
+      <a class="card" href="tool-economics.html">
+        <div class="nm">Deal Economics &mdash; Feasibility, Pro Forma &amp; Sensitivity</div>
+        <div class="ds">Feasibility, pro forma, and sensitivity modeling for acquisition and development underwriting.</div>
+        <span class="op">Open &rarr;</span>
+      </a>
+      <a class="card" href="tool-deal-builder.html">
+        <div class="nm">Deal Builder</div>
+        <div class="ds">End-to-end real estate structuring and economics &mdash; capital stack, distribution waterfall, and entity design for complex deals.</div>
+        <span class="op">Open &rarr;</span>
+      </a>
+      <a class="card" href="tool-structuring.html">
+        <div class="nm">Structuring Tool &mdash; Investor Routing &amp; Entity Classification</div>
+        <div class="ds">Investor-routing advisory across nine routes with the full check-the-box framework and a downstream structuring memorandum.</div>
+        <span class="op">Open &rarr;</span>
+      </a>
+      <a class="card" href="tool-entity-formation.html">
+        <div class="nm">Entity Formation &mdash; Single-Member LLC</div>
+        <div class="ds">Single-Member LLC package &mdash; Operating Agreement, resolutions, and SS-4 worksheet with single-purpose-entity covenants and charging-order protection.</div>
+        <span class="op">Open &rarr;</span>
+      </a>
+      <a class="card" href="tool-entity-formation-multi.html">
+        <div class="nm">Entity Formation &mdash; Multi-Member LLC (Eight-Step)</div>
+        <div class="ds">Multi-Member assembly across ten jurisdictions &mdash; Operating Agreement, Subscription, and Joinder with &sect;&nbsp;704(b) allocations and securities calibration.</div>
+        <span class="op">Open &rarr;</span>
+      </a>
+      <a class="card" href="tool-operating-agreement.html">
+        <div class="nm">Entity Formation &mdash; Multi-Member LLC (12-Step)</div>
+        <div class="ds">Enterprise package across fifteen jurisdictions &mdash; five-document deal set with promote waterfalls, &sect;&nbsp;704(b)/(c) allocations, and buy-sell variants.</div>
+        <span class="op">Open &rarr;</span>
+      </a>
+      <a class="card" href="tool-material-participation-tracker.html">
+        <div class="nm">Material Participation &amp; REPS Tracker</div>
+        <div class="ds">Contemporaneous &sect;&nbsp;469 time log scoring all seven material-participation tests and the REPS 750/50% gate, producing a certified, exam-ready turnover record.</div>
+        <span class="op">Open &rarr;</span>
+      </a>
+      <a class="card" href="tool-crypto-position-memo.html">
+        <div class="nm">Crypto Position Memo</div>
+        <div class="ds">Educational digital-asset memo &mdash; property character (Notice 2014-21), holding period, unrealized gain/loss, and Form 8938 / FBAR reporting flags.</div>
+        <span class="op">Open &rarr;</span>
+      </a>
+    </div>
+  </div></section>
+
+  <footer class="pfoot"><div class="wrap">
+    <div class="conf">Privileged &amp; Confidential — For the Named Member</div>
+    <p>This portal and its tools are provided to members of Donovan Legal PLLC for organizational and documentation purposes. Tool output supports a position prepared and, where necessary, defended by the firm; it is not, by itself, legal or tax advice. Donovan Legal PLLC · 301 W. Atlantic Avenue, Suite 5, Delray Beach, Florida 33444 · <a href="../contact.html">Contact the firm</a></p>
+  </div></footer>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 1360 776" role="img" aria-labelledby="forums-t forums-d">
+<title id="forums-t">Choosing the forum for a federal tax dispute</title>
+<desc id="forums-d">A decision diagram. A statutory notice of deficiency opens two roads. The first is the United States Tax Court, reached by petition within ninety days, where the deficiency is contested before it is paid. The second requires paying the tax in full and then suing for a refund, in either a federal district court, where a jury is available, or the Court of Federal Claims, which appeals to the Federal Circuit. Two of the three courts require payment before hearing the dispute.</desc>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#12643F"/></marker></defs>
+<rect width="1360" height="776" fill="#F6F5F1"/>
+<text x="52" y="56" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" letter-spacing="3.4" font-weight="700" fill="#C9A961">CHOOSING THE FORUM</text>
+<text x="52" y="100" font-family="Georgia, 'Times New Roman', serif" font-size="32" font-weight="700" fill="#1B1B1B">One road lets you argue first. The other makes you pay first.</text>
+<text x="52" y="130" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" fill="#434343">A notice of deficiency opens both. Only one of them stays open for ninety days.</text>
+<line x1="52" y1="152" x2="1308" y2="152" stroke="#C9A961" stroke-width="1.4"/>
+<rect x="52" y="230" width="300" height="136" rx="3" fill="#FFFFFF" stroke="#0C5334" stroke-width="1.6"/>
+<text x="68" y="256" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="1.8" font-weight="700" fill="#C9A961">THE TRIGGER</text>
+<text x="68" y="282" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#0C5334">Notice of</text>
+<text x="68" y="304" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#0C5334">Deficiency</text>
+<text x="68" y="331" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">The ninety-day letter.</text>
+<text x="68" y="348" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">One decision follows it.</text>
+<path d="M 352 294 L 408 294" stroke="#12643F" stroke-width="1.8" fill="none"/>
+<path d="M 408 294 L 408 226 L 448 226" stroke="#12643F" stroke-width="1.8" fill="none" marker-end="url(#ar)"/>
+<path d="M 408 294 L 408 452 L 448 452" stroke="#8C2026" stroke-width="1.8" fill="none" marker-end="url(#ar)"/>
+<rect x="456" y="170" width="452" height="168" rx="3" fill="#0C5334" stroke="#0C5334" stroke-width="1.6"/>
+<text x="472" y="196" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="1.8" font-weight="700" fill="#C9A961">ROAD ONE</text>
+<text x="472" y="222" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#F6F5F1">United States Tax Court</text>
+<text x="472" y="249" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#C6D8CC">Petition within 90 days of the notice.</text>
+<text x="472" y="266" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#C6D8CC">The deficiency is contested BEFORE it is paid.</text>
+<text x="472" y="283" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#C6D8CC">Judges hear tax and nothing else.</text>
+<text x="472" y="300" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#C6D8CC">Attorneys admitted on motion.</text>
+<text x="456" y="362" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" letter-spacing="2" font-weight="700" fill="#0C5334">NO PAYMENT REQUIRED TO BE HEARD</text>
+<rect x="456" y="392" width="240" height="120" rx="3" fill="#F8F2F0" stroke="#8C2026" stroke-width="2.6"/>
+<line x1="504" y1="392" x2="504" y2="512" stroke="#8C2026" stroke-width="0.7" opacity="0.35"/>
+<line x1="552" y1="392" x2="552" y2="512" stroke="#8C2026" stroke-width="0.7" opacity="0.35"/>
+<line x1="600" y1="392" x2="600" y2="512" stroke="#8C2026" stroke-width="0.7" opacity="0.35"/>
+<line x1="648" y1="392" x2="648" y2="512" stroke="#8C2026" stroke-width="0.7" opacity="0.35"/>
+<text x="576" y="432" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" letter-spacing="2" font-weight="700" fill="#8C2026">ROAD TWO</text>
+<text x="576" y="462" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="21" font-weight="700" fill="#8C2026">PAY IN FULL</text>
+<text x="576" y="488" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#8C2026">then sue for a refund</text>
+<line x1="696" y1="452" x2="756" y2="452" stroke="#12643F" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="764" y="392" width="288" height="120" rx="3" fill="#FFFFFF" stroke="#0C5334" stroke-width="1.6"/>
+<text x="780" y="426" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#0C5334">Federal District Court</text>
+<text x="780" y="453" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">A jury is available.</text>
+<text x="780" y="470" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">Attorneys only.</text>
+<text x="780" y="487" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">Appeal to your circuit.</text>
+<rect x="1068" y="392" width="288" height="120" rx="3" fill="#FFFFFF" stroke="#0C5334" stroke-width="1.6"/>
+<text x="1084" y="426" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#0C5334">Court of Federal Claims</text>
+<text x="1084" y="453" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">No jury.</text>
+<text x="1084" y="470" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">Attorneys only.</text>
+<text x="1084" y="487" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">Appeal to the Federal Circuit.</text>
+<line x1="52" y1="562" x2="1308" y2="562" stroke="#DAD8D2" stroke-width="1"/>
+<text x="52" y="600" font-family="Georgia, 'Times New Roman', serif" font-size="21" font-weight="700" fill="#1B1B1B">Two of the three courts require the tax to be paid before</text>
+<text x="52" y="628" font-family="Georgia, 'Times New Roman', serif" font-size="21" font-weight="700" fill="#1B1B1B">they will hear whether the tax was owed.</text>
+<text x="52" y="660" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13.5" fill="#434343">For most taxpayers that single fact selects the forum. The ninety-day deadline that opens the first road is jurisdictional —</text>
+<text x="52" y="681" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13.5" fill="#434343">it cannot be extended by agreement, by hardship, or by the Service. Miss it and only the second road remains.</text>
+<line x1="52" y1="696" x2="1308" y2="696" stroke="#DAD8D2" stroke-width="1"/>
+<text x="52" y="720" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" fill="#6E6E6E">The 90-day deadline to petition the Tax Court is jurisdictional and cannot be extended. General information about tax procedure — not legal advice.</text>
+<text x="52" y="737" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" fill="#6E6E6E">Forum selection turns on the facts of the matter. Consult counsel before filing.</text>
+<text x="1308" y="720" text-anchor="end" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" letter-spacing="1.6" font-weight="700" fill="#C9A961">DONOVAN LEGAL PLLC · DELRAY BEACH, FLORIDA</text>
+</svg>

@@ -1,0 +1,1516 @@
+/* STR Tax Strategy Analyzer — Stylesheet
+ * Donovan Legal PLLC
+ * Last updated: May 2026
+ */
+
+    .box > .border-grey > .container:first-of-type { position: relative !important; z-index: 9999 !important; }
+    nav.navbar.menubar { position: relative !important; z-index: 9999 !important; }
+    nav.navbar .nav-item.dropdown { position: relative !important; }
+    .navbar .dropdown-menu, .navbar.menubar .dropdown-menu, nav.navbar .dropdown-menu { z-index: 99999 !important; position: absolute !important; }
+
+    .tool-intro { background: #FFFFFF; border-left: 3px solid #107a4d; padding: 1.5rem 1.75rem; margin: 2rem 0 2.5rem 0; font-size: 1rem; line-height: 1.65; }
+    .step-card { background: #FFFFFF; border: 1px solid #d4d4d0; padding: 1.75rem 2rem; margin-bottom: 1.5rem; }
+    .step-card h4 { font-family: "Gotham Bold", "Open Sans", sans-serif; color: #1a1a1a; font-size: 1.15rem; margin: 0 0 0.4rem 0; letter-spacing: 0.5px; }
+    .step-number { display: inline-block; background: #107a4d; color: #FFFFFF; width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-family: "Gotham Bold", sans-serif; font-size: 0.85rem; margin-right: 0.6rem; }
+    .step-subtitle { font-size: 0.9rem; color: #6b6b6b; margin: 0 0 1.5rem 0; line-height: 1.55; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    @media (max-width: 768px) { .form-row { grid-template-columns: 1fr; } }
+    .form-row.three-col { grid-template-columns: 1fr 1fr 1fr; }
+    @media (max-width: 768px) { .form-row.three-col { grid-template-columns: 1fr; } }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label { display: block; font-family: "Open Sans", sans-serif; font-weight: 600; font-size: 0.85rem; color: #1a1a1a; margin-bottom: 0.4rem; letter-spacing: 0.3px; }
+    .field-help { font-weight: 400; font-size: 0.78rem; color: #6b6b6b; margin-top: 0.3rem; line-height: 1.5; }
+    .form-group input[type="number"], .form-group input[type="text"], .form-group select { width: 100%; padding: 0.55rem 0.8rem; border: 1px solid #d4d4d0; background: #FFFFFF; font-family: "Open Sans", sans-serif; font-size: 0.95rem; color: #1a1a1a; border-radius: 0; box-sizing: border-box; }
+    .form-group input:focus, .form-group select:focus { outline: none; border-color: #107a4d; }
+    .input-prefix { position: relative; }
+    .input-prefix::before { content: "$"; position: absolute; left: 0.85rem; top: 50%; transform: translateY(-50%); color: #6b6b6b; pointer-events: none; z-index: 2; font-weight: 700; font-size: 0.95rem; }
+    .form-group .input-prefix input[type="text"],
+    .form-group .input-prefix input[type="number"] { padding-left: 2.5rem; }
+    .input-suffix { position: relative; }
+    .input-suffix::after { content: "%"; position: absolute; right: 0.85rem; top: 50%; transform: translateY(-50%); color: #6b6b6b; pointer-events: none; z-index: 2; font-weight: 700; font-size: 0.95rem; }
+    .form-group .input-suffix input[type="text"],
+    .form-group .input-suffix input[type="number"] { padding-right: 2.5rem; }
+    .toggle-group { display: inline-flex; border: 1px solid #d4d4d0; border-radius: 0; overflow: hidden; margin-bottom: 0.4rem; }
+    .toggle-btn { background: #FFFFFF; border: none; padding: 0.4rem 0.85rem; font-family: "Open Sans", sans-serif; font-size: 0.78rem; color: #4a4a4a; cursor: pointer; font-weight: 600; letter-spacing: 0.5px; }
+    .toggle-btn.active { background: #107a4d; color: #FFFFFF; }
+    .toggle-btn:not(:last-child) { border-right: 1px solid #d4d4d0; }
+
+    .strategy-toggle-wrapper { background: #FFFFFF; border: 1px solid #d4d4d0; padding: 1rem 1.25rem; margin: 1.5rem 0 1rem 0; }
+    .strategy-toggle-label { font-family: "Open Sans", sans-serif; font-size: 0.78rem; letter-spacing: 1.5px; text-transform: uppercase; color: #6b6b6b; font-weight: 600; margin-bottom: 0.6rem; }
+    .strategy-toggle { display: inline-flex; flex-wrap: wrap; border: 1px solid #107a4d; border-radius: 0; overflow: hidden; }
+    .strategy-toggle-btn { background: #FFFFFF; border: none; padding: 0.55rem 1.15rem; font-family: "Open Sans", sans-serif; font-size: 0.82rem; color: #107a4d; cursor: pointer; font-weight: 600; letter-spacing: 0.5px; }
+    .strategy-toggle-btn.active { background: #107a4d; color: #FFFFFF; }
+    .strategy-toggle-btn:not(:last-child) { border-right: 1px solid #107a4d; }
+
+    .strategy-savings-callout { background: #e8f5ee; border: 2px solid #107a4d; padding: 1.5rem 1.75rem; margin: 1.5rem 0; display: none; }
+    .strategy-savings-callout.show { display: block; }
+    .strategy-savings-callout .savings-header { font-family: "Gotham Bold", sans-serif; font-size: 1rem; letter-spacing: 1.5px; text-transform: uppercase; color: #107a4d; font-weight: 700; margin-bottom: 1rem; padding-bottom: 0.65rem; border-bottom: 1px solid #107a4d; }
+    .strategy-savings-callout .savings-headline { font-family: "Gotham Bold", sans-serif; font-size: 2.1rem; color: #107a4d; line-height: 1.1; margin-bottom: 0.25rem; }
+    .strategy-savings-callout .savings-headline-label { font-size: 0.85rem; color: #6b6b6b; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 1.25rem; }
+    .savings-comparison-table { width: 100%; border-collapse: collapse; font-family: "Open Sans", sans-serif; font-size: 0.9rem; margin: 1rem 0 1.25rem 0; background: #FFFFFF; }
+    .savings-comparison-table th { background: #1a1a1a; color: #FFFFFF; padding: 0.55rem 0.7rem; font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; text-align: right; }
+    .savings-comparison-table th:first-child { text-align: left; }
+    .savings-comparison-table td { padding: 0.55rem 0.7rem; border-bottom: 1px solid #e0e0d8; text-align: right; }
+    .savings-comparison-table td:first-child { text-align: left; font-weight: 600; }
+    .savings-comparison-table .delta-positive { color: #107a4d; font-weight: 700; }
+    .savings-comparison-table .delta-negative { color: #c0392b; font-weight: 700; }
+    .savings-comparison-table .delta-improvement { color: #107a4d; font-weight: 700; }
+    .strategy-savings-callout .savings-explainer { font-size: 0.92rem; line-height: 1.55; color: #1a1a1a; padding-top: 0.5rem; border-top: 1px dashed #107a4d; }
+    .strategy-savings-callout .savings-explainer a { color: #107a4d; font-weight: 700; }
+    .strategy-savings-callout .savings-cta { display: inline-block; background: #107a4d; color: #FFFFFF !important; padding: 0.7rem 1.75rem; font-family: "Gotham Bold", sans-serif; font-size: 0.82rem; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; border-radius: 30px; margin-top: 0.85rem; }
+
+
+    .expandable-help { margin-top: 0.5rem; }
+    .expandable-help-btn { background: none; border: none; color: #107a4d; font-family: "Open Sans", sans-serif; font-size: 0.82rem; font-weight: 600; cursor: pointer; padding: 0; text-decoration: underline; }
+    .expandable-help-content { display: none; margin-top: 0.6rem; padding: 0.75rem 1rem; background: #f5f5f0; border-left: 2px solid #107a4d; font-size: 0.85rem; line-height: 1.55; color: #4a4a4a; }
+    .expandable-help-content.show { display: block; }
+
+    .rate-estimator-box { margin-top: 0.75rem; padding: 1rem 1.25rem; background: #f5f5f0; border-left: 3px solid #107a4d; }
+    .rate-estimator-box .form-row { gap: 0.85rem; }
+    .rate-estimator-box label { font-size: 0.78rem; }
+    .rate-estimator-box select { font-size: 0.88rem; padding: 0.45rem 0.7rem; }
+    .estimated-rate-display { margin-top: 0.75rem; font-family: "Gotham Bold", sans-serif; font-size: 1rem; color: #107a4d; }
+
+    .calc-btn { display: inline-block; background: #107a4d; color: #FFFFFF !important; padding: 1rem 3rem; border: none; border-radius: 30px; font-family: "Gotham Bold", "Open Sans", sans-serif; font-size: 0.95rem; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: background 200ms ease; margin-top: 0.5rem; }
+    .calc-btn:hover { background: #0a5a37; }
+    .calc-btn-secondary { display: inline-block; background: #FFFFFF; color: #107a4d !important; border: 1px solid #107a4d; padding: 1rem 2.25rem; border-radius: 30px; font-family: "Gotham Bold", "Open Sans", sans-serif; font-size: 0.95rem; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; margin-top: 0.5rem; margin-left: 0.5rem; }
+    .calc-row { text-align: center; margin: 2rem 0; }
+
+    .results-section { background: #f5f5f0; border: 2px solid #107a4d; padding: 2rem 2.25rem; margin: 2.5rem 0; display: none; }
+    .results-section.show { display: block; }
+    .results-section h3 { font-family: "Gotham Bold", "Open Sans", sans-serif; color: #107a4d; font-size: 1.3rem; margin: 0 0 1.5rem 0; letter-spacing: 0.5px; text-transform: uppercase; }
+    .results-section h4 { font-family: "Gotham Bold", "Open Sans", sans-serif; color: #1a1a1a; font-size: 1.05rem; margin: 1.75rem 0 0.85rem 0; letter-spacing: 0.5px; }
+
+    .eligibility-result { padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; border-left: 4px solid #107a4d; background: #FFFFFF; }
+    .eligibility-result.likely-eligible { border-left-color: #107a4d; }
+    .eligibility-result.marginal { border-left-color: #d4a017; background: #fff8e1; }
+    .eligibility-result.likely-ineligible { border-left-color: #c0392b; background: #fcebea; }
+    .eligibility-badge { display: inline-block; font-family: "Open Sans", sans-serif; font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; padding: 0.25rem 0.7rem; border-radius: 3px; margin-bottom: 0.6rem; }
+    .eligibility-result.likely-eligible .eligibility-badge { background: #e8f5ee; color: #107a4d; }
+    .eligibility-result.marginal .eligibility-badge { background: #fdf0e3; color: #d35400; }
+    .eligibility-result.likely-ineligible .eligibility-badge { background: #fcebea; color: #c0392b; }
+
+    .multi-year-table { width: 100%; border-collapse: collapse; font-family: "Open Sans", sans-serif; font-size: 0.85rem; margin: 1rem 0; background: #FFFFFF; }
+    .multi-year-table th, .multi-year-table td { padding: 0.5rem 0.6rem; text-align: right; border-bottom: 1px solid #e0e0d8; white-space: nowrap; }
+    .multi-year-table th { background: #1a1a1a; color: #FFFFFF; font-weight: 600; font-size: 0.78rem; letter-spacing: 0.5px; text-transform: uppercase; }
+    .multi-year-table th:first-child, .multi-year-table td:first-child { text-align: left; font-weight: 600; }
+    .multi-year-table tr.section-header td { background: #f5f5f0; font-weight: 700; color: #107a4d; font-size: 0.78rem; letter-spacing: 1px; text-transform: uppercase; padding: 0.6rem; }
+    .multi-year-table tr.subtotal td { font-weight: 700; border-top: 2px solid #107a4d; }
+    .multi-year-table tr.subtotal td:first-child { color: #107a4d; }
+    .multi-year-table .cum-col-header { background: #107a4d !important; border-left: 2px solid #107a4d; }
+    .multi-year-table .cum-col { background: #f5fbf7; border-left: 2px solid #107a4d; }
+    .multi-year-table tr.section-header td.cum-col { background: #f5f5f0 !important; }
+    .multi-year-table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1rem 0; }
+
+    .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.25rem 0; }
+    @media (max-width: 768px) { .summary-grid { grid-template-columns: 1fr; } }
+    .summary-card { background: #FFFFFF; border: 1px solid #d4d4d0; padding: 1rem 1.25rem; }
+    .summary-card .label { font-family: "Open Sans", sans-serif; font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: #6b6b6b; margin-bottom: 0.3rem; font-weight: 600; }
+    .summary-card .value { font-family: "Gotham Bold", "Open Sans", sans-serif; font-size: 1.5rem; color: #107a4d; }
+    .summary-card .sublabel { font-size: 0.78rem; color: #6b6b6b; margin-top: 0.3rem; }
+
+    .state-status { padding: 1rem 1.25rem; background: #FFFFFF; border-left: 3px solid #107a4d; margin: 1rem 0; font-size: 0.92rem; line-height: 1.55; }
+    .state-status.no-tax { border-left-color: #107a4d; background: #e8f5ee; }
+    .state-status.conforms { border-left-color: #107a4d; background: #e8f5ee; }
+    .state-status.decoupled { border-left-color: #d4a017; background: #fff8e1; }
+
+    .tool-disclaimer { background: #fff8e1; border-left: 4px solid #d4a017; padding: 1.5rem 1.75rem; margin: 2rem 0; font-size: 0.9rem; line-height: 1.6; }
+    .tool-disclaimer strong { color: #1a1a1a; }
+    .tool-cta { margin-top: 2.5rem; padding: 2rem 2.25rem; background: #1a1a1a; color: #F5F5F0; text-align: center; }
+    .tool-cta h4 { color: #F5F5F0; font-family: "Gotham Bold", "Open Sans", sans-serif; margin-bottom: 0.75rem; }
+    .tool-cta p { color: #F5F5F0; font-size: 1rem; max-width: 600px; margin: 0 auto 1.5rem auto; }
+    .tool-cta a.cta-link { color: #FFFFFF !important; background: #107a4d; display: inline-block; padding: 0.85rem 2.5rem; font-family: "Gotham Bold", "Open Sans", sans-serif; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; border-radius: 30px; }
+    .tool-back { margin-top: 1.5rem; font-family: "Gotham Bold", "Open Sans", sans-serif; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; }
+    .tool-back a { color: #107a4d !important; text-decoration: none; }
+
+/* ============================================================================
+   PRESETS BAR (Batch B.1)
+   ============================================================================ */
+.presets-bar {
+  background: linear-gradient(135deg, #FFFFFF 0%, #f5f5f0 100%);
+  border: 1px solid #d4d4d0;
+  border-left: 4px solid #107a4d;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.presets-label {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  color: #107a4d;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+.presets-subtitle {
+  font-size: 0.85rem;
+  color: #6b6b6b;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+.presets-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.85rem;
+}
+.preset-btn {
+  background: #FFFFFF;
+  border: 2px solid #d4d4d0;
+  padding: 0.9rem 1rem;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Open Sans', sans-serif;
+  transition: all 0.15s ease;
+  border-radius: 0;
+}
+.preset-btn:hover {
+  border-color: #107a4d;
+  background: #f5f5f0;
+  transform: translateY(-1px);
+}
+.preset-icon {
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
+}
+.preset-name {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #1a1a1a;
+  margin-bottom: 0.25rem;
+}
+.preset-desc {
+  font-size: 0.75rem;
+  color: #6b6b6b;
+  line-height: 1.4;
+}
+.presets-clear {
+  margin-top: 0.85rem;
+  text-align: right;
+}
+.preset-clear-btn {
+  background: transparent;
+  border: 1px solid #c0c0c0;
+  color: #6b6b6b;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 0.4rem 0.85rem;
+  cursor: pointer;
+  border-radius: 0;
+  font-weight: 600;
+}
+.preset-clear-btn:hover {
+  border-color: #c0392b;
+  color: #c0392b;
+}
+@media (max-width: 768px) {
+  .presets-buttons { grid-template-columns: 1fr; }
+}
+
+/* ============================================================================
+   BATCH B.2 — WIZARD PROGRESS, PRIORITY STEP, MOBILE TABLE, GATED BANNER
+   ============================================================================ */
+
+/* Wizard progress indicator — lifecycle-grouped (Batch C.5) */
+.wizard-progress {
+  background: #FFFFFF;
+  border: 1px solid #d4d4d0;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.wizard-progress-label {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.78rem;
+  color: #6b6b6b;
+  margin-bottom: 0.85rem;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Standalone Taxpayer chip — wide single chip above the phase groups */
+.wp-step.wp-standalone {
+  display: block;
+  margin: 0 auto 1.1rem auto;
+  max-width: 320px;
+  text-align: center;
+}
+
+/* Three-column phase grid: Acquisition | Ownership | Disposition */
+.wp-phase-grid {
+  display: grid;
+  grid-template-columns: 2fr 4fr 1.4fr;
+  gap: 0.85rem;
+  align-items: stretch;
+}
+.wp-phase-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Phase header — small colored band above each group */
+.wp-phase-header {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 2.2px;
+  text-align: center;
+  color: #FFFFFF;
+  padding: 0.5rem 0.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+  line-height: 1.1;
+}
+.wp-h-acquisition { background: #107a4d; }
+.wp-h-ownership   { background: #107a4d; }
+.wp-h-disposition { background: #0a5a37; }
+
+/* Step chips inside each phase group */
+.wp-phase-steps {
+  display: grid;
+  gap: 0.4rem;
+  flex-grow: 1;
+}
+.wp-pg-acquisition .wp-phase-steps { grid-template-columns: repeat(2, 1fr); }
+.wp-pg-ownership   .wp-phase-steps { grid-template-columns: repeat(2, 1fr); }
+.wp-pg-disposition .wp-phase-steps { grid-template-columns: 1fr; }
+
+.wp-step {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  padding: 0.6rem 0.35rem;
+  background: #f5f5f0;
+  border: 1px solid #e0e0d8;
+  color: #6b6b6b;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  position: relative;
+}
+.wp-step:hover {
+  background: #FFFFFF;
+  border-color: #107a4d;
+  color: #107a4d;
+}
+.wp-step-num {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1;
+  margin-bottom: 0.22rem;
+}
+.wp-step-name {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin-bottom: 0.15rem;
+  line-height: 1.2;
+}
+.wp-step-status {
+  font-size: 0.66rem;
+  color: #107a4d;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  min-height: 0.8rem;
+  line-height: 1;
+}
+.wp-priority {
+  background: #107a4d !important;
+  border-color: #107a4d !important;
+  color: #FFFFFF !important;
+}
+.wp-priority .wp-step-status {
+  color: #FFFFFF !important;
+}
+.wp-priority:hover {
+  background: #107a4d !important;
+}
+.wp-complete {
+  background: #FFFFFF;
+  border-color: #107a4d;
+}
+.wp-complete .wp-step-num { color: #107a4d; }
+.wp-complete .wp-step-name { color: #107a4d; }
+.wp-complete .wp-step-status { color: #107a4d; }
+.wp-complete::after {
+  content: "\2713";
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  color: #107a4d;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+/* Priority step (Step 1 when not complete) — subtle left border accent */
+.step-card.priority {
+  border-left: 4px solid #107a4d;
+  background: linear-gradient(90deg, rgba(16,122,77,0.04) 0%, #FFFFFF 60%);
+}
+
+/* Mobile: stack phase groups vertically; inside each, keep step chips in a row */
+@media (max-width: 768px) {
+  .wp-phase-grid {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+  .wp-step.wp-standalone {
+    max-width: 100%;
+  }
+  .wp-step {
+    padding: 0.5rem 0.3rem;
+  }
+  .wp-step-name {
+    font-size: 0.7rem;
+  }
+  .wp-step-status {
+    font-size: 0.6rem;
+  }
+  .wp-phase-header {
+    font-size: 0.68rem;
+    letter-spacing: 1.8px;
+    padding: 0.4rem 0.5rem;
+  }
+}
+
+/* ============================================================================
+   MOBILE-FRIENDLY MULTI-YEAR PROJECTION TABLE
+   On narrow screens, transform the wide table into stacked per-year cards.
+   ============================================================================ */
+@media (max-width: 900px) {
+  .multi-year-table {
+    border: none;
+    background: transparent;
+  }
+  .multi-year-table thead {
+    display: none;
+  }
+  .multi-year-table tbody {
+    display: block;
+  }
+  .multi-year-table tr {
+    display: block;
+    margin-bottom: 0.85rem;
+  }
+  .multi-year-table tr.section-header {
+    background: #1a1a1a;
+    color: #FFFFFF;
+    padding: 0.55rem 0.85rem;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 1rem 0 0.5rem 0;
+  }
+  .multi-year-table tr.section-header td {
+    display: block;
+    border: none;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+  }
+  .multi-year-table tr:not(.section-header) {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    background: #FFFFFF;
+    border: 1px solid #d4d4d0;
+    overflow: hidden;
+  }
+  .multi-year-table tr:not(.section-header) td:first-child {
+    background: #f5f5f0;
+    border-bottom: 1px solid #d4d4d0;
+    padding: 0.5rem 0.85rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    font-size: 0.78rem;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+  }
+  .multi-year-table tr:not(.section-header) td:not(:first-child) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.45rem 0.85rem;
+    border-bottom: 1px solid #f0f0e8;
+    font-size: 0.88rem;
+  }
+  .multi-year-table tr:not(.section-header) td:not(:first-child):last-child {
+    border-bottom: none;
+  }
+  /* Use data-year attribute injected by JS to display "Yr N:" label */
+  .multi-year-table tr:not(.section-header) td:not(:first-child)::before {
+    content: attr(data-year-label);
+    font-weight: 600;
+    color: #6b6b6b;
+    font-size: 0.78rem;
+    margin-right: 0.85rem;
+  }
+}
+
+/* ============================================================================
+   ELIGIBILITY-GATED BANNER (red, prominent)
+   ============================================================================ */
+.eligibility-banner-ineligible {
+  background: #fcebea;
+  border-left: 4px solid #c0392b;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.75rem;
+}
+.eligibility-banner-ineligible-label {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  color: #c0392b;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+.eligibility-banner-ineligible-title {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1.2rem;
+  color: #1a1a1a;
+  margin-bottom: 0.65rem;
+  line-height: 1.3;
+}
+.eligibility-banner-ineligible-body {
+  font-size: 0.92rem;
+  color: #1a1a1a;
+  line-height: 1.55;
+}
+.eligibility-banner-marginal {
+  background: #fff8e1;
+  border-left: 4px solid #d4a017;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.75rem;
+}
+.eligibility-banner-marginal-label {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  color: #d35400;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+.eligibility-banner-marginal-title {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1.2rem;
+  color: #1a1a1a;
+  margin-bottom: 0.65rem;
+  line-height: 1.3;
+}
+.eligibility-banner-marginal-body {
+  font-size: 0.92rem;
+  color: #1a1a1a;
+  line-height: 1.55;
+}
+
+/* ============================================================================
+   BATCH C.1 — HEADLINE PANEL (top of results)
+   ============================================================================ */
+.headline-panel {
+  background: #FFFFFF;
+  border: 1px solid #d4d4d0;
+  margin-bottom: 1.75rem;
+}
+.headline-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid #d4d4d0;
+}
+.headline-card {
+  padding: 1.25rem 1.5rem;
+  border-right: 1px solid #e0e0d8;
+}
+.headline-card:last-child {
+  border-right: none;
+}
+.headline-label {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #6b6b6b;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.headline-value {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1.75rem;
+  color: #107a4d;
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+}
+.headline-sub {
+  font-size: 0.78rem;
+  color: #6b6b6b;
+  line-height: 1.5;
+}
+.headline-cta {
+  padding: 1.25rem 1.5rem;
+}
+.headline-cta.cta-green { border-left: 4px solid #107a4d; background: rgba(16,122,77,0.06); }
+.headline-cta.cta-amber { border-left: 4px solid #d4a017; background: rgba(212,160,23,0.07); }
+.headline-cta.cta-red { border-left: 4px solid #c0392b; background: rgba(192,57,43,0.06); }
+.headline-cta-title {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1.1rem;
+  color: #1a1a1a;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+.headline-cta-body {
+  font-size: 0.9rem;
+  color: #1a1a1a;
+  line-height: 1.55;
+  margin-bottom: 0.85rem;
+}
+.headline-cta-action {
+  text-align: left;
+}
+.headline-cta-btn {
+  display: inline-block;
+  background: #107a4d;
+  color: #FFFFFF;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.6rem 1.25rem;
+  text-decoration: none;
+  border: 1px solid #107a4d;
+  transition: all 0.15s ease;
+}
+.headline-cta-btn:hover {
+  background: #107a4d;
+  border-color: #107a4d;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+@media (max-width: 768px) {
+  .headline-grid {
+    grid-template-columns: 1fr;
+  }
+  .headline-card {
+    border-right: none;
+    border-bottom: 1px solid #e0e0d8;
+  }
+  .headline-card:last-child {
+    border-bottom: none;
+  }
+}
+
+/* ============================================================================
+   METHODOLOGY SECTION (Batch C.1 — #21)
+   ============================================================================ */
+.methodology-section {
+  background: #f5f5f0;
+  border: 1px solid #d4d4d0;
+  margin: 1.75rem 0;
+}
+.methodology-section summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1rem 1.25rem;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: background 0.15s ease;
+}
+.methodology-section summary:hover {
+  background: #FFFFFF;
+}
+.methodology-section summary::-webkit-details-marker { display: none; }
+.methodology-summary-label {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  color: #107a4d;
+  font-weight: 700;
+}
+.methodology-summary-title {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.92rem;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+.methodology-section[open] summary {
+  background: #FFFFFF;
+  border-bottom: 1px solid #d4d4d0;
+}
+.methodology-section[open] summary::after {
+  content: "";
+}
+.methodology-section summary::after {
+  content: " ▼";
+  margin-left: auto;
+  color: #107a4d;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+.methodology-section[open] summary::after {
+  content: " ▲";
+}
+.methodology-body {
+  padding: 1.25rem 1.5rem;
+  background: #FFFFFF;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #1a1a1a;
+}
+.methodology-body h5 {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  margin: 1.25rem 0 0.5rem 0;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid #e0e0d8;
+}
+.methodology-body h5:first-of-type { margin-top: 0; }
+.methodology-body p {
+  margin-bottom: 0.85rem;
+}
+.methodology-body ul {
+  margin: 0.5rem 0 0.85rem 1.25rem;
+  padding: 0;
+}
+.methodology-body ul li {
+  margin-bottom: 0.4rem;
+}
+
+/* ============================================================================
+   BATCH C.2 — STRATEGY COMPARISON PANEL (#17)
+   ============================================================================ */
+.strategy-comparison-panel {
+  background: #FFFFFF;
+  padding: 1.5rem;
+  margin: 0 0 1.75rem 0;
+  border: 1px solid #d4d4d0;
+}
+.sc-label-row {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #107a4d;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.sc-title {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1.25rem;
+  color: #1a1a1a;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+.sc-intro {
+  font-size: 0.9rem;
+  color: #6b6b6b;
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+}
+.strategy-comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Open Sans', sans-serif;
+  margin-bottom: 1rem;
+}
+.strategy-comparison-table thead th {
+  background: #1a1a1a;
+  color: #FFFFFF;
+  padding: 0.65rem 0.85rem;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 1.2px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.strategy-comparison-table thead th:first-child {
+  background: #1a1a1a;
+}
+.strategy-comparison-table tbody tr:nth-child(even) {
+  background: #f5f5f0;
+}
+.strategy-comparison-table tbody tr:hover {
+  background: rgba(16,122,77,0.06);
+}
+.strategy-comparison-table .sc-label {
+  padding: 0.55rem 0.85rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  font-size: 0.88rem;
+  border-bottom: 1px solid #e0e0d8;
+}
+.strategy-comparison-table .sc-value {
+  padding: 0.55rem 0.85rem;
+  text-align: right;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.88rem;
+  color: #1a1a1a;
+  border-bottom: 1px solid #e0e0d8;
+  font-variant-numeric: tabular-nums;
+}
+.sc-note {
+  font-size: 0.78rem;
+  color: #6b6b6b;
+  line-height: 1.55;
+  padding-top: 0.85rem;
+  border-top: 1px dashed #d4d4d0;
+}
+@media (max-width: 768px) {
+  .strategy-comparison-table {
+    min-width: 520px;
+  }
+  .strategy-comparison-table .sc-label,
+  .strategy-comparison-table .sc-value {
+    padding: 0.45rem 0.5rem;
+    font-size: 0.78rem;
+  }
+}
+
+/* ============================================================================
+   PRINT STYLESHEET (Batch C.2 — #9) — clean PDF export via browser print
+   ============================================================================ */
+@media print {
+  /* Page setup */
+  @page {
+    size: letter;
+    margin: 0.5in 0.5in 0.75in 0.5in;
+  }
+  body {
+    background: #FFFFFF !important;
+    color: #1a1a1a !important;
+    font-family: 'Open Sans', Arial, sans-serif !important;
+    font-size: 10pt !important;
+  }
+  /* Hide page chrome */
+  header, nav, footer, .navbar, .mobile-menu, .footer, .copy-inside,
+  .nav-block-wrapper, #header, #footer-section,
+  .tool-back, .tool-cta {
+    display: none !important;
+  }
+  /* Hide the entire input section — print only shows results */
+  .step-card, .presets-bar, .wizard-progress, .calc-row, .rate-estimator-box,
+  .tool-intro {
+    display: none !important;
+  }
+  /* Hide interactive controls and buttons throughout results */
+  .no-print, button, .calc-btn, .calc-btn-secondary,
+  .strategy-toggle-wrapper, .heat-map-controls,
+  #hm_x_axis, #hm_y_axis, #hm_metric,
+  select, input[type="number"], input[type="text"] {
+    display: none !important;
+  }
+  /* But keep the heat map grid itself visible if user wants to print sensitivity */
+  #heat_map_grid table { display: table !important; }
+  #heat_map_grid table * { display: revert !important; }
+  /* Show results section in full */
+  .results-section, #results {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #FFFFFF !important;
+    border: none !important;
+  }
+  /* Add a print-only header at the top */
+  .results-section::before {
+    content: "Donovan Legal PLLC — STR Tax Strategy Analyzer Report";
+    display: block;
+    font-family: 'Gotham Bold', 'Open Sans', sans-serif !important;
+    font-size: 14pt !important;
+    color: #1a1a1a !important;
+    border-bottom: 2px solid #107a4d !important;
+    padding-bottom: 0.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .results-section::after {
+    content: "© Donovan Legal PLLC · 301 W. Atlantic Ave., Suite 5, Delray Beach, FL 33444 · 561-666-6022 · info@donovan.law · donovan.law";
+    display: block;
+    font-size: 8pt !important;
+    color: #6b6b6b !important;
+    margin-top: 1rem !important;
+    padding-top: 0.5rem !important;
+    border-top: 1px solid #d4d4d0 !important;
+    text-align: center !important;
+  }
+  /* Headline panel: keep but flatten */
+  .headline-panel { border: 1px solid #1a1a1a !important; background: #FFFFFF !important; }
+  .headline-grid { display: grid !important; grid-template-columns: 1fr 1fr 1fr !important; }
+  .headline-value { color: #107a4d !important; font-size: 14pt !important; }
+  .headline-cta-btn { display: none !important; }
+  /* Verdict and financing panels */
+  .verdict-panel, #verdict_panel > div, #financing_health_panel > div { page-break-inside: avoid; }
+  /* Tables — preserve readability */
+  .multi-year-table, .strategy-comparison-table {
+    page-break-inside: auto;
+    width: 100% !important;
+    border-collapse: collapse !important;
+    font-size: 9pt !important;
+  }
+  .multi-year-table thead, .strategy-comparison-table thead {
+    display: table-header-group !important;
+  }
+  .multi-year-table tr, .strategy-comparison-table tr {
+    page-break-inside: avoid;
+  }
+  .multi-year-table th, .multi-year-table td,
+  .strategy-comparison-table th, .strategy-comparison-table td {
+    border: 1px solid #d4d4d0 !important;
+    padding: 4pt 6pt !important;
+    color: #1a1a1a !important;
+  }
+  .multi-year-table thead th, .strategy-comparison-table thead th {
+    background: #f5f5f0 !important;
+    color: #1a1a1a !important;
+  }
+  /* Section headers */
+  .multi-year-table tr.section-header td {
+    background: #f5f5f0 !important;
+    color: #1a1a1a !important;
+    font-weight: 700;
+  }
+  /* Sensitivity heat map */
+  #heat_map_panel { page-break-before: auto; page-break-inside: avoid; }
+  /* Methodology — open by default for print */
+  details.methodology-section { page-break-before: always; }
+  details.methodology-section[open] summary { display: block; }
+  details.methodology-section summary::after { display: none; }
+  details.methodology-section > div { display: block !important; }
+  /* Force open all details in print */
+  details:not([open]) > *:not(summary) { display: block !important; }
+  /* Disclaimer */
+  .tool-disclaimer { page-break-before: always; font-size: 8pt !important; }
+  /* Eligibility banners */
+  .eligibility-banner-ineligible, .eligibility-banner-marginal {
+    border-left: 4pt solid #1a1a1a !important;
+    background: #f5f5f0 !important;
+  }
+  /* General color flattening for print clarity */
+  a, a:link, a:visited { color: #1a1a1a !important; text-decoration: none !important; }
+  /* Page breaks: avoid breaking inside major panels */
+  .headline-panel, .verdict-panel, #verdict_panel,
+  #financing_health_panel, #strategy_comparison_panel {
+    page-break-inside: avoid;
+  }
+}
+
+/* ============================================================================
+   STEP 1 + STEP 2 ELIGIBILITY RESULT DISPLAY (rebuild)
+   ============================================================================ */
+.mp-step-block {
+  margin-top: 1.25rem;
+  background: #FFFFFF;
+  border: 1px solid #d4d4d0;
+}
+.mp-step-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: #1a1a1a;
+  color: #FFFFFF;
+}
+.mp-step-num {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  color: #107a4d;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.mp-step-title {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.95rem;
+  color: #FFFFFF;
+  line-height: 1.3;
+}
+.mp-step-outcome {
+  padding: 0.7rem 1rem;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  border-bottom: 1px solid #d4d4d0;
+}
+.mp-step-outcome.mp-pass {
+  background: rgba(16,122,77,0.08);
+  color: #107a4d;
+  border-left: 3px solid #107a4d;
+}
+.mp-step-outcome.mp-fail {
+  background: rgba(192,57,43,0.06);
+  color: #922a1f;
+  border-left: 3px solid #c0392b;
+}
+.mp-rows {
+  padding: 0.25rem 0;
+}
+.mp-row {
+  display: flex;
+  gap: 0.85rem;
+  padding: 0.55rem 1rem;
+  border-bottom: 1px solid #f0f0e8;
+}
+.mp-row:last-child { border-bottom: none; }
+.mp-icon {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.mp-row.mp-pass .mp-icon { background: #107a4d; color: #FFFFFF; }
+.mp-row.mp-fail .mp-icon { background: #c0392b; color: #FFFFFF; }
+.mp-row.mp-needs .mp-icon { background: #d4a017; color: #FFFFFF; }
+.mp-row.mp-na .mp-icon { background: #C0C0C0; color: #FFFFFF; }
+.mp-content { flex: 1 1 auto; min-width: 0; }
+.mp-label {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.15rem;
+}
+.mp-cite {
+  font-size: 0.75rem;
+  color: #6b6b6b;
+  font-style: italic;
+  margin-bottom: 0.25rem;
+}
+.mp-note {
+  font-size: 0.85rem;
+  color: #1a1a1a;
+  line-height: 1.5;
+}
+.mp-row.mp-na .mp-label,
+.mp-row.mp-na .mp-note {
+  color: #6b6b6b;
+}
+
+/* (Old `.wizard-progress-steps` mobile rules removed in Batch C.5 —
+    new layout uses `.wp-phase-grid` which has its own mobile breakpoint above.) */
+
+/* ============================================================================
+   DISPOSITION STRATEGY COMPARISON PANEL
+   Sale vs § 1031 vs § 1014 Estate Step-Up — three columns
+   ============================================================================ */
+.disposition-comparison {
+  background: #FFFFFF;
+  border: 1px solid #d4d4d0;
+  margin-top: 0.5rem;
+}
+.dispo-panel-header {
+  background: #1a1a1a;
+  padding: 0.95rem 1.25rem;
+  border-bottom: 1px solid #d4d4d0;
+}
+.dispo-panel-title {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1rem;
+  color: #FFFFFF;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.2rem;
+}
+.dispo-panel-subtitle {
+  font-size: 0.82rem;
+  color: #C0C0C0;
+  line-height: 1.45;
+}
+.dispo-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.dispo-table thead th {
+  background: #F5F5F0;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 2px solid #d4d4d0;
+  vertical-align: bottom;
+}
+.dispo-col {
+  width: 28%;
+}
+.dispo-col-name {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  margin-bottom: 0.15rem;
+}
+.dispo-col-cite {
+  font-size: 0.78rem;
+  color: #6b6b6b;
+  font-weight: normal;
+  font-style: italic;
+}
+.dispo-col-selected {
+  background: rgba(16,122,77,0.12) !important;
+  border-top: 3px solid #107a4d;
+  border-bottom: 2px solid #107a4d !important;
+}
+.dispo-col-selected .dispo-col-name { color: #107a4d; }
+.dispo-table tbody td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid #f0f0e8;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  vertical-align: top;
+}
+.dispo-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.dispo-row-label {
+  font-weight: 600;
+  color: #1a1a1a;
+  background: #fafaf5;
+  width: 16%;
+  white-space: normal;
+}
+.dispo-cell {
+  text-align: right;
+  font-family: 'Open Sans', sans-serif;
+  white-space: nowrap;
+}
+.dispo-cell.dispo-good {
+  color: #107a4d;
+  font-weight: 600;
+}
+.dispo-cell.dispo-best {
+  color: #107a4d;
+  font-weight: 700;
+}
+.dispo-cell.dispo-bad {
+  color: #c0392b;
+  font-weight: 600;
+}
+.dispo-cell-note {
+  display: block;
+  font-size: 0.74rem;
+  color: #6b6b6b;
+  font-weight: normal;
+  margin-top: 0.15rem;
+  white-space: normal;
+}
+.dispo-cell-text {
+  text-align: left;
+  white-space: normal;
+  font-size: 0.84rem;
+  color: #1a1a1a;
+}
+.dispo-footnote {
+  padding: 0.85rem 1.25rem;
+  background: #fafaf5;
+  border-top: 1px solid #d4d4d0;
+  font-size: 0.78rem;
+  color: #6b6b6b;
+  line-height: 1.55;
+}
+
+@media (max-width: 720px) {
+  .dispo-table { font-size: 0.78rem; }
+  .dispo-row-label { font-size: 0.78rem; }
+  .dispo-cell { font-size: 0.78rem; }
+  .dispo-cell-text { font-size: 0.74rem; }
+  .dispo-col-name { font-size: 0.85rem; }
+  .dispo-col-cite { font-size: 0.7rem; }
+}
+
+/* ============================================================================
+   MOBILE TABLE OVERFLOW HANDLING — Batch C.3
+   Wraps wide comparison tables (dispo, heat map) in horizontally-scrollable
+   containers with a subtle right-edge fade indicating more content offscreen.
+   Keeps min-widths so content stays readable rather than crushed.
+   ============================================================================ */
+.dispo-table-wrapper,
+.heat-map-table-wrapper,
+.strategy-comparison-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+}
+
+/* ============================================================================
+   FINANCING HEALTH — Underwriting at a Glance (Batch C.6 mobile fix)
+   Two side-by-side cards stack vertically on mobile so each card has full
+   width and headers stop wrapping word-by-word.
+   ============================================================================ */
+.financing-health-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+/* Stack breakpoint bumped from 720 → 900 so iPad portrait and any phone
+   in either orientation collapses cleanly to single-column. */
+@media (max-width: 900px) {
+  .financing-health-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+}
+
+/* DSCR label has a long version for desktop, short for mobile.
+   Avoids "DEBT SERVICE COVERAGE RATIO (YEAR 1)" wrapping to 5 lines on phones. */
+.fh-label-short { display: none; }
+@media (max-width: 480px) {
+  .fh-label-full  { display: none; }
+  .fh-label-short { display: inline; }
+}
+
+/* ============================================================================
+   SCORECARD — responsive 2-column row (Batch C.6 mobile fix)
+   Desktop: 4-column grid (icon | label | note | value).
+   Mobile: 3-column grid with note wrapping under label to keep label and
+           value on the same row.  Uses grid-template-areas for clarity.
+   ============================================================================ */
+.scorecard-panel {
+  margin: 1.25rem 0;
+  background: #FFFFFF;
+  border: 1px solid #d4d4d0;
+  padding: 1rem 1.25rem;
+}
+.scorecard-panel-label {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.85rem;
+  color: #107a4d;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.scorecard-row {
+  display: grid;
+  grid-template-columns: 24px 1fr auto auto;
+  gap: 0.75rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid #f0f0e8;
+  font-size: 0.88rem;
+  align-items: center;
+}
+.scorecard-row:last-child {
+  border-bottom: none;
+}
+.scorecard-icon {
+  text-align: center;
+}
+.scorecard-label {
+  font-weight: 600;
+}
+.scorecard-note {
+  color: #6b6b6b;
+  font-size: 0.82rem;
+}
+.scorecard-value {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  min-width: 80px;
+  text-align: right;
+}
+@media (max-width: 720px) {
+  .scorecard-row {
+    grid-template-columns: 22px minmax(0, 1fr) auto;
+    grid-template-areas:
+      "icon  label  value"
+      ".     note   note";
+    gap: 0.25rem 0.55rem;
+    align-items: start;
+    padding: 0.55rem 0;
+  }
+  .scorecard-icon  { grid-area: icon;  padding-top: 1px; line-height: 1.3; }
+  .scorecard-label { grid-area: label; line-height: 1.3; font-size: 0.85rem; }
+  .scorecard-note  { grid-area: note;  font-size: 0.74rem; line-height: 1.35; color: #6b6b6b; padding-top: 0.15rem; }
+  .scorecard-value { grid-area: value; min-width: 0; white-space: nowrap; font-size: 0.88rem; padding-left: 0.25rem; }
+}
+
+/* Very narrow phones (< 420px): stack the value below the label so neither
+   has to wrap awkwardly. Value gets emphasis via size + green color. */
+@media (max-width: 420px) {
+  .scorecard-row {
+    grid-template-columns: 22px 1fr;
+    grid-template-areas:
+      "icon  label"
+      ".     note"
+      ".     value";
+    gap: 0.2rem 0.55rem;
+    padding: 0.65rem 0;
+  }
+  .scorecard-label { font-size: 0.88rem; line-height: 1.3; }
+  .scorecard-note  { font-size: 0.74rem; line-height: 1.35; padding-top: 0.05rem; }
+  .scorecard-value {
+    text-align: right;
+    font-size: 1rem;
+    color: #107a4d;
+    padding-top: 0.25rem;
+    padding-right: 0.1rem;
+    white-space: normal;
+  }
+}
+
+/* ============================================================================
+   LIFECYCLE PHASE BANDS — Batch C.4
+   Visually group the input sections into Acquisition / Ownership / Disposition,
+   matching the homepage lifecycle wheel.  Each phase band is a tall, full-width
+   divider in the firm green with the phase name and a one-line subhead.
+   Also styles the wizard-progress chips to color-code by phase.
+   ============================================================================ */
+.lifecycle-phase-band {
+  background: linear-gradient(135deg, #107a4d 0%, #0a5a37 100%);
+  color: #FFFFFF;
+  padding: 1.1rem 1.5rem;
+  margin: 2rem 0 1.25rem 0;
+  border-left: 6px solid #0a5a37;
+}
+.lifecycle-phase-band .lpb-label {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+.lifecycle-phase-band .lpb-sub {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-top: 0.25rem;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.45;
+}
+@media (max-width: 600px) {
+  .lifecycle-phase-band {
+    padding: 0.85rem 1rem;
+    margin: 1.5rem 0 1rem 0;
+  }
+  .lifecycle-phase-band .lpb-label {
+    font-size: 0.95rem;
+    letter-spacing: 3px;
+  }
+  .lifecycle-phase-band .lpb-sub {
+    font-size: 0.78rem;
+  }
+}
+
+/* Wizard-progress chips colored by lifecycle phase */
+.wp-step.wp-acquisition .wp-step-status,
+.wp-step.wp-ownership   .wp-step-status,
+.wp-step.wp-disposition .wp-step-status {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+}
+.wp-step.wp-acquisition .wp-step-status { color: #107a4d; }
+.wp-step.wp-ownership   .wp-step-status { color: #107a4d; }
+.wp-step.wp-disposition .wp-step-status { color: #0a5a37; }
+
+@media (max-width: 768px) {
+  /* Force the dispo-table to stay readable; let the wrapper scroll horizontally */
+  .dispo-table {
+    min-width: 560px;
+  }
+  .dispo-table tbody td,
+  .dispo-table thead th {
+    padding: 0.5rem 0.65rem;
+  }
+  .dispo-row-label {
+    /* Sticky first column so labels stay visible while scrolling the data columns */
+    position: sticky;
+    left: 0;
+    background: #fafaf5;
+    z-index: 2;
+    box-shadow: 2px 0 4px -2px rgba(0,0,0,0.12);
+  }
+  .dispo-cell,
+  .dispo-cell-text {
+    min-width: 110px;
+  }
+
+  /* Strategy comparison (STR vs LTR vs Hybrid): same scroll-on-mobile pattern */
+  .strategy-comparison-table {
+    min-width: 480px;
+  }
+  .strategy-comparison-table .sc-label {
+    /* Sticky first column so the row labels (e.g. "Year 1 Net Cash Benefit")
+       stay visible while scrolling the STR / LTR / Hybrid value columns */
+    position: sticky;
+    left: 0;
+    background: #FFFFFF;
+    z-index: 2;
+    box-shadow: 2px 0 4px -2px rgba(0,0,0,0.12);
+    white-space: normal;
+    min-width: 150px;
+  }
+  .strategy-comparison-table tbody tr:nth-child(even) .sc-label {
+    background: #f5f5f0;
+  }
+  .strategy-comparison-table .sc-value {
+    min-width: 95px;
+    white-space: nowrap;
+  }
+
+  /* Heat map: keep cells from collapsing on narrow screens */
+  .heat-map-table-wrapper table {
+    margin: 0 !important;
+  }
+
+  /* Scroll hint — caption above each scrollable table */
+  .dispo-table-wrapper::before,
+  .heat-map-table-wrapper::before,
+  .strategy-comparison-table-wrapper::before {
+    content: "\2190  swipe horizontally to see all columns  \2192";
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 1px;
+    color: #6b6b6b;
+    text-align: center;
+    padding: 0.4rem 0;
+    background: #fafaf5;
+    border-bottom: 1px solid #e0e0d8;
+  }
+}
+
+/* ============================================================================
+   TIER GATING — public preview vs client (Gold/Platinum/Reserve)
+   ============================================================================ */
+
+/* Tier banner inside results panel */
+.tier-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 0.95rem 1.25rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  border-left: 4px solid;
+  flex-wrap: wrap;
+}
+.tier-banner-text { flex: 1 1 auto; min-width: 0; }
+.tier-banner-text strong { color: #1a1a1a; }
+.tier-banner-cta {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #107a4d;
+  white-space: nowrap;
+}
+.tier-banner-cta:hover { text-decoration: underline; }
+.tier-banner.tier-public { background: #fff8e1; border-left-color: #d4a017; }
+.tier-banner.tier-client { background: #e8f5ee; border-left-color: #107a4d; }
+
+/* Locked panel: blurred content + overlay CTA */
+.tier-locked-panel {
+  position: relative;
+  min-height: 200px;
+  overflow: hidden;
+  border: 1px solid #d4d4d0;
+  background: #FFFFFF;
+}
+.tier-locked-content {
+  filter: blur(6px);
+  user-select: none;
+  pointer-events: none;
+  opacity: 0.55;
+}
+.tier-locked-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem 1.75rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.92) 35%, rgba(255,255,255,0.98) 100%);
+  z-index: 5;
+}
+.tier-locked-overlay .tier-lock-icon {
+  font-size: 1.85rem;
+  margin-bottom: 0.55rem;
+  color: #107a4d;
+}
+.tier-locked-overlay .tier-lock-title {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1.05rem;
+  color: #107a4d;
+  margin-bottom: 0.45rem;
+  letter-spacing: 0.3px;
+}
+.tier-locked-overlay .tier-lock-body {
+  font-size: 0.85rem;
+  color: #4a4a4a;
+  max-width: 540px;
+  margin: 0 auto 0.95rem;
+  line-height: 1.55;
+}
+.tier-locked-overlay .tier-lock-cta {
+  display: inline-block;
+  background: #107a4d;
+  color: #FFFFFF;
+  padding: 0.6rem 1.4rem;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.15s ease;
+}
+.tier-locked-overlay .tier-lock-cta:hover { background: #138654; }
+
+/* Locked summary cards reuse the same shell as normal summary cards but ignore
+   internal padding so the overlay fills cleanly. */
+.summary-card.tier-locked-host {
+  border: none;
+  padding: 0;
+  overflow: hidden;
+}
+.summary-card.tier-locked-host .tier-locked-panel {
+  min-height: 140px;
+  border: 1px solid #d4d4d0;
+}
+
+
+/* ============================================================================
+   MOBILE PASS (2026-09-05) — phone-first arrival
+   The page used to open on a phone with title, a long notice, a wall of
+   §469 text and a three-column progress grid before the first input. Now:
+   • the notice and the progress grid are <details> that start CLOSED on
+     phones (js opens them on desktop);
+   • the Run Analysis row is sticky above the mobile call bar so the primary
+     action is always one tap away while the form is on screen;
+   • inputs and buttons meet the 44px touch target.
+   ============================================================================ */
+.dl-collapse-hint { display: none; }
+.wp-details > summary { list-style: none; cursor: pointer; font-family: 'Open Sans', sans-serif; font-size: 0.82rem; font-weight: 700; color: #1a1a1a; padding: 0.25rem 0; }
+.wp-details > summary::-webkit-details-marker, .dl-mobile-collapse > summary::-webkit-details-marker { display: none; }
+@media (min-width: 769px) {
+  .wp-details > summary { display: none; }
+}
+@media (max-width: 768px) {
+  .dl-collapse-hint { display: inline; font-size: 0.78rem; }
+  .dl-mobile-collapse:not([open]) > summary ~ * { display: none; }
+  .dl-tool-disclaimer > summary { display: block; }
+  .wizard-progress { padding: 0.75rem 0.9rem; }
+  .wizard-progress-label { display: none; }
+  .step-card { padding: 1rem 0.9rem; }
+  .step-card h4 { font-size: 1.02rem; }
+  .step-subtitle { margin-bottom: 1rem; }
+  .form-group input, .form-group select { min-height: 44px; font-size: 16px; }
+  .calc-row { position: sticky; bottom: calc(96px + env(safe-area-inset-bottom, 0px)); /* clears the two-row Book + Call bar */ z-index: 90; background: rgba(245,245,240,0.96); padding: 0.6rem 0.75rem; margin: 0 -0.5rem; box-shadow: 0 -6px 16px rgba(0,0,0,0.08); display: flex; gap: 0.5rem; }
+  .calc-row .calc-btn { flex: 1 1 auto; min-height: 48px; }
+  .calc-row .calc-btn-secondary { flex: 0 0 auto; min-height: 48px; }
+  .results-section .no-print { min-height: 40px; }
+}

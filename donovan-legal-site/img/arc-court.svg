@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 1560 678" role="img" aria-labelledby="arc-t arc-d">
+<title id="arc-t">The tax controversy resolution arc</title>
+<desc id="arc-d">A map of the federal tax controversy pipeline: planning, coming forward before the Service makes contact, notice, examination, IRS Appeals, United States Tax Court and appellate review, with a collection branch. Resolution is available at every stage after a notice issues. Donovan Legal represents taxpayers at every stage, including United States Tax Court and appellate review. This page covers the Tax Court stage.</desc>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#12643F"/></marker></defs>
+<rect width="1560" height="678" fill="#F6F5F1"/>
+<text x="52" y="56" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" letter-spacing="3.4" font-weight="700" fill="#C9A961">THE ARC</text>
+<text x="52" y="100" font-family="Georgia, 'Times New Roman', serif" font-size="32" font-weight="700" fill="#1B1B1B">Every controversy ends somewhere. The question is where.</text>
+<text x="52" y="130" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" fill="#434343">Most matters resolve long before the courthouse — but only a firm that can go there can price that risk honestly.</text>
+<line x1="52" y1="152" x2="1508" y2="152" stroke="#C9A961" stroke-width="1.4"/>
+<line x1="52" y1="380" x2="1508" y2="380" stroke="#C9A961" stroke-width="2" stroke-dasharray="7 5"/>
+<text x="52" y="366" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" letter-spacing="2.4" font-weight="700" fill="#C9A961">RESOLUTION IS AVAILABLE AT EVERY STAGE</text>
+<rect x="52.0" y="176" width="172" height="112" rx="3" fill="#FFFFFF" stroke="#0C5334" stroke-width="1.6"/>
+<text x="138.0" y="210" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" font-weight="700" fill="#0C5334">Planning</text>
+<text x="138.0" y="235" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#434343">Structuring, before</text>
+<text x="138.0" y="250" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#434343">there is a problem</text>
+<line x1="228.0" y1="232.0" x2="258.0" y2="232.0" stroke="#12643F" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="266.0" y="176" width="172" height="112" rx="3" fill="#FFFFFF" stroke="#0C5334" stroke-width="1.6"/>
+<text x="352.0" y="210" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" font-weight="700" fill="#0C5334">Coming Forward</text>
+<text x="352.0" y="235" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#434343">A problem exists.</text>
+<text x="352.0" y="250" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#434343">No contact yet.</text>
+<line x1="442.0" y1="232.0" x2="472.0" y2="232.0" stroke="#12643F" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="480.0" y="176" width="172" height="112" rx="3" fill="#FFFFFF" stroke="#0C5334" stroke-width="1.6"/>
+<text x="566.0" y="210" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" font-weight="700" fill="#0C5334">Notice</text>
+<text x="566.0" y="235" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#434343">The Service</text>
+<text x="566.0" y="250" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#434343">makes contact</text>
+<line x1="656.0" y1="232.0" x2="686.0" y2="232.0" stroke="#12643F" stroke-width="1.6" marker-end="url(#ar)"/>
+<line x1="566.0" y1="292" x2="566.0" y2="374" stroke="#C9A961" stroke-width="1.4" stroke-dasharray="4 4"/>
+<circle cx="566.0" cy="380" r="5" fill="#C9A961"/>
+<rect x="694.0" y="176" width="172" height="112" rx="3" fill="#FFFFFF" stroke="#0C5334" stroke-width="1.6"/>
+<text x="780.0" y="210" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" font-weight="700" fill="#0C5334">Examination</text>
+<text x="780.0" y="235" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#434343">The record</text>
+<text x="780.0" y="250" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#434343">is built</text>
+<line x1="870.0" y1="232.0" x2="900.0" y2="232.0" stroke="#12643F" stroke-width="1.6" marker-end="url(#ar)"/>
+<line x1="780.0" y1="292" x2="780.0" y2="374" stroke="#C9A961" stroke-width="1.4" stroke-dasharray="4 4"/>
+<circle cx="780.0" cy="380" r="5" fill="#C9A961"/>
+<rect x="908.0" y="176" width="172" height="112" rx="3" fill="#FFFFFF" stroke="#0C5334" stroke-width="1.6"/>
+<text x="994.0" y="210" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" font-weight="700" fill="#0C5334">IRS Appeals</text>
+<text x="994.0" y="235" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#434343">Hazards of</text>
+<text x="994.0" y="250" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#434343">litigation</text>
+<line x1="1084.0" y1="232.0" x2="1114.0" y2="232.0" stroke="#12643F" stroke-width="1.6" marker-end="url(#ar)"/>
+<line x1="994.0" y1="292" x2="994.0" y2="374" stroke="#C9A961" stroke-width="1.4" stroke-dasharray="4 4"/>
+<circle cx="994.0" cy="380" r="5" fill="#C9A961"/>
+<rect x="1122.0" y="176" width="172" height="112" rx="3" fill="#0C5334" stroke="#C9A961" stroke-width="3"/>
+<text x="1208.0" y="210" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" font-weight="700" fill="#F6F5F1">Tax Court</text>
+<text x="1208.0" y="235" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#C6D8CC">Contested</text>
+<text x="1208.0" y="250" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#C6D8CC">before payment</text>
+<rect x="1150.0" y="136" width="116" height="26" rx="13" fill="#C9A961"/>
+<text x="1208.0" y="154" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" letter-spacing="1.4" font-weight="700" fill="#0C5334">YOU ARE HERE</text>
+<line x1="1298.0" y1="232.0" x2="1328.0" y2="232.0" stroke="#12643F" stroke-width="1.6" marker-end="url(#ar)"/>
+<line x1="1208.0" y1="292" x2="1208.0" y2="374" stroke="#C9A961" stroke-width="1.4" stroke-dasharray="4 4"/>
+<circle cx="1208.0" cy="380" r="5" fill="#C9A961"/>
+<rect x="1336.0" y="176" width="172" height="112" rx="3" fill="#FFFFFF" stroke="#0C5334" stroke-width="1.6"/>
+<text x="1422.0" y="210" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" font-weight="700" fill="#0C5334">Court of</text>
+<text x="1422.0" y="231" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" font-weight="700" fill="#0C5334">Appeals</text>
+<text x="1422.0" y="256" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#434343">Review of</text>
+<text x="1422.0" y="271" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#434343">the decision</text>
+<line x1="1422.0" y1="292" x2="1422.0" y2="374" stroke="#C9A961" stroke-width="1.4" stroke-dasharray="4 4"/>
+<circle cx="1422.0" cy="380" r="5" fill="#C9A961"/>
+<line x1="566.0" y1="386" x2="566.0" y2="418" stroke="#8C2026" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="416.0" y="424" width="300" height="74" rx="3" fill="#F8F2F0" stroke="#8C2026" stroke-width="1.6"/>
+<text x="566.0" y="454" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#8C2026">Collection</text>
+<text x="566.0" y="476" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" fill="#8C2026">Liens, levies, and the alternatives to paying in full</text>
+<rect x="52" y="524" width="1456" height="62" fill="#0C5334"/>
+<rect x="52" y="524" width="6" height="62" fill="#C9A961"/>
+<text x="80" y="551" font-family="Georgia, 'Times New Roman', serif" font-size="18" font-weight="700" fill="#F6F5F1">Donovan Legal represents taxpayers at every stage on this line — including the last two.</text>
+<text x="80" y="572" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#C6D8CC">A law firm can file the petition and try the case. An accounting or advisory firm has to hand the matter to someone who can.</text>
+<line x1="52" y1="598" x2="1508" y2="598" stroke="#DAD8D2" stroke-width="1"/>
+<text x="52" y="622" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" fill="#6E6E6E">General information about tax procedure — not legal advice. Procedure and deadlines are specific to each matter.</text>
+<text x="52" y="639" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" fill="#6E6E6E">Donovan Legal PLLC · Delray Beach, Florida · (561) 666-6022</text>
+<text x="1508" y="622" text-anchor="end" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" letter-spacing="1.6" font-weight="700" fill="#C9A961">DONOVAN LEGAL PLLC · DELRAY BEACH, FLORIDA</text>
+</svg>

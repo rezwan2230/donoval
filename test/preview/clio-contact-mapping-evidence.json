@@ -1,0 +1,539 @@
+{
+  "order": "SHELDON-CLIO-CONTACT-MAPPING-R2",
+  "startedAt": "2026-07-30T22:44:27.743Z",
+  "base": "(offline — no deployment probed)",
+  "steps": [
+    {
+      "name": "A: the booking confirms",
+      "ok": true,
+      "detail": {
+        "status": 201
+      }
+    },
+    {
+      "name": "A: the search asks with the documented `query`, never `q`",
+      "ok": true,
+      "detail": {
+        "query": "jane.caller@example.com",
+        "hasQ": false
+      }
+    },
+    {
+      "name": "A: POST /contacts carries IDENTITY ONLY — no addresses, no custom fields",
+      "ok": true,
+      "detail": [
+        "type",
+        "first_name",
+        "last_name",
+        "email_addresses",
+        "phone_numbers"
+      ]
+    },
+    {
+      "name": "A: the optional half arrives on the PATCH instead",
+      "ok": true,
+      "detail": {
+        "customFields": 7,
+        "addresses": [
+          {
+            "name": "Home",
+            "province": "FL"
+          }
+        ]
+      }
+    },
+    {
+      "name": "A: the PATCH sends no _destroy — nothing here can delete a client's data",
+      "ok": true
+    },
+    {
+      "name": "A: the entry attaches the client as an attendee",
+      "ok": true,
+      "detail": [
+        {
+          "id": 4242,
+          "type": "Contact"
+        }
+      ]
+    },
+    {
+      "name": "A: send_email_notification is true",
+      "ok": true
+    },
+    {
+      "name": "A: exactly one intake note, on the same contact",
+      "ok": true,
+      "detail": {
+        "notes": 1
+      }
+    },
+    {
+      "name": "A: ZERO POST /custom_fields — definitions are never minted",
+      "ok": true,
+      "detail": {
+        "creates": 0
+      }
+    },
+    {
+      "name": "A: the calendar entry carries ZERO band strings and no caller free text",
+      "ok": true,
+      "detail": {
+        "leaked": []
+      }
+    },
+    {
+      "name": "A: no band string, and no client email address, reached a log line",
+      "ok": true,
+      "detail": {
+        "logged": []
+      }
+    },
+    {
+      "name": "B: the booking still confirms",
+      "ok": true,
+      "detail": {
+        "status": 201
+      }
+    },
+    {
+      "name": "B: ZERO POST /contacts — no duplicate Person for a client Clio may already hold",
+      "ok": true,
+      "detail": {
+        "created": 0
+      }
+    },
+    {
+      "name": "B: it retried before giving up",
+      "ok": true,
+      "detail": {
+        "attempts": 6
+      }
+    },
+    {
+      "name": "B: it takes the no-contact path — no attendee, no email, no note",
+      "ok": true,
+      "detail": {
+        "attendees": null,
+        "notes": 0
+      }
+    },
+    {
+      "name": "B: the outcome is alertable — a distinct warn, with no PII in it",
+      "ok": true
+    },
+    {
+      "name": "B CONTROL: a search that RECOVERS does create the genuinely-absent contact",
+      "ok": true,
+      "detail": {
+        "created": 1,
+        "attempts": 3
+      }
+    },
+    {
+      "name": "C: \"(unknown)\" appears in ZERO Clio request bodies",
+      "ok": true,
+      "detail": {
+        "offending": 0
+      }
+    },
+    {
+      "name": "C: the only surviving \"(unknown)\" is the Grow lead, and it is out of scope",
+      "ok": true,
+      "detail": {
+        "growBodies": 1
+      }
+    },
+    {
+      "name": "C: the lone token becomes last_name, with first_name omitted entirely",
+      "ok": true,
+      "detail": {
+        "type": "Person",
+        "last_name": "Cher",
+        "email_addresses": [
+          {
+            "address": "jane.caller@example.com",
+            "name": "Work",
+            "default_email": true
+          }
+        ],
+        "phone_numbers": [
+          {
+            "number": "(561) 555-0142",
+            "name": "Mobile",
+            "default_number": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "C: a guessed surname is never PATCHed onto an existing record",
+      "ok": true,
+      "detail": {
+        "custom_field_values": [
+          {
+            "value": "Real estate",
+            "custom_field": {
+              "id": 8100
+            }
+          },
+          {
+            "value": "Acquisition",
+            "custom_field": {
+              "id": 8101
+            }
+          },
+          {
+            "value": "Yourself (personal)",
+            "custom_field": {
+              "id": 8102
+            }
+          },
+          {
+            "value": "$1.5M–$3M",
+            "custom_field": {
+              "id": 8103
+            }
+          },
+          {
+            "value": "$5M–$15M",
+            "custom_field": {
+              "id": 8104
+            }
+          },
+          {
+            "value": "English",
+            "custom_field": {
+              "id": 8105
+            }
+          },
+          {
+            "value": "Referred by a client",
+            "custom_field": {
+              "id": 8106
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "D: a cold account is LISTED",
+      "ok": true,
+      "detail": {
+        "lists": 1
+      }
+    },
+    {
+      "name": "D: and still receives ZERO definition writes",
+      "ok": true,
+      "detail": {
+        "creates": 0
+      }
+    },
+    {
+      "name": "D: unresolved names are SKIPPED — no null ids on the wire",
+      "ok": true,
+      "detail": {
+        "addresses": [
+          {
+            "name": "Home",
+            "province": "FL"
+          }
+        ]
+      }
+    },
+    {
+      "name": "D: the booking, the attendee and the note are all unaffected",
+      "ok": true
+    },
+    {
+      "name": "D: a field whose type does not match its declaration is REFUSED, not bound",
+      "ok": true,
+      "detail": {
+        "bound": false,
+        "rows": 6
+      }
+    },
+    {
+      "name": "D: the refusal is warned by field NAME and never by value",
+      "ok": true
+    },
+    {
+      "name": "E: no second contact is created",
+      "ok": true,
+      "detail": {
+        "created": 0
+      }
+    },
+    {
+      "name": "E: an existing value is UPDATED IN PLACE via its opaque composite id",
+      "ok": true,
+      "detail": {
+        "id": "text_line-1",
+        "value": "$1.5M–$3M",
+        "custom_field": {
+          "id": 8103
+        }
+      }
+    },
+    {
+      "name": "E: a NULL value id sends no id at all — the documented create form",
+      "ok": true,
+      "detail": {
+        "value": "$5M–$15M",
+        "custom_field": {
+          "id": 8104
+        }
+      }
+    },
+    {
+      "name": "E: no NaN and no null id anywhere in the body",
+      "ok": true
+    },
+    {
+      "name": "E: a phone the contact already has is not appended again",
+      "ok": true
+    },
+    {
+      "name": "E: an address it already has is not appended again",
+      "ok": true
+    }
+  ],
+  "bodies": {
+    "A · GET  /api/v4/contacts (search)": "https://app.clio.com/api/v4/contacts?query=jane.caller%40example.com&type=Person&fields=id%2Cfirst_name%2Clast_name%2Cemail_addresses%2Cphone_numbers%2Caddresses%2Ccustom_field_values",
+    "A · POST /api/v4/contacts": {
+      "data": {
+        "type": "Person",
+        "first_name": "Jane",
+        "last_name": "Q Caller",
+        "email_addresses": [
+          {
+            "address": "jane.caller@example.com",
+            "name": "Work",
+            "default_email": true
+          }
+        ],
+        "phone_numbers": [
+          {
+            "number": "(561) 555-0142",
+            "name": "Mobile",
+            "default_number": true
+          }
+        ]
+      }
+    },
+    "A · PATCH /api/v4/contacts/{id}": {
+      "data": {
+        "addresses": [
+          {
+            "name": "Home",
+            "province": "FL"
+          }
+        ],
+        "custom_field_values": [
+          {
+            "value": "Real estate",
+            "custom_field": {
+              "id": 8100
+            }
+          },
+          {
+            "value": "Acquisition",
+            "custom_field": {
+              "id": 8101
+            }
+          },
+          {
+            "value": "Yourself (personal)",
+            "custom_field": {
+              "id": 8102
+            }
+          },
+          {
+            "value": "$1.5M–$3M",
+            "custom_field": {
+              "id": 8103
+            }
+          },
+          {
+            "value": "$5M–$15M",
+            "custom_field": {
+              "id": 8104
+            }
+          },
+          {
+            "value": "English",
+            "custom_field": {
+              "id": 8105
+            }
+          },
+          {
+            "value": "Referred by a client",
+            "custom_field": {
+              "id": 8106
+            }
+          }
+        ]
+      }
+    },
+    "A · POST /api/v4/calendar_entries": {
+      "data": {
+        "summary": "Jane Q Caller — consult",
+        "start_at": "2026-08-10T14:00:00.000Z",
+        "end_at": "2026-08-10T14:30:00.000Z",
+        "calendar_owner": {
+          "id": 9084638
+        },
+        "description": "Initial Consultation with Donovan Legal PLLC.\nJoin the meeting: https://meet.donovan.law/consult\n\nNeed to reschedule or cancel? Call (561) 666-6022 or email info@donovan.law.",
+        "location": "https://meet.donovan.law/consult",
+        "attendees": [
+          {
+            "id": 4242,
+            "type": "Contact"
+          }
+        ],
+        "send_email_notification": true
+      }
+    },
+    "A · POST /api/v4/notes": {
+      "data": {
+        "subject": "Booking intake — website",
+        "detail": "Appointment: Initial Consultation\nRequested slot: 2026-08-10T14:00:00.000Z\nPhone: (561) 555-0142\nEmail: jane.caller@example.com\n\nClient notes:\nI am closing on a property in Palm Beach County next month.\n\n— Perch intake —\nMatter: Real estate → Acquisition\nState: FL\nIncome: $1.5M–$3M\nNet worth: $5M–$15M",
+        "type": "Contact",
+        "contact": {
+          "id": 4242
+        }
+      }
+    },
+    "B · POST /api/v4/contacts (must be null)": null,
+    "C · POST /api/v4/contacts (single-token name)": {
+      "data": {
+        "type": "Person",
+        "last_name": "Cher",
+        "email_addresses": [
+          {
+            "address": "jane.caller@example.com",
+            "name": "Work",
+            "default_email": true
+          }
+        ],
+        "phone_numbers": [
+          {
+            "number": "(561) 555-0142",
+            "name": "Mobile",
+            "default_number": true
+          }
+        ]
+      }
+    },
+    "C · PATCH /api/v4/contacts/{id} (blank surname, one-word name)": {
+      "data": {
+        "custom_field_values": [
+          {
+            "value": "Real estate",
+            "custom_field": {
+              "id": 8100
+            }
+          },
+          {
+            "value": "Acquisition",
+            "custom_field": {
+              "id": 8101
+            }
+          },
+          {
+            "value": "Yourself (personal)",
+            "custom_field": {
+              "id": 8102
+            }
+          },
+          {
+            "value": "$1.5M–$3M",
+            "custom_field": {
+              "id": 8103
+            }
+          },
+          {
+            "value": "$5M–$15M",
+            "custom_field": {
+              "id": 8104
+            }
+          },
+          {
+            "value": "English",
+            "custom_field": {
+              "id": 8105
+            }
+          },
+          {
+            "value": "Referred by a client",
+            "custom_field": {
+              "id": 8106
+            }
+          }
+        ]
+      }
+    },
+    "E · PATCH /api/v4/contacts/{id} (returning client)": {
+      "data": {
+        "custom_field_values": [
+          {
+            "value": "Real estate",
+            "custom_field": {
+              "id": 8100
+            }
+          },
+          {
+            "value": "Acquisition",
+            "custom_field": {
+              "id": 8101
+            }
+          },
+          {
+            "value": "Yourself (personal)",
+            "custom_field": {
+              "id": 8102
+            }
+          },
+          {
+            "id": "text_line-1",
+            "value": "$1.5M–$3M",
+            "custom_field": {
+              "id": 8103
+            }
+          },
+          {
+            "value": "$5M–$15M",
+            "custom_field": {
+              "id": 8104
+            }
+          },
+          {
+            "value": "English",
+            "custom_field": {
+              "id": 8105
+            }
+          },
+          {
+            "value": "Referred by a client",
+            "custom_field": {
+              "id": 8106
+            }
+          }
+        ]
+      }
+    }
+  },
+  "writes": [],
+  "notes": [
+    "OUT OF SCOPE, FLAGGED: booking/_lib/grow-lead.js still pads a one-word name to \"(unknown)\" for BOTH from_first and from_last on the Clio Grow inbox_lead. That is a different API with no vendored contract here and a source comment saying both parts are required. Worth a follow-up order with Grow's contract in hand; not changed on the strength of the Clio Contacts documentation.",
+    "No base URL given — the run was fully offline. Pass a preview URL to add the read-only /booking/types probe.",
+    "STILL A LIVE-PROBE QUESTION: that Clio's documented `query` parameter returns the same or better results than the `q` this replaces. The spec does not list `q` at all, and an unrecognised parameter is ignored rather than rejected, so `q` cannot have been filtering. Confirm against the firm's account before trusting the search to dedupe.",
+    "STILL A LIVE-PROBE QUESTION: that PATCH /contacts appends rather than replaces. The contract says it appends — a member with no id is created, deletion needs an explicit _destroy with an id — and this harness proves we never send _destroy. It cannot prove what Clio does with the body.",
+    "The seven Intake CustomFields must exist in the firm's Clio, parent_type Contact, field_type text_line. This code never creates them; scenario D shows what a booking looks like when they are absent (it succeeds, without the structured fields)."
+  ],
+  "clientFacingDescription": "Initial Consultation with Donovan Legal PLLC.\nJoin the meeting: https://meet.donovan.law/consult\n\nNeed to reschedule or cancel? Call (561) 666-6022 or email info@donovan.law.",
+  "finishedAt": "2026-07-30T22:44:35.833Z",
+  "passed": 33,
+  "failed": 0,
+  "verdict": "GO"
+}

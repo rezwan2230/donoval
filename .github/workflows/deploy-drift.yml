@@ -1,0 +1,73 @@
+name: Deploy drift (scheduled)
+
+# READ-ONLY. This workflow never deploys anything and never writes to the repo.
+# It answers one question on a schedule so nobody has to open the Actions tab and
+# guess: is the site visitors are loading built from the same commit as main?
+#
+# Production for `donovan-site` ships ONLY via a manual workflow_dispatch of
+# deploy-pages.yml on main with confirm=deploy-production. Every other run of that
+# workflow still goes GREEN with the `production` job recorded as *skipped*, so
+# "newest green run on main" is not the same thing as "newest deploy". Reading it
+# by eye is how a handoff came to assert run 258 when 276 was live.
+#
+# Exit codes from bin/check-deploy-drift.mjs:
+#   0  main and production match, or the only unshipped commits are non-site
+#   1  site-affecting drift — visitors are on an older donovan-legal-site
+#   2  the check could not be completed (fails closed; never reports "no drift")
+#
+# NOTE ON SCHEDULING: GitHub only runs `schedule` triggers from the DEFAULT
+# branch. While this file lives on a feature branch the cron is inert; it starts
+# firing when David merges it to main. `workflow_dispatch` works on any branch.
+
+on:
+  schedule:
+    # 13:17 UTC on weekdays — an odd minute to stay off the top-of-hour pileup.
+    - cron: "17 13 * * 1-5"
+  workflow_dispatch:
+
+# Least privilege. `actions: read` is the one non-default scope required: the
+# check reads workflow runs and their per-job conclusions. No write scopes.
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: deploy-drift
+  cancel-in-progress: true
+
+jobs:
+  drift:
+    name: Is production behind main?
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # No `npm ci`: the check uses only Node builtins and global fetch, so it has
+      # no dependency on the lockfile resolving.
+
+      - name: Check deploy drift
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Deliberately NOT `set -e`: we want the report in the job summary even
+          # when the check exits non-zero, then we re-raise its exit code.
+          rc=0
+          node bin/check-deploy-drift.mjs > drift.txt 2>&1 || rc=$?
+          cat drift.txt
+          {
+            echo "## Deploy drift"
+            echo
+            echo '```text'
+            cat drift.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          if [ "$rc" -eq 1 ]; then
+            echo "::error::Site-affecting deploy drift: production is behind main. See the job summary."
+          elif [ "$rc" -ne 0 ]; then
+            echo "::error::Deploy-drift check could not be completed (exit $rc). This is NOT a clean result."
+          fi
+          exit "$rc"

@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JV Deal Package — Smith Holdings LLC</title>
+<style>
+    @page { size: letter; margin: 0.85in 0.75in 1in 0.75in; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 11pt; line-height: 1.55;
+      color: #1a1a1a; background: #F5F5F0;
+      margin: 0; padding: 0;
+    }
+    .pkg-container { max-width: 7.5in; margin: 0 auto; padding: 0.5in 0.5in 1in 0.5in; background: #FFFFFF; }
+    .pkg-draft-stamp {
+      position: fixed; top: 0.4in; right: 0.4in;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.7rem; letter-spacing: 2px;
+      padding: 0.35rem 0.6rem; background: #8b3a3a; color: #FFFFFF;
+      transform: rotate(8deg); border: 2px solid #8b3a3a;
+      opacity: 0.85; z-index: 1000; pointer-events: none;
+    }
+    @media print {
+      .pkg-draft-stamp { display: none; }
+      .pkg-container { padding: 0; max-width: 100%; }
+      .pkg-section { page-break-after: always; }
+      .pkg-doc { page-break-before: always; }
+      h2.pkg-doc-title, h3.pkg-article { page-break-after: avoid; }
+      p, table { page-break-inside: avoid; }
+    }
+    .pkg-cover {
+      min-height: 9in; display: flex; flex-direction: column;
+      justify-content: space-between; padding: 1in 0.5in;
+      page-break-after: always;
+    }
+    .pkg-cover .firm-mark {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.8rem; letter-spacing: 3px;
+      color: #107A4D; font-weight: 700;
+    }
+    .pkg-cover .firm-name {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 1.6rem; font-weight: 700;
+      color: #1a1a1a; margin-top: 0.5rem;
+      letter-spacing: 1.5px;
+    }
+    .pkg-cover .memo-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem; letter-spacing: 2px;
+      color: #6b6b6b; text-transform: uppercase;
+    }
+    .pkg-cover h1 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 2.2rem; font-weight: 700;
+      color: #1a1a1a; margin: 0.5rem 0;
+      letter-spacing: -0.5px;
+    }
+    .pkg-cover .subhead {
+      font-size: 1.1rem; color: #4a4a4a;
+      margin: 0.35rem 0;
+    }
+    .pkg-cover .meta {
+      font-size: 0.9rem; color: #6b6b6b;
+      margin-top: 0.5rem; font-style: italic;
+    }
+    .pkg-cover .draft-stamp-large {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.9rem; letter-spacing: 3px;
+      padding: 0.6rem 1rem; background: #8b3a3a;
+      color: #FFFFFF; display: inline-block;
+      margin-bottom: 1rem; font-weight: 700;
+    }
+    .pkg-cover .cover-notice {
+      font-size: 0.85rem; line-height: 1.65;
+      color: #4a4a4a; max-width: 5.5in;
+      padding-top: 1rem; border-top: 1px solid #d4d4d0;
+    }
+    .pkg-toc { page-break-after: always; padding: 1in 0.5in; }
+    .pkg-toc h2 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 1.4rem; font-weight: 700;
+      color: #1a1a1a; margin: 0 0 1.5rem 0;
+      padding-bottom: 0.5rem; border-bottom: 2px solid #107A4D;
+      letter-spacing: 0.5px;
+    }
+    .pkg-toc ol {
+      list-style: none; counter-reset: toc-counter;
+      padding: 0; margin: 0;
+    }
+    .pkg-toc ol li {
+      counter-increment: toc-counter;
+      padding: 0.5rem 0; border-bottom: 1px dotted #d4d4d0;
+      font-size: 0.95rem; color: #1a1a1a;
+    }
+    .pkg-toc ol li::before {
+      content: counter(toc-counter, decimal) ". ";
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 700; color: #107A4D;
+      margin-right: 0.5rem;
+    }
+    .pkg-section { padding: 0.5in 0; }
+    .pkg-doc { padding-top: 0.5in; }
+    .pkg-doc-title {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 1.4rem; font-weight: 700;
+      color: #1a1a1a; margin: 0 0 0.35rem 0;
+      letter-spacing: 0.5px; text-transform: uppercase;
+      padding-bottom: 0.4rem; border-bottom: 3px solid #107A4D;
+    }
+    .pkg-doc-subtitle {
+      font-size: 0.95rem; color: #4a4a4a;
+      font-style: italic; margin: 0 0 1.5rem 0;
+    }
+    .pkg-article {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 1rem; font-weight: 700;
+      color: #1a1a1a; margin: 1.5rem 0 0.85rem 0;
+      letter-spacing: 0.5px;
+      padding-bottom: 0.25rem; border-bottom: 1px solid #d4d4d0;
+    }
+    .pkg-recital {
+      margin: 1rem 0; padding: 1rem;
+      background: #fafaf5; border-left: 3px solid #107A4D;
+      font-size: 0.95rem; line-height: 1.65;
+    }
+    .pkg-callout {
+      padding: 0.85rem 1rem; background: #fff8e0;
+      border-left: 3px solid #d4a017;
+      margin: 1rem 0; font-size: 0.9rem;
+    }
+    .pkg-legend {
+      padding: 0.85rem; background: #f0f0e8;
+      border: 1px solid #c4c4b8;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.78rem; letter-spacing: 0.3px;
+      margin: 0.85rem 0;
+    }
+    .pkg-list { font-size: 0.95rem; line-height: 1.7; }
+    .pkg-table {
+      width: 100%; border-collapse: collapse; margin: 0.85rem 0;
+      font-size: 0.92rem;
+    }
+    .pkg-table td {
+      padding: 0.4rem 0.6rem;
+      border-bottom: 1px solid #e8e8e0;
+      vertical-align: top;
+    }
+    .pkg-table td.right { text-align: right; font-variant-numeric: tabular-nums; }
+    .pkg-table th {
+      background: #1a1a1a; color: #F5F5F0;
+      padding: 0.5rem 0.6rem; text-align: left;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+    }
+    .pkg-table tr.total td {
+      background: #107A4D; color: #FFFFFF;
+      font-weight: 700;
+    }
+    .pkg-signature-block {
+      margin: 1.5rem 0; padding: 1rem 1.25rem;
+      background: #fafaf5; border: 1px solid #d4d4d0;
+      font-size: 0.92rem; line-height: 1.65;
+    }
+    .ppm-cover-block {
+      margin: 1.5rem 0 2rem 0; padding: 2rem 1.5rem;
+      border: 2px solid #1a1a1a; text-align: center;
+      page-break-after: avoid;
+    }
+    .ppm-legend-box {
+      margin: 1.5rem 0; padding: 1.25rem;
+      background: #f8f8f0; border: 1.5px solid #1a1a1a;
+      font-size: 0.88rem; line-height: 1.65;
+    }
+    .pkg-footer {
+      text-align: center; padding: 1rem 0; margin-top: 2rem;
+      font-size: 0.78rem; color: #6b6b6b; font-style: italic;
+      border-top: 1px solid #d4d4d0;
+    }
+    p { margin: 0.55rem 0; }
+    strong { font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="pkg-draft-stamp">DRAFT &middot; PRIVILEGED &amp; CONFIDENTIAL &middot; NO REG D OFFERING</div>
+  <div class="pkg-container">
+    
+<div class="pkg-cover">
+  <div>
+    <div class="firm-mark">DONOVAN LEGAL PLLC · RESERVE</div>
+    <div class="firm-name">DEAL DOCUMENT PACKAGE</div>
+  </div>
+  <div>
+    <div class="memo-label">Issuer</div>
+    <h1>Smith Holdings LLC</h1>
+    <div class="subhead">Smith JV Property</div>
+    <div class="subhead">No Reg D Filing — Small JV (Pre-Existing Relationships)</div>
+    <div class="meta">Generated May 17, 2026</div>
+  </div>
+  <div>
+    <div class="draft-stamp-large">DRAFT — PRIVILEGED &amp; CONFIDENTIAL</div>
+    <p class="cover-notice">
+      The documents in this package are templates generated by the Donovan Legal PLLC Reserve Deal Builder. They reflect the deal parameters as entered into the tool. Substantive review, customization, and execution are subject to a written engagement letter with the firm. Nothing in this package constitutes legal, tax, or accounting advice or creates an attorney-client relationship. Do not distribute or execute without firm approval.
+    </p>
+  </div>
+</div>
+
+<div class="pkg-toc">
+  <h2>Package Index</h2>
+  <ol>
+    <li><strong>Package Overview</strong> — JV characterization and document map</li>
+    <li><strong>Entity Structure Diagram</strong> — multi-tier ownership and management structure</li>
+    <li><strong>JV Securities Analysis Memorandum</strong> — counsel's reasoned analysis under <em>Howey</em></li><li><strong>Operating Agreement</strong> of Smith Holdings LLC (Florida LLC) — Issuer</li><li><strong>Member Joinder &amp; Acknowledgment</strong> — Form (and 4 executed counterparts)</li></ol>
+</div>
+
+<div class="pkg-section">
+  <h2 class="pkg-doc-title">1. Package Overview &amp; Securities-Law Summary</h2>
+
+  <h3>Offering Profile</h3>
+  <table class="pkg-table">
+    <tr><td><strong>Issuer:</strong></td><td>Smith Holdings LLC, a Florida LLC</td></tr>
+    <tr><td><strong>Project:</strong></td><td>Smith JV Property</td></tr>
+    <tr><td><strong>Deal Type:</strong></td><td>Operating LLC — single-asset</td></tr>
+    <tr><td><strong>Securities Offered:</strong></td><td>Membership Interests</td></tr>
+    <tr><td><strong>Total Capital Sought:</strong></td><td>$1,500,000 (4 investors)</td></tr>
+    <tr><td><strong>Securities Exemption:</strong></td><td>Regulation D Rule No Reg D — Operating-Member Joint Venture</td></tr>
+    <tr><td><strong>General Solicitation:</strong></td><td><strong>PROHIBITED</strong> — pre-existing relationship required</td></tr>
+    <tr><td><strong>Verification Standard:</strong></td><td>Self-certification of accredited status</td></tr>
+    <tr><td><strong>Investor Profile:</strong></td><td>4 of 4 represent accredited status under Rule 501(a)</td></tr>
+  </table>
+
+  <h3>Document Map</h3>
+  <p>This package contains the following materials, ordered as they appear:</p>
+  <ul>
+    <li><strong>Operating Agreement</strong> — the governance document of the Issuer LLC; binds members; sets out capital, allocations, distributions, management, transfers, dissolution.</li>
+    
+    
+    <li><strong>Subscription Agreement</strong> — binds each investor to the offering on the stated terms; contains investor representations regarding accredited status, sophistication, and ability to bear economic risk.</li>
+    <li><strong>Accredited Investor Questionnaire</strong> — captures investor identity, mailing address, AI category election under Rule 501(a), and (for 506(c)) supporting documentation.</li>
+    
+    
+    <li><strong>Form D Filing Worksheet</strong> — data pre-fill for the Form D notice filing with the SEC via EDGAR (15 days after first sale).</li>
+    <li><strong>State Blue Sky Notice</strong> — notice filing in the state of formation; additional state notices required where investors reside.</li>
+    
+  </ul>
+
+  
+
+  <h3>Important Securities-Law Considerations</h3>
+  <p><strong>Bad Actor Disqualification (Rule 506(d)).</strong> Each "covered person" (issuer, predecessors, affiliated issuers, directors, executive officers, general partners, managing members, beneficial owners of 20%+ of outstanding voting securities, promoters, investment managers, and persons compensated for solicitation) must be evaluated against the disqualifying events of Rule 506(d)(1). Disqualifying events generally include certain criminal convictions, court injunctions, regulatory orders, SEC disciplinary orders, suspensions, and postal fraud orders within specified lookback periods. The Issuer must perform this analysis and obtain certifications from each covered person prior to commencing the offering.</p>
+
+  <p><strong>Integration.</strong> Rule 152 (post-March 2021 framework) provides safe harbors for offerings made in close proximity. Separate offerings completed more than 30 days apart will not be integrated. Within 30 days, offerings are not integrated if (i) each offering complies with its own exemption, and (ii) for exempt offerings without general solicitation, no information about a concurrent general-solicitation offering would have caused the non-solicitation offering to fail.</p>
+
+  <p><strong>Form D Filing.</strong> A Form D notice must be filed with the SEC via EDGAR no later than 15 calendar days after the first sale of securities in the offering. Annual amendments and amendments upon material changes are required.</p>
+
+  <p><strong>State Notice Filings.</strong> Most states require a Form D / "Blue Sky" notice filing with the state securities administrator within a specified period after the first sale (typically 15 days; some states require pre-sale filing). The Issuer should identify each state in which an investor resides and confirm the applicable notice requirements.</p>
+
+  
+</div>
+
+<div class="pkg-section pkg-doc">
+  <h2 class="pkg-doc-title">2. ENTITY STRUCTURE DIAGRAM</h2>
+  <p class="pkg-doc-subtitle">Multi-tier ownership and management structure</p>
+
+  <p>The deal structure consists of 1 entity organized as follows. Each entity is governed by the law of its state of formation; provisions in the Operating Agreement(s) reflect state-specific statutory requirements.</p>
+
+  <h3 class="pkg-article">Structure Diagram</h3>
+  <div style="margin: 0.35rem 0; padding: 0.5rem 0.75rem; background: #fafaf5; border-left: 3px solid #1a1a1a;">
+      <strong>Smith Holdings LLC</strong>
+       <span style="background:#107A4D;color:#FFFFFF;padding:0.05rem 0.4rem;font-size:0.7rem;letter-spacing:1px;">ISSUER</span>
+      <br><span style="font-size: 0.88rem; color: #4a4a4a;">LLC · Florida · Issuer (Securities Offering Entity)</span>
+      <br><span style="font-size: 0.82rem; color: #6b6b6b;">123 Main St, Delray Beach FL 33444</span>
+    </div>
+
+  <h3 class="pkg-article">Entity Summary</h3>
+  <table class="pkg-table"><thead><tr><th>Entity</th><th>Type</th><th>State of Formation</th><th>Role</th><th>Parent</th></tr></thead><tbody><tr>
+      <td><strong>Smith Holdings LLC</strong> (Issuer)</td>
+      <td>LLC</td>
+      <td>Florida</td>
+      <td>Issuer (Securities Offering Entity)</td>
+      <td>— Top —</td>
+    </tr></tbody></table>
+
+  <h3 class="pkg-article">Per-Entity Governing Law</h3>
+  <p><strong>Smith Holdings LLC (LLC, Florida):</strong> governed by Florida Revised Limited Liability Company Act, Fla. Stat. ch. 605 (2014). Charging order: exclusive for multi-member only. Series LLC: recently enacted. </p>
+</div>
+
+<div class="pkg-section pkg-doc">
+  <h2 class="pkg-doc-title">3. JV SECURITIES ANALYSIS MEMORANDUM</h2>
+  <p class="pkg-doc-subtitle">Counsel's analysis of why this transaction does not require Reg D filing &mdash; May 17, 2026</p>
+
+  <p style="background:#fafaf5;border-left:3px solid #d4a017;padding:0.85rem 1.1rem;font-style:italic;">
+    <strong>IMPORTANT NOTICE.</strong> This memorandum is prepared by counsel as an internal analytical record of the basis on which the Sponsor and the firm have concluded that the Smith Holdings LLC Operating Agreement does not require federal or state securities registration or Regulation D filing. This conclusion is fact-specific and depends on the representations and active participation of each Member. <strong>If any of the assumptions stated below are not accurate as to any Member, this analysis must be revisited and the transaction may need to be re-structured as a Reg D 506(b) Friends &amp; Family offering or higher level.</strong>
+  </p>
+
+  <h3 class="pkg-article">I. Transaction Summary</h3>
+  <p>The Sponsor proposes to organize Smith Holdings LLC, a Florida LLC (the "<strong>Company</strong>") as a small joint venture among 4 Members who collectively will commit approximately $1,500,000 of equity capital to acquire, develop, and/or operate 789 Pine Ave, Palm Beach FL. The Sponsor and each Member have pre-existing substantive business or personal relationships.</p>
+
+  <h3 class="pkg-article">II. Question Presented</h3>
+  <p>Whether the offer and sale of membership interests in the Company to the Members constitutes an "offer or sale of securities" within the meaning of Section 2(a)(1) of the Securities Act of 1933 (the "<strong>1933 Act</strong>") and Section 3(a)(10) of the Securities Exchange Act of 1934, such that federal registration under Section 5 of the 1933 Act is required absent an applicable exemption; and if so, whether the transaction qualifies for an exemption other than Rule 506 of Regulation D.</p>
+
+  <h3 class="pkg-article">III. Howey Analysis</h3>
+  <p>Under <em>SEC v. W.J. Howey Co.</em>, 328 U.S. 293 (1946) and its progeny, the Supreme Court established the four-prong test for determining whether an "investment contract" is a security:</p>
+  <ol style="margin-left:1.5rem;">
+    <li><strong>An investment of money,</strong></li>
+    <li><strong>in a common enterprise,</strong></li>
+    <li><strong>with an expectation of profits</strong></li>
+    <li><strong>derived solely (or predominantly) from the entrepreneurial or managerial efforts of others.</strong></li>
+  </ol>
+
+  <p><strong>Application to LLC interests.</strong> The leading authority addressing LLC interests is <em>SEC v. Merchant Capital, LLC</em>, 483 F.3d 747 (11th Cir. 2007), and its predecessor circuits applying Williamson factors. The analysis turns substantially on the fourth prong: whether each Member's expectation of profits derives from its own efforts (rebutting "efforts of others") or from a passive position in which the Sponsor or Manager is doing the work. Under <em>Williamson v. Tucker</em>, 645 F.2d 404 (5th Cir. 1981), an LLC interest is presumed NOT to be a security if:</p>
+  <ol style="margin-left:1.5rem;">
+    <li>The agreement among the parties leaves so little power in the hands of the partner or venturer that the arrangement in fact distributes power as would a limited partnership; or</li>
+    <li>The partner or venturer is so inexperienced and unknowledgeable in business affairs that he is incapable of intelligently exercising his powers; or</li>
+    <li>The partner or venturer is so dependent on some unique entrepreneurial or managerial ability of the promoter or manager that he cannot replace the manager of the enterprise or otherwise exercise meaningful partnership powers.</li>
+  </ol>
+  <p>Where <strong>none</strong> of these conditions is satisfied, the general partnership / member-managed LLC interest is presumed <em>not</em> to be a security.</p>
+
+  <h3 class="pkg-article">IV. Application to the Company</h3>
+  <p><strong>Member Participation.</strong> Counsel has been advised, and the Member Joinder &amp; Acknowledgment executed by each Member confirms, the following with respect to each Member:</p>
+  <ul style="margin-left:1.5rem;">
+    <li>Each Member has a pre-existing substantive business or personal relationship with the Sponsor predating this transaction;</li>
+    <li>Each Member possesses business or professional experience reasonably sufficient to evaluate the merits and risks of the venture;</li>
+    <li>Each Member has voting rights (as set forth in the Operating Agreement) on Major Decisions, including sale of all or substantially all assets, refinancing, dissolution, amendment of the Operating Agreement, and approval of transactions between the Manager and its affiliates;</li>
+    <li>The Operating Agreement does not vest in the Sponsor / Manager any unique entrepreneurial ability such that the Manager could not be replaced; the Members retain the right to remove the Manager for Cause by majority vote;</li>
+    <li>No Member is being solicited as a passive investor in the typical "syndicated offering" sense; rather, each Member has been or is being introduced to the transaction through pre-existing relationships, with full opportunity to participate in due diligence, review of documents, and ongoing operating decisions;</li>
+    <li>The Members are not aggregated through any common solicitation channel or public-facing marketing.</li>
+  </ul>
+
+  <p><strong>Williamson Factor Analysis.</strong> Applying the three Williamson conditions:</p>
+  <ol style="margin-left:1.5rem;">
+    <li><strong>Allocation of power:</strong> The Operating Agreement is consistent with a true joint venture and grants each Member substantive Major Decision voting rights. This is not a "limited partnership in disguise."</li>
+    <li><strong>Sophistication of Members:</strong> Each Member is experienced and knowledgeable, as confirmed by the Joinder. None lacks the capacity to intelligently exercise the voting rights granted.</li>
+    <li><strong>Dependence on unique managerial ability:</strong> While the Sponsor brings deal-execution and tax-structuring experience, the Sponsor's role is replaceable. The Operating Agreement provides for Manager removal and replacement.</li>
+  </ol>
+
+  <p><strong>Conclusion under <em>Howey</em>:</strong> The membership interests in Smith Holdings LLC are <strong>not</strong> "investment contracts" within the meaning of the 1933 Act because the fourth <em>Howey</em> prong is not satisfied. The Members' expectation of profits is derived in material part from their own efforts &mdash; including voting, oversight, replacement of the Manager if necessary, and active participation in Major Decisions &mdash; rather than solely from the entrepreneurial efforts of others. The Williamson factors are not met.</p>
+
+  <h3 class="pkg-article">V. Backup Exemption Analysis</h3>
+  <p>If, contrary to the analysis above, the SEC or a court were to determine that the membership interests are "securities," counsel believes the offer and sale would in any event qualify for one or more of the following exemptions:</p>
+  <ul style="margin-left:1.5rem;">
+    <li><strong>Section 4(a)(2) of the 1933 Act</strong> &mdash; "transactions by an issuer not involving any public offering." Under <em>SEC v. Ralston Purina Co.</em>, 346 U.S. 119 (1953), this exemption applies where offerees can fend for themselves through pre-existing relationships, access to information equivalent to a registration statement, and the absence of public solicitation. All conditions are satisfied here.</li>
+    <li><strong>Rule 504 of Regulation D</strong> &mdash; limited offerings under $10,000,000, with no general solicitation, in a 12-month period. The proposed raise is within this threshold.</li>
+    <li><strong>Intrastate offering exemption (Section 3(a)(11) and Rule 147 or 147A)</strong> &mdash; if all Members reside in Florida and the Company satisfies the in-state operations requirements (doing business test, 80% of assets/revenues in-state).</li>
+  </ul>
+
+  <h3 class="pkg-article">VI. State Securities Law Considerations</h3>
+  <p>Florida blue sky law generally follows the federal "security" definition; if the membership interests are not federal securities under <em>Howey</em>, they are likewise not state securities in most jurisdictions. Specifically, Florida treatment of LLC interests under the state's Limited Liability Company Act (Fla. Stat. ch. 605 (2014)) is consistent with the analysis above; the Act treats member-managed LLCs as genuine joint ventures where members have material governance rights.</p>
+  <p>Even if the interests were deemed state securities, Florida typically affords a limited-offering exemption for small offerings to fewer than a specified number of investors with pre-existing relationships; counsel will confirm the specific exemption claimed.</p>
+
+  <h3 class="pkg-article">VII. Conclusion and Reservation</h3>
+  <p>Based on the analysis above, the Sponsor and counsel have concluded that:</p>
+  <ol style="margin-left:1.5rem;">
+    <li>The membership interests in Smith Holdings LLC are not "securities" within the meaning of the 1933 Act because they do not constitute "investment contracts" under <em>Howey</em>, and</li>
+    <li>Federal registration under Section 5 of the 1933 Act is not required, and</li>
+    <li>A Form D filing under Regulation D is not required because no Reg D exemption is being relied upon, and</li>
+    <li>No state Blue Sky filing is required because the interests are not state securities or, if deemed to be, qualify for a limited-offering exemption.</li>
+  </ol>
+
+  <p><strong>RESERVATION.</strong> This conclusion is fact-dependent. If <em>any</em> of the following occur, the conclusion must be re-visited and the transaction may need to be restructured as a Reg D offering or otherwise registered:</p>
+  <ul style="margin-left:1.5rem;">
+    <li>Any Member is solicited through general advertising or to a person without a pre-existing relationship;</li>
+    <li>The Manager removal or Major Decision voting rights are diluted by amendment of the Operating Agreement;</li>
+    <li>Additional Members are admitted without similar pre-existing relationships and active-participation indicia;</li>
+    <li>The Sponsor is replaced and a new Manager is held out as bringing unique entrepreneurial ability on which the Members are dependent;</li>
+    <li>An SEC enforcement action, no-action letter, or judicial decision changes the legal landscape applicable to small-JV LLC interests.</li>
+  </ul>
+
+  <p>Counsel and Sponsor will monitor and address each of these contingencies. This Memorandum is dated as of May 17, 2026.</p>
+</div>
+<div class="pkg-section pkg-doc">
+      <h2 class="pkg-doc-title">4. OPERATING AGREEMENT of Smith Holdings LLC</h2>
+      <p class="pkg-doc-subtitle">Smith Holdings LLC (Florida LLC) — Issuer (Securities Offering Entity) · ISSUER</p>
+    </div>
+<div class="pkg-section pkg-doc">
+  <h2 class="pkg-doc-title">OPERATING AGREEMENT</h2>
+  <p class="pkg-doc-subtitle">SMITH HOLDINGS LLC, a Florida LLC</p>
+
+  <p class="pkg-recital">This Operating Agreement (this <strong>"Agreement"</strong>) is entered into as of June 2026 (the <strong>"Effective Date"</strong>) by and among Smith Holdings LLC, a Florida LLC (the <strong>"Company"</strong>), and the persons listed on <strong>Exhibit&nbsp;A</strong> hereto (each, a <strong>"Member"</strong> and collectively, the <strong>"Members"</strong>).</p>
+
+  <h3 class="pkg-article">RECITALS</h3>
+  <p>WHEREAS, the Company was formed as a Florida LLC by the filing of Articles of Organization with Florida Department of State, Division of Corporations on June 2026;</p>
+  <p>WHEREAS, the Members desire to set forth the terms governing the operation and management of the Company in accordance with the Florida Revised Limited Liability Company Act;</p>
+  
+  <p>NOW, THEREFORE, in consideration of the mutual covenants herein contained, the Members agree as follows:</p>
+
+  
+
+  <h3 class="pkg-article">ARTICLE I — DEFINITIONS</h3>
+  <p><strong>1.1 Definitions.</strong> For purposes of this Agreement, the following terms have the meanings indicated:</p>
+  <p><strong>"Act"</strong> means the Florida Revised Limited Liability Company Act, Fla. Stat. ch. 605 (2014), as amended.</p>
+  <p><strong>"Capital Account"</strong> means the capital account of each Member maintained in accordance with Section&nbsp;3.6 and Treasury Regulations § 1.704-1(b)(2)(iv).</p>
+  <p><strong>"Capital Contribution"</strong> means the cash or fair market value of property contributed by a Member to the capital of the Company.</p>
+  <p><strong>"Code"</strong> means the Internal Revenue Code of 1986, as amended.</p>
+  <p><strong>"Distribution"</strong> means any cash or other property distributed by the Company to a Member in respect of its Membership Interest.</p>
+  <p><strong>"Fiscal Year"</strong> means the Company's fiscal year, which shall end on December&nbsp;31 of each year unless otherwise required by the Code.</p>
+  <p><strong>"Manager"</strong> means [Manager TBD], or such successor as may be appointed pursuant to this Agreement.</p>
+  <p><strong>"Member"</strong> means each person listed on Exhibit A and any additional or substituted person admitted as a Member in accordance with this Agreement.</p>
+  <p><strong>"Membership Interest"</strong> means a Member's entire interest in the Company, including its right to receive Distributions, its share of Profits and Losses, and any voting or consent rights.</p>
+  <p><strong>"Preferred Return"</strong> has the meaning set forth in Section&nbsp;5.2.</p>
+  <p><strong>"Profits"</strong> and <strong>"Losses"</strong> mean, for each Fiscal Year, the Company's taxable income or loss, computed in accordance with Code § 703(a) and adjusted as set forth in this Agreement.</p>
+  <p><strong>"Treasury Regulations"</strong> means the regulations promulgated under the Code, as in effect from time to time.</p>
+
+  <h3 class="pkg-article">ARTICLE II — FORMATION AND PURPOSE</h3>
+  <p><strong>2.1 Formation.</strong> The Company was formed under the Act by the filing of Articles of Organization with Florida Department of State, Division of Corporations. The Members confirm and ratify the filing.</p>
+  <p><strong>2.2 Name.</strong> The name of the Company is Smith Holdings LLC.</p>
+  <p><strong>2.3 Principal Office.</strong> The principal office of the Company is 123 Main St, Delray Beach FL 33444.</p>
+  <p><strong>2.4 Registered Agent.</strong> The registered agent for service of process in Florida shall be the person or entity designated in the Articles of Organization, as may be changed from time to time by the Manager.</p>
+  <p><strong>2.5 Purpose.</strong> The purpose of the Company is to acquire, develop, hold, lease, operate, finance, refinance, and dispose of the real property and improvements located at 789 Pine Ave, Palm Beach FL (the <strong>"Property"</strong>) and to engage in any lawful business or activity for which a LLC may be organized under the Act in connection therewith. The Company may also engage in any related or incidental activities approved by the Manager.</p>
+  <p><strong>2.6 Term.</strong> The Company shall continue in existence until terminated and dissolved as provided in Article XI.</p>
+
+  
+
+  <h3 class="pkg-article">ARTICLE III — CAPITAL CONTRIBUTIONS</h3>
+  <p><strong>3.1 Initial Capital Contributions.</strong> Each Member shall make the Initial Capital Contribution set forth opposite its name on <strong>Exhibit A</strong>. The aggregate Initial Capital Contributions of all Members shall be $1,500,000.</p>
+  <p><strong>3.2 Additional Capital Contributions.</strong> No Member shall be required to make any Additional Capital Contribution. If the Manager determines that additional capital is required for the operation of the Company, the Manager may (but shall not be required to) call for Additional Capital Contributions from the Members pro rata in proportion to their respective Membership Interests.</p>
+  <p><strong>3.3 Failure to Fund.</strong> If any Member fails to fund a properly called Additional Capital Contribution within ten (10) Business Days of the call notice, the funding Members may (i) advance the shortfall as a member loan bearing interest at the prime rate plus four percent (4%) and repayable from distributions otherwise payable to the defaulting Member, or (ii) contribute the shortfall as additional capital and proportionately dilute the defaulting Member's Membership Interest.</p>
+  <p><strong>3.4 Loans by Members.</strong> A Member may, with the consent of the Manager, lend funds to the Company. Any such loan shall be on arm's-length terms and shall not be treated as a Capital Contribution.</p>
+  <p><strong>3.5 No Interest on Capital.</strong> No Member shall be entitled to interest on its Capital Contribution except as expressly provided herein.</p>
+  <p><strong>3.6 Capital Accounts.</strong> A separate Capital Account shall be maintained for each Member in accordance with Treas. Reg. § 1.704-1(b)(2)(iv). Capital Accounts shall be increased by Capital Contributions and allocations of Profits, and decreased by Distributions and allocations of Losses.</p>
+
+  <h3 class="pkg-article">ARTICLE IV — ALLOCATIONS OF PROFITS AND LOSSES</h3>
+  <p><strong>4.1 General Allocation.</strong> Except as otherwise provided in this Article IV, Profits and Losses shall be allocated to the Members in accordance with the <strong>targeted</strong> method, in a manner consistent with Treas. Reg. § 1.704-1(b) and the economic intent of the Members as reflected in the Distribution provisions of Article V.</p>
+  <p><strong>4.2 § 704(c) Allocations.</strong> If any property is contributed to the Company with a fair market value different from its adjusted tax basis, items of income, gain, loss, and deduction with respect to such property shall be allocated among the Members so as to take account of the variation between the basis of the property and its fair market value in accordance with Code § 704(c) and Treas. Reg. § 1.704-3, using the <strong>traditional</strong> method.</p>
+  <p><strong>4.3 Regulatory Allocations.</strong> Notwithstanding any other provision, the following allocations shall be made in the following order: (a) minimum gain chargeback under Treas. Reg. § 1.704-2(f); (b) chargeback of member nonrecourse debt minimum gain under Treas. Reg. § 1.704-2(i)(4); (c) qualified income offset under Treas. Reg. § 1.704-1(b)(2)(ii)(d); (d) gross income allocation; and (e) nonrecourse deductions and member nonrecourse deductions in accordance with Treas. Reg. §§ 1.704-2(b) and 1.704-2(i)(2).</p>
+  <p><strong>4.4 Recapture.</strong> To the extent permitted by Treas. Reg. § 1.1245-1(e) and § 1.1250-1(f), depreciation recapture shall be allocated to the Members who received the related depreciation deductions.</p>
+  <p><strong>4.5 Tax Allocations Generally Follow Book Allocations.</strong> Except as otherwise provided in Section 4.2, tax allocations of Profits, Losses, and other tax items shall follow the corresponding book allocations.</p>
+
+  <h3 class="pkg-article">ARTICLE V — DISTRIBUTIONS</h3>
+  <p><strong>5.1 Available Cash.</strong> The Manager shall cause the Company to distribute Available Cash to the Members in accordance with Section 5.2 (Distribution Waterfall).</p>
+  <p><strong>5.2 Distribution Waterfall.</strong> Available Cash shall be distributed as follows:</p>
+  <p style="margin-left:1.5rem;"><strong>(a) Preferred Return.</strong> First, 8.00% per annum, cumulative non_compound pari passu, on each Member's unreturned Capital Contributions until each Member has received Distributions equal to such Preferred Return.</p>
+  <p style="margin-left:1.5rem;"><strong>(b) Return of Capital.</strong> Second, in proportion to each Member's unreturned Capital Contributions, until each Member has received Distributions equal to its Capital Contributions.</p>
+  <p style="margin-left:1.5rem;"><strong>(c) Promote Tiers.</strong> Third, the remainder shall be distributed pursuant to the promote tiers set forth on <strong>Exhibit C</strong>.</p>
+  <p><strong>5.3 Tax Distributions.</strong> Within thirty (30) days following the end of each Fiscal Year, the Manager may cause the Company to make Tax Distributions to each Member in an amount equal to its allocated share of taxable income for such year multiplied by the Assumed Tax Rate.</p>
+  <p><strong>5.4 Withholding.</strong> The Company shall withhold and pay over to the appropriate tax authorities any amounts required to be withheld pursuant to the Code or applicable state, local, or foreign tax law (including FIRPTA withholding under Code § 1445 and § 1446 with respect to foreign Members).</p>
+
+  <h3 class="pkg-article">ARTICLE VI — MANAGEMENT</h3>
+  <p><strong>6.1 Manager.</strong> The business and affairs of the Company shall be managed by [Manager TBD] (the <strong>"Manager"</strong>). The Manager shall have all powers necessary or appropriate to carry out the purposes of the Company.</p>
+  <p><strong>6.2 Statutory Default.</strong> Default under § 605.0407 is member management unless the Articles of Organization or this Agreement provide otherwise.</p>
+  <p><strong>6.3 Powers of the Manager.</strong> Without limiting the generality of Section 6.1, the Manager shall have full power and authority to: (a) acquire, develop, finance, refinance, lease, manage, and dispose of Company assets; (b) execute and deliver all documents on behalf of the Company; (c) employ professionals, contractors, and consultants; (d) maintain books and records; (e) cause the Company to obtain insurance; (f) prosecute and defend legal actions; (g) make tax elections; and (h) take such other actions as the Manager deems necessary or appropriate.</p>
+  <p><strong>6.4 Major Decisions.</strong> Notwithstanding Section 6.3, the following actions shall require the affirmative vote of Members holding more than majority of the Membership Interests: (i) sale of all or substantially all Company assets; (ii) merger, consolidation, or conversion; (iii) admission of additional Members; (iv) amendment of this Agreement adversely affecting a class disproportionately; (v) dissolution (other than at end of term); (vi) commencement of bankruptcy; and (vii) any transaction with the Manager or its affiliates not on arm's-length terms.</p>
+  <p><strong>6.5 Standard of Care and Fiduciary Duties.</strong> The Manager shall perform its duties in good faith and with the care of an ordinarily prudent person.</p>
+  
+    <p>Subject to the express limitations of Fla. Stat. § 605.0105(3), this Agreement may eliminate or alter the standards of liability and the duty of loyalty of the Manager (other than the implied contractual obligation of good faith and fair dealing); however, the Agreement may not authorize or require knowingly violative conduct.</p>
+  
+  <p><strong>6.6 Compensation.</strong> The Manager shall be entitled to receive the fees set forth on <strong>Exhibit B</strong>.</p>
+  <p><strong>6.7 Removal.</strong> The Manager may be removed only for Cause upon the affirmative vote of Members holding seventy-five percent (75%) or more of the Membership Interests held by Members other than the Manager and its affiliates.</p>
+
+  <h3 class="pkg-article">ARTICLE VII — INDEMNIFICATION</h3>
+  <p>The Company shall indemnify and hold harmless the Manager, its affiliates, and their respective officers, directors, members, partners, employees, and agents from and against any and all losses, claims, damages, liabilities, judgments, fines, settlements, and reasonable expenses arising out of or relating to the business of the Company, except to the extent attributable to gross negligence, willful misconduct, or fraud.</p>
+
+  <h3 class="pkg-article">ARTICLE VIII — BOOKS, RECORDS, AND REPORTING</h3>
+  <p><strong>8.1 Books and Records.</strong> The Manager shall maintain complete and accurate books and records of the Company at its principal office.</p>
+  <p><strong>8.2 Annual Statements.</strong> Within one hundred twenty (120) days after the end of each Fiscal Year, the Manager shall deliver to each Member unaudited annual financial statements and tax information necessary to enable each Member to prepare its tax returns, including a Schedule K-1.</p>
+  <p><strong>8.3 Partnership Representative.</strong> The Manager (or such other Member as the Manager may designate) shall serve as the <strong>"Partnership Representative"</strong> within the meaning of Code § 6223.</p>
+  <p><strong>8.4 Tax Elections.</strong> The Manager shall make all tax elections deemed appropriate, including the election under Code § 754 if the Manager determines such election is in the best interests of the Members.</p>
+
+  <h3 class="pkg-article">ARTICLE IX — TRANSFERS, ASSIGNMENTS, AND CHARGING ORDER</h3>
+  <p><strong>9.1 Restrictions on Transfer.</strong> No Member may sell, assign, transfer, pledge, or otherwise dispose of all or any portion of its Membership Interest (a <strong>"Transfer"</strong>) without the prior written consent of the Manager. Any purported Transfer in violation of this Article shall be null and void.</p>
+  <p><strong>9.2 Permitted Transfers.</strong> A Member may Transfer all or part of its Membership Interest, without Manager consent, to: (i) an affiliate; (ii) a revocable trust for estate planning; or (iii) by reason of death to the Member's estate.</p>
+  <p><strong>9.3 Right of First Refusal.</strong> Any proposed Transfer (other than a Permitted Transfer) shall be subject to a right of first refusal in favor of the Company and then the other Members.</p>
+  <p><strong>9.4 Securities Law Compliance.</strong> No Transfer shall be permitted unless the proposed transferee provides representations satisfactory to the Manager that the Transfer is exempt from registration under the Securities Act of 1933 and applicable state securities laws.</p>
+  <p><strong>9.5 Charging Order.</strong></p>
+  
+    <p>A charging order pursuant to Fla. Stat. § 605.0503 is the sole and exclusive remedy by which a judgment creditor of a Member or transferee may satisfy a judgment from a Member’s transferable interest in a multi-member limited liability company. The Olmstead carve-out under Fla. Stat. § 605.0503(4) permits foreclosure of the membership interest only if the Company has a single member. Members are advised that the addition of substantive economic interests of other members preserves charging-order-only protection.</p>
+  
+
+  <h3 class="pkg-article">ARTICLE X — REPRESENTATIONS AND WARRANTIES</h3>
+  <p>Each Member represents and warrants that: (a) it has full power and authority to enter into this Agreement; (b) it is acquiring its Membership Interest for investment for its own account; (c) it qualifies as an "accredited investor" within the meaning of Rule 501(a) of Regulation D; (d) it has had the opportunity to ask questions of the Manager; and (e) it can bear the economic risk of its investment, including total loss.</p>
+
+  <h3 class="pkg-article">ARTICLE XI — DISSOLUTION AND WINDING UP</h3>
+  <p><strong>11.1 Events of Dissolution.</strong></p>
+  
+    <p>Dissolution per Fla. Stat. § 605.0701: occurrence of an event specified in this Agreement; consent of all members; judicial dissolution under § 605.0702; or administrative dissolution for failure to file annual report.</p>
+  
+  <p><strong>11.2 Winding Up.</strong> Upon dissolution, the Manager (or, if none, a liquidator) shall wind up the affairs of the Company, liquidate its assets, pay or provide for its liabilities, and distribute any remaining assets in accordance with Section 11.3.</p>
+  <p><strong>11.3 Final Distribution.</strong> The proceeds of liquidation shall be distributed: (a) to creditors (other than Members); (b) to establish reserves; (c) to Members in repayment of any member loans; and (d) to Members in accordance with positive Capital Account balances.</p>
+
+  <h3 class="pkg-article">ARTICLE XII — MISCELLANEOUS</h3>
+  <p><strong>12.1 Notices.</strong> All notices required under this Agreement shall be in writing and delivered to the address on Exhibit A.</p>
+  <p><strong>12.2 Governing Law.</strong> This Agreement shall be governed by and construed in accordance with the laws of the State of Florida, without regard to its conflicts of laws principles.</p>
+  <p><strong>12.3 Dispute Resolution.</strong> Any dispute shall be resolved by binding arbitration administered by the American Arbitration Association under its Commercial Arbitration Rules in Florida. </p>
+  <p><strong>12.4 Entire Agreement.</strong> This Agreement (with its Exhibits) constitutes the entire agreement among the Members.</p>
+  <p><strong>12.5 Amendments.</strong> This Agreement may be amended only by a written instrument signed by the Manager and Members holding majority of the Membership Interests.</p>
+  <p><strong>12.6 Counterparts.</strong> This Agreement may be executed in counterparts.</p>
+  <p><strong>12.7 Severability.</strong> If any provision is held invalid, the remainder shall continue in full force.</p>
+
+  <p style="margin-top:2rem;"><strong>IN WITNESS WHEREOF,</strong> the parties have executed this Agreement as of the Effective Date.</p>
+
+  <div class="pkg-signature-block">
+    <p><strong>MANAGER:</strong></p>
+    <p></p>
+    
+      <p>By: __________________________________<br>
+      Name: John A. Smith<br>
+      Title: Manager<br>
+      Capacity: Manager</p>
+    
+  </div>
+
+  <p style="margin-top:2rem;"><strong>MEMBERS:</strong> Each Member shall execute a separate counterpart signature page incorporated herein as part of <strong>Exhibit A</strong>.</p>
+
+  <h3 class="pkg-article">EXHIBIT A — MEMBER ROSTER AND CAPITAL CONTRIBUTIONS</h3>
+  <table class="pkg-table">
+    <thead><tr><th>Member Legal Name</th><th>Mailing Address</th><th>Capital Contribution</th></tr></thead>
+    <tbody><tr><td colspan="3"><strong>Operating Member</strong> (lp — 8.00% preferred return)</td></tr><tr><td>John A. Smith</td><td>123 Main St, Delray Beach FL</td><td>$500,000</td></tr><tr><td>Mary T. Brown</td><td>456 Oak St, Boca Raton FL</td><td>$400,000</td></tr><tr><td>Brown Family Trust</td><td>456 Oak St, Boca Raton FL</td><td>$350,000</td></tr><tr><td>Williams Investments LLC</td><td>789 Pine Ave, Palm Beach FL</td><td>$250,000</td></tr></tbody>
+  </table>
+
+  
+  <h3 class="pkg-article">EXHIBIT B — MANAGER COMPENSATION AND FEES</h3>
+  <p>The Manager shall be entitled to the following fees:</p>
+  <ul>
+    <li><strong>Development Fee:</strong> 1.00% of Total Project Cost.</li>
+    <li><strong>Construction Management Fee:</strong> 0.00% of hard construction costs.</li>
+    <li><strong>Asset Management Fee:</strong> 0.00% per annum of unreturned Capital Contributions.</li>
+    <li><strong>Disposition Fee:</strong> 1.00% of gross sale proceeds.</li>
+    <li><strong>Promoted Interest:</strong> as set forth on Exhibit C.</li>
+  </ul>
+
+  <h3 class="pkg-article">EXHIBIT C — PROMOTE TIERS AND DISTRIBUTION WATERFALL</h3>
+  <p>Distributions shall be made pursuant to the following waterfall:</p>
+  <p style="margin-left:1rem;"><strong>Tier 1 — Preferred Return:</strong> 8.00% per annum, cumulative non_compound pari passu.</p>
+  <p style="margin-left:1rem;"><strong>Tier 2 — Return of Capital:</strong> pari passu return of Capital Contributions.</p>
+  <p style="margin-left:1rem;"><strong>Tier 3 — 8% Pref Hurdle:</strong> 80% to Members, 20% to Sponsor.</p>
+  
+
+  
+  <h3 class="pkg-article">EXHIBIT D — STATE-SPECIFIC PROVISIONS (Florida)</h3>
+  <p><strong>Statute.</strong> This Agreement is governed by Florida Revised Limited Liability Company Act, Fla. Stat. ch. 605 (2014).</p>
+  <p><strong>Filing Office.</strong> Florida Department of State, Division of Corporations; formation document is the Articles of Organization.</p>
+  <p><strong>Charging Order.</strong> Charging order is exclusive for multi-member LLCs; single-member LLCs may permit foreclosure under the Olmstead carve-out.</p>
+  <p><strong>Fiduciary Duties.</strong> Waivability: partial (Fla. Stat. § 605.0105(3)).</p>
+  
+  <p><strong>Annual Fees.</strong> annual report fee of $138.75, due May 1.</p>
+  <p><strong>Notable Features.</strong></p>
+  <ul><li>No state income tax on individuals</li><li>Florida doc stamp tax on real property transfers (0.7% deeds + 0.35% mortgages)</li><li>Charging order is exclusive remedy for multi-member LLCs only</li><li>Series LLC framework recently enacted (2024); untested</li><li>Homestead protections under Florida Constitution Art. X, § 4</li></ul>
+  
+</div>
+<div class="pkg-section pkg-doc">
+    <h2 class="pkg-doc-title">5. MEMBER JOINDER &amp; ACKNOWLEDGMENT &mdash; Form and Executed Counterparts</h2>
+    <p class="pkg-doc-subtitle">4 counterparts follow, each personalized for the named Member and joining the Operating Agreement of Smith Holdings LLC</p>
+  </div>
+<div class="pkg-section pkg-doc">
+  <h2 class="pkg-doc-title">5.1. MEMBER JOINDER AND ACKNOWLEDGMENT</h2>
+  <p class="pkg-doc-subtitle">John A. Smith &mdash; Joinder to Operating Agreement of Smith Holdings LLC</p>
+
+  <p>This <strong>Member Joinder and Acknowledgment</strong> (this "<strong>Joinder</strong>") is delivered by the undersigned (the "<strong>Member</strong>") in connection with the Member's admission as a Member of Smith Holdings LLC, a Florida LLC (the "<strong>Company</strong>") and the Member's execution of the Company's Operating Agreement of even date herewith.</p>
+
+  <h3 class="pkg-article">1. Joinder to Operating Agreement</h3>
+  <p>The Member hereby joins, becomes a party to, and agrees to be bound by all of the terms and conditions of the Operating Agreement of the Company, in the capacity of a Member in the Operating Member class. The Member's name, mailing address, and Initial Capital Contribution are as follows:</p>
+
+  <table class="pkg-table">
+    <tbody>
+      <tr><td><strong>Legal Name:</strong></td><td>John A. Smith</td></tr>
+      <tr><td><strong>Member Type:</strong></td><td>Individual</td></tr>
+      <tr><td><strong>Mailing Address:</strong></td><td>123 Main St, Delray Beach FL</td></tr>
+      <tr><td><strong>Email:</strong></td><td>jas@example.com</td></tr>
+      <tr><td><strong>Member Class:</strong></td><td>Operating Member</td></tr>
+      <tr><td><strong>Initial Capital Contribution:</strong></td><td>$500,000</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="pkg-article">2. Representations of the Member</h3>
+  <p>The Member represents and warrants to the Company and to each other Member as follows:</p>
+
+  <p><strong>(a) Pre-Existing Substantive Relationship.</strong> The Member has a pre-existing substantive business and/or personal relationship with the Manager and/or one or more of the other Members. This relationship predates the formation of the Company and did not arise as a result of any general advertising, mass solicitation, internet posting, or seminar.</p>
+
+  <p><strong>(b) Active Participation.</strong> The Member is investing in the Company as an active participant in a true joint venture, not as a passive investor seeking solely to earn a return from the efforts of others. The Member understands that:</p>
+  <ul style="margin-left:1.5rem;">
+    <li>The Member has voting rights on Major Decisions of the Company as set forth in the Operating Agreement, including the right to vote on sale of all or substantially all assets, refinancing, dissolution, amendments adversely affecting the Member's class, and any transaction between the Manager and its affiliates;</li>
+    <li>The Member has the right (alone or together with other Members) to remove the Manager for Cause by majority vote;</li>
+    <li>The Member will participate in the affairs of the Company by reviewing financial statements, attending Member meetings (or executing written consents), and exercising the Member's voting rights;</li>
+    <li>The Member has had full access to the Manager, to all books and records, and to all material information regarding the Company and the proposed business of the Company.</li>
+  </ul>
+
+  <p><strong>(c) Sophistication and Experience.</strong> The Member has such business and professional experience as to be capable of evaluating the merits and risks of an investment in the Company and is fully able to exercise the Member voting rights granted by the Operating Agreement. The Member is not so inexperienced or unknowledgeable in business affairs as to be incapable of intelligently exercising those rights.</p>
+
+  <p><strong>(d) Manager Not Unique.</strong> The Member acknowledges that, while the Manager brings deal-execution and tax-structuring expertise, the Member does not regard the Manager as possessing such unique entrepreneurial or managerial ability that the Manager could not be replaced. The Member retains the right and ability, alone or together with other Members, to remove and replace the Manager in accordance with the Operating Agreement.</p>
+
+  <p><strong>(e) No Reliance on Public Solicitation.</strong> The Member did not learn of the opportunity to invest in the Company through any general advertising, public solicitation, internet posting, mass mailing, seminar, or other public-facing communication. The Member's investment is the result of pre-existing, direct, substantive relationship with the Manager and/or other Members.</p>
+
+  <p><strong>(f) Investment Intent.</strong> The Member is acquiring its membership interest for the Member's own account, for investment purposes (in the sense of acquiring an active equity interest in a joint venture business), and not with a view to or for sale in connection with any distribution of any portion thereof.</p>
+
+  <p><strong>(g) Ability to Bear Loss.</strong> The Member is able to bear the economic risk of the Member's investment, including the risk of total loss of the Member's Initial Capital Contribution.</p>
+
+  <p><strong>(h) Information.</strong> The Member has received and reviewed the Operating Agreement, the JV Securities Analysis Memorandum, and such other information as the Member has requested. The Member has had the opportunity to ask questions of, and receive answers from, the Manager regarding the terms and conditions of the offering and the business and financial condition of the Company.</p>
+
+  <p><strong>(i) No Securities Filing.</strong> The Member acknowledges and agrees that the Company has not filed (and does not intend to file) a Form D under Regulation D with respect to the offer and sale of membership interests, and is not relying on any Regulation D exemption. The Member acknowledges that this position is based on counsel's analysis that the membership interests are not "securities" under <em>SEC v. W.J. Howey Co.</em> and applicable circuit-level authority.</p>
+
+  <h3 class="pkg-article">3. Acknowledgment of Risks</h3>
+  <p>The Member acknowledges that an investment in the Company involves substantial risk, including (without limitation): the risk of complete loss; illiquidity (no public market for membership interests; restrictions on transfer); dependence on the Manager for day-to-day operations; real estate market and macroeconomic risks; concentration risk in a single (or limited number of) asset(s); tax risks; and the risk that any of the representations made by the Member in this Joinder could later be challenged or shown to be inaccurate, in which case the analysis supporting the absence of a Reg D filing could be undermined and the Company could become subject to securities-law liability.</p>
+
+  <h3 class="pkg-article">4. Counterparts; Governing Law</h3>
+  <p>This Joinder may be executed in counterparts. This Joinder is governed by the laws of the State of Florida.</p>
+
+  <p style="margin-top:1.5rem;"><strong>IN WITNESS WHEREOF,</strong> the Member has executed this Joinder as of the date set forth below.</p>
+
+  <div class="pkg-signature-block">
+    <p><strong>MEMBER:</strong></p>
+    <p>By: __________________________________<br>
+    Name: John A. Smith<br>
+    
+    Date: __________________________________</p>
+  </div>
+
+  <div class="pkg-signature-block" style="margin-top:2rem;">
+    <p><strong>ACCEPTED:</strong></p>
+    <p>Smith Holdings LLC</p>
+    <p>By: __________________________________<br>
+    Name: [Manager Name]<br>
+    Title: Manager<br>
+    Date: __________________________________</p>
+  </div>
+</div>
+
+<div class="pkg-section pkg-doc">
+  <h2 class="pkg-doc-title">5.2. MEMBER JOINDER AND ACKNOWLEDGMENT</h2>
+  <p class="pkg-doc-subtitle">Mary T. Brown &mdash; Joinder to Operating Agreement of Smith Holdings LLC</p>
+
+  <p>This <strong>Member Joinder and Acknowledgment</strong> (this "<strong>Joinder</strong>") is delivered by the undersigned (the "<strong>Member</strong>") in connection with the Member's admission as a Member of Smith Holdings LLC, a Florida LLC (the "<strong>Company</strong>") and the Member's execution of the Company's Operating Agreement of even date herewith.</p>
+
+  <h3 class="pkg-article">1. Joinder to Operating Agreement</h3>
+  <p>The Member hereby joins, becomes a party to, and agrees to be bound by all of the terms and conditions of the Operating Agreement of the Company, in the capacity of a Member in the Operating Member class. The Member's name, mailing address, and Initial Capital Contribution are as follows:</p>
+
+  <table class="pkg-table">
+    <tbody>
+      <tr><td><strong>Legal Name:</strong></td><td>Mary T. Brown</td></tr>
+      <tr><td><strong>Member Type:</strong></td><td>Individual</td></tr>
+      <tr><td><strong>Mailing Address:</strong></td><td>456 Oak St, Boca Raton FL</td></tr>
+      <tr><td><strong>Email:</strong></td><td>Not provided</td></tr>
+      <tr><td><strong>Member Class:</strong></td><td>Operating Member</td></tr>
+      <tr><td><strong>Initial Capital Contribution:</strong></td><td>$400,000</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="pkg-article">2. Representations of the Member</h3>
+  <p>The Member represents and warrants to the Company and to each other Member as follows:</p>
+
+  <p><strong>(a) Pre-Existing Substantive Relationship.</strong> The Member has a pre-existing substantive business and/or personal relationship with the Manager and/or one or more of the other Members. This relationship predates the formation of the Company and did not arise as a result of any general advertising, mass solicitation, internet posting, or seminar.</p>
+
+  <p><strong>(b) Active Participation.</strong> The Member is investing in the Company as an active participant in a true joint venture, not as a passive investor seeking solely to earn a return from the efforts of others. The Member understands that:</p>
+  <ul style="margin-left:1.5rem;">
+    <li>The Member has voting rights on Major Decisions of the Company as set forth in the Operating Agreement, including the right to vote on sale of all or substantially all assets, refinancing, dissolution, amendments adversely affecting the Member's class, and any transaction between the Manager and its affiliates;</li>
+    <li>The Member has the right (alone or together with other Members) to remove the Manager for Cause by majority vote;</li>
+    <li>The Member will participate in the affairs of the Company by reviewing financial statements, attending Member meetings (or executing written consents), and exercising the Member's voting rights;</li>
+    <li>The Member has had full access to the Manager, to all books and records, and to all material information regarding the Company and the proposed business of the Company.</li>
+  </ul>
+
+  <p><strong>(c) Sophistication and Experience.</strong> The Member has such business and professional experience as to be capable of evaluating the merits and risks of an investment in the Company and is fully able to exercise the Member voting rights granted by the Operating Agreement. The Member is not so inexperienced or unknowledgeable in business affairs as to be incapable of intelligently exercising those rights.</p>
+
+  <p><strong>(d) Manager Not Unique.</strong> The Member acknowledges that, while the Manager brings deal-execution and tax-structuring expertise, the Member does not regard the Manager as possessing such unique entrepreneurial or managerial ability that the Manager could not be replaced. The Member retains the right and ability, alone or together with other Members, to remove and replace the Manager in accordance with the Operating Agreement.</p>
+
+  <p><strong>(e) No Reliance on Public Solicitation.</strong> The Member did not learn of the opportunity to invest in the Company through any general advertising, public solicitation, internet posting, mass mailing, seminar, or other public-facing communication. The Member's investment is the result of pre-existing, direct, substantive relationship with the Manager and/or other Members.</p>
+
+  <p><strong>(f) Investment Intent.</strong> The Member is acquiring its membership interest for the Member's own account, for investment purposes (in the sense of acquiring an active equity interest in a joint venture business), and not with a view to or for sale in connection with any distribution of any portion thereof.</p>
+
+  <p><strong>(g) Ability to Bear Loss.</strong> The Member is able to bear the economic risk of the Member's investment, including the risk of total loss of the Member's Initial Capital Contribution.</p>
+
+  <p><strong>(h) Information.</strong> The Member has received and reviewed the Operating Agreement, the JV Securities Analysis Memorandum, and such other information as the Member has requested. The Member has had the opportunity to ask questions of, and receive answers from, the Manager regarding the terms and conditions of the offering and the business and financial condition of the Company.</p>
+
+  <p><strong>(i) No Securities Filing.</strong> The Member acknowledges and agrees that the Company has not filed (and does not intend to file) a Form D under Regulation D with respect to the offer and sale of membership interests, and is not relying on any Regulation D exemption. The Member acknowledges that this position is based on counsel's analysis that the membership interests are not "securities" under <em>SEC v. W.J. Howey Co.</em> and applicable circuit-level authority.</p>
+
+  <h3 class="pkg-article">3. Acknowledgment of Risks</h3>
+  <p>The Member acknowledges that an investment in the Company involves substantial risk, including (without limitation): the risk of complete loss; illiquidity (no public market for membership interests; restrictions on transfer); dependence on the Manager for day-to-day operations; real estate market and macroeconomic risks; concentration risk in a single (or limited number of) asset(s); tax risks; and the risk that any of the representations made by the Member in this Joinder could later be challenged or shown to be inaccurate, in which case the analysis supporting the absence of a Reg D filing could be undermined and the Company could become subject to securities-law liability.</p>
+
+  <h3 class="pkg-article">4. Counterparts; Governing Law</h3>
+  <p>This Joinder may be executed in counterparts. This Joinder is governed by the laws of the State of Florida.</p>
+
+  <p style="margin-top:1.5rem;"><strong>IN WITNESS WHEREOF,</strong> the Member has executed this Joinder as of the date set forth below.</p>
+
+  <div class="pkg-signature-block">
+    <p><strong>MEMBER:</strong></p>
+    <p>By: __________________________________<br>
+    Name: Mary T. Brown<br>
+    
+    Date: __________________________________</p>
+  </div>
+
+  <div class="pkg-signature-block" style="margin-top:2rem;">
+    <p><strong>ACCEPTED:</strong></p>
+    <p>Smith Holdings LLC</p>
+    <p>By: __________________________________<br>
+    Name: [Manager Name]<br>
+    Title: Manager<br>
+    Date: __________________________________</p>
+  </div>
+</div>
+
+<div class="pkg-section pkg-doc">
+  <h2 class="pkg-doc-title">5.3. MEMBER JOINDER AND ACKNOWLEDGMENT</h2>
+  <p class="pkg-doc-subtitle">Brown Family Trust &mdash; Joinder to Operating Agreement of Smith Holdings LLC</p>
+
+  <p>This <strong>Member Joinder and Acknowledgment</strong> (this "<strong>Joinder</strong>") is delivered by the undersigned (the "<strong>Member</strong>") in connection with the Member's admission as a Member of Smith Holdings LLC, a Florida LLC (the "<strong>Company</strong>") and the Member's execution of the Company's Operating Agreement of even date herewith.</p>
+
+  <h3 class="pkg-article">1. Joinder to Operating Agreement</h3>
+  <p>The Member hereby joins, becomes a party to, and agrees to be bound by all of the terms and conditions of the Operating Agreement of the Company, in the capacity of a Member in the Operating Member class. The Member's name, mailing address, and Initial Capital Contribution are as follows:</p>
+
+  <table class="pkg-table">
+    <tbody>
+      <tr><td><strong>Legal Name:</strong></td><td>Brown Family Trust</td></tr>
+      <tr><td><strong>Member Type:</strong></td><td>Revocable Trust</td></tr>
+      <tr><td><strong>Mailing Address:</strong></td><td>456 Oak St, Boca Raton FL</td></tr>
+      <tr><td><strong>Email:</strong></td><td>Not provided</td></tr>
+      <tr><td><strong>Member Class:</strong></td><td>Operating Member</td></tr>
+      <tr><td><strong>Initial Capital Contribution:</strong></td><td>$350,000</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="pkg-article">2. Representations of the Member</h3>
+  <p>The Member represents and warrants to the Company and to each other Member as follows:</p>
+
+  <p><strong>(a) Pre-Existing Substantive Relationship.</strong> The Member has a pre-existing substantive business and/or personal relationship with the Manager and/or one or more of the other Members. This relationship predates the formation of the Company and did not arise as a result of any general advertising, mass solicitation, internet posting, or seminar.</p>
+
+  <p><strong>(b) Active Participation.</strong> The Member is investing in the Company as an active participant in a true joint venture, not as a passive investor seeking solely to earn a return from the efforts of others. The Member understands that:</p>
+  <ul style="margin-left:1.5rem;">
+    <li>The Member has voting rights on Major Decisions of the Company as set forth in the Operating Agreement, including the right to vote on sale of all or substantially all assets, refinancing, dissolution, amendments adversely affecting the Member's class, and any transaction between the Manager and its affiliates;</li>
+    <li>The Member has the right (alone or together with other Members) to remove the Manager for Cause by majority vote;</li>
+    <li>The Member will participate in the affairs of the Company by reviewing financial statements, attending Member meetings (or executing written consents), and exercising the Member's voting rights;</li>
+    <li>The Member has had full access to the Manager, to all books and records, and to all material information regarding the Company and the proposed business of the Company.</li>
+  </ul>
+
+  <p><strong>(c) Sophistication and Experience.</strong> The Member has such business and professional experience as to be capable of evaluating the merits and risks of an investment in the Company and is fully able to exercise the Member voting rights granted by the Operating Agreement. The Member is not so inexperienced or unknowledgeable in business affairs as to be incapable of intelligently exercising those rights.</p>
+
+  <p><strong>(d) Manager Not Unique.</strong> The Member acknowledges that, while the Manager brings deal-execution and tax-structuring expertise, the Member does not regard the Manager as possessing such unique entrepreneurial or managerial ability that the Manager could not be replaced. The Member retains the right and ability, alone or together with other Members, to remove and replace the Manager in accordance with the Operating Agreement.</p>
+
+  <p><strong>(e) No Reliance on Public Solicitation.</strong> The Member did not learn of the opportunity to invest in the Company through any general advertising, public solicitation, internet posting, mass mailing, seminar, or other public-facing communication. The Member's investment is the result of pre-existing, direct, substantive relationship with the Manager and/or other Members.</p>
+
+  <p><strong>(f) Investment Intent.</strong> The Member is acquiring its membership interest for the Member's own account, for investment purposes (in the sense of acquiring an active equity interest in a joint venture business), and not with a view to or for sale in connection with any distribution of any portion thereof.</p>
+
+  <p><strong>(g) Ability to Bear Loss.</strong> The Member is able to bear the economic risk of the Member's investment, including the risk of total loss of the Member's Initial Capital Contribution.</p>
+
+  <p><strong>(h) Information.</strong> The Member has received and reviewed the Operating Agreement, the JV Securities Analysis Memorandum, and such other information as the Member has requested. The Member has had the opportunity to ask questions of, and receive answers from, the Manager regarding the terms and conditions of the offering and the business and financial condition of the Company.</p>
+
+  <p><strong>(i) No Securities Filing.</strong> The Member acknowledges and agrees that the Company has not filed (and does not intend to file) a Form D under Regulation D with respect to the offer and sale of membership interests, and is not relying on any Regulation D exemption. The Member acknowledges that this position is based on counsel's analysis that the membership interests are not "securities" under <em>SEC v. W.J. Howey Co.</em> and applicable circuit-level authority.</p>
+
+  <h3 class="pkg-article">3. Acknowledgment of Risks</h3>
+  <p>The Member acknowledges that an investment in the Company involves substantial risk, including (without limitation): the risk of complete loss; illiquidity (no public market for membership interests; restrictions on transfer); dependence on the Manager for day-to-day operations; real estate market and macroeconomic risks; concentration risk in a single (or limited number of) asset(s); tax risks; and the risk that any of the representations made by the Member in this Joinder could later be challenged or shown to be inaccurate, in which case the analysis supporting the absence of a Reg D filing could be undermined and the Company could become subject to securities-law liability.</p>
+
+  <h3 class="pkg-article">4. Counterparts; Governing Law</h3>
+  <p>This Joinder may be executed in counterparts. This Joinder is governed by the laws of the State of Florida.</p>
+
+  <p style="margin-top:1.5rem;"><strong>IN WITNESS WHEREOF,</strong> the Member has executed this Joinder as of the date set forth below.</p>
+
+  <div class="pkg-signature-block">
+    <p><strong>MEMBER:</strong></p>
+    <p>By: __________________________________<br>
+    Name: Brown Family Trust<br>
+    Capacity: Trustee<br>
+    Date: __________________________________</p>
+  </div>
+
+  <div class="pkg-signature-block" style="margin-top:2rem;">
+    <p><strong>ACCEPTED:</strong></p>
+    <p>Smith Holdings LLC</p>
+    <p>By: __________________________________<br>
+    Name: [Manager Name]<br>
+    Title: Manager<br>
+    Date: __________________________________</p>
+  </div>
+</div>
+
+<div class="pkg-section pkg-doc">
+  <h2 class="pkg-doc-title">5.4. MEMBER JOINDER AND ACKNOWLEDGMENT</h2>
+  <p class="pkg-doc-subtitle">Williams Investments LLC &mdash; Joinder to Operating Agreement of Smith Holdings LLC</p>
+
+  <p>This <strong>Member Joinder and Acknowledgment</strong> (this "<strong>Joinder</strong>") is delivered by the undersigned (the "<strong>Member</strong>") in connection with the Member's admission as a Member of Smith Holdings LLC, a Florida LLC (the "<strong>Company</strong>") and the Member's execution of the Company's Operating Agreement of even date herewith.</p>
+
+  <h3 class="pkg-article">1. Joinder to Operating Agreement</h3>
+  <p>The Member hereby joins, becomes a party to, and agrees to be bound by all of the terms and conditions of the Operating Agreement of the Company, in the capacity of a Member in the Operating Member class. The Member's name, mailing address, and Initial Capital Contribution are as follows:</p>
+
+  <table class="pkg-table">
+    <tbody>
+      <tr><td><strong>Legal Name:</strong></td><td>Williams Investments LLC</td></tr>
+      <tr><td><strong>Member Type:</strong></td><td>Limited Liability Company</td></tr>
+      <tr><td><strong>Mailing Address:</strong></td><td>789 Pine Ave, Palm Beach FL</td></tr>
+      <tr><td><strong>Email:</strong></td><td>Not provided</td></tr>
+      <tr><td><strong>Member Class:</strong></td><td>Operating Member</td></tr>
+      <tr><td><strong>Initial Capital Contribution:</strong></td><td>$250,000</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="pkg-article">2. Representations of the Member</h3>
+  <p>The Member represents and warrants to the Company and to each other Member as follows:</p>
+
+  <p><strong>(a) Pre-Existing Substantive Relationship.</strong> The Member has a pre-existing substantive business and/or personal relationship with the Manager and/or one or more of the other Members. This relationship predates the formation of the Company and did not arise as a result of any general advertising, mass solicitation, internet posting, or seminar.</p>
+
+  <p><strong>(b) Active Participation.</strong> The Member is investing in the Company as an active participant in a true joint venture, not as a passive investor seeking solely to earn a return from the efforts of others. The Member understands that:</p>
+  <ul style="margin-left:1.5rem;">
+    <li>The Member has voting rights on Major Decisions of the Company as set forth in the Operating Agreement, including the right to vote on sale of all or substantially all assets, refinancing, dissolution, amendments adversely affecting the Member's class, and any transaction between the Manager and its affiliates;</li>
+    <li>The Member has the right (alone or together with other Members) to remove the Manager for Cause by majority vote;</li>
+    <li>The Member will participate in the affairs of the Company by reviewing financial statements, attending Member meetings (or executing written consents), and exercising the Member's voting rights;</li>
+    <li>The Member has had full access to the Manager, to all books and records, and to all material information regarding the Company and the proposed business of the Company.</li>
+  </ul>
+
+  <p><strong>(c) Sophistication and Experience.</strong> The Member has such business and professional experience as to be capable of evaluating the merits and risks of an investment in the Company and is fully able to exercise the Member voting rights granted by the Operating Agreement. The Member is not so inexperienced or unknowledgeable in business affairs as to be incapable of intelligently exercising those rights.</p>
+
+  <p><strong>(d) Manager Not Unique.</strong> The Member acknowledges that, while the Manager brings deal-execution and tax-structuring expertise, the Member does not regard the Manager as possessing such unique entrepreneurial or managerial ability that the Manager could not be replaced. The Member retains the right and ability, alone or together with other Members, to remove and replace the Manager in accordance with the Operating Agreement.</p>
+
+  <p><strong>(e) No Reliance on Public Solicitation.</strong> The Member did not learn of the opportunity to invest in the Company through any general advertising, public solicitation, internet posting, mass mailing, seminar, or other public-facing communication. The Member's investment is the result of pre-existing, direct, substantive relationship with the Manager and/or other Members.</p>
+
+  <p><strong>(f) Investment Intent.</strong> The Member is acquiring its membership interest for the Member's own account, for investment purposes (in the sense of acquiring an active equity interest in a joint venture business), and not with a view to or for sale in connection with any distribution of any portion thereof.</p>
+
+  <p><strong>(g) Ability to Bear Loss.</strong> The Member is able to bear the economic risk of the Member's investment, including the risk of total loss of the Member's Initial Capital Contribution.</p>
+
+  <p><strong>(h) Information.</strong> The Member has received and reviewed the Operating Agreement, the JV Securities Analysis Memorandum, and such other information as the Member has requested. The Member has had the opportunity to ask questions of, and receive answers from, the Manager regarding the terms and conditions of the offering and the business and financial condition of the Company.</p>
+
+  <p><strong>(i) No Securities Filing.</strong> The Member acknowledges and agrees that the Company has not filed (and does not intend to file) a Form D under Regulation D with respect to the offer and sale of membership interests, and is not relying on any Regulation D exemption. The Member acknowledges that this position is based on counsel's analysis that the membership interests are not "securities" under <em>SEC v. W.J. Howey Co.</em> and applicable circuit-level authority.</p>
+
+  <h3 class="pkg-article">3. Acknowledgment of Risks</h3>
+  <p>The Member acknowledges that an investment in the Company involves substantial risk, including (without limitation): the risk of complete loss; illiquidity (no public market for membership interests; restrictions on transfer); dependence on the Manager for day-to-day operations; real estate market and macroeconomic risks; concentration risk in a single (or limited number of) asset(s); tax risks; and the risk that any of the representations made by the Member in this Joinder could later be challenged or shown to be inaccurate, in which case the analysis supporting the absence of a Reg D filing could be undermined and the Company could become subject to securities-law liability.</p>
+
+  <h3 class="pkg-article">4. Counterparts; Governing Law</h3>
+  <p>This Joinder may be executed in counterparts. This Joinder is governed by the laws of the State of Florida.</p>
+
+  <p style="margin-top:1.5rem;"><strong>IN WITNESS WHEREOF,</strong> the Member has executed this Joinder as of the date set forth below.</p>
+
+  <div class="pkg-signature-block">
+    <p><strong>MEMBER:</strong></p>
+    <p>By: __________________________________<br>
+    Name: Williams Investments LLC<br>
+    Capacity: Manager<br>
+    Date: __________________________________</p>
+  </div>
+
+  <div class="pkg-signature-block" style="margin-top:2rem;">
+    <p><strong>ACCEPTED:</strong></p>
+    <p>Smith Holdings LLC</p>
+    <p>By: __________________________________<br>
+    Name: [Manager Name]<br>
+    Title: Manager<br>
+    Date: __________________________________</p>
+  </div>
+</div>
+
+  </div>
+  <div class="pkg-footer">
+    Generated May 17, 2026 &middot; Donovan Legal PLLC &middot; Reserve Deal Builder &middot; Level 0 (No Reg D Filing) &mdash; for review under engagement letter
+  </div>
+</body>
+</html>

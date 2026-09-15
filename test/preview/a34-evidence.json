@@ -1,0 +1,485 @@
+{
+  "order": "DR-INSANE-A34-FRAME-HEADERS",
+  "ticket": 59,
+  "base": "https://drinsane-perch-a34-frame-hea.donovan-site.pages.dev",
+  "prod": "https://www.donovan.law",
+  "startedAt": "2026-07-25T19:55:42.907Z",
+  "steps": [
+    {
+      "id": "A1/",
+      "name": "frame-ancestors is exactly 'self' on /",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "frameAncestors": "frame-ancestors 'self'"
+      }
+    },
+    {
+      "id": "A2/",
+      "name": "X-Frame-Options is SAMEORIGIN on /",
+      "ok": true,
+      "detail": {
+        "xfo": "SAMEORIGIN"
+      }
+    },
+    {
+      "id": "A1/home",
+      "name": "frame-ancestors is exactly 'self' on /home",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "frameAncestors": "frame-ancestors 'self'"
+      }
+    },
+    {
+      "id": "A2/home",
+      "name": "X-Frame-Options is SAMEORIGIN on /home",
+      "ok": true,
+      "detail": {
+        "xfo": "SAMEORIGIN"
+      }
+    },
+    {
+      "id": "A1/contact.html",
+      "name": "frame-ancestors is exactly 'self' on /contact.html",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "frameAncestors": "frame-ancestors 'self'"
+      }
+    },
+    {
+      "id": "A2/contact.html",
+      "name": "X-Frame-Options is SAMEORIGIN on /contact.html",
+      "ok": true,
+      "detail": {
+        "xfo": "SAMEORIGIN"
+      }
+    },
+    {
+      "id": "A1/perch.html",
+      "name": "frame-ancestors is exactly 'self' on /perch.html",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "frameAncestors": "frame-ancestors 'self'"
+      }
+    },
+    {
+      "id": "A2/perch.html",
+      "name": "X-Frame-Options is SAMEORIGIN on /perch.html",
+      "ok": true,
+      "detail": {
+        "xfo": "SAMEORIGIN"
+      }
+    },
+    {
+      "id": "A3",
+      "name": "the frame headers also cover a non-HTML response",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "content-security-policy": "default-src 'self'; script-src 'self' 'nonce-X' https://vantage.ticoai.net https://cdn.theconnexus.ai https://portal.theconnexus.ai https://code.jquery.com https://cdnjs.cloudflare.com https://esm.sh https://challenges.cloudflare.com; connect-src 'self' https://esm.sh https://vantage.ticoai.net https://*.retellai.com wss://*.retellai.com wss://*.livekit.cloud https://*.livekit.cloud https://portal.theconnexus.ai https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://vantage.ticoai.net https://portal.theconnexus.ai https://challenges.cloudflare.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://vantage.ticoai.net; object-src 'none'",
+        "x-frame-options": "SAMEORIGIN",
+        "cache-control": "no-cache",
+        "etag": "W/\"3de828fbbc6c79ed2600d2da6f1763f4\"",
+        "last-modified": null
+      }
+    },
+    {
+      "id": "B1",
+      "name": "script-src still carries a 32-hex per-request nonce",
+      "ok": true,
+      "detail": {
+        "scriptSrc": "script-src 'self' 'nonce-X' https://vantage.ticoai.net https://cdn.theconnexus.ai https://portal.theconnexus.ai https://code.jquery.com https://cdnjs.cloudflare.com https://esm.sh https://challenges.cloudflare.com"
+      }
+    },
+    {
+      "id": "B2",
+      "name": "script-src gained no 'unsafe-inline', 'unsafe-eval' or 'strict-dynamic'",
+      "ok": true,
+      "detail": {
+        "scriptSrc": "script-src 'self' 'nonce-X' https://vantage.ticoai.net https://cdn.theconnexus.ai https://portal.theconnexus.ai https://code.jquery.com https://cdnjs.cloudflare.com https://esm.sh https://challenges.cloudflare.com"
+      }
+    },
+    {
+      "id": "B3",
+      "name": "the nonce is still regenerated per request, not frozen by this change",
+      "ok": true,
+      "detail": {
+        "first": "6e93a22091038ad04e77eafc5d0ce3be",
+        "second": "5e68f1b72718309a81195e09ec013c5f"
+      }
+    },
+    {
+      "id": "B4/",
+      "name": "every inline <script> in the served HTML carries THIS response's nonce (/)",
+      "ok": true,
+      "detail": {
+        "servedNonce": "7fe0564825dbaa0e34289d11c8d5561f",
+        "inlineInServedHtml": 0,
+        "stamped": 0,
+        "externalScripts": 2,
+        "idlNonced": 0,
+        "inlineInDom": 0,
+        "alive": {
+          "perch": false,
+          "dataLayer": false,
+          "booking": false
+        }
+      }
+    },
+    {
+      "id": "B4/home",
+      "name": "every inline <script> in the served HTML carries THIS response's nonce (/home)",
+      "ok": true,
+      "detail": {
+        "servedNonce": "1147f56ef3632c5205cf2a767720c84a",
+        "inlineInServedHtml": 1,
+        "stamped": 1,
+        "externalScripts": 11,
+        "idlNonced": 1,
+        "inlineInDom": 1,
+        "alive": {
+          "perch": true,
+          "dataLayer": false,
+          "booking": false
+        }
+      }
+    },
+    {
+      "id": "B4/contact.html",
+      "name": "every inline <script> in the served HTML carries THIS response's nonce (/contact.html)",
+      "ok": true,
+      "detail": {
+        "servedNonce": "59da2029e55c0533ba2e4042e3dce8f0",
+        "inlineInServedHtml": 1,
+        "stamped": 1,
+        "externalScripts": 11,
+        "idlNonced": 1,
+        "inlineInDom": 1,
+        "alive": {
+          "perch": true,
+          "dataLayer": false,
+          "booking": false
+        }
+      }
+    },
+    {
+      "id": "B4/perch.html",
+      "name": "every inline <script> in the served HTML carries THIS response's nonce (/perch.html)",
+      "ok": true,
+      "detail": {
+        "servedNonce": "38a9cc0a2aadc135787d1b94b5af333e",
+        "inlineInServedHtml": 0,
+        "stamped": 0,
+        "externalScripts": 2,
+        "idlNonced": 0,
+        "inlineInDom": 0,
+        "alive": {
+          "perch": false,
+          "dataLayer": false,
+          "booking": false
+        }
+      }
+    },
+    {
+      "id": "B4-control",
+      "name": "the stamping check was not vacuous — inline <script> blocks exist in the set",
+      "ok": true,
+      "detail": {
+        "totalInline": 2,
+        "perPage": {
+          "/": 0,
+          "/home": 1,
+          "/contact.html": 1,
+          "/perch.html": 0
+        }
+      }
+    },
+    {
+      "id": "B4-alive",
+      "name": "the site's own JS executed under the policy — script-src is admitting it",
+      "ok": true,
+      "detail": {
+        "alive": [
+          {
+            "perch": false,
+            "dataLayer": false,
+            "booking": false
+          },
+          {
+            "perch": true,
+            "dataLayer": false,
+            "booking": false
+          },
+          {
+            "perch": true,
+            "dataLayer": false,
+            "booking": false
+          },
+          {
+            "perch": false,
+            "dataLayer": false,
+            "booking": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "B5",
+      "name": "ZERO CSP violations across every page loaded",
+      "ok": true,
+      "detail": {
+        "count": 0,
+        "violations": []
+      }
+    },
+    {
+      "id": "B6",
+      "name": "no page threw an uncaught error",
+      "ok": true,
+      "detail": {
+        "pageErrors": []
+      }
+    },
+    {
+      "id": "B7",
+      "name": "a SAME-ORIGIN frame still loads under frame-ancestors 'self' — the shell path survives cutover",
+      "ok": true,
+      "detail": {
+        "framed": {
+          "loaded": true,
+          "title": "Donovan Legal PLLC | Tax-First Practice Focused on Real Estate | Delray Beach, Florida"
+        },
+        "refusals": []
+      }
+    },
+    {
+      "id": "B8",
+      "name": "a FOREIGN origin is REFUSED the frame — the point of the change",
+      "ok": true,
+      "detail": {
+        "refusals": [
+          {
+            "where": "foreign",
+            "text": "Framing 'https://drinsane-perch-a34-frame-hea.donovan-site.pages.dev/' violates the following Content Security Policy directive: \"frame-ancestors 'self'\". The request has been blocked.\n"
+          }
+        ],
+        "childFrameUrls": [
+          "chrome-error://chromewebdata/"
+        ]
+      }
+    },
+    {
+      "id": "C1",
+      "name": "production is on the router-off path today — no X-Frame-Options, permissive frame-ancestors",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "content-security-policy": "default-src 'self'; script-src 'self' 'nonce-X' https://vantage.ticoai.net https://cdn.theconnexus.ai https://portal.theconnexus.ai https://code.jquery.com https://cdnjs.cloudflare.com https://esm.sh https://challenges.cloudflare.com; connect-src 'self' https://esm.sh https://vantage.ticoai.net https://*.retellai.com wss://*.retellai.com wss://*.livekit.cloud https://*.livekit.cloud https://portal.theconnexus.ai https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://vantage.ticoai.net https://portal.theconnexus.ai https://challenges.cloudflare.com; frame-ancestors 'self' https://vantage.ticoai.net https://*.ticoai.net; base-uri 'self'; form-action 'self' https://vantage.ticoai.net; object-src 'none'",
+        "x-frame-options": null,
+        "cache-control": "no-store",
+        "etag": null,
+        "last-modified": null
+      }
+    },
+    {
+      "id": "C2-html",
+      "name": "router OFF: the html headers this branch emits match live production byte for byte",
+      "ok": true,
+      "detail": {
+        "differing": [],
+        "branch": {
+          "content-security-policy": "default-src 'self'; script-src 'self' 'nonce-X' https://vantage.ticoai.net https://cdn.theconnexus.ai https://portal.theconnexus.ai https://code.jquery.com https://cdnjs.cloudflare.com https://esm.sh https://challenges.cloudflare.com; connect-src 'self' https://esm.sh https://vantage.ticoai.net https://*.retellai.com wss://*.retellai.com wss://*.livekit.cloud https://*.livekit.cloud https://portal.theconnexus.ai https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://vantage.ticoai.net https://portal.theconnexus.ai https://challenges.cloudflare.com; frame-ancestors 'self' https://vantage.ticoai.net https://*.ticoai.net; base-uri 'self'; form-action 'self' https://vantage.ticoai.net; object-src 'none'",
+          "x-frame-options": null,
+          "cache-control": "no-store",
+          "etag": null,
+          "last-modified": null
+        },
+        "production": {
+          "content-security-policy": "default-src 'self'; script-src 'self' 'nonce-X' https://vantage.ticoai.net https://cdn.theconnexus.ai https://portal.theconnexus.ai https://code.jquery.com https://cdnjs.cloudflare.com https://esm.sh https://challenges.cloudflare.com; connect-src 'self' https://esm.sh https://vantage.ticoai.net https://*.retellai.com wss://*.retellai.com wss://*.livekit.cloud https://*.livekit.cloud https://portal.theconnexus.ai https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://vantage.ticoai.net https://portal.theconnexus.ai https://challenges.cloudflare.com; frame-ancestors 'self' https://vantage.ticoai.net https://*.ticoai.net; base-uri 'self'; form-action 'self' https://vantage.ticoai.net; object-src 'none'",
+          "x-frame-options": null,
+          "cache-control": "no-store",
+          "etag": null,
+          "last-modified": null
+        }
+      }
+    },
+    {
+      "id": "C2-css",
+      "name": "router OFF: the css headers this branch emits match live production byte for byte",
+      "ok": true,
+      "detail": {
+        "differing": [],
+        "branch": {
+          "content-security-policy": "default-src 'self'; script-src 'self' 'nonce-X' https://vantage.ticoai.net https://cdn.theconnexus.ai https://portal.theconnexus.ai https://code.jquery.com https://cdnjs.cloudflare.com https://esm.sh https://challenges.cloudflare.com; connect-src 'self' https://esm.sh https://vantage.ticoai.net https://*.retellai.com wss://*.retellai.com wss://*.livekit.cloud https://*.livekit.cloud https://portal.theconnexus.ai https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://vantage.ticoai.net https://portal.theconnexus.ai https://challenges.cloudflare.com; frame-ancestors 'self' https://vantage.ticoai.net https://*.ticoai.net; base-uri 'self'; form-action 'self' https://vantage.ticoai.net; object-src 'none'",
+          "x-frame-options": null,
+          "cache-control": null,
+          "etag": "W/\"a34\"",
+          "last-modified": "Sat, 25 Jul 2026 00:00:00 GMT"
+        },
+        "production": {
+          "content-security-policy": "default-src 'self'; script-src 'self' 'nonce-X' https://vantage.ticoai.net https://cdn.theconnexus.ai https://portal.theconnexus.ai https://code.jquery.com https://cdnjs.cloudflare.com https://esm.sh https://challenges.cloudflare.com; connect-src 'self' https://esm.sh https://vantage.ticoai.net https://*.retellai.com wss://*.retellai.com wss://*.livekit.cloud https://*.livekit.cloud https://portal.theconnexus.ai https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://vantage.ticoai.net https://portal.theconnexus.ai https://challenges.cloudflare.com; frame-ancestors 'self' https://vantage.ticoai.net https://*.ticoai.net; base-uri 'self'; form-action 'self' https://vantage.ticoai.net; object-src 'none'",
+          "x-frame-options": null,
+          "cache-control": "no-cache",
+          "etag": "W/\"3de828fbbc6c79ed2600d2da6f1763f4\"",
+          "last-modified": null
+        }
+      }
+    },
+    {
+      "id": "C3",
+      "name": "CONTROL: the same comparison DOES separate router-on from production",
+      "ok": true,
+      "detail": {
+        "branchRouterOn": "SAMEORIGIN"
+      }
+    }
+  ],
+  "headers": {
+    "preview": {
+      "/": {
+        "status": 200,
+        "content-security-policy": "default-src 'self'; script-src 'self' 'nonce-X' https://vantage.ticoai.net https://cdn.theconnexus.ai https://portal.theconnexus.ai https://code.jquery.com https://cdnjs.cloudflare.com https://esm.sh https://challenges.cloudflare.com; connect-src 'self' https://esm.sh https://vantage.ticoai.net https://*.retellai.com wss://*.retellai.com wss://*.livekit.cloud https://*.livekit.cloud https://portal.theconnexus.ai https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://vantage.ticoai.net https://portal.theconnexus.ai https://challenges.cloudflare.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://vantage.ticoai.net; object-src 'none'",
+        "x-frame-options": "SAMEORIGIN",
+        "cache-control": "no-store",
+        "etag": null,
+        "last-modified": null
+      },
+      "/home": {
+        "status": 200,
+        "content-security-policy": "default-src 'self'; script-src 'self' 'nonce-X' https://vantage.ticoai.net https://cdn.theconnexus.ai https://portal.theconnexus.ai https://code.jquery.com https://cdnjs.cloudflare.com https://esm.sh https://challenges.cloudflare.com; connect-src 'self' https://esm.sh https://vantage.ticoai.net https://*.retellai.com wss://*.retellai.com wss://*.livekit.cloud https://*.livekit.cloud https://portal.theconnexus.ai https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://vantage.ticoai.net https://portal.theconnexus.ai https://challenges.cloudflare.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://vantage.ticoai.net; object-src 'none'",
+        "x-frame-options": "SAMEORIGIN",
+        "cache-control": "no-store",
+        "etag": null,
+        "last-modified": null
+      },
+      "/contact.html": {
+        "status": 200,
+        "content-security-policy": "default-src 'self'; script-src 'self' 'nonce-X' https://vantage.ticoai.net https://cdn.theconnexus.ai https://portal.theconnexus.ai https://code.jquery.com https://cdnjs.cloudflare.com https://esm.sh https://challenges.cloudflare.com; connect-src 'self' https://esm.sh https://vantage.ticoai.net https://*.retellai.com wss://*.retellai.com wss://*.livekit.cloud https://*.livekit.cloud https://portal.theconnexus.ai https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://vantage.ticoai.net https://portal.theconnexus.ai https://challenges.cloudflare.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://vantage.ticoai.net; object-src 'none'",
+        "x-frame-options": "SAMEORIGIN",
+        "cache-control": "no-store",
+        "etag": null,
+        "last-modified": null
+      },
+      "/perch.html": {
+        "status": 200,
+        "content-security-policy": "default-src 'self'; script-src 'self' 'nonce-X' https://vantage.ticoai.net https://cdn.theconnexus.ai https://portal.theconnexus.ai https://code.jquery.com https://cdnjs.cloudflare.com https://esm.sh https://challenges.cloudflare.com; connect-src 'self' https://esm.sh https://vantage.ticoai.net https://*.retellai.com wss://*.retellai.com wss://*.livekit.cloud https://*.livekit.cloud https://portal.theconnexus.ai https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://vantage.ticoai.net https://portal.theconnexus.ai https://challenges.cloudflare.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://vantage.ticoai.net; object-src 'none'",
+        "x-frame-options": "SAMEORIGIN",
+        "cache-control": "no-store",
+        "etag": null,
+        "last-modified": null
+      },
+      "/css/main.css": {
+        "status": 200,
+        "content-security-policy": "default-src 'self'; script-src 'self' 'nonce-X' https://vantage.ticoai.net https://cdn.theconnexus.ai https://portal.theconnexus.ai https://code.jquery.com https://cdnjs.cloudflare.com https://esm.sh https://challenges.cloudflare.com; connect-src 'self' https://esm.sh https://vantage.ticoai.net https://*.retellai.com wss://*.retellai.com wss://*.livekit.cloud https://*.livekit.cloud https://portal.theconnexus.ai https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://vantage.ticoai.net https://portal.theconnexus.ai https://challenges.cloudflare.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://vantage.ticoai.net; object-src 'none'",
+        "x-frame-options": "SAMEORIGIN",
+        "cache-control": "no-cache",
+        "etag": "W/\"3de828fbbc6c79ed2600d2da6f1763f4\"",
+        "last-modified": null
+      },
+      "/#body": {
+        "servedNonce": "7fe0564825dbaa0e34289d11c8d5561f",
+        "inlineInServedHtml": 0,
+        "stamped": 0,
+        "externalScripts": 2,
+        "idlNonced": 0,
+        "inlineInDom": 0,
+        "alive": {
+          "perch": false,
+          "dataLayer": false,
+          "booking": false
+        }
+      },
+      "/home#body": {
+        "servedNonce": "1147f56ef3632c5205cf2a767720c84a",
+        "inlineInServedHtml": 1,
+        "stamped": 1,
+        "externalScripts": 11,
+        "idlNonced": 1,
+        "inlineInDom": 1,
+        "alive": {
+          "perch": true,
+          "dataLayer": false,
+          "booking": false
+        }
+      },
+      "/contact.html#body": {
+        "servedNonce": "59da2029e55c0533ba2e4042e3dce8f0",
+        "inlineInServedHtml": 1,
+        "stamped": 1,
+        "externalScripts": 11,
+        "idlNonced": 1,
+        "inlineInDom": 1,
+        "alive": {
+          "perch": true,
+          "dataLayer": false,
+          "booking": false
+        }
+      },
+      "/perch.html#body": {
+        "servedNonce": "38a9cc0a2aadc135787d1b94b5af333e",
+        "inlineInServedHtml": 0,
+        "stamped": 0,
+        "externalScripts": 2,
+        "idlNonced": 0,
+        "inlineInDom": 0,
+        "alive": {
+          "perch": false,
+          "dataLayer": false,
+          "booking": false
+        }
+      }
+    },
+    "production": {
+      "/home": {
+        "status": 200,
+        "content-security-policy": "default-src 'self'; script-src 'self' 'nonce-X' https://vantage.ticoai.net https://cdn.theconnexus.ai https://portal.theconnexus.ai https://code.jquery.com https://cdnjs.cloudflare.com https://esm.sh https://challenges.cloudflare.com; connect-src 'self' https://esm.sh https://vantage.ticoai.net https://*.retellai.com wss://*.retellai.com wss://*.livekit.cloud https://*.livekit.cloud https://portal.theconnexus.ai https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://vantage.ticoai.net https://portal.theconnexus.ai https://challenges.cloudflare.com; frame-ancestors 'self' https://vantage.ticoai.net https://*.ticoai.net; base-uri 'self'; form-action 'self' https://vantage.ticoai.net; object-src 'none'",
+        "x-frame-options": null,
+        "cache-control": "no-store",
+        "etag": null,
+        "last-modified": null
+      },
+      "/css/main.css": {
+        "status": 200,
+        "content-security-policy": "default-src 'self'; script-src 'self' 'nonce-X' https://vantage.ticoai.net https://cdn.theconnexus.ai https://portal.theconnexus.ai https://code.jquery.com https://cdnjs.cloudflare.com https://esm.sh https://challenges.cloudflare.com; connect-src 'self' https://esm.sh https://vantage.ticoai.net https://*.retellai.com wss://*.retellai.com wss://*.livekit.cloud https://*.livekit.cloud https://portal.theconnexus.ai https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://vantage.ticoai.net https://portal.theconnexus.ai https://challenges.cloudflare.com; frame-ancestors 'self' https://vantage.ticoai.net https://*.ticoai.net; base-uri 'self'; form-action 'self' https://vantage.ticoai.net; object-src 'none'",
+        "x-frame-options": null,
+        "cache-control": "no-cache",
+        "etag": "W/\"3de828fbbc6c79ed2600d2da6f1763f4\"",
+        "last-modified": null
+      }
+    },
+    "branchRouterOff": {
+      "html": {
+        "content-security-policy": "default-src 'self'; script-src 'self' 'nonce-X' https://vantage.ticoai.net https://cdn.theconnexus.ai https://portal.theconnexus.ai https://code.jquery.com https://cdnjs.cloudflare.com https://esm.sh https://challenges.cloudflare.com; connect-src 'self' https://esm.sh https://vantage.ticoai.net https://*.retellai.com wss://*.retellai.com wss://*.livekit.cloud https://*.livekit.cloud https://portal.theconnexus.ai https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://vantage.ticoai.net https://portal.theconnexus.ai https://challenges.cloudflare.com; frame-ancestors 'self' https://vantage.ticoai.net https://*.ticoai.net; base-uri 'self'; form-action 'self' https://vantage.ticoai.net; object-src 'none'",
+        "x-frame-options": null,
+        "cache-control": "no-store",
+        "etag": null,
+        "last-modified": null
+      },
+      "css": {
+        "content-security-policy": "default-src 'self'; script-src 'self' 'nonce-X' https://vantage.ticoai.net https://cdn.theconnexus.ai https://portal.theconnexus.ai https://code.jquery.com https://cdnjs.cloudflare.com https://esm.sh https://challenges.cloudflare.com; connect-src 'self' https://esm.sh https://vantage.ticoai.net https://*.retellai.com wss://*.retellai.com wss://*.livekit.cloud https://*.livekit.cloud https://portal.theconnexus.ai https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://vantage.ticoai.net https://portal.theconnexus.ai https://challenges.cloudflare.com; frame-ancestors 'self' https://vantage.ticoai.net https://*.ticoai.net; base-uri 'self'; form-action 'self' https://vantage.ticoai.net; object-src 'none'",
+        "x-frame-options": null,
+        "cache-control": null,
+        "etag": "W/\"a34\"",
+        "last-modified": "Sat, 25 Jul 2026 00:00:00 GMT"
+      }
+    }
+  },
+  "cspViolations": [],
+  "pageErrors": [],
+  "console": [],
+  "notes": [
+    "production is untouched by this change until PERCH_ROUTER=on is set and a build is promoted — C1 records the state at run time."
+  ],
+  "frameProbe": [
+    {
+      "where": "foreign",
+      "text": "Framing 'https://drinsane-perch-a34-frame-hea.donovan-site.pages.dev/' violates the following Content Security Policy directive: \"frame-ancestors 'self'\". The request has been blocked.\n"
+    }
+  ],
+  "finishedAt": "2026-07-25T19:55:58.521Z",
+  "pass": true,
+  "failed": []
+}

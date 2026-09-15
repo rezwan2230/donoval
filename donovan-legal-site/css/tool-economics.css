@@ -1,0 +1,692 @@
+/* ============================================================================
+ * Donovan Legal PLLC — RESERVE Deal Economics Tool
+ * Tool-specific stylesheet
+ * ----------------------------------------------------------------------------
+ * Load order: main.css -> tool-form-shared.css -> tool-economics.css
+ *
+ * Conventions:
+ *   - .econ-* classes for tool inputs (parallels .struct-* in Tool #2)
+ *   - .memo-* classes for the feasibility memorandum preview pane (print-grade)
+ *   - Brand: RESERVE two-tone is applied at the HTML level via
+ *     <span class="brand-reserve"><span class="re">RE</span>SERVE</span>
+ *   - Colors mirror main.css for cross-site consistency:
+ *       #169B62 firm emerald     (RE in two-tone, links, primary accents)
+ *       #0A4A2A deep firm green  (header bar)
+ *       #5fc88e light emerald    (RE in dark headers, for contrast)
+ *       #c5c6c8 platinum silver
+ *       #C9A961 gold
+ *       #F5F5F0 paper / page bg
+ *       #d4d4d0 divider lines
+ *       #1a1a1a body copy
+ * ============================================================================ */
+
+/* ----------------------------------------------------------------------------
+ * Tool header — sticky bar with RESERVE branding
+ * ---------------------------------------------------------------------------- */
+.tool-header {
+  background: #0A4A2A;
+  color: #fff;
+  padding: 0.85rem 0;
+  border-bottom: 3px solid #169B62;
+}
+.tool-header-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tool-header-brand {
+  font-family: "Trajan Pro", "Gotham Bold", serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  color: #fff;
+}
+.tool-header-brand .brand-reserve .re { color: #5fc88e !important; }
+
+/* RESERVE brand two-tone (body prose). Sidebar/header overrides use #5fc88e. */
+.brand-reserve .re { color: #019A48; }
+
+/* Memo outer wrapper — print-grade frame around generated memorandum HTML */
+.memo-document {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12pt;
+  line-height: 1.55;
+  color: #1a1a1a;
+  background: #fff;
+  padding: 2.5rem 3rem;
+  max-width: 8.5in;
+  margin: 0 auto;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.06);
+}
+.tool-header-back {
+  color: #fff;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  opacity: 0.85;
+}
+.tool-header-back:hover { opacity: 1; }
+
+/* ----------------------------------------------------------------------------
+ * Shell — two-column layout
+ * ---------------------------------------------------------------------------- */
+.econ-shell {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 0;
+  max-width: 1320px;
+  margin: 0 auto;
+  min-height: calc(100vh - 75px);
+  background: #fff;
+}
+
+/* ----------------------------------------------------------------------------
+ * Sidebar
+ * ---------------------------------------------------------------------------- */
+.econ-sidebar {
+  background: #fafaf7;
+  border-right: 1px solid #d4d4d0;
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+}
+.econ-sidebar-title {
+  font-family: "Trajan Pro", "Gotham Bold", serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  color: #0A4A2A;
+  padding: 0 1.5rem;
+  margin-bottom: 0.25rem;
+}
+.econ-sidebar-subtitle {
+  font-size: 0.75rem;
+  color: #6a6a68;
+  letter-spacing: 0.04em;
+  padding: 0 1.5rem;
+  margin-bottom: 1.25rem;
+}
+.econ-nav { flex: 1; display: flex; flex-direction: column; gap: 0.15rem; }
+.econ-nav-item {
+  display: block;
+  padding: 0.65rem 1.5rem;
+  font-size: 0.85rem;
+  color: #1a1a1a;
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  transition: background 0.12s, border-color 0.12s;
+}
+.econ-nav-item:hover { background: #f0f0ea; border-left-color: #c5c6c8; }
+.econ-nav-active {
+  background: #fff;
+  border-left-color: #169B62;
+  font-weight: 600;
+}
+.econ-nav-generate {
+  margin-top: auto;
+  background: linear-gradient(180deg, #0A4A2A, #169B62);
+  color: #fff;
+  font-weight: 600;
+}
+.econ-nav-generate:hover { background: #169B62; color: #fff; }
+
+.econ-sidebar-footer {
+  padding: 1rem 1.5rem 0 1.5rem;
+  border-top: 1px solid #d4d4d0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.econ-btn-ghost {
+  background: transparent;
+  border: 1px solid #c5c6c8;
+  color: #1a1a1a;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: inherit;
+  transition: background 0.12s, border-color 0.12s;
+}
+.econ-btn-ghost:hover { background: #f0f0ea; border-color: #169B62; }
+.econ-btn-warn:hover  { background: #fef2f2; border-color: #b91c1c; color: #b91c1c; }
+
+/* ----------------------------------------------------------------------------
+ * Main panel
+ * ---------------------------------------------------------------------------- */
+.econ-main {
+  padding: 2rem 2.5rem 4rem 2.5rem;
+  min-width: 0;
+}
+.econ-panel { display: none; }
+.econ-panel-active { display: block; }
+
+.econ-panel-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #d4d4d0;
+}
+.econ-panel-eyebrow {
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: #169B62;
+  text-transform: uppercase;
+}
+.econ-panel-header h2 {
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-size: 1.95rem;
+  font-weight: 500;
+  color: #0A4A2A;
+  margin: 0.3rem 0 0.5rem 0;
+}
+.econ-panel-sub {
+  color: #4a4a48;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+/* ----------------------------------------------------------------------------
+ * Field controls
+ * ---------------------------------------------------------------------------- */
+.econ-field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 1.5rem;
+  margin-bottom: 1rem;
+}
+.econ-field { display: flex; flex-direction: column; gap: 0.3rem; }
+.econ-field label {
+  font-size: 0.78rem;
+  color: #4a4a48;
+  letter-spacing: 0.02em;
+}
+.econ-field input,
+.econ-field select,
+.econ-field textarea {
+  border: 1px solid #d4d4d0;
+  padding: 0.55rem 0.7rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background: #fff;
+  color: #1a1a1a;
+}
+.econ-field input:focus,
+.econ-field select:focus,
+.econ-field textarea:focus {
+  outline: none;
+  border-color: #169B62;
+  box-shadow: 0 0 0 2px rgba(22, 155, 98, 0.15);
+}
+.econ-req { color: #169B62; font-weight: bold; }
+.econ-help {
+  font-size: 0.75rem;
+  color: #6a6a68;
+  margin-top: 0.25rem;
+}
+
+/* ----------------------------------------------------------------------------
+ * Preset bar — 30 archetypes
+ * ---------------------------------------------------------------------------- */
+.econ-preset-bar {
+  background: #fafaf7;
+  border: 1px solid #d4d4d0;
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+}
+.econ-preset-bar-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 1rem;
+}
+.econ-preset-bar-header strong {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: #0A4A2A;
+}
+.econ-preset-bar-sub {
+  font-size: 0.85rem;
+  color: #4a4a48;
+  line-height: 1.5;
+}
+.econ-preset-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.6rem;
+}
+.econ-preset-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.85rem 0.75rem 0.75rem 0.75rem;
+  background: #fff;
+  border: 1px solid #d4d4d0;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  position: relative;
+  transition: border-color 0.12s, transform 0.12s, box-shadow 0.12s;
+}
+.econ-preset-tile:hover {
+  border-color: #169B62;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(10, 74, 42, 0.08);
+}
+.econ-preset-tile-emoji { font-size: 1.4rem; line-height: 1; }
+.econ-preset-tile-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0A4A2A;
+}
+.econ-preset-tile-desc {
+  font-size: 0.72rem;
+  color: #6a6a68;
+  line-height: 1.35;
+}
+.econ-preset-tile-badge {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  background: #f4e9c1;
+  color: #8b6914;
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  padding: 1px 6px;
+  text-transform: uppercase;
+}
+.econ-preset-tile[data-render-quality="scaffold"] .econ-preset-tile-badge {
+  background: #ffe4e1;
+  color: #8b1a1a;
+}
+.econ-preset-status {
+  margin-top: 0.85rem;
+  padding: 0.55rem 0.75rem;
+  background: #ecf7f0;
+  border-left: 3px solid #169B62;
+  font-size: 0.8rem;
+  color: #0A4A2A;
+}
+
+/* ----------------------------------------------------------------------------
+ * Handoff banner
+ * ---------------------------------------------------------------------------- */
+.econ-handoff-banner {
+  background: #fdf6e3;
+  border: 1px solid #C9A961;
+  border-left-width: 4px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  color: #4a4a48;
+}
+.econ-handoff-btn {
+  display: inline-block;
+  background: #fff;
+  border: 1px solid #C9A961;
+  padding: 0.25rem 0.7rem;
+  margin: 0 0.2rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: #8b6914;
+  font-family: inherit;
+}
+.econ-handoff-btn:hover { background: #C9A961; color: #fff; }
+.econ-handoff-dismiss {
+  background: transparent;
+  border: none;
+  color: #6a6a68;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+
+/* ----------------------------------------------------------------------------
+ * Callouts
+ * ---------------------------------------------------------------------------- */
+.econ-callout {
+  padding: 0.85rem 1rem;
+  border-left: 3px solid #169B62;
+  background: #ecf7f0;
+  margin-bottom: 1.25rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+.econ-callout-info { border-left-color: #169B62; background: #ecf7f0; }
+.econ-callout-warn { border-left-color: #C9A961; background: #fdf6e3; }
+.econ-callout-error { border-left-color: #b91c1c; background: #fef2f2; }
+
+/* ----------------------------------------------------------------------------
+ * Capital classes list
+ * ---------------------------------------------------------------------------- */
+.econ-cap-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 0.75rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid #d4d4d0;
+  border-bottom: none;
+  background: #fff;
+  font-size: 0.85rem;
+}
+.econ-cap-row:last-child { border-bottom: 1px solid #d4d4d0; }
+.econ-cap-row-label { font-weight: 600; }
+.econ-cap-row-type { color: #6a6a68; font-size: 0.78rem; }
+.econ-cap-row-amt  { text-align: right; font-family: "JetBrains Mono", monospace; }
+.econ-cap-row-pref { font-size: 0.75rem; color: #8b6914; }
+
+/* ----------------------------------------------------------------------------
+ * Run button + KPI cards (results panel)
+ * ---------------------------------------------------------------------------- */
+.econ-run-bar {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.econ-run-btn {
+  background: #0A4A2A;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  font-family: "Trajan Pro", "Gotham Bold", serif;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.econ-run-btn:hover { background: #169B62; }
+
+.econ-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+.econ-kpi-card {
+  background: #fafaf7;
+  border: 1px solid #d4d4d0;
+  border-top: 3px solid #169B62;
+  padding: 0.85rem 1rem;
+}
+.econ-kpi-card-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: #6a6a68;
+  text-transform: uppercase;
+}
+.econ-kpi-card-value {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.6rem;
+  color: #0A4A2A;
+  margin-top: 0.25rem;
+}
+
+/* Continue + download bar */
+.econ-action-bar {
+  display: flex;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+  border-top: 1px solid #d4d4d0;
+  border-bottom: 1px solid #d4d4d0;
+}
+.econ-action-btn {
+  background: #fff;
+  border: 1px solid #169B62;
+  color: #0A4A2A;
+  padding: 0.55rem 1rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+}
+.econ-action-btn:hover { background: #ecf7f0; }
+.econ-action-btn-primary {
+  background: #169B62;
+  color: #fff;
+}
+.econ-action-btn-primary:hover { background: #0A4A2A; }
+
+/* ----------------------------------------------------------------------------
+ * Memorandum preview pane — print-grade
+ * ---------------------------------------------------------------------------- */
+.memo-header {
+  border-bottom: 2px solid #0A4A2A;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+.memo-firm {
+  font-family: "Trajan Pro", "Gotham Bold", serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+  color: #0A4A2A;
+}
+.memo-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: #6a6a68;
+  margin: 0.3rem 0 0.6rem 0;
+  text-transform: uppercase;
+}
+.memo-meta {
+  width: 100%;
+  font-size: 0.8rem;
+}
+.memo-meta td {
+  padding: 0.15rem 0.5rem 0.15rem 0;
+}
+.memo-meta td:nth-child(odd) {
+  color: #6a6a68;
+  width: 100px;
+}
+.memo-draft-badge {
+  display: inline-block;
+  background: #fdf6e3;
+  border: 1px solid #C9A961;
+  color: #8b6914;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+}
+
+.memo-section {
+  margin-bottom: 1.75rem;
+}
+.memo-section h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.4rem;
+  color: #0A4A2A;
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid #d4d4d0;
+}
+.memo-section h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.1rem;
+  color: #4a4a48;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.memo-section p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 0.7rem;
+  color: #1a1a1a;
+}
+.memo-section-scaffold {
+  background: #fafaf7;
+  border-left: 3px solid #c5c6c8;
+  padding: 1rem 1.25rem;
+}
+.memo-thread-badge {
+  display: inline-block;
+  background: #c5c6c8;
+  color: #fff;
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  padding: 1px 6px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+
+.memo-callout {
+  background: #ecf7f0;
+  border-left: 3px solid #169B62;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+}
+.memo-warn {
+  background: #fef2f2;
+  border-left-color: #b91c1c;
+  color: #7f1d1d;
+}
+.memo-help {
+  font-size: 0.78rem;
+  color: #6a6a68;
+  font-style: italic;
+}
+
+.memo-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin: 0.75rem 0 1.25rem 0;
+}
+.memo-table-half { width: 60%; }
+.memo-table th,
+.memo-table td {
+  border: 1px solid #d4d4d0;
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.memo-table th {
+  background: #fafaf7;
+  font-weight: 600;
+  color: #0A4A2A;
+}
+.memo-right { text-align: right; font-family: "JetBrains Mono", monospace; }
+.memo-total td { background: #ecf7f0; }
+
+.memo-sens td, .memo-sens th { padding: 0.3rem 0.5rem; font-size: 0.8rem; }
+
+.memo-section-footer {
+  border-top: 1px solid #d4d4d0;
+  padding-top: 1rem;
+  margin-top: 2rem;
+}
+.memo-footer-cite,
+.memo-footer-disclaimer {
+  font-size: 0.72rem;
+  color: #6a6a68;
+  line-height: 1.5;
+}
+.memo-footer-disclaimer strong { color: #4a4a48; }
+
+/* ----------------------------------------------------------------------------
+ * Flash message
+ * ---------------------------------------------------------------------------- */
+.econ-flash {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: #0A4A2A;
+  color: #fff;
+  padding: 0.7rem 1.1rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 1000;
+}
+
+/* ----------------------------------------------------------------------------
+ * Gate page (public/platinum)
+ * ---------------------------------------------------------------------------- */
+.econ-gate {
+  max-width: 740px;
+  margin: 4rem auto;
+  padding: 3rem;
+  background: #fff;
+  border: 1px solid #d4d4d0;
+  border-top: 4px solid #C9A961;
+  text-align: center;
+}
+.econ-gate-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: #C9A961;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.econ-gate h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.2rem;
+  color: #0A4A2A;
+  margin-bottom: 1rem;
+}
+.econ-gate p {
+  font-size: 0.95rem;
+  color: #4a4a48;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.econ-gate-cta {
+  display: inline-block;
+  background: #0A4A2A;
+  color: #fff;
+  padding: 0.85rem 2rem;
+  text-decoration: none;
+  font-family: "Trajan Pro", "Gotham Bold", serif;
+  letter-spacing: 0.06em;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+.econ-gate-cta:hover { background: #169B62; }
+
+/* ----------------------------------------------------------------------------
+ * Subsection visibility — conditional reveal driven by JS / data attributes
+ * ---------------------------------------------------------------------------- */
+.econ-subsection {
+  margin: 1.25rem 0;
+  padding: 1rem 1.25rem;
+  background: #fafaf7;
+  border: 1px solid #d4d4d0;
+}
+.econ-subsection h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+  color: #0A4A2A;
+  margin: 0 0 0.75rem 0;
+}
+
+/* ----------------------------------------------------------------------------
+ * Print
+ * ---------------------------------------------------------------------------- */
+@media print {
+  .tool-header,
+  .econ-sidebar,
+  .econ-preset-bar,
+  .econ-action-bar,
+  .econ-run-bar,
+  .econ-handoff-banner,
+  .econ-kpi-grid,
+  .econ-panel-header,
+  .econ-flash { display: none !important; }
+  .econ-shell { display: block; }
+  .econ-main { padding: 0; }
+  body { background: #fff; }
+}

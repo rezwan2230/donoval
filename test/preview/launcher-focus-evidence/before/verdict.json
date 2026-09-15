@@ -1,0 +1,302 @@
+{
+  "base": "https://www.donovan.law",
+  "page": "/testimonials",
+  "arms": {
+    "A_mouse": {
+      "shots": {
+        "idle": "A1-idle.png",
+        "hover": "A2-hover.png",
+        "click": "A3-mouse-click.png"
+      },
+      "idle": {
+        "focus": false,
+        "focusVisible": false,
+        "live": false,
+        "buttonBox": {
+          "width": 116,
+          "height": 116
+        },
+        "button": {
+          "outline": "rgb(0, 0, 0) none 3px",
+          "outlineStyle": "none",
+          "outlineOffset": "3px"
+        },
+        "disc": {
+          "outline": "rgb(0, 0, 0) none 3px",
+          "outlineStyle": "none",
+          "outlineOffset": "0px",
+          "boxShadow": "rgba(193, 162, 33, 0.5) 0px 10px 28px 0px"
+        }
+      },
+      "hover": {
+        "focus": false,
+        "focusVisible": false,
+        "live": false,
+        "buttonBox": {
+          "width": 116,
+          "height": 116
+        },
+        "button": {
+          "outline": "rgb(0, 0, 0) none 3px",
+          "outlineStyle": "none",
+          "outlineOffset": "3px"
+        },
+        "disc": {
+          "outline": "rgb(0, 0, 0) none 3px",
+          "outlineStyle": "none",
+          "outlineOffset": "0px",
+          "boxShadow": "rgba(193, 162, 33, 0.5) 0px 10px 28px 0px"
+        }
+      },
+      "consentModalOpened": true,
+      "click": {
+        "focus": false,
+        "focusVisible": false,
+        "live": false,
+        "buttonBox": {
+          "width": 116,
+          "height": 116
+        },
+        "button": {
+          "outline": "rgb(0, 0, 0) none 3px",
+          "outlineStyle": "none",
+          "outlineOffset": "3px"
+        },
+        "disc": {
+          "outline": "rgb(0, 0, 0) none 3px",
+          "outlineStyle": "none",
+          "outlineOffset": "0px",
+          "boxShadow": "rgba(193, 162, 33, 0.5) 0px 10px 28px 0px"
+        }
+      }
+    },
+    "B_esc_decline": {
+      "shots": {
+        "afterRestore": "B_esc_decline.png"
+      },
+      "consentModalOpened": true,
+      "modalClosed": true,
+      "afterRestore": {
+        "focus": true,
+        "focusVisible": true,
+        "live": false,
+        "buttonBox": {
+          "width": 116,
+          "height": 116
+        },
+        "button": {
+          "outline": "rgb(16, 16, 16) auto 5px",
+          "outlineStyle": "auto",
+          "outlineOffset": "3px"
+        },
+        "disc": {
+          "outline": "rgb(0, 0, 0) none 3px",
+          "outlineStyle": "none",
+          "outlineOffset": "0px",
+          "boxShadow": "rgba(193, 162, 33, 0.5) 0px 10px 28px 0px"
+        }
+      },
+      "noticeRemovedForShot": true
+    },
+    "C_mouse_decline": {
+      "shots": {
+        "afterRestore": "C_mouse_decline.png"
+      },
+      "consentModalOpened": true,
+      "modalClosed": true,
+      "afterRestore": {
+        "focus": true,
+        "focusVisible": false,
+        "live": false,
+        "buttonBox": {
+          "width": 116,
+          "height": 116
+        },
+        "button": {
+          "outline": "rgb(16, 16, 16) auto 5px",
+          "outlineStyle": "auto",
+          "outlineOffset": "3px"
+        },
+        "disc": {
+          "outline": "rgb(0, 0, 0) none 3px",
+          "outlineStyle": "none",
+          "outlineOffset": "0px",
+          "boxShadow": "rgba(193, 162, 33, 0.5) 0px 10px 28px 0px"
+        }
+      },
+      "noticeRemovedForShot": true
+    },
+    "E_restore": {
+      "shots": {
+        "mouse": "E1-restore-after-mouse.png",
+        "keyboard": "E2-restore-after-keyboard.png"
+      },
+      "inertPoint": {
+        "x": 40,
+        "y": 200
+      },
+      "afterMouseThenRestore": {
+        "focus": true,
+        "focusVisible": true,
+        "live": false,
+        "buttonBox": {
+          "width": 116,
+          "height": 116
+        },
+        "button": {
+          "outline": "rgb(16, 16, 16) auto 5px",
+          "outlineStyle": "auto",
+          "outlineOffset": "3px"
+        },
+        "disc": {
+          "outline": "rgb(0, 0, 0) none 3px",
+          "outlineStyle": "none",
+          "outlineOffset": "0px",
+          "boxShadow": "rgba(193, 162, 33, 0.5) 0px 10px 28px 0px"
+        }
+      },
+      "afterKeyboardThenRestore": {
+        "focus": true,
+        "focusVisible": true,
+        "live": false,
+        "buttonBox": {
+          "width": 116,
+          "height": 116
+        },
+        "button": {
+          "outline": "rgb(16, 16, 16) auto 5px",
+          "outlineStyle": "auto",
+          "outlineOffset": "3px"
+        },
+        "disc": {
+          "outline": "rgb(0, 0, 0) none 3px",
+          "outlineStyle": "none",
+          "outlineOffset": "0px",
+          "boxShadow": "rgba(193, 162, 33, 0.5) 0px 10px 28px 0px"
+        }
+      }
+    },
+    "D_keyboard": {
+      "shots": {
+        "tabbed": "D1-keyboard-focus.png",
+        "tabbedLive": "D2-keyboard-focus-live.png"
+      },
+      "reachedByTab": true,
+      "tabbed": {
+        "focus": true,
+        "focusVisible": true,
+        "live": false,
+        "buttonBox": {
+          "width": 116,
+          "height": 116
+        },
+        "button": {
+          "outline": "rgb(16, 16, 16) auto 5px",
+          "outlineStyle": "auto",
+          "outlineOffset": "3px"
+        },
+        "disc": {
+          "outline": "rgb(0, 0, 0) none 3px",
+          "outlineStyle": "none",
+          "outlineOffset": "0px",
+          "boxShadow": "rgba(193, 162, 33, 0.5) 0px 10px 28px 0px"
+        }
+      },
+      "tabbedLive": {
+        "focus": true,
+        "focusVisible": true,
+        "live": true,
+        "buttonBox": {
+          "width": 116,
+          "height": 116
+        },
+        "button": {
+          "outline": "rgb(16, 16, 16) auto 5px",
+          "outlineStyle": "auto",
+          "outlineOffset": "3px"
+        },
+        "disc": {
+          "outline": "rgb(0, 0, 0) none 3px",
+          "outlineStyle": "none",
+          "outlineOffset": "0px",
+          "boxShadow": "rgba(7, 76, 35, 0.55) 0px 10px 30px 0px"
+        }
+      }
+    }
+  },
+  "cspViolations": [],
+  "mintAttempts": 0,
+  "checks": [
+    {
+      "name": "idle paints no ring on the button box",
+      "ok": true
+    },
+    {
+      "name": "hover paints no ring on the button box",
+      "ok": true
+    },
+    {
+      "name": "a mouse click paints no ring on the button box",
+      "ok": true
+    },
+    {
+      "name": "Esc-decline focus restore paints no ring on the button box",
+      "ok": false
+    },
+    {
+      "name": "mouse-decline focus restore paints no ring on the button box",
+      "ok": false
+    },
+    {
+      "name": "the gate's script focus after a MOUSE gesture paints no black rectangle",
+      "ok": false
+    },
+    {
+      "name": "the gate's script focus after a KEYBOARD gesture paints no black rectangle",
+      "ok": false
+    },
+    {
+      "name": "the launcher is reachable by Tab",
+      "ok": true
+    },
+    {
+      "name": "keyboard focus is VISIBLE — a ring is painted",
+      "ok": false
+    },
+    {
+      "name": "the keyboard ring is on the disc, so it is a circle not a rectangle",
+      "ok": false
+    },
+    {
+      "name": "the keyboard ring survives into a connected call",
+      "ok": false
+    },
+    {
+      "name": "a connected call keeps its green drop shadow while focused",
+      "ok": true
+    },
+    {
+      "name": "zero CSP violations",
+      "ok": true
+    },
+    {
+      "name": "nothing was minted",
+      "ok": true
+    }
+  ],
+  "verdict": "NO-GO",
+  "residual": {
+    "note": "After the consent modal closes the orb keeps a focus ring for the rest of the call. It is the brand ring on the round disc, never the UA rectangle on the square button.",
+    "realMouseClick": {
+      "focusVisible": false,
+      "buttonOutlineStyle": "none",
+      "discOutline": "rgb(0, 0, 0) none 3px"
+    },
+    "scriptRestoreAfterMouse": {
+      "focusVisible": true,
+      "buttonOutlineStyle": "auto",
+      "discOutline": "rgb(0, 0, 0) none 3px",
+      "screenshot": "E1-restore-after-mouse.png"
+    }
+  }
+}

@@ -1,0 +1,682 @@
+{
+  "order": "JORDAN-BOOKING-WIDGET-DETAILS-R1",
+  "label": "after",
+  "generatedAt": "2026-08-05T20:30:26.605Z",
+  "go": true,
+  "passed": 37,
+  "total": 37,
+  "checks": [
+    {
+      "name": "desktop: details step RENDERS on the first valid slot selection",
+      "pass": true,
+      "detail": "step=FORM form=true label=\"Your details\""
+    },
+    {
+      "name": "desktop: details step is ON SCREEN without scrolling",
+      "pass": true,
+      "detail": "#dl-bk-name top=258 viewportH=900 scrollNeeded=0px inViewport=true"
+    },
+    {
+      "name": "desktop: NO re-pick required",
+      "pass": true,
+      "detail": "first selection advanced the widget"
+    },
+    {
+      "name": "desktop: Confirm reachable by scrolling, no horizontal overflow",
+      "pass": true,
+      "detail": "{\"submitReachable\":true,\"notesReachable\":true,\"noHorizontalOverflow\":true,\"shot\":\"bkdetails-after-desktop-3-details-scrolled-to-confirm.png\"}"
+    },
+    {
+      "name": "desktop: happy path books end to end",
+      "pass": true,
+      "detail": "confirm=true onScreen=true posts=1"
+    },
+    {
+      "name": "desktop: POST /booking/create contract unchanged",
+      "pass": true,
+      "detail": "sent=[\"deployment\",\"email\",\"name\",\"notes\",\"phone\",\"slot\",\"turnstile_token\",\"type\"]"
+    },
+    {
+      "name": "desktop: focus lands on the name field, NOT the bot honeypot",
+      "pass": true,
+      "detail": "activeElement=\"dl-bk-name\""
+    },
+    {
+      "name": "desktop: the chosen slot is readable on the details step",
+      "pass": true,
+      "detail": "\"Initial ConsultationMonday, August 10, 2026 at 11:00 AM EDT\" top=169 inViewport=true"
+    },
+    {
+      "name": "mobile-390: details step RENDERS on the first valid slot selection",
+      "pass": true,
+      "detail": "step=FORM form=true label=\"Your details\""
+    },
+    {
+      "name": "mobile-390: details step is ON SCREEN without scrolling",
+      "pass": true,
+      "detail": "#dl-bk-name top=178 viewportH=844 scrollNeeded=0px inViewport=true"
+    },
+    {
+      "name": "mobile-390: NO re-pick required",
+      "pass": true,
+      "detail": "first selection advanced the widget"
+    },
+    {
+      "name": "mobile-390: Confirm reachable by scrolling, no horizontal overflow",
+      "pass": true,
+      "detail": "{\"submitReachable\":true,\"notesReachable\":true,\"noHorizontalOverflow\":true,\"shot\":\"bkdetails-after-mobile-390-3-details-scrolled-to-confirm.png\"}"
+    },
+    {
+      "name": "mobile-390: happy path books end to end",
+      "pass": true,
+      "detail": "confirm=true onScreen=true posts=1"
+    },
+    {
+      "name": "mobile-390: POST /booking/create contract unchanged",
+      "pass": true,
+      "detail": "sent=[\"deployment\",\"email\",\"name\",\"notes\",\"phone\",\"slot\",\"turnstile_token\",\"type\"]"
+    },
+    {
+      "name": "mobile-390: focus lands on the name field, NOT the bot honeypot",
+      "pass": true,
+      "detail": "activeElement=\"dl-bk-name\""
+    },
+    {
+      "name": "mobile-390: the chosen slot is readable on the details step",
+      "pass": true,
+      "detail": "\"Initial ConsultationMonday, August 10, 2026 at 11:00 AM EDT\" top=68 inViewport=true"
+    },
+    {
+      "name": "mobile-360: details step RENDERS on the first valid slot selection",
+      "pass": true,
+      "detail": "step=FORM form=true label=\"Your details\""
+    },
+    {
+      "name": "mobile-360: details step is ON SCREEN without scrolling",
+      "pass": true,
+      "detail": "#dl-bk-name top=179 viewportH=640 scrollNeeded=0px inViewport=true"
+    },
+    {
+      "name": "mobile-360: NO re-pick required",
+      "pass": true,
+      "detail": "first selection advanced the widget"
+    },
+    {
+      "name": "mobile-360: Confirm reachable by scrolling, no horizontal overflow",
+      "pass": true,
+      "detail": "{\"submitReachable\":true,\"notesReachable\":true,\"noHorizontalOverflow\":true,\"shot\":\"bkdetails-after-mobile-360-3-details-scrolled-to-confirm.png\"}"
+    },
+    {
+      "name": "mobile-360: happy path books end to end",
+      "pass": true,
+      "detail": "confirm=true onScreen=true posts=1"
+    },
+    {
+      "name": "mobile-360: POST /booking/create contract unchanged",
+      "pass": true,
+      "detail": "sent=[\"deployment\",\"email\",\"name\",\"notes\",\"phone\",\"slot\",\"turnstile_token\",\"type\"]"
+    },
+    {
+      "name": "mobile-360: focus lands on the name field, NOT the bot honeypot",
+      "pass": true,
+      "detail": "activeElement=\"dl-bk-name\""
+    },
+    {
+      "name": "mobile-360: the chosen slot is readable on the details step",
+      "pass": true,
+      "detail": "\"Initial ConsultationMonday, August 10, 2026 at 11:00 AM EDT\" top=68 inViewport=true"
+    },
+    {
+      "name": "mobile-320: details step RENDERS on the first valid slot selection",
+      "pass": true,
+      "detail": "step=FORM form=true label=\"Your details\""
+    },
+    {
+      "name": "mobile-320: details step is ON SCREEN without scrolling",
+      "pass": true,
+      "detail": "#dl-bk-name top=179 viewportH=568 scrollNeeded=0px inViewport=true"
+    },
+    {
+      "name": "mobile-320: NO re-pick required",
+      "pass": true,
+      "detail": "first selection advanced the widget"
+    },
+    {
+      "name": "mobile-320: Confirm reachable by scrolling, no horizontal overflow",
+      "pass": true,
+      "detail": "{\"submitReachable\":true,\"notesReachable\":true,\"noHorizontalOverflow\":true,\"shot\":\"bkdetails-after-mobile-320-3-details-scrolled-to-confirm.png\"}"
+    },
+    {
+      "name": "mobile-320: happy path books end to end",
+      "pass": true,
+      "detail": "confirm=true onScreen=true posts=1"
+    },
+    {
+      "name": "mobile-320: POST /booking/create contract unchanged",
+      "pass": true,
+      "detail": "sent=[\"deployment\",\"email\",\"name\",\"notes\",\"phone\",\"slot\",\"turnstile_token\",\"type\"]"
+    },
+    {
+      "name": "mobile-320: focus lands on the name field, NOT the bot honeypot",
+      "pass": true,
+      "detail": "activeElement=\"dl-bk-name\""
+    },
+    {
+      "name": "mobile-320: the chosen slot is readable on the details step",
+      "pass": true,
+      "detail": "\"Initial ConsultationMonday, August 10, 2026 at 11:00 AM EDT\" top=68 inViewport=true"
+    },
+    {
+      "name": "voice: showDate stays BROWSE (does not commit the caller to a time)",
+      "pass": true,
+      "detail": "showDate(\"2026-08-11\") → {\"ok\":true}, step=DATE_PICK"
+    },
+    {
+      "name": "voice: Paula selectSlot({day,time}) reaches the details step",
+      "pass": true,
+      "detail": "selectSlot({day,time:\"11:00 AM\"}) → {\"ok\":true}, step=FORM"
+    },
+    {
+      "name": "voice: booking confirms end to end",
+      "pass": true,
+      "detail": "confirm screen rendered=true"
+    },
+    {
+      "name": "voice: POST contract unchanged",
+      "pass": true,
+      "detail": "sent=[\"call_id\",\"deployment\",\"email\",\"name\",\"notes\",\"phone\",\"qualifier_claim\",\"slot\",\"turnstile_token\",\"type\"]"
+    },
+    {
+      "name": "voice: call_id and qualifier_claim ride on the POST",
+      "pass": true,
+      "detail": "call_id=\"call_verify_voice_001\" qualifier_claim=\"none\""
+    }
+  ],
+  "results": [
+    {
+      "viewport": {
+        "name": "desktop",
+        "width": 1280,
+        "height": 900,
+        "isMobile": false
+      },
+      "paintWaitMs": 1934,
+      "slotLabel": "11:00 AM",
+      "steps": [
+        {
+          "step": "date-picked",
+          "shot": "bkdetails-after-desktop-1-date-picked.png",
+          "state": "DATE_PICK"
+        }
+      ],
+      "afterSlot": {
+        "stepState": "FORM",
+        "slotSelected": true,
+        "detailsFormPresent": true,
+        "stepLabelOnScreen": "Your details",
+        "nameField": {
+          "present": true,
+          "top": 258,
+          "bottom": 297,
+          "height": 39,
+          "width": 680,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "hiddenBy": null,
+          "inViewport": true,
+          "viewportH": 900,
+          "scrollNeededPx": 0
+        },
+        "nextButton": {
+          "present": false
+        },
+        "submitButton": {
+          "present": true,
+          "top": 618,
+          "bottom": 660,
+          "height": 42,
+          "width": 266,
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "1",
+          "hiddenBy": null,
+          "inViewport": true,
+          "viewportH": 900,
+          "scrollNeededPx": 0
+        },
+        "stepHeader": {
+          "present": true,
+          "top": 142,
+          "bottom": 161,
+          "height": 19,
+          "width": 680,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "hiddenBy": null,
+          "inViewport": true,
+          "viewportH": 900,
+          "scrollNeededPx": 0
+        },
+        "slotReadback": {
+          "present": true,
+          "text": "Initial ConsultationMonday, August 10, 2026 at 11:00 AM EDT",
+          "top": 169,
+          "inViewport": true
+        },
+        "focused": "dl-bk-name",
+        "scrollY": 618,
+        "shot": "bkdetails-after-desktop-2-after-one-slot-click.png",
+        "detailsRendered": true,
+        "detailsOnScreen": true,
+        "rePickRequired": false
+      },
+      "scrollPass": {
+        "submitReachable": true,
+        "notesReachable": true,
+        "noHorizontalOverflow": true,
+        "shot": "bkdetails-after-desktop-3-details-scrolled-to-confirm.png"
+      },
+      "happy": {
+        "confirmRendered": true,
+        "confirmOnScreen": true,
+        "confirmSlotText": "Monday, August 10, 2026 at 11:00 AM EDT",
+        "postCount": 1,
+        "postBody": {
+          "deployment": "donovan-main",
+          "type": "consult",
+          "slot": "2026-08-10T15:00:00.000Z",
+          "name": "Jane Verify",
+          "email": "jane@example.com",
+          "phone": "(561) 555-0100",
+          "notes": "Real estate closing question",
+          "turnstile_token": ""
+        },
+        "postBodyKeys": [
+          "deployment",
+          "email",
+          "name",
+          "notes",
+          "phone",
+          "slot",
+          "turnstile_token",
+          "type"
+        ],
+        "postBodySlot": "2026-08-10T15:00:00.000Z",
+        "idempotencyKeySent": true,
+        "shot": "bkdetails-after-desktop-4-confirmed.png"
+      }
+    },
+    {
+      "viewport": {
+        "name": "mobile-390",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "paintWaitMs": 1941,
+      "slotLabel": "11:00 AM",
+      "steps": [
+        {
+          "step": "date-picked",
+          "shot": "bkdetails-after-mobile-390-1-date-picked.png",
+          "state": "DATE_PICK"
+        }
+      ],
+      "afterSlot": {
+        "stepState": "FORM",
+        "slotSelected": true,
+        "detailsFormPresent": true,
+        "stepLabelOnScreen": "Your details",
+        "nameField": {
+          "present": true,
+          "top": 178,
+          "bottom": 217,
+          "height": 39,
+          "width": 264,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "hiddenBy": null,
+          "inViewport": true,
+          "viewportH": 844,
+          "scrollNeededPx": 0
+        },
+        "nextButton": {
+          "present": false
+        },
+        "submitButton": {
+          "present": true,
+          "top": 640,
+          "bottom": 697,
+          "height": 56,
+          "width": 264,
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "1",
+          "hiddenBy": null,
+          "inViewport": true,
+          "viewportH": 844,
+          "scrollNeededPx": 0
+        },
+        "stepHeader": {
+          "present": true,
+          "top": 41,
+          "bottom": 60,
+          "height": 19,
+          "width": 264,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "hiddenBy": null,
+          "inViewport": true,
+          "viewportH": 844,
+          "scrollNeededPx": 0
+        },
+        "slotReadback": {
+          "present": true,
+          "text": "Initial ConsultationMonday, August 10, 2026 at 11:00 AM EDT",
+          "top": 68,
+          "inViewport": true
+        },
+        "focused": "dl-bk-name",
+        "scrollY": 1006,
+        "shot": "bkdetails-after-mobile-390-2-after-one-slot-click.png",
+        "detailsRendered": true,
+        "detailsOnScreen": true,
+        "rePickRequired": false
+      },
+      "scrollPass": {
+        "submitReachable": true,
+        "notesReachable": true,
+        "noHorizontalOverflow": true,
+        "shot": "bkdetails-after-mobile-390-3-details-scrolled-to-confirm.png"
+      },
+      "happy": {
+        "confirmRendered": true,
+        "confirmOnScreen": true,
+        "confirmSlotText": "Monday, August 10, 2026 at 11:00 AM EDT",
+        "postCount": 1,
+        "postBody": {
+          "deployment": "donovan-main",
+          "type": "consult",
+          "slot": "2026-08-10T15:00:00.000Z",
+          "name": "Jane Verify",
+          "email": "jane@example.com",
+          "phone": "(561) 555-0100",
+          "notes": "Real estate closing question",
+          "turnstile_token": ""
+        },
+        "postBodyKeys": [
+          "deployment",
+          "email",
+          "name",
+          "notes",
+          "phone",
+          "slot",
+          "turnstile_token",
+          "type"
+        ],
+        "postBodySlot": "2026-08-10T15:00:00.000Z",
+        "idempotencyKeySent": true,
+        "shot": "bkdetails-after-mobile-390-4-confirmed.png"
+      }
+    },
+    {
+      "viewport": {
+        "name": "mobile-360",
+        "width": 360,
+        "height": 640,
+        "isMobile": true
+      },
+      "paintWaitMs": 1943,
+      "slotLabel": "11:00 AM",
+      "steps": [
+        {
+          "step": "date-picked",
+          "shot": "bkdetails-after-mobile-360-1-date-picked.png",
+          "state": "DATE_PICK"
+        }
+      ],
+      "afterSlot": {
+        "stepState": "FORM",
+        "slotSelected": true,
+        "detailsFormPresent": true,
+        "stepLabelOnScreen": "Your details",
+        "nameField": {
+          "present": true,
+          "top": 179,
+          "bottom": 217,
+          "height": 39,
+          "width": 234,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "hiddenBy": null,
+          "inViewport": true,
+          "viewportH": 640,
+          "scrollNeededPx": 0
+        },
+        "nextButton": {
+          "present": false
+        },
+        "submitButton": {
+          "present": true,
+          "top": 640,
+          "bottom": 697,
+          "height": 56,
+          "width": 234,
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "1",
+          "hiddenBy": null,
+          "inViewport": false,
+          "viewportH": 640,
+          "scrollNeededPx": 57
+        },
+        "stepHeader": {
+          "present": true,
+          "top": 41,
+          "bottom": 60,
+          "height": 19,
+          "width": 234,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "hiddenBy": null,
+          "inViewport": true,
+          "viewportH": 640,
+          "scrollNeededPx": 0
+        },
+        "slotReadback": {
+          "present": true,
+          "text": "Initial ConsultationMonday, August 10, 2026 at 11:00 AM EDT",
+          "top": 68,
+          "inViewport": true
+        },
+        "focused": "dl-bk-name",
+        "scrollY": 1072,
+        "shot": "bkdetails-after-mobile-360-2-after-one-slot-click.png",
+        "detailsRendered": true,
+        "detailsOnScreen": true,
+        "rePickRequired": false
+      },
+      "scrollPass": {
+        "submitReachable": true,
+        "notesReachable": true,
+        "noHorizontalOverflow": true,
+        "shot": "bkdetails-after-mobile-360-3-details-scrolled-to-confirm.png"
+      },
+      "happy": {
+        "confirmRendered": true,
+        "confirmOnScreen": true,
+        "confirmSlotText": "Monday, August 10, 2026 at 11:00 AM EDT",
+        "postCount": 1,
+        "postBody": {
+          "deployment": "donovan-main",
+          "type": "consult",
+          "slot": "2026-08-10T15:00:00.000Z",
+          "name": "Jane Verify",
+          "email": "jane@example.com",
+          "phone": "(561) 555-0100",
+          "notes": "Real estate closing question",
+          "turnstile_token": ""
+        },
+        "postBodyKeys": [
+          "deployment",
+          "email",
+          "name",
+          "notes",
+          "phone",
+          "slot",
+          "turnstile_token",
+          "type"
+        ],
+        "postBodySlot": "2026-08-10T15:00:00.000Z",
+        "idempotencyKeySent": true,
+        "shot": "bkdetails-after-mobile-360-4-confirmed.png"
+      }
+    },
+    {
+      "viewport": {
+        "name": "mobile-320",
+        "width": 320,
+        "height": 568,
+        "isMobile": true
+      },
+      "paintWaitMs": 1947,
+      "slotLabel": "11:00 AM",
+      "steps": [
+        {
+          "step": "date-picked",
+          "shot": "bkdetails-after-mobile-320-1-date-picked.png",
+          "state": "DATE_PICK"
+        }
+      ],
+      "afterSlot": {
+        "stepState": "FORM",
+        "slotSelected": true,
+        "detailsFormPresent": true,
+        "stepLabelOnScreen": "Your details",
+        "nameField": {
+          "present": true,
+          "top": 179,
+          "bottom": 218,
+          "height": 39,
+          "width": 194,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "hiddenBy": null,
+          "inViewport": true,
+          "viewportH": 568,
+          "scrollNeededPx": 0
+        },
+        "nextButton": {
+          "present": false
+        },
+        "submitButton": {
+          "present": true,
+          "top": 665,
+          "bottom": 721,
+          "height": 56,
+          "width": 194,
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "1",
+          "hiddenBy": null,
+          "inViewport": false,
+          "viewportH": 568,
+          "scrollNeededPx": 153
+        },
+        "stepHeader": {
+          "present": true,
+          "top": 41,
+          "bottom": 60,
+          "height": 19,
+          "width": 194,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "hiddenBy": null,
+          "inViewport": true,
+          "viewportH": 568,
+          "scrollNeededPx": 0
+        },
+        "slotReadback": {
+          "present": true,
+          "text": "Initial ConsultationMonday, August 10, 2026 at 11:00 AM EDT",
+          "top": 68,
+          "inViewport": true
+        },
+        "focused": "dl-bk-name",
+        "scrollY": 1149,
+        "shot": "bkdetails-after-mobile-320-2-after-one-slot-click.png",
+        "detailsRendered": true,
+        "detailsOnScreen": true,
+        "rePickRequired": false
+      },
+      "scrollPass": {
+        "submitReachable": true,
+        "notesReachable": true,
+        "noHorizontalOverflow": true,
+        "shot": "bkdetails-after-mobile-320-3-details-scrolled-to-confirm.png"
+      },
+      "happy": {
+        "confirmRendered": true,
+        "confirmOnScreen": true,
+        "confirmSlotText": "Monday, August 10, 2026 at 11:00 AM EDT",
+        "postCount": 1,
+        "postBody": {
+          "deployment": "donovan-main",
+          "type": "consult",
+          "slot": "2026-08-10T15:00:00.000Z",
+          "name": "Jane Verify",
+          "email": "jane@example.com",
+          "phone": "(561) 555-0100",
+          "notes": "Real estate closing question",
+          "turnstile_token": ""
+        },
+        "postBodyKeys": [
+          "deployment",
+          "email",
+          "name",
+          "notes",
+          "phone",
+          "slot",
+          "turnstile_token",
+          "type"
+        ],
+        "postBodySlot": "2026-08-10T15:00:00.000Z",
+        "idempotencyKeySent": true,
+        "shot": "bkdetails-after-mobile-320-4-confirmed.png"
+      }
+    }
+  ],
+  "voice": {
+    "dayLabel": "2026-08-11",
+    "spokenTime": "11:00 AM",
+    "showDateResult": {
+      "ok": true
+    },
+    "afterShowDate": "DATE_PICK",
+    "selectResult": {
+      "ok": true
+    },
+    "afterSelect": "FORM",
+    "confirmed": true,
+    "body": {
+      "deployment": "donovan-main",
+      "type": "consult",
+      "slot": "2026-08-11T15:00:00.000Z",
+      "name": "Voice Caller",
+      "email": "voice@example.com",
+      "phone": "(561) 555-0123",
+      "notes": "",
+      "call_id": "call_verify_voice_001",
+      "qualifier_claim": "none",
+      "turnstile_token": ""
+    }
+  }
+}

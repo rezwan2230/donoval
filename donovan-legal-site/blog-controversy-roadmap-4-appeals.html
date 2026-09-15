@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Appeal Station | Roadmap Part 4 | Donovan Legal</title>
+<meta name="description" content="How the IRS Independent Office of Appeals works: the hazards-of-litigation standard, how cases arrive from exam and collection, and the exit clocks.">
+<style>
+  :root{--ink:#16242F;--mute:#5A7181;--bg:#FCFCFB;--panel:#FFFFFF;--line:#E2E8EC;
+        --emer:#01873F;--gold:#C9A961;--teal:#357E91;--indigo:#5B62A8;--sienna:#AE6038;
+        --serif:Georgia,'Times New Roman',serif;--sans:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;}
+  *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.72;font-size:18px;-webkit-font-smoothing:antialiased}
+  .article{max-width:1120px;margin:0 auto;padding:0 28px 80px}.prose{max-width:720px;margin:0 auto}
+  .masthead{max-width:1120px;margin:0 auto;padding:22px 28px 0;display:flex;align-items:center;justify-content:space-between}
+  .brand{font-weight:700;letter-spacing:1.5px;font-size:13px}.brand .re{color:var(--emer)}
+  .masthead .tag{color:var(--mute);font-size:12px;letter-spacing:1px}
+  .rule{max-width:1120px;margin:14px auto 0;padding:0 28px}.rule hr{border:0;border-top:2px solid var(--emer);margin:0}
+  header.post{padding:46px 0 8px}
+  .backlink{display:inline-block;color:var(--mute);font-size:13px;letter-spacing:.4px;margin-bottom:18px}.backlink:hover{color:var(--emer)}
+  /* JORDAN-195: gold as TEXT on the #FCFCFB page reads 2.19:1 and fails. --gold
+     itself stays the band fill (.num, and .closing .sig on the dark block, where
+     it reads 7.75:1) and is deliberately not re-valued. */
+  .eyebrow{color:#806633;font-weight:700;letter-spacing:2.4px;font-size:12.5px;text-transform:uppercase;margin:0 0 14px}
+  h1{font-family:var(--serif);font-weight:400;font-size:46px;line-height:1.08;margin:0 0 18px;letter-spacing:-.3px}
+  .standfirst{font-family:var(--serif);font-style:italic;color:var(--mute);font-size:21px;line-height:1.5;margin:0}
+  .meta{color:var(--mute);font-size:13.5px;letter-spacing:.4px;margin:22px 0 0;padding-top:16px;border-top:1px solid var(--line)}
+  .disclaimer{background:#FAF7EF;border:1px solid #E9DFC4;border-left:4px solid var(--gold);border-radius:10px;padding:18px 22px;margin:30px auto 8px;max-width:720px;font-size:15px;line-height:1.6;color:#4a4634}.disclaimer b{color:var(--ink)}
+  figure.map{margin:40px 0 18px}.map-frame{background:#F2F5F7;border:1px solid var(--line);border-radius:14px;padding:18px;overflow:hidden}
+  .roadmap-svg{display:block}figcaption{color:var(--mute);font-size:13.5px;text-align:center;margin-top:12px;font-style:italic}
+  h2{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.15;margin:52px 0 6px;letter-spacing:-.2px}
+  p{margin:0 0 18px}.lead{font-size:19.5px}
+  .roads{list-style:none;padding:0;margin:22px 0 8px}
+  .roads li{padding:16px 0 16px 18px;border-left:3px solid var(--line);margin-bottom:4px}
+  .roads li.teal{border-color:var(--teal)}.roads li.indigo{border-color:var(--indigo)}.roads li.sienna{border-color:var(--sienna)}.roads li.emer{border-color:var(--emer)}
+  .roads h3{margin:0 0 4px;font-size:18px;font-family:var(--sans);font-weight:700}
+  .roads h3 .pt{font-size:11px;font-weight:700;color:#fff;background:var(--mute);border-radius:9px;padding:2px 8px;margin-left:8px;letter-spacing:.4px;vertical-align:2px}
+  .roads h3 .pt.i{background:var(--indigo)}.roads h3 .pt.s{background:var(--sienna)}.roads h3 .pt.t{background:var(--teal)}
+  .roads p{margin:0;color:var(--mute);font-size:16px;line-height:1.55}
+  .clockline{background:#FAF7EF;border-radius:10px;padding:14px 18px;margin:8px 0 0;font-size:15.5px;color:#4a4634}.clockline b{color:var(--ink)}
+  .warn{background:#FBF1EC;border:1px solid #ECCDBD;border-left:4px solid var(--sienna);border-radius:10px;padding:16px 20px;margin:24px 0 0;font-size:16px;color:#5a3a2c}.warn b{color:var(--ink)}
+  .next{display:flex;gap:14px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:30px 0 0}
+  .next .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--sienna);color:#fff;font-weight:700;display:inline-flex;align-items:center;justify-content:center;font-size:13px}
+  .next .t{font-weight:700}.next .d{color:var(--mute);font-size:15px}
+  .closing{background:#0E1B26;color:#EDEFEC;border-radius:14px;padding:34px;margin:50px auto 0;max-width:1120px}
+  .closing h2{color:#fff;margin-top:0;font-size:27px}.closing p{color:#C5D0D6;font-size:17px}
+  /* JORDAN-195: the closing block is dark (#0E1B26), so the page link colour
+     darkened for the light body (--emer #01873F) reads only 3.77:1 on it. Light
+     and dark cannot share one value here, so this block keeps the lighter
+     emerald, which is 4.75:1 against #0E1B26. */
+  .closing a{color:#019A48 /* a11y:dark-surface */}
+  .closing .sig{color:var(--gold);font-style:italic;font-family:var(--serif);font-size:18px;margin-top:10px}
+  footer{max-width:1120px;margin:46px auto 0;padding:24px 28px 60px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  footer .fine{color:var(--mute);font-size:12.5px;max-width:720px;line-height:1.5}
+  footer .fm{text-align:right}footer .fm b{letter-spacing:1px}footer .fm span{display:block;color:var(--mute);font-style:italic;font-size:12px;font-family:var(--serif)}
+  a{color:var(--emer);text-decoration:none}
+  /* JORDAN-195 (link-in-text-block, WCAG 1.4.1): a link inside running text must
+     be tellable from that text by something other than colour. The rule above
+     strips the underline site-wide on these posts, so the eight body cross-links
+     added by #197 were distinguished by hue alone - axe measured 2.33:1 against
+     the surrounding text, against a 3:1 floor. Scoped to <a> inside a paragraph
+     so the station cards and the masthead links are untouched: those carry their
+     own inline text-decoration:none, which wins over this rule anyway. */
+  p a{text-decoration:underline}a:hover{text-decoration:underline}a:focus-visible{outline:2px solid var(--emer);outline-offset:3px;border-radius:2px}
+  code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em;background:#EEF2F4;padding:1px 5px;border-radius:4px}
+  @media (max-width:720px){body{font-size:17px}h1{font-size:32px}h2{font-size:24px}.standfirst{font-size:18px}.closing{padding:26px 22px}footer{flex-direction:column;align-items:flex-start}footer .fm{text-align:left}}
+</style>  <link rel="canonical" href="https://www.donovan.law/blog-controversy-roadmap-4-appeals">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Donovan Legal PLLC">
+  <meta property="og:url" content="https://www.donovan.law/blog-controversy-roadmap-4-appeals">
+  <meta property="og:title" content="The Appeal Station | Tax Controversy Roadmap Part 4 | Donovan Legal">
+  <meta property="og:description" content="How the IRS Independent Office of Appeals works — the hazards-of-litigation settlement standard, how cases enter from exam and collection, and the two different clocks that lead out to the Tax Court. Part 4 of the Donovan Legal Tax Controversy Roadmap.">
+  <meta property="og:image" content="https://www.donovan.law/img/firm-img.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Appeal Station | Tax Controversy Roadmap Part 4 | Donovan Legal">
+  <meta name="twitter:description" content="How the IRS Independent Office of Appeals works — the hazards-of-litigation settlement standard, how cases enter from exam and collection, and the two different clocks that lead out to the Tax Court. Part 4 of the Donovan Legal Tax Controversy Roadmap.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Appeal Station | Tax Controversy Roadmap Part 4","url":"https://www.donovan.law/blog-controversy-roadmap-4-appeals","author":{"@type":"Organization","name":"Donovan Legal PLLC"},"publisher":{"@type":"Organization","name":"Donovan Legal PLLC","logo":{"@type":"ImageObject","url":"https://www.donovan.law/img/favicon.png"}}}</script>
+</head><body>
+<div class="masthead"><a class="brand" href="index.html" style="color:inherit;text-decoration:none">DONOVAN <span class="re">LEGAL</span></a><div class="tag"><a href="blog.html" style="color:inherit;text-decoration:none">&larr; All Tax Notes</a></div></div>
+<div class="rule"><hr></div>
+<div class="article">
+  <header class="post prose">
+    <a class="backlink" href="blog-controversy-roadmap-3-exam-alternatives.html">← Part 3 · Exam Alternatives</a>
+    <p class="eyebrow">Tax Controversy Roadmap — Part 4</p>
+    <h1>The Appeal Station</h1>
+    <p class="standfirst">One independent conference — the last place a dispute can be settled on its merits before a courtroom.</p>
+    <p class="meta">Donovan Legal&nbsp;·&nbsp;Tax Controversy Practice</p>
+  </header>
+  <div class="disclaimer"><b>This post is part of a high-level series.</b> It explains federal tax procedure in general terms and is not legal advice; reading it does not create an attorney–client relationship. The deadlines to enter Appeals and to seek court review after it are short, and one of them is jurisdictional. Before filing a protest or a hearing request, consult counsel.</div>
+  <figure class="map"><div class="map-frame"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1480 900" width="100%" height="auto" class="roadmap-svg" role="img" aria-label="Detail map of the Appeal Station: cases enter from Exam, Collection, and rejected offers, converge in one independent Appeals conference, and exit either to settlement or to Tax Court by a jurisdictional 90-day notice of deficiency or a tollable 30-day notice of determination"> font-family="'Helvetica Neue',Arial,sans-serif">
+<rect width="1480" height="900" fill="#F2F5F7"/>
+<text x="70" y="58" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" fill="#C9A961" font-weight="700" text-anchor="start" letter-spacing="2">TAX CONTROVERSY ROADMAP · PART 4</text>
+<text x="70" y="96" font-family="Georgia,'Times New Roman',serif" font-size="35" fill="#16242F" font-weight="400" text-anchor="start">The Appeal Station</text>
+<text x="72" y="122" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#5E7686" font-weight="400" text-anchor="start" font-style="italic">One independent conference — the last off-ramp before a courtroom.</text>
+<rect x="72" y="138" width="320" height="3" fill="#5B62A8"/>
+<text x="1410" y="58" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="700" text-anchor="end" letter-spacing="1.5">DETAIL MAP</text>
+<line x1="385.0" y1="300" x2="480.0" y2="300" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<circle cx="480.0" cy="300" r="4" fill="#90A2AD"/>
+<line x1="385.0" y1="470" x2="480.0" y2="470" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<circle cx="480.0" cy="470" r="4" fill="#90A2AD"/>
+<line x1="385.0" y1="640" x2="480.0" y2="640" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<circle cx="480.0" cy="640" r="4" fill="#90A2AD"/>
+<line x1="480.0" y1="300" x2="480.0" y2="640" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="480.0" y1="470" x2="575.0" y2="470" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="574.0,470 564.2,463 564.2,477" fill="#90A2AD"/>
+<line x1="925.0" y1="470" x2="1011.5" y2="470" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<circle cx="1011.5" cy="470" r="4" fill="#90A2AD"/>
+<line x1="1011.5" y1="300" x2="1011.5" y2="660" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="1011.5" y1="300" x2="1098.0" y2="300" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="1097.0,300 1087.2,293 1087.2,307" fill="#90A2AD"/>
+<circle cx="1011.5" cy="300" r="4" fill="#90A2AD"/>
+<line x1="1011.5" y1="480" x2="1098.0" y2="480" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="1097.0,480 1087.2,473 1087.2,487" fill="#90A2AD"/>
+<circle cx="1011.5" cy="480" r="4" fill="#90A2AD"/>
+<line x1="1011.5" y1="660" x2="1098.0" y2="660" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="1097.0,660 1087.2,653 1087.2,667" fill="#90A2AD"/>
+<circle cx="1011.5" cy="660" r="4" fill="#90A2AD"/>
+<line x1="1248" y1="409.0" x2="1248" y2="434.0" stroke="#90A2AD" stroke-width="2" stroke-linecap="round"/>
+<line x1="1248" y1="589.0" x2="1248" y2="614.0" stroke="#90A2AD" stroke-width="2" stroke-linecap="round"/>
+<rect x="87.0" y="258.0" width="300" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="85.0" y="254.0" width="300" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="85.0" y="254.0" width="6.5" height="92" fill="#3C8DA3"/>
+<rect x="85.0" y="254.0" width="6.5" height="13" rx="6" fill="#3C8DA3"/>
+<text x="238" y="303.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">From Exam</text>
+<text x="238" y="321.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Unagreed · 30-day letter</text>
+<text x="238" y="336.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Protest &gt;$25k / F.12203 ≤$25k</text>
+<rect x="321.4" y="262.0" width="55.599999999999994" height="18" rx="9" fill="#3C8DA3"/>
+<text x="349.2" y="275.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.4">PART 2</text>
+<rect x="87.0" y="428.0" width="300" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="85.0" y="424.0" width="300" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="85.0" y="424.0" width="6.5" height="92" fill="#C06A3E"/>
+<rect x="85.0" y="424.0" width="6.5" height="13" rx="6" fill="#C06A3E"/>
+<text x="238" y="473.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">From Collection</text>
+<text x="238" y="491.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">CDP · Form 12153 (30 days)</text>
+<text x="238" y="506.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">or CAP · Form 9423</text>
+<rect x="321.4" y="432.0" width="55.599999999999994" height="18" rx="9" fill="#C06A3E"/>
+<text x="349.2" y="445.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.4">PART 5</text>
+<rect x="87.0" y="598.0" width="300" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="85.0" y="594.0" width="300" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="85.0" y="594.0" width="6.5" height="92" fill="#C06A3E"/>
+<rect x="85.0" y="594.0" width="6.5" height="13" rx="6" fill="#C06A3E"/>
+<text x="238" y="643.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">OIC Rejected</text>
+<text x="238" y="661.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Appeal a rejected offer</text>
+<text x="238" y="676.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Form 13711</text>
+<rect x="321.4" y="602.0" width="55.599999999999994" height="18" rx="9" fill="#C06A3E"/>
+<text x="349.2" y="615.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.4">PART 6</text>
+<rect x="577.0" y="416.0" width="350" height="116" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="575.0" y="412.0" width="350" height="116" rx="12" fill="#FFFFFF" stroke="#5B62A8" stroke-width="2.5"/>
+<rect x="575.0" y="412.0" width="6.5" height="116" fill="#5B62A8"/>
+<rect x="575.0" y="412.0" width="6.5" height="13" rx="6" fill="#5B62A8"/>
+<text x="753" y="452.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="17" fill="#16242F" font-weight="700" text-anchor="middle">Independent Office of Appeals</text>
+<text x="753" y="470.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">One conference — independent of</text>
+<text x="753" y="485.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Exam and Collection.</text>
+<text x="753" y="500.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Settles on hazards of litigation · §7803(e)</text>
+<rect x="1100.0" y="258.0" width="300" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="1098.0" y="254.0" width="300" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="1098.0" y="254.0" width="6.5" height="92" fill="#019A48"/>
+<rect x="1098.0" y="254.0" width="6.5" height="13" rx="6" fill="#019A48"/>
+<text x="1251" y="290.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Agreement</text>
+<text x="1251" y="308.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Settle and close</text>
+<text x="1251" y="323.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Form 870-AD / Form 906</text>
+<rect x="1100.0" y="438.0" width="300" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="1098.0" y="434.0" width="300" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="1098.0" y="434.0" width="6.5" height="92" fill="#5B62A8"/>
+<rect x="1098.0" y="434.0" width="6.5" height="13" rx="6" fill="#5B62A8"/>
+<text x="1251" y="483.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="14" fill="#16242F" font-weight="700" text-anchor="middle">Notice of Deficiency</text>
+<text x="1251" y="501.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Exam side · no agreement</text>
+<text x="1251" y="516.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">90-day petition</text>
+<rect x="1294.8" y="442.0" width="95.19999999999999" height="18" rx="9" fill="#5B62A8"/>
+<text x="1342.4" y="455.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.4">→ TAX CT · 7</text>
+<rect x="1100.0" y="618.0" width="300" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="1098.0" y="614.0" width="300" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="1098.0" y="614.0" width="6.5" height="92" fill="#5B62A8"/>
+<rect x="1098.0" y="614.0" width="6.5" height="13" rx="6" fill="#5B62A8"/>
+<text x="1251" y="663.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="14" fill="#16242F" font-weight="700" text-anchor="middle">Notice of Determination</text>
+<text x="1251" y="681.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Collection side · CDP</text>
+<text x="1251" y="696.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Letter 3193</text>
+<rect x="1294.8" y="622.0" width="95.19999999999999" height="18" rx="9" fill="#5B62A8"/>
+<text x="1342.4" y="635.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.4">→ TAX CT · 7</text>
+<rect x="1199.0" y="363.0" width="98" height="46" rx="10" fill="#C9A961"/>
+<rect x="1199.0" y="363.0" width="98" height="14" rx="7" fill="#FFFFFF" opacity="0.18"/>
+<circle cx="1217.0" cy="386.0" r="9" fill="none" stroke="#16242F" stroke-width="2"/>
+<line x1="1217.0" y1="386.0" x2="1217.0" y2="381.0" stroke="#16242F" stroke-width="2" stroke-linecap="round"/>
+<line x1="1217.0" y1="386.0" x2="1221.0" y2="388.0" stroke="#16242F" stroke-width="2" stroke-linecap="round"/>
+<text x="1260" y="385.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="18" fill="#16242F" font-weight="700" text-anchor="middle">90</text>
+<text x="1260" y="400.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="#16242F" font-weight="700" text-anchor="middle">§6213(a)</text>
+<rect x="1199.0" y="363.0" width="98" height="46" rx="10" fill="none" stroke="#16242F" stroke-width="2.5"/>
+<text x="1248" y="354.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" fill="#C06A3E" font-weight="700" text-anchor="middle" letter-spacing="0.3">NO TOLLING — JURISDICTIONAL</text>
+<rect x="1199.0" y="543.0" width="98" height="46" rx="10" fill="#C9A961"/>
+<rect x="1199.0" y="543.0" width="98" height="14" rx="7" fill="#FFFFFF" opacity="0.18"/>
+<circle cx="1217.0" cy="566.0" r="9" fill="none" stroke="#16242F" stroke-width="2"/>
+<line x1="1217.0" y1="566.0" x2="1217.0" y2="561.0" stroke="#16242F" stroke-width="2" stroke-linecap="round"/>
+<line x1="1217.0" y1="566.0" x2="1221.0" y2="568.0" stroke="#16242F" stroke-width="2" stroke-linecap="round"/>
+<text x="1260" y="565.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="18" fill="#16242F" font-weight="700" text-anchor="middle">30</text>
+<text x="1260" y="580.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="#16242F" font-weight="700" text-anchor="middle">§6330(d)(1)</text>
+<text x="1248" y="534.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" fill="#019A48" font-weight="700" text-anchor="middle" letter-spacing="0.3">EQUITABLE TOLLING · BOECHLER</text>
+<line x1="70" y1="832" x2="1410" y2="832" stroke="#C4D0D8" stroke-width="1.5"/>
+<text x="70" y="858" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" fill="#16242F" font-weight="700" text-anchor="start" letter-spacing="0.5">PART 4 OF THE SERIES.</text>
+<text x="232" y="858" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" fill="#5E7686" font-weight="400" text-anchor="start">General information about tax procedure — not legal advice. The two exit clocks are not the same kind of deadline.</text>
+<text x="1410" y="852" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" fill="#16242F" font-weight="700" text-anchor="end" letter-spacing="1">DONOVAN LEGAL</text>
+<text x="1410" y="869" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10.5" fill="#5E7686" font-weight="400" text-anchor="end" font-style="italic">One firm. One signature. Full-arc defense.</text>
+</svg></div>
+    <figcaption>Part 4: cases converge on one independent Appeals conference, then exit to settlement or to the Tax Court by two different clocks.</figcaption></figure>
+  
+<div class="prose">
+  <h2>The one room where litigation risk counts</h2>
+  <p class="lead">The IRS Independent Office of Appeals does something no examiner and no collection officer can do: it can settle a case on the <strong>hazards of litigation</strong> — a clear-eyed estimate of how the dispute would actually come out in court, and a willingness to split the difference accordingly.</p>
+  <p>An examiner applies the law as the IRS reads it. Appeals asks a different question — what is the realistic chance the government would lose, and what is that risk worth? Its statutory independence (IRC §7803(e)) is the whole point. It is why the great majority of disputes that reach it are resolved there, without a courtroom.</p>
+
+  <h2>Getting in — the door depends on where you came from</h2>
+  <p>Appeals is fed from more than one station, and the entry form differs by source.</p>
+  <ul class="roads">
+    <li class="teal"><h3>From an exam<span class="pt t">PART 2</span></h3><p>An unagreed audit produces a 30-day letter. The response is a <strong>formal written protest</strong> where the proposed change for the period exceeds $25,000, or the shorter <code>Form 12203</code> small-case request at or below that threshold.</p></li>
+    <li class="sienna"><h3>From collection<span class="pt s">PART 5</span></h3><p>A final notice of intent to levy, or a lien filing, carries Collection Due Process rights — a hearing requested on <code>Form 12153</code> within 30 days. A faster, narrower alternative is the Collection Appeals Program (<code>Form 9423</code>), which reaches liens, levies, seizures, and installment-agreement terminations — but produces <em>no</em> right to judicial review.</p></li>
+    <li class="sienna"><h3>A rejected offer<span class="pt s">PART 6</span></h3><p>When an offer in compromise is turned down, the rejection can be appealed on <code>Form 13711</code> within 30 days.</p></li>
+  </ul>
+
+  <h2>The conference</h2>
+  <p>An Appeals conference is informal — typically one Appeals officer, by phone or in writing, with no examiner across the table. The taxpayer's job is to make the litigation risk visible: the unsettled law, the missing third-party proof, the sympathetic facts. That is the currency Appeals is authorized to trade in.</p>
+
+  <h2>Getting out</h2>
+  <ul class="roads">
+    <li class="emer"><h3>Agreement</h3><p>A settlement is memorialized on <code>Form 870-AD</code> — an offer of waiver Appeals accepts — or, where the matter warrants binding finality, a <code>Form 906</code> closing agreement. The tax is assessed on the agreed terms and the matter closes.</p></li>
+    <li class="indigo"><h3>No agreement, exam side<span class="pt i">PART 7</span></h3><p>If the audit issues can't be resolved, the IRS issues a Statutory Notice of Deficiency — and the 90-day clock to the Tax Court begins.</p></li>
+    <li class="indigo"><h3>No agreement, collection side<span class="pt i">PART 7</span></h3><p>If a CDP matter can't be resolved, Appeals issues a Notice of Determination (<code>Letter 3193</code>), reviewable in the Tax Court within 30 days under §6330(d)(1).</p></li>
+  </ul>
+
+  <div class="warn"><b>The two exit clocks are not the same kind of deadline.</b> The 90-day deficiency window is <b>jurisdictional</b> — miss it and the Tax Court has no power to hear the case, full stop. The 30-day collection-determination window is different: the Supreme Court held in <em>Boechler</em> (2022) that it is non-jurisdictional and open to equitable tolling. That is a safety net, not a plan. Both should be treated as immovable and filed well inside the window.</div>
+
+  <h2>Why this station matters</h2>
+  <p>Appeals is the last place a dispute can be resolved on its merits without the cost, delay, and exposure of litigation — and the only place the government will price its own risk. A protest that frames that risk well is worth more than one that simply re-argues the audit. Done right, this is where most matters should end.</p>
+</div>
+
+<div class="prose">
+  <a class="next" href="blog-controversy-roadmap-5-collection.html"><span class="n">5</span><span><span class="t">Next — Part 5: The Collection Station</span><br><span class="d">The notice stream, liens and levies, and the Collection Due Process rights that attach along the way.</span></span></a>
+</div>
+
+  <div class="closing">
+    <h2>One firm, the full arc</h2>
+    <p>A protest is an advocacy document, not a form — its job is to make the government's litigation risk impossible to ignore. The same counsel who built the audit record is best placed to argue it here, and to carry it to court if Appeals won't move. Donovan Legal represents taxpayers across the entire arc, under one signature.</p>
+    <p>For how the firm prepares and argues a protest, see <a href="irs-appeals.html">IRS Appeals</a>.</p>
+    <p class="sig">One firm. One signature. Full-arc defense.</p>
+  </div>
+</div>
+<footer>
+  <div class="fine"><b>General information, not legal advice.</b> This post describes federal tax procedure in general terms and does not address the facts or deadlines of any particular matter. It does not create an attorney–client relationship. Appeals eligibility, thresholds, and the deadlines for court review are fact-specific; consult qualified counsel before acting.</div>
+  <div class="fm"><b>DONOVAN LEGAL</b><span>One firm. One signature. Full-arc defense.</span></div>
+</footer>
+</body></html>

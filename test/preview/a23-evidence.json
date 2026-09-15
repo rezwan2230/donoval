@@ -1,0 +1,789 @@
+{
+  "order": "JORDAN-PERCH-A23-TURNSTILE",
+  "ticket": 53,
+  "base": "http://localhost:8788",
+  "startedAt": "2026-07-25T15:56:33.829Z",
+  "steps": [
+    {
+      "name": "the router — and therefore this recipe — is OFF on production by default",
+      "ok": true,
+      "detail": {
+        "www.donovan.law": false,
+        "preview": true
+      }
+    },
+    {
+      "name": "the router is injected and ready on Preview",
+      "ok": true,
+      "detail": {
+        "container": "#perch-main",
+        "chrome": {
+          "ok": true,
+          "nav": true,
+          "jquery": true
+        }
+      }
+    },
+    {
+      "name": "8 navigations were SWAPS, not reloads",
+      "ok": true,
+      "detail": {
+        "navigations": 8,
+        "loadEvents": 0
+      }
+    },
+    {
+      "name": "every formless swap reports row 12 `absent`",
+      "ok": true,
+      "detail": [
+        {
+          "n": 1,
+          "path": "/about",
+          "status": "absent"
+        },
+        {
+          "n": 3,
+          "path": "/practice-areas",
+          "status": "absent"
+        },
+        {
+          "n": 5,
+          "path": "/contact",
+          "status": "absent"
+        },
+        {
+          "n": 7,
+          "path": "/about",
+          "status": "absent"
+        }
+      ]
+    },
+    {
+      "name": "a formless swap issues ZERO Turnstile calls",
+      "ok": true,
+      "detail": [
+        {
+          "n": 1,
+          "path": "/about",
+          "render": 0,
+          "reset": 0,
+          "remove": 0
+        },
+        {
+          "n": 3,
+          "path": "/practice-areas",
+          "render": 0,
+          "reset": 0,
+          "remove": 0
+        },
+        {
+          "n": 5,
+          "path": "/contact",
+          "render": 0,
+          "reset": 0,
+          "remove": 0
+        },
+        {
+          "n": 7,
+          "path": "/about",
+          "render": 0,
+          "reset": 0,
+          "remove": 0
+        }
+      ]
+    },
+    {
+      "name": "every swap into /book adopts api.js and finds the seam published",
+      "ok": true,
+      "detail": [
+        {
+          "n": 2,
+          "api": true,
+          "seam": true
+        },
+        {
+          "n": 4,
+          "api": true,
+          "seam": true
+        },
+        {
+          "n": 6,
+          "api": true,
+          "seam": true
+        },
+        {
+          "n": 8,
+          "api": true,
+          "seam": true
+        }
+      ]
+    },
+    {
+      "name": "no swap left a broken recipe row",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "after N swaps the swapped-in mount carries a freshly rendered Turnstile widget",
+      "ok": true,
+      "detail": [
+        {
+          "n": 2,
+          "mount": true,
+          "widgetNodes": 1,
+          "action": "reset",
+          "id": "cf-chl-widget-2be2g"
+        },
+        {
+          "n": 4,
+          "mount": true,
+          "widgetNodes": 1,
+          "action": "reset",
+          "id": "cf-chl-widget-0jirc"
+        },
+        {
+          "n": 6,
+          "mount": true,
+          "widgetNodes": 1,
+          "action": "reset",
+          "id": "cf-chl-widget-0if9n"
+        },
+        {
+          "n": 8,
+          "mount": true,
+          "widgetNodes": 1,
+          "action": "reset",
+          "id": "cf-chl-widget-q5mm1"
+        }
+      ]
+    },
+    {
+      "name": "each /book arrival carries a DISTINCT widget id — not the previous DOM's",
+      "ok": true,
+      "detail": [
+        "cf-chl-widget-2be2g",
+        "cf-chl-widget-0jirc",
+        "cf-chl-widget-0if9n",
+        "cf-chl-widget-q5mm1"
+      ]
+    },
+    {
+      "name": "DOUBLE-RENDER GUARD — three extra passes render nothing and leave one widget",
+      "ok": true,
+      "detail": [
+        {
+          "n": 2,
+          "widgetNodes": 1,
+          "actions": [
+            "reset",
+            "reset",
+            "reset"
+          ]
+        },
+        {
+          "n": 4,
+          "widgetNodes": 1,
+          "actions": [
+            "reset",
+            "reset",
+            "reset"
+          ]
+        },
+        {
+          "n": 6,
+          "widgetNodes": 1,
+          "actions": [
+            "reset",
+            "reset",
+            "reset"
+          ]
+        },
+        {
+          "n": 8,
+          "widgetNodes": 1,
+          "actions": [
+            "reset",
+            "reset",
+            "reset"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "the challenge itself is served and can mint a token",
+      "ok": null,
+      "detail": {
+        "turnstileError": "110200 (unknown domain)",
+        "host": "http://localhost:8788",
+        "meaning": "the sitekey 0x4AAAAAAD3X3AEk_IbefC4I does not allow-list this host, so Cloudflare served no challenge — unrelated to the swap path",
+        "observed": [
+          {
+            "n": 2,
+            "challenges": 0
+          },
+          {
+            "n": 4,
+            "challenges": 0
+          },
+          {
+            "n": 6,
+            "challenges": 0
+          },
+          {
+            "n": 8,
+            "challenges": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "no CSP violation was logged",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "no uncaught page error (Turnstile refusals counted separately)",
+      "ok": true,
+      "detail": {
+        "pageErrors": [],
+        "turnstileErrors": [
+          "110200",
+          "110200",
+          "110200",
+          "110200"
+        ]
+      }
+    }
+  ],
+  "swaps": [
+    {
+      "n": 1,
+      "path": "/about",
+      "url": "/about.html",
+      "row12": {
+        "step": 12,
+        "name": "turnstile re-render",
+        "status": "absent",
+        "detail": {
+          "reason": "no Turnstile-protected form in the swapped-in container"
+        }
+      },
+      "broken": [],
+      "state": {
+        "hasBookingHost": false,
+        "mountPresent": false,
+        "challenges": 0,
+        "widgetNodes": 0,
+        "iframeSrc": null,
+        "seamPublished": false,
+        "turnstileApi": false,
+        "widgetStep": null
+      },
+      "delta": {
+        "render": 0,
+        "reset": 0,
+        "remove": 0
+      }
+    },
+    {
+      "n": 2,
+      "path": "/book",
+      "url": "/book",
+      "row12": {
+        "step": 12,
+        "name": "turnstile re-render",
+        "status": "deferred",
+        "detail": {
+          "reason": "widget is not at the FORM step yet — its own mount runs when the form paints"
+        }
+      },
+      "broken": [],
+      "state": {
+        "hasBookingHost": true,
+        "mountPresent": false,
+        "challenges": 0,
+        "widgetNodes": 0,
+        "iframeSrc": null,
+        "seamPublished": true,
+        "turnstileApi": true,
+        "widgetStep": "DATE_PICK"
+      },
+      "delta": {
+        "render": 0,
+        "reset": 0,
+        "remove": 0
+      }
+    },
+    {
+      "n": 3,
+      "path": "/practice-areas",
+      "url": "/practice-areas.html",
+      "row12": {
+        "step": 12,
+        "name": "turnstile re-render",
+        "status": "absent",
+        "detail": {
+          "reason": "no Turnstile-protected form in the swapped-in container"
+        }
+      },
+      "broken": [],
+      "state": {
+        "hasBookingHost": false,
+        "mountPresent": false,
+        "challenges": 0,
+        "widgetNodes": 0,
+        "iframeSrc": null,
+        "seamPublished": true,
+        "turnstileApi": true,
+        "widgetStep": "FORM"
+      },
+      "delta": {
+        "render": 0,
+        "reset": 0,
+        "remove": 0
+      }
+    },
+    {
+      "n": 4,
+      "path": "/book",
+      "url": "/book",
+      "row12": {
+        "step": 12,
+        "name": "turnstile re-render",
+        "status": "deferred",
+        "detail": {
+          "reason": "widget is not at the FORM step yet — its own mount runs when the form paints"
+        }
+      },
+      "broken": [],
+      "state": {
+        "hasBookingHost": true,
+        "mountPresent": false,
+        "challenges": 0,
+        "widgetNodes": 0,
+        "iframeSrc": null,
+        "seamPublished": true,
+        "turnstileApi": true,
+        "widgetStep": "DATE_PICK"
+      },
+      "delta": {
+        "render": 0,
+        "reset": 0,
+        "remove": 0
+      }
+    },
+    {
+      "n": 5,
+      "path": "/contact",
+      "url": "/contact",
+      "row12": {
+        "step": 12,
+        "name": "turnstile re-render",
+        "status": "absent",
+        "detail": {
+          "reason": "no Turnstile-protected form in the swapped-in container"
+        }
+      },
+      "broken": [],
+      "state": {
+        "hasBookingHost": false,
+        "mountPresent": false,
+        "challenges": 0,
+        "widgetNodes": 0,
+        "iframeSrc": null,
+        "seamPublished": true,
+        "turnstileApi": true,
+        "widgetStep": "FORM"
+      },
+      "delta": {
+        "render": 0,
+        "reset": 0,
+        "remove": 0
+      }
+    },
+    {
+      "n": 6,
+      "path": "/book",
+      "url": "/book",
+      "row12": {
+        "step": 12,
+        "name": "turnstile re-render",
+        "status": "deferred",
+        "detail": {
+          "reason": "widget is not at the FORM step yet — its own mount runs when the form paints"
+        }
+      },
+      "broken": [],
+      "state": {
+        "hasBookingHost": true,
+        "mountPresent": false,
+        "challenges": 0,
+        "widgetNodes": 0,
+        "iframeSrc": null,
+        "seamPublished": true,
+        "turnstileApi": true,
+        "widgetStep": "DATE_PICK"
+      },
+      "delta": {
+        "render": 0,
+        "reset": 0,
+        "remove": 0
+      }
+    },
+    {
+      "n": 7,
+      "path": "/about",
+      "url": "/about.html",
+      "row12": {
+        "step": 12,
+        "name": "turnstile re-render",
+        "status": "absent",
+        "detail": {
+          "reason": "no Turnstile-protected form in the swapped-in container"
+        }
+      },
+      "broken": [],
+      "state": {
+        "hasBookingHost": false,
+        "mountPresent": false,
+        "challenges": 0,
+        "widgetNodes": 0,
+        "iframeSrc": null,
+        "seamPublished": true,
+        "turnstileApi": true,
+        "widgetStep": "FORM"
+      },
+      "delta": {
+        "render": 0,
+        "reset": 0,
+        "remove": 0
+      }
+    },
+    {
+      "n": 8,
+      "path": "/book",
+      "url": "/book",
+      "row12": {
+        "step": 12,
+        "name": "turnstile re-render",
+        "status": "deferred",
+        "detail": {
+          "reason": "widget is not at the FORM step yet — its own mount runs when the form paints"
+        }
+      },
+      "broken": [],
+      "state": {
+        "hasBookingHost": true,
+        "mountPresent": false,
+        "challenges": 0,
+        "widgetNodes": 0,
+        "iframeSrc": null,
+        "seamPublished": true,
+        "turnstileApi": true,
+        "widgetStep": "DATE_PICK"
+      },
+      "delta": {
+        "render": 0,
+        "reset": 0,
+        "remove": 0
+      }
+    }
+  ],
+  "bookVisits": [
+    {
+      "n": 2,
+      "reached": {
+        "ok": true,
+        "step": "FORM",
+        "picked": "2026-09-14T13:00:00.000Z"
+      },
+      "armed": {
+        "hasBookingHost": true,
+        "mountPresent": true,
+        "challenges": 0,
+        "widgetNodes": 1,
+        "iframeSrc": null,
+        "seamPublished": true,
+        "turnstileApi": true,
+        "widgetStep": "FORM"
+      },
+      "seam": {
+        "ok": true,
+        "action": "reset",
+        "id": "cf-chl-widget-2be2g"
+      },
+      "afterSeam": {
+        "hasBookingHost": true,
+        "mountPresent": true,
+        "challenges": 0,
+        "widgetNodes": 1,
+        "iframeSrc": null,
+        "seamPublished": true,
+        "turnstileApi": true,
+        "widgetStep": "FORM"
+      },
+      "tokenChannel": {
+        "resolvable": false,
+        "valueType": "undefined",
+        "solved": false
+      },
+      "guard": {
+        "results": [
+          {
+            "ok": true,
+            "action": "reset",
+            "id": "cf-chl-widget-2be2g"
+          },
+          {
+            "ok": true,
+            "action": "reset",
+            "id": "cf-chl-widget-2be2g"
+          },
+          {
+            "ok": true,
+            "action": "reset",
+            "id": "cf-chl-widget-2be2g"
+          }
+        ],
+        "challenges": 0,
+        "widgetNodes": 1
+      }
+    },
+    {
+      "n": 4,
+      "reached": {
+        "ok": true,
+        "step": "FORM",
+        "picked": "2026-09-14T13:00:00.000Z"
+      },
+      "armed": {
+        "hasBookingHost": true,
+        "mountPresent": true,
+        "challenges": 0,
+        "widgetNodes": 1,
+        "iframeSrc": null,
+        "seamPublished": true,
+        "turnstileApi": true,
+        "widgetStep": "FORM"
+      },
+      "seam": {
+        "ok": true,
+        "action": "reset",
+        "id": "cf-chl-widget-0jirc"
+      },
+      "afterSeam": {
+        "hasBookingHost": true,
+        "mountPresent": true,
+        "challenges": 0,
+        "widgetNodes": 1,
+        "iframeSrc": null,
+        "seamPublished": true,
+        "turnstileApi": true,
+        "widgetStep": "FORM"
+      },
+      "tokenChannel": {
+        "resolvable": false,
+        "valueType": "undefined",
+        "solved": false
+      },
+      "guard": {
+        "results": [
+          {
+            "ok": true,
+            "action": "reset",
+            "id": "cf-chl-widget-0jirc"
+          },
+          {
+            "ok": true,
+            "action": "reset",
+            "id": "cf-chl-widget-0jirc"
+          },
+          {
+            "ok": true,
+            "action": "reset",
+            "id": "cf-chl-widget-0jirc"
+          }
+        ],
+        "challenges": 0,
+        "widgetNodes": 1
+      }
+    },
+    {
+      "n": 6,
+      "reached": {
+        "ok": true,
+        "step": "FORM",
+        "picked": "2026-09-14T13:00:00.000Z"
+      },
+      "armed": {
+        "hasBookingHost": true,
+        "mountPresent": true,
+        "challenges": 0,
+        "widgetNodes": 1,
+        "iframeSrc": null,
+        "seamPublished": true,
+        "turnstileApi": true,
+        "widgetStep": "FORM"
+      },
+      "seam": {
+        "ok": true,
+        "action": "reset",
+        "id": "cf-chl-widget-0if9n"
+      },
+      "afterSeam": {
+        "hasBookingHost": true,
+        "mountPresent": true,
+        "challenges": 0,
+        "widgetNodes": 1,
+        "iframeSrc": null,
+        "seamPublished": true,
+        "turnstileApi": true,
+        "widgetStep": "FORM"
+      },
+      "tokenChannel": {
+        "resolvable": false,
+        "valueType": "undefined",
+        "solved": false
+      },
+      "guard": {
+        "results": [
+          {
+            "ok": true,
+            "action": "reset",
+            "id": "cf-chl-widget-0if9n"
+          },
+          {
+            "ok": true,
+            "action": "reset",
+            "id": "cf-chl-widget-0if9n"
+          },
+          {
+            "ok": true,
+            "action": "reset",
+            "id": "cf-chl-widget-0if9n"
+          }
+        ],
+        "challenges": 0,
+        "widgetNodes": 1
+      }
+    },
+    {
+      "n": 8,
+      "reached": {
+        "ok": true,
+        "step": "FORM",
+        "picked": "2026-09-14T13:00:00.000Z"
+      },
+      "armed": {
+        "hasBookingHost": true,
+        "mountPresent": true,
+        "challenges": 0,
+        "widgetNodes": 1,
+        "iframeSrc": null,
+        "seamPublished": true,
+        "turnstileApi": true,
+        "widgetStep": "FORM"
+      },
+      "seam": {
+        "ok": true,
+        "action": "reset",
+        "id": "cf-chl-widget-q5mm1"
+      },
+      "afterSeam": {
+        "hasBookingHost": true,
+        "mountPresent": true,
+        "challenges": 0,
+        "widgetNodes": 1,
+        "iframeSrc": null,
+        "seamPublished": true,
+        "turnstileApi": true,
+        "widgetStep": "FORM"
+      },
+      "tokenChannel": {
+        "resolvable": false,
+        "valueType": "undefined",
+        "solved": false
+      },
+      "guard": {
+        "results": [
+          {
+            "ok": true,
+            "action": "reset",
+            "id": "cf-chl-widget-q5mm1"
+          },
+          {
+            "ok": true,
+            "action": "reset",
+            "id": "cf-chl-widget-q5mm1"
+          },
+          {
+            "ok": true,
+            "action": "reset",
+            "id": "cf-chl-widget-q5mm1"
+          }
+        ],
+        "challenges": 0,
+        "widgetNodes": 1
+      }
+    }
+  ],
+  "console": [
+    "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "warning: No available adapters.",
+    "error: Failed to load resource: the server responded with a status of 400 ()",
+    "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "warning: [Cloudflare Turnstile] Cannot find Widget cf-chl-widget-2be2g, consider using turnstile.remove() to clean up a widget.",
+    "warning: No available adapters.",
+    "error: Failed to load resource: the server responded with a status of 400 ()",
+    "warning: [Cloudflare Turnstile] Cannot find Widget cf-chl-widget-0jirc, consider using turnstile.remove() to clean up a widget.",
+    "warning: No available adapters.",
+    "error: Failed to load resource: the server responded with a status of 400 ()",
+    "warning: [Cloudflare Turnstile] Cannot find Widget cf-chl-widget-0if9n, consider using turnstile.remove() to clean up a widget.",
+    "warning: No available adapters.",
+    "error: Failed to load resource: the server responded with a status of 400 ()"
+  ],
+  "cspViolations": [],
+  "pageErrors": [],
+  "loadEvents": 2,
+  "manual": [
+    "BLOCKED HERE: Turnstile answered 110200 (unknown domain) for http://localhost:8788. The re-render, the captured id and the double-render guard are all proved above; what this host cannot show is Cloudflare actually SERVING the challenge. Re-run against a *.donovan-site.pages.dev Preview, whose host the sitekey admits.",
+    "A REAL end-to-end token SOLVE is a MANUAL check in every environment: Turnstile refuses automation by design, so no agent can solve the challenge and watch /booking/create accept the token. To confirm by hand: open the deployment, soft-navigate several times, reach /book, solve the challenge and submit — the booking must be created rather than 403 TURNSTILE_REQUIRED."
+  ],
+  "verdict": {
+    "pass": 12,
+    "fail": 0,
+    "manual": 1,
+    "swaps": 8,
+    "reloads": 0,
+    "result": "PASS"
+  },
+  "fixtureBooking": {
+    "enabled": true,
+    "routes": [
+      "/booking/types",
+      "/booking/availability"
+    ],
+    "slots": 8
+  },
+  "turnstileErrors": [
+    "110200",
+    "110200",
+    "110200",
+    "110200"
+  ],
+  "boot": {
+    "ready": true,
+    "container": "#perch-main",
+    "swaps": 0,
+    "layerRouterRegistered": true,
+    "chrome": {
+      "ok": true,
+      "nav": true,
+      "jquery": true
+    },
+    "errors": [],
+    "ignored": [],
+    "log": []
+  },
+  "finishedAt": "2026-07-25T15:56:46.585Z"
+}

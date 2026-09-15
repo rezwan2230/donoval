@@ -1,0 +1,864 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Structuring Tool &mdash; Investor Routing &amp; Entity Classification | Donovan Legal PLLC</title>
+  <meta name="description" content="Free structuring tool that routes investors by identity (domestic, tax-exempt, foreign, sovereign) into the right holding vehicle and flags the tax rules each route triggers: UBTI, FIRPTA, ECI, REIT and blocker considerations. Educational only.">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="apple-touch-icon" href="img/favicon.png" />
+  <link rel="icon" type="image/png" href="img/favicon.png" />
+  <link href="css/main.css" rel="stylesheet" />
+  <link href="css/tool-structuring.css" rel="stylesheet" />
+  <script src="/js/tier/reserve.js"></script>
+</head>
+<body>
+
+  <!-- MAIN TOOL — open access (2026-09-04) -->
+  <div id="tool_main">
+
+    <div class="tool-header" data-tier="reserve">
+      <div class="tool-header-inner">
+        <span class="tool-header-brand">DONOVAN&nbsp;LEGAL</span>
+        <a href="index.html" class="tool-header-back">&larr; donovan.law</a>
+      </div>
+    </div>
+
+    <div class="struct-shell">
+
+      <!-- ===========================================================
+           SIDEBAR NAV
+           =========================================================== -->
+      <aside class="struct-sidebar">
+        <div class="struct-sidebar-title">Structuring Tool</div>
+        <div class="struct-sidebar-subtitle">Advisory &middot; Educational</div>
+        <nav class="struct-nav">
+          <a href="#" class="struct-nav-item struct-nav-active" data-panel="setup">1. Setup</a>
+          <a href="#" class="struct-nav-item" data-panel="investors">2. Investor Identity</a>
+          <a href="#" class="struct-nav-item" data-panel="classification">3. Entity Classification &amp; CTB</a>
+          <a href="#" class="struct-nav-item" data-panel="capital">4. Capital Structure</a>
+          <a href="#" class="struct-nav-item" data-panel="diagram">5. Structure Diagram</a>
+          <a href="#" class="struct-nav-item struct-nav-generate" data-panel="generate">6. Review &amp; Generate</a>
+        </nav>
+        <div class="struct-sidebar-footer">
+          <button id="btn_save_state" class="struct-btn-ghost">Save Draft</button>
+          <button id="btn_load_state" class="struct-btn-ghost">Load Draft</button>
+          <button id="btn_clear_state" class="struct-btn-ghost struct-btn-warn">Reset</button>
+        </div>
+      </aside>
+
+      <!-- ===========================================================
+           MAIN PANEL
+           =========================================================== -->
+      <main class="struct-main">
+        <div class="dl-tool-disclaimer" role="note" style="margin:1rem 0 1.5rem; padding:0.9rem 1.1rem; background:#F4F1E8; border-left:4px solid #C9A961; border-radius:4px; font-size:0.92rem; line-height:1.55; color:#1F2A24;"><strong>Educational tool &mdash; not legal advice.</strong> This tool is provided by Donovan Legal PLLC for educational and illustrative purposes only. It applies simplified assumptions to what you enter, may not reflect current law or your circumstances, and its output is an estimate or a discussion draft &mdash; not advice, and not a document to file or sign. Using it does not create an attorney&ndash;client relationship. Do not act on any output without advice specific to your facts from a qualified professional.<span style="display:block; margin-top:0.45rem; font-size:0.82rem; color:#5A6660;">Law current as of September 2026 &middot; model reviewed September 4, 2026.</span></div>
+
+        <!-- ================================================
+             PANEL 1 — SETUP
+             ================================================ -->
+        <section class="struct-panel struct-panel-active" data-panel="setup">
+          <div class="struct-panel-header">
+            <div class="struct-panel-eyebrow">Section 1 of 6</div>
+            <h2>Setup</h2>
+            <p class="struct-panel-sub">Identify the matter, the formation jurisdiction, and the underlying asset profile. These inputs frame the downstream analysis but do not themselves drive the routing.</p>
+          </div>
+
+          <!-- ===== STRUCTURAL ARCHETYPE PRESETS (v11.3) ===== -->
+          <div class="struct-preset-bar">
+            <div class="struct-preset-bar-header">
+              <strong>START WITH A STRUCTURAL ARCHETYPE</strong>
+              <span class="struct-preset-bar-sub">Twenty starting points across direct ownership, institutional fund, REIT, specialty, and estate structures. Pick the closest archetype; refine from there.</span>
+            </div>
+            <div id="struct_preset_grid" class="struct-preset-grid">
+              <!-- Populated by JS from STRUCT_PRESETS -->
+            </div>
+            <div id="struct_preset_status" class="struct-preset-status" style="display:none;"></div>
+          </div>
+
+          <div class="struct-callout struct-callout-info">
+            <strong>Scope of this build.</strong> Thread 3 ships the complete tool: investor identity routing across nine routes; check-the-box classification with per-se cross-check, treaty / LOB, and § 708(b)(2) division/merger; capital-structure characterization across related-party debt, management fee, mezzanine, and Qualified Opportunity Zone investment; structure diagram with sixteen-type legend; and downstream document-tool handoff via in-browser continuity or JSON export.
+          </div>
+
+          <div class="struct-field-grid">
+            <div class="struct-field">
+              <label>Project Name <span class="struct-req">*</span></label>
+              <input type="text" id="project_name" placeholder="e.g., Atlantic Holdings" />
+            </div>
+            <div class="struct-field">
+              <label>Matter Number</label>
+              <input type="text" id="matter_no" placeholder="e.g., 2026-0042" />
+            </div>
+          </div>
+
+          <div class="struct-field">
+            <label>Formation Jurisdiction <span class="struct-req">*</span></label>
+            <select id="jurisdiction"><!-- Populated by JS --></select>
+            <p class="struct-help">The state of formation for the proposed entity, where relevant. Foreign-formed entities are addressed in Section 3.</p>
+          </div>
+
+          <div class="struct-field-grid">
+            <div class="struct-field">
+              <label>Asset Type</label>
+              <select id="asset_type">
+                <option value="real_estate_operating">Operating Real Estate (acquire, hold, lease)</option>
+                <option value="real_estate_development">Real Estate Development</option>
+                <option value="investment_fund">Investment Fund / Holding Vehicle</option>
+                <option value="operating_business">Operating Business</option>
+                <option value="mixed">Mixed Asset Profile</option>
+              </select>
+            </div>
+            <div class="struct-field">
+              <label>Asset Location (state, if applicable)</label>
+              <input type="text" id="asset_location_state" placeholder="e.g., NY, FL, CA" />
+            </div>
+          </div>
+
+          <div class="struct-field-grid">
+            <div class="struct-field">
+              <label>Approximate Deal Size (USD)</label>
+              <input type="number" id="deal_size" placeholder="e.g., 25000000" min="0" step="1" />
+            </div>
+            <div class="struct-field">
+              <label>Effective Date of Analysis</label>
+              <input type="date" id="effective_date" />
+            </div>
+          </div>
+
+          <div class="struct-panel-nav">
+            <span></span>
+            <button class="struct-btn-primary" data-next="investors">Continue to Investor Identity &rarr;</button>
+          </div>
+        </section>
+
+        <!-- ================================================
+             PANEL 2 — INVESTOR IDENTITY
+             ================================================ -->
+        <section class="struct-panel" data-panel="investors">
+          <div class="struct-panel-header">
+            <div class="struct-panel-eyebrow">Section 2 of 6</div>
+            <h2>Investor Identity</h2>
+            <p class="struct-panel-sub">Add each investor and select the applicable identity route. Each route carries its own statutory framework, blocker posture, and citation set. Sub-routes apply to domestic and foreign trusts.</p>
+          </div>
+
+          <div class="struct-callout struct-callout-info">
+            <strong>Nine routes.</strong> Domestic individual &middot; Tax-exempt organization &middot; Sovereign wealth fund (&sect;&nbsp;892) &middot; Foreign individual &middot; Foreign corporation &middot; Per-se foreign corporation (&sect;&nbsp;301.7701-2(b)(8)) &middot; Foreign pension (&sect;&nbsp;897(l) QFPF) &middot; Domestic trust (grantor &middot; non-grantor &middot; dynasty) &middot; Foreign trust (grantor &middot; non-grantor with &sect;&nbsp;679 / throwback machinery).
+          </div>
+
+          <div id="investor_list">
+            <!-- Populated by JS -->
+          </div>
+
+          <div class="struct-add-row">
+            <button id="btn_add_investor" class="struct-btn-primary">+ Add Investor</button>
+          </div>
+
+          <div class="struct-panel-nav">
+            <button class="struct-btn-ghost" data-prev="setup">&larr; Back</button>
+            <button class="struct-btn-primary" data-next="classification">Continue to Classification &rarr;</button>
+          </div>
+        </section>
+
+        <!-- ================================================
+             PANEL 3 — ENTITY CLASSIFICATION & CTB
+             ================================================ -->
+        <section class="struct-panel" data-panel="classification">
+          <div class="struct-panel-header">
+            <div class="struct-panel-eyebrow">Section 3 of 6</div>
+            <h2>Entity Classification &amp; Check-the-Box Analysis</h2>
+            <p class="struct-panel-sub">Run the &sect;&nbsp;301.7701-3 framework: default classification, the per-se foreign corporation cross-check at &sect;&nbsp;301.7701-2(b)(8), the election regime under Form 8832 (timing and the 60-month limitation), late-election relief under Rev. Proc. 2009-41, treaty / LOB considerations, hybrid and dual-resident issues, and &sect;&nbsp;708(b)(2) division or merger mechanics where applicable.</p>
+          </div>
+
+          <h3 class="struct-subheader">A. Proposed Entity</h3>
+
+          <div class="struct-field-grid">
+            <div class="struct-field">
+              <label>Proposed Entity Type <span class="struct-req">*</span></label>
+              <select id="proposed_entity_type">
+                <option value="us_llc">U.S. Limited Liability Company (eligible)</option>
+                <option value="foreign_eligible">Foreign Eligible Entity (CTB available)</option>
+                <option value="foreign_per_se">Per Se Foreign Corporation (CTB unavailable)</option>
+              </select>
+            </div>
+            <div class="struct-field">
+              <label>Member / Owner Count</label>
+              <select id="proposed_member_count">
+                <option value="one_member">Single member</option>
+                <option value="two_or_more" selected>Two or more members</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="foreign_country_block" style="display:none;">
+            <div class="struct-field">
+              <label>Country of Formation (foreign entity)</label>
+              <input type="text" id="proposed_entity_country" placeholder="e.g., Luxembourg, Cayman Islands, Germany" />
+              <p class="struct-help">For per-se foreign corporations, the tool cross-checks the regulatory list at &sect;&nbsp;301.7701-2(b)(8). The abbreviated list maintained here is not exhaustive &mdash; verify against the current regulation text before issuance.</p>
+            </div>
+          </div>
+
+          <div id="foreign_liability_block" style="display:none;">
+            <div class="struct-field">
+              <label>Foreign Member Liability</label>
+              <select id="foreign_liability_all_limited">
+                <option value="yes">All members have limited liability under foreign law</option>
+                <option value="no">At least one member has unlimited liability under foreign law</option>
+              </select>
+              <p class="struct-help">The default classification of a foreign eligible entity turns on whether all members have limited liability under the applicable foreign law (Reg. &sect;&nbsp;301.7701-3(b)(2)).</p>
+            </div>
+          </div>
+
+          <h3 class="struct-subheader">B. Check-the-Box Election</h3>
+
+          <div class="struct-field-grid">
+            <div class="struct-field">
+              <label>Election Posture</label>
+              <select id="ctb_election">
+                <option value="default">No election &mdash; default classification applies</option>
+                <option value="elect_corp">Elect association (corporation)</option>
+                <option value="elect_partnership">Elect partnership</option>
+                <option value="elect_disregarded">Elect disregarded entity</option>
+              </select>
+            </div>
+            <div class="struct-field">
+              <label>Election Timing</label>
+              <select id="ctb_timing">
+                <option value="on_formation">On formation (within standard 75-day retro window)</option>
+                <option value="mid_year">Mid-year (prospective up to 12 months)</option>
+                <option value="late_relief">Late-election relief (Rev. Proc. 2009-41)</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="late_relief_block" style="display:none;">
+            <div class="struct-field">
+              <label>Intended Effective Date</label>
+              <input type="date" id="late_relief_intended_effective" />
+              <p class="struct-help">Rev. Proc. 2009-41 allows late relief within three years and 75 days of the requested effective date, subject to the four substantive requirements.</p>
+            </div>
+          </div>
+
+          <h3 class="struct-subheader">C. Treaty / LOB</h3>
+
+          <div class="struct-field-grid">
+            <div class="struct-field">
+              <label>Treaty Residence Country (if claiming benefits)</label>
+              <input type="text" id="treaty_country" placeholder="e.g., Netherlands, United Kingdom, Germany" />
+            </div>
+            <div class="struct-field">
+              <label>LOB Test Claimed</label>
+              <select id="treaty_lob_test">
+                <option value="not_applicable">Not applicable</option>
+                <option value="publicly_traded">Publicly Traded</option>
+                <option value="subsidiary_of_pt">Subsidiary of Publicly Traded</option>
+                <option value="ownership_base_erosion">Ownership and Base Erosion</option>
+                <option value="active_trade_business">Active Trade or Business</option>
+                <option value="derivative_benefits">Derivative Benefits</option>
+                <option value="competent_authority">Competent Authority (Discretionary)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="struct-field struct-field-check">
+            <label class="struct-check"><input type="checkbox" id="hybrid_concerns" /> Hybrid / dual-resident concerns are in play (&sect;&nbsp;269B, &sect;&nbsp;894(c), &sect;&nbsp;267A)</label>
+          </div>
+
+          <h3 class="struct-subheader">D. &sect; 708(b)(2) Division or Merger</h3>
+
+          <div class="struct-field">
+            <label>Is the structuring sitting on top of an existing partnership that requires a division or merger?</label>
+            <select id="section_708_b2_applicable">
+              <option value="none">No &mdash; new formation</option>
+              <option value="division">Yes &mdash; partnership division</option>
+              <option value="merger">Yes &mdash; partnership merger</option>
+            </select>
+          </div>
+
+          <div id="s708_notes_block" style="display:none;">
+            <div class="struct-field">
+              <label>Engagement-specific notes (continuation, assets-over vs assets-up, &sect;&nbsp;704(c) considerations)</label>
+              <textarea id="section_708_b2_notes" rows="3" placeholder="e.g., Resulting partnership A holds property X and retains > 50% capital and profits — continuation under § 708(b)(2)(B)."></textarea>
+            </div>
+          </div>
+
+          <div class="struct-panel-nav">
+            <button class="struct-btn-ghost" data-prev="investors">&larr; Back</button>
+            <button class="struct-btn-primary" data-next="capital">Continue to Capital Structure &rarr;</button>
+          </div>
+        </section>
+
+        <!-- ================================================
+             PANEL 4 — CAPITAL STRUCTURE (NEW — Thread 2)
+             Three collapsible subsections:
+               A. Related-Party Debt
+               B. Management Fee
+               C. Mezzanine
+             Each has a top-level "is this present in the deal?"
+             toggle. When OFF, the subsection collapses; the memo
+             still emits the section with a "Not applicable" note
+             (per Paul's directive — defensible on IDR / opposing
+             counsel review).
+             ================================================ -->
+        <section class="struct-panel" data-panel="capital">
+          <div class="struct-panel-header">
+            <div class="struct-panel-eyebrow">Section 4 of 6</div>
+            <h2>Capital Structure</h2>
+            <p class="struct-panel-sub">Characterize the capital stack across three analytical modules: related-party debt (&sect;&nbsp;163(j) post-OBBBA, Reg.&nbsp;&sect;&nbsp;1.752-2(d), &sect;&nbsp;385 documentation, AHYDO, anti-conduit); management-fee arrangements (&sect;&nbsp;707(a)/(c) router, six-factor disguised-payment test, post-Soroban / Sirius circuit split under &sect;&nbsp;1402(a)(13)); and mezzanine debt under the 13-factor Indmar / Roth Steel test.</p>
+          </div>
+
+          <div class="struct-callout struct-callout-info">
+            <strong>Subsection behavior.</strong> Each subsection has an "Is this present in the deal?" toggle. When off, the subsection collapses but is preserved in the memorandum as a "Not applicable" entry so that the record reflects that the firm considered and excluded the analysis.
+          </div>
+
+          <!-- ===== SUBSECTION A — RELATED-PARTY DEBT ===== -->
+          <div class="struct-subpanel" data-subpanel="rpd">
+            <div class="struct-subpanel-header">
+              <h3 class="struct-subheader struct-subheader-flush">A. Related-Party Debt</h3>
+              <label class="struct-check struct-check-toggle"><input type="checkbox" id="has_related_party_debt" /> Present in this deal</label>
+            </div>
+
+            <div class="struct-subpanel-body">
+              <div class="struct-field-grid">
+                <div class="struct-field">
+                  <label>Lender Identity</label>
+                  <select id="rpd_lender_type">
+                    <option value="partner">A partner of the partnership</option>
+                    <option value="partner_affiliate">An affiliate of a partner (non-partner)</option>
+                    <option value="other_related">Other related person</option>
+                  </select>
+                </div>
+                <div class="struct-field">
+                  <label>Recourse Treatment</label>
+                  <select id="rpd_recourse_treatment">
+                    <option value="nonrecourse">Nonrecourse</option>
+                    <option value="recourse">Recourse</option>
+                    <option value="qualified_nonrecourse">Qualified nonrecourse (&sect;&nbsp;465(b)(6))</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="struct-field-grid">
+                <div class="struct-field">
+                  <label>Principal (USD)</label>
+                  <input type="number" id="rpd_principal" placeholder="e.g., 5000000" min="0" step="1" />
+                </div>
+                <div class="struct-field">
+                  <label>Stated Rate (%)</label>
+                  <input type="text" id="rpd_rate" placeholder="e.g., 8.5" />
+                </div>
+                <div class="struct-field">
+                  <label>Maturity (years)</label>
+                  <input type="number" id="rpd_maturity_years" placeholder="e.g., 10" min="0" step="0.5" />
+                </div>
+              </div>
+
+              <div class="struct-field-check"><label class="struct-check"><input type="checkbox" id="rpd_terms_arm_length" checked /> Terms are represented as arm&rsquo;s length</label></div>
+              <div class="struct-field-check"><label class="struct-check"><input type="checkbox" id="rpd_section_163j_concerned" /> &sect;&nbsp;163(j) interest-limitation is a concern for this engagement</label></div>
+              <div class="struct-field-check"><label class="struct-check"><input type="checkbox" id="rpd_rptb_election" /> Real-property-trade-or-business election under &sect;&nbsp;163(j)(7) is in play (or being considered)</label></div>
+              <div class="struct-field-check"><label class="struct-check"><input type="checkbox" id="rpd_385_documentation_complete" /> &sect;&nbsp;385 documentation (four factors) is complete and contemporaneous</label></div>
+              <div class="struct-field-check"><label class="struct-check"><input type="checkbox" id="rpd_anti_conduit_concern" /> Anti-conduit (Reg.&nbsp;&sect;&nbsp;1.881-3) is a concern (multi-party / treaty-jurisdiction financing chain)</label></div>
+              <div class="struct-field-check"><label class="struct-check"><input type="checkbox" id="rpd_ahydo_concern" /> AHYDO concern is in play (high yield, long maturity, OID / PIK accrual)</label></div>
+            </div>
+          </div>
+
+          <!-- ===== SUBSECTION B — MANAGEMENT FEE ===== -->
+          <div class="struct-subpanel" data-subpanel="mgmt_fee">
+            <div class="struct-subpanel-header">
+              <h3 class="struct-subheader struct-subheader-flush">B. Management Fee</h3>
+              <label class="struct-check struct-check-toggle"><input type="checkbox" id="mgmt_fee_present" /> Present in this deal</label>
+            </div>
+
+            <div class="struct-subpanel-body">
+              <div class="struct-field-grid">
+                <div class="struct-field">
+                  <label>Recipient</label>
+                  <select id="mgmt_fee_recipient_type">
+                    <option value="partner">A partner</option>
+                    <option value="non_partner_affiliate">Affiliate of a partner (non-partner)</option>
+                    <option value="unrelated">Unrelated</option>
+                  </select>
+                </div>
+                <div class="struct-field">
+                  <label>Fee Basis</label>
+                  <select id="mgmt_fee_amount_basis">
+                    <option value="fixed">Fixed dollar amount</option>
+                    <option value="percentage_aum">Percentage of AUM</option>
+                    <option value="percentage_revenue">Percentage of revenue</option>
+                    <option value="hybrid">Hybrid</option>
+                  </select>
+                </div>
+                <div class="struct-field">
+                  <label>Annual Amount (USD, if fixed)</label>
+                  <input type="number" id="mgmt_fee_amount" placeholder="e.g., 250000" min="0" step="1" />
+                </div>
+              </div>
+
+              <div class="struct-field">
+                <label>Intended Characterization</label>
+                <select id="mgmt_fee_characterization_intended">
+                  <option value="section_707a">&sect;&nbsp;707(a) services from non-partner</option>
+                  <option value="section_707c" selected>&sect;&nbsp;707(c) guaranteed payment</option>
+                  <option value="profits_interest_fee_waiver">Profits-interest fee waiver</option>
+                  <option value="distribution">Distribution (capital interest)</option>
+                </select>
+              </div>
+
+              <div class="struct-field-check"><label class="struct-check"><input type="checkbox" id="mgmt_fee_arm_length" checked /> Fee amount and terms are arm&rsquo;s length (&sect;&nbsp;482)</label></div>
+              <div class="struct-field-check"><label class="struct-check"><input type="checkbox" id="mgmt_fee_fee_waiver_present" /> Fee waiver is in place (or being considered)</label></div>
+
+              <div id="mgmt_fee_waiver_block">
+                <div class="struct-field">
+                  <label>Fee Waiver — Entrepreneurial Risk Assessment</label>
+                  <select id="mgmt_fee_fee_waiver_risk_assessment">
+                    <option value="meaningful_economic_risk">Meaningful economic risk (intermediate)</option>
+                    <option value="no_meaningful_risk">No meaningful risk &mdash; SER absent</option>
+                    <option value="safe_harbor_clean">Safe-harbor clean &mdash; all six factors satisfied</option>
+                  </select>
+                  <p class="struct-help">SER is the most heavily weighted of the six factors under Prop.&nbsp;Reg.&nbsp;&sect;&nbsp;1.707-2. "No meaningful risk" presumptively recharacterizes the waiver as a disguised payment.</p>
+                </div>
+              </div>
+
+              <div class="struct-field-check"><label class="struct-check"><input type="checkbox" id="mgmt_fee_se_tax_concern" /> SE tax exposure on the recipient&rsquo;s distributive share is a concern (&sect;&nbsp;1402(a)(13))</label></div>
+
+              <div id="mgmt_fee_forum_block">
+                <div class="struct-field">
+                  <label>Forum for SE-Tax Analysis</label>
+                  <select id="mgmt_fee_forum_jurisdiction">
+                    <option value="default_functional">Default / Tax Court &mdash; functional analysis (Soroban)</option>
+                    <option value="fifth_circuit_sirius">Fifth Circuit (TX / LA / MS) &mdash; role-based &ldquo;no significant role in managing&rdquo; standard (K Alain / Sirius, substitute opinion Aug. 12, 2026)</option>
+                  </select>
+                  <p class="struct-help">Forum selection matters as of January 2026: Sirius Solutions, L.L.L.P. v. Comm&rsquo;r (5th Cir. Jan. 16, 2026) rejected the Tax Court&rsquo;s functional-analysis approach for state-law LPs/LLLPs with limited liability. Tax Court continues to apply Soroban elsewhere.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== SUBSECTION C — MEZZANINE DEBT ===== -->
+          <div class="struct-subpanel" data-subpanel="mezz">
+            <div class="struct-subpanel-header">
+              <h3 class="struct-subheader struct-subheader-flush">C. Mezzanine Debt</h3>
+              <label class="struct-check struct-check-toggle"><input type="checkbox" id="mezz_present" /> Present in this deal</label>
+            </div>
+
+            <div class="struct-subpanel-body">
+              <div class="struct-field-grid">
+                <div class="struct-field">
+                  <label>Principal (USD)</label>
+                  <input type="number" id="mezz_principal" placeholder="e.g., 3000000" min="0" step="1" />
+                </div>
+                <div class="struct-field">
+                  <label>Stated Rate (%)</label>
+                  <input type="text" id="mezz_stated_rate" placeholder="e.g., 12" />
+                </div>
+                <div class="struct-field">
+                  <label>Maturity (years)</label>
+                  <input type="number" id="mezz_maturity_years" placeholder="e.g., 7" min="0" step="0.5" />
+                </div>
+              </div>
+
+              <div class="struct-field-grid">
+                <div class="struct-field">
+                  <label>Subordination</label>
+                  <select id="mezz_subordination">
+                    <option value="senior">Senior</option>
+                    <option value="mezzanine" selected>Mezzanine (subordinated to senior)</option>
+                    <option value="preferred">Preferred</option>
+                    <option value="common">Common</option>
+                  </select>
+                </div>
+                <div class="struct-field struct-field-check">
+                  <label class="struct-check"><input type="checkbox" id="mezz_paid_in_kind" /> Payment-in-kind (PIK)</label>
+                </div>
+                <div class="struct-field struct-field-check">
+                  <label class="struct-check"><input type="checkbox" id="mezz_equity_kicker" /> Equity kicker (warrants / conversion / profit-participation)</label>
+                </div>
+              </div>
+
+              <h4 class="struct-subheader-mini">13-Factor Indmar / Roth Steel Scoring</h4>
+              <p class="struct-help">Score each factor 1&ndash;5: 1&nbsp;=&nbsp;strongly weighs against debt; 3&nbsp;=&nbsp;neutral; 5&nbsp;=&nbsp;strongly supports debt. Aggregate &ge;&nbsp;48 = debt; 32&ndash;47 = preferred equity; &lt;&nbsp;32 = disguised equity.</p>
+              <div id="mezz_factor_grid" class="struct-factor-grid">
+                <!-- populated by JS -->
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== SUBSECTION D — REIT ANALYSIS (v12.2 NEW) ===== -->
+          <div class="struct-subpanel" data-subpanel="reit">
+            <div class="struct-subpanel-header">
+              <h3 class="struct-subpanel-title">D. REIT Analysis</h3>
+              <label class="struct-check-toggle"><input type="checkbox" id="reit_present" /> REIT structure proposed</label>
+            </div>
+            <div class="struct-subpanel-body">
+              <p class="struct-help">Real Estate Investment Trust (§§ 856-859). The principal structural considerations are domestic-control determination under § 897(h)(4) (DC-REIT shares are not USRPI on disposition by foreign holders), the § 897(k)(2) public-trading 5%-shareholder carve-out, the § 856(l) Taxable REIT Subsidiary regime (used for active operating income through RIDEA), and the UPREIT § 721 contribution mechanism. The tool produces a substantive Section X memo when REIT is present and overlays the REIT structure on the diagram.</p>
+              <div class="struct-field-grid">
+                <div class="struct-field">
+                  <label>Domestic Control Status</label>
+                  <select id="reit_domestically_controlled">
+                    <option value="unknown">Not yet determined</option>
+                    <option value="dc">Domestically controlled (&lt; 50% foreign)</option>
+                    <option value="fc">Foreign controlled (≥ 50% foreign)</option>
+                  </select>
+                  <p class="struct-help-mini">DC-REIT shares are <strong>not</strong> USRPI under § 897(h)(4) — the principal FIRPTA-mitigation pathway for foreign LPs holding REIT shares.</p>
+                </div>
+                <div class="struct-field">
+                  <label>Public vs Private</label>
+                  <select id="reit_public_or_private">
+                    <option value="private">Private REIT</option>
+                    <option value="public_listed_nyse_nasdaq">Public — NYSE / NASDAQ listed</option>
+                    <option value="public_traded_otc_only">Public — OTC traded only</option>
+                  </select>
+                  <p class="struct-help-mini">Public REITs qualify for the § 897(k)(2) carve-out — foreign &lt; 5% holders are not subject to FIRPTA on share disposition regardless of DC status.</p>
+                </div>
+                <div class="struct-field">
+                  <label>Structure</label>
+                  <select id="reit_structure">
+                    <option value="standalone">Standalone REIT</option>
+                    <option value="umbrella_partnership_uprt">UPREIT (Umbrella Partnership REIT)</option>
+                  </select>
+                  <p class="struct-help-mini">UPREIT structures use § 721 contributions to an OP partnership for tax-deferred property contributions in exchange for OP units.</p>
+                </div>
+                <div class="struct-field">
+                  <label>US Ownership %</label>
+                  <input type="number" id="reit_us_ownership_pct" min="0" max="100" step="0.1" placeholder="e.g., 65" />
+                  <p class="struct-help-mini">US share for § 897(h)(4) 50% threshold determination. Constructive ownership rules under Reg. § 1.897-1(c)(2) apply for the look-through analysis.</p>
+                </div>
+                <div class="struct-field">
+                  <label>Distribution Compliance</label>
+                  <select id="reit_distribution_compliance">
+                    <option value="planned_on_track">Planned and on track to meet 90% test</option>
+                    <option value="concern">Concern — modeling required before finalization</option>
+                    <option value="not_assessed">Not assessed yet</option>
+                  </select>
+                  <p class="struct-help-mini">§ 857(a)(1) requires distribution of at least 90% of REIT taxable income annually.</p>
+                </div>
+              </div>
+              <div class="struct-field-grid">
+                <div class="struct-field-inline">
+                  <label class="struct-check-toggle"><input type="checkbox" id="reit_trs_present" /> Taxable REIT Subsidiary (§ 856(l)) present — used for hotel / senior housing RIDEA, active operating income</label>
+                </div>
+                <div class="struct-field-inline">
+                  <label class="struct-check-toggle"><input type="checkbox" id="reit_uprt_contribution_planned" /> § 721 UPREIT contribution planned (property → OP units in exchange)</label>
+                </div>
+                <div class="struct-field-inline">
+                  <label class="struct-check-toggle"><input type="checkbox" id="reit_share_class_5pct_test_concern" /> § 897(k)(2) 5%-shareholder concern raised (public REIT only) — monitor foreign holdings against the 5% threshold</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== SUBSECTION E — QUALIFIED OPPORTUNITY ZONE (Thread 3) ===== -->
+          <div class="struct-subpanel" data-subpanel="qoz">
+            <div class="struct-subpanel-header">
+              <h3 class="struct-subpanel-title">E. Qualified Opportunity Zone Investment</h3>
+              <label class="struct-check-toggle"><input type="checkbox" id="qoz_present" /> Present in this deal</label>
+            </div>
+            <div class="struct-subpanel-body">
+              <p class="struct-help">Qualified Opportunity Zone investment under §§ 1400Z-1, 1400Z-2. OBBBA (P.L. 119-21, July 4, 2025) made the program permanent and established a parallel OZ 2.0 regime activating January 1, 2027. The tool auto-derives regime (OZ 1.0 vs OZ 2.0) from the gain realization date relative to July 5, 2026.</p>
+              <div class="struct-field-grid">
+                <div class="struct-field">
+                  <label>Gain Realization Date</label>
+                  <input type="date" id="qoz_gain_realization_date" />
+                  <p class="struct-help-mini">The date the gain to be deferred was realized. Drives OZ 1.0 vs OZ 2.0 regime auto-derivation.</p>
+                </div>
+                <div class="struct-field">
+                  <label>Gain Source</label>
+                  <select id="qoz_gain_source">
+                    <option value="direct">Direct-recognition gain (Schedule D / Form 8949)</option>
+                    <option value="passthrough_k1">Pass-through gain (K-1 from partnership)</option>
+                  </select>
+                  <p class="struct-help-mini">Pass-through gains unlock the Reg. § 1.1400Z2(a)-1(c)(8)(iii) 180-day-window workaround for 2026 dead-zone scenarios.</p>
+                </div>
+                <div class="struct-field">
+                  <label>Designation Regime</label>
+                  <select id="qoz_designation_regime">
+                    <option value="auto">Auto (derive from gain date)</option>
+                    <option value="oz_1_0">OZ 1.0 (manual override)</option>
+                    <option value="oz_2_0">OZ 2.0 (manual override)</option>
+                  </select>
+                </div>
+                <div class="struct-field">
+                  <label>Holding-Period Target</label>
+                  <select id="qoz_holding_period_target">
+                    <option value="ten_year">Ten-year hold (post-investment exclusion)</option>
+                    <option value="five_year_step">Five-year basis step-up</option>
+                    <option value="shorter">Shorter than five years</option>
+                  </select>
+                </div>
+                <div class="struct-field">
+                  <label>180-Day Window Election (passthrough only)</label>
+                  <select id="qoz_passthrough_180day_election">
+                    <option value="not_elected">Not elected / Not applicable</option>
+                    <option value="gain_date">Begin on partnership gain realization date</option>
+                    <option value="partnership_yearend">Begin on partnership year-end</option>
+                    <option value="return_due_date">Begin on partnership return due date (Reg. § 1.1400Z2(a)-1(c)(8)(iii))</option>
+                  </select>
+                </div>
+              </div>
+              <div class="struct-field-grid">
+                <div class="struct-field-inline">
+                  <label class="struct-check-toggle"><input type="checkbox" id="qoz_rural" /> Rural QOZ (Qualified Rural Opportunity Fund / 30% basis step-up / 50% substantial-improvement threshold under OBBBA § 70423)</label>
+                </div>
+                <div class="struct-field-inline">
+                  <label class="struct-check-toggle"><input type="checkbox" id="qoz_qozb_below_qof" checked /> QOZB sits below QOF (typical two-tier structure with operating QOZB)</label>
+                </div>
+                <div class="struct-field-inline">
+                  <label class="struct-check-toggle"><input type="checkbox" id="qoz_substantial_improvement_planned" checked /> Substantial-improvement planned (§ 1400Z-2(d)(2)(D); Reg. § 1.1400Z2(d)-2(b)(4))</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== SUBSECTION F — SPONSOR STRUCTURE (v13.0 NEW) ===== -->
+          <div class="struct-subpanel" data-subpanel="sponsor">
+            <div class="struct-subpanel-header">
+              <h3 class="struct-subpanel-title">F. Sponsor Structure</h3>
+              <label class="struct-check-toggle"><input type="checkbox" id="sponsor_present" /> Sponsor side rendered</label>
+            </div>
+            <div class="struct-subpanel-body">
+              <p class="struct-help">The sponsor side &mdash; principals, ManagementCo, GP entity, and (optionally) a separate carry vehicle and family-office vehicle &mdash; is conceptually distinct from the LP investor panel and rendered as a separate cluster in the diagram. Economic and governance relationships (GP equity, IMA service contract, § 1061 carry) surface as labeled semantic edges from the sponsor cluster to the fund.</p>
+              <div class="struct-field-grid">
+                <div class="struct-field">
+                  <label>Sponsor Structure</label>
+                  <select id="sponsor_structure">
+                    <option value="simple">Simple — Principal alone (no separate entities)</option>
+                    <option value="mgmt_co_plus_gp">ManagementCo + GP Entity</option>
+                    <option value="mgmt_co_plus_gp_plus_carry_vehicle">ManagementCo + GP Entity + Carry Vehicle (separate API)</option>
+                  </select>
+                  <p class="struct-help-mini">Separate carry vehicle is common for institutional sponsors using vertical-slice estate planning.</p>
+                </div>
+                <div class="struct-field">
+                  <label>ManagementCo Form</label>
+                  <select id="sponsor_mgmt_co_form">
+                    <option value="s_corp">S Corporation (FICA / SE-tax planning)</option>
+                    <option value="llc">LLC (default partnership)</option>
+                    <option value="c_corp">C Corporation</option>
+                  </select>
+                  <p class="struct-help-mini">S-corp election supports reasonable-salary / distribution split for SE-tax planning.</p>
+                </div>
+                <div class="struct-field">
+                  <label>GP Entity Form</label>
+                  <select id="sponsor_gp_form">
+                    <option value="llc">LLC (typical)</option>
+                    <option value="lp">Limited Partnership</option>
+                    <option value="c_corp">C Corporation</option>
+                  </select>
+                </div>
+              </div>
+              <div class="struct-field-grid">
+                <div class="struct-field-inline">
+                  <label class="struct-check-toggle"><input type="checkbox" id="sponsor_carry_in_separate_vehicle" /> Carry held in separate vehicle (§ 1061 API; common for vertical-slice estate planning)</label>
+                </div>
+                <div class="struct-field-inline">
+                  <label class="struct-check-toggle"><input type="checkbox" id="sponsor_family_office_above" /> Family office / estate-planning vehicle above sponsor principals (GRAT, IDGT, family LP)</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== SUBSECTION G — MULTI-TIER OPERATING STRUCTURE (v13.0 NEW) ===== -->
+          <div class="struct-subpanel" data-subpanel="tier">
+            <div class="struct-subpanel-header">
+              <h3 class="struct-subpanel-title">G. Multi-Tier Operating Structure</h3>
+              <label class="struct-check-toggle"><input type="checkbox" id="tier_present" /> Multi-tier chain (HoldCo / MidCo / PropCo) below target</label>
+            </div>
+            <div class="struct-subpanel-body">
+              <p class="struct-help">Multi-tier ownership structure between the fund and the underlying property. Each tier serves distinct purposes &mdash; financing flexibility, bankruptcy remoteness, debt placement layering, per-asset isolation. The depth should be calibrated against actual lender requirements and operating-business complexity, not pre-built as a template.</p>
+              <div class="struct-field-grid">
+                <div class="struct-field struct-field-wide">
+                  <label>Tier Configuration</label>
+                  <select id="tier_structure">
+                    <option value="flat">Flat — fund directly holds property (no tiers)</option>
+                    <option value="holdco_opco">HoldCo + OpCo (target)</option>
+                    <option value="holdco_opco_propco">HoldCo + OpCo + PropCo (3 tiers)</option>
+                    <option value="holdco_midco_opco_propco">HoldCo + MidCo + OpCo + PropCo (4 tiers — institutional)</option>
+                  </select>
+                </div>
+                <div class="struct-field">
+                  <label>HoldCo Rationale</label>
+                  <select id="tier_holdco_rationale">
+                    <option value="financing_flex">Financing flexibility (multiple lender tranches)</option>
+                    <option value="reit_overlay">REIT overlay</option>
+                    <option value="bankruptcy_remote">Bankruptcy remoteness</option>
+                    <option value="tax_planning">Tax planning (debt placement / § 752)</option>
+                  </select>
+                </div>
+                <div class="struct-field">
+                  <label>PropCo Rationale</label>
+                  <select id="tier_propco_rationale">
+                    <option value="lender_spe">Lender SPE / bankruptcy-remote requirement</option>
+                    <option value="bankruptcy_remote">Bankruptcy remoteness (generic)</option>
+                    <option value="per_asset_isolation">Per-asset isolation (multi-property portfolio)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="struct-panel-nav">
+            <button class="struct-btn-ghost" data-prev="classification">&larr; Back</button>
+            <button class="struct-btn-primary" data-next="diagram">Continue to Structure Diagram &rarr;</button>
+          </div>
+        </section>
+
+        <!-- ================================================
+             PANEL 5 — STRUCTURE DIAGRAM (Thread 3 NEW)
+             ================================================ -->
+        <section class="struct-panel" data-panel="diagram">
+          <div class="struct-panel-header">
+            <div class="struct-panel-eyebrow">Section 5 of 6</div>
+            <h2>Structure Diagram</h2>
+            <p class="struct-panel-sub">The diagram below is auto-derived from the inputs in Sections 1&ndash;4. Drag any node to refine its position; positions are persisted to the draft and embedded in the generated memorandum. Click &ldquo;Re-Derive from Analysis&rdquo; to wipe refinements and restore the auto-layout (useful after substantive changes to the inputs above).</p>
+          </div>
+
+          <div class="struct-callout struct-callout-info">
+            <strong>v12 shape vocabulary.</strong> Circle = person; square = corporation; triangle = partnership; hexagon = trust; parallelogram = property. Solid border = opaque / non-flow-through; dotted border = transparent / pass-through. Inner shape (when nested) shows the owner for DREs or the contradicting classification dimension for hybrids. Each diagram carries an auto-generated legend listing only the entity types and edge kinds actually used.
+          </div>
+
+          <!-- v12.1 — Blocker strategy controls -->
+          <div class="struct-blocker-strategy-panel">
+            <h4 class="struct-subheader-mini">Blocker strategy</h4>
+            <div class="struct-field-grid">
+              <div class="struct-field struct-field-wide">
+                <label>Blocker configuration</label>
+                <select id="blocker_strategy">
+                  <option value="auto_shared">Auto-shared (one C-corp blocker serves all blocker-routed investors)</option>
+                  <option value="separate_per_class">Separate per class (up to 5 parallel blockers — UBTI / § 892 / FIRPTA / BPT / UNI)</option>
+                  <option value="manual_configured">Manual configuration (v12.1: falls back to auto-shared)</option>
+                </select>
+              </div>
+              <div class="struct-field struct-field-wide">
+                <label class="struct-check-toggle">
+                  <input type="checkbox" id="blocker_use_intermediate" />
+                  Use foreign intermediate (top-of-stack) blocker — treaty + § 894 anti-conduit overlay applies
+                </label>
+              </div>
+              <div class="struct-field struct-field-wide" id="blocker_intermediate_jurisdiction_field">
+                <label>Intermediate jurisdiction</label>
+                <select id="blocker_intermediate_jurisdiction">
+                  <option value="KY">Cayman Islands</option>
+                  <option value="BM">Bermuda</option>
+                  <option value="BS">Bahamas</option>
+                  <option value="LU">Luxembourg</option>
+                  <option value="IE">Ireland</option>
+                  <option value="NL">Netherlands</option>
+                  <option value="LI">Liechtenstein</option>
+                </select>
+              </div>
+            </div>
+            <p class="struct-helper-text">
+              Changes to blocker configuration take effect on next &ldquo;Re-Derive from Analysis&rdquo; or auto-regeneration.
+              The default (auto-shared) preserves v11.1 behavior. Separate-per-class produces a richer chart suitable for cross-border deals
+              with mixed UBTI / FIRPTA / § 892 / treaty considerations; each investor class is held in a dedicated C-corp blocker.
+              The foreign intermediate (typically Cayman) is added above the US blocker(s) and is common for funds with non-US LPs
+              who want to avoid the US blocker&apos;s dividend WHT being a final tax in their hands.
+            </p>
+          </div>
+
+          <div class="struct-diagram-toolbar">
+            <button id="btn_diagram_redraw" class="struct-btn-ghost">Re-Derive from Analysis</button>
+            <button id="btn_diagram_reset_layout" class="struct-btn-ghost">Reset to Auto-Layout</button>
+            <span id="diagram_status" class="struct-diagram-status">Auto-layout (not yet refined)</span>
+          </div>
+
+          <div class="struct-diagram-container">
+            <div id="diagram_canvas" class="struct-diagram-canvas">
+              <!-- SVG rendered here by JS -->
+            </div>
+          </div>
+
+          <div id="diagram_node_detail" class="struct-diagram-detail" style="display:none;">
+            <h4 class="struct-subheader-mini">Selected node</h4>
+            <div id="diagram_node_detail_body">
+              <!-- populated on node selection -->
+            </div>
+          </div>
+
+          <div class="struct-panel-nav">
+            <button class="struct-btn-ghost" data-prev="capital">&larr; Back to Capital Structure</button>
+            <button class="struct-btn-primary" data-next="generate">Continue to Review &amp; Generate &rarr;</button>
+          </div>
+        </section>
+
+        <!-- ================================================
+             PANEL 6 — REVIEW & GENERATE
+             ================================================ -->
+        <section class="struct-panel" data-panel="generate">
+          <div class="struct-panel-header">
+            <div class="struct-panel-eyebrow">Section 6 of 6</div>
+            <h2>Review &amp; Generate</h2>
+            <p class="struct-panel-sub">Review the configuration and generate the illustrative structuring memorandum. Everything it produces is educational: a starting point for counsel, not a structure to implement.</p>
+          </div>
+
+          <div id="review_summary" class="struct-review-summary">
+            <!-- Populated by JS -->
+          </div>
+
+          <div class="struct-action-row">
+            <button id="btn_generate" class="struct-btn-primary struct-btn-large">Generate Structuring Memorandum</button>
+            <button class="struct-btn-ghost" data-prev="diagram">&larr; Back to Edit</button>
+          </div>
+
+          <div id="generated_docs" class="struct-generated" style="display:none;">
+            <div class="struct-doc-actions">
+              <button id="btn_print_doc" class="struct-btn-secondary-sm">Print / Save as PDF</button>
+              <button id="btn_copy_doc" class="struct-btn-secondary-sm">Copy Text</button>
+              <button id="btn_export_json" class="struct-btn-secondary-sm">Export Payload (JSON)</button>
+              <button id="btn_continue_downstream" class="struct-btn-secondary-sm">Continue to <span id="downstream_tool_label">Downstream Tool</span> &rarr;</button>
+              <span class="struct-doc-actions-note">Save the PDF or copied text for your own reference and for your conversation with counsel. &ldquo;Continue&rdquo; carries this configuration into the recommended drafting tool on this site.</span>
+            </div>
+            <div id="doc_preview" class="struct-doc-preview"></div>
+          </div>
+
+          <div class="struct-final-disclaimer">
+            <strong>Important.</strong> The memorandum this tool assembles is an <strong>educational illustration</strong> of how investor identity, entity classification and capital structure interact. It is generic, has not been reviewed by counsel, is not legal advice, and is not a structure to implement: a real structuring decision depends on the transaction documents and the tax position of every party, none of which this tool has. Bring the memorandum to counsel as a starting point. Using this tool does not create an attorney&ndash;client relationship with Donovan Legal PLLC; one is created only by a signed engagement letter.
+          </div>
+        </section>
+
+            <div class="dl-endcap" style="margin:2.5rem 0 1rem;">
+        <div class="dl-cta">
+          <p class="dl-cta-q">The structure chart is the tax return, drawn in advance.</p>
+          <p class="dl-cta-s">Every box on this chart is a filing, a withholding rule, or a treaty position. The tool shows you which. Whether the structure survives your investors’ counsel, your lender and an IRS examiner is a conversation with the attorney who built it.</p>
+          <div class="dl-cta-act">
+            <a href="/book" class="dl-cta-btn dl-cta-btn-1">
+              <span class="l">No charge, 30 minutes</span>
+              <span class="n">Book a Free Consultation</span>
+            </a>
+            <a href="tel:+15616666022" target="_top" class="dl-cta-btn dl-cta-btn-2">
+              <span class="l">Call Donovan Legal</span>
+              <span class="n">(561)&nbsp;666-6022</span>
+            </a>
+          </div>
+          <p class="dl-cta-note">This tool is educational only and is not legal or tax advice. Scheduling does not create an attorney&ndash;client relationship.</p>
+        </div>
+      </div>
+      </main>
+    </div>
+
+  </div>
+
+  <!-- Set tier BEFORE loading the engine -->
+    <footer style="margin:2rem 0 0; padding:1.5rem 1rem 2rem; text-align:center; border-top:1px solid #d4d4d0;">
+<!-- JORDAN-LAUNCH-POLISH: click-to-call / email / social. Styles live in css/main.css. -->
+      <div class="dl-connect">
+        <a class="dl-connect-cta" href="tel:+15616666022" target="_top"><svg class="dl-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.03-.24c1.12.37 2.33.57 3.56.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>Click Here To Call Donovan Legal</a>
+        <p class="dl-connect-direct">
+          <a href="tel:+15616666022" target="_top">(561) 666-6022</a>
+          <span class="dl-connect-sep">|</span>
+          <a href="mailto:info@donovan.law" target="_top">info@donovan.law</a>
+        </p>
+        <ul class="dl-social">
+          <li><a href="https://www.facebook.com/people/Donovan-Legal-PLLC/61590654057720/" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.324.103a8.16 8.16 0 0 1 1.021.215v3.324c-.153-.015-.33-.03-.582-.045a8.98 8.98 0 0 0-.594-.023c-.673 0-1.194.092-1.583.276a1.73 1.73 0 0 0-.786.732c-.179.303-.256.68-.256 1.155v1.821h3.86l-.334 1.847-.335 1.82h-3.191v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647z"/></svg></a></li>
+          <li><a href="https://www.tiktok.com/@donovan.legal" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on TikTok" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a></li>
+          <li><a href="https://www.instagram.com/donovan_legalpllc" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227a3.81 3.81 0 0 1-.899 1.382 3.744 3.744 0 0 1-1.38.896c-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421a3.716 3.716 0 0 1-1.379-.899 3.644 3.644 0 0 1-.9-1.38c-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.846-10.405a1.441 1.441 0 0 1-2.881 0 1.441 1.441 0 0 1 2.881 0z"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/company/donovan-legal-pllc/" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="copy-inside margin-practice">&copy; Donovan Legal PLLC. 2026. | <a class="disclaimer-link" href="disclaimer.html">DISCLAIMER</a></div>
+  </footer>
+
+<script src="js/tool-structuring.js"></script>
+  <div class="dl-callbar">
+    <a class="dl-callbar-book" href="/book" data-dl-cta="callbar_book">Book a Free Consultation</a>
+    <a class="dl-callbar-call" href="tel:+15616666022" target="_top"><svg class="dl-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.03-.24c1.12.37 2.33.57 3.56.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>or call (561) 666-6022</a>
+  </div>
+</body>
+</html>

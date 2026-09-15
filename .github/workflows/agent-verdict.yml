@@ -1,0 +1,145 @@
+# Agent verdict emission (VAN-60) — ported from TicoAI/Agent_OS. David/Zane dispatch.
+#
+# On manual dispatch, a counterparty GATE agent (Dr. Insane | Sarah) posts a
+# bot-authored PR review — the *countable* verdict Vantage branch protection needs.
+# The review is emitted by the AGENT's own minted App token (keyless WIF -> GCP ->
+# get-agent-token), NEVER the operator and NEVER the default GITHUB_TOKEN. Analysis
+# stays agent-side; this workflow only EMITS the computed verdict as the bot, in the
+# one place the minting creds live (Actions). This is what ends the every-PR stall:
+# the fleet runs as TicoDavid, GitHub forbids self-approval, so a real gate verdict
+# that lands as a comment does not count — this posts it as the bot's own review.
+#
+# Trigger authority: L2 — David/Zane dispatch AFTER the agent reports (NO agent
+# self-dispatch). Scope: gate agents only. Body: inline `body` input; the full
+# analysis lives in the agent's PR comment, linked from the body.
+#
+# Integrity guards (all load-bearing): input allowlist (gate agent / event enum /
+# PR OPEN), author≠approver fail-closed on APPROVE, idempotency (no duplicate
+# review at the same head), review posted ONLY by the minted agent token, mint only
+# the requested agent's 1h token, every emission audited. Guard logic is unit-tested
+# in test/agent-verdict-guard.test.mjs and vendored in bin/lib/identity/verdict.mjs.
+#
+# Human-Only (NOT changed here, David authors): the WIF SA binding for TicoAI/vantage,
+# the agent-identity SA, the Secret-Manager keys, and the org Actions Variables. This
+# workflow CONSUMES them. Requires: agentos-identity@tico-ai-prod granted
+# roles/iam.workloadIdentityUser on the TicoAI/vantage principalSet, and the org vars
+# GCP_WORKLOAD_IDENTITY_PROVIDER / GCP_AGENT_IDENTITY_SA / GCP_PROJECT_ID /
+# DR_INSANE_APP_INSTALLATION_ID / SARAH_APP_INSTALLATION_ID readable by this repo.
+name: agent-verdict
+
+on:
+  workflow_dispatch:
+    inputs:
+      agent:
+        description: Gate agent emitting the verdict
+        required: true
+        type: choice
+        options:
+          - Dr. Insane
+          - Sarah
+      pr:
+        description: PR number (must be OPEN)
+        required: true
+        type: string
+      event:
+        description: Review verdict
+        required: true
+        type: choice
+        options:
+          - APPROVE
+          - REQUEST_CHANGES
+          - COMMENT
+      body:
+        description: Short verdict summary (link the agent's full analysis comment)
+        required: true
+        type: string
+
+# id-token: write mints the OIDC token WIF exchanges. contents stays read — the
+# review is posted by the agent's minted App token, never the default GITHUB_TOKEN.
+# No contents: write (token minimalism — this workflow never pushes).
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  emit:
+    runs-on: ubuntu-latest
+    env:
+      # Untrusted dispatch inputs are bound in env: (never interpolated into run:,
+      # the script-injection vector the workflow-injection guard enforces against).
+      VERDICT_AGENT: ${{ inputs.agent }}
+      VERDICT_PR: ${{ inputs.pr }}
+      VERDICT_EVENT: ${{ inputs.event }}
+      VERDICT_BODY: ${{ inputs.body }}
+      ACTOR: ${{ github.actor }}
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          # The review uses the agent token; do NOT persist the GITHUB_TOKEN
+          # credential into .git/config (it is never the credential we want).
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '20'
+      # No `npm ci && npm run build` — Vantage is plain Node with no package.json
+      # and no TypeScript build. The guard/emit/audit logic is vendored as .mjs under
+      # bin/lib/identity/ and runs directly on Node 20 (built-ins + global fetch).
+
+      # Keyless federation into GCP — NO service-account JSON key. Reused pins.
+      - name: Authenticate to GCP via Workload Identity Federation
+        id: gcpauth
+        uses: google-github-actions/auth@c200f3691d83b41bf9bbd8638997a462592937ed # v2.1.13
+        with:
+          workload_identity_provider: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ vars.GCP_AGENT_IDENTITY_SA }}
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/cloud-platform
+
+      # Guard FIRST — validate inputs + author≠approver, fail-closed. Mints the named
+      # agent's own token and reads the PR/commit with it. Posts NOTHING; on any
+      # violation the job stops here and the emit step never runs.
+      - name: Guard — validate inputs + author≠approver (posts nothing)
+        id: guard
+        env:
+          GCP_PROJECT_ID: ${{ vars.GCP_PROJECT_ID }}
+          GCP_ACCESS_TOKEN: ${{ steps.gcpauth.outputs.access_token }}
+          DR_INSANE_APP_INSTALLATION_ID: ${{ vars.DR_INSANE_APP_INSTALLATION_ID }}
+          SARAH_APP_INSTALLATION_ID: ${{ vars.SARAH_APP_INSTALLATION_ID }}
+        run: |
+          set -euo pipefail
+          node bin/agent-verdict.mjs guard --agent "$VERDICT_AGENT" --pr "$VERDICT_PR" --event "$VERDICT_EVENT"
+
+      # Emit the review AS the agent bot (the token-bound path). The minted agent
+      # token authenticates the POST /pulls/{n}/reviews — never the operator, never
+      # GITHUB_TOKEN. Skipped when the guard marked this an idempotent duplicate
+      # (same bot, same event, same head) — the guard already audited the suppression.
+      - name: Emit — post the verdict review as the agent bot
+        if: steps.guard.outputs.duplicate != 'true'
+        env:
+          GCP_PROJECT_ID: ${{ vars.GCP_PROJECT_ID }}
+          GCP_ACCESS_TOKEN: ${{ steps.gcpauth.outputs.access_token }}
+          DR_INSANE_APP_INSTALLATION_ID: ${{ vars.DR_INSANE_APP_INSTALLATION_ID }}
+          SARAH_APP_INSTALLATION_ID: ${{ vars.SARAH_APP_INSTALLATION_ID }}
+        run: |
+          set -euo pipefail
+          node bin/commit-as-agent.mjs review --agent "$VERDICT_AGENT" --pr "$VERDICT_PR" --event "$VERDICT_EVENT" --body "$VERDICT_BODY"
+
+      # Audit — append the emission to the WORM trail (the immutable run log) + the
+      # job summary. Skipped on a duplicate (the guard already emitted a
+      # duplicate-suppressed audit line). Guard outputs are bound to env (never
+      # inlined into run:).
+      - name: Audit — record the emission
+        if: steps.guard.outputs.duplicate != 'true'
+        env:
+          GUARD_BOT: ${{ steps.guard.outputs.bot }}
+          GUARD_HEAD_SHA: ${{ steps.guard.outputs.head_sha }}
+        run: |
+          set -euo pipefail
+          node bin/agent-verdict.mjs audit \
+            --actor "$ACTOR" \
+            --agent "$VERDICT_AGENT" \
+            --bot "$GUARD_BOT" \
+            --pr "$VERDICT_PR" \
+            --event "$VERDICT_EVENT" \
+            --head-sha "$GUARD_HEAD_SHA" \
+            --ts "$(date -u +%Y-%m-%dT%H:%M:%SZ)"

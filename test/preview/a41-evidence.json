@@ -1,0 +1,725 @@
+{
+  "order": "SARAH-PERCH-A41-CUTOVER-QA",
+  "ticket": 60,
+  "gates": "PROMOTE",
+  "base": "https://20bf407f.donovan-site.pages.dev",
+  "startedAt": "2026-07-25T18:59:38.512Z",
+  "steps": [
+    {
+      "id": "T0.1",
+      "name": "the router is injected, ready and registered with the layer",
+      "ok": true,
+      "detail": {
+        "ready": true,
+        "container": "#perch-main",
+        "registered": true,
+        "errors": []
+      }
+    },
+    {
+      "id": "T0.2",
+      "name": "the direct-DOM booking path is ARMED (routerActive is the gate itself)",
+      "ok": true,
+      "detail": {
+        "routerActive": true,
+        "gatePublished": false
+      }
+    },
+    {
+      "id": "T0.3",
+      "name": "one document, no iframe, no perch-inject.js",
+      "ok": true,
+      "detail": {
+        "iframes": 0,
+        "perchInjected": false,
+        "topLevel": true
+      }
+    },
+    {
+      "id": "T0.4",
+      "name": "the persistent layer holds exactly one concierge",
+      "ok": true,
+      "detail": {
+        "kind": "widget",
+        "count": 1,
+        "allInLayer": true,
+        "insideContainer": false
+      }
+    },
+    {
+      "id": "T1.0",
+      "name": "PRECONDITION — a live audio resource is running and its clock is advancing",
+      "ok": true,
+      "detail": {
+        "armed": true,
+        "state": "running",
+        "clock": 0.010666666666666666,
+        "waitedMs": 859
+      }
+    },
+    {
+      "id": "T1.1",
+      "name": "the call survives PLAIN NAVIGATION (same layer closure, clock still advancing)",
+      "ok": true,
+      "detail": {
+        "via": "existing-link",
+        "path": "/blog",
+        "instanceId": {
+          "before": "perch-iha4vfj2",
+          "after": "perch-iha4vfj2"
+        },
+        "clock": {
+          "before": 0.010666666666666666,
+          "after": 1.7813333333333334
+        },
+        "concierge": {
+          "kind": "widget",
+          "count": 1,
+          "allInLayer": true,
+          "insideContainer": false
+        }
+      }
+    },
+    {
+      "id": "T1.2",
+      "name": "the call survives OPENING THE BOOKING MODAL mid-call, and the form really opened",
+      "ok": true,
+      "detail": {
+        "via": "appended-link",
+        "gate": "none",
+        "live": "block",
+        "widgetBooted": true,
+        "step": "DATE_PICK",
+        "clock": {
+          "before": 1.792,
+          "after": 3.6
+        },
+        "instanceId": "perch-iha4vfj2"
+      }
+    },
+    {
+      "id": "T1.3a",
+      "name": "the qualifier opens on the router path and lives OUTSIDE the swap container",
+      "ok": true,
+      "detail": {
+        "mounted": true,
+        "open": true,
+        "inLayer": true,
+        "insideContainer": false,
+        "rootId": "qual",
+        "firstOption": "tax"
+      }
+    },
+    {
+      "id": "T1.3b",
+      "name": "a CROSS-PAGE qualifier flow keeps its place, its DOM and the live call across the swap",
+      "ok": true,
+      "detail": {
+        "via": "existing-link",
+        "mid": {
+          "open": true,
+          "stepText": "Tax — a bit more"
+        },
+        "after": {
+          "stillMounted": true,
+          "sameNode": true,
+          "open": true,
+          "stepText": "Tax — a bit more",
+          "inLayer": true,
+          "instanceId": "perch-iha4vfj2",
+          "audio": {
+            "clock": 6.250666666666667,
+            "state": "running"
+          }
+        },
+        "clockBefore": 4.032
+      }
+    },
+    {
+      "id": "T2.0",
+      "name": "PRECONDITION — the adapter walked a real slot to the FORM step",
+      "ok": true,
+      "detail": {
+        "callId": {
+          "handled": true,
+          "cmd": "set_call_id",
+          "via": "window.__perchCallId",
+          "result": {
+            "call_id": "a41-cutover-probe"
+          }
+        },
+        "typeId": "consult",
+        "day": "2026-07-27",
+        "time": "9:00 AM",
+        "step": "FORM",
+        "perchCallId": "a41-cutover-probe"
+      }
+    },
+    {
+      "id": "T2.1a",
+      "name": "PRECONDITION — exactly one POST is in flight and held open",
+      "ok": true,
+      "detail": {
+        "attempts": 1,
+        "step": "SUBMITTING",
+        "submitDisabled": null
+      }
+    },
+    {
+      "id": "T2.1b",
+      "name": "A SWAP DURING AN IN-FLIGHT BOOKING POST DOES NOT DOUBLE-BOOK",
+      "ok": true,
+      "detail": {
+        "via": "existing-link",
+        "attemptsAfterSwap": 1,
+        "attemptsAfterResponse": 1,
+        "bodies": [
+          {
+            "call_id": "a41-cutover-probe",
+            "slot": "2026-07-27T13:00:00.000Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "T2.2",
+      "name": "BACK and FORWARD both soft-navigate: right page, container intact, no iframe",
+      "ok": true,
+      "detail": {
+        "before": {
+          "swaps": 5,
+          "instanceId": "perch-iha4vfj2"
+        },
+        "back": {
+          "path": "/book",
+          "swaps": 6,
+          "instanceId": "perch-iha4vfj2",
+          "audio": {
+            "clock": 16.432,
+            "state": "running"
+          },
+          "iframes": 0,
+          "title": "Schedule a Consultation | Donovan Legal PLLC",
+          "container": true
+        },
+        "forward": {
+          "path": "/contact",
+          "swaps": 7,
+          "instanceId": "perch-iha4vfj2",
+          "audio": {
+            "clock": 18.250666666666667,
+            "state": "running"
+          },
+          "iframes": 0,
+          "title": "Contact | Donovan Legal PLLC | Tax-First Practice Focused on Real Estate",
+          "container": true
+        }
+      }
+    },
+    {
+      "id": "T2.2b",
+      "name": "and the live call survives BOTH history moves",
+      "ok": true,
+      "detail": {
+        "instanceId": {
+          "before": "perch-iha4vfj2",
+          "back": "perch-iha4vfj2",
+          "forward": "perch-iha4vfj2"
+        },
+        "clock": {
+          "back": 16.432,
+          "forward": 18.250666666666667
+        }
+      }
+    },
+    {
+      "id": "T2.3",
+      "name": "MOBILE (390×844): the router swaps, the layer persists, the orb is HIT-TESTABLE",
+      "ok": true,
+      "detail": {
+        "via": "existing-link",
+        "boot": {
+          "routerReady": true,
+          "routerActive": true,
+          "concierge": {
+            "kind": "widget",
+            "count": 1,
+            "allInLayer": true,
+            "insideContainer": false
+          },
+          "instanceId": "perch-duypronl",
+          "overflowX": false
+        },
+        "orb": {
+          "found": true,
+          "rect": {
+            "x": 302,
+            "y": 756,
+            "w": 66,
+            "h": 66
+          },
+          "onScreen": true,
+          "hitIsSelfOrChild": true,
+          "hitTag": "IMG"
+        },
+        "after": {
+          "path": "/blog",
+          "swaps": 1,
+          "instanceId": "perch-duypronl",
+          "concierge": {
+            "kind": "widget",
+            "count": 1,
+            "allInLayer": true,
+            "insideContainer": false
+          },
+          "overflowX": false
+        }
+      }
+    },
+    {
+      "id": "T2.4",
+      "name": "FIRST-LOAD PARITY: /book reached by swap matches /book loaded cold",
+      "ok": true,
+      "detail": {
+        "differingRows": [],
+        "missingScripts": [],
+        "extraScripts": [
+          "/js/donovan-widget.js"
+        ],
+        "hard": {
+          "title": "Schedule a Consultation | Donovan Legal PLLC",
+          "childCount": 3,
+          "scripts": 16,
+          "inline": 0
+        },
+        "soft": {
+          "title": "Schedule a Consultation | Donovan Legal PLLC",
+          "childCount": 3,
+          "scripts": 17,
+          "inline": 1
+        }
+      }
+    },
+    {
+      "id": "T2.5a",
+      "name": "the §5.1 contract holds: TITLE and CANONICAL follow the swap",
+      "ok": true,
+      "detail": {
+        "title": {
+          "hard": "Schedule a Consultation | Donovan Legal PLLC",
+          "soft": "Schedule a Consultation | Donovan Legal PLLC"
+        },
+        "canonical": {
+          "hard": "https://www.donovan.law/book",
+          "soft": "https://www.donovan.law/book"
+        }
+      }
+    },
+    {
+      "id": "T2.5b",
+      "name": "MINOR FINDING — every OTHER head row keeps the PREVIOUS page's value",
+      "ok": false,
+      "detail": {
+        "drifted": [
+          "description",
+          "ogTitle",
+          "ogUrl",
+          "robots",
+          "jsonLdTypes"
+        ],
+        "followed": [
+          "title",
+          "canonical"
+        ],
+        "hard": {
+          "title": "Schedule a Consultation | Donovan Legal PLLC",
+          "canonical": "https://www.donovan.law/book",
+          "description": "Schedule an initial consultation with Paul Donovan, JD, CPA, CCM at Donovan Legal PLLC. Tax-first practice focused on real estate. Delray Beach, Florida; clients served nationwide.",
+          "ogTitle": "Schedule a Consultation | Donovan Legal PLLC",
+          "ogUrl": "https://www.donovan.law/book",
+          "robots": "noindex",
+          "jsonLdTypes": []
+        },
+        "soft": {
+          "title": "Schedule a Consultation | Donovan Legal PLLC",
+          "canonical": "https://www.donovan.law/book",
+          "description": "Contact Donovan Legal PLLC, a tax-first practice focused on real estate. Located in Delray Beach, Florida; clients served nationwide.",
+          "ogTitle": "Contact | Donovan Legal PLLC",
+          "ogUrl": "https://www.donovan.law/contact",
+          "robots": null,
+          "jsonLdTypes": [
+            "LegalService"
+          ]
+        },
+        "severity": "MINOR — not a promote blocker",
+        "why": "RE-INIT-INVENTORY §5.1 syncs title + canonical only, so description, og:title, og:url, robots and JSON-LD are still /contact's after a swap into /book. CRAWLER IMPACT IS NIL: a crawler fetches each URL cold and never soft-navigates, so /book's `noindex` is still served and honoured — the A1.1 JS-off gate covers that ground. The live exposure is in-session: a share sheet or an extension reading <head> on a swap-arrived page gets the previous page's card. Named so the promote decision is made with it rather than around it."
+      }
+    },
+    {
+      "id": "T3.1",
+      "name": "the id set through the SHIPPED adapter is in the body of the POST the widget composed",
+      "ok": true,
+      "detail": {
+        "call_id": "a41-cutover-probe",
+        "keys": [
+          "deployment",
+          "type",
+          "slot",
+          "name",
+          "email",
+          "phone",
+          "notes",
+          "call_id",
+          "turnstile_token"
+        ]
+      }
+    },
+    {
+      "id": "T3.2",
+      "name": "and it survived every content swap in this run without being re-sent",
+      "ok": true,
+      "detail": {
+        "perchCallId": "a41-cutover-probe"
+      }
+    },
+    {
+      "id": "T4.1a",
+      "name": "Perch.router publishes a probe and NOTHING else",
+      "ok": true,
+      "detail": {
+        "functions": [
+          "Perch.router.probe"
+        ]
+      }
+    },
+    {
+      "id": "T4.1b",
+      "name": "Perch.layer carries ONLY the four reviewed keys — no unreviewed surface",
+      "ok": true,
+      "detail": {
+        "keys": [
+          "probe",
+          "bookingProbe",
+          "attachLiveResource",
+          "detachLiveResource"
+        ],
+        "unclassified": []
+      }
+    },
+    {
+      "id": "T4.1c",
+      "name": "A3.3 (#58) CLOSED — setRouter and every other control handle is GONE from window",
+      "ok": true,
+      "detail": {
+        "stillExposed": [],
+        "checkedFor": [
+          "setRouter",
+          "mountShellConcierge",
+          "root",
+          "container",
+          "concierge",
+          "call",
+          "qualifier",
+          "inspect",
+          "isPersistent",
+          "instanceId",
+          "hostFallback"
+        ],
+        "ticket": 58,
+        "wasBlockingOn": "PR #80",
+        "note": "PR #80 measured four exposed mutators here, setRouter among them. Read off the live window on this deployment, not from source."
+      }
+    },
+    {
+      "id": "T4.2",
+      "name": "the call id on window is a DATA value, not a control surface",
+      "ok": true,
+      "detail": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "T4.3",
+      "name": "A3.3 (#58) CLOSED — window.__perch is a probe; openQualifier/closeQualifier gone",
+      "ok": true,
+      "detail": {
+        "exposed": [
+          "__perch.probe"
+        ],
+        "keys": [
+          "probe"
+        ],
+        "ticket": 58,
+        "wasBlockingOn": "PR #80"
+      }
+    },
+    {
+      "id": "T4.3b",
+      "name": "window.Perch and window.__perch cannot be REASSIGNED and their slots cannot be SWAPPED",
+      "ok": true,
+      "detail": {
+        "descriptor": {
+          "writable": false,
+          "configurable": false
+        },
+        "sloppyMode": {
+          "note": "a hostile classic <script>: the writes are silent no-ops, and the invariant is that NOTHING MOVED — not that anything threw",
+          "nothingChanged": true,
+          "probeStillReal": true,
+          "outcomes": {
+            "reassignNamespace": "no-throw",
+            "deleteNamespace": "no-throw",
+            "redefineNamespace": "TypeError",
+            "swapSlot": "no-throw",
+            "redefineSlot": "TypeError",
+            "addSlot": "no-throw",
+            "swapMethod": "no-throw",
+            "reassignDunder": "no-throw"
+          }
+        },
+        "strictMode": {
+          "note": "a hostile module: every write is rejected with a TypeError",
+          "reassignNamespace": true,
+          "deleteNamespace": true,
+          "redefineNamespace": true,
+          "swapSlot": true,
+          "redefineSlot": true,
+          "addSlot": true,
+          "swapMethod": true,
+          "reassignDunder": true
+        },
+        "layerFrozen": true,
+        "identityHeld": true
+      }
+    },
+    {
+      "id": "T4.3c",
+      "name": "a SECOND router registration is REFUSED and the original router is still the live one",
+      "ok": true,
+      "detail": {
+        "setRouterExport": "undefined",
+        "secondRegistrationOk": false,
+        "refusalReason": "a router is already registered",
+        "hostileRouterEverRan": false,
+        "routerActive": {
+          "before": true,
+          "after": true
+        },
+        "routerRefused": {
+          "before": 0,
+          "after": 1
+        },
+        "residual": "The module IS importable same-origin — #58 documents this. What closes it is that A2.2 registers at boot, so the slot is taken before any page script runs. This step is the proof of that, measured on the deployment."
+      }
+    },
+    {
+      "id": "T4.4",
+      "name": "no swap re-executed, re-nonced or eval'd a fetched script",
+      "ok": true,
+      "detail": {
+        "atBoot": {
+          "inlineExecutable": 0,
+          "inlineNonced": 0,
+          "dataBlocks": 1,
+          "hybridScripts": 0,
+          "externalCount": 13
+        },
+        "afterSwaps": {
+          "inlineExecutable": 0,
+          "inlineNonced": 0,
+          "dataBlocks": 1,
+          "hybridScripts": 0,
+          "externalCount": 18
+        },
+        "delta": {
+          "inlineExecutable": 0,
+          "inlineNonced": 0,
+          "hybridScripts": 0
+        },
+        "swapsRun": 7,
+        "cspViolations": []
+      }
+    },
+    {
+      "id": "T4.5",
+      "name": "no page in this run threw an uncaught error",
+      "ok": true,
+      "detail": {
+        "pageErrors": []
+      }
+    },
+    {
+      "id": "T5.1",
+      "name": "every swap emitted exactly one GA4 page_view row",
+      "ok": true,
+      "detail": {
+        "swaps": 7,
+        "gaRows": 7,
+        "urls": [
+          "/blog",
+          "/book",
+          "/contact",
+          "/book",
+          "/contact",
+          "/book",
+          "/contact"
+        ]
+      }
+    },
+    {
+      "id": "T5.2",
+      "name": "GA4 is a DOCUMENTED STUB — every row says `pending` and names the external blocker",
+      "ok": true,
+      "detail": {
+        "statuses": [
+          "pending"
+        ],
+        "sample": {
+          "step": 11,
+          "name": "GA4 manual page_view",
+          "status": "pending",
+          "detail": {
+            "reason": "no GA4 tag on this site — the G- measurement id is an external blocker (HANDOFF.md:120, A0.3 §3.8)"
+          }
+        }
+      }
+    },
+    {
+      "id": "T5.3",
+      "name": "no swap in this run reported a broken re-init row",
+      "ok": true,
+      "detail": [
+        {
+          "url": "/blog",
+          "error": null,
+          "broken": []
+        },
+        {
+          "url": "/book",
+          "error": null,
+          "broken": []
+        },
+        {
+          "url": "/contact",
+          "error": null,
+          "broken": []
+        },
+        {
+          "url": "/book",
+          "error": null,
+          "broken": []
+        },
+        {
+          "url": "/contact",
+          "error": null,
+          "broken": []
+        },
+        {
+          "url": "/book",
+          "error": null,
+          "broken": []
+        },
+        {
+          "url": "/contact",
+          "error": null,
+          "broken": []
+        }
+      ]
+    },
+    {
+      "id": "T5.4",
+      "name": "the #34 prefill guards hold through the REWIRED DOM on Preview",
+      "ok": true,
+      "detail": {
+        "acked": true,
+        "step": "FORM",
+        "firstEmail": "maria@example.com",
+        "form": {
+          "name": "Maria De La Cruz",
+          "email": "iTypedThisMyself@example.com",
+          "phone": "(561) 555-0142",
+          "notes": "Real estate closing question"
+        }
+      }
+    },
+    {
+      "id": "T6.1",
+      "name": "EVERY booking write request was answered inside the browser — none reached Clio",
+      "ok": true,
+      "detail": {
+        "requested": 1,
+        "intercepted": 1,
+        "escaped": 0
+      }
+    },
+    {
+      "id": "T6.2",
+      "name": "and the only writes attempted were the one deliberate submit in T2.1",
+      "ok": true,
+      "detail": {
+        "attempts": 1,
+        "urls": [
+          "https://20bf407f.donovan-site.pages.dev/booking/create"
+        ]
+      }
+    }
+  ],
+  "bookingRequests": [
+    {
+      "where": "main",
+      "url": "https://20bf407f.donovan-site.pages.dev/booking/create",
+      "method": "POST"
+    }
+  ],
+  "intercepted": [
+    {
+      "url": "https://20bf407f.donovan-site.pages.dev/booking/create",
+      "method": "POST",
+      "body": {
+        "deployment": "donovan-main",
+        "type": "consult",
+        "slot": "2026-07-27T13:00:00.000Z",
+        "name": "A41 Cutover Probe",
+        "email": "a41-probe@example.invalid",
+        "phone": "(561) 555-0144",
+        "notes": "SARAH-PERCH-A41 cutover verification — not a real enquiry",
+        "call_id": "a41-cutover-probe",
+        "turnstile_token": ""
+      }
+    }
+  ],
+  "console": [
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "No available adapters."
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "[Cloudflare Turnstile] Cannot find Widget cf-chl-widget-9kz4x, consider using turnstile.remove() to clean up a widget."
+    },
+    {
+      "where": "main",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 400 ()"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "No available adapters."
+    }
+  ],
+  "pageErrors": [],
+  "cspViolations": [],
+  "notes": [
+    "T1 proxies a Retell call with a live AudioContext registered through Perch.layer.attachLiveResource(). A clock of 0 would mean NOT STARTED, so it is asserted > 0 as a precondition before every swap, never afterwards as the result.",
+    "T3 proves the id reaches the POST body. Every server hop after that — the qualbk:<callId> lookup, the /has bridge probe, the Clio description, the Vantage merge key — is proved in test/perch-cutover-callid.test.mjs against the real create.js handler. Neither run books anything: this one intercepts, that one stubs. NOTE for the re-run: `a41-cutover-probe` is deliberately an id no server record backs, so under #57 it is UNVERIFIED by construction. That is the correct outcome and not a gap in this step — what T3 gates is the CLIENT hop (does the rewired DOM still thread the id into the body across swaps), which is unchanged by #57. The server-side decision cannot be observed here precisely because this run never lets a write reach the origin.",
+    "There is no G- measurement id on this site (RE-INIT-INVENTORY §3.8, HANDOFF.md:120). The per-swap page_view is therefore a stub, and §T5.2 holds it to being a REPORTED stub rather than silence. test/perch-cutover-booking-guards.test.mjs §T5.3 installs a gtag and proves the code behind the stub fires one correct page_view per swap."
+  ],
+  "finishedAt": "2026-07-25T19:00:11.298Z",
+  "pass": false,
+  "failed": [
+    "T2.5b MINOR FINDING — every OTHER head row keeps the PREVIOUS page's value"
+  ]
+}

@@ -1,0 +1,550 @@
+/* ── MEMBERS portal gate modal — Donovan brand re-skin ─────────────────────────
+ * JORDAN / ORDER JORDAN-PORTAL-RESKIN (re-skin of JORDAN-MEMBERS-GATE-BRANDING)
+ *
+ * WHY THIS EXISTS
+ * The MEMBERS nav dropdown (GOLD / PLATINUM / DIAMOND / RESERVE) points at the
+ * four tier directories, which functions/_lib/tier-auth.js gates with HTTP Basic
+ * and FAILS CLOSED. With TIER_*_USER / TIER_*_PASS unset the public gets a bare
+ * 503 on every page of the site. The dropdown markup is duplicated across 74
+ * pages, so the fix is not markup — it is one shared client-side intercept that
+ * opens this modal instead of navigating. See js/members-gate.js.
+ *
+ * WHY THIS FILE CHANGED
+ * This revision is PRESENTATION ONLY. It applies the single Donovan brand: a
+ * paper ground, ink type, and ONE accent — firm green — used for the primary
+ * CTA, the active/focus state, the lock mark, and the card's top rule. The four
+ * rooms no longer differ by colour; they differ only by their name, persona and
+ * eyebrow label, exactly as before. Every selector, id and class the modal
+ * already emitted is still styled here, and nothing in js/members-gate.js's
+ * behaviour (the intercept, tier routing, startAuth, the focus trap, ESC /
+ * backdrop, the aria wiring, the layer band) is touched by it.
+ *
+ * WHY THIS IS AN EXTERNAL STYLESHEET
+ * Same reason as css/consent-gate.css: the site runs a per-request nonce CSP
+ * (functions/_middleware.js). Serving the gate's CSS from /css/ means it is
+ * admitted by `style-src 'self'` alone — no inline <style>, no style="…"
+ * attribute, no nonce to plumb through a dynamically injected script, and it
+ * keeps working unchanged on the day 'unsafe-inline' is dropped from the policy.
+ * Nothing in js/members-gate.js writes el.style or a style attribute. The lock
+ * glyph is likewise a CSS mask, not markup and not an external asset request.
+ *
+ * NAMESPACE — `dvnmg-` on EVERY class and id.
+ * Two reasons. (1) This renders on top of pages that already load
+ * bootstrap.min.css + main.css, whose bare `button` / `h2` / `a` / `input` rules
+ * would otherwise reach inside the card. (2) The gate is meant to be lifted into
+ * a Perch overlay widget later; a single namespace means the whole surface moves
+ * as one unit with no selector rework.
+ *
+ * LAYERING
+ * z-index sits above the Perch launcher (2147483000) and below the FL §934.03
+ * consent gate (2147483600) — a recording disclosure must never be covered by a
+ * marketing modal. The overlay is position:fixed, so it also works correctly
+ * inside the /perch #site iframe, where it covers the framed viewport.
+ *
+ * BRAND TOKENS
+ * The whole surface is drawn from the seven Donovan tokens defined once below.
+ * No colour is hardcoded anywhere else in this file — every surface references a
+ * token, and the semi-transparent scrim and shadow are mixed FROM a token so the
+ * brand stays the single source of truth.
+ *
+ * TYPE — Gotham.
+ * Gotham Medium body, Gotham Bold titles, Gotham Book eyebrow degrading to Light.
+ */
+
+/* ── Overlay ──────────────────────────────────────────────────────────────── */
+.dvnmg-overlay {
+  /* ── The seven Donovan brand tokens, defined once ─────────────────────────
+     Scoped to the gate's own subtree (not :root) so they travel with the
+     surface into a Perch overlay and never leak onto the host page. */
+  --dvn-paper: #F5F5F0;
+  --dvn-ink: #111111;
+  --dvn-ink-soft: #4A4A46;
+  --dvn-green: #107a4d;
+  --dvn-green-press: #127E50;
+  --dvn-line: #DAD8D0;
+  --dvn-white: #FFFFFF;
+
+  position: fixed;
+  inset: 0;
+  z-index: 2147483500;
+  /* Scrim mixed from the ink token so the wash stays on-brand rather than a
+     neutral browser-dialog grey. */
+  background: color-mix(in srgb, var(--dvn-ink) 58%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font: 15px/1.55 "Gotham Medium", "Gotham", "Open Sans", system-ui, sans-serif;
+  color: var(--dvn-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.dvnmg-overlay[hidden] {
+  display: none;
+}
+
+/* The gate sizes every control with width:100% plus its own padding and border.
+   That only lands correctly under a border-box box model, which the gate got for
+   free from bootstrap's reboot. Scoped to the gate's own subtree so it is not a
+   page-wide reset, and so the surface stays correct if it is lifted into a Perch
+   overlay that does not load bootstrap. */
+.dvnmg-overlay,
+.dvnmg-overlay *,
+.dvnmg-overlay *::before,
+.dvnmg-overlay *::after {
+  box-sizing: border-box;
+}
+
+/* ── Card ─────────────────────────────────────────────────────────────────── */
+.dvnmg-card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  max-height: 88vh;
+  overflow-y: auto;
+  background: var(--dvn-paper);
+  color: var(--dvn-ink);
+  border: 1px solid var(--dvn-line);
+  border-radius: 6px;
+  padding: 40px 34px 28px;
+  text-align: center;
+  box-shadow: 0 26px 64px color-mix(in srgb, var(--dvn-ink) 30%, transparent);
+  /* The single brand rule across the top. It is green for every room — the four
+     tiers are told apart by name, persona and eyebrow, never by colour. */
+  border-top: 5px solid var(--dvn-green);
+}
+
+/* ── Close ────────────────────────────────────────────────────────────────── */
+.dvnmg-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--dvn-ink-soft);
+  font: 300 26px/1 "Gotham Medium", "Open Sans", system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.dvnmg-close:hover,
+.dvnmg-close:focus-visible {
+  color: var(--dvn-green);
+  background: color-mix(in srgb, var(--dvn-green) 8%, transparent);
+}
+
+/* ── Eyebrow pill: "🔒 <TIER> · Member Portal" ─────────────────────────────── */
+/* A bordered pill rather than a bare line of type, so the tier label reads as a
+   discrete "which room is this" chip. It is the same paper-and-ink treatment for
+   every tier; the only colour on it is the green lock mark. */
+.dvnmg-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 0 0 16px;
+  padding: 6px 14px;
+  border: 1px solid var(--dvn-line);
+  border-radius: 999px;
+  font: 10.5px/1.4 "Gotham Book", "Gotham Light", "Gotham", "Open Sans", system-ui, sans-serif;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dvn-ink-soft);
+  background: transparent;
+}
+
+/* Lock glyph. A CSS mask filled with the green accent, so it costs no HTTP
+   request and adds no markup for js/members-gate.js to build. Behind @supports
+   so a browser without mask support gets no glyph rather than a solid block. */
+.dvnmg-eyebrow::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 0;
+  height: 11px;
+  margin-right: 0;
+}
+
+@supports ((-webkit-mask-image: url("")) or (mask-image: url(""))) {
+  .dvnmg-eyebrow::before {
+    width: 11px;
+    margin-right: 8px;
+    background-color: var(--dvn-green);
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cpath%20d='M12%202a5%205%200%2000-5%205v3H6a2%202%200%2000-2%202v8a2%202%200%20002%202h12a2%202%200%20002-2v-8a2%202%200%2000-2-2h-1V7a5%205%200%2000-5-5zm0%202a3%203%200%20013%203v3H9V7a3%203%200%20013-3z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cpath%20d='M12%202a5%205%200%2000-5%205v3H6a2%202%200%2000-2%202v8a2%202%200%20002%202h12a2%202%200%20002-2v-8a2%202%200%2000-2-2h-1V7a5%205%200%2000-5-5zm0%202a3%203%200%20013%203v3H9V7a3%203%200%20013-3z'/%3E%3C/svg%3E");
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+  }
+}
+
+/* The tier word leads the pill; the "Member Portal" suffix follows a shade
+   quieter. Both read the pill's ink-soft colour — no per-tier hue. */
+.dvnmg-eyebrow-tier {
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+.dvnmg-eyebrow-re { font-weight: 700; }
+
+.dvnmg-eyebrow-suffix {
+  white-space: nowrap;
+  opacity: 0.78;
+}
+
+/* The separator dot is kept in the DOM (js/members-gate.js emits it) but reads
+   as spacing inside the pill — TIER then Member Portal, per the mockup. */
+.dvnmg-eyebrow-sep {
+  font-size: 0;
+  margin: 0 5px;
+}
+
+/* ── Title (the portal name) + persona subtitle ───────────────────────────── */
+.dvnmg-title {
+  margin: 0 0 10px;
+  font-family: "Gotham Bold", "Gotham", "Open Sans", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  color: var(--dvn-ink);
+  text-transform: none;
+}
+
+.dvnmg-persona {
+  margin: 0 0 6px;
+  font-size: 14px;
+  color: var(--dvn-ink-soft);
+}
+
+.dvnmg-private {
+  margin: 0 0 24px;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--dvn-ink-soft);
+}
+
+/* ── Provider (SSO) buttons ───────────────────────────────────────────────── */
+/* Outline style on paper with an ink label — a placeholder seam, so they sit
+   quieter than the primary green request button below. */
+.dvnmg-providers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dvnmg-provider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 16px;
+  border: 1px solid var(--dvn-line);
+  border-radius: 4px;
+  background: var(--dvn-paper);
+  color: var(--dvn-ink);
+  font: 600 14px/1.2 "Gotham Medium", "Open Sans", system-ui, sans-serif;
+  cursor: pointer;
+  text-align: center;
+}
+
+.dvnmg-provider:hover,
+.dvnmg-provider:focus-visible {
+  background: var(--dvn-paper);
+  border-color: var(--dvn-green);
+  color: var(--dvn-green);
+}
+
+.dvnmg-provider-mark {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+/* ── Divider ──────────────────────────────────────────────────────────────── */
+.dvnmg-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+  font: 600 10.5px/1 "Gotham Medium", "Open Sans", system-ui, sans-serif;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dvn-ink-soft);
+}
+
+.dvnmg-divider::before,
+.dvnmg-divider::after {
+  content: "";
+  flex: 1 1 auto;
+  height: 1px;
+  background: var(--dvn-line);
+}
+
+/* ── Primary action: request member access ────────────────────────────────── */
+/* Filled green with white text. This is the only route that is actually open
+   today — the SSO buttons are a placeholder seam — so it carries the emphasis. */
+.dvnmg-request {
+  display: block;
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 16px;
+  border: 1px solid var(--dvn-green);
+  border-radius: 4px;
+  background: var(--dvn-green);
+  color: var(--dvn-white);
+  font: 600 14px/1.2 "Gotham Medium", "Open Sans", system-ui, sans-serif;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  text-align: center;
+}
+
+.dvnmg-request:hover,
+.dvnmg-request:focus-visible {
+  background: var(--dvn-green-press);
+  border-color: var(--dvn-green-press);
+  color: var(--dvn-white);
+}
+
+/* ── Footnote ─────────────────────────────────────────────────────────────── */
+/* Two standing lines, plus the Reserve cap. The cap is a property of RESERVE
+   (100 seats), not of the tier the visitor happened to click, so it is revealed
+   by the card's tier modifier and is otherwise not rendered. This is a
+   presence/absence rule, not a colour rule — every room draws in the one brand. */
+.dvnmg-footnote {
+  margin: 20px 0 0;
+  font: 400 11.5px/1.6 "Gotham Medium", "Open Sans", system-ui, sans-serif;
+  letter-spacing: 0.06em;
+  color: var(--dvn-ink-soft);
+}
+
+.dvnmg-footnote-line,
+.dvnmg-footnote-cap {
+  display: block;
+}
+
+.dvnmg-footnote-cap {
+  display: none;
+  margin-top: 6px;
+  font-weight: 600;
+  color: var(--dvn-green);
+}
+
+.dvnmg-tier-reserve .dvnmg-footnote-cap {
+  display: block;
+}
+
+/* ── "Launching soon" panel (the current stub for startAuth) ──────────────── */
+.dvnmg-panel[hidden] {
+  display: none;
+}
+
+.dvnmg-soon-lede {
+  margin: 0 0 6px;
+  font-family: "Gotham Bold", "Gotham", "Open Sans", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  color: var(--dvn-ink);
+}
+
+.dvnmg-soon-body {
+  margin: 0 0 20px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--dvn-ink-soft);
+}
+
+.dvnmg-field {
+  display: block;
+  text-align: left;
+  margin: 0 0 8px;
+  font: 600 11px/1.4 "Gotham Medium", "Open Sans", system-ui, sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dvn-ink-soft);
+}
+
+.dvnmg-input {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  padding: 11px 13px;
+  margin: 0 0 12px;
+  border: 1px solid var(--dvn-line);
+  border-radius: 4px;
+  background: var(--dvn-white);
+  color: var(--dvn-ink);
+  font: 400 14px/1.3 "Gotham Medium", "Open Sans", system-ui, sans-serif;
+}
+
+.dvnmg-input::placeholder { color: color-mix(in srgb, var(--dvn-ink-soft) 55%, transparent); }
+
+.dvnmg-input:focus-visible {
+  outline: 2px solid var(--dvn-green);
+  outline-offset: 1px;
+  border-color: var(--dvn-green);
+}
+
+.dvnmg-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 16px;
+  margin: 0 0 10px;
+  border: 1px solid var(--dvn-green);
+  border-radius: 4px;
+  background: var(--dvn-green);
+  color: var(--dvn-white);
+  font: 600 14px/1.2 "Gotham Medium", "Open Sans", system-ui, sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* MEMBERS-CLIO-GATED-ACCESS-R1. `display: flex` above beats the UA sheet's
+   [hidden] { display: none }, so hiding a .dvnmg-cta by setting .hidden does
+   nothing without this — it renders as an empty button. The same trap is already
+   handled twice in this file, for .dvnmg-overlay and .dvnmg-panel; .dvnmg-cta was
+   the one that had no callers needing it until the wrong-level offer arrived. */
+.dvnmg-cta[hidden] {
+  display: none;
+}
+
+/* ── An <a> styled as a button loses its colour to the site sheet ──────────────
+   MEMBERS-CLIO-GATED-ACCESS-R1.
+
+   css/main.css:1772 carries
+
+     .home-section a:not(.btn):not(.dropdown-item):not(.nav-link):not(.mobile-menu-item)
+       { color: #107a4d; }
+
+   — a rule written to "FORCE GREEN ON ALL LINKS WITHIN HOMEPAGE SECTIONS (override
+   Bootstrap blue)". <body> is .home-section on every page, and four :not(.class)
+   terms give it specificity (0,5,1), which buries .dvnmg-cta's single class.
+
+   #107a4d is ALSO --dvn-green, this button's background. So the wrong-level offer
+   rendered as green text on a green button: a working control with an invisible
+   label, which is worse than a broken one because nothing looks wrong.
+
+   Every <button> in this modal is unaffected — that rule only matches anchors —
+   which is why only the one anchor styled as a solid button was hit.
+
+   !important, deliberately. Beating (0,5,1) without it needs six classes of
+   selector, and a component cannot out-specify a site-wide rule that predates it
+   without becoming unreadable. The scope is one overlay we own end to end. */
+.dvnmg-overlay .dvnmg-cta,
+.dvnmg-overlay .dvnmg-cta:link,
+.dvnmg-overlay .dvnmg-cta:visited {
+  color: var(--dvn-white) !important;
+}
+
+.dvnmg-overlay .dvnmg-cta-ghost,
+.dvnmg-overlay .dvnmg-cta-ghost:link,
+.dvnmg-overlay .dvnmg-cta-ghost:visited {
+  color: var(--dvn-ink) !important;
+}
+
+.dvnmg-overlay .dvnmg-cta-ghost:hover,
+.dvnmg-overlay .dvnmg-cta-ghost:focus-visible {
+  color: var(--dvn-green) !important;
+}
+
+.dvnmg-cta:hover,
+.dvnmg-cta:focus-visible {
+  background: var(--dvn-green-press);
+  border-color: var(--dvn-green-press);
+  color: var(--dvn-white);
+  text-decoration: none;
+}
+
+.dvnmg-cta-ghost {
+  background: var(--dvn-paper);
+  border-color: var(--dvn-line);
+  color: var(--dvn-ink);
+}
+
+.dvnmg-cta-ghost:hover,
+.dvnmg-cta-ghost:focus-visible {
+  background: var(--dvn-paper);
+  border-color: var(--dvn-green);
+  color: var(--dvn-green);
+}
+
+.dvnmg-back {
+  margin: 14px 0 0;
+  padding: 6px;
+  border: 0;
+  background: transparent;
+  color: var(--dvn-ink-soft);
+  font: 600 12px/1.2 "Gotham Medium", "Open Sans", system-ui, sans-serif;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.dvnmg-back:hover,
+.dvnmg-back:focus-visible { color: var(--dvn-green); }
+
+/* ── Focus visibility ─────────────────────────────────────────────────────── */
+.dvnmg-overlay :focus-visible {
+  outline: 2px solid var(--dvn-green);
+  outline-offset: 2px;
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .dvnmg-overlay {
+    padding: 0;
+    align-items: stretch;
+  }
+
+  .dvnmg-card {
+    max-width: none;
+    max-height: none;
+    min-height: 100%;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    border-radius: 0;
+    padding: 46px 22px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* inline-flex on a flex column would stretch the pill edge to edge. */
+  .dvnmg-eyebrow { align-self: center; }
+
+  .dvnmg-title { font-size: 21px; }
+}
+
+/* Short viewports (the /perch iframe is materially shorter than the window). */
+@media (max-height: 620px) {
+  .dvnmg-card {
+    padding-top: 26px;
+    padding-bottom: 20px;
+  }
+
+  .dvnmg-title { font-size: 20px; }
+  .dvnmg-eyebrow { margin-bottom: 12px; }
+  .dvnmg-private { margin-bottom: 16px; }
+  .dvnmg-divider { margin: 14px 0; }
+  .dvnmg-footnote { margin-top: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dvnmg-overlay,
+  .dvnmg-card { transition: none; }
+}

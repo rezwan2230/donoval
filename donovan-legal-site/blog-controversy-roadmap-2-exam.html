@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Exam Station | Roadmap Part 2 | Donovan Legal</title>
+<meta name="description" content="How correspondence, office, and field audits run, and the four ways an exam ends: no change, agreed assessment, 30-day letter, or 90-day notice.">
+<style>
+  :root{--ink:#16242F;--mute:#5A7181;--bg:#FCFCFB;--panel:#FFFFFF;--line:#E2E8EC;
+        --emer:#01873F;--gold:#C9A961;--teal:#357E91;--indigo:#5B62A8;--sienna:#AE6038;
+        --serif:Georgia,'Times New Roman',serif;--sans:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;}
+  *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.72;font-size:18px;-webkit-font-smoothing:antialiased}
+  .article{max-width:1120px;margin:0 auto;padding:0 28px 80px}.prose{max-width:720px;margin:0 auto}
+  .masthead{max-width:1120px;margin:0 auto;padding:22px 28px 0;display:flex;align-items:center;justify-content:space-between}
+  .brand{font-weight:700;letter-spacing:1.5px;font-size:13px}.brand .re{color:var(--emer)}
+  .masthead .tag{color:var(--mute);font-size:12px;letter-spacing:1px}
+  .rule{max-width:1120px;margin:14px auto 0;padding:0 28px}.rule hr{border:0;border-top:2px solid var(--emer);margin:0}
+  header.post{padding:46px 0 8px}
+  .backlink{display:inline-block;color:var(--mute);font-size:13px;letter-spacing:.4px;margin-bottom:18px}.backlink:hover{color:var(--emer)}
+  /* JORDAN-195: gold as TEXT on the #FCFCFB page reads 2.19:1 and fails. --gold
+     itself stays the band fill (.num, and .closing .sig on the dark block, where
+     it reads 7.75:1) and is deliberately not re-valued. */
+  .eyebrow{color:#806633;font-weight:700;letter-spacing:2.4px;font-size:12.5px;text-transform:uppercase;margin:0 0 14px}
+  h1{font-family:var(--serif);font-weight:400;font-size:46px;line-height:1.08;margin:0 0 18px;letter-spacing:-.3px}
+  .standfirst{font-family:var(--serif);font-style:italic;color:var(--mute);font-size:21px;line-height:1.5;margin:0}
+  .meta{color:var(--mute);font-size:13.5px;letter-spacing:.4px;margin:22px 0 0;padding-top:16px;border-top:1px solid var(--line)}
+  .disclaimer{background:#FAF7EF;border:1px solid #E9DFC4;border-left:4px solid var(--gold);border-radius:10px;padding:18px 22px;margin:30px auto 8px;max-width:720px;font-size:15px;line-height:1.6;color:#4a4634}
+  .disclaimer b{color:var(--ink)}
+  figure.map{margin:40px 0 18px}.map-frame{background:#F2F5F7;border:1px solid var(--line);border-radius:14px;padding:18px;overflow:hidden}
+  .roadmap-svg{display:block}figcaption{color:var(--mute);font-size:13.5px;text-align:center;margin-top:12px;font-style:italic}
+  h2{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.15;margin:52px 0 6px;letter-spacing:-.2px}
+  p{margin:0 0 18px}.lead{font-size:19.5px}
+  .roads{list-style:none;padding:0;margin:22px 0 8px}
+  .roads li{padding:16px 0 16px 18px;border-left:3px solid var(--line);margin-bottom:4px}
+  .roads li.closed{border-color:var(--emer)}.roads li.gold{border-color:var(--gold)}
+  .roads li.teal{border-color:var(--teal)}.roads li.indigo{border-color:var(--indigo)}
+  .roads h3{margin:0 0 4px;font-size:18px;font-family:var(--sans);font-weight:700}
+  .roads h3 .pt{font-size:11px;font-weight:700;color:#fff;background:var(--mute);border-radius:9px;padding:2px 8px;margin-left:8px;letter-spacing:.4px;vertical-align:2px}
+  .roads h3 .pt.i{background:var(--indigo)}.roads h3 .pt.s{background:var(--sienna)}
+  .roads p{margin:0;color:var(--mute);font-size:16px;line-height:1.55}
+  .clockline{background:#FAF7EF;border-radius:10px;padding:14px 18px;margin:8px 0 0;font-size:15.5px;color:#4a4634}.clockline b{color:var(--ink)}
+  .warn{background:#FBF1EC;border:1px solid #ECCDBD;border-left:4px solid var(--sienna);border-radius:10px;padding:16px 20px;margin:24px 0 0;font-size:16px;color:#5a3a2c}.warn b{color:var(--ink)}
+  .next{display:flex;gap:14px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:30px 0 0}
+  .next .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--teal);color:#fff;font-weight:700;display:inline-flex;align-items:center;justify-content:center;font-size:13px}
+  .next .t{font-weight:700}.next .d{color:var(--mute);font-size:15px}
+  .closing{background:#0E1B26;color:#EDEFEC;border-radius:14px;padding:34px;margin:50px auto 0;max-width:1120px}
+  .closing h2{color:#fff;margin-top:0;font-size:27px}.closing p{color:#C5D0D6;font-size:17px}
+  /* JORDAN-195: the closing block is dark (#0E1B26), so the page link colour
+     darkened for the light body (--emer #01873F) reads only 3.77:1 on it. Light
+     and dark cannot share one value here, so this block keeps the lighter
+     emerald, which is 4.75:1 against #0E1B26. */
+  .closing a{color:#019A48 /* a11y:dark-surface */}
+  .closing .sig{color:var(--gold);font-style:italic;font-family:var(--serif);font-size:18px;margin-top:10px}
+  footer{max-width:1120px;margin:46px auto 0;padding:24px 28px 60px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  footer .fine{color:var(--mute);font-size:12.5px;max-width:720px;line-height:1.5}
+  footer .fm{text-align:right}footer .fm b{letter-spacing:1px}footer .fm span{display:block;color:var(--mute);font-style:italic;font-size:12px;font-family:var(--serif)}
+  a{color:var(--emer);text-decoration:none}
+  /* JORDAN-195 (link-in-text-block, WCAG 1.4.1): a link inside running text must
+     be tellable from that text by something other than colour. The rule above
+     strips the underline site-wide on these posts, so the eight body cross-links
+     added by #197 were distinguished by hue alone - axe measured 2.33:1 against
+     the surrounding text, against a 3:1 floor. Scoped to <a> inside a paragraph
+     so the station cards and the masthead links are untouched: those carry their
+     own inline text-decoration:none, which wins over this rule anyway. */
+  p a{text-decoration:underline}a:hover{text-decoration:underline}a:focus-visible{outline:2px solid var(--emer);outline-offset:3px;border-radius:2px}
+  code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em;background:#EEF2F4;padding:1px 5px;border-radius:4px}
+  @media (max-width:720px){body{font-size:17px}h1{font-size:32px}h2{font-size:24px}.standfirst{font-size:18px}.closing{padding:26px 22px}footer{flex-direction:column;align-items:flex-start}footer .fm{text-align:left}}
+</style>  <link rel="canonical" href="https://www.donovan.law/blog-controversy-roadmap-2-exam">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Donovan Legal PLLC">
+  <meta property="og:url" content="https://www.donovan.law/blog-controversy-roadmap-2-exam">
+  <meta property="og:title" content="The Exam Station | Tax Controversy Roadmap Part 2 | Donovan Legal">
+  <meta property="og:description" content="How an IRS audit runs — correspondence, office, and field exams — and the four ways it can end: no change, agreed assessment, the 30-day letter to Appeals, and the 90-day Notice of Deficiency to Tax Court. Part 2 of the Donovan Legal Tax Controversy Roadmap.">
+  <meta property="og:image" content="https://www.donovan.law/img/firm-img.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Exam Station | Tax Controversy Roadmap Part 2 | Donovan Legal">
+  <meta name="twitter:description" content="How an IRS audit runs — correspondence, office, and field exams — and the four ways it can end: no change, agreed assessment, the 30-day letter to Appeals, and the 90-day Notice of Deficiency to Tax Court. Part 2 of the Donovan Legal Tax Controversy Roadmap.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Exam Station | Tax Controversy Roadmap Part 2","url":"https://www.donovan.law/blog-controversy-roadmap-2-exam","author":{"@type":"Organization","name":"Donovan Legal PLLC"},"publisher":{"@type":"Organization","name":"Donovan Legal PLLC","logo":{"@type":"ImageObject","url":"https://www.donovan.law/img/favicon.png"}}}</script>
+</head><body>
+<div class="masthead"><a class="brand" href="index.html" style="color:inherit;text-decoration:none">DONOVAN <span class="re">LEGAL</span></a><div class="tag"><a href="blog.html" style="color:inherit;text-decoration:none">&larr; All Tax Notes</a></div></div>
+<div class="rule"><hr></div>
+<div class="article">
+  <header class="post prose">
+    <a class="backlink" href="blog-controversy-roadmap-1-processing-assessment.html">← Part 1 · Processing → the Assessment Station</a>
+    <p class="eyebrow">Tax Controversy Roadmap — Part 2</p>
+    <h1>The Exam Station</h1>
+    <p class="standfirst">How an audit runs — and the four ways it can end, two of which start a clock you cannot get back.</p>
+    <p class="meta">Donovan Legal&nbsp;·&nbsp;Tax Controversy Practice</p>
+  </header>
+  <div class="disclaimer"><b>This post is part of a high-level series.</b> It explains federal tax procedure in general terms and is not legal advice; reading it does not create an attorney–client relationship. The 30- and 90-day windows described below are short, and one of them cannot be extended. Before responding to an audit notice, consult counsel.</div>
+  <figure class="map"><div class="map-frame"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1480 900" width="100%" height="auto" class="roadmap-svg" role="img" aria-label="Detail map of the Exam Station: selection, examination, exam report, and the four dispositions — no change, agreed, 30-day letter to Appeals, and the 90-day notice of deficiency to Tax Court"> font-family="'Helvetica Neue',Arial,sans-serif">
+<rect width="1480" height="900" fill="#F2F5F7"/>
+<text x="70" y="58" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" fill="#C9A961" font-weight="700" text-anchor="start" letter-spacing="2">TAX CONTROVERSY ROADMAP · PART 2</text>
+<text x="70" y="96" font-family="Georgia,'Times New Roman',serif" font-size="35" fill="#16242F" font-weight="400" text-anchor="start">The Exam Station</text>
+<text x="72" y="122" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#5E7686" font-weight="400" text-anchor="start" font-style="italic">How an audit runs — and the four ways it can end.</text>
+<rect x="72" y="138" width="300" height="3" fill="#3C8DA3"/>
+<text x="1410" y="58" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="700" text-anchor="end" letter-spacing="1.5">DETAIL MAP</text>
+<line x1="265.0" y1="470" x2="365.0" y2="470" stroke="#3C8DA3" stroke-width="3" stroke-linecap="round"/>
+<polygon points="364.0,470 354.2,463 354.2,477" fill="#3C8DA3"/>
+<line x1="555.0" y1="470" x2="665.0" y2="470" stroke="#3C8DA3" stroke-width="3" stroke-linecap="round"/>
+<polygon points="664.0,470 654.2,463 654.2,477" fill="#3C8DA3"/>
+<line x1="855.0" y1="470" x2="915.0" y2="470" stroke="#3C8DA3" stroke-width="3" stroke-linecap="round"/>
+<circle cx="915.0" cy="470" r="4" fill="#3C8DA3"/>
+<line x1="915.0" y1="300" x2="915.0" y2="650" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="915.0" y1="300" x2="975.0" y2="300" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="974.0,300 964.2,293 964.2,307" fill="#90A2AD"/>
+<circle cx="915.0" cy="300" r="4" fill="#90A2AD"/>
+<line x1="915.0" y1="470" x2="975.0" y2="470" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="974.0,470 964.2,463 964.2,477" fill="#90A2AD"/>
+<circle cx="915.0" cy="470" r="4" fill="#90A2AD"/>
+<line x1="915.0" y1="650" x2="975.0" y2="650" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="974.0,650 964.2,643 964.2,657" fill="#90A2AD"/>
+<circle cx="915.0" cy="650" r="4" fill="#90A2AD"/>
+<line x1="1165.0" y1="650" x2="1235.0" y2="650" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="1234.0,650 1224.2,643 1224.2,657" fill="#90A2AD"/>
+<text x="1200.0" y="638" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#5E7686" font-weight="400" text-anchor="middle" font-style="italic">if unresolved</text>
+<line x1="760" y1="516.0" x2="760" y2="682" stroke="#90A2AD" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 7"/>
+<polygon points="760,681 753,671.2 767,671.2" fill="#90A2AD"/>
+<line x1="1070" y1="582.0" x2="1070" y2="604.0" stroke="#90A2AD" stroke-width="2" stroke-linecap="round"/>
+<line x1="1330" y1="582.0" x2="1330" y2="604.0" stroke="#90A2AD" stroke-width="2" stroke-linecap="round"/>
+<rect x="77.0" y="428.0" width="190" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="75.0" y="424.0" width="190" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="75.0" y="424.0" width="6.5" height="92" fill="#3C8DA3"/>
+<rect x="75.0" y="424.0" width="6.5" height="13" rx="6" fill="#3C8DA3"/>
+<text x="173" y="460.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Selected for Exam</text>
+<text x="173" y="478.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">from Assessment</text>
+<text x="173" y="493.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Station · Part 1</text>
+<rect x="367.0" y="428.0" width="190" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="365.0" y="424.0" width="190" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="365.0" y="424.0" width="6.5" height="92" fill="#3C8DA3"/>
+<rect x="365.0" y="424.0" width="6.5" height="13" rx="6" fill="#3C8DA3"/>
+<text x="463" y="460.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="14" fill="#16242F" font-weight="700" text-anchor="middle">Examination</text>
+<text x="463" y="478.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Correspondence·Office·Field</text>
+<text x="463" y="493.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Contact L.2205-A/566 · IDR</text>
+<rect x="667.0" y="428.0" width="190" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="665.0" y="424.0" width="190" height="92" rx="12" fill="#FFFFFF" stroke="#3C8DA3" stroke-width="2.5"/>
+<rect x="665.0" y="424.0" width="6.5" height="92" fill="#3C8DA3"/>
+<rect x="665.0" y="424.0" width="6.5" height="13" rx="6" fill="#3C8DA3"/>
+<text x="763" y="460.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Exam Report</text>
+<text x="763" y="478.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Form 4549 —</text>
+<text x="763" y="493.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">examiner's findings</text>
+<rect x="977.0" y="258.0" width="190" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="975.0" y="254.0" width="190" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="975.0" y="254.0" width="6.5" height="92" fill="#019A48"/>
+<rect x="975.0" y="254.0" width="6.5" height="13" rx="6" fill="#019A48"/>
+<text x="1073" y="290.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">No Change</text>
+<text x="1073" y="308.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Closed —</text>
+<text x="1073" y="323.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">no adjustment</text>
+<rect x="977.0" y="428.0" width="190" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="975.0" y="424.0" width="190" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="975.0" y="424.0" width="6.5" height="92" fill="#C9A961"/>
+<rect x="975.0" y="424.0" width="6.5" height="13" rx="6" fill="#C9A961"/>
+<text x="1073" y="460.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Agreed</text>
+<text x="1073" y="478.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Sign Form 4549 / 870</text>
+<text x="1073" y="493.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">→ assessed → Collection · 5</text>
+<rect x="977.0" y="608.0" width="190" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="975.0" y="604.0" width="190" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="975.0" y="604.0" width="6.5" height="92" fill="#3C8DA3"/>
+<rect x="975.0" y="604.0" width="6.5" height="13" rx="6" fill="#3C8DA3"/>
+<text x="1073" y="660.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">30-Day Letter</text>
+<text x="1073" y="678.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Unagreed · L.525 / 915</text>
+<rect x="1055.2" y="612.0" width="101.8" height="18" rx="9" fill="#3C8DA3"/>
+<text x="1106.1" y="625.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.4">→ APPEALS · 4</text>
+<rect x="1237.0" y="608.0" width="190" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="1235.0" y="604.0" width="190" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="1235.0" y="604.0" width="6.5" height="92" fill="#5B62A8"/>
+<rect x="1235.0" y="604.0" width="6.5" height="13" rx="6" fill="#5B62A8"/>
+<text x="1333" y="653.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="14" fill="#16242F" font-weight="700" text-anchor="middle">Notice of Deficiency</text>
+<text x="1333" y="671.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">90-Day Letter</text>
+<text x="1333" y="686.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">L.3219 / 531</text>
+<rect x="1321.8" y="612.0" width="95.19999999999999" height="18" rx="9" fill="#5B62A8"/>
+<text x="1369.4" y="625.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.4">→ TAX CT · 7</text>
+<rect x="667.0" y="686.0" width="190" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="665.0" y="682.0" width="190" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="665.0" y="682.0" width="6.5" height="92" fill="#3C8DA3"/>
+<rect x="665.0" y="682.0" width="6.5" height="13" rx="6" fill="#3C8DA3"/>
+<text x="763" y="731.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="14" fill="#16242F" font-weight="700" text-anchor="middle">Exam Alternatives</text>
+<text x="763" y="749.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Audit recon (F.12661)</text>
+<text x="763" y="764.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">innocent spouse · OIC-DATL</text>
+<rect x="791.4" y="690.0" width="55.599999999999994" height="18" rx="9" fill="#3C8DA3"/>
+<text x="819.2" y="703.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.4">PART 3</text>
+<rect x="1022.0" y="536.0" width="96" height="46" rx="10" fill="#C9A961"/>
+<rect x="1022.0" y="536.0" width="96" height="14" rx="7" fill="#FFFFFF" opacity="0.18"/>
+<circle cx="1040.0" cy="559.0" r="9" fill="none" stroke="#16242F" stroke-width="2"/>
+<line x1="1040.0" y1="559.0" x2="1040.0" y2="554.0" stroke="#16242F" stroke-width="2" stroke-linecap="round"/>
+<line x1="1040.0" y1="559.0" x2="1044.0" y2="561.0" stroke="#16242F" stroke-width="2" stroke-linecap="round"/>
+<text x="1080" y="558.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="19" fill="#16242F" font-weight="700" text-anchor="middle">30</text>
+<text x="1080" y="573.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="#16242F" font-weight="700" text-anchor="middle">L.525/915</text>
+<text x="1070" y="714.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle" font-style="italic">Protest 30 days → Appeals (Part 4)</text>
+<rect x="1282.0" y="536.0" width="96" height="46" rx="10" fill="#C9A961"/>
+<rect x="1282.0" y="536.0" width="96" height="14" rx="7" fill="#FFFFFF" opacity="0.18"/>
+<circle cx="1300.0" cy="559.0" r="9" fill="none" stroke="#16242F" stroke-width="2"/>
+<line x1="1300.0" y1="559.0" x2="1300.0" y2="554.0" stroke="#16242F" stroke-width="2" stroke-linecap="round"/>
+<line x1="1300.0" y1="559.0" x2="1304.0" y2="561.0" stroke="#16242F" stroke-width="2" stroke-linecap="round"/>
+<text x="1340" y="558.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="19" fill="#16242F" font-weight="700" text-anchor="middle">90</text>
+<text x="1340" y="573.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="#16242F" font-weight="700" text-anchor="middle">§6213(a)</text>
+<rect x="1282.0" y="536.0" width="96" height="46" rx="10" fill="none" stroke="#16242F" stroke-width="2.5"/>
+<text x="1330" y="527.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" fill="#C06A3E" font-weight="700" text-anchor="middle" letter-spacing="0.3">NO TOLLING — JURISDICTIONAL</text>
+<text x="1330" y="714.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle" font-style="italic">Petition 90 days → Tax Court (Part 7)</text>
+<text x="760" y="792.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle" font-style="italic">after assessment / on new facts</text>
+<line x1="70" y1="832" x2="1410" y2="832" stroke="#C4D0D8" stroke-width="1.5"/>
+<text x="70" y="858" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" fill="#16242F" font-weight="700" text-anchor="start" letter-spacing="0.5">PART 2 OF THE SERIES.</text>
+<text x="232" y="858" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" fill="#5E7686" font-weight="400" text-anchor="start">General information about tax procedure — not legal advice. Deadlines run from the date on the notice.</text>
+<text x="1410" y="852" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" fill="#16242F" font-weight="700" text-anchor="end" letter-spacing="1">DONOVAN LEGAL</text>
+<text x="1410" y="869" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10.5" fill="#5E7686" font-weight="400" text-anchor="end" font-style="italic">One firm. One signature. Full-arc defense.</text>
+</svg></div>
+    <figcaption>Part 2: the audit process and its four dispositions — no change, agreed, the 30-day letter to Appeals, and the 90-day Notice of Deficiency to Tax Court.</figcaption></figure>
+  
+<div class="prose">
+  <h2>The record is the case</h2>
+  <p class="lead">An audit is not the place where a tax dispute is argued. It is the place where the factual record is built — and that record governs what is possible at every stage after it.</p>
+  <p>By the time a matter reaches Appeals or a courtroom, the substantiation either exists or it doesn't; the privilege either was protected or it was waived; the scope either was contained or it grew. Those outcomes are decided at the Exam Station. Treat the audit as the case, not the prelude to it.</p>
+
+  <h2>Three kinds of audit</h2>
+  <p>Examinations come in three forms, escalating in reach. A <strong>correspondence</strong> audit is conducted entirely by mail, usually over a narrow issue. An <strong>office</strong> audit brings the taxpayer into an IRS office. A <strong>field</strong> audit sends a revenue agent to the taxpayer's home or business and tends to be the broadest. The opening contact arrives as a <code>Letter 2205-A</code> or <code>Letter 566</code>, and the examiner's requests for substantiation come as Information Document Requests (Form 4564).</p>
+
+  <h2>The exam report</h2>
+  <p>When the examiner finishes, the proposed changes are set out in <strong>Form 4549, Report of Income Tax Examination Changes</strong> — line by line, with the revised tax, penalties, and interest. From that report, an audit can end in one of four ways.</p>
+
+  <h2>The four ways an audit ends</h2>
+  <ul class="roads">
+    <li class="closed"><h3>No change</h3><p>The examiner accepts the return as filed, or accepts the documentation provided. The matter closes with no adjustment.</p></li>
+    <li class="gold"><h3>Agreed</h3><p>The taxpayer accepts the changes by signing the consent on Form 4549 — or Form 870, the Waiver of Restrictions on Assessment. The tax is assessed, and if it isn't paid, the matter moves into collection (Part 5).</p></li>
+    <li class="teal"><h3>Unagreed — the 30-Day Letter<span class="pt i">PART 4</span></h3><p>If the taxpayer disagrees, the IRS issues a 30-day letter — <code>Letter 525</code> (mail audits) or <code>Letter 915</code> (in person) — enclosing the report and giving 30 days to request a conference with the Independent Office of Appeals.</p></li>
+    <li class="indigo"><h3>The Notice of Deficiency<span class="pt i">PART 7</span></h3><p>If the 30-day window passes without a protest, or Appeals doesn't resolve it, the IRS issues a Statutory Notice of Deficiency — the 90-day letter (<code>Letter 3219</code> for mail audits, <code>Letter 531</code> in person). It is the ticket to the U.S. Tax Court.</p></li>
+  </ul>
+
+  <div class="warn"><b>Signing is a waiver.</b> The consent on Form 4549 or Form 870 does more than agree to a number — it gives up the right to take the issue to Appeals or to the Tax Court. It should not be signed without understanding exactly what is being surrendered.</div>
+
+  <h2>The two clocks</h2>
+  <p>The 30-day protest window on a 525 or 915 can usually be extended on request before it lapses — but only before. The 90-day petition window on a Notice of Deficiency is different in kind: it is <strong>jurisdictional and cannot be extended</strong>. The Supreme Court's 2022 decision in <em>Boechler</em> opened equitable tolling for the separate 30-day collection-hearing deadline, but courts have declined to extend that reasoning to the deficiency clock. Miss the 90 days and the prepayment forum is gone — leaving only the pay-first, sue-for-refund path (Part 7).</p>
+
+  <h2>When the normal track has closed</h2>
+  <p>Not every audit is handled in time, and facts surface late. Where a 30-day or 90-day window has lapsed — or where new evidence emerges — there are still routes back: audit reconsideration (Form 12661), innocent-spouse relief, and a doubt-as-to-liability offer in compromise. Those are the subject of the next post.</p>
+</div>
+
+<div class="prose">
+  <a class="next" href="blog-controversy-roadmap-3-exam-alternatives.html"><span class="n">3</span><span><span class="t">Next — Part 3: Exam Alternatives</span><br><span class="d">Audit reconsideration, innocent-spouse relief, and doubt-as-to-liability offers.</span></span></a>
+</div>
+
+  <div class="closing">
+    <h2>One firm, the full arc</h2>
+    <p>What gets built in the audit record decides the rest of the matter. The same hand that controls the examination should be the one that carries it into Appeals or the courtroom if it goes there. Donovan Legal represents taxpayers across the entire arc — exam through litigation — under one signature.</p>
+    <p>For how the firm defends an examination, see <a href="irs-audit-defense.html">IRS Audit Defense</a>.</p>
+    <p class="sig">One firm. One signature. Full-arc defense.</p>
+  </div>
+</div>
+<footer>
+  <div class="fine"><b>General information, not legal advice.</b> This post describes federal tax procedure in general terms and does not address the facts or deadlines of any particular matter. It does not create an attorney–client relationship. If you have received an audit or deficiency notice, consult qualified counsel promptly — the petition deadline on a Notice of Deficiency is jurisdictional and cannot be extended.</div>
+  <div class="fm"><b>DONOVAN LEGAL</b><span>One firm. One signature. Full-arc defense.</span></div>
+</footer>
+</body></html>

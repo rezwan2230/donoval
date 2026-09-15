@@ -1,0 +1,78 @@
+# Donovan Legal PLLC — crawl and AI policy
+#
+# Nothing here is BLOCKED that was not blocked before. The wildcard below already
+# allowed every crawler; naming these agents only makes that permission explicit.
+#
+# Why bother: Google-Extended and Applebot-Extended are opt-OUT controls for AI
+# training and answer surfaces, so a site that never names them is relying on a
+# default the vendor can change. Several AI crawlers also treat an explicit Allow
+# as a stronger signal than a wildcard. For a firm whose content strategy is
+# publishing tax commentary that people ask AI tools about, being citable is the
+# whole point.
+#
+# Google-Extended affects AI use ONLY. It is not Googlebot and has no effect on
+# ordinary Search ranking in either direction.
+#
+# Members-only material is gated behind authentication, not behind this file, so
+# nothing here exposes anything that was protected.
+
+User-agent: *
+Allow: /
+
+# ── AI crawlers and answer engines — explicitly welcomed ─────────────────────
+
+# OpenAI
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google — Gemini and AI Overviews
+User-agent: Google-Extended
+Allow: /
+
+# Apple Intelligence / Siri
+User-agent: Applebot-Extended
+Allow: /
+
+# Others
+User-agent: Amazonbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: Timpibot
+Allow: /
+
+Sitemap: https://www.donovan.law/sitemap.xml

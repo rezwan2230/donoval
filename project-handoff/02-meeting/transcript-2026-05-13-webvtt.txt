@@ -1,0 +1,1084 @@
+WEBVTT
+
+00:00:00.537 --> 00:00:02.218
+<v Paul>Okay.
+
+00:00:02.218 --> 00:00:33.918
+<v David Pierce>Okay. Now it's live. Oh, you could join, or you could sit in, whichever you choose. Hello, everybody. So, David Pierce, we're gonna run this project. We have multiple companies, but we're gonna probably run this project through a company called Tico AI. Yes. Elroy and I are from Costa Rica originally. Yes. My wife is Costa Rican as well. That's the company we'll probably run this through.
+
+00:00:33.918 --> 00:00:34.318
+<v David Pierce>We're gonna use
+
+00:00:34.316 --> 00:00:38.158
+<v Paul>The only true gringo in this meeting.
+
+00:00:38.158 --> 00:00:58.332
+<v David Pierce>it's very true. It's very true. And then, here's how we'll do this. We're looking the goals of of this is to drive traffic to Paul's website with a, an agenda, making sure that Paul is pretty busy.
+
+00:00:58.332 --> 00:00:58.958
+<v Veronica Pierce>That's me.
+
+00:00:58.958 --> 00:01:18.243
+<v David Pierce>Uh-oh. We got a feedback. Somebody hit their mute. There we go. So, Elroy, Paul redid his website. You need to take a good look at it. It's, I'll share it with the screen right now. Elroy will be the head engineer.
+
+00:01:17.396 --> 00:01:31.764
+<v Paul>It's I mean, it's it's still a work in process, like, the tool, part the resources part and the members part still kinda working out that concept, in my head. But, this is the basic kinda layout.
+
+00:01:31.764 --> 00:01:33.658
+<v Elroy Geerdink>Oke.
+
+00:01:33.658 --> 00:02:05.838
+<v David Pierce>We could we can help him move along. He vibe coded it. He has control over the DNS, that means which means that this can be a very quick, easy deployment, Elroy. My thought is we're going to build and design an embedded iframe widget. That sounds like crazy stuff, but we're gonna build a tool that sits Inside the website that allows us to carry, an AI agent that could onboard clients for Paul.
+
+00:02:05.838 --> 00:02:34.939
+<v David Pierce>The end goal is to, Veronica will will help move the traffic, Elroy, through Google Ads. You'll help create the automations of that flow. People come off Google Ads to the site. Right? We bring them through the onboarding process. Through the site. Right? We line up calendars events for Paul to meet with people.
+
+00:02:34.939 --> 00:02:35.138
+<v Elroy Geerdink>Ja.
+
+00:02:35.138 --> 00:02:41.833
+<v David Pierce>Pretty pretty cut and dry. Right? We don't need anything super crazy fancy
+
+00:02:40.859 --> 00:02:42.392
+<v Elroy Geerdink>Ja.
+
+00:02:42.392 --> 00:02:45.339
+<v David Pierce>right off the get go, Elroy. We need it to start running.
+
+00:02:45.339 --> 00:02:46.101
+<v Elroy Geerdink>Auch noch.
+
+00:02:46.101 --> 00:02:46.139
+<v Paul>Yeah.
+
+00:02:46.139 --> 00:02:46.502
+<v Elroy Geerdink>Ja.
+
+00:02:46.502 --> 00:02:47.541
+<v Paul>The only thing that might be
+
+00:02:46.633 --> 00:02:49.861
+<v David Pierce>Yep.
+
+00:02:49.861 --> 00:03:21.601
+<v Paul>we we we we're gonna need to discuss and work on is that the retainer part is going to be a little more complicated because I plan on having A very, kind of a complicated fee structure model with a a lot of kind of a, basically, either a a la carte, pick a menu with a lot of fixed fees, or as you can see, like, under members, I'm gonna have, a lot of, bundling for services and group depending on what group you're in.
+
+00:03:21.601 --> 00:03:23.777
+<v Paul>Gold, platinum, and then reserve.
+
+00:03:23.777 --> 00:03:32.257
+<v David Pierce>Okay. My thought there Paul, do you want retainer before calendar booking, or do you want retainer after calendar book?
+
+00:03:32.257 --> 00:03:34.882
+<v Paul>Retainer after calendar booking.
+
+00:03:34.882 --> 00:03:45.059
+<v David Pierce>Okay. So, Elroy, for go to market, we could launch the agent to do an onboard to a calendar book. That could be the goal. Right?
+
+00:03:45.059 --> 00:03:46.418
+<v Elroy Geerdink>Yeah.
+
+00:03:46.418 --> 00:04:03.554
+<v David Pierce>And we would launch a secondary, virtual rep maybe to handle post calls. So then, let's say somebody doesn't show up to their booking. We could have a somebody set up like that, Elroy, right, to do a callback.
+
+00:04:03.554 --> 00:04:03.623
+<v Elroy Geerdink>Yep.
+
+00:04:03.623 --> 00:04:15.377
+<v David Pierce>But I don't think, Paul, then I think you'll be sending the link for your multi based on how that call goes. True?
+
+00:04:15.377 --> 00:04:42.578
+<v Paul>The initial call with with the client and try and figure out where where they slot in, what's good for them, let them pick. And, what I kinda like to, you know, it would be nice if this can be automated if we could just say, look. You can go on to the website and pick. And based on what they pick, boom. That sends them out engagement letter. You know? They just go just like they're ordering off a menu in a restaurant. I want this. I want this. I want this. Boom. Boom. Boom. Automatically send off the engagement letter to them.
+
+00:04:42.578 --> 00:05:12.714
+<v David Pierce>We definitely could do that. Elroy, what's what's your first thoughts as we're talking this through? Maybe I should maybe I should run you through. So here is the here's the the text that we control, Leroy, that that I pulled down from from his past this was his old site. This is right now is currently where he's at this very second. Can see what direction he's going in. Right?
+
+00:05:12.714 --> 00:05:13.918
+<v Elroy Geerdink>Yep.
+
+00:05:13.918 --> 00:05:25.256
+<v David Pierce>We have two really good use cases. This firm, Elroy, I can I can send you? I already I already copied it. I already stole it all, so I have it ready.
+
+00:05:25.256 --> 00:05:37.778
+<v Paul>Mhmm. By the way, what is the you know what? I think we're not gonna be able to use this, these guys, because this is my old firm. They might, get litigious.
+
+00:05:37.778 --> 00:05:43.396
+<v David Pierce>Remember remember, we're not using any of their site. We're using ideas.
+
+00:05:43.396 --> 00:05:46.417
+<v Paul>Okay. As long as we're not using any of their stuff.
+
+00:05:46.417 --> 00:05:49.316
+<v David Pierce>This is this is just context ideas. Right?
+
+00:05:49.316 --> 00:05:50.252
+<v Paul>Okay.
+
+00:05:50.252 --> 00:06:18.139
+<v David Pierce>And then the other one is this one. Elroy, there's there's pros and cons to both of these that we'll wanna look through and engineer with. This one particularly is, It's it's very good on the Google Ad side. There's a lot of of AdWords and SEO pieces in there that will help bring the right kind of traffic in.
+
+00:06:18.139 --> 00:06:20.353
+<v Elroy Geerdink>Ok.
+
+00:06:20.353 --> 00:06:54.573
+<v David Pierce>So that lady and Wendy, you get an idea. This is another company that we represent. This happens to be us. Right? If you could imagine having a a concierge to be able to handle all the case files for Paul to do whatever Paul wants them to do, we can have multiples. We can have, you know, one. However, we wanna set that up. So for instance Good afternoon.
+
+00:06:54.573 --> 00:07:24.978
+<v David Pierce>This is Leah with Advisory Connect. Thanks for reaching out. Is now a good time to talk for a few minutes? Absolutely. We'd love to talk with you. Great. This call may be recorded for quality purposes. I'll ask you a few quick questions to see if we can help with your case. What's your first name? It's David. David Ziegler. Got it. This should only take about three minutes.
+
+00:07:24.978 --> 00:07:49.252
+<v David Pierce>And what is your last name? It was Ziegler. Thanks. And what is your email? Okay. So you get an idea of basically how and what we can coordinate, how we can make that move through. Paul, we can make it as fancy or simple as we'd like. Elroy,
+
+00:07:49.252 --> 00:07:49.652
+<v Paul>Yeah. I mean,
+
+00:07:49.598 --> 00:07:50.052
+<v David Pierce>Mike.
+
+00:07:50.052 --> 00:08:07.134
+<v Paul>like, I think the goal is to get, you know, whatever gets them on the calendar. Right? So first of all, the the goal, screen them first. I wanna make sure we I don't want my calendar filled up with a bunch of crap. So screening screening screening out the crap, number one, and get the good stuff on the calendar.
+
+00:08:07.134 --> 00:08:26.959
+<v Elroy Geerdink>So we're so we're looking at two phases, I I guess. So the first phase is, get it to market, simplify it, get the calendar booked. And then the second phase, the the clicking the buttons, what what they want. Por favor.
+
+00:08:26.458 --> 00:08:42.217
+<v David Pierce>Well, Elroy, what if we if I understood Paul right, what if we had a click funnel, right, to bring documents in and then do a calendar book as part of it?
+
+00:08:42.217 --> 00:08:43.897
+<v Paul>Let me let let them upload documents.
+
+00:08:42.378 --> 00:09:01.503
+<v David Pierce>Because I don't know if they're gonna have the confidence to upload documents, but I think that this can be this could be, an easy way to win trust. So for instance, if Paul was open with what he offered in packages, right, they would be able to see the package,
+
+00:09:00.392 --> 00:09:02.063
+<v Paul>Mhmm.
+
+00:09:02.063 --> 00:09:19.996
+<v David Pierce>like the package, not like the package, choose the package, which then could trigger, Elroy, the calendar book. So the more that we gave Visibility, Paul, we could give the customer, you're gonna have less bookings, but higher quality bookings.
+
+00:09:19.996 --> 00:09:27.093
+<v Paul>Yeah. You mean, give it give them the price, the the menu upfront, and then let's and then get the booking?
+
+00:09:27.093 --> 00:09:33.203
+<v David Pierce>That's one way to do it. If you're gonna if you're gonna expose the packages
+
+00:09:31.996 --> 00:09:33.843
+<v Paul>Let me think about that. Yeah.
+
+00:09:33.843 --> 00:10:00.799
+<v David Pierce>and prices, I think that's how you probably want to do it. If you wanna put the packages behind the scenes As we can get out of it. And then we'll have to fine tune. My worry here is, Elroy, I wanna launch on Google first. These are these are high net wealth individuals based on proper tax planning.
+
+00:10:00.799 --> 00:10:03.052
+<v Elroy Geerdink>Ok.
+
+00:10:03.052 --> 00:10:14.938
+<v David Pierce>So we're gonna have to find the right veins. So you'll be you'll be building some automations and tied into Google Analytics. Specifically for Paul that we'll have to set up.
+
+00:10:14.556 --> 00:10:48.043
+<v Paul>Yeah. And, yeah, it's high net worth, people who specifically have an interest in real estate. They don't they don't have to be in real estate already. I can get them into real estate. They just have to have an interest in it. Because a lot of the tax, you know, a a lot of the, you know, the, the the tax savings ideas Build wealth kind of a gotcha.
+
+00:10:48.043 --> 00:11:20.916
+<v Paul>So, you know, this works very well with people who are w two employees. You know, trapped in high-tech states like New York and California, Massachusetts. And they're looking for a way to lower their taxes. Well, buying some real estate on the side is a way of doing it, and there are various ways to do that. So that's kinda, you know Of people I'm looking to attract, people looking to get into real estate to build wealth and save money on their taxes.
+
+00:11:20.916 --> 00:11:49.177
+<v Paul>You know, there's the whole Airbnb short term rental thing that's very, very hot right now in both the tax world and the real estate world. This is where the two worlds collide and, where we can take advantage of that. I know how to set all that up, for people. And then and then we get into, you know, the people who are real estate developers, you know, people who are already into the And helping them out too. So that's kind of the you know, you don't have to be an expert in real estate.
+
+00:11:49.139 --> 00:11:49.657
+<v Elroy Geerdink>Yep.
+
+00:11:49.657 --> 00:12:02.964
+<v Paul>You can be a big developer. Great. I can help you too. You know, we could do some very, advanced stuff there. But you could be a a novice. You know, and you you just wanna buy your first property on the side, your first rental. Boom. That's great. We do that too.
+
+00:12:02.964 --> 00:12:29.417
+<v Elroy Geerdink>Makes sense. No. I I I think definitely, we have something to work work here, to make it a nice project. And we can, Yeah. Fine tune it based on the materials that we receive. What kind of what what do we put upfront? What what not? What we hold back? Maybe a b testing, and go from there, but we can make
+
+00:12:29.417 --> 00:12:32.354
+<v David Pierce>I think that I think, Paul, the document,
+
+00:12:32.354 --> 00:12:32.697
+<v Elroy Geerdink>it work.
+
+00:12:32.697 --> 00:13:10.573
+<v David Pierce>I'm gonna send over. I'll send it over just in Word. That way, you and your team can work through, like, how we see page by page and how we break things down so that you could fine tune what you're actually looking for. Because I've studied and see some benefits to those two other pages. Your touch. How do you want things to look? How do you want things to work? If you're happy with your page, cool. We'll leave that. We have to think about where in the current page, where and how would we want to, make an announcement to the public.
+
+00:13:10.573 --> 00:13:37.137
+<v David Pierce>Right? How do I how do I interact with the page? Lady's brain is lady's brain is moving. So so aesthetically, Where and how do we want to engage? This is where we have to be forward thinkers. We wanna get into people's instead of just clicking text or reading text, where could I engage them at?
+
+00:13:37.137 --> 00:13:51.778
+<v Paul>Yeah. I mean, the I I the page probably needs something new. Right? Something else, on it. I don't know what that else would be. But, you know, does a person pop up? Like,
+
+00:13:51.778 --> 00:13:59.719
+<v David Pierce>There's there's a lot of things. Elroy Elroy will go to town too on this to give us some ideas. Elroy, you have anything?
+
+00:13:59.719 --> 00:14:04.359
+<v Elroy Geerdink>Not at this moment. I would like to, you know, receive those, or this website, and then,
+
+00:14:04.353 --> 00:14:05.559
+<v David Pierce>Okay.
+
+00:14:05.559 --> 00:14:14.038
+<v Elroy Geerdink>my brain will go crazy probably, finding how we can do this.
+
+00:14:14.038 --> 00:14:49.817
+<v David Pierce>Because because right now, I like the I like the look of the new site. Oh, this this is something. Okay. So I will send the documents out and around. The thing from Paul that that works best for us is what is the You want us to to create the script in the call flow?
+
+00:14:49.817 --> 00:14:55.223
+<v Paul>You tell me. Should I create it? Should you create it? Should we do it together?
+
+00:14:55.223 --> 00:15:03.542
+<v David Pierce>I think I think you and your team, if you could put together what you need to say, like, I have to have this in order to book a calendar.
+
+00:15:03.492 --> 00:15:07.011
+<v Paul>Okay. Alright. We'll do it then. We'll we'll we'll come up with the with the script.
+
+00:15:06.613 --> 00:15:29.021
+<v David Pierce>If I could if I could get just that, as far as how the flow works, we're Teams are very good at that part, so I don't think you have need much of that. I just wanna make sure that we're booking the right kind of calendar books, the first time. And then second, what calendars what system do you use, Paul, currently, or do you want us to use our system?
+
+00:15:29.021 --> 00:15:39.556
+<v Paul>For calendaring? I I don't have it. So, that you know, that's that's kind of, something else I I need some advice on is what What do we need? What what what kind of CRM
+
+00:15:38.638 --> 00:15:46.478
+<v David Pierce>We're gonna we're gonna pack no.
+
+00:15:40.196 --> 00:15:46.718
+<v Paul>stuff do we need to to to do we need to get HubSpot? Do we need to get Clio? What are we what are we what are we looking at?
+
+00:15:46.718 --> 00:16:09.057
+<v David Pierce>Well, let's do it. Elroy, could we put this with GHL? Right? And let's do the full integration with GHL and then just turn over logins to Paul so he can watch it from that side. Makes it easier for us, easier for him. And then we'll expand from there. If we have to build out more workflows inside of GHL, we'll do that.
+
+00:16:09.057 --> 00:16:11.538
+<v Paul>What's GHL?
+
+00:16:11.538 --> 00:16:23.472
+<v David Pierce>Companies called GoHighLevel. We're we're natively integrated already with them. So you'll have an an embedded an embedded CRM that you can tailor to your to your liking.
+
+00:16:23.472 --> 00:16:40.398
+<v Paul>Okay. I mean, the the issue is confidentiality. Right? We gotta make, obviously Everything is you know, maintains confidentiality, all the information that's collected.
+
+00:16:40.398 --> 00:16:43.094
+<v David Pierce>PII.
+
+00:16:43.094 --> 00:16:43.693
+<v Elroy Geerdink>Yes.
+
+00:16:43.693 --> 00:16:45.373
+<v David Pierce>So LRAD make sure I was gonna
+
+00:16:44.134 --> 00:16:48.134
+<v Elroy Geerdink>So so yeah.
+
+00:16:45.693 --> 00:16:48.454
+<v David Pierce>say make make sure it's PII and SOC two compliant.
+
+00:16:48.454 --> 00:16:58.338
+<v Elroy Geerdink>We can, completely isolate and, send the keys over to you.
+
+00:16:58.338 --> 00:17:27.498
+<v David Pierce>On recordings, Elroy, at first, let's make the recordings available, but let's have it ready to turn off soon as we prove concepts. Right? If once concepts are working, we're booking, and and we're we're past the testing phase, then then we may wanna consider turning those off just for attorney client privilege, right, so that nothing could ever come back on on Yep.
+
+00:17:23.396 --> 00:17:35.257
+<v Paul>Yes. Yeah. We wanna make sure we maintain our current client privilege.
+
+00:17:35.257 --> 00:18:08.072
+<v David Pierce>Albert, there's a couple of the new tools that we're that I'm thinking about this would be very good for. Right? So if we have folks coming returning back, I'm gonna wanna take a look at the metadata. If if folks are returning back to the site, we're gonna wanna know and track that. Right? Let's make this this just very classy. Paul, how many bookings a month or how many bookings a week are ideal for you at this point?
+
+00:18:08.072 --> 00:18:45.036
+<v Paul>Good question. It depends on how long we think that the booking is going to last. Are these gonna be thirty minute bookings or hour bookings? I think honestly, I think I can do it in thirty minutes. I think that's enough time for me to do do my thing. I don't think I need an hour. So I would say at first, we should set them up for thirty minute bookings, you know, with, and if you're doing that, you know, shoot, you can book me, I mean, thirty thirty minutes, 20 bookings.
+
+00:18:45.036 --> 00:18:52.218
+<v Paul>Only ten hours. You know, if you can get me 20 bookings a week.
+
+00:18:52.218 --> 00:19:05.098
+<v David Pierce>Alright. Let's set let's set the KPIs early, Elroy. Right? So we can just get a feel for alright. What are those costs? What is the pull through? And we'll start to really run this just run this as a pair, as a team. So like a joint venture.
+
+00:19:04.572 --> 00:19:12.213
+<v Paul>You tell me, how does it, what what is it what is normal? Typical, I guess.
+
+00:19:12.213 --> 00:19:29.617
+<v David Pierce>When you use when you say normal, it really depends on the industry. Right? So Gonna say yours are gonna be a little harder to chase down only because we're looking for very key people. If I'm chasing motor vehicle accidents, that's one thing. Right? That's a heck of a lot easier.
+
+00:19:29.617 --> 00:19:40.257
+<v Paul>Yeah. Right. That's a good point. That's why, I I I it might be tough to get me 20 bookings a week, you know, of the right kind of people. I mean, if you look. If we're looking for, you know,
+
+00:19:40.213 --> 00:19:41.813
+<v David Pierce>If we're booking you 20 if we're booking
+
+00:19:40.417 --> 00:19:43.352
+<v Paul>the profile yeah.
+
+00:19:42.213 --> 00:19:47.578
+<v David Pierce>you 20 And you can close 20%, then all of us are smiling and we're
+
+00:19:46.152 --> 00:19:47.737
+<v Paul>Oh, that's huge.
+
+00:19:47.737 --> 00:19:50.071
+<v David Pierce>doing fantastic.
+
+00:19:50.071 --> 00:19:53.916
+<v Paul>Yeah. I mean Yeah.
+
+00:19:50.777 --> 00:19:54.236
+<v David Pierce>So you're you're the salesman here. Right? That's the that's the goal.
+
+00:19:54.236 --> 00:20:02.243
+<v Paul>Yeah. You do a good yeah. If we're booking 20 and I'm closing 20%, I'll be flooded with work. I gotta hire people.
+
+00:20:02.243 --> 00:20:18.812
+<v David Pierce>So that let's set that as the goal, and then we'll reset. If we come in and we book in the first month, Elroy, if we book, you know, 10, And the pull through is still 20%, and we have doubled down on investments, on the advertising side. Right?
+
+00:20:18.812 --> 00:20:52.623
+<v Paul>I mean, generally speaking, the the to get, you know, we'll we'll you know, the profile I'm looking for is People who are at a minimum making a million dollars a year. Ideally, it's $2,000,000 or greater. Right? 2 to $5,000,000 people. Net worth, 10,000,000 or higher. Okay? Now that's, there's only probably a million or two people in the country that fit into that profile out of the entire country. So that's not a lot. So if I'm getting 20 of those people on my calendar on my calendar, solo practitioner calendar, that's a lot, I think.
+
+00:20:52.623 --> 00:20:54.196
+<v David Pierce>So very lot.
+
+00:20:54.196 --> 00:20:55.263
+<v Paul>Yeah.
+
+00:20:55.263 --> 00:20:57.823
+<v David Pierce>So very right? Because that that would mean you went through 240.
+
+00:20:56.996 --> 00:20:59.263
+<v Paul>Yeah.
+
+00:20:59.263 --> 00:21:04.852
+<v David Pierce>You went through 240 of those in a year.
+
+00:21:04.852 --> 00:21:04.998
+<v Paul>No.
+
+00:21:04.998 --> 00:21:06.292
+<v David Pierce>But
+
+00:21:06.292 --> 00:21:12.277
+<v Paul>Quite 20. No. I'm I'm going through a thousand of those a year. Right?
+
+00:21:12.277 --> 00:21:14.852
+<v David Pierce>you said a month or a week. You said 20 a week?
+
+00:21:14.852 --> 00:21:16.771
+<v Paul>20 a week. Oh, you did you okay.
+
+00:21:16.517 --> 00:21:17.012
+<v David Pierce>Yeah.
+
+00:21:17.012 --> 00:21:23.916
+<v Paul>I'm sorry. Were you saying monthly? You mean oh,
+
+00:21:19.873 --> 00:21:24.076
+<v David Pierce>I think I think I think 20 a month is a realistic number.
+
+00:21:24.076 --> 00:21:43.198
+<v Paul>okay. 20 times, as well. So two forty times point two. That means at the end of that year, I have 48 new clients. I think we do better than that.
+
+00:21:43.198 --> 00:22:20.283
+<v David Pierce>Alright. Wendy and lady, you have to keep him honest and make sure it gets documented what he wants, what the goal is so that everybody at least knows what the goal what we're setting the goal as, and then that'll drive our our KPIs. Sorry. Hey, Paul. If can I ask a question just from a curiosity perspective? If you have individuals who have a tax need that is and they don't fit into that extremely high income level.
+
+00:22:20.283 --> 00:22:34.122
+<v David Pierce>Is there something that you can offer or service them? I lose everybody or did Paul freeze up?
+
+00:22:34.122 --> 00:22:35.078
+<v wendy>Hi. Denise.
+
+00:22:35.078 --> 00:23:15.553
+<v David Pierce>Okay. So Paul's Paul's son is best friends with my son. And both of them are crazy gamer kids, and I bet you that Paul Paul's Internet is getting taxed because of the gaming.
+
+00:23:15.553 --> 00:23:32.194
+<v David Pierce>There he is. I I just was I was just tattling on Geronimo and David. They're probably in a hot game somewhere burning up all our Internet.
+
+00:23:32.194 --> 00:23:38.500
+<v Paul>Okay. I'm back. Geronimo is pretty quiet. Something's going on. They they they must be doing something.
+
+00:23:37.393 --> 00:23:46.580
+<v David Pierce>Right. Yeah. David David too. So I'm that's why I'm thinking. They're right in the middle of some game going on. Yeah.
+
+00:23:46.580 --> 00:23:46.753
+<v Paul>Okay.
+
+00:23:46.753 --> 00:23:48.272
+<v David Pierce>Paul that is separate separate
+
+00:23:46.820 --> 00:23:48.833
+<v Paul>So we were so so, Kamal,
+
+00:23:48.833 --> 00:24:01.718
+<v David Pierce>or Okay.
+
+00:23:49.380 --> 00:24:02.038
+<v Paul>I don't know. I, you know 100 new clients in a year would be nice, like, you know, at at that level that I'm thinking at.
+
+00:24:02.038 --> 00:24:15.413
+<v David Pierce>The question that I asked you when you froze up that you I don't think you got to hear was when we get somebody on the phone that doesn't meet that extremely high level of income, is there a is there a product or
+
+00:24:13.970 --> 00:24:15.653
+<v Paul>Yeah.
+
+00:24:15.653 --> 00:24:19.295
+<v David Pierce>service that you'd have available for them?
+
+00:24:19.295 --> 00:24:51.555
+<v Paul>Yeah. That's a good question. It depends on what they're remember the other side of this, the, the practice is also tax controversy work. Right? Which means that people are in trouble with the IRS or state tax authority. Those people don't necessarily need to have to meet those criteria. That's another set of criteria. If they are in trouble, they're in a controversy matter, meaning that they either have not filed, filed but fucked up. K. Or, or are in yeah.
+
+00:24:51.555 --> 00:25:29.335
+<v Paul>Hello? You know? Or are really already into all you know, they're into the hot water then. They're about to go to prison or or court or something. You know? There's, what we call precontroversy, controversy, post controversy, matters. And so there, what I'm really looking for are people who have owe a lot of money. It can be income tax. It could be sales tax. It can be, employment taxes. I don't care. But what I'm looking for there is somebody who's in hot water Least a quarter mill, $250,000 and up, because those people are usually desperate, and and, I can easily bill them, to get them out of trouble.
+
+00:25:29.335 --> 00:25:32.258
+<v Paul>And it's usually not that hard to get them out of trouble.
+
+00:25:32.258 --> 00:25:40.250
+<v David Pierce>Do you want your the same page to bring both people in, both types?
+
+00:25:40.250 --> 00:25:43.393
+<v Paul>Yeah. Yeah. I think so. Yeah. Like I said, you know,
+
+00:25:43.393 --> 00:25:56.534
+<v David Pierce>So so if I was on one page and I had a funnel in on one page for one type of client, Page your website and have a secondary funnel for that type coming in. True?
+
+00:25:56.534 --> 00:26:10.543
+<v Paul>Yeah. I guess we could leave, you know, what are you here to discuss? You know, tax controversy matter? Boom. They go through one funnel. Right? Or, are you here to discuss tax planning? They go through another funnel. Right?
+
+00:26:10.543 --> 00:26:29.620
+<v David Pierce>However, I am not thinking even a single. Maybe maybe a double deployment. I don't we'll have to think this through. But what I what my brain is going on is go after the ones with problems because the ones that problems will also lead to the other one. So in other words,
+
+00:26:29.620 --> 00:26:29.918
+<v Paul>Yeah.
+
+00:26:29.918 --> 00:26:31.517
+<v David Pierce>if I have problems you can solve.
+
+00:26:30.180 --> 00:26:34.013
+<v Paul>Yeah. Those people could, they could be dual.
+
+00:26:34.013 --> 00:26:34.019
+<v David Pierce>Yes.
+
+00:26:34.019 --> 00:26:34.820
+<v Paul>Right? Like like,
+
+00:26:34.813 --> 00:26:35.140
+<v David Pierce>Yes.
+
+00:26:35.140 --> 00:26:51.354
+<v Paul>if they they could they because once you resolve their your their problem, they usually they're very loyal, and they wanna become Yeah.
+
+00:26:41.612 --> 00:27:26.657
+<v David Pierce>Bingo. Bingo. So we might have the the hook, right, from an advertising Active the hook might be the tax problem. Because guess who has the biggest Okay.
+
+00:26:52.075 --> 00:27:22.414
+<v Paul>And and by the way, vice versa, you'd be surprised at how many people come in through the planning door at that are in in, in trouble. And they don't tell you about it until oh, by the way, I should let you know. I haven't filed tax returns in five years, and I've made, like, millions of dollars, and I got a bag of cash here. What do I do with it? Yeah. You'd be surprised at how many people come through the planning door, and I need to say, oh, well, we gotta clean up your mess first or, you know, before we do any planning, buddy. You're you got some problems.
+
+00:27:22.414 --> 00:27:40.118
+<v Paul>So, and but so if they can come through both doors, believe it or not. Comes to the planning door, controversy client many times and this vice versa. A controversy client could become a planning client. So, they complement each other.
+
+00:27:40.118 --> 00:27:50.295
+<v David Pierce>Alright. Now I'm gonna turn the floor over to everyone else, ask all the questions that'll help us put a package together, and that includes Wendy Yu, lady Yu, and Veronica Yu.
+
+00:27:50.295 --> 00:27:58.082
+<v Paul>Okay. Ladies, the floor is yours. Any questions? Lady Wendy?
+
+00:27:58.082 --> 00:27:59.975
+<v wendy>No. I don't have questions.
+
+00:27:59.975 --> 00:28:11.478
+<v Paul>You're you're mute. No? Okay. Lady, anything from you? You're muted, lady. There you go.
+
+00:28:11.478 --> 00:28:21.877
+<v Leidy>Yes. I'm missing. I think if we we are going to have another meeting to, like, a two hundred.
+
+00:28:21.835 --> 00:28:26.475
+<v Paul>Yeah. I'm sure we'll we'll have, that that's a good question. How often do you wanna meet the to to kind of
+
+00:28:24.983 --> 00:28:26.634
+<v David Pierce>I
+
+00:28:26.634 --> 00:28:29.013
+<v Paul>monitor progress?
+
+00:28:29.013 --> 00:28:32.903
+<v Leidy>Because I think we alright. Go ahead.
+
+00:28:32.903 --> 00:29:06.893
+<v David Pierce>would I would I would propose this. I'm gonna send document out today to everyone. View what I've thought through to get us to this moment before we had this talk. I think you should edit that document and send feedback. And then we'll go offline with Elroy and his team, and we'll start to go through the two sites that we've already that I've already been through. Now it's gonna be three sites, that we've gone through and the documentation I've already created.
+
+00:29:06.893 --> 00:29:37.590
+<v David Pierce>They'll start coming up with some ideas to have questions for the next meeting. You guys will go offline and throw us back some new insights into Paul, what this document that you're gonna get is how we break down a website, right, and how we view the the two that you had sent to me and what I see as pros and cons and and reviewed yours. So now you can use that as our road map to throw back at me what we wanna do.
+
+00:29:37.590 --> 00:29:37.798
+<v Paul>Okay.
+
+00:29:37.798 --> 00:29:38.790
+<v David Pierce>Makes sense? Okay.
+
+00:29:38.790 --> 00:29:39.318
+<v Paul>Sure.
+
+00:29:39.318 --> 00:29:42.358
+<v David Pierce>And does that answer the question, lady?
+
+00:29:42.358 --> 00:29:45.878
+<v Leidy>Yeah. Yes. I think after that, I'm going to have some questions.
+
+00:29:45.878 --> 00:29:50.118
+<v David Pierce>Less than two weeks. We won't go for the two weeks. I'll try to do it quickly.
+
+00:29:49.815 --> 00:29:51.333
+<v Paul>Server couple weeks every couple weeks,
+
+00:29:51.333 --> 00:29:52.853
+<v Leidy>I would like to understand better,
+
+00:29:51.415 --> 00:29:53.333
+<v Paul>we'll try and connect.
+
+00:29:53.333 --> 00:29:58.352
+<v Leidy>like, what what we're going to do.
+
+00:29:58.352 --> 00:30:06.302
+<v David Pierce>In in my mind, knowing Paul, in we'll go meet again in a week. We'll probably move documents fast enough.
+
+00:30:06.302 --> 00:30:08.858
+<v wendy>Mhmm.
+
+00:30:08.858 --> 00:30:15.657
+<v David Pierce>And a week after that, knowing Elroy, Elroy will have something as a proof of concept to show us,
+
+00:30:14.557 --> 00:30:18.218
+<v wendy>Mhmm.
+
+00:30:18.218 --> 00:30:19.658
+<v David Pierce>like a a working proof of concept.
+
+00:30:18.423 --> 00:30:24.470
+<v Leidy>ठीक है.
+
+00:30:20.343 --> 00:30:27.595
+<v David Pierce>And once we have a working proof of concept, well, then probably another week we deploy. I I don't wanna waste a lot of time here.
+
+00:30:27.595 --> 00:30:28.183
+<v Paul>Okay. Okay.
+
+00:30:28.183 --> 00:30:30.810
+<v David Pierce>Every everybody needs to make some money.
+
+00:30:30.810 --> 00:30:53.135
+<v Paul>David, what do we need to what do we need to, on our end, the back end here to set this up again? Do we do I need Clio? Do I you know, for file management, for for, for billing, for for document storage? I mean, do do I need HubSpot? What do I need? Or is it or you guys got that all
+
+00:30:51.643 --> 00:30:54.843
+<v David Pierce>Your CRM your CRM your
+
+00:30:53.375 --> 00:30:55.163
+<v Paul>taken care of on your end?
+
+00:30:55.163 --> 00:31:12.795
+<v David Pierce>CRM is going to be done. I'm gonna take care of all that for you. Elroy, you don't have any worries with that? Be able to set that all up for him. I will take a look, Paul. Do you have a preference on what sis legal system you like?
+
+00:31:12.795 --> 00:31:19.013
+<v Paul>I don't. I have heard good things about Clio, but I don't, honestly.
+
+00:31:19.013 --> 00:31:26.552
+<v David Pierce>Alright. So I'm gonna I'm gonna do I'm gonna do a background's church check from our tech perspective Because I no longer
+
+00:31:25.290 --> 00:31:26.872
+<v Paul>Okay.
+
+00:31:26.872 --> 00:31:34.570
+<v David Pierce>like the portals like the you're used to. Need to investigate it from what does the API look like.
+
+00:31:34.570 --> 00:31:34.737
+<v Paul>Okay.
+
+00:31:34.737 --> 00:31:40.735
+<v David Pierce>Right? Because if the API is good, then I can integrate it with anything we do.
+
+00:31:40.735 --> 00:31:48.495
+<v Paul>K. Fine. Right now, I use, I I use a very basic system called Lawbility. I don't know if you yeah.
+
+00:31:47.563 --> 00:31:48.895
+<v David Pierce>Liability.
+
+00:31:48.895 --> 00:31:50.203
+<v Paul>Lawbility.
+
+00:31:50.203 --> 00:31:50.975
+<v David Pierce>Yep.
+
+00:31:50.975 --> 00:32:01.510
+<v Paul>It's good for a solo guy like me. It's very simple, easy to use. You know, it's it's friendly.
+
+00:31:56.958 --> 00:32:05.278
+<v David Pierce>For me for for us on our end, we don't really care about that except I would like to make sure that it's technically savvy so that we can tie to it.
+
+00:32:04.710 --> 00:32:05.517
+<v Paul>Yeah.
+
+00:32:05.517 --> 00:32:06.375
+<v David Pierce>Right?
+
+00:32:06.375 --> 00:32:10.295
+<v Paul>Basic. I mean, it's not it's it's basic stuff. It's it's certainly not great.
+
+00:32:09.533 --> 00:32:14.054
+<v David Pierce>Lloyd lawyers still like to stay old fashioned, and we don't wanna stay old fashioned on this.
+
+00:32:14.054 --> 00:32:17.853
+<v Paul>No. We gotta move we gotta move out of the foxhole.
+
+00:32:17.853 --> 00:32:24.850
+<v David Pierce>Yes. Because we wanna we wanna make a single man law firm, Elroy. Feel like a 50 person log firm.
+
+00:32:24.850 --> 00:32:26.609
+<v Paul>Yeah. Because it's not gonna stay it's gonna stay
+
+00:32:25.158 --> 00:32:27.398
+<v David Pierce>We don't want any more people than what's in this ring.
+
+00:32:26.663 --> 00:32:39.141
+<v Paul>as soon as they stay as long as I'm a lot. I mean, my my goal is to make this a multi lawyer firm. I'm not gonna stay a solo guy. Other people to do the work, and I just wanna sit back and take a cut.
+
+00:32:39.141 --> 00:32:39.355
+<v wendy>Hello?
+
+00:32:39.355 --> 00:32:40.075
+<v Paul>That's all I wanna do.
+
+00:32:39.894 --> 00:32:41.674
+<v Elroy Geerdink>Híbrido.
+
+00:32:41.674 --> 00:32:54.238
+<v Paul>Right? Let's set it up, get it going. I'll hire some other I want Wendy, lady, and and other people doing all the work. Just send me a piece and let me go hang out in Medellin and and gotta hang you. That's what I wanna do.
+
+00:32:54.238 --> 00:32:56.230
+<v David Pierce>Drink drink martinis. Okay.
+
+00:32:56.230 --> 00:33:00.493
+<v Paul>That's right.
+
+00:33:00.493 --> 00:33:04.235
+<v David Pierce>Two things. DocuSign, Paul. Do you have a DocuSign account?
+
+00:33:04.235 --> 00:33:14.418
+<v Paul>I do. I have DocuSign. I also have Adobe. You tell me which one is better.
+
+00:33:14.418 --> 00:33:15.995
+<v David Pierce>You have Adobe?
+
+00:33:15.995 --> 00:33:20.498
+<v Paul>Yep.
+
+00:33:20.498 --> 00:33:32.475
+<v David Pierce>Okay. Because we'll need we'll need that. Because you'll set up the template. We'll hit the API. That'll trigger that. Do you have, a business line phone line?
+
+00:33:32.475 --> 00:33:38.658
+<v Paul>I I do. Yeah. It sucks.
+
+00:33:38.658 --> 00:33:42.555
+<v David Pierce>K. So will you don't mind if we set you up with a boot new business line?
+
+00:33:42.555 --> 00:33:45.218
+<v Paul>No. Not at all. No. Not at all.
+
+00:33:45.218 --> 00:33:45.515
+<v David Pierce>So,
+
+00:33:45.515 --> 00:33:45.538
+<v Paul>It's
+
+00:33:45.538 --> 00:33:49.600
+<v David Pierce>Elroy, we're gonna need a new business line with SMS.
+
+00:33:49.600 --> 00:33:49.840
+<v Paul>I use,
+
+00:33:49.778 --> 00:34:13.418
+<v David Pierce>And Wait.
+
+00:33:50.960 --> 00:34:16.160
+<v Paul>ring I use RingCentral right now. So yeah. It it and it sucks. Know, I need so, and that's very that's a that's a good question. Very important piece because I need something for lady and Wendy and me and clients all to be able to connect into. It's gotta have fax capabilities. So yeah. You know, when call yes.
+
+00:34:13.818 --> 00:34:16.559
+<v David Pierce>Did you just say did you say fax? What are you still using?
+
+00:34:16.559 --> 00:34:17.280
+<v Paul>We would have not no.
+
+00:34:16.778 --> 00:34:18.960
+<v David Pierce>Home revisions too?
+
+00:34:18.960 --> 00:34:22.939
+<v Paul>Believe it or not, listen, the IRS is still old school,
+
+00:34:22.573 --> 00:34:23.773
+<v David Pierce>Wait. I I heard this right,
+
+00:34:23.179 --> 00:34:25.419
+<v Paul>man. They they want things faxed to them.
+
+00:34:24.093 --> 00:34:25.659
+<v David Pierce>fax.
+
+00:34:25.659 --> 00:34:32.398
+<v Paul>And a lot of state Tax authorities still want shit faxed to them.
+
+00:34:32.398 --> 00:34:34.398
+<v David Pierce>So so can you handle the fax on your
+
+00:34:32.994 --> 00:34:34.558
+<v Paul>It's crazy.
+
+00:34:34.558 --> 00:34:36.595
+<v David Pierce>own with your RingCentral?
+
+00:34:36.595 --> 00:34:38.077
+<v Paul>Yes. Yeah.
+
+00:34:38.077 --> 00:34:40.398
+<v David Pierce>Perfect. Then use your RingCentral for your fax.
+
+00:34:38.835 --> 00:34:44.400
+<v Paul>It's it's it's it's it's night it's night it's nightmarish.
+
+00:34:42.798 --> 00:34:45.120
+<v David Pierce>Because we don't have any fax finder.
+
+00:34:45.120 --> 00:34:50.880
+<v Paul>I hate it. But, so if you have an alternative oh,
+
+00:34:47.923 --> 00:34:51.443
+<v David Pierce>You go garage sailing to find those machines? Like, where do you find one of those?
+
+00:34:51.040 --> 00:35:02.058
+<v Paul>I don't actually have there's no fax machine. It's the stupidest thing. And, like, use, was it Google or something? Google Suite, Google phone?
+
+00:35:02.058 --> 00:35:04.614
+<v David Pierce>I'm just messing with you, but I I had to take the shot.
+
+00:35:04.614 --> 00:35:05.094
+<v Paul>But it's yeah.
+
+00:35:04.618 --> 00:35:05.494
+<v David Pierce>Like, really?
+
+00:35:05.494 --> 00:35:13.095
+<v Paul>I I I know. Don't blame me. Blame the IRS. They still want shit faxed to them. They they could secure or more secure.
+
+00:35:13.018 --> 00:35:32.735
+<v David Pierce>Elle Elroy, the this team is going to need a receptionist. So a concierge is gonna have to be able to handle reception and transfer, as well as intakes. Right? So whether you build one, two, or three depends on you. Maintain?
+
+00:35:32.735 --> 00:35:34.437
+<v Paul>Yes. Yeah. Twenty yeah. Twenty 47.
+
+00:35:34.437 --> 00:35:35.054
+<v David Pierce>But
+
+00:35:35.054 --> 00:35:36.797
+<v Paul>I mean,
+
+00:35:36.797 --> 00:35:37.200
+<v David Pierce>you're
+
+00:35:37.200 --> 00:35:41.517
+<v Paul>in in term in terms of what? I mean, you know, no. I don't wanna be bothered,
+
+00:35:41.517 --> 00:35:42.798
+<v David Pierce>so what I what I if
+
+00:35:41.520 --> 00:35:43.038
+<v Paul>you know.
+
+00:35:43.038 --> 00:35:48.160
+<v David Pierce>I call today and I wanted to speak to Paul, would I get transferred to Paul?
+
+00:35:48.160 --> 00:35:51.843
+<v Paul>During the day? Yeah. I mean, I guess it should be,
+
+00:35:51.843 --> 00:35:53.523
+<v David Pierce>You said during you said during the day,
+
+00:35:51.919 --> 00:35:53.763
+<v Paul>based on my
+
+00:35:53.763 --> 00:35:57.535
+<v David Pierce>I have to know those things. These are the kinds of things that I need to know.
+
+00:35:57.535 --> 00:36:29.815
+<v Paul>Well well, I don't know, sir, what you mean. Would be based on my calendar? Like, that that's where you come in, Wendy. I need you to maintain my calendar and keep my calendar up to date and make sure, people know, when I have time to speak to them. So, I do you mean when they call in, supposed to call in, they're gonna go through the concierge first? And is the concierge gonna be the person who funnels the call to either Wendy or lady or me or somebody else? Is it gonna be the concierge who then says, oh, I'll put you on Paul's calendar for such and such a day and such and such a time?
+
+00:36:29.538 --> 00:36:34.135
+<v David Pierce>So so if they're let's say they're an existing, you know, client,
+
+00:36:34.135 --> 00:36:34.338
+<v Paul>Mhmm.
+
+00:36:34.338 --> 00:36:36.897
+<v David Pierce>you might wanna have them connect. But if they're not an existing
+
+00:36:36.390 --> 00:36:39.430
+<v Paul>Okay. This what?
+
+00:36:38.283 --> 00:36:40.843
+<v David Pierce>interesting in booking, they may wanna book to a calendar.
+
+00:36:39.830 --> 00:37:12.000
+<v Paul>So this is this is where we get into the levels of service. Right? Gold, platinum, select, or reserve. Some if you're at the reserve level, you get my cell phone. You can call me 247. Gold level? No. You gotta go through, concierge calendar, Wendy, to get on my calendar. But if you're if you're a if you are a reserve level, client, you get my cell phone, you can call me 247. So if it goes to the concierge, they can sit and they say and they say, I am a reserve client.
+
+00:37:12.000 --> 00:37:20.497
+<v Paul>Boom. They get they go right to my cell phone. If not, no. They gotta go through, Wendy or my calendar system.
+
+00:37:20.497 --> 00:37:23.119
+<v David Pierce>Alright. Sounds like you're gonna have to really talk with Wendy.
+
+00:37:23.119 --> 00:37:32.075
+<v Elroy Geerdink>Yeah. Do do they have, like, ident identification numbers, for those where they are at?
+
+00:37:32.075 --> 00:37:51.358
+<v Paul>They yes. They will. The reserve so, yes, the the reserve clients will go the, this is the way I'm thinking of setting up. There'll be 100 reserve clients. That's it. It's it will always only be a 100. So the reserve clients will be numbered from zero zero one to 100. There'll be a double o seven. See? So that's it. Yes.
+
+00:37:51.358 --> 00:37:52.954
+<v David Pierce>That one's reserved for me.
+
+00:37:52.954 --> 00:38:03.914
+<v Paul>Yeah. Somebody will somebody's gonna get 007. We'll have to see who it is. There'll be agent 69. There'll be eight you know, agent 99.
+
+00:38:03.914 --> 00:38:09.918
+<v Elroy Geerdink>Ok
+
+00:38:09.918 --> 00:38:14.159
+<v David Pierce>Lady, what else? What else are you thinking? Seems like you had something.
+
+00:38:14.159 --> 00:38:16.918
+<v Paul>Yeah.
+
+00:38:16.918 --> 00:38:18.639
+<v Leidy>I'm not thinking.
+
+00:38:18.639 --> 00:38:19.238
+<v Elroy Geerdink>Thank you.
+
+00:38:19.238 --> 00:38:19.718
+<v Leidy>I'm just listening.
+
+00:38:19.357 --> 00:38:33.092
+<v David Pierce>Okay. Alright. Now, Veronica, it is your time. Ask all all the questions you have.
+
+00:38:33.092 --> 00:38:41.130
+<v Veronica Pierce>I have my my camera off because of the feedback. Anyways, hi. Nice to meet you.
+
+00:38:41.130 --> 00:38:47.220
+<v Paul>By the way, feel free to speak in Spanish again. You guys and you're only speaking in English for my benefit. So if it's easy to speak in Spanish Okay.
+
+00:38:46.387 --> 00:39:35.492
+<v Veronica Pierce>Really? You want me to go Latino? Like, say, professor, you wanna say anything? Really? You want me to go Latino? Like, super fast, you wanna say anything? What? Yo brinqué a esta reunión y la verdad no sé hasta el momento qué vamos a estar realmente haciendo hasta que no vea los documentos. Para ver el estilo de ustedes y ver qué me pongo a hacer, obviamente generado con inteligencia artificial, pero sí necesito like Humorous, short ads.
+
+00:39:35.492 --> 00:39:40.815
+<v Veronica Pierce>You just gotta let me know if if yes or no on that. But I still have to wait for all the documents to see what I'm gonna do.
+
+00:39:40.815 --> 00:39:43.652
+<v Paul>Yeah. Humor and taxes, I don't know.
+
+00:39:43.652 --> 00:40:03.129
+<v Veronica Pierce>And I don't know. You guys in the previous conversation, you guys were talking about or I was wondering what are the dis the the disqualifiers of people that will be calling in. Not only the income amount, but what else disqualifies them and how that falls out.
+
+00:40:03.129 --> 00:40:09.152
+<v Paul>That's a good question. I know. Let me put some thought into that. Let me let me put some thought on disqualifiers.
+
+00:40:09.152 --> 00:40:17.882
+<v Veronica Pierce>Alright. I'm sure we will be more prepared for the next meeting.
+
+00:40:17.882 --> 00:40:49.375
+<v wendy>I think a good idea is, like, I mean, I'm really and how we create, like, a document with all what we want and then send to you guys, and we start from there. Because I think, like, probably it's not clear. I'm not clear. So I think the best idea is to start from that so I can create a concept with one, but we don't want and then send to everybody.
+
+00:40:49.375 --> 00:40:54.974
+<v Paul>I mean, Veronica, you're just talking from a marketing point of view. Right? Just Yeah.
+
+00:40:53.867 --> 00:41:03.080
+<v Veronica Pierce>Me? Yeah. Yeah. It's constant.
+
+00:41:03.080 --> 00:41:08.920
+<v Paul>Yeah. I mean, there are, you know, income and asset disqualifiers, but there might be other other disqualifiers too that we wanna
+
+00:41:08.531 --> 00:41:13.060
+<v Veronica Pierce>Occasionally. I mean, we'll have a QA in place. Right?
+
+00:41:13.060 --> 00:41:40.612
+<v Paul>You know, if, like, we don't want psychos. I don't know how you I don't know how you screen for that. We're not at we I we we you know, I've seen this in work and action. You would be surprised some of the some of the nutcases that call in claiming to be wealthy, sophisticated people who are actually, you know, backwoods crackers, just imagining things.
+
+00:41:40.612 --> 00:41:45.320
+<v Veronica Pierce>Or even simple things like age and legal status and stuff like that because you'll get a lot of
+
+00:41:45.320 --> 00:42:15.570
+<v Paul>Well well, legal but those are good points. But legal status Disqualify, and, actually, legal status might be someone, something very interesting because, you know, somebody's got multiple passports. They're a green card holder. They may be, you know, or even if they're offshore. Look. You know, there's a lot of money done in, South South And Central America that wants to buy US real estate. That's where we can get into international tax planning.
+
+00:42:15.570 --> 00:42:49.475
+<v Paul>So being international is definitely not a disqualifier, at all. Might be very attractive because, I've I've done a lot of cross border real estate, planning for for, foreign money trying to come into The US that involves, you know, FIRPTA. I don't know if you know what FIRPTA. And so it can get kinda complicated when they're trying to, they want it they want it you know, the use US real estate is a is a store of value. You know? They wanna take the cocaine money and and store it up here in The US. Well, great. That's fine. But they have to structure it the right way, and there's a certain way to do that.
+
+00:42:49.475 --> 00:43:19.535
+<v Paul>And and that could be very lucrative. So that's definitely not a disqualifier. Sometimes, you know, a, citizen's status might be an issue, but it's not usually a disqualifier. The only time it can be really be a disqualifier, is if they are an h one b visa. Those are the kind of people they're they're unstable. You know, you don't know how long they're gonna be in the country.
+
+00:43:19.535 --> 00:43:47.478
+<v Paul>Certainly, anybody who's, here illegally, we don't wanna deal with. But h 1 b is very, very unstable. So I would send a green card, fine. You know, multiple passports, fine. Or somebody who is, not in The US, but just wants to park some money in The US. They can be a tourist visa. Right? And they just wanna buy and park some money in The US and US real estate. Those are good clients.
+
+00:43:47.478 --> 00:44:03.113
+<v David Pierce>Alright. Something I'm thinking about is maybe traffic from other URLs set up specifically. Right? There could be multiple We could use a series of different URLs to bring traffics in.
+
+00:44:02.839 --> 00:44:06.373
+<v Elroy Geerdink>We can get it created.
+
+00:44:06.373 --> 00:44:32.493
+<v David Pierce>I think we can get creative because Paul's what Paul's explaining is that he he has the bandwidth, at least early on, to do more than just one vertical. Right? And we would probably be stupid, seeing as that we're going direct with a single attorney. We'd be stupid to shut off any particular vertical because what might go haywire might, you know, start to really take off might be something that we didn't we didn't even see,
+
+00:44:31.035 --> 00:44:32.733
+<v Paul>Yeah.
+
+00:44:32.733 --> 00:44:33.834
+<v David Pierce>right, coming.
+
+00:44:33.834 --> 00:44:36.714
+<v Paul>Right. We we we might not might see it not see it coming.
+
+00:44:36.653 --> 00:45:06.973
+<v David Pierce>But we have but we have a small enough team where we could be flexible to accept it. So if you think about, you know, immigration went insanely busy for us. With other clients. We never guessed that, but maybe that's that's something that that we gotta start thinking about. And then to Veronica, on your point, we'll have to offline and think about I wanna start with Google first first just because I wanna set establish a baseline.
+
+00:45:06.973 --> 00:45:42.683
+<v David Pierce>So I don't wanna bring all of our traffic in through Google. I think that that I just wanna bring a steady flow. So if we know that Google's good for You know, two bookings a day, two bookings a week, whatever that baseline we create, that's great. We'll flex that up a little bit financially to see if it'll if it'll react. So if we spend more, do we get more? We'll find where the there's always a oh, this is just the way Google's got it built. There's always a cusp. You hit this this you hit this peak where you if you spend more than that, you start to see depreciating assets.
+
+00:45:42.683 --> 00:45:56.137
+<v David Pierce>Right? You just it goes nowhere. Because Google's controlled by the big boys. So we wanna get you right to the point where you're getting your best return on your investment at Google. Then we start shopping
+
+00:45:54.655 --> 00:45:56.538
+<v Paul>Yeah.
+
+00:45:56.538 --> 00:46:30.255
+<v David Pierce>other markets. And, Veronica, we'll have to get really creative and think through, like, try some crazy stuff to see what hooks what hooks the big fish. Because I'm thinking in social media stuff, we're gonna wanna hook the big ones. Right? And we may get creative in how we hook big clients. And then I think you could have a lot more fun there because we can throw out a lot of content to test on very, very little investment.
+
+00:46:30.255 --> 00:46:48.618
+<v Paul>Now there's now there's there's something else to consider. Okay. I am a law firm in Florida. I do have to comply with bar advertising rules, which means that the bar has to actually review and approve my advertising before it goes out into the world.
+
+00:46:48.618 --> 00:46:50.137
+<v David Pierce>Atmosphere. Yours does.
+
+00:46:49.839 --> 00:46:51.292
+<v Paul>Yeah. Mine does.
+
+00:46:51.292 --> 00:47:00.215
+<v David Pierce>And this is what and this is where we get very creative. So my ad agency won't be part of your tech agency.
+
+00:47:00.215 --> 00:47:06.222
+<v Paul>Say again?
+
+00:47:00.603 --> 00:47:33.773
+<v David Pierce>So for so for instance, if if we use if we use Veronica, this is for you. If we run the tech through Connexus and are working Connexus AI with with Donovan Law, right, legal, then Tico AI could be the ad agency of record running ad agency for Connexus, not for Paul Donovan. Makes sense? The ad account the ad Google Ad spend account, we will not put in Paul's Donovan's name.
+
+00:47:33.773 --> 00:47:35.613
+<v David Pierce>We'll keep it in an ad agency's name.
+
+00:47:34.895 --> 00:47:40.495
+<v Paul>Oh, okay. I see you say. This is what you were talking about before with the concierge. Right? You yeah.
+
+00:47:39.938 --> 00:47:40.734
+<v David Pierce>Yes. Yes.
+
+00:47:40.734 --> 00:47:42.258
+<v Paul>Okay. I I see what you're saying. I gotcha.
+
+00:47:42.258 --> 00:47:54.570
+<v David Pierce>Yes. So I run the marketing. We run the marketing. We run the tech. Those are entities or separate entities. We protect Paul, the end user, from the other side of the coin.
+
+00:47:54.570 --> 00:47:54.783
+<v Paul>Right.
+
+00:47:54.783 --> 00:48:38.058
+<v David Pierce>So he's just Alright.
+
+00:47:54.809 --> 00:48:26.780
+<v Paul>But there's there's a hook there. There's also another rule, though. If I use you as their funnel, even though you're doing the advertising and you're bringing in and I connect Another rule that requires you to be registered with the Florida Bar, as an ad referral agency, and you've got to meet certain requirements with them. I'll have to forward those to you because they're they're I think they were kinda wise to people trying to get around their rules by doing that.
+
+00:48:26.780 --> 00:48:39.175
+<v Paul>And saying, oh, well, I'm not advertising. They are. Okay. But if they're sending you clients and that's your source of referral Registered with the Florida bar. And if you use them and they're not registered,
+
+00:48:38.378 --> 00:48:40.137
+<v David Pierce>That's the same as our tPA stuff.
+
+00:48:39.734 --> 00:48:42.618
+<v Paul>you get problems.
+
+00:48:42.618 --> 00:49:13.238
+<v David Pierce>Right. This is the this is gonna be the same as our tCPA rulings, alright, so we're just gonna do some research to make sure we're up to date on it. And, our disclaimers on the bottoms of our URLs. Now if Paul is bringing a funnel straight in off of his website, there is no issue regardless of who brought the person to that website. Right? Because it's his website. He owns it. He owns the funnel.
+
+00:49:13.238 --> 00:49:45.178
+<v David Pierce>So if I'm just gonna put things out there. If Veronica runs crazy ads over in Instagram, and Instagram sends a user to Paul Donovan's URL, which now goes through Donovan Legal PLLC into his funnel. That's the source document. Paul is your funnel. That is your recorded Document chain that comes in. So everything would go right into your CRM and be recorded there.
+
+00:49:45.178 --> 00:50:15.318
+<v David Pierce>So you are completely compliant, 100%. Because traffic is not moving. We're not moving legal people to lawyers. We're moving legal people to sites. Different. It's a totally different scenario. So for instance, Elroy on Charlotte's Law right now. Right? Traffic comes from every different angle you could think of. Are they going? They all have to go manually, they have to go themselves and choose to go to the URL.
+
+00:50:15.318 --> 00:50:21.055
+<v David Pierce>That's the safety. We'll set this up the same way.
+
+00:50:21.055 --> 00:50:27.775
+<v Paul>You so okay. I didn't okay. You say so. So if I direct my website,
+
+00:50:25.983 --> 00:50:28.623
+<v David Pierce>But I would like I would like to see the I would like to see
+
+00:50:28.495 --> 00:50:31.192
+<v Paul>then I'm all good?
+
+00:50:31.192 --> 00:50:36.910
+<v David Pierce>I would like to see your registered stuff for the for the bar, Paul, just to make sure that we're completely compliant,
+
+00:50:36.910 --> 00:50:37.512
+<v Paul>Okay.
+
+00:50:37.512 --> 00:50:39.658
+<v David Pierce>on all levels. But That's
+
+00:50:38.964 --> 00:50:41.178
+<v Elroy Geerdink>Investigate. Just send yeah.
+
+00:50:41.178 --> 00:51:16.018
+<v David Pierce>I don't see the issue. Because if you think about it, Elroy, none of the social media sites are gonna let us, click directly into Paul's reps anyways. Right? So any v rep we call them v reps. They're virtual representatives. So they're they're your staff. Right? They they help you Any of those representatives that we set up for you, we would not have them you would not be able to contact them directly through any social media site.
+
+00:51:16.018 --> 00:51:37.178
+<v David Pierce>You would have to contact them through your your website. So if, yeah, if you think about a lot of the advertising when you look at it and study it, when you click something on Instagram, you weren't in Instagram anymore. It redirects. Right. And now you're inside of something else.
+
+00:51:36.535 --> 00:51:37.818
+<v Paul>Okay.
+
+00:51:37.818 --> 00:51:48.760
+<v David Pierce>So if you're going on a shopping thing, you notice it redirects inside of itself. Right? And there's, like, a platform. We won't do that. That is illegal. That is a problem.
+
+00:51:48.760 --> 00:51:51.313
+<v Paul>Okay.
+
+00:51:51.313 --> 00:52:13.258
+<v David Pierce>What we'll do is it will say contact here or call here. Now all of a sudden you can go to your own site. I don't have anything else. I think we spent a a quite a bit of time. Let me get some good documents off to you guys. Let's set up a Paul, could you make sure that I have everybody's email?
+
+00:52:11.955 --> 00:52:13.578
+<v Paul>Okay.
+
+00:52:13.578 --> 00:52:15.859
+<v David Pierce>Or Wendy, could you do that, somebody?
+
+00:52:15.859 --> 00:52:17.713
+<v Paul>Yep.
+
+00:52:17.713 --> 00:52:21.780
+<v David Pierce>And then we'll set up a meeting a week from now.
+
+00:52:21.780 --> 00:52:22.273
+<v Paul>Sounds good.
+
+00:52:22.273 --> 00:52:24.033
+<v David Pierce>I'll get I'll get documents off today.
+
+00:52:23.599 --> 00:52:25.700
+<v Elroy Geerdink>Okay. Thanks.
+
+00:52:25.700 --> 00:52:26.638
+<v Paul>Okay. Thanks, everybody.
+
+00:52:26.638 --> 00:52:28.319
+<v Elroy Geerdink>Have a great afternoon. Bye bye.
+
+00:52:28.318 --> 00:52:32.558
+<v David Pierce>You. Thank you, bud.

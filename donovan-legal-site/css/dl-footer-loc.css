@@ -1,0 +1,29 @@
+/* ── SHELDON-PAUL-CHROME: the footer office-city line ────────────────────────
+   Injected into every `.dl-connect` footer by
+   functions/_lib/footer-inject.js. Read that file first — it carries the whole
+   argument for the markup, the placement and the presence gate. This file is
+   only the presentation.
+
+   WHY THIS IS ITS OWN SHEET AND NOT A BLOCK IN css/main.css.
+   Not every page carrying a `.dl-connect` block loads css/main.css — the tier
+   areas, the controversy-roadmap posts and the other standalone documents ship
+   their own <style> blocks and no site chrome. A rule placed in main.css would
+   render this line unstyled on exactly those pages, and this is a Florida Bar
+   4-7.12(a)(2) disclosure: legibility is the requirement, not a nicety. A small
+   dedicated sheet, injected next to the markup, is styled wherever the markup
+   lands. Same shape as css/dl-utility-bar.css and css/perch-layer.css.
+
+   NOTHING HERE IS INLINE. The middleware issues a per-request nonce CSP; this
+   sheet is an external same-origin reference admitted by `style-src 'self'`, so
+   no nonce is involved and no CSP directive moves.
+
+   The values are Paul's, from #223, unchanged: the line sits just under the
+   phone/email row and must read as supporting text beside it, not compete with
+   it — hence the smaller size and the muted grey against the footer's cream. */
+
+.dl-connect-loc {
+  margin: .35rem 0 0;
+  font-size: .82rem;
+  letter-spacing: .4px;
+  color: #5b5b5b;
+}

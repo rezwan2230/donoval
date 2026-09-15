@@ -1,0 +1,606 @@
+{
+  "order": "SHELDON-COMMAND-CHANNEL-QUALIFIER-BOOKING",
+  "base": "https://8bfff968.donovan-site.pages.dev",
+  "startedAt": "2026-07-26T02:07:26.634Z",
+  "steps": [
+    {
+      "name": "the router is on and ready for this deployment",
+      "ok": true,
+      "detail": {
+        "ready": true,
+        "container": "#perch-main",
+        "errors": []
+      }
+    },
+    {
+      "name": "the command channel and the qualifier are mounted on a content page",
+      "ok": true,
+      "detail": {
+        "commandChannel": {
+          "polling": false,
+          "callId": null,
+          "polls": 0,
+          "commands": 0,
+          "prefillPending": false,
+          "log": []
+        },
+        "qualifierMounted": true
+      }
+    },
+    {
+      "name": "bindCall() — the seam js/donovan-widget.js calls — accepted the call",
+      "ok": true,
+      "detail": {
+        "ok": true
+      }
+    },
+    {
+      "name": "the poll is really running against /fn/page-poll with the header credential",
+      "ok": true,
+      "detail": {
+        "livePolls": 2
+      }
+    },
+    {
+      "name": "A32: the live call id reached the booking widget seam",
+      "ok": true,
+      "detail": {
+        "note": "without this /booking/create cannot join the booking to the call"
+      }
+    },
+    {
+      "name": "the goto half of the batch navigated the page",
+      "ok": true,
+      "detail": {
+        "url": "/re-acquisition"
+      }
+    },
+    {
+      "name": "…without a document load, so the call survives it",
+      "ok": true,
+      "detail": {
+        "documentLoads": 0,
+        "instanceStable": true
+      }
+    },
+    {
+      "name": "THE HEADLINE (Task 1): open_qualifier survives the batch and renders a tappable card",
+      "ok": true,
+      "detail": {
+        "present": true,
+        "display": "flex",
+        "cardRect": {
+          "w": 440,
+          "h": 433
+        },
+        "heading": "What type of matter would you like to discuss?",
+        "options": [
+          "tax",
+          "real_estate",
+          "other",
+          "not_sure_matter"
+        ],
+        "topOfCardIsInsideCard": true,
+        "probe": {
+          "mounted": true,
+          "open": true,
+          "lang": "en",
+          "step": 0,
+          "answered": 0,
+          "callId": "set"
+        }
+      }
+    },
+    {
+      "name": "…and the card knows the live call id",
+      "ok": true,
+      "detail": {
+        "mounted": true,
+        "open": true,
+        "lang": "en",
+        "step": 0,
+        "answered": 0,
+        "callId": "set"
+      }
+    },
+    {
+      "name": "the completed card POSTs to /fn/qualifier_submit — the body get_qualifier_result reads",
+      "ok": true,
+      "detail": {
+        "tapped": [
+          "real_estate",
+          "acquisition",
+          "FL",
+          "yourself",
+          "1_5m_3m",
+          "5m_15m"
+        ],
+        "submit": {
+          "matter_category": "real_estate",
+          "matter": "real_estate",
+          "matter_sub": "acquisition",
+          "state": "FL",
+          "for_whom": "yourself",
+          "income_band": "1_5m_3m",
+          "net_worth_band": "5m_15m",
+          "language": "en",
+          "source": "verifier",
+          "call_id": "verify-qualbook-wh9jyo3b"
+        },
+        "note": "captured and ABORTED — it forwards to Vantage /upsert-lead"
+      }
+    },
+    {
+      "name": "and the caller sees the done card",
+      "ok": true,
+      "detail": {
+        "text": "All setThanks — that’s what I needed\n      Paula has it. She’ll pull up the calendar so you can pick a time.\n      Conti"
+      }
+    },
+    {
+      "name": "THE HEADLINE (Task 2): the caller is ON /book with the calendar REVEALED",
+      "ok": true,
+      "detail": {
+        "url": "/book",
+        "gateDisplay": "none",
+        "liveDisplay": "block",
+        "liveRect": {
+          "w": 1110,
+          "h": 308
+        },
+        "widgetChildren": 7,
+        "widgetText": "Select a dateMON27JULTUE28JULWED29JULTHU30JULFRI31JULMON3AUGTUE4AUGWED5AUGTHU6AUGFRI7AUGMON10AUGTUE11AUGWED12AUGTHU13AUGFRI14AUGMON17AUGTUE18AUGWED19AUGTHU20AUG",
+        "dlBooking": "object",
+        "callId": "verify-qualbook-wh9jyo3b"
+      }
+    },
+    {
+      "name": "…as a swap, so the call is still up when they get there",
+      "ok": true,
+      "detail": {
+        "documentLoads": 0,
+        "instanceStable": true
+      }
+    },
+    {
+      "name": "…and the live session resource survived both navigations",
+      "ok": true,
+      "detail": {
+        "before": {
+          "clock": 5.92,
+          "state": "running"
+        },
+        "after": {
+          "clock": 9.970666666666666,
+          "state": "running"
+        }
+      }
+    },
+    {
+      "name": "the booking widget actually booted from the adoption allow-list",
+      "ok": true,
+      "detail": {
+        "url": "/book",
+        "gateDisplay": "none",
+        "liveDisplay": "block",
+        "liveRect": {
+          "w": 1110,
+          "h": 308
+        },
+        "widgetChildren": 7,
+        "widgetText": "Select a dateMON27JULTUE28JULWED29JULTHU30JULFRI31JULMON3AUGTUE4AUGWED5AUGTHU6AUGFRI7AUGMON10AUGTUE11AUGWED12AUGTHU13AUGFRI14AUGMON17AUGTUE18AUGWED19AUGTHU20AUG",
+        "dlBooking": "object",
+        "callId": "verify-qualbook-wh9jyo3b"
+      }
+    },
+    {
+      "name": "the prefill reached DLBooking.prefill (not the unobserved postMessage road)",
+      "ok": true,
+      "detail": {
+        "widgetPresent": true,
+        "prefillEntry": {
+          "handled": true,
+          "cmd": "booking_prefill",
+          "via": "DLBooking.prefill",
+          "result": null,
+          "acked": true
+        }
+      }
+    },
+    {
+      "name": "booking_select_type is only needed when the deployment offers a choice",
+      "ok": true,
+      "detail": {
+        "atTypePick": false,
+        "typeDriven": null
+      }
+    },
+    {
+      "name": "booking_show_date opens a day on the driven path (browse only, no slot taken)",
+      "ok": true,
+      "detail": {
+        "skipped": false,
+        "days": [
+          "2026-07-27",
+          "2026-07-28",
+          "2026-07-29"
+        ],
+        "times": [
+          "9:00 AM",
+          "10:00 AM",
+          "11:00 AM"
+        ]
+      }
+    },
+    {
+      "name": "THE HEADLINE (Task 3): the prefill Paula sent WITH the navigation is typed into the form",
+      "ok": true,
+      "detail": {
+        "skipped": false,
+        "fields": {
+          "name": "Ada Lovelace",
+          "email": "ada@example.test",
+          "phone": "5615550100",
+          "notes": "Rental acquisition"
+        },
+        "expected": {
+          "name": "Ada Lovelace",
+          "email": "ada@example.test",
+          "phone": "5615550100",
+          "notes": "Rental acquisition"
+        },
+        "slotStep": {
+          "formReached": true,
+          "slotButtonsStillOnScreen": false
+        }
+      }
+    },
+    {
+      "name": "the caller was never auto-submitted — NOTHING reached /booking/create",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "no CSP violation — every module is a same-origin external",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "no uncaught page errors (Turnstile 600010 exempted — it is the headless driver)",
+      "ok": true,
+      "detail": {
+        "realErrors": [],
+        "exempted": []
+      }
+    },
+    {
+      "name": "the channel is still polling after both navigations",
+      "ok": true,
+      "detail": {
+        "polling": true,
+        "callId": "set",
+        "polls": 9,
+        "commands": 7,
+        "prefillPending": false,
+        "log": [
+          {
+            "cmd": "navigate",
+            "target": "/re-acquisition.html",
+            "via": "host.go"
+          },
+          {
+            "cmd": "open_qualifier",
+            "via": "openQualifier"
+          },
+          {
+            "cmd": "batch",
+            "n": 2,
+            "ran": [
+              "navigate",
+              "open_qualifier"
+            ]
+          },
+          {
+            "cmd": "navigate",
+            "target": "/book.html",
+            "via": "host.go"
+          },
+          {
+            "cmd": "booking_prefill",
+            "via": "deliverPrefill"
+          },
+          {
+            "cmd": "batch",
+            "n": 2,
+            "ran": [
+              "navigate",
+              "booking_prefill"
+            ]
+          },
+          {
+            "cmd": "booking_select_slot",
+            "via": "host.drive"
+          }
+        ]
+      }
+    },
+    {
+      "name": "releaseCall() stops it",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "the SHELL at /perch still serves and still builds its own concierge",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "orb": true,
+        "qual": true,
+        "iframe": true,
+        "layerInShell": false,
+        "writes": []
+      }
+    }
+  ],
+  "writes": [],
+  "qualifierSubmits": [
+    {
+      "matter_category": "real_estate",
+      "matter": "real_estate",
+      "matter_sub": "acquisition",
+      "state": "FL",
+      "for_whom": "yourself",
+      "income_band": "1_5m_3m",
+      "net_worth_band": "5m_15m",
+      "language": "en",
+      "source": "verifier",
+      "call_id": "verify-qualbook-wh9jyo3b"
+    }
+  ],
+  "livePolls": [
+    {
+      "header": "verify-qualbook-wh9jyo3b",
+      "mode": "passthrough"
+    },
+    {
+      "header": "verify-qualbook-wh9jyo3b",
+      "mode": "passthrough"
+    }
+  ],
+  "console": [
+    {
+      "type": "log",
+      "text": "[perch] page-control → {cmd: batch, actions: Array(2)}"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "type": "log",
+      "text": "[perch] page-control → {cmd: batch, actions: Array(2)}"
+    },
+    {
+      "type": "log",
+      "text": "[perch] page-control → {cmd: booking_select_slot, payload: Object}"
+    },
+    {
+      "type": "warning",
+      "text": "No available adapters."
+    },
+    {
+      "type": "startGroupCollapsed",
+      "text": ""
+    },
+    {
+      "type": "debug",
+      "text": "Error"
+    },
+    {
+      "type": "log",
+      "text": "/.*.*=.*/"
+    },
+    {
+      "type": "log",
+      "text": "/.*.*=.*/"
+    },
+    {
+      "type": "log",
+      "text": "function () { [native code] }"
+    },
+    {
+      "type": "log",
+      "text": "function () { [native code] }"
+    },
+    {
+      "type": "log",
+      "text": "JSHandle@node"
+    },
+    {
+      "type": "log",
+      "text": "JSHandle@node"
+    },
+    {
+      "type": "count",
+      "text": "\u0000: 1"
+    },
+    {
+      "type": "count",
+      "text": "\u0000: 1"
+    },
+    {
+      "type": "debug",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "type": "debug",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "type": "dir",
+      "text": " Error"
+    },
+    {
+      "type": "dir",
+      "text": " Error"
+    },
+    {
+      "type": "dirxml",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "type": "dirxml",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "type": "error",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "type": "error",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "type": "info",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "type": "info",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "type": "log",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "type": "log",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "type": "table",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "type": "table",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "type": "trace",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "type": "trace",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "type": "warning",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "type": "warning",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "type": "endGroup",
+      "text": "console.groupEnd"
+    },
+    {
+      "type": "warning",
+      "text": "OTS parsing error: Size of decompressed WOFF 2.0 is less than compressed size"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_[half_]float is not enabled"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_[half_]float is not enabled"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_[half_]float is not enabled"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "type": "warning",
+      "text": "[.WebGL-0x1dac0236c200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "type": "warning",
+      "text": "[.WebGL-0x1dac0236c200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    }
+  ],
+  "pageErrors": [
+    "Uncaught TurnstileError: [Cloudflare Turnstile] Error: 600010."
+  ],
+  "cspViolations": [],
+  "notes": [],
+  "exemptedErrors": [],
+  "finishedAt": "2026-07-26T02:07:42.348Z",
+  "passed": 25,
+  "failed": 0,
+  "verdict": "GO"
+}

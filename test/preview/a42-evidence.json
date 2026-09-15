@@ -1,0 +1,1466 @@
+{
+  "order": "SARAH-A42-POST-PROMOTE-SMOKE",
+  "ticket": 61,
+  "gates": "POST-PROMOTE SMOKE (production health)",
+  "base": "https://www.donovan.law",
+  "startedAt": "2026-07-25T22:45:47.214Z",
+  "steps": [
+    {
+      "id": "S1.1",
+      "name": "`/` answers 200 and the URL is still `/` (a 200-rewrite preserves it)",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "url": "https://www.donovan.law/",
+        "chain": "direct"
+      }
+    },
+    {
+      "id": "S1.2",
+      "name": "`/` carries NO noindex — not in a meta tag, not in X-Robots-Tag",
+      "ok": true,
+      "detail": {
+        "metas": [],
+        "xRobotsTag": "(absent)"
+      }
+    },
+    {
+      "id": "S1.3",
+      "name": "`/` is the REAL homepage — a heading, crawlable prose and internal links",
+      "ok": true,
+      "detail": {
+        "title": "Donovan Legal PLLC | Tax-First Practice Focused on Real Estate | Delray Beach, Florida",
+        "h1": [
+          "Donovan Legal PLLC — A Tax-First Law Practice Focused on Real Estate"
+        ],
+        "textLength": 3941,
+        "links": 88
+      }
+    },
+    {
+      "id": "S1.4",
+      "name": "`/` self-canonicalises to the production root",
+      "ok": true,
+      "detail": {
+        "canonical": "https://www.donovan.law/"
+      }
+    },
+    {
+      "id": "S1.5",
+      "name": "`/` is ONE document — not the shell iframing the site",
+      "ok": true,
+      "detail": {
+        "topLevel": true,
+        "iframes": 0,
+        "perchInjected": false
+      }
+    },
+    {
+      "id": "S1.6",
+      "name": "the router container `#perch-main` is present on `/`",
+      "ok": true,
+      "detail": {
+        "present": true,
+        "tag": "MAIN"
+      }
+    },
+    {
+      "id": "S1.7",
+      "name": "the router is injected, ready and registered with the persistent layer",
+      "ok": true,
+      "detail": {
+        "ready": true,
+        "container": "#perch-main",
+        "registered": true,
+        "errors": []
+      }
+    },
+    {
+      "id": "S1.8",
+      "name": "the persistent layer `#perch-persistent` is mounted on `/`",
+      "ok": true,
+      "detail": {
+        "node": true,
+        "instanceId": "perch-gn8npubb"
+      }
+    },
+    {
+      "id": "S1.9",
+      "name": "CSP `frame-ancestors 'self'` is served on `/` — narrowed, not permissive",
+      "ok": true,
+      "detail": {
+        "frameAncestors": "'self'"
+      }
+    },
+    {
+      "id": "S1.10",
+      "name": "X-Frame-Options: SAMEORIGIN is served on `/`",
+      "ok": true,
+      "detail": {
+        "xFrameOptions": "SAMEORIGIN"
+      }
+    },
+    {
+      "id": "S1.11",
+      "name": "a FOREIGN origin is actually refused when it tries to frame `/`",
+      "ok": true,
+      "detail": {
+        "childDocumentReachable": false,
+        "browserRefusal": [
+          {
+            "where": "foreign-embedder",
+            "text": "Framing 'https://www.donovan.law/' violates the following Content Security Policy directive: \"frame-ancestors 'self'\". The request has been blocked.\n"
+          }
+        ]
+      }
+    },
+    {
+      "id": "S2.1",
+      "name": "the concierge launcher is PRESENT on a content page",
+      "ok": true,
+      "detail": {
+        "found": true,
+        "id": "dvn-perch-launcher",
+        "inLayer": true,
+        "rect": {
+          "w": 66,
+          "h": 66,
+          "top": 812,
+          "left": 1192
+        },
+        "visible": true,
+        "inViewport": true,
+        "hitTestsToSelf": true,
+        "hitId": "IMG"
+      }
+    },
+    {
+      "id": "S2.2",
+      "name": "the launcher is visible, in the viewport and would actually receive a click",
+      "ok": true,
+      "detail": {
+        "visible": true,
+        "inViewport": true,
+        "hitTestsToSelf": true,
+        "hitId": "IMG",
+        "rect": {
+          "w": 66,
+          "h": 66,
+          "top": 812,
+          "left": 1192
+        }
+      }
+    },
+    {
+      "id": "S2.3",
+      "name": "the launcher lives INSIDE the persistent layer, so a swap cannot take it",
+      "ok": true,
+      "detail": {
+        "inLayer": true
+      }
+    },
+    {
+      "id": "S2.4",
+      "name": "/web-call answers exactly like the other POST-only Functions (a liveness probe is NOT possible without minting a call)",
+      "ok": true,
+      "detail": {
+        "verbs": {
+          "/web-call": 404,
+          "/booking/create": 404,
+          "/booking/types": 200,
+          "/consent-notice": 200,
+          "/no-such-function-a42": 404
+        },
+        "caveat": "a nonexistent path returns the same status — this is a consistency check, not proof of deployment"
+      }
+    },
+    {
+      "id": "S2.5",
+      "name": "the CSP and Permissions-Policy admit the voice transport the launcher needs",
+      "ok": true,
+      "detail": {
+        "retellWss": true,
+        "retellHttps": true,
+        "livekit": true,
+        "micPolicy": "microphone=(self \"https://vantage.ticoai.net\" \"https://portal.theconnexus.ai\"), camera=()"
+      }
+    },
+    {
+      "id": "S2.6",
+      "name": "Paula is wired on the page — the Vantage agent script and the launcher module both load",
+      "ok": true,
+      "detail": {
+        "vantageTag": true,
+        "agent": "agent_7d044bab7d2d0e5d648de5f198",
+        "deployment": "donovan-intake",
+        "donovanWidget": true
+      }
+    },
+    {
+      "id": "S2.7",
+      "name": "PRECONDITION — a live audio resource is attached through the layer seam and RUNNING",
+      "ok": true,
+      "detail": {
+        "armed": true,
+        "state": "running",
+        "clock": 0.04,
+        "waitedMs": 332
+      }
+    },
+    {
+      "id": "S2.8",
+      "name": "plain navigation /contact → /blog keeps the SAME layer instance",
+      "ok": true,
+      "detail": {
+        "how": "existing-link",
+        "url": "https://www.donovan.law/blog",
+        "before": "perch-mf3jhb9q",
+        "after": "perch-mf3jhb9q"
+      }
+    },
+    {
+      "id": "S2.9",
+      "name": "the live session was NOT torn down by the navigation — its own clock kept running",
+      "ok": true,
+      "detail": {
+        "audioBefore": {
+          "clock": 0.04,
+          "state": "running"
+        },
+        "audioAfter": {
+          "clock": 1.8906666666666667,
+          "state": "running"
+        },
+        "ticks": [
+          40,
+          59
+        ]
+      }
+    },
+    {
+      "id": "S2.10",
+      "name": "BACK preserves the persistent layer and the live session",
+      "ok": true,
+      "detail": {
+        "url": "https://www.donovan.law/contact",
+        "instanceId": "perch-mf3jhb9q",
+        "audio": {
+          "clock": 4.101333333333334,
+          "state": "running"
+        }
+      }
+    },
+    {
+      "id": "S2.11",
+      "name": "FORWARD preserves the persistent layer and the live session",
+      "ok": true,
+      "detail": {
+        "url": "https://www.donovan.law/blog",
+        "instanceId": "perch-mf3jhb9q",
+        "audio": {
+          "clock": 6.32,
+          "state": "running"
+        }
+      }
+    },
+    {
+      "id": "S2.12",
+      "name": "the launcher is still mounted after nav + back + forward",
+      "ok": true,
+      "detail": {
+        "found": true,
+        "inLayer": true
+      }
+    },
+    {
+      "id": "S3.1",
+      "name": "the booking modal/widget OPENS on the live site",
+      "ok": true,
+      "detail": {
+        "status": true,
+        "apiInit": true,
+        "gateHidden": true,
+        "liveShown": true,
+        "hasDLBooking": true
+      }
+    },
+    {
+      "id": "S3.2",
+      "name": "the READ side of booking is live — /booking/types answers with real appointment types",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "count": 1,
+        "sample": "{\"id\":\"consult\",\"name\":\"Initial Consultation\",\"duration_min\":30}"
+      }
+    },
+    {
+      "id": "S3.3",
+      "name": "the widget advances day → slot → next and reaches the details form",
+      "ok": true,
+      "detail": {
+        "steps": [
+          "day:MON27JUL",
+          "slot:9:30 AM",
+          "next"
+        ],
+        "dayStrip": true,
+        "nextPresent": true,
+        "formPresent": true,
+        "turnstileMount": true,
+        "selectedTypeVisible": "Your details",
+        "summary": "Initial ConsultationMonday, July 27, 2026 at 9:30 AM EDT"
+      }
+    },
+    {
+      "id": "S3.4",
+      "name": "a Turnstile widget RENDERS into the live booking form (mount populated + response input minted)",
+      "ok": true,
+      "detail": {
+        "mountPresent": true,
+        "apiLoaded": true,
+        "childCount": 1,
+        "responseInput": true,
+        "wasAlreadyTagged": false
+      }
+    },
+    {
+      "id": "S3.5a",
+      "name": "the booking gate re-opens on the SWAPPED-IN /book (the unlock survives a soft nav)",
+      "ok": true,
+      "detail": {
+        "liveShown": true,
+        "widget": true
+      }
+    },
+    {
+      "id": "S3.5b",
+      "name": "the swapped-in booking form is drivable to details as well as a first load",
+      "ok": true,
+      "detail": {
+        "steps": [
+          "day:MON27JUL",
+          "slot:9:30 AM",
+          "next"
+        ],
+        "dayStrip": true,
+        "nextPresent": true,
+        "formPresent": true,
+        "turnstileMount": true
+      }
+    },
+    {
+      "id": "S3.5",
+      "name": "Turnstile RE-RENDERS fresh into the SWAPPED-IN form — a new mount node, populated (not a stale, dead widget)",
+      "ok": true,
+      "detail": {
+        "before": {
+          "childCount": 1,
+          "responseInput": true
+        },
+        "after": {
+          "mountPresent": true,
+          "apiLoaded": true,
+          "childCount": 1,
+          "responseInput": true,
+          "wasAlreadyTagged": false
+        },
+        "why": "wasAlreadyTagged=false proves the FORM step minted a NEW mount; childCount>=1 proves the widget was rendered into it rather than left behind"
+      }
+    },
+    {
+      "id": "S3.6b",
+      "name": "the details form accepts the synthetic contact values, honeypot left empty",
+      "ok": true,
+      "detail": {
+        "name": true,
+        "email": true,
+        "phone": true,
+        "notes": true,
+        "honeypotEmpty": true
+      }
+    },
+    {
+      "id": "S3.6",
+      "name": "the widget COMPOSED a POST to /booking/create",
+      "ok": true,
+      "detail": {
+        "attempts": 1,
+        "method": "POST",
+        "url": "https://www.donovan.law/booking/create"
+      }
+    },
+    {
+      "id": "S3.7",
+      "name": "the composed body is CORRECT — every field the endpoint requires, slot as an ISO instant",
+      "ok": true,
+      "detail": {
+        "missing": [],
+        "deployment": "donovan-main",
+        "type": "consult",
+        "slot": "2026-07-27T13:30:00.000Z",
+        "slotIsIso": true,
+        "notesLen": 57
+      }
+    },
+    {
+      "id": "S3.8",
+      "name": "the call_id set through the SHIPPED setCallId bridge is in the composed body (A32 client half is LIVE)",
+      "ok": true,
+      "detail": {
+        "call_id": "a42-smoke-not-a-real-call",
+        "windowValue": "a42-smoke-not-a-real-call"
+      }
+    },
+    {
+      "id": "S3.9",
+      "name": "the composed POST could not have booked even if it had escaped — no Turnstile token",
+      "ok": true,
+      "detail": {
+        "turnstile_token": "\"\"",
+        "why": "/booking/create refuses 403 TURNSTILE_REQUIRED before it touches Clio"
+      }
+    },
+    {
+      "id": "S3.10",
+      "name": "STOPPED BEFORE SUBMITTING — zero write-path requests reached the network",
+      "ok": true,
+      "detail": {
+        "onWireDuringCompose": 0,
+        "layer2Aborts": 0
+      }
+    },
+    {
+      "id": "S4.1",
+      "name": "/perch STILL serves the shell 200 for Paula — the route was not retired",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "robots": "noindex",
+        "iframe": "/home.html"
+      }
+    },
+    {
+      "id": "S4.2",
+      "name": "the shell's same-origin iframe still LOADS — `frame-ancestors 'self'` did not break Paula",
+      "ok": true,
+      "detail": {
+        "url": "/home",
+        "h1": "Donovan Legal PLLC — A Tax-First Law Practice Focused on Real Estate",
+        "textLength": 3941
+      }
+    },
+    {
+      "id": "S4.3",
+      "name": "NO stale cache is serving the old noindex shell at `/` — every fresh fetch is the real homepage",
+      "ok": true,
+      "detail": [
+        {
+          "status": 200,
+          "cacheControl": "no-store",
+          "cfCacheStatus": null,
+          "age": null,
+          "noindex": false,
+          "iframes": 0,
+          "textLength": 3941,
+          "title": "Donovan Legal PLLC | Tax-First Practice Focused on Real Estate | Delray Beach, Florida"
+        },
+        {
+          "status": 200,
+          "cacheControl": "no-store",
+          "cfCacheStatus": null,
+          "age": null,
+          "noindex": false,
+          "iframes": 0,
+          "textLength": 3941,
+          "title": "Donovan Legal PLLC | Tax-First Practice Focused on Real Estate | Delray Beach, Florida"
+        },
+        {
+          "status": 200,
+          "cacheControl": "no-store",
+          "cfCacheStatus": null,
+          "age": null,
+          "noindex": false,
+          "iframes": 0,
+          "textLength": 3941,
+          "title": "Donovan Legal PLLC | Tax-First Practice Focused on Real Estate | Delray Beach, Florida"
+        },
+        {
+          "status": 200,
+          "cacheControl": "no-store",
+          "cfCacheStatus": null,
+          "age": null,
+          "noindex": false,
+          "iframes": 0,
+          "textLength": 3941,
+          "title": "Donovan Legal PLLC | Tax-First Practice Focused on Real Estate | Delray Beach, Florida"
+        }
+      ]
+    },
+    {
+      "id": "S4.4",
+      "name": "`/` is served `no-store`, so no intermediary can pin the pre-promote bytes",
+      "ok": true,
+      "detail": {
+        "cacheControl": [
+          "no-store",
+          "no-store",
+          "no-store",
+          "no-store"
+        ],
+        "cfCacheStatus": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    {
+      "id": "S4.5",
+      "name": "no ORPHANED shell state on `/` — no perch-inject, no nested frame, no second orb",
+      "ok": true,
+      "detail": {
+        "perchInjected": false,
+        "perchInjectScript": false,
+        "iframes": 0,
+        "shellOrb": false,
+        "storage": [
+          "donovan_booking_unlock"
+        ],
+        "sessionKeys": []
+      }
+    },
+    {
+      "id": "S5.1",
+      "name": "ZERO write-path requests were issued to production for the whole run",
+      "ok": true,
+      "detail": {
+        "count": 0,
+        "requests": []
+      }
+    },
+    {
+      "id": "S5.2",
+      "name": "LAYER 2 never fired — Layer 1 severed every write inside the page, as designed",
+      "ok": true,
+      "detail": {
+        "aborted": 0,
+        "detail": []
+      }
+    },
+    {
+      "id": "S5.3",
+      "name": "at least one write WAS composed and trapped — the severing was exercised, not merely idle",
+      "ok": true,
+      "detail": {
+        "trapped": 1,
+        "urls": [
+          "https://www.donovan.law/booking/create"
+        ]
+      }
+    },
+    {
+      "id": "S5.4",
+      "name": "no uncaught page errors across the run (excluding the driver-induced Turnstile 600010)",
+      "ok": true,
+      "detail": {
+        "realErrors": 0,
+        "detail": [],
+        "driverTurnstile600010": 2
+      }
+    },
+    {
+      "id": "S5.5",
+      "name": "no CSP violations on production pages (the foreign-embedder refusal is the S1.11 result, not a defect)",
+      "ok": true,
+      "detail": {
+        "count": 0,
+        "violations": []
+      }
+    }
+  ],
+  "writeRequestsOnWire": [],
+  "trapped": [
+    {
+      "via": "fetch",
+      "url": "https://www.donovan.law/booking/create",
+      "method": "POST",
+      "body": {
+        "deployment": "donovan-main",
+        "type": "consult",
+        "slot": "2026-07-27T13:30:00.000Z",
+        "name": "A42 Smoke Probe",
+        "email": "a42-smoke@donovan-law-smoke.invalid",
+        "phone": "5615550142",
+        "notes": "SARAH-A42 post-promote smoke — composed, never submitted.",
+        "call_id": "a42-smoke-not-a-real-call",
+        "turnstile_token": ""
+      },
+      "at": 1785019585830
+    }
+  ],
+  "routeAborted": [],
+  "console": [
+    {
+      "where": "foreign-embedder",
+      "type": "error",
+      "text": "Framing 'https://www.donovan.law/' violates the following Content Security Policy directive: \"frame-ancestors 'self'\". The request has been blocked.\n"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "No available adapters."
+    },
+    {
+      "where": "main",
+      "type": "startGroupCollapsed",
+      "text": ""
+    },
+    {
+      "where": "main",
+      "type": "debug",
+      "text": "Error"
+    },
+    {
+      "where": "main",
+      "type": "log",
+      "text": "/.*.*=.*/"
+    },
+    {
+      "where": "main",
+      "type": "log",
+      "text": "/.*.*=.*/"
+    },
+    {
+      "where": "main",
+      "type": "log",
+      "text": "function () { [native code] }"
+    },
+    {
+      "where": "main",
+      "type": "log",
+      "text": "function () { [native code] }"
+    },
+    {
+      "where": "main",
+      "type": "log",
+      "text": "JSHandle@node"
+    },
+    {
+      "where": "main",
+      "type": "log",
+      "text": "JSHandle@node"
+    },
+    {
+      "where": "main",
+      "type": "count",
+      "text": "\u0000: 1"
+    },
+    {
+      "where": "main",
+      "type": "count",
+      "text": "\u0000: 1"
+    },
+    {
+      "where": "main",
+      "type": "debug",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "debug",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "dir",
+      "text": " Error"
+    },
+    {
+      "where": "main",
+      "type": "dir",
+      "text": " Error"
+    },
+    {
+      "where": "main",
+      "type": "dirxml",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "where": "main",
+      "type": "dirxml",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "where": "main",
+      "type": "error",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "error",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "info",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "info",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "log",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "log",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "table",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "where": "main",
+      "type": "table",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "where": "main",
+      "type": "trace",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "trace",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "endGroup",
+      "text": "console.groupEnd"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_[half_]float is not enabled"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_[half_]float is not enabled"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_[half_]float is not enabled"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "OTS parsing error: Size of decompressed WOFF 2.0 is less than compressed size"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "[.WebGL-0x6ff4025aac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "[.WebGL-0x6ff4025aac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "[Cloudflare Turnstile] Cannot find Widget cf-chl-widget-mpnht, consider using turnstile.remove() to clean up a widget."
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "No available adapters."
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_[half_]float is not enabled"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_[half_]float is not enabled"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_[half_]float is not enabled"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "[.WebGL-0x6ff40574d200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "[.WebGL-0x6ff40574d200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "OTS parsing error: Size of decompressed WOFF 2.0 is less than compressed size"
+    },
+    {
+      "where": "main",
+      "type": "startGroupCollapsed",
+      "text": ""
+    },
+    {
+      "where": "main",
+      "type": "debug",
+      "text": "Error"
+    },
+    {
+      "where": "main",
+      "type": "log",
+      "text": "/.*.*=.*/"
+    },
+    {
+      "where": "main",
+      "type": "log",
+      "text": "/.*.*=.*/"
+    },
+    {
+      "where": "main",
+      "type": "log",
+      "text": "function () { [native code] }"
+    },
+    {
+      "where": "main",
+      "type": "log",
+      "text": "function () { [native code] }"
+    },
+    {
+      "where": "main",
+      "type": "log",
+      "text": "JSHandle@node"
+    },
+    {
+      "where": "main",
+      "type": "log",
+      "text": "JSHandle@node"
+    },
+    {
+      "where": "main",
+      "type": "count",
+      "text": "\u0000: 1"
+    },
+    {
+      "where": "main",
+      "type": "count",
+      "text": "\u0000: 1"
+    },
+    {
+      "where": "main",
+      "type": "debug",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "debug",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "dir",
+      "text": " Error"
+    },
+    {
+      "where": "main",
+      "type": "dir",
+      "text": " Error"
+    },
+    {
+      "where": "main",
+      "type": "dirxml",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "where": "main",
+      "type": "dirxml",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "where": "main",
+      "type": "error",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "error",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "info",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "info",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "log",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "log",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "table",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "where": "main",
+      "type": "table",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "where": "main",
+      "type": "trace",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "trace",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "endGroup",
+      "text": "console.groupEnd"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "No available adapters."
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "[Cloudflare Turnstile] Cannot find Widget cf-chl-widget-90a9s, consider using turnstile.remove() to clean up a widget."
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "OTS parsing error: Size of decompressed WOFF 2.0 is less than compressed size"
+    },
+    {
+      "where": "main",
+      "type": "startGroupCollapsed",
+      "text": ""
+    },
+    {
+      "where": "main",
+      "type": "debug",
+      "text": "Error"
+    },
+    {
+      "where": "main",
+      "type": "log",
+      "text": "/.*.*=.*/"
+    },
+    {
+      "where": "main",
+      "type": "log",
+      "text": "/.*.*=.*/"
+    },
+    {
+      "where": "main",
+      "type": "log",
+      "text": "function () { [native code] }"
+    },
+    {
+      "where": "main",
+      "type": "log",
+      "text": "function () { [native code] }"
+    },
+    {
+      "where": "main",
+      "type": "log",
+      "text": "JSHandle@node"
+    },
+    {
+      "where": "main",
+      "type": "log",
+      "text": "JSHandle@node"
+    },
+    {
+      "where": "main",
+      "type": "count",
+      "text": "\u0000: 1"
+    },
+    {
+      "where": "main",
+      "type": "count",
+      "text": "\u0000: 1"
+    },
+    {
+      "where": "main",
+      "type": "debug",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "debug",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "dir",
+      "text": " Error"
+    },
+    {
+      "where": "main",
+      "type": "dir",
+      "text": " Error"
+    },
+    {
+      "where": "main",
+      "type": "dirxml",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "where": "main",
+      "type": "dirxml",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "where": "main",
+      "type": "error",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "error",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "info",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "info",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "log",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "log",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "table",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "where": "main",
+      "type": "table",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "where": "main",
+      "type": "trace",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "trace",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "where": "main",
+      "type": "endGroup",
+      "text": "console.groupEnd"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_[half_]float is not enabled"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_[half_]float is not enabled"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_[half_]float is not enabled"
+    },
+    {
+      "where": "main",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    }
+  ],
+  "pageErrors": [
+    {
+      "where": "main",
+      "error": "Uncaught TurnstileError: [Cloudflare Turnstile] Error: 600010."
+    },
+    {
+      "where": "main",
+      "error": "Uncaught TurnstileError: [Cloudflare Turnstile] Error: 600010."
+    }
+  ],
+  "cspViolations": [
+    {
+      "where": "foreign-embedder",
+      "text": "Framing 'https://www.donovan.law/' violates the following Content Security Policy directive: \"frame-ancestors 'self'\". The request has been blocked.\n"
+    }
+  ],
+  "headers": {
+    "/": {
+      "access-control-allow-origin": "*",
+      "alt-svc": "h3=\":443\"; ma=86400",
+      "cache-control": "no-store",
+      "cf-ray": "a20eb283a9c03da2-ATL",
+      "content-encoding": "br",
+      "content-security-policy": "default-src 'self'; script-src 'self' 'nonce-3589735e43487dc70c7bce2e756d180a' https://vantage.ticoai.net https://cdn.theconnexus.ai https://portal.theconnexus.ai https://code.jquery.com https://cdnjs.cloudflare.com https://esm.sh https://challenges.cloudflare.com; connect-src 'self' https://esm.sh https://vantage.ticoai.net https://*.retellai.com wss://*.retellai.com wss://*.livekit.cloud https://*.livekit.cloud https://portal.theconnexus.ai https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://vantage.ticoai.net https://portal.theconnexus.ai https://challenges.cloudflare.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://vantage.ticoai.net; object-src 'none'",
+      "content-type": "text/html; charset=utf-8",
+      "date": "Sat, 25 Jul 2026 22:45:51 GMT",
+      "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+      "permissions-policy": "microphone=(self \"https://vantage.ticoai.net\" \"https://portal.theconnexus.ai\"), camera=()",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=4BVnFKG3e%2FTbIWcWH8sBThkIj2SxO%2FdxRav346hrVzN3KkmuSi7%2Flo1%2B%2BHBqR8wk5daCmz%2FyeBDdy2xGgW5Bgdj3rWvTUBVlm4OvhDU18t3JgtSk8lP7WuondfszuD3o35gsz4V%2FXV%2F%2FVLGKTSU%3D\"}]}",
+      "server": "cloudflare",
+      "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN"
+    },
+    "/book": {
+      "access-control-allow-origin": "*",
+      "alt-svc": "h3=\":443\"; ma=86400",
+      "cache-control": "no-store",
+      "cf-ray": "a20eb2e8a973ecfc-ATL",
+      "content-encoding": "br",
+      "content-security-policy": "default-src 'self'; script-src 'self' 'nonce-5137fa70fdce528ca36c87b9c97398d6' https://vantage.ticoai.net https://cdn.theconnexus.ai https://portal.theconnexus.ai https://code.jquery.com https://cdnjs.cloudflare.com https://esm.sh https://challenges.cloudflare.com; connect-src 'self' https://esm.sh https://vantage.ticoai.net https://*.retellai.com wss://*.retellai.com wss://*.livekit.cloud https://*.livekit.cloud https://portal.theconnexus.ai https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://vantage.ticoai.net https://portal.theconnexus.ai https://challenges.cloudflare.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://vantage.ticoai.net; object-src 'none'",
+      "content-type": "text/html; charset=utf-8",
+      "date": "Sat, 25 Jul 2026 22:46:07 GMT",
+      "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+      "permissions-policy": "microphone=(self \"https://vantage.ticoai.net\" \"https://portal.theconnexus.ai\"), camera=()",
+      "priority": "u=0,i",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=F2EtqcEzwZXjEMuxb7Fs8EXLb29W9uTt3pNYUCIetPtLfgfLWqy3t9Tjq%2FowlgPD7M3exEPcCua3HM9vf9VyGW51zuBj02jNqFaJA6ssag0W2vxu9cnPITtohl7syGRqmQy5Q1TW6D3ICSsGywI%3D\"}]}",
+      "server": "cloudflare",
+      "server-timing": "cfExtPri",
+      "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN"
+    }
+  },
+  "manual": [
+    "A FULL VOICE CALL IS NOT EXERCISED HERE. Clicking the launcher mints a real, metered Retell session and a real Vantage lead, and Retell refuses automation by design ([[feedback_turnstile_not_agent_verifiable]]). S2.1–S2.6 prove the launcher is present, clickable and fully wired; S2.7–S2.12 prove a LIVE audio session registered through the layer's own seam survives nav/back/forward. The last inch — a human presses the orb, talks to Paula, and navigates mid-call — is one manual check.",
+    "THE TURNSTILE TOKEN ITSELF IS NOT OBTAINABLE BY ANY DRIVER, and that is a property of the driver, not of production. Playwright's bundled Chromium is refused with TurnstileError 600010 — identically headed and headless, unchanged by stealth flags. The same sitekey on the same production origin was then rendered in REAL Chrome and REAL Edge by test/preview/probe-turnstile-isolated-a42.mjs: ok=true, a 773-character token, zero errors. So Turnstile on www.donovan.law is healthy; what remains manual is one human completing a booking end-to-end."
+  ],
+  "notes": [
+    "The server half of the A32 call_id bind (perch-do `/has`, and the `qualbk:<callId>` KV witness) is NOT measured black-box here and the sign-off does not claim it. A Durable Object has no public HTTP path, and fn/qualifier_result — the one Function that reaches the DO — is auth-gated AND read-once, so probing it would consume a live caller's slot. S3.8 proves the client half threads the id into the POST body on production; the server half is tied to this deployment by build provenance (every router-path module served by production is byte-identical to main) and by test/booking-callid-bind.test.mjs."
+  ],
+  "finishedAt": "2026-07-25T22:46:36.352Z",
+  "summary": {
+    "passed": 46,
+    "total": 46,
+    "failed": [],
+    "writeRequestsOnWire": 0,
+    "trappedWrites": 1,
+    "pageErrors": 0,
+    "driverTurnstile600010": 2,
+    "cspViolations": 0,
+    "verdict": "HEALTHY"
+  }
+}

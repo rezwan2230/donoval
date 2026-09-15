@@ -1,0 +1,237 @@
+{
+  "order": "SHELDON-CLIO-CONFIRM-EMAIL",
+  "startedAt": "2026-07-30T19:19:37.208Z",
+  "base": "(offline — no deployment probed)",
+  "steps": [
+    {
+      "name": "the booking confirms",
+      "ok": true,
+      "detail": {
+        "status": 201
+      }
+    },
+    {
+      "name": "exactly one calendar entry was created",
+      "ok": true,
+      "detail": {
+        "entries": 1
+      }
+    },
+    {
+      "name": "the entry attaches the client as an attendee",
+      "ok": true,
+      "detail": [
+        {
+          "id": 4242,
+          "type": "Contact"
+        }
+      ]
+    },
+    {
+      "name": "send_email_notification is true",
+      "ok": true,
+      "detail": true
+    },
+    {
+      "name": "contact_id — the key Clio silently discarded — is GONE from the whole body",
+      "ok": true
+    },
+    {
+      "name": "the description carries ZERO band strings and no caller free text",
+      "ok": true,
+      "detail": {
+        "leaked": []
+      }
+    },
+    {
+      "name": "the description says what the consultation is",
+      "ok": true
+    },
+    {
+      "name": "the description carries the meeting link, as a whole token on one line",
+      "ok": true,
+      "detail": {
+        "joinLines": [
+          "Join the meeting: https://meet.donovan.law/consult"
+        ]
+      }
+    },
+    {
+      "name": "the description carries a reschedule line",
+      "ok": true
+    },
+    {
+      "name": "CONTROL — the pre-fix description shape DOES trip the band check",
+      "ok": true,
+      "detail": {
+        "wouldHaveLeaked": [
+          "Income: $1.5M–$3M",
+          "Net worth: $5M–$15M",
+          "— Perch intake —",
+          "I am closing on a property in Palm Beach County next month."
+        ]
+      }
+    },
+    {
+      "name": "an intake note was filed",
+      "ok": true,
+      "detail": {
+        "notes": 1
+      }
+    },
+    {
+      "name": "the note is associated to a Contact",
+      "ok": true,
+      "detail": "Contact"
+    },
+    {
+      "name": "the note names the SAME contact as the attendee",
+      "ok": true,
+      "detail": {
+        "note": 4242,
+        "attendee": 4242
+      }
+    },
+    {
+      "name": "the note carries the full qualification, bands included",
+      "ok": true
+    },
+    {
+      "name": "location carries the meeting link",
+      "ok": true,
+      "detail": "https://meet.donovan.law/consult"
+    },
+    {
+      "name": "no band string reached a log line",
+      "ok": true
+    },
+    {
+      "name": "DEFAULT MODE: the booking confirms with no BOOKING_MEETING_LINK",
+      "ok": true,
+      "detail": {
+        "status": 201
+      }
+    },
+    {
+      "name": "DEFAULT MODE: the entry asks Clio to mint a meeting — conference_meeting type \"zoom\"",
+      "ok": true,
+      "detail": {
+        "type": "zoom"
+      }
+    },
+    {
+      "name": "DEFAULT MODE: no static `location` is pre-filled — Clio writes its own",
+      "ok": true
+    },
+    {
+      "name": "DEFAULT MODE: the attendee and send_email_notification are unchanged",
+      "ok": true,
+      "detail": {
+        "attendees": [
+          {
+            "id": 4242,
+            "type": "Contact"
+          }
+        ],
+        "send": true
+      }
+    },
+    {
+      "name": "DEFAULT MODE: the description is still band-free and carries no caller text",
+      "ok": true,
+      "detail": {
+        "leaked": []
+      }
+    },
+    {
+      "name": "DEFAULT MODE: the intake note still carries the full qualification",
+      "ok": true,
+      "detail": {
+        "notes": 1
+      }
+    }
+  ],
+  "bodies": {
+    "POST https://app.clio.com/api/v4/calendar_entries": {
+      "data": {
+        "summary": "Jane Q Caller — consult",
+        "start_at": "2026-08-10T14:00:00.000Z",
+        "end_at": "2026-08-10T14:30:00.000Z",
+        "calendar_owner": {
+          "id": 9084638
+        },
+        "description": "Initial Consultation with Donovan Legal PLLC.\nJoin the meeting: https://meet.donovan.law/consult\n\nNeed to reschedule or cancel? Call (561) 666-6022 or email info@donovan.law.",
+        "location": "https://meet.donovan.law/consult",
+        "attendees": [
+          {
+            "id": 4242,
+            "type": "Contact"
+          }
+        ],
+        "send_email_notification": true
+      }
+    },
+    "POST https://app.clio.com/api/v4/notes": {
+      "data": {
+        "subject": "Booking intake — website",
+        "detail": "Appointment: Initial Consultation\nRequested slot: 2026-08-10T14:00:00.000Z\nPhone: (561) 555-0142\nEmail: jane.caller@example.com\n\nClient notes:\nI am closing on a property in Palm Beach County next month.\n\n— Perch intake —\nMatter: Real estate → Acquisition\nCitizenship: U.S. citizen\nIncome: $1.5M–$3M\nNet worth: $5M–$15M",
+        "type": "Contact",
+        "contact": {
+          "id": 4242
+        }
+      }
+    },
+    "POST https://app.clio.com/api/v4/contacts": {
+      "data": {
+        "type": "Person",
+        "first_name": "Jane",
+        "last_name": "Q Caller",
+        "email_addresses": [
+          {
+            "address": "jane.caller@example.com",
+            "name": "Work"
+          }
+        ],
+        "phone_numbers": [
+          {
+            "number": "(561) 555-0142",
+            "name": "Mobile"
+          }
+        ]
+      }
+    },
+    "DEFAULT MODE — POST https://app.clio.com/api/v4/calendar_entries": {
+      "data": {
+        "summary": "Jane Q Caller — consult",
+        "start_at": "2026-08-10T14:00:00.000Z",
+        "end_at": "2026-08-10T14:30:00.000Z",
+        "calendar_owner": {
+          "id": 9084638
+        },
+        "description": "Initial Consultation with Donovan Legal PLLC.\n\nNeed to reschedule or cancel? Call (561) 666-6022 or email info@donovan.law.",
+        "conference_meeting": {
+          "type": "zoom"
+        },
+        "attendees": [
+          {
+            "id": 4242,
+            "type": "Contact"
+          }
+        ],
+        "send_email_notification": true
+      }
+    }
+  },
+  "writes": [],
+  "notes": [
+    "No base URL given — the run was fully offline. Pass a preview URL to add the read-only /booking/types probe.",
+    "attendees and send_email_notification are UNDOCUMENTED. Clio discards unknown keys silently, so a Clio-side rename shows up as \"clients stopped getting email\", never as an error. Re-run a live probe whenever the Clio integration is touched.",
+    "CLIO_CREATE_CONTACT gates the whole contact side: no contact means no attendee, no confirmation email and no intake note. David owns that value; this run assumes it is on."
+  ],
+  "clientFacingDescription": "Initial Consultation with Donovan Legal PLLC.\nJoin the meeting: https://meet.donovan.law/consult\n\nNeed to reschedule or cancel? Call (561) 666-6022 or email info@donovan.law.",
+  "dynamicClientFacingDescription": "Initial Consultation with Donovan Legal PLLC.\n\nNeed to reschedule or cancel? Call (561) 666-6022 or email info@donovan.law.",
+  "finishedAt": "2026-07-30T19:19:37.262Z",
+  "passed": 22,
+  "failed": 0,
+  "verdict": "GO"
+}

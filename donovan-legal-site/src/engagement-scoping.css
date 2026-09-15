@@ -1,0 +1,5 @@
+/* Tailwind entry for /engagement-scoping — compiled by `npm run build:es-css`
+   into ../css/engagement-scoping.css, which the page loads from 'self'. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Tax Controversy Roadmap — Overview | Donovan Legal</title>
+<meta name="description" content="A high-level map of the federal tax dispute system, from filing through exam, appeals, collection, and litigation. Part 0 of the Roadmap series.">
+<style>
+  :root{
+    --ink:#16242F; --mute:#5A7181; --bg:#FCFCFB; --panel:#FFFFFF; --line:#E2E8EC;
+    --emer:#01873F; --gold:#C9A961; --teal:#357E91; --indigo:#5B62A8; --sienna:#AE6038;
+    --serif:Georgia,'Times New Roman',serif;
+    --sans:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+       line-height:1.72;font-size:18px;-webkit-font-smoothing:antialiased}
+  .article{max-width:1120px;margin:0 auto;padding:0 28px 80px}
+  .prose{max-width:720px;margin:0 auto}
+
+  /* masthead */
+  .masthead{max-width:1120px;margin:0 auto;padding:22px 28px 0;
+            display:flex;align-items:center;justify-content:space-between}
+  .brand{font-weight:700;letter-spacing:1.5px;font-size:13px}
+  .brand .re{color:var(--emer)}
+  .masthead .tag{color:var(--mute);font-size:12px;letter-spacing:1px}
+  .rule{max-width:1120px;margin:14px auto 0;padding:0 28px}
+  .rule hr{border:0;border-top:2px solid var(--emer);margin:0}
+
+  /* header */
+  header.post{padding:54px 0 8px}
+  /* JORDAN-195: gold as TEXT on the #FCFCFB page reads 2.19:1 and fails. --gold
+     itself stays the band fill (.num, and .closing .sig on the dark block, where
+     it reads 7.75:1) and is deliberately not re-valued. */
+  .eyebrow{color:#806633;font-weight:700;letter-spacing:2.4px;font-size:12.5px;
+           text-transform:uppercase;margin:0 0 14px}
+  h1{font-family:var(--serif);font-weight:400;font-size:50px;line-height:1.08;margin:0 0 18px;letter-spacing:-.3px}
+  .standfirst{font-family:var(--serif);font-style:italic;color:var(--mute);font-size:21px;line-height:1.5;margin:0}
+  .meta{color:var(--mute);font-size:13.5px;letter-spacing:.4px;margin:22px 0 0;
+        padding-top:16px;border-top:1px solid var(--line)}
+
+  /* disclaimer */
+  .disclaimer{background:#FAF7EF;border:1px solid #E9DFC4;border-left:4px solid var(--gold);
+              border-radius:10px;padding:18px 22px;margin:30px auto 8px;max-width:720px;
+              font-size:15px;line-height:1.6;color:#4a4634}
+  .disclaimer b{color:var(--ink)}
+
+  /* map */
+  figure.map{margin:40px 0 18px}
+  .map-frame{background:#F2F5F7;border:1px solid var(--line);border-radius:14px;
+             padding:18px;overflow:hidden}
+  .roadmap-svg{display:block}
+  figcaption{color:var(--mute);font-size:13.5px;text-align:center;margin-top:12px;font-style:italic}
+
+  /* body */
+  h2{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.15;
+     margin:52px 0 6px;letter-spacing:-.2px}
+  .kicker{color:var(--emer);font-weight:700;letter-spacing:1.6px;font-size:12px;
+          text-transform:uppercase;margin:0 0 12px}
+  p{margin:0 0 18px}
+  .prose strong{font-weight:700}
+  .lead{font-size:19.5px}
+
+  /* the split list */
+  .roads{list-style:none;padding:0;margin:22px 0 8px}
+  .roads li{padding:16px 0 16px 18px;border-left:3px solid var(--line);margin-bottom:4px}
+  .roads li.exam{border-color:var(--teal)}
+  .roads li.coll{border-color:var(--sienna)}
+  .roads li.app{border-color:var(--indigo)}
+  .roads li.lit{border-color:var(--indigo)}
+  .roads h3{margin:0 0 4px;font-size:18px;font-family:var(--sans);font-weight:700}
+  .roads p{margin:0;color:var(--mute);font-size:16px;line-height:1.55}
+
+  /* series */
+  .series{margin:26px 0 0;border-top:1px solid var(--line)}
+  .series .row{display:flex;gap:16px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line)}
+  .num{flex:0 0 auto;width:30px;height:30px;border-radius:50%;display:inline-flex;
+       align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:13px;
+       font-family:var(--sans);transform:translateY(2px)}
+  .series .t{font-weight:700;font-size:17px}
+  .series .d{color:var(--mute);font-size:15.5px}
+  .series a.row:hover .t{color:var(--emer)}
+
+  /* closing */
+  .closing{background:#0E1B26;color:#EDEFEC;border-radius:14px;padding:34px 34px;margin:54px auto 0;max-width:1120px}
+  .closing h2{color:#fff;margin-top:0;font-size:27px}
+  .closing p{color:#C5D0D6;font-size:17px}
+  /* JORDAN-195: the closing block is dark (#0E1B26), so the page link colour
+     darkened for the light body (--emer #01873F) reads only 3.77:1 on it. Light
+     and dark cannot share one value here, so this block keeps the lighter
+     emerald, which is 4.75:1 against #0E1B26. */
+  .closing a{color:#019A48 /* a11y:dark-surface */}
+  .closing .sig{color:var(--gold);font-style:italic;font-family:var(--serif);font-size:18px;margin-top:10px}
+
+  /* footer */
+  footer{max-width:1120px;margin:46px auto 0;padding:24px 28px 60px;border-top:1px solid var(--line);
+         display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  footer .fine{color:var(--mute);font-size:12.5px;max-width:720px;line-height:1.5}
+  footer .fm{text-align:right}
+  footer .fm b{letter-spacing:1px}
+  footer .fm span{display:block;color:var(--mute);font-style:italic;font-size:12px;font-family:var(--serif)}
+
+  a{color:var(--emer);text-decoration:none}
+  /* JORDAN-195 (link-in-text-block, WCAG 1.4.1): a link inside running text must
+     be tellable from that text by something other than colour. The rule above
+     strips the underline site-wide on these posts, so the eight body cross-links
+     added by #197 were distinguished by hue alone - axe measured 2.33:1 against
+     the surrounding text, against a 3:1 floor. Scoped to <a> inside a paragraph
+     so the station cards and the masthead links are untouched: those carry their
+     own inline text-decoration:none, which wins over this rule anyway. */
+  p a{text-decoration:underline}
+  a:hover{text-decoration:underline}
+  a:focus-visible{outline:2px solid var(--emer);outline-offset:3px;border-radius:2px}
+
+  @media (max-width:720px){
+    body{font-size:17px}
+    h1{font-size:34px}
+    h2{font-size:25px}
+    .standfirst{font-size:18px}
+    .closing{padding:26px 22px}
+    footer{flex-direction:column;align-items:flex-start}
+    footer .fm{text-align:left}
+  }
+</style>
+  <link rel="canonical" href="https://www.donovan.law/blog-controversy-roadmap-0-overview">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Donovan Legal PLLC">
+  <meta property="og:url" content="https://www.donovan.law/blog-controversy-roadmap-0-overview">
+  <meta property="og:title" content="The Tax Controversy Roadmap — Overview | Donovan Legal">
+  <meta property="og:description" content="A high-level map of the federal tax dispute system, from the filing of a return through examination, appeals, collection, and litigation. Part 0 of the Donovan Legal Tax Controversy Roadmap series.">
+  <meta property="og:image" content="https://www.donovan.law/img/firm-img.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Tax Controversy Roadmap — Overview | Donovan Legal">
+  <meta name="twitter:description" content="A high-level map of the federal tax dispute system, from the filing of a return through examination, appeals, collection, and litigation. Part 0 of the Donovan Legal Tax Controversy Roadmap series.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Tax Controversy Roadmap — Overview","url":"https://www.donovan.law/blog-controversy-roadmap-0-overview","author":{"@type":"Organization","name":"Donovan Legal PLLC"},"publisher":{"@type":"Organization","name":"Donovan Legal PLLC","logo":{"@type":"ImageObject","url":"https://www.donovan.law/img/favicon.png"}}}</script>
+</head>
+<body>
+
+<div class="masthead">
+  <a class="brand" href="index.html" style="color:inherit;text-decoration:none">DONOVAN <span class="re">LEGAL</span></a>
+  <div class="tag"><a href="blog.html" style="color:inherit;text-decoration:none">&larr; All Tax Notes</a></div>
+</div>
+<div class="rule"><hr></div>
+
+<div class="article">
+  <header class="post prose">
+    <p class="eyebrow">Tax Controversy Roadmap — Part 0 · Overview</p>
+    <h1>The Tax Controversy Roadmap</h1>
+    <p class="standfirst">A map of the federal tax dispute system — from the moment a return is filed to the courtroom where it may end. This is the overview; each station has its own detailed map in the posts that follow.</p>
+    <p class="meta">Donovan Legal&nbsp;·&nbsp;Tax Controversy Practice</p>
+  </header>
+
+  <div class="disclaimer">
+    <b>This is a high-level overview.</b> It explains, in general terms, how federal tax disputes move through the IRS and the courts. It is general information about tax procedure — not legal advice — and reading it does not create an attorney–client relationship. Procedure turns on facts and deadlines specific to each matter; before acting on a notice, consult counsel.
+  </div>
+
+  <figure class="map">
+    <div class="map-frame">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1480 820" width="100%" height="auto" class="roadmap-svg" role="img" aria-label="High-level map of the federal tax controversy process from filing through litigation" font-family="'Helvetica Neue', Arial, sans-serif">
+<rect width="1480" height="820" fill="#F2F5F7"/>
+<text x="70" y="58" font-family="'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#C9A961" font-weight="700" text-anchor="start" letter-spacing="2">OVERVIEW · PART 0 OF THE SERIES</text>
+<text x="70" y="96" font-family="Georgia, 'Times New Roman', serif" font-size="37" fill="#16242F" font-weight="400" text-anchor="start">The Tax Controversy Roadmap</text>
+<text x="72" y="122" font-family="'Helvetica Neue', Arial, sans-serif" font-size="15" fill="#5E7686" font-weight="400" text-anchor="start" font-style="italic">The life of a tax return — from filing to final forum, and every road it can take.</text>
+<rect x="72" y="138" width="360" height="3" fill="#019A48"/>
+<text x="74" y="212" font-family="Georgia, 'Times New Roman', serif" font-size="18" fill="#16242F" font-weight="400" text-anchor="start" font-style="italic">Every federal tax dispute begins the same way — with a return.</text>
+<text x="74" y="240" font-family="Georgia, 'Times New Roman', serif" font-size="18" fill="#5E7686" font-weight="400" text-anchor="start" font-style="italic">Where it goes next depends on the road taken.</text>
+<text x="1410" y="58" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#5E7686" font-weight="700" text-anchor="end" letter-spacing="1">EACH STATION → ITS OWN DETAILED POST</text>
+<line x1="249.0" y1="500" x2="306.0" y2="500" stroke="#019A48" stroke-width="3" stroke-linecap="round"/>
+<polygon points="305.0,500 295.2,493 295.2,507" fill="#019A48"/>
+<line x1="484.0" y1="500" x2="546.0" y2="500" stroke="#019A48" stroke-width="3" stroke-linecap="round"/>
+<polygon points="545.0,500 535.2,493 535.2,507" fill="#019A48"/>
+<line x1="724.0" y1="500" x2="760.0" y2="500" stroke="#019A48" stroke-width="3" stroke-linecap="round"/>
+<circle cx="760.0" cy="500" r="4" fill="#019A48"/>
+<line x1="760.0" y1="330" x2="760.0" y2="670" stroke="#019A48" stroke-width="3" stroke-linecap="round"/>
+<line x1="760.0" y1="330" x2="796.0" y2="330" stroke="#019A48" stroke-width="3" stroke-linecap="round"/>
+<polygon points="795.0,330 785.2,323 785.2,337" fill="#019A48"/>
+<circle cx="760.0" cy="330" r="4" fill="#019A48"/>
+<line x1="760.0" y1="670" x2="796.0" y2="670" stroke="#019A48" stroke-width="3" stroke-linecap="round"/>
+<polygon points="795.0,670 785.2,663 785.2,677" fill="#019A48"/>
+<circle cx="760.0" cy="670" r="4" fill="#019A48"/>
+<line x1="974.0" y1="330" x2="1041.0" y2="330" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="1040.0,330 1030.2,323 1030.2,337" fill="#90A2AD"/>
+<line x1="974.0" y1="670" x2="1041.0" y2="670" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="1040.0,670 1030.2,663 1030.2,677" fill="#90A2AD"/>
+<line x1="1007.5" y1="330" x2="1007.5" y2="670" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<circle cx="1007.5" cy="330" r="4" fill="#90A2AD"/>
+<circle cx="1007.5" cy="670" r="4" fill="#90A2AD"/>
+<circle cx="1007.5" cy="500" r="4" fill="#90A2AD"/>
+<line x1="1007.5" y1="500" x2="1041.0" y2="500" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="1040.0,500 1030.2,493 1030.2,507" fill="#90A2AD"/>
+<line x1="1219.0" y1="330" x2="1245.0" y2="330" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<circle cx="1245.0" cy="330" r="4" fill="#90A2AD"/>
+<line x1="1219.0" y1="500" x2="1245.0" y2="500" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<circle cx="1245.0" cy="500" r="4" fill="#90A2AD"/>
+<line x1="1219.0" y1="670" x2="1245.0" y2="670" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<circle cx="1245.0" cy="670" r="4" fill="#90A2AD"/>
+<line x1="1245.0" y1="330" x2="1245.0" y2="670" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="1245.0" y1="500" x2="1271.0" y2="500" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="1270.0,500 1260.2,493 1260.2,507" fill="#90A2AD"/>
+<rect x="73.0" y="465.0" width="178" height="78" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="71.0" y="461.0" width="178" height="78" rx="12" fill="#FFFFFF"/>
+<rect x="71.0" y="461.0" width="6.5" height="78" rx="0" fill="#019A48"/>
+<rect x="71.0" y="461.0" width="6.5" height="13" rx="6" fill="#019A48"/>
+<text x="163" y="497.5" font-family="'Helvetica Neue', Arial, sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Tax Preparation</text>
+<text x="163" y="515.5" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Return prepared &amp; filed</text>
+<rect x="308.0" y="465.0" width="178" height="78" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="306.0" y="461.0" width="178" height="78" rx="12" fill="#FFFFFF"/>
+<rect x="306.0" y="461.0" width="6.5" height="78" rx="0" fill="#019A48"/>
+<rect x="306.0" y="461.0" width="6.5" height="13" rx="6" fill="#019A48"/>
+<text x="398" y="497.5" font-family="'Helvetica Neue', Arial, sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Return Processing</text>
+<text x="398" y="515.5" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Accepted · errors · refund</text>
+<rect x="548.0" y="458.0" width="178" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="546.0" y="454.0" width="178" height="92" rx="12" fill="#FFFFFF" stroke="#C9A961" stroke-width="2.5"/>
+<rect x="546.0" y="454.0" width="6.5" height="92" rx="0" fill="#C9A961"/>
+<rect x="546.0" y="454.0" width="6.5" height="13" rx="6" fill="#C9A961"/>
+<text x="638" y="490.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Assessment Station</text>
+<text x="638" y="508.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Balance assessed —</text>
+<text x="638" y="523.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">or routed to Exam</text>
+<rect x="660.4" y="462.0" width="55.599999999999994" height="18" rx="9" fill="#C9A961"/>
+<text x="688.2" y="475.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.4">PART 1</text>
+<rect x="798.0" y="288.0" width="178" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="796.0" y="284.0" width="178" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="796.0" y="284.0" width="6.5" height="92" rx="0" fill="#3C8DA3"/>
+<rect x="796.0" y="284.0" width="6.5" height="13" rx="6" fill="#3C8DA3"/>
+<text x="888" y="320.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Exam Station</text>
+<text x="888" y="338.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Return selected</text>
+<text x="888" y="353.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">for audit</text>
+<rect x="910.4" y="292.0" width="55.599999999999994" height="18" rx="9" fill="#3C8DA3"/>
+<text x="938.2" y="305.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.4">PART 2</text>
+<rect x="1043.0" y="288.0" width="178" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="1041.0" y="284.0" width="178" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="1041.0" y="284.0" width="6.5" height="92" rx="0" fill="#3C8DA3"/>
+<rect x="1041.0" y="284.0" width="6.5" height="13" rx="6" fill="#3C8DA3"/>
+<text x="1133" y="320.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#16242F" font-weight="700" text-anchor="middle">Exam Alternatives</text>
+<text x="1133" y="338.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Audit recon · innocent</text>
+<text x="1133" y="353.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">spouse · OIC (DATL)</text>
+<rect x="1155.4" y="292.0" width="55.599999999999994" height="18" rx="9" fill="#3C8DA3"/>
+<text x="1183.2" y="305.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.4">PART 3</text>
+<rect x="1043.0" y="458.0" width="178" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="1041.0" y="454.0" width="178" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="1041.0" y="454.0" width="6.5" height="92" rx="0" fill="#5B62A8"/>
+<rect x="1041.0" y="454.0" width="6.5" height="13" rx="6" fill="#5B62A8"/>
+<text x="1133" y="490.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Appeal Station</text>
+<text x="1133" y="508.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Independent review ·</text>
+<text x="1133" y="523.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">hazards of litigation</text>
+<rect x="1155.4" y="462.0" width="55.599999999999994" height="18" rx="9" fill="#5B62A8"/>
+<text x="1183.2" y="475.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.4">PART 4</text>
+<rect x="798.0" y="628.0" width="178" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="796.0" y="624.0" width="178" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="796.0" y="624.0" width="6.5" height="92" rx="0" fill="#C06A3E"/>
+<rect x="796.0" y="624.0" width="6.5" height="13" rx="6" fill="#C06A3E"/>
+<text x="888" y="660.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Collection</text>
+<text x="888" y="678.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Balance due —</text>
+<text x="888" y="693.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">liens &amp; levies</text>
+<rect x="910.4" y="632.0" width="55.599999999999994" height="18" rx="9" fill="#C06A3E"/>
+<text x="938.2" y="645.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.4">PART 5</text>
+<rect x="1043.0" y="628.0" width="178" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="1041.0" y="624.0" width="178" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="1041.0" y="624.0" width="6.5" height="92" rx="0" fill="#C06A3E"/>
+<rect x="1041.0" y="624.0" width="6.5" height="13" rx="6" fill="#C06A3E"/>
+<text x="1133" y="660.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#16242F" font-weight="700" text-anchor="middle">Collection Alternatives</text>
+<text x="1133" y="678.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">IA · PPIA · CNC ·</text>
+<text x="1133" y="693.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">OIC · bankruptcy</text>
+<rect x="1155.4" y="632.0" width="55.599999999999994" height="18" rx="9" fill="#C06A3E"/>
+<text x="1183.2" y="645.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.4">PART 6</text>
+<rect x="1273.0" y="458.0" width="178" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="1271.0" y="454.0" width="178" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="1271.0" y="454.0" width="6.5" height="92" rx="0" fill="#5B62A8"/>
+<rect x="1271.0" y="454.0" width="6.5" height="13" rx="6" fill="#5B62A8"/>
+<text x="1363" y="490.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Litigation</text>
+<text x="1363" y="508.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Tax Court · refund</text>
+<text x="1363" y="523.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">suits · appeals</text>
+<rect x="1385.4" y="462.0" width="55.599999999999994" height="18" rx="9" fill="#5B62A8"/>
+<text x="1413.2" y="475.0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.4">PART 7</text>
+<line x1="70" y1="748" x2="1410" y2="748" stroke="#C4D0D8" stroke-width="1.5"/>
+<text x="70" y="774" font-family="'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#16242F" font-weight="700" text-anchor="start" letter-spacing="0.5">HIGH-LEVEL OVERVIEW.</text>
+<text x="238" y="774" font-family="'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#5E7686" font-weight="400" text-anchor="start">Each station is mapped in detail in its own post. General information about tax procedure — not legal advice.</text>
+<text x="1410" y="768" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#16242F" font-weight="700" text-anchor="end" letter-spacing="1">DONOVAN LEGAL</text>
+<text x="1410" y="785" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10.5" fill="#5E7686" font-weight="400" text-anchor="end" font-style="italic">One firm. One signature. Full-arc defense.</text>
+</svg>
+    </div>
+    <figcaption>The life of a return, at altitude: one path in, branches out, every road eventually reaching the courts.</figcaption>
+  </figure>
+
+  <div class="prose">
+    <h2>Every dispute begins with a return</h2>
+    <p class="lead">Almost every federal tax controversy traces back to a single document: a filed return. What happens next is not random. The system has a structure — stations, junctions, and a set of well-worn roads between them.</p>
+    <p>The difficulty is that the structure is rarely explained to the people standing inside it. Worse, many of its doors close on statutory deadlines that do not forgive a late arrival. This series maps the whole system, station by station. We begin here, at altitude.</p>
+
+    <h2>The life of a return</h2>
+    <p class="kicker">Filing → Processing → Assessment</p>
+    <p>A return is <strong>prepared and filed</strong>. The IRS then <strong>processes</strong> it — matching it against third-party data, correcting errors, issuing refunds, and, where the math or a credit doesn't reconcile, making adjustments on the spot. From there the tax is <strong>assessed</strong>: recorded as a liability on the government's books.</p>
+    <p>The <strong>Assessment Station is the pivot of the entire system</strong>. From it, a return takes one of two roads — it is examined, or, if tax is owed and unpaid, it enters collection.</p>
+
+    <h2>The split — where the roads diverge</h2>
+    <p>From the Assessment Station, the map fans out into four destinations.</p>
+    <ul class="roads">
+      <li class="exam">
+        <h3>The audit road — Exam</h3>
+        <p>A return selected for examination enters the Exam Station. An audit can close with no change, an agreed adjustment, or a disputed one. Where it's disputed, the taxpayer can pursue exam alternatives — audit reconsideration, innocent-spouse relief, a doubt-as-to-liability offer — or take the dispute to Appeals, and ultimately to court.</p>
+      </li>
+      <li class="coll">
+        <h3>The collection road — Collection</h3>
+        <p>If tax is assessed and unpaid, the matter moves into collection: balance-due notices first, then liens and levies. Here too there are alternatives — installment agreements, partial-pay agreements, currently-not-collectible status, offers in compromise — and an appeal route through Collection Due Process.</p>
+      </li>
+      <li class="app">
+        <h3>The review road — Appeals</h3>
+        <p>The Independent Office of Appeals sits between the IRS's positions and the courthouse. It weighs the hazards of litigation, and it is the last place a dispute can be resolved without a judge.</p>
+      </li>
+      <li class="lit">
+        <h3>The end of the line — Litigation</h3>
+        <p>Unresolved disputes reach the courts: the U.S. Tax Court, where a taxpayer can be heard before paying, or the federal district courts and the Court of Federal Claims, where the tax is paid first and recovered by suit — with the appellate courts beyond.</p>
+      </li>
+    </ul>
+
+    <h2>The clock runs the whole way</h2>
+    <p>One theme runs through every station: the deadline. The right to be heard in a particular forum is almost always gated by a statutory clock — and some of those doors close in as few as 30 days from the date printed on a notice. Miss the clock, and the option behind it can be gone for good.</p>
+    <p>The detailed posts mark every one of these gates. For now, the rule of thumb is simple: <strong>a tax notice is not mail to set aside. It is a clock that has already started.</strong></p>
+
+    <h2>Available across the journey</h2>
+    <p>A handful of remedies don't belong to a single station — they attach at more than one point along the road: Collection Due Process, the Collection Appeals Program, audit reconsideration, innocent-spouse relief, and penalty and interest abatement. We treat each one where it matters most.</p>
+
+    <h2>The road ahead</h2>
+    <p>Each post in the series zooms into one station and maps it in full.</p>
+  </div>
+
+  <div class="prose series">
+    <a class="row" href="blog-controversy-roadmap-1-processing-assessment.html" style="text-decoration:none;color:inherit"><span class="num" style="background:var(--gold)">1</span><div><div class="t">Processing → the Assessment Station</div><div class="d">How a return becomes a liability — and where it can go from there.</div></div></a>
+    <a class="row" href="blog-controversy-roadmap-2-exam.html" style="text-decoration:none;color:inherit"><span class="num" style="background:var(--teal)">2</span><div><div class="t">The Exam Station</div><div class="d">How audits run, and why the record built here governs everything after.</div></div></a>
+    <a class="row" href="blog-controversy-roadmap-3-exam-alternatives.html" style="text-decoration:none;color:inherit"><span class="num" style="background:var(--teal)">3</span><div><div class="t">Exam Alternatives</div><div class="d">Audit reconsideration, innocent-spouse relief, and doubt-as-to-liability offers.</div></div></a>
+    <a class="row" href="blog-controversy-roadmap-4-appeals.html" style="text-decoration:none;color:inherit"><span class="num" style="background:var(--indigo)">4</span><div><div class="t">The Appeal Station</div><div class="d">Independent review and the hazards-of-litigation standard.</div></div></a>
+    <a class="row" href="blog-controversy-roadmap-5-collection.html" style="text-decoration:none;color:inherit"><span class="num" style="background:var(--sienna)">5</span><div><div class="t">Collection</div><div class="d">Balance-due notices, federal tax liens, and levies.</div></div></a>
+    <a class="row" href="blog-controversy-roadmap-6-collection-alternatives.html" style="text-decoration:none;color:inherit"><span class="num" style="background:var(--sienna)">6</span><div><div class="t">Collection Alternatives</div><div class="d">Installment agreements, currently-not-collectible status, and offers in compromise.</div></div></a>
+    <a class="row" href="blog-controversy-roadmap-7-litigation.html" style="text-decoration:none;color:inherit"><span class="num" style="background:var(--indigo)">7</span><div><div class="t">Litigation</div><div class="d">Tax Court, refund suits, and the road through the appellate courts.</div></div></a>
+  </div>
+
+  <div class="closing">
+    <h2>One firm, the full arc</h2>
+    <p>The reason the map matters is that the roads connect. A decision at the Exam Station shapes what's possible at Appeals; a missed collection deadline forecloses a forum at Litigation. Donovan Legal represents taxpayers across the entire arc — examination through litigation — under one signature.</p>
+    <p>For how the firm handles matters at every stage of this map, see <a href="tax-controversy.html">Tax Controversy</a>.</p>
+    <p class="sig">One firm. One signature. Full-arc defense.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="fine"><b>General information, not legal advice.</b> This overview describes federal tax procedure in general terms and does not address the facts or deadlines of any particular matter. It is not legal advice and does not create an attorney–client relationship. If you have received a notice from the IRS, consult qualified counsel promptly — many response windows are short and cannot be extended.</div>
+  <div class="fm"><b>DONOVAN LEGAL</b><span>One firm. One signature. Full-arc defense.</span></div>
+</footer>
+
+</body>
+</html>

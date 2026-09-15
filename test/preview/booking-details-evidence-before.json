@@ -1,0 +1,434 @@
+{
+  "order": "JORDAN-BOOKING-WIDGET-DETAILS-R1",
+  "label": "before",
+  "generatedAt": "2026-08-05T20:30:59.148Z",
+  "go": false,
+  "passed": 5,
+  "total": 25,
+  "checks": [
+    {
+      "name": "desktop: details step RENDERS on the first valid slot selection",
+      "pass": false,
+      "detail": "step=DATE_PICK form=false label=\"Select a date\""
+    },
+    {
+      "name": "desktop: details step is ON SCREEN without scrolling",
+      "pass": false,
+      "detail": "#dl-bk-name absent from the DOM (the details step never rendered)"
+    },
+    {
+      "name": "desktop: NO re-pick required",
+      "pass": false,
+      "detail": "after one slot click the widget is still on DATE_PICK; the only way forward is #dl-bk-next (present=true, inViewport=true, scrollNeeded=0px)"
+    },
+    {
+      "name": "desktop: focus lands on the name field, NOT the bot honeypot",
+      "pass": false,
+      "detail": "activeElement=\"dl-bk-next\""
+    },
+    {
+      "name": "desktop: the chosen slot is readable on the details step",
+      "pass": false,
+      "detail": "no slot read-back rendered above the form"
+    },
+    {
+      "name": "mobile-390: details step RENDERS on the first valid slot selection",
+      "pass": false,
+      "detail": "step=DATE_PICK form=false label=\"Select a date\""
+    },
+    {
+      "name": "mobile-390: details step is ON SCREEN without scrolling",
+      "pass": false,
+      "detail": "#dl-bk-name absent from the DOM (the details step never rendered)"
+    },
+    {
+      "name": "mobile-390: NO re-pick required",
+      "pass": false,
+      "detail": "after one slot click the widget is still on DATE_PICK; the only way forward is #dl-bk-next (present=true, inViewport=true, scrollNeeded=0px)"
+    },
+    {
+      "name": "mobile-390: focus lands on the name field, NOT the bot honeypot",
+      "pass": false,
+      "detail": "activeElement=\"dl-bk-next\""
+    },
+    {
+      "name": "mobile-390: the chosen slot is readable on the details step",
+      "pass": false,
+      "detail": "no slot read-back rendered above the form"
+    },
+    {
+      "name": "mobile-360: details step RENDERS on the first valid slot selection",
+      "pass": false,
+      "detail": "step=DATE_PICK form=false label=\"Select a date\""
+    },
+    {
+      "name": "mobile-360: details step is ON SCREEN without scrolling",
+      "pass": false,
+      "detail": "#dl-bk-name absent from the DOM (the details step never rendered)"
+    },
+    {
+      "name": "mobile-360: NO re-pick required",
+      "pass": false,
+      "detail": "after one slot click the widget is still on DATE_PICK; the only way forward is #dl-bk-next (present=true, inViewport=true, scrollNeeded=0px)"
+    },
+    {
+      "name": "mobile-360: focus lands on the name field, NOT the bot honeypot",
+      "pass": false,
+      "detail": "activeElement=\"dl-bk-next\""
+    },
+    {
+      "name": "mobile-360: the chosen slot is readable on the details step",
+      "pass": false,
+      "detail": "no slot read-back rendered above the form"
+    },
+    {
+      "name": "mobile-320: details step RENDERS on the first valid slot selection",
+      "pass": false,
+      "detail": "step=DATE_PICK form=false label=\"Select a date\""
+    },
+    {
+      "name": "mobile-320: details step is ON SCREEN without scrolling",
+      "pass": false,
+      "detail": "#dl-bk-name absent from the DOM (the details step never rendered)"
+    },
+    {
+      "name": "mobile-320: NO re-pick required",
+      "pass": false,
+      "detail": "after one slot click the widget is still on DATE_PICK; the only way forward is #dl-bk-next (present=true, inViewport=true, scrollNeeded=0px)"
+    },
+    {
+      "name": "mobile-320: focus lands on the name field, NOT the bot honeypot",
+      "pass": false,
+      "detail": "activeElement=\"dl-bk-next\""
+    },
+    {
+      "name": "mobile-320: the chosen slot is readable on the details step",
+      "pass": false,
+      "detail": "no slot read-back rendered above the form"
+    },
+    {
+      "name": "voice: showDate stays BROWSE (does not commit the caller to a time)",
+      "pass": true,
+      "detail": "showDate(\"2026-08-11\") → {\"ok\":true}, step=DATE_PICK"
+    },
+    {
+      "name": "voice: Paula selectSlot({day,time}) reaches the details step",
+      "pass": true,
+      "detail": "selectSlot({day,time:\"11:00 AM\"}) → {\"ok\":true}, step=FORM"
+    },
+    {
+      "name": "voice: booking confirms end to end",
+      "pass": true,
+      "detail": "confirm screen rendered=true"
+    },
+    {
+      "name": "voice: POST contract unchanged",
+      "pass": true,
+      "detail": "sent=[\"call_id\",\"deployment\",\"email\",\"name\",\"notes\",\"phone\",\"qualifier_claim\",\"slot\",\"turnstile_token\",\"type\"]"
+    },
+    {
+      "name": "voice: call_id and qualifier_claim ride on the POST",
+      "pass": true,
+      "detail": "call_id=\"call_verify_voice_001\" qualifier_claim=\"none\""
+    }
+  ],
+  "results": [
+    {
+      "viewport": {
+        "name": "desktop",
+        "width": 1280,
+        "height": 900,
+        "isMobile": false
+      },
+      "paintWaitMs": 1937,
+      "slotLabel": "11:00 AM",
+      "steps": [
+        {
+          "step": "date-picked",
+          "shot": "bkdetails-before-desktop-1-date-picked.png",
+          "state": "DATE_PICK"
+        }
+      ],
+      "afterSlot": {
+        "stepState": "DATE_PICK",
+        "slotSelected": true,
+        "detailsFormPresent": false,
+        "stepLabelOnScreen": "Select a date",
+        "nameField": {
+          "present": false
+        },
+        "nextButton": {
+          "present": true,
+          "top": 409,
+          "bottom": 449,
+          "height": 40,
+          "width": 107,
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "1",
+          "hiddenBy": null,
+          "inViewport": true,
+          "viewportH": 900,
+          "scrollNeededPx": 0
+        },
+        "submitButton": {
+          "present": false
+        },
+        "stepHeader": {
+          "present": true,
+          "top": 142,
+          "bottom": 161,
+          "height": 19,
+          "width": 680,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "hiddenBy": null,
+          "inViewport": true,
+          "viewportH": 900,
+          "scrollNeededPx": 0
+        },
+        "slotReadback": {
+          "present": false
+        },
+        "focused": "dl-bk-next",
+        "scrollY": 618,
+        "shot": "bkdetails-before-desktop-2-after-one-slot-click.png",
+        "detailsRendered": false,
+        "detailsOnScreen": false,
+        "rePickRequired": true
+      },
+      "scrollPass": null,
+      "happy": null
+    },
+    {
+      "viewport": {
+        "name": "mobile-390",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "paintWaitMs": 1943,
+      "slotLabel": "11:00 AM",
+      "steps": [
+        {
+          "step": "date-picked",
+          "shot": "bkdetails-before-mobile-390-1-date-picked.png",
+          "state": "DATE_PICK"
+        }
+      ],
+      "afterSlot": {
+        "stepState": "DATE_PICK",
+        "slotSelected": true,
+        "detailsFormPresent": false,
+        "stepLabelOnScreen": "Select a date",
+        "nameField": {
+          "present": false
+        },
+        "nextButton": {
+          "present": true,
+          "top": 349,
+          "bottom": 389,
+          "height": 40,
+          "width": 264,
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "1",
+          "hiddenBy": null,
+          "inViewport": true,
+          "viewportH": 844,
+          "scrollNeededPx": 0
+        },
+        "submitButton": {
+          "present": false
+        },
+        "stepHeader": {
+          "present": true,
+          "top": 41,
+          "bottom": 60,
+          "height": 19,
+          "width": 264,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "hiddenBy": null,
+          "inViewport": true,
+          "viewportH": 844,
+          "scrollNeededPx": 0
+        },
+        "slotReadback": {
+          "present": false
+        },
+        "focused": "dl-bk-next",
+        "scrollY": 1006,
+        "shot": "bkdetails-before-mobile-390-2-after-one-slot-click.png",
+        "detailsRendered": false,
+        "detailsOnScreen": false,
+        "rePickRequired": true
+      },
+      "scrollPass": null,
+      "happy": null
+    },
+    {
+      "viewport": {
+        "name": "mobile-360",
+        "width": 360,
+        "height": 640,
+        "isMobile": true
+      },
+      "paintWaitMs": 1970,
+      "slotLabel": "11:00 AM",
+      "steps": [
+        {
+          "step": "date-picked",
+          "shot": "bkdetails-before-mobile-360-1-date-picked.png",
+          "state": "DATE_PICK"
+        }
+      ],
+      "afterSlot": {
+        "stepState": "DATE_PICK",
+        "slotSelected": true,
+        "detailsFormPresent": false,
+        "stepLabelOnScreen": "Select a date",
+        "nameField": {
+          "present": false
+        },
+        "nextButton": {
+          "present": true,
+          "top": 367,
+          "bottom": 407,
+          "height": 40,
+          "width": 234,
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "1",
+          "hiddenBy": null,
+          "inViewport": true,
+          "viewportH": 640,
+          "scrollNeededPx": 0
+        },
+        "submitButton": {
+          "present": false
+        },
+        "stepHeader": {
+          "present": true,
+          "top": 41,
+          "bottom": 60,
+          "height": 19,
+          "width": 234,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "hiddenBy": null,
+          "inViewport": true,
+          "viewportH": 640,
+          "scrollNeededPx": 0
+        },
+        "slotReadback": {
+          "present": false
+        },
+        "focused": "dl-bk-next",
+        "scrollY": 1072,
+        "shot": "bkdetails-before-mobile-360-2-after-one-slot-click.png",
+        "detailsRendered": false,
+        "detailsOnScreen": false,
+        "rePickRequired": true
+      },
+      "scrollPass": null,
+      "happy": null
+    },
+    {
+      "viewport": {
+        "name": "mobile-320",
+        "width": 320,
+        "height": 568,
+        "isMobile": true
+      },
+      "paintWaitMs": 1935,
+      "slotLabel": "11:00 AM",
+      "steps": [
+        {
+          "step": "date-picked",
+          "shot": "bkdetails-before-mobile-320-1-date-picked.png",
+          "state": "DATE_PICK"
+        }
+      ],
+      "afterSlot": {
+        "stepState": "DATE_PICK",
+        "slotSelected": true,
+        "detailsFormPresent": false,
+        "stepLabelOnScreen": "Select a date",
+        "nameField": {
+          "present": false
+        },
+        "nextButton": {
+          "present": true,
+          "top": 367,
+          "bottom": 407,
+          "height": 40,
+          "width": 194,
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "1",
+          "hiddenBy": null,
+          "inViewport": true,
+          "viewportH": 568,
+          "scrollNeededPx": 0
+        },
+        "submitButton": {
+          "present": false
+        },
+        "stepHeader": {
+          "present": true,
+          "top": 41,
+          "bottom": 60,
+          "height": 19,
+          "width": 194,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "hiddenBy": null,
+          "inViewport": true,
+          "viewportH": 568,
+          "scrollNeededPx": 0
+        },
+        "slotReadback": {
+          "present": false
+        },
+        "focused": "dl-bk-next",
+        "scrollY": 1149,
+        "shot": "bkdetails-before-mobile-320-2-after-one-slot-click.png",
+        "detailsRendered": false,
+        "detailsOnScreen": false,
+        "rePickRequired": true
+      },
+      "scrollPass": null,
+      "happy": null
+    }
+  ],
+  "voice": {
+    "dayLabel": "2026-08-11",
+    "spokenTime": "11:00 AM",
+    "showDateResult": {
+      "ok": true
+    },
+    "afterShowDate": "DATE_PICK",
+    "selectResult": {
+      "ok": true
+    },
+    "afterSelect": "FORM",
+    "confirmed": true,
+    "body": {
+      "deployment": "donovan-main",
+      "type": "consult",
+      "slot": "2026-08-11T15:00:00.000Z",
+      "name": "Voice Caller",
+      "email": "voice@example.com",
+      "phone": "(561) 555-0123",
+      "notes": "",
+      "call_id": "call_verify_voice_001",
+      "qualifier_claim": "none",
+      "turnstile_token": ""
+    }
+  }
+}

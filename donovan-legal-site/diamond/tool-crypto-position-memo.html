@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crypto Position Memo &middot; Donovan Legal PLLC</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Members-only educational digital-asset tax memo generator. Characterizes each crypto position as property (IRS Notice 2014-21), scores long- vs short-term holding period, computes unrealized gain or loss, and flags Form 8938 (§6038D) and FBAR (FinCEN Form 114) reporting. Educational only — not legal or tax advice.">
+<link rel="icon" type="image/png" href="../img/favicon.png">
+<link rel="apple-touch-icon" href="../img/favicon.png">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&amp;display=swap" rel="stylesheet">
+<!-- JORDAN-CRYPTO-MEMO: Diamond/Reserve member tool. Client-side tier hint mirrors the
+     sibling engine tools; the authoritative gate is Basic auth in functions/{diamond,reserve}/_middleware.js. -->
+<script>window.__DONOVAN_TIER = 'reserve';</script>
+<style>
+  @font-face{font-family:'Trajan Pro';src:url('../webfonts/TrajanPro-Bold.woff2') format('woff2'),url('../webfonts/TrajanPro-Bold.woff') format('woff');font-weight:700;font-display:swap}
+  @font-face{font-family:'Gotham Medium';src:url('../webfonts/Gotham-Medium.woff2') format('woff2'),url('../webfonts/Gotham-Medium.woff') format('woff');font-display:swap}
+  @font-face{font-family:'Gotham Bold';src:url('../webfonts/Gotham-Bold.woff') format('woff'),url('../webfonts/Gotham-Bold.ttf') format('truetype');font-display:swap}
+  /* Donovan members-gate brand tokens (canonical palette shared with the sibling
+     member tools). All colour below flows from these — no ad-hoc hex in the rules. */
+  :root{
+    --forest:#0A4A2A; --emerald:#107A4D; --emerald-dk:#107a4d; --emerald-soft:#EAF3EE;
+    --gold:#C9A961; --gold-lt:#D9C089; --cream:#F5F5F0;
+    --ink:#1a1a1a; --body:#3D3D3D; --mute:#707070; --mute2:#8B8B8B;
+    --line:#d4d4d0; --panel:#FAF9F5; --white:#FFFFFF;
+    --pass:#107A4D; --warn:#C08A2E; --fail:#B0413E;
+    --warn-soft:#FBF6EA; --fail-soft:#FBF2F1; --info-soft:#EAEFF4; --info-ink:#2f4655;
+    --sub-ink:#CFE3D6; --neutral-soft:#EFEFEC; --on-border:#ECDFC2; --off-border:#BFE0CD;
+    --display:'Trajan Pro','Gotham Bold',Georgia,serif;
+    --serif:'Gotham Bold','Open Sans',system-ui,sans-serif;
+    --sans:'Open Sans','Segoe UI',system-ui,-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box} html,body{margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--body);background:var(--cream);line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  header.mast{background:var(--forest);color:#fff;padding:30px 0 26px}
+  .mast .wrap{display:flex;flex-direction:column;gap:4px}
+  .mast-top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .mast-logo img{height:42px;width:auto;display:block}
+  .mast-back{font-family:var(--sans);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-lt);text-decoration:none;font-weight:600;white-space:nowrap}
+  .mast-back:hover{color:#fff;text-decoration:none}
+  .gold-rule{height:2px;width:54px;background:var(--gold);margin:14px 0 0}
+  h1{font-family:var(--serif);font-size:30px;color:#fff;margin:18px 0 2px;font-weight:700}
+  .eyebrow{font-size:11px;letter-spacing:3px;color:var(--gold-lt);font-weight:700;text-transform:uppercase}
+  .sub{color:var(--sub-ink);font-size:14.5px;max-width:860px;margin-top:6px}
+  main{padding:28px 0 60px}
+  .card{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:22px 24px;margin-bottom:22px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .card h2{font-family:var(--serif);font-size:20px;color:var(--ink);margin:0 0 3px;font-weight:700}
+  .card .cite{font-size:12px;color:var(--mute2);letter-spacing:.3px;margin-bottom:14px}
+  .gate-tag{display:inline-block;font-size:10.5px;letter-spacing:2px;font-weight:700;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+  .grid{display:grid;gap:14px 18px}
+  .g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}
+  .g-pos{grid-template-columns:1.4fr 1fr 1fr 1fr 1.2fr}
+  label{display:block;font-size:12px;font-weight:600;color:var(--mute);letter-spacing:.4px;margin-bottom:4px;text-transform:uppercase}
+  input,select{width:100%;font-family:var(--sans);font-size:14.5px;color:var(--ink);padding:8px 10px;border:1px solid var(--line);border-radius:4px;background:#fff}
+  input:focus,select:focus{outline:none;border-color:var(--emerald);box-shadow:0 0 0 2px var(--emerald-soft)}
+  .btn{font-family:var(--sans);font-size:13.5px;font-weight:600;letter-spacing:.3px;padding:9px 16px;border-radius:4px;border:1px solid transparent;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--emerald);color:#fff}.btn-primary:hover{background:var(--emerald-dk)}
+  .btn-ghost{background:#fff;color:var(--forest);border-color:var(--line)}.btn-ghost:hover{border-color:var(--emerald);color:var(--emerald)}
+  .btn-sm{padding:6px 12px;font-size:12.5px}
+  .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+
+  details.framework{background:var(--panel);border:1px solid var(--line);border-radius:6px;margin-bottom:22px;overflow:hidden}
+  details.framework>summary{cursor:pointer;padding:16px 22px;font-family:var(--serif);font-size:16px;font-weight:700;color:var(--forest);list-style:none}
+  details.framework>summary::-webkit-details-marker{display:none}
+  details.framework>summary::before{content:"\25B8  ";color:var(--gold)}
+  details.framework[open]>summary::before{content:"\25BE  "}
+  .fwbody{padding:0 22px 20px}
+  .fwgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px}
+  .fwblock h4{font-size:12.5px;letter-spacing:.5px;text-transform:uppercase;color:var(--forest);margin:10px 0 6px;border-bottom:1px solid var(--line);padding-bottom:4px}
+  .fwblock p{font-size:12.5px;color:var(--body);margin:5px 0}
+  .fwblock .src{color:var(--mute2);font-style:italic}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:10px}
+  th{text-align:left;font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:var(--mute);font-weight:700;padding:8px;border-bottom:2px solid var(--line)}
+  td{padding:8px;border-bottom:1px solid var(--line);color:var(--body);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  .num{text-align:right;font-variant-numeric:tabular-nums}
+  .del{color:var(--fail);cursor:pointer;font-weight:700;border:none;background:none;font-size:16px;line-height:1}
+  .empty{color:var(--mute2);font-style:italic;padding:14px 8px}
+
+  .pill{font-size:10px;font-weight:700;letter-spacing:.3px;padding:2px 7px;border-radius:3px;text-transform:uppercase;display:inline-block;white-space:nowrap}
+  .pill.lt{background:var(--emerald-soft);color:var(--forest)}
+  .pill.st{background:var(--warn-soft);color:var(--warn)}
+  .pill.foreign{background:var(--info-soft);color:var(--info-ink)}
+  .pill.dom{background:var(--neutral-soft);color:var(--mute)}
+  .gain{color:var(--forest);font-weight:700}
+  .loss{color:var(--fail);font-weight:700}
+
+  .agg{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:6px}
+  .stat{border:1px solid var(--line);border-radius:6px;padding:14px 16px;background:var(--panel)}
+  .stat .k{font-size:10.5px;letter-spacing:.5px;text-transform:uppercase;color:var(--mute);font-weight:700}
+  .stat .v{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--ink);margin-top:3px;font-variant-numeric:tabular-nums}
+  .stat .v.gain{color:var(--forest)} .stat .v.loss{color:var(--fail)}
+
+  .flag{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);border-radius:6px;padding:14px 16px;margin-top:14px;background:#fff}
+  .flag .badge{font-size:11px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;padding:5px 10px;border-radius:20px;white-space:nowrap;flex-shrink:0}
+  .flag.on{background:var(--warn-soft);border-color:var(--on-border)}
+  .flag.on .badge{background:var(--warn);color:#fff}
+  .flag.off{background:var(--emerald-soft);border-color:var(--off-border)}
+  .flag.off .badge{background:var(--pass);color:#fff}
+  .flag .ftext{font-size:13px;color:var(--body);line-height:1.5}
+  .flag .ftext b{color:var(--ink)}
+  .flag .src{display:block;font-size:11px;color:var(--mute2);font-style:italic;margin-top:5px}
+
+  .note{font-size:12.5px;color:var(--mute);background:var(--emerald-soft);border-left:3px solid var(--emerald);padding:10px 14px;border-radius:0 4px 4px 0;margin-top:14px}
+  .note b{color:var(--forest)}
+
+  /* Print-only educational memo */
+  .print-only{display:none}
+  .memo-title{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin:0 0 2px}
+  .memo-meta{font-size:12px;color:var(--mute);margin-bottom:14px}
+  .memo h3{font-family:var(--serif);font-size:14px;color:var(--forest);margin:18px 0 6px;text-transform:uppercase;letter-spacing:.5px}
+  .memo .disc-block{margin-top:20px;border:1px solid var(--line);border-radius:4px;padding:14px 16px;font-size:11.5px;color:var(--body);line-height:1.55;background:var(--panel)}
+
+  footer.disc{border-top:1px solid var(--line);padding:22px 0 50px;font-size:11.5px;color:var(--mute2);font-style:italic;line-height:1.6}
+
+  @media(max-width:820px){.g2,.g3,.g-pos,.agg,.fwgrid{grid-template-columns:1fr}h1{font-size:24px}}
+  @media print{
+    body{background:#fff}
+    .no-print{display:none!important}
+    header.mast{background:#fff;color:var(--forest);border-bottom:2px solid var(--gold)}
+    h1,.memo-title{color:var(--ink)!important}
+    .sub,.eyebrow{color:var(--mute)!important}
+    .card{break-inside:avoid;box-shadow:none}
+    details.framework{display:none}
+    .print-only{display:block}
+  }
+</style>
+  <script src="/js/page/tool-crypto-position-memo.js" defer></script>
+  <script src="/js/page/input-formatter-currency.js" defer></script>
+</head>
+<body>
+<header class="mast">
+  <div class="wrap">
+    <div class="mast-top">
+      <a href="index.html" class="mast-logo"><img src="../img/Donovan-Logo-v2-transparent-white.png" alt="Donovan Legal PLLC"></a>
+      <a href="index.html" class="mast-back">&larr; Your member hub</a>
+    </div>
+    <div class="gold-rule"></div>
+    <div class="eyebrow" style="margin-top:16px">Proprietary Member Tool</div>
+    <h1>Crypto Position Memo</h1>
+    <p class="sub">An educational digital-asset memo generator. Each position is characterized as <b>property</b> under IRS Notice 2014-21, scored for long- versus short-term holding period, and measured for unrealized gain or loss. The tool then flags potential <b>Form 8938</b> (&sect;&nbsp;6038D) and <b>FBAR</b> (FinCEN Form 114) reporting where custody is foreign and value crosses the documented filing thresholds. Every threshold is labeled with its source and year. This is an educational summary, not legal or tax advice.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- LEGAL FRAMEWORK -->
+  <details class="framework no-print">
+    <summary>The authorities this tool encodes &mdash; Notice 2014-21, &sect;&nbsp;1222, &sect;&nbsp;1091, &sect;&nbsp;6038D, 31&nbsp;CFR&nbsp;1010.350</summary>
+    <div class="fwbody">
+      <div class="fwgrid">
+        <div class="fwblock">
+          <h4>Character &mdash; property, not currency</h4>
+          <p>For U.S. federal tax purposes, virtual currency is treated as <b>property</b>. General tax principles applicable to property transactions apply to transactions using digital assets.</p>
+          <p class="src">Source: IRS Notice 2014-21, 2014-16 I.R.B. 938, A-1 (2014); reaffirmed by Rev. Rul. 2019-24 and the annual Form 1040 digital-asset question.</p>
+        </div>
+        <div class="fwblock">
+          <h4>Holding period &mdash; long- vs short-term</h4>
+          <p>A capital asset held for <b>more than one year</b> yields long-term treatment on disposition; held <b>one year or less</b>, short-term. The holding period begins the day after acquisition.</p>
+          <p class="src">Source: IRC &sect;&nbsp;1222(1)&ndash;(4); holding-period rule, Rev. Rul. 66-7 (2026 tool build).</p>
+        </div>
+        <div class="fwblock">
+          <h4>Wash-sale rule &mdash; &sect;&nbsp;1091</h4>
+          <p>The wash-sale loss-deferral rule applies to &ldquo;stock or securities.&rdquo; Because digital assets are treated as property rather than securities, <b>&sect;&nbsp;1091 does not currently apply</b> to crypto. Legislative proposals have sought to extend it; none is enacted as of this build.</p>
+          <p class="src">Source: IRC &sect;&nbsp;1091(a); IRS Notice 2014-21 (property characterization). Current law as of 2026 &mdash; confirm before relying.</p>
+        </div>
+        <div class="fwblock">
+          <h4>Foreign-asset reporting &mdash; Form 8938 &amp; FBAR</h4>
+          <p>Specified foreign financial assets are reported on <b>Form 8938</b> above status-based thresholds; foreign financial accounts aggregating over <b>$10,000</b> are reported on the <b>FBAR</b>. Directly-held (self-custody) crypto is generally not a reportable financial account; crypto held through a foreign institution may be.</p>
+          <p class="src">Source: IRC &sect;&nbsp;6038D &amp; IRS Instructions for Form 8938 (Rev. Nov. 2021); 31 CFR &sect;&nbsp;1010.350 &amp; FinCEN Form 114; FinCEN Notice 2020-2.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- FILING PROFILE -->
+  <section class="card no-print">
+    <span class="gate-tag">Diamond &amp; Reserve</span>
+    <h2>Filing profile</h2>
+    <div class="cite">Sets the Form 8938 threshold ladder. FBAR&rsquo;s $10,000 threshold does not vary by status.</div>
+    <div class="grid g2">
+      <div>
+        <label for="profile">Filing status &amp; residence</label>
+        <select id="profile">
+          <option value="single_us">Unmarried / MFS &mdash; living in the U.S.</option>
+          <option value="mfj_us">Married filing jointly &mdash; living in the U.S.</option>
+          <option value="single_abroad">Unmarried / MFS &mdash; living abroad</option>
+          <option value="mfj_abroad">Married filing jointly &mdash; living abroad</option>
+        </select>
+      </div>
+      <div>
+        <label for="memberName">Member name (memo heading &mdash; optional)</label>
+        <input type="text" id="memberName" placeholder="e.g. Jane Q. Member" autocomplete="off">
+      </div>
+    </div>
+    <div class="note" id="profileNote"></div>
+  </section>
+
+  <!-- POSITION ENTRY -->
+  <section class="card no-print">
+    <h2>Add a digital-asset position</h2>
+    <div class="cite">Enter each lot separately. Cost basis and fair market value in U.S. dollars.</div>
+    <div class="grid g-pos">
+      <div>
+        <label for="asset">Asset</label>
+        <input type="text" id="asset" placeholder="e.g. BTC" autocomplete="off">
+      </div>
+      <div>
+        <label for="acq">Acquisition date</label>
+        <input type="date" id="acq">
+      </div>
+      <div>
+        <label for="basis">Cost basis (USD)</label>
+        <input type="text" inputmode="decimal" class="dl-currency" id="basis" placeholder="0">
+      </div>
+      <div>
+        <label for="fmv">Current fair market value (USD)</label>
+        <input type="text" inputmode="decimal" class="dl-currency" id="fmv" placeholder="0">
+      </div>
+      <div>
+        <label for="custody">Custody</label>
+        <select id="custody">
+          <option value="self">Self-custody wallet</option>
+          <option value="us_ex">U.S. exchange</option>
+          <option value="foreign_ex">Foreign exchange</option>
+          <option value="wallet">Hosted wallet (third-party custodian)</option>
+        </select>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button type="button" class="btn btn-primary" data-dvn-on="click" data-dvn-do="addPosition()">Add position</button>
+      <button type="button" class="btn btn-ghost btn-sm" data-dvn-on="click" data-dvn-do="loadExample()">Load example</button>
+    </div>
+  </section>
+
+  <!-- POSITIONS + RESULTS -->
+  <section class="card no-print">
+    <h2>Positions &amp; analysis</h2>
+    <div class="cite">Character, holding period, and unrealized gain or loss per position.</div>
+    <table>
+      <thead><tr>
+        <th>Asset</th><th>Acquired</th><th>Custody</th>
+        <th class="num">Basis</th><th class="num">FMV</th>
+        <th>Character</th><th>Holding period</th><th class="num">Unrealized G/(L)</th>
+        <th class="no-print"></th>
+      </tr></thead>
+      <tbody id="posBody">
+        <tr><td colspan="9" class="empty">No positions yet. Add a position above, or load the example.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="agg" id="aggBox" style="margin-top:20px;display:none">
+      <div class="stat"><div class="k">Total cost basis</div><div class="v" id="aggBasis">&mdash;</div></div>
+      <div class="stat"><div class="k">Total fair market value</div><div class="v" id="aggFmv">&mdash;</div></div>
+      <div class="stat"><div class="k">Aggregate unrealized G/(L)</div><div class="v" id="aggGain">&mdash;</div></div>
+      <div class="stat"><div class="k">Foreign-held value</div><div class="v" id="aggForeign">&mdash;</div></div>
+    </div>
+
+    <div id="flags"></div>
+
+    <div class="btn-row">
+      <button type="button" class="btn btn-primary" data-dvn-on="click" data-dvn-do="generateMemo()">Generate memo</button>
+      <button type="button" class="btn btn-ghost" data-dvn-on="click" data-dvn-do="window.print()">Print / PDF</button>
+      <button type="button" class="btn btn-ghost btn-sm" data-dvn-on="click" data-dvn-do="resetAll()">Reset</button>
+    </div>
+    <div class="note no-print" id="memoStatus" style="display:none"></div>
+  </section>
+
+  <!-- PRINT-ONLY MEMO -->
+  <section class="print-only" id="memo"></section>
+
+</main>
+
+<footer class="disc"><div class="wrap">
+  This tool produces an <b>educational</b> summary of the federal tax character, holding period, and foreign-asset reporting posture of the digital-asset positions you enter. It is provided for organizational and documentation purposes only, <b>does not constitute legal or tax advice, and does not create an attorney&ndash;client relationship</b>. Digital-asset reporting is fact-specific: whether a particular arrangement is a &ldquo;specified foreign financial asset&rdquo; (Form 8938) or a &ldquo;foreign financial account&rdquo; (FBAR), and how a position is characterized on disposition, depend on facts this tool does not capture. Thresholds are drawn from published IRS and FinCEN sources current as of this build and are labeled accordingly; confirm every figure and position with the firm before filing. &copy; Donovan Legal PLLC 2026. Attorney advertising.
+</div></footer>
+
+
+
+<!-- B3: dispatches data-dvn-on/-do, the CSP-safe replacement for inline on*= handlers. -->
+<script src="/js/inline-actions.js" defer></script>
+</body>
+</html>

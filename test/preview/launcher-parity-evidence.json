@@ -1,0 +1,367 @@
+{
+  "order": "JORDAN-PERCH-LAUNCHER-PARITY",
+  "gates": "PROMOTE",
+  "base": "https://0d9c3cb9.donovan-site.pages.dev",
+  "before": "https://www.donovan.law",
+  "startedAt": "2026-07-25T22:39:17.154Z",
+  "steps": [
+    {
+      "id": "P1.1",
+      "name": "`/` is the retired-shell homepage on a router-ON deployment",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "title": "Donovan Legal PLLC | Tax-First Practice Focused on Real Estate | Delray Beach, Florida",
+        "routerReady": true,
+        "routerActive": true,
+        "iframes": 0,
+        "noindex": false,
+        "h1": "Donovan Legal PLLC — A Tax-First Law Practice Focused on Real Estate"
+      }
+    },
+    {
+      "id": "P1.2",
+      "name": "the persistent layer is mounted and holds exactly ONE concierge",
+      "ok": true,
+      "detail": {
+        "concierge": {
+          "kind": "widget",
+          "count": 1,
+          "allInLayer": true,
+          "insideContainer": false
+        },
+        "hostFallback": false
+      }
+    },
+    {
+      "id": "P2.1",
+      "name": "`/perch` still renders the shell concierge, unchanged by this ticket",
+      "ok": true,
+      "detail": {
+        "id": "concierge",
+        "avatar": {
+          "src": "/img/Paula.jpg",
+          "sameOrigin": true,
+          "naturalWidth": 512,
+          "complete": true,
+          "objectFit": "cover"
+        },
+        "cta": "Click here to speak withPaula",
+        "rings": 2
+      }
+    },
+    {
+      "id": "P3.1",
+      "name": "/ shows the Paula avatar and the \"Click here to speak with Paula\" concierge",
+      "ok": true,
+      "detail": {
+        "id": "dvn-perch-launcher",
+        "dressed": true,
+        "inLayer": true,
+        "avatar": {
+          "src": "/img/Paula.jpg",
+          "sameOrigin": true,
+          "naturalWidth": 512,
+          "complete": true,
+          "objectFit": "cover"
+        },
+        "cta": "Click here to speak withPaula",
+        "ctaPaint": {
+          "fontSize": "13px",
+          "fontWeight": "500",
+          "borderRadius": "24px",
+          "backgroundColor": "rgba(21, 20, 15, 0.92)",
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1",
+          "visible": true
+        }
+      }
+    },
+    {
+      "id": "P3.2",
+      "name": "/testimonials shows the Paula avatar and the \"Click here to speak with Paula\" concierge",
+      "ok": true,
+      "detail": {
+        "id": "dvn-perch-launcher",
+        "dressed": true,
+        "inLayer": true,
+        "avatar": {
+          "src": "/img/Paula.jpg",
+          "sameOrigin": true,
+          "naturalWidth": 512,
+          "complete": true,
+          "objectFit": "cover"
+        },
+        "cta": "Click here to speak withPaula",
+        "ctaPaint": {
+          "fontSize": "13px",
+          "fontWeight": "500",
+          "borderRadius": "24px",
+          "backgroundColor": "rgba(21, 20, 15, 0.92)",
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1",
+          "visible": true
+        }
+      }
+    },
+    {
+      "id": "P3.3",
+      "name": "the avatar DECODED under `img-src 'self'` — same-origin, no CSP refusal",
+      "ok": true,
+      "detail": {
+        "home": {
+          "src": "/img/Paula.jpg",
+          "sameOrigin": true,
+          "naturalWidth": 512,
+          "complete": true,
+          "objectFit": "cover"
+        },
+        "content": {
+          "src": "/img/Paula.jpg",
+          "sameOrigin": true,
+          "naturalWidth": 512,
+          "complete": true,
+          "objectFit": "cover"
+        },
+        "cspHits": []
+      }
+    },
+    {
+      "id": "P3.4",
+      "name": "the content-page concierge is painted IDENTICALLY to `/perch`'s",
+      "ok": true,
+      "detail": {
+        "home": [],
+        "content": [],
+        "shell": {
+          "box": {
+            "w": 116,
+            "h": 116,
+            "top": 764,
+            "right": 1260
+          },
+          "position": "fixed",
+          "disc": {
+            "box": {
+              "w": 92,
+              "h": 92,
+              "top": 776,
+              "right": 1248
+            },
+            "borderRadius": "50%",
+            "borderTopColor": "rgb(193, 162, 33)",
+            "borderTopWidth": "3px",
+            "overflow": "hidden"
+          },
+          "cta": {
+            "fontSize": "13px",
+            "fontWeight": "500",
+            "borderRadius": "24px",
+            "backgroundColor": "rgba(21, 20, 15, 0.92)",
+            "color": "rgb(255, 255, 255)",
+            "opacity": "1",
+            "visible": true
+          },
+          "ring": {
+            "borderTopColor": "rgba(193, 162, 33, 0.5)",
+            "borderTopWidth": "2px",
+            "borderRadius": "50%"
+          }
+        }
+      }
+    },
+    {
+      "id": "P3.5",
+      "name": "and it is HIT-TESTABLE at the centre of its own disc",
+      "ok": true,
+      "detail": {
+        "home": {
+          "hitIsSelfOrChild": true,
+          "tag": "IMG"
+        },
+        "content": {
+          "hitIsSelfOrChild": true,
+          "tag": "IMG"
+        }
+      }
+    },
+    {
+      "id": "P4.1",
+      "name": "the concierge survives 4 soft navigations as the SAME NODE, still dressed",
+      "ok": true,
+      "detail": {
+        "brandAtStart": "jordan-5x0n6oow",
+        "instanceIdAtStart": "perch-tn76e3er",
+        "ticks": {
+          "before": 17,
+          "after": 66
+        },
+        "hops": [
+          {
+            "to": "/contact",
+            "how": "existing-link",
+            "path": "/contact",
+            "brand": "jordan-5x0n6oow",
+            "instanceId": "perch-tn76e3er",
+            "ticks": 29,
+            "dressed": true,
+            "avatarWidth": 512,
+            "cta": "Click here to speak withPaula",
+            "inLayer": true,
+            "insideContainer": false
+          },
+          {
+            "to": "/blog",
+            "how": "existing-link",
+            "path": "/blog",
+            "brand": "jordan-5x0n6oow",
+            "instanceId": "perch-tn76e3er",
+            "ticks": 42,
+            "dressed": true,
+            "avatarWidth": 512,
+            "cta": "Click here to speak withPaula",
+            "inLayer": true,
+            "insideContainer": false
+          },
+          {
+            "to": "/testimonials",
+            "how": "existing-link",
+            "path": "/testimonials",
+            "brand": "jordan-5x0n6oow",
+            "instanceId": "perch-tn76e3er",
+            "ticks": 54,
+            "dressed": true,
+            "avatarWidth": 512,
+            "cta": "Click here to speak withPaula",
+            "inLayer": true,
+            "insideContainer": false
+          },
+          {
+            "to": "/contact",
+            "how": "existing-link",
+            "path": "/contact",
+            "brand": "jordan-5x0n6oow",
+            "instanceId": "perch-tn76e3er",
+            "ticks": 66,
+            "dressed": true,
+            "avatarWidth": 512,
+            "cta": "Click here to speak withPaula",
+            "inLayer": true,
+            "insideContainer": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "P5.1",
+      "name": "ZERO CSP violations across the run — console channel and DOM event channel",
+      "ok": true,
+      "detail": {
+        "console": [],
+        "dom": [
+          {
+            "where": "home",
+            "hits": []
+          },
+          {
+            "where": "content",
+            "hits": []
+          },
+          {
+            "where": "shell",
+            "hits": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "P5.2",
+      "name": "and zero uncaught page errors",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "id": "P6.1",
+      "name": "the BEFORE image is the real production launcher: present, in the layer, and UNDRESSED",
+      "ok": true,
+      "detail": {
+        "id": "dvn-perch-launcher",
+        "dressed": false,
+        "avatar": null,
+        "box": {
+          "w": 66,
+          "h": 66,
+          "top": 812,
+          "right": 1258
+        },
+        "inLayer": true
+      }
+    }
+  ],
+  "screenshots": [
+    {
+      "name": "reference-perch-shell.png",
+      "label": "/perch — the shell concierge (the reference)",
+      "file": "C:\\Users\\d0527\\DonovanLegal-wt-jordan-launcher\\test\\preview\\screenshots\\reference-perch-shell.png",
+      "clip": {
+        "x": 940,
+        "y": 600,
+        "width": 340,
+        "height": 300
+      }
+    },
+    {
+      "name": "after-testimonials.png",
+      "label": "AFTER — https://0d9c3cb9.donovan-site.pages.dev/testimonials",
+      "file": "C:\\Users\\d0527\\DonovanLegal-wt-jordan-launcher\\test\\preview\\screenshots\\after-testimonials.png",
+      "clip": {
+        "x": 940,
+        "y": 600,
+        "width": 340,
+        "height": 300
+      }
+    },
+    {
+      "name": "after-home.png",
+      "label": "AFTER — https://0d9c3cb9.donovan-site.pages.dev/",
+      "file": "C:\\Users\\d0527\\DonovanLegal-wt-jordan-launcher\\test\\preview\\screenshots\\after-home.png",
+      "clip": {
+        "x": 940,
+        "y": 600,
+        "width": 340,
+        "height": 300
+      }
+    },
+    {
+      "name": "after-4-swaps.png",
+      "label": "AFTER — 4 swaps, still dressed",
+      "file": "C:\\Users\\d0527\\DonovanLegal-wt-jordan-launcher\\test\\preview\\screenshots\\after-4-swaps.png",
+      "clip": {
+        "x": 940,
+        "y": 600,
+        "width": 340,
+        "height": 300
+      }
+    },
+    {
+      "name": "before-testimonials.png",
+      "label": "BEFORE — https://www.donovan.law/testimonials",
+      "file": "C:\\Users\\d0527\\DonovanLegal-wt-jordan-launcher\\test\\preview\\screenshots\\before-testimonials.png",
+      "clip": {
+        "x": 940,
+        "y": 600,
+        "width": 340,
+        "height": 300
+      }
+    }
+  ],
+  "console": [],
+  "pageErrors": [],
+  "cspViolations": [],
+  "notes": [
+    "This ticket changed no CSP directive. `img-src 'self'` already admitted /img/Paula.jpg; P3.3 measures that it decoded rather than assuming the directive covers it."
+  ],
+  "verdict": "GO",
+  "summary": "12/12",
+  "finishedAt": "2026-07-25T22:39:31.209Z"
+}

@@ -1,0 +1,1104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>§ 1031 Like-Kind Exchange Calculator | Donovan Legal PLLC</title>
+  <meta name="description" content="Comprehensive § 1031 like-kind exchange calculator. Models forward exchanges with cash boot and mortgage boot, three identification rules (3-property, 200%, 95%), the 45-day identification and 180-day acquisition timelines, basis carryover and continuing depreciation, § 121 + § 1031 combinations for converted residences, partial recognition under § 1031(b), state non-conformity, and deferred tax computation at the user's marginal rate. Covers federal and state treatment as of May 2026.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="§ 1031 Like-Kind Exchange Calculator | Donovan Legal PLLC">
+  <meta property="og:site_name" content="Donovan Legal PLLC">
+  <meta property="og:url" content="https://www.donovan.law/tool-1031-exchange.html">
+  <meta property="og:description" content="Comprehensive § 1031 like-kind exchange calculator: forward exchanges, identification rules, 45/180-day timelines, boot, basis carryover, § 121 + § 1031, state conformity.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.donovan.law/img/PKD Headshot.jpg">
+  <link rel="apple-touch-icon" href="../img/favicon.png">
+  <link rel="icon" type="image/png" href="../img/favicon.png">
+  <link href="/site.webmanifest" rel="manifest" />
+  <link href="../css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../css/fontawesome.min.css" rel="stylesheet" />
+  <link href="../css/normalize.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <link href="../css/tool-form-shared.css" rel="stylesheet" />
+  <link href="../css/animate.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&amp;display=swap" rel="stylesheet" />
+  <style>
+    .box > .border-grey > .container:first-of-type { position: relative !important; z-index: 9999 !important; }
+    nav.navbar.menubar { position: relative !important; z-index: 9999 !important; }
+    nav.navbar .nav-item.dropdown { position: relative !important; }
+    .navbar .dropdown-menu, .navbar.menubar .dropdown-menu, nav.navbar .dropdown-menu { z-index: 99999 !important; position: absolute !important; }
+    .tool-intro { background: #FFFFFF; border-left: 3px solid #107A4D; padding: 1.5rem 1.75rem; margin: 2rem 0 2.5rem 0; font-size: 1rem; line-height: 1.65; }
+    .tool-form { background: #FFFFFF; border: 1px solid #d4d4d0; padding: 2rem 2.25rem; margin: 2rem 0; }
+    .tool-form .form-group { margin-bottom: 1.5rem; }
+    .tool-form label { display: block; font-family: "Open Sans", sans-serif; font-weight: 600; font-size: 0.88rem; color: #1a1a1a; margin-bottom: 0.4rem; }
+    .tool-form .field-help { font-weight: 400; font-size: 0.82rem; color: #6b6b6b; margin-top: 0.25rem; }
+    .tool-form input[type="text"], .tool-form input[type="number"], .tool-form select { width: 100%; padding: 0.6rem 0.85rem; border: 1px solid #d4d4d0; background: #FFFFFF; font-family: "Open Sans", sans-serif; font-size: 1rem; color: #1a1a1a; border-radius: 0; box-sizing: border-box; }
+    .tool-form input:focus, .tool-form select:focus { outline: none; border-color: #107A4D; }
+    .tool-form .input-prefix { position: relative; }
+    .tool-form .input-prefix::before { content: "$"; position: absolute; left: 0.85rem; top: 50%; transform: translateY(-50%); color: #6b6b6b; pointer-events: none; z-index: 1; }
+    .tool-form .input-prefix input { padding-left: 1.85rem; }
+    .tool-form .input-suffix { position: relative; }
+    .tool-form .input-suffix::after { content: "%"; position: absolute; right: 0.85rem; top: 50%; transform: translateY(-50%); color: #6b6b6b; pointer-events: none; }
+    .tool-form .input-suffix input { padding-right: 2rem; }
+    .calc-btn { display: inline-block; background: #107A4D; color: #FFFFFF !important; padding: 0.85rem 2.5rem; border: none; border-radius: 30px; font-family: "Gotham Bold", "Open Sans", sans-serif; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: background 200ms ease; margin-top: 0.5rem; }
+    .calc-btn:hover { background: #107a4d; }
+    .calc-btn-secondary { display: inline-block; background: #FFFFFF; color: #107A4D !important; border: 1px solid #107A4D; padding: 0.85rem 2rem; border-radius: 30px; font-family: "Gotham Bold", "Open Sans", sans-serif; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; margin-top: 0.5rem; margin-left: 0.5rem; }
+    .results-panel { background: #f5f5f0; border: 2px solid #107A4D; padding: 2rem 2.25rem; margin: 2.5rem 0; display: none; }
+    .results-panel.show { display: block; }
+    .results-panel h3 { font-family: "Gotham Bold", "Open Sans", sans-serif; font-size: 1.3rem; color: #107A4D; margin: 0 0 1.5rem 0; letter-spacing: 0.5px; text-transform: uppercase; }
+    .result-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.75rem 0; border-bottom: 1px solid #d4d4d0; font-size: 1rem; }
+    .result-row:last-of-type { border-bottom: none; }
+    .result-row.primary { border-top: 2px solid #107A4D; margin-top: 0.5rem; padding-top: 1rem; }
+    .result-row.primary .result-label, .result-row.primary .result-value { font-family: "Gotham Bold", "Open Sans", sans-serif; font-size: 1.15rem; color: #1a1a1a; }
+    .result-row.primary .result-value { color: #107A4D; }
+    .result-label { flex: 1; color: #1a1a1a; }
+    .result-value { font-family: "Open Sans", sans-serif; font-weight: 600; color: #1a1a1a; text-align: right; white-space: nowrap; margin-left: 1rem; }
+    .result-note { font-size: 0.85rem; color: #4a4a4a; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px dashed #d4d4d0; line-height: 1.55; }
+    .methodology { background: #FFFFFF; border: 1px solid #d4d4d0; padding: 1.75rem 2rem; margin: 2rem 0; font-size: 0.95rem; line-height: 1.65; }
+    .methodology h5 { font-family: "Gotham Bold", "Open Sans", sans-serif; color: #107A4D; letter-spacing: 0.5px; margin-top: 0; margin-bottom: 1rem; }
+    .methodology ul { margin-bottom: 0; padding-left: 1.25rem; }
+    .methodology li { margin-bottom: 0.5rem; }
+    .tool-disclaimer { background: #fff8e1; border-left: 4px solid #d4a017; padding: 1.5rem 1.75rem; margin: 2rem 0; font-size: 0.92rem; line-height: 1.6; }
+    .tool-disclaimer strong { color: #1a1a1a; }
+    .tool-cta { margin-top: 2.5rem; padding: 2rem 2.25rem; background: #1a1a1a; color: #F5F5F0; text-align: center; }
+    .tool-cta h4 { color: #F5F5F0; font-family: "Gotham Bold", "Open Sans", sans-serif; margin-bottom: 0.75rem; }
+    .tool-cta p { color: #F5F5F0; font-size: 1rem; max-width: 600px; margin: 0 auto 1.5rem auto; }
+    .tool-cta a.cta-link { color: #FFFFFF !important; background: #107A4D; display: inline-block; padding: 0.85rem 2.5rem; font-family: "Gotham Bold", "Open Sans", sans-serif; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; border-radius: 30px; }
+    .tool-back { margin-top: 1.5rem; font-family: "Gotham Bold", "Open Sans", sans-serif; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; }
+    .tool-back a { color: #107A4D !important; text-decoration: none; }
+    .tool-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    @media (max-width: 768px) { .tool-grid { grid-template-columns: 1fr; } }
+  
+    /* Comprehensive 1031 calculator styles */
+    .calc-section { background: #FFFFFF; border: 1px solid #d4d4d0; padding: 1.75rem 2rem; margin-bottom: 2rem; }
+    .calc-section h3 { font-family: "Gotham Bold", "Open Sans", sans-serif; font-size: 1.05rem; color: #107A4D; margin: 0 0 0.4rem 0; letter-spacing: 0.5px; text-transform: uppercase; }
+    .calc-section h3.sub { font-size: 0.9rem; color: #1a1a1a; text-transform: none; letter-spacing: 0; margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px solid #f0f0e8; }
+    .calc-section-subtitle { font-size: 0.88rem; color: #6b6b6b; line-height: 1.55; margin-bottom: 1.2rem; }
+    .calc-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.5rem; }
+    .calc-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem 1.5rem; }
+    @media (max-width: 720px) { .calc-grid-2, .calc-grid-3 { grid-template-columns: 1fr; } }
+    .calc-section .form-group { margin-bottom: 0; }
+
+    /* Toggle pills */
+    .pill-toggle { display: inline-flex; background: #FFFFFF; border: 1px solid #d4d4d0; border-radius: 30px; padding: 4px; gap: 4px; margin: 0.4rem 0; }
+    .pill-toggle button { background: transparent; border: none; padding: 0.45rem 1.1rem; font-family: "Open Sans", sans-serif; font-size: 0.82rem; color: #6b6b6b; cursor: pointer; border-radius: 22px; transition: all 150ms ease; white-space: nowrap; }
+    .pill-toggle button.active { background: #107A4D; color: #FFFFFF; font-weight: 600; }
+    .pill-toggle button:hover:not(.active) { color: #107A4D; }
+
+    /* Timeline visualization */
+    .timeline-vis { background: #fafaf5; border: 1px solid #d4d4d0; padding: 1.25rem 1.5rem; margin: 1rem 0; }
+    .timeline-vis h4 { font-size: 0.85rem; font-family: "Gotham Bold", sans-serif; color: #107A4D; margin: 0 0 1rem 0; letter-spacing: 0.5px; text-transform: uppercase; }
+    .timeline-bar { position: relative; height: 60px; background: #FFFFFF; border: 1px solid #d4d4d0; margin: 0.75rem 0; }
+    .timeline-fill-45 { position: absolute; left: 0; top: 0; bottom: 0; width: 25%; background: rgba(212,160,23,0.18); border-right: 2px solid #d4a017; }
+    .timeline-fill-180 { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; background: rgba(22,155,98,0.10); }
+    .timeline-marker { position: absolute; top: -8px; bottom: -8px; width: 2px; background: #1a1a1a; }
+    .timeline-marker-label { position: absolute; top: -28px; left: 50%; transform: translateX(-50%); font-size: 0.72rem; font-family: "Gotham Bold", sans-serif; color: #1a1a1a; white-space: nowrap; }
+    .timeline-marker-date { position: absolute; bottom: -28px; left: 50%; transform: translateX(-50%); font-size: 0.7rem; color: #6b6b6b; white-space: nowrap; }
+    .timeline-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5rem; margin-top: 1rem; font-size: 0.82rem; }
+    .timeline-cell { background: #FFFFFF; padding: 0.5rem 0.75rem; border-left: 3px solid #107A4D; }
+    .timeline-cell strong { display: block; color: #107A4D; font-size: 0.78rem; letter-spacing: 0.5px; }
+    .timeline-cell.warn { border-left-color: #d4a017; }
+    .timeline-cell.warn strong { color: #d4a017; }
+
+    /* Results — Boot table */
+    .boot-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 0.5rem 0; background: #FFFFFF; }
+    .boot-table th, .boot-table td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid #f0f0e8; }
+    .boot-table th { background: #f5f5f0; font-family: "Gotham Bold", sans-serif; color: #1a1a1a; font-size: 0.78rem; letter-spacing: 0.5px; text-transform: uppercase; }
+    .boot-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+    .boot-table tr.total td { font-weight: 700; background: #fafaf5; border-top: 2px solid #107A4D; }
+
+    .result-headline { background: #1a1a1a; color: #FFFFFF; padding: 1.5rem 1.75rem; margin: 1rem 0 1.5rem 0; }
+    .result-headline-label { font-size: 0.75rem; letter-spacing: 1.5px; color: #107A4D; font-family: "Gotham Bold", sans-serif; margin-bottom: 0.3rem; }
+    .result-headline-value { font-family: "Gotham Bold", sans-serif; font-size: 2.1rem; line-height: 1.1; }
+    .result-headline-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-top: 1rem; }
+    @media (max-width: 720px) { .result-headline-grid { grid-template-columns: 1fr; } .result-headline-value { font-size: 1.6rem; } }
+    .result-headline-sub-label { font-size: 0.72rem; letter-spacing: 1px; color: #C0C0C0; }
+    .result-headline-sub-value { font-family: "Gotham Bold", sans-serif; font-size: 1.05rem; color: #FFFFFF; margin-top: 0.2rem; }
+
+    .info-card { background: #fafaf5; border-left: 3px solid #107A4D; padding: 1rem 1.25rem; margin: 1rem 0; font-size: 0.88rem; line-height: 1.55; }
+    .info-card strong { color: #107A4D; }
+    .info-card.warn { border-left-color: #d4a017; }
+    .info-card.warn strong { color: #bc4b00; }
+
+    /* Identification rules display */
+    .id-rules-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; margin: 1rem 0; }
+    @media (max-width: 720px) { .id-rules-grid { grid-template-columns: 1fr; } }
+    .id-rule-card { background: #FFFFFF; border: 1px solid #d4d4d0; padding: 1rem 1.15rem; }
+    .id-rule-card.active { border: 2px solid #107A4D; background: rgba(22,155,98,0.05); }
+    .id-rule-card-num { font-family: "Gotham Bold", sans-serif; font-size: 0.78rem; letter-spacing: 0.5px; color: #107A4D; margin-bottom: 0.3rem; text-transform: uppercase; }
+    .id-rule-card-title { font-family: "Gotham Bold", sans-serif; font-size: 0.95rem; color: #1a1a1a; margin-bottom: 0.4rem; }
+    .id-rule-card-body { font-size: 0.82rem; color: #6b6b6b; line-height: 1.5; }
+
+    /* Continuing depreciation schedule */
+    .dep-schedule-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.75rem 0; }
+    .dep-schedule-table th, .dep-schedule-table td { padding: 0.5rem 0.85rem; border-bottom: 1px solid #f0f0e8; text-align: right; }
+    .dep-schedule-table th { background: #f5f5f0; font-family: "Gotham Bold", sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .dep-schedule-table th:first-child, .dep-schedule-table td:first-child { text-align: left; }
+
+    /* State conformity table */
+    .state-conformity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.4rem; margin: 0.75rem 0; }
+    .state-pill { padding: 0.3rem 0.6rem; font-size: 0.78rem; background: #FFFFFF; border: 1px solid #d4d4d0; }
+    .state-pill.conforms { border-left: 3px solid #107A4D; }
+    .state-pill.no-conform { border-left: 3px solid #c0392b; }
+    .state-pill.no-tax { border-left: 3px solid #6b6b6b; color: #6b6b6b; }
+
+    .methodology { margin-top: 2rem; }
+    .methodology summary { cursor: pointer; padding: 1rem 1.25rem; background: #f5f5f0; border-left: 3px solid #107A4D; font-family: "Gotham Bold", sans-serif; }
+    .methodology[open] summary { margin-bottom: 1rem; }
+    .methodology-body { padding: 0 1.25rem 1.5rem 1.25rem; font-size: 0.9rem; line-height: 1.65; }
+    .methodology-body h5 { font-family: "Gotham Bold", sans-serif; color: #107A4D; margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 0.9rem; letter-spacing: 0.5px; text-transform: uppercase; }
+
+  
+    /* ============================================================
+       MODE SELECTOR — choose exchange structure (forward/reverse/etc)
+       ============================================================ */
+    .mode-selector-wrap { margin: 1.5rem 0 2rem 0; padding: 1.25rem 1.5rem; background: #fafaf5; border: 1px solid #d4d4d0; border-left: 4px solid #107A4D; }
+    .mode-selector-label { font-family: "Gotham Bold", "Open Sans", sans-serif; font-size: 0.78rem; letter-spacing: 1.2px; color: #107A4D; text-transform: uppercase; margin-bottom: 0.6rem; }
+    .mode-selector { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .mode-selector button { background: #FFFFFF; border: 1px solid #d4d4d0; padding: 0.7rem 1.15rem; font-family: "Open Sans", sans-serif; font-size: 0.88rem; color: #4a4a4a; cursor: pointer; border-radius: 4px; transition: all 150ms ease; display: inline-flex; align-items: center; gap: 0.5rem; }
+    .mode-selector button.active { background: #107A4D; color: #FFFFFF; border-color: #107A4D; font-weight: 600; }
+    .mode-selector button:hover:not(.active) { border-color: #107A4D; color: #107A4D; }
+    .mode-tier-tag { display: inline-block; background: #107A4D; color: #FFFFFF; padding: 0.15rem 0.45rem; font-family: "Gotham Bold", sans-serif; font-size: 0.62rem; letter-spacing: 0.8px; border-radius: 2px; }
+    .mode-selector button.active .mode-tier-tag { background: #FFFFFF; color: #107A4D; }
+    .mode-selector-help { font-size: 0.82rem; color: #6b6b6b; line-height: 1.55; margin-top: 0.85rem; margin-bottom: 0; }
+    .mode-panel { animation: modeFadeIn 200ms ease; }
+    @keyframes modeFadeIn { from { opacity: 0.4; } to { opacity: 1; } }
+    .member-only-note { font-size: 0.82rem; color: #107A4D; font-style: italic; margin-top: 0.75rem; margin-bottom: 0; }
+
+    /* ============================================================
+       TIER GATING — banners and locked panels (mirrors analyzer styles)
+       ============================================================ */
+    .tier-banner { display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; padding: 0.95rem 1.25rem; margin-bottom: 1.5rem; font-size: 0.88rem; line-height: 1.55; border-left: 4px solid; flex-wrap: wrap; }
+    .tier-banner-text { flex: 1 1 auto; min-width: 0; }
+    .tier-banner-text strong { color: #1a1a1a; }
+    .tier-banner-cta { font-family: "Open Sans", sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; text-decoration: none; color: #107A4D; white-space: nowrap; }
+    .tier-banner-cta:hover { text-decoration: underline; }
+    .tier-banner.tier-public { background: #fff8e1; border-left-color: #d4a017; }
+    .tier-banner.tier-client { background: #e8f5ee; border-left-color: #107A4D; }
+    .tier-locked-panel { position: relative; min-height: 200px; overflow: hidden; border: 1px solid #d4d4d0; background: #FFFFFF; margin: 1.5rem 0; }
+    .tier-locked-content { filter: blur(6px); user-select: none; pointer-events: none; opacity: 0.55; }
+    .tier-locked-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 1.5rem 1.75rem; background: linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.92) 35%, rgba(255,255,255,0.98) 100%); z-index: 5; }
+    .tier-locked-overlay .tier-lock-icon { font-size: 1.85rem; margin-bottom: 0.55rem; color: #107A4D; }
+    .tier-locked-overlay .tier-lock-title { font-family: "Gotham Bold", "Open Sans", sans-serif; font-size: 1.05rem; color: #107A4D; margin-bottom: 0.45rem; letter-spacing: 0.3px; }
+    .tier-locked-overlay .tier-lock-body { font-size: 0.85rem; color: #4a4a4a; max-width: 540px; margin: 0 auto 0.95rem; line-height: 1.55; }
+    .tier-locked-overlay .tier-lock-cta { display: inline-block; background: #107A4D; color: #FFFFFF; padding: 0.6rem 1.4rem; font-family: "Open Sans", sans-serif; font-size: 0.76rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.15s ease; }
+    .tier-locked-overlay .tier-lock-cta:hover { background: #138654; }
+    .result-headline { background: #FFFFFF; border: 2px solid #107A4D; padding: 1.5rem 1.75rem; margin-bottom: 1.5rem; }
+    .result-headline-label { font-family: "Gotham Bold", sans-serif; font-size: 0.78rem; letter-spacing: 1px; color: #6b6b6b; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .result-headline-value { font-family: "Gotham Bold", sans-serif; font-size: 2rem; color: #107A4D; margin-bottom: 0.85rem; }
+    .result-headline-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; padding-top: 0.85rem; border-top: 1px solid #d4d4d0; }
+    @media (max-width: 720px) { .result-headline-grid { grid-template-columns: 1fr; gap: 0.6rem; } }
+    .result-headline-sub-label { font-family: "Gotham Bold", sans-serif; font-size: 0.7rem; letter-spacing: 0.8px; color: #6b6b6b; text-transform: uppercase; margin-bottom: 0.2rem; }
+    .result-headline-sub-value { font-family: "Open Sans", sans-serif; font-weight: 700; font-size: 1.1rem; color: #1a1a1a; }
+    .multi-year-table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0.5rem 0 1rem 0; }
+
+    /* ============================================================
+       MULTI-PROPERTY MODE — dynamic property rows
+       ============================================================ */
+    .multi-prop-list { display: flex; flex-direction: column; gap: 1rem; }
+    .multi-prop-row { background: #fafaf5; border: 1px solid #d4d4d0; border-left: 3px solid #107A4D; padding: 1.25rem 1.4rem; }
+    .multi-row-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px dashed #d4d4d0; }
+    .multi-row-label { flex: 1; font-family: 'Gotham Bold', 'Open Sans', sans-serif; font-size: 0.95rem; color: #1a1a1a; background: transparent; border: 1px solid transparent; border-bottom: 1px dotted #d4d4d0; padding: 0.4rem 0.5rem; outline: none; transition: border-color 0.15s ease; }
+    .multi-row-label:hover, .multi-row-label:focus { border-bottom-color: #107A4D; }
+    .multi-row-remove { background: #FFFFFF; border: 1px solid #d4d4d0; color: #6b6b6b; width: 32px; height: 32px; border-radius: 50%; font-size: 1.1rem; line-height: 1; cursor: pointer; transition: all 0.15s ease; flex-shrink: 0; }
+    .multi-row-remove:hover { background: #c43838; border-color: #c43838; color: #FFFFFF; }
+    .multi-row-grid { display: grid; gap: 0.85rem 1rem; }
+    .multi-row-grid-rel { grid-template-columns: repeat(3, 1fr); }
+    .multi-row-grid-rep { grid-template-columns: repeat(2, 1fr); }
+    .multi-row-grid .form-group { margin-bottom: 0; }
+    .multi-row-grid .form-group label { font-size: 0.78rem; }
+    .multi-row-grid .form-group .field-help { font-size: 0.75rem; }
+    @media (max-width: 720px) {
+      .multi-row-grid-rel { grid-template-columns: 1fr 1fr; }
+      .multi-row-grid-rep { grid-template-columns: 1fr; }
+    }
+</style>
+  <script src="/js/tier/gold.js"></script>
+  <script src="/js/page/input-formatter.js" defer></script>
+</head>
+<body>
+  <div class="box h-100">
+    <div class="border-grey">
+      <div class="container">
+        <nav class="navbar menubar padding-0 navbar-expand-lg d-flex align-items-center justify-content-between">
+          <div class="logo animate__animated animate__fadeIn animate__delay-1s">
+            <a href="../index.html"><img class="logo" src="../img/base-hover.png" alt="Donovan Legal PLLC logo"></a>
+          </div>
+
+          <div class="burger-toggle animate__animated animate__fadeIn animate__delay-1s">
+            <div class="hamburger">
+              <span class="line"></span>
+              <span class="line"></span>
+              <span class="line"></span>
+            </div>
+          </div>
+
+          <ul id="menu-desktop" class="navbar-nav ml-auto animate__animated animate__fadeIn animate__delay-1s">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">HOME</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="../ourfirm.html">ABOUT</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                <a class="dropdown-item" href="../ourfirm.html">THE FIRM</a>
+                <a class="dropdown-item" href="../profile.html">PAUL DONOVAN</a>
+                <a class="dropdown-item" href="../wendy.html">WENDY CARDENAS</a>
+                <a class="dropdown-item" href="../leidy.html">LEIDY MEZA</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="../practice.html">PRACTICE</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <a class="dropdown-item" href="../tax-planning.html">TAX PLANNING</a>
+                <a class="dropdown-item" href="../tax-compliance.html">TAX COMPLIANCE</a>
+                <a class="dropdown-item" href="../tax-controversy.html">TAX CONTROVERSY</a>
+                <a class="dropdown-item" href="../real-estate.html">REAL ESTATE</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../experience.html">EXPERIENCE</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../testimonials.html">TESTIMONIALS</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="../blog.html">RESOURCES</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                <a class="dropdown-item" href="../blog.html">BLOG</a>
+                <a class="dropdown-item" href="../tools.html">TOOLS</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="../engagement.html">MEMBERS</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
+                <a class="dropdown-item" href="/gold/"><span class="brand-gold">GOLD</span></a>
+                <a class="dropdown-item" href="/platinum/"><span class="brand-platinum">PLATINUM</span></a>
+                <a class="dropdown-item" href="/reserve/"><span class="brand-reserve"><span class="re">RE</span>SERVE</span></a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../contact.html">CONTACT</a>
+            </li>
+          </ul>
+
+          <nav class="nav-mobile-overlay">
+            <div class="nav-mobile-wrapper">
+              <div class="container">
+                <div class="nav-mobile">
+                  <div class="nav-mobile-header">
+                    <div class="btn-close menu"><i class="fa fa-times"></i></div>
+                  </div>
+                  <div class="nav-mobile-list">
+                    <a href="../index.html" class="mobile-menu-item">HOME</a>
+                    <a href="../ourfirm.html" class="mobile-menu-item" data-toggle="collapse" data-target="#menu1"
+                      aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                      <span id="theFirm">ABOUT</span>
+                      <button id="btn-tf" class="btn btn-plus" data-toggle="collapse" data-target="#menu1"
+                        aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                        <div id="fa-tf" class="top-icon hidden"><i class="fa fa-minus"></i></div>
+                      </button>
+                      <div class="collapse" id="menu1">
+                        <a class="dropdown-item" href="../ourfirm.html">THE FIRM</a>
+                        <a class="dropdown-item" href="../profile.html">PAUL DONOVAN</a>
+                        <a class="dropdown-item" href="../wendy.html">WENDY CARDENAS</a>
+                        <a class="dropdown-item" href="../leidy.html">LEIDY MEZA</a>
+                      </div>
+                    </a>
+                    <a href="../practice.html" class="mobile-menu-item" data-toggle="collapse" data-target="#menu2"
+                      aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                      <span id="thePractice">PRACTICE</span>
+                      <button id="btn-tp" class="btn btn-plus" data-toggle="collapse" data-target="#menu2"
+                        aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                        <div id="fa-tp" class="top-icon hidden"><i class="fa fa-minus"></i></div>
+                      </button>
+                      <div class="collapse" id="menu2">
+                        <a class="dropdown-item" href="../tax-planning.html">TAX PLANNING</a>
+                        <a class="dropdown-item" href="../tax-compliance.html">TAX COMPLIANCE</a>
+                        <a class="dropdown-item" href="../tax-controversy.html">TAX CONTROVERSY</a>
+                        <a class="dropdown-item" href="../real-estate.html">REAL ESTATE</a>
+                      </div>
+                    </a>
+                    <a href="../experience.html" class="mobile-menu-item">EXPERIENCE</a>
+                    <a href="../testimonials.html" class="mobile-menu-item">TESTIMONIALS</a>
+                    <a href="../blog.html" class="mobile-menu-item" data-toggle="collapse" data-target="#menu3"
+                      aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                      <span id="theResources">RESOURCES</span>
+                      <button id="btn-tr" class="btn btn-plus" data-toggle="collapse" data-target="#menu3"
+                        aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                        <div id="fa-tr" class="top-icon hidden"><i class="fa fa-minus"></i></div>
+                      </button>
+                      <div class="collapse" id="menu3">
+                        <a class="dropdown-item" href="../blog.html">BLOG</a>
+                        <a class="dropdown-item" href="../tools.html">TOOLS</a>
+                      </div>
+                    </a>
+                    <a href="../engagement.html" class="mobile-menu-item" data-toggle="collapse" data-target="#menu4"
+                      aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                      <span id="theMembers">MEMBERS</span>
+                      <button id="btn-tm" class="btn btn-plus" data-toggle="collapse" data-target="#menu4"
+                        aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                        <div id="fa-tm" class="top-icon hidden"><i class="fa fa-minus"></i></div>
+                      </button>
+                      <div class="collapse" id="menu4">
+                        <a class="dropdown-item" href="/gold/"><span class="brand-gold">GOLD</span></a>
+                        <a class="dropdown-item" href="/platinum/"><span class="brand-platinum">PLATINUM</span></a>
+                        <a class="dropdown-item" href="/reserve/"><span class="brand-reserve"><span class="re">RE</span>SERVE</span></a>
+                      </div>
+                    </a>
+                    <a href="../contact.html" class="mobile-menu-item">CONTACT</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </nav>
+      </div>
+
+      
+      <div class="box-practice keep-m">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <h1 class="title animate__animated animate__fadeIn animate__delay-1-5"><span class="g-light">&sect; 1031 LIKE-KIND</span> <span class="g-bold green">EXCHANGE CALCULATOR</span></h1>
+              <div class="tool-intro">
+                <p style="margin-bottom: 0.75rem;">
+                  Comprehensive model of a like-kind exchange of investment or business real property under Internal Revenue Code &sect;&nbsp;1031. The calculator computes realized gain, recognized gain (boot under &sect;&nbsp;1031(b)), deferred gain, substituted basis in the replacement property under &sect;&nbsp;1031(d), and continuing depreciation on the carryover basis. It models the three identification rules under Reg. &sect;&nbsp;1.1031(k)-1(c)(4) (3-property, 200%, 95%), enforces the 45-day identification and 180-day acquisition timelines under &sect;&nbsp;1031(a)(3), handles cash boot and net mortgage boot (debt relief), addresses partial recognition with depreciation recapture, and computes the deferred federal tax at the user's marginal rate. The tool also flags the &sect;&nbsp;121 + &sect;&nbsp;1031 combination available for properties converted from primary residence use, and addresses state non-conformity.
+                </p>
+                <p style="margin-bottom: 0;">
+                  <strong>This tool is informational only.</strong> The like-kind exchange rules are technical and fact-specific. The taxpayer must use a qualified intermediary, satisfy the timeline and identification requirements, avoid constructive receipt of exchange proceeds, and ensure the relinquished and replacement properties are both held for productive use in a trade or business or for investment. Reverse exchanges, improvement exchanges, drop-and-swap transactions, and tenancy-in-common structures all involve additional technical requirements not addressed here. Specific facts may produce a different result. Engage qualified counsel before structuring any like-kind exchange.
+                </p>
+              </div>
+
+
+              <!-- =====================================================
+                   TIER BANNER — rendered by JS at DOMContentLoaded
+                   ===================================================== -->
+              <div id="tier_banner_top"></div>
+
+              <!-- =====================================================
+                   MODE SELECTOR — choose the exchange structure
+                   ===================================================== -->
+              <div class="mode-selector-wrap">
+                <div class="mode-selector-label">EXCHANGE STRUCTURE</div>
+                <div class="mode-selector" id="mode_toggle">
+                  <button type="button" class="active" data-mode="forward">Forward Exchange</button>
+                  <button type="button" data-mode="reverse">Reverse <span class="mode-tier-tag">MEMBER</span></button>
+                  <button type="button" data-mode="drop-swap">Drop-and-Swap <span class="mode-tier-tag">MEMBER</span></button>
+                  <button type="button" data-mode="multi">Multi-Property <span class="mode-tier-tag">MEMBER</span></button>
+                </div>
+                <p class="mode-selector-help">Standard forward delayed exchange is the default and is available to all visitors. Reverse exchanges (parking under Rev. Proc. 2000-37), Drop-and-Swap (partnership-level &sect;&nbsp;1031 with both drop-then-swap and swap-then-drop variants), and Multi-Property (1&rarr;N / M&rarr;1 / M&rarr;N under Reg. &sect;&nbsp;1.1031(j)-1) are available to all members.</p>
+              </div>
+
+              <!-- =====================================================
+                   FORWARD EXCHANGE MODE PANEL
+                   ===================================================== -->
+              <div class="mode-panel" data-mode="forward">
+              <!-- =====================================================
+                   SECTION 1 — RELINQUISHED PROPERTY
+                   ===================================================== -->
+              <div class="calc-section">
+                <h3>1. Relinquished Property</h3>
+                <p class="calc-section-subtitle">Enter information about the property being given up in the exchange.</p>
+                <div class="calc-grid-2">
+                  <div class="form-group">
+                    <label for="fwd_rel_fmv">Fair Market Value (Contract Sale Price)</label>
+                    <div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="fwd_rel_fmv" placeholder="0"></div>
+                    <div class="field-help">Negotiated sale price under the exchange contract before deducting selling expenses.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="fwd_rel_sell_exp">Selling Expenses</label>
+                    <div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="fwd_rel_sell_exp" placeholder="0"></div>
+                    <div class="field-help">Brokerage commissions, transfer taxes, recording fees, and other closing costs charged to the seller. These reduce the amount realized.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="fwd_rel_basis">Adjusted Basis</label>
+                    <div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="fwd_rel_basis" placeholder="0"></div>
+                    <div class="field-help">Original cost less accumulated depreciation, plus capital improvements. This is the property's tax basis at the date of exchange.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="fwd_rel_accum_dep">Accumulated Depreciation</label>
+                    <div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="fwd_rel_accum_dep" placeholder="0"></div>
+                    <div class="field-help">Total depreciation taken through the date of exchange. Used to identify the &sect;&nbsp;1245 (cost segregation reclass) and &sect;&nbsp;1250 (real property) recapture exposure.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="fwd_rel_1245_dep">&sect;&nbsp;1245 Cost Seg / Bonus Portion (subset of accumulated depreciation)</label>
+                    <div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="fwd_rel_1245_dep" placeholder="0"></div>
+                    <div class="field-help">The portion of accumulated depreciation attributable to cost-segregated personal property and bonus depreciation under &sect;&nbsp;168(k). Recapture as ordinary income to the extent of boot under &sect;&nbsp;1245(b)(4).</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="fwd_rel_mortgage">Mortgage Balance at Exchange</label>
+                    <div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="fwd_rel_mortgage" placeholder="0"></div>
+                    <div class="field-help">Mortgage debt outstanding on the relinquished property at the date of transfer. Debt relief on the relinquished property is treated as boot under Reg. &sect;&nbsp;1.1031(b)-1(c).</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- =====================================================
+                   SECTION 2 — REPLACEMENT PROPERTY
+                   ===================================================== -->
+              <div class="calc-section">
+                <h3>2. Replacement Property</h3>
+                <p class="calc-section-subtitle">Enter information about the like-kind property being acquired. Real property held for investment or productive use in a trade or business is like-kind to other real property held for the same purpose under &sect;&nbsp;1031(a)(1) (as limited to real property by TCJA effective 2018).</p>
+                <div class="calc-grid-2">
+                  <div class="form-group">
+                    <label for="fwd_rep_fmv">Fair Market Value (Purchase Price)</label>
+                    <div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="fwd_rep_fmv" placeholder="0"></div>
+                    <div class="field-help">Contract purchase price of the replacement property. To fully defer gain, the replacement property's FMV must equal or exceed the net amount realized on the relinquished property.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="fwd_rep_mortgage">New Mortgage Balance</label>
+                    <div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="fwd_rep_mortgage" placeholder="0"></div>
+                    <div class="field-help">Debt assumed or taken in connection with the replacement property. To avoid net mortgage boot, this must equal or exceed the relinquished property's mortgage.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="fwd_cash_added">Cash Added by Taxpayer</label>
+                    <div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="fwd_cash_added" placeholder="0"></div>
+                    <div class="field-help">Out-of-pocket cash contributed by the taxpayer to acquire the replacement property. Cash paid offsets net mortgage boot (debt relief) on a dollar-for-dollar basis.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="fwd_cash_received">Cash Boot Received by Taxpayer</label>
+                    <div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="fwd_cash_received" placeholder="0"></div>
+                    <div class="field-help">Cash or non-like-kind property received by the taxpayer at or after the exchange. Cash boot triggers recognition under &sect;&nbsp;1031(b) to the extent of realized gain.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- =====================================================
+                   SECTION 3 — IDENTIFICATION RULES
+                   ===================================================== -->
+              <div class="calc-section">
+                <h3>3. Identification Rules (Reg. &sect;&nbsp;1.1031(k)-1(c)(4))</h3>
+                <p class="calc-section-subtitle">Within 45 days after the relinquished property transfer, the taxpayer must unambiguously identify in writing one or more replacement properties. Choose which rule the identification will satisfy.</p>
+                <div class="form-group">
+                  <label>Identification Rule</label>
+                  <div class="pill-toggle" data-role="id-rule-toggle" data-scope="fwd">
+                    <button type="button" class="active" data-rule="three">3-Property Rule</button>
+                    <button type="button" data-rule="200">200% Rule</button>
+                    <button type="button" data-rule="95">95% Rule</button>
+                  </div>
+                </div>
+                <div class="id-rules-grid">
+                  <div class="id-rule-card active" data-rule="three">
+                    <div class="id-rule-card-num">Rule (a)</div>
+                    <div class="id-rule-card-title">3-Property Rule</div>
+                    <div class="id-rule-card-body">Identify up to <strong>three</strong> replacement properties, without regard to their fair market values. Acquire one, two, or all three within the 180-day window. Most common rule.</div>
+                  </div>
+                  <div class="id-rule-card" data-rule="200">
+                    <div class="id-rule-card-num">Rule (b)</div>
+                    <div class="id-rule-card-title">200% Rule</div>
+                    <div class="id-rule-card-body">Identify <strong>any number</strong> of replacement properties, provided their <strong>aggregate FMV does not exceed 200%</strong> of the FMV of the relinquished property. Allows wider net for properties with uncertain availability.</div>
+                  </div>
+                  <div class="id-rule-card" data-rule="95">
+                    <div class="id-rule-card-num">Rule (c)</div>
+                    <div class="id-rule-card-title">95% Exception</div>
+                    <div class="id-rule-card-body">Identify <strong>any number</strong> of replacement properties, regardless of total value, provided the taxpayer ultimately acquires properties whose aggregate FMV equals at least <strong>95%</strong> of all identified properties. Rarely used because of the acquisition completeness requirement.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- =====================================================
+                   SECTION 4 — TIMELINE
+                   ===================================================== -->
+              <div class="calc-section">
+                <h3>4. Exchange Timeline (&sect;&nbsp;1031(a)(3))</h3>
+                <p class="calc-section-subtitle">The 45-day identification deadline and 180-day acquisition deadline run from the close of the relinquished property sale. Both are statutory and cannot be extended absent a federally declared disaster (Rev. Proc. 2018-58).</p>
+                <div class="calc-grid-2">
+                  <div class="form-group">
+                    <label for="fwd_close_date">Relinquished Property Closing Date</label>
+                    <input type="date" id="fwd_close_date">
+                    <div class="field-help">Date the relinquished property transfer closes. The 45-day and 180-day clocks start the day after.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="fwd_tax_year_due">Taxpayer's Tax Year Filing Deadline</label>
+                    <input type="date" id="fwd_tax_year_due">
+                    <div class="field-help">If the 180-day deadline falls after the tax return due date (including extensions), the acquisition deadline is accelerated to the return due date. Enter your normal April 15 (or extended October 15) deadline for the tax year of the exchange.</div>
+                  </div>
+                </div>
+                <div id="timeline_vis_container"></div>
+              </div>
+
+              <!-- =====================================================
+                   SECTION 5 — TAXPAYER PROFILE
+                   ===================================================== -->
+              <div class="calc-section">
+                <h3>5. Taxpayer Profile (for deferred tax computation)</h3>
+                <p class="calc-section-subtitle">Used to compute the dollar value of the deferred gain. The deferred tax is the federal tax that would have been owed on the recognized gain in a non-exchange disposition; this amount is preserved in the basis of the replacement property and comes due when the replacement is sold in a taxable disposition.</p>
+                <div class="calc-grid-2">
+                  <div class="form-group">
+                    <label for="fwd_marginal_rate">Marginal Federal Rate (Ordinary Income)</label>
+                    <div class="input-suffix"><input type="text" inputmode="decimal" class="dl-percent" id="fwd_marginal_rate" value="37"></div>
+                    <div class="field-help">Top marginal rate at which &sect;&nbsp;1245 recapture would be taxed if recognized. Default 37% (2026 top bracket).</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="fwd_ltcg_rate">Long-Term Capital Gains Rate</label>
+                    <div class="input-suffix"><input type="text" inputmode="decimal" class="dl-percent" id="fwd_ltcg_rate" value="20"></div>
+                    <div class="field-help">Rate on residual long-term capital gain (0%/15%/20% federal). Default 20% for high-income taxpayers.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="fwd_unrec_1250_rate">&sect;&nbsp;1250 Unrecaptured Gain Rate</label>
+                    <div class="input-suffix"><input type="text" inputmode="decimal" class="dl-percent" id="fwd_unrec_1250_rate" value="25"></div>
+                    <div class="field-help">Maximum rate on &sect;&nbsp;1250 unrecaptured depreciation gain. Statutorily capped at 25%.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="fwd_niit_rate">Net Investment Income Tax</label>
+                    <div class="input-suffix"><input type="text" inputmode="decimal" class="dl-percent" id="fwd_niit_rate" value="3.8"></div>
+                    <div class="field-help">&sect;&nbsp;1411 NIIT. Applies to investment income above threshold (AGI &gt; $200K single / $250K MFJ).</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="fwd_state_select">State of Residence</label>
+                    <select id="fwd_state_select" data-role="state-1031"></select>
+                    <div class="field-help">Determines state tax treatment. Most states conform to &sect;&nbsp;1031, but verify state non-conformity below.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="fwd_state_rate">State Marginal Tax Rate</label>
+                    <div class="input-suffix"><input type="text" inputmode="decimal" class="dl-percent" id="fwd_state_rate" value="5"></div>
+                    <div class="field-help">State income tax rate applicable to the gain. Used when state does not conform to &sect;&nbsp;1031.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- =====================================================
+                   SECTION 6 — § 121 + § 1031 COMBINATION
+                   ===================================================== -->
+              <div class="calc-section">
+                <h3>6. &sect;&nbsp;121 + &sect;&nbsp;1031 Combination (Optional)</h3>
+                <p class="calc-section-subtitle">If the relinquished property was used as the taxpayer's principal residence for at least 2 of the 5 years preceding sale, &sect;&nbsp;121(d)(10) permits applying the &sect;&nbsp;121 exclusion ($250K single / $500K MFJ) to the gain attributable to the residential use period, then exchanging the remainder under &sect;&nbsp;1031.</p>
+                <div class="calc-grid-2">
+                  <div class="form-group">
+                    <label for="fwd_use_121">Apply &sect;&nbsp;121 Exclusion?</label>
+                    <select id="fwd_use_121">
+                      <option value="no">No</option>
+                      <option value="yes">Yes &mdash; relinquished property was principal residence for 2 of 5 years</option>
+                    </select>
+                    <div class="field-help">The 5-year window ends on the sale date. Property must have been converted to rental use after the 2-year residency period for &sect;&nbsp;121(d)(10) to apply.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="fwd_filing_121">Filing Status for &sect;&nbsp;121</label>
+                    <select id="fwd_filing_121">
+                      <option value="single">Single ($250K exclusion)</option>
+                      <option value="mfj">Married Filing Jointly ($500K exclusion)</option>
+                    </select>
+                    <div class="field-help">Both spouses must have used the property as their principal residence for the MFJ exclusion.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- =====================================================
+                   SECTION 7 — DONOVAN LEGAL TAX STRATEGY
+                   ===================================================== -->
+              <div class="calc-section" style="border-left: 3px solid #107A4D; border-top: 1px solid #d4d4d0; border-right: 1px solid #d4d4d0; border-bottom: 1px solid #d4d4d0;">
+                <h3>7. Donovan Legal Tax Strategy</h3>
+                <p class="calc-section-subtitle">When enabled, applies the firm's proprietary methodology to the exchange analysis. The result is presented below alongside the standard calculation so you can see the additional benefit. The underlying technique is reserved to the firm's engagement and is not disclosed in this tool. The strategy has the greatest impact on &sect;&nbsp;121 + &sect;&nbsp;1031 combination transactions and on the treatment of the depreciation portion of the gain in the exchange.</p>
+                <div class="form-group" style="max-width: 400px;">
+                  <label for="fwd_apply_dlts">Apply Donovan Legal Tax Strategy</label>
+                  <select id="fwd_apply_dlts">
+                    <option value="no">No &mdash; standard calculation only</option>
+                    <option value="yes">Yes &mdash; show benefit with the firm's strategy</option>
+                  </select>
+                  <div class="field-help">Toggling on will re-run the calculation under the firm's methodology and display the comparison with the standard result.</div>
+                </div>
+              </div>
+
+              <!-- =====================================================
+                   SECTION 8 — MULTI-YEAR HOLDING-PERIOD PROJECTION (member input)
+                   ===================================================== -->
+              <div class="calc-section">
+                <h3>8. Multi-Year Holding-Period Projection (Optional)</h3>
+                <p class="calc-section-subtitle">Project depreciation on the replacement property under Reg. &sect;&nbsp;1.168(i)-6, separating the carryover basis (continuing on the relinquished property's remaining schedule) from the excess basis (new asset, full applicable life). Useful for visualizing the running deferred-tax exposure and the year-of-sale recapture if the replacement is later disposed of in a taxable sale.</p>
+                <div class="calc-grid-3">
+                  <div class="form-group">
+                    <label for="fwd_hold_years">Projected Hold Period (Years)</label>
+                    <input type="text" inputmode="decimal" id="fwd_hold_years" placeholder="0">
+                    <div class="field-help">Enter the number of years to project the replacement property's depreciation and deferred-tax exposure. Leave blank to skip.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="fwd_property_type">Property Type</label>
+                    <select id="fwd_property_type">
+                      <option value="residential">Residential (27.5-year)</option>
+                      <option value="commercial">Commercial (39-year)</option>
+                    </select>
+                    <div class="field-help">Determines the depreciable life for the excess basis under &sect;&nbsp;168.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="fwd_remaining_life">Carryover Basis Remaining Life (Years)</label>
+                    <input type="text" inputmode="decimal" id="fwd_remaining_life" placeholder="20">
+                    <div class="field-help">Years remaining on the relinquished property's original depreciation schedule, applied to the carryover portion of the new basis. Default 20 if residential or 30 if commercial.</div>
+                  </div>
+                </div>
+                <p class="member-only-note">This projection appears only in member analysis output.</p>
+              </div>
+              </div><!-- /mode-panel data-mode="forward" -->
+
+              <!-- =====================================================
+                   REVERSE EXCHANGE MODE PANEL
+                   ===================================================== -->
+              <div class="mode-panel" data-mode="reverse" style="display: none;">
+                <div data-reserve-only-content>
+                <div class="calc-section">
+                  <h3>R1. Parking Arrangement (Rev. Proc. 2000-37)</h3>
+                  <p class="calc-section-subtitle">Reverse exchanges park one of the two properties with an Exchange Accommodation Titleholder (EAT) during the exchange period. Two variants: the EAT parks the <em>replacement</em> property while the taxpayer finds a buyer for the relinquished (most common), or the EAT parks the <em>relinquished</em> while the taxpayer acquires the replacement directly.</p>
+                  <div class="calc-grid-2">
+                    <div class="form-group">
+                      <label for="rev_variant">Parking Variant</label>
+                      <select id="rev_variant">
+                        <option value="rep-park">Exchange Last &mdash; EAT parks replacement (most common)</option>
+                        <option value="rel-park">Exchange First &mdash; EAT parks relinquished</option>
+                      </select>
+                      <div class="field-help">Under "Exchange Last", the taxpayer acquires the replacement via the EAT first, then sells the relinquished within 180 days. Under "Exchange First", the taxpayer parks the relinquished with the EAT, takes the proceeds, and acquires the replacement immediately.</div>
+                    </div>
+                    <div class="form-group">
+                      <label for="rev_improvements">Improvement Exchange?</label>
+                      <select id="rev_improvements">
+                        <option value="no">No</option>
+                        <option value="yes">Yes &mdash; improvements constructed during parking</option>
+                      </select>
+                      <div class="field-help">If selected, the EAT holds title while improvements are constructed on the parked property. Improvements must be substantially complete by day 180 to count toward replacement value under Reg. &sect;&nbsp;1.1031(k)-1(e).</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="calc-section">
+                  <h3>R2. Relinquished Property</h3>
+                  <div class="calc-grid-2">
+                    <div class="form-group"><label for="rev_rel_fmv">Fair Market Value (Contract Sale Price)</label><div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="rev_rel_fmv" placeholder="0"></div></div>
+                    <div class="form-group"><label for="rev_rel_sell_exp">Ordinary Selling Expenses</label><div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="rev_rel_sell_exp" placeholder="0"></div><div class="field-help">Commissions, transfer taxes, recording fees. Excludes EAT/QI fees (entered separately below).</div></div>
+                    <div class="form-group"><label for="rev_rel_basis">Adjusted Basis</label><div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="rev_rel_basis" placeholder="0"></div></div>
+                    <div class="form-group"><label for="rev_rel_accum_dep">Accumulated Depreciation</label><div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="rev_rel_accum_dep" placeholder="0"></div></div>
+                    <div class="form-group"><label for="rev_rel_1245_dep">&sect;&nbsp;1245 Cost Seg / Bonus Portion</label><div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="rev_rel_1245_dep" placeholder="0"></div></div>
+                    <div class="form-group"><label for="rev_rel_mortgage">Mortgage Balance</label><div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="rev_rel_mortgage" placeholder="0"></div></div>
+                  </div>
+                </div>
+
+                <div class="calc-section">
+                  <h3>R3. Replacement Property</h3>
+                  <div class="calc-grid-2">
+                    <div class="form-group"><label for="rev_rep_fmv">Fair Market Value (Purchase Price at EAT Acquisition)</label><div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="rev_rep_fmv" placeholder="0"></div></div>
+                    <div class="form-group"><label for="rev_rep_mortgage">New Mortgage Balance</label><div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="rev_rep_mortgage" placeholder="0"></div></div>
+                    <div class="form-group"><label for="rev_cash_added">Cash Added by Taxpayer</label><div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="rev_cash_added" placeholder="0"></div></div>
+                    <div class="form-group"><label for="rev_cash_received">Cash Boot Received</label><div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="rev_cash_received" placeholder="0"></div></div>
+                    <div class="form-group"><label for="rev_improvement_cost">Improvement Cost (if Improvement Exchange)</label><div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="rev_improvement_cost" placeholder="0"></div><div class="field-help">Total construction cost of improvements built during parking. Adds to the replacement basis dollar-for-dollar.</div></div>
+                    <div class="form-group"><label for="rev_eat_fees">EAT / QI Fees and Parking Costs</label><div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="rev_eat_fees" placeholder="0"></div><div class="field-help">Accommodation fees, title-holding fees, parking-period property tax/insurance, EAT legal and entity-formation costs. Treated as additional transaction cost reducing amount realized. Typical range $7,500&ndash;$25,000.</div></div>
+                  </div>
+                </div>
+
+                <div class="calc-section">
+                  <h3>R4. Identification Rules (Reg. &sect;&nbsp;1.1031(k)-1(c)(4))</h3>
+                  <p class="calc-section-subtitle">Same three identification rules as forward exchanges. In a reverse exchange, the 45-day clock identifies the OTHER property (relinquished if EAT parks replacement; replacement if EAT parks relinquished).</p>
+                  <div class="form-group">
+                    <label>Identification Rule</label>
+                    <div class="pill-toggle" data-role="id-rule-toggle" data-scope="rev">
+                      <button type="button" class="active" data-rule="three">3-Property Rule</button>
+                      <button type="button" data-rule="200">200% Rule</button>
+                      <button type="button" data-rule="95">95% Rule</button>
+                    </div>
+                  </div>
+                  <div class="id-rules-grid">
+                    <div class="id-rule-card active" data-rule="three">
+                      <div class="id-rule-card-num">Rule (a)</div>
+                      <div class="id-rule-card-title">3-Property Rule</div>
+                      <div class="id-rule-card-body">Identify up to <strong>three</strong> properties. Most common.</div>
+                    </div>
+                    <div class="id-rule-card" data-rule="200">
+                      <div class="id-rule-card-num">Rule (b)</div>
+                      <div class="id-rule-card-title">200% Rule</div>
+                      <div class="id-rule-card-body">Identify any number with <strong>aggregate FMV &le; 200%</strong> of the other side's FMV.</div>
+                    </div>
+                    <div class="id-rule-card" data-rule="95">
+                      <div class="id-rule-card-num">Rule (c)</div>
+                      <div class="id-rule-card-title">95% Exception</div>
+                      <div class="id-rule-card-body">Identify any number; must acquire <strong>&ge; 95%</strong> of aggregate identified.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="calc-section">
+                  <h3>R5. QEAA Timeline (180-Day Cap)</h3>
+                  <p class="calc-section-subtitle">Under Rev. Proc. 2000-37, the entire exchange &mdash; the EAT's transfer of the parked property to the taxpayer (or to the buyer of the relinquished) &mdash; must occur within 180 days of the EAT's original acquisition. The 45-day identification clock runs from the same start date. Exceeding 180 days blows the safe harbor; the transaction may still be defensible under Bartell v. Comm'r, 147 T.C. No. 5 (2016), but engagement-level review is required.</p>
+                  <div class="calc-grid-2">
+                    <div class="form-group">
+                      <label for="rev_eat_acquire_date">EAT Acquisition Date</label>
+                      <input type="date" id="rev_eat_acquire_date">
+                      <div class="field-help">Date the EAT takes title to the parked property. 45-day and 180-day clocks both start the day after.</div>
+                    </div>
+                    <div class="form-group">
+                      <label for="rev_exchange_close_date">Actual / Projected Exchange Close Date</label>
+                      <input type="date" id="rev_exchange_close_date">
+                      <div class="field-help">Date the EAT transfers the parked property out (replacement to taxpayer, or relinquished to buyer). Must be within 180 days of EAT acquisition to preserve safe harbor.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="calc-section">
+                  <h3>R6. Taxpayer Profile</h3>
+                  <div class="calc-grid-2">
+                    <div class="form-group"><label for="rev_marginal_rate">Marginal Federal Rate (Ordinary Income)</label><div class="input-suffix"><input type="text" inputmode="decimal" class="dl-percent" id="rev_marginal_rate" value="37"></div></div>
+                    <div class="form-group"><label for="rev_ltcg_rate">Long-Term Capital Gains Rate</label><div class="input-suffix"><input type="text" inputmode="decimal" class="dl-percent" id="rev_ltcg_rate" value="20"></div></div>
+                    <div class="form-group"><label for="rev_unrec_1250_rate">&sect;&nbsp;1250 Unrecaptured Rate</label><div class="input-suffix"><input type="text" inputmode="decimal" class="dl-percent" id="rev_unrec_1250_rate" value="25"></div></div>
+                    <div class="form-group"><label for="rev_niit_rate">Net Investment Income Tax</label><div class="input-suffix"><input type="text" inputmode="decimal" class="dl-percent" id="rev_niit_rate" value="3.8"></div></div>
+                    <div class="form-group"><label for="rev_state_select">State of Residence</label><select id="rev_state_select" data-role="state-1031"></select></div>
+                    <div class="form-group"><label for="rev_state_rate">State Marginal Rate</label><div class="input-suffix"><input type="text" inputmode="decimal" class="dl-percent" id="rev_state_rate" value="5"></div></div>
+                  </div>
+                </div>
+
+                <div class="calc-section">
+                  <h3>R7. Multi-Year Holding-Period Projection (Optional)</h3>
+                  <div class="calc-grid-3">
+                    <div class="form-group"><label for="rev_hold_years">Projected Hold Period (Years)</label><input type="text" inputmode="decimal" id="rev_hold_years" placeholder="0"></div>
+                    <div class="form-group"><label for="rev_property_type">Property Type</label><select id="rev_property_type"><option value="commercial">Commercial (39-year)</option><option value="residential">Residential (27.5-year)</option></select><div class="field-help">Reverse exchanges are typically commercial. Default selected accordingly.</div></div>
+                    <div class="form-group"><label for="rev_remaining_life">Carryover Remaining Life</label><input type="text" inputmode="decimal" id="rev_remaining_life" placeholder="30"></div>
+                  </div>
+                </div>
+                </div><!-- /reserve-only-content -->
+              </div><!-- /mode-panel data-mode="reverse" -->
+
+              <!-- =====================================================
+                   DROP-AND-SWAP MODE PANEL (Phase 4 — Reserve)
+                   ===================================================== -->
+              <div class="mode-panel" data-mode="drop-swap" style="display: none;">
+
+                <div class="calc-section">
+                  <h3>DS1. Variant Selection</h3>
+                  <p class="calc-section-subtitle">Choose the timing variant. Drop-and-Swap distributes the property to the partners as TICs before the exchange; each partner then individually elects &sect;&nbsp;1031 or cashes out. Swap-and-Drop runs the exchange at the partnership level first, then distributes the replacement. Primary partnership-level authority differs: Mason v. Comm'r, T.C. Memo 1988-273 (drop-then-swap) vs. Magneson v. Comm'r, 81 T.C. 767 (1983), aff'd, 753 F.2d 1490 (9th Cir. 1985) (swap-then-drop).</p>
+                  <div class="form-group">
+                    <label for="ds_variant">Variant</label>
+                    <select id="ds_variant">
+                      <option value="drop-swap">Drop-and-Swap (distribute first, then exchange)</option>
+                      <option value="swap-drop">Swap-and-Drop (exchange first, then distribute)</option>
+                    </select>
+                    <div class="field-help">The choice drives the case-law analysis in the results. The compute mechanics are similar &mdash; pro-rata allocation to the partners with each partner's election respected &mdash; but the doctrinal posture differs.</div>
+                  </div>
+                </div>
+
+                <div class="calc-section">
+                  <h3>DS2. Partnership-Level Property Data</h3>
+                  <p class="calc-section-subtitle">Enter information about the partnership's relinquished property and the replacement property. These amounts will be allocated to the partners pro-rata by ownership percentage.</p>
+                  <div class="calc-grid-2">
+                    <div class="form-group">
+                      <label for="ds_property_fmv">Relinquished FMV (Contract Sale Price)</label>
+                      <div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="ds_property_fmv" placeholder="0"></div>
+                      <div class="field-help">Total partnership-level sale price of the relinquished property.</div>
+                    </div>
+                    <div class="form-group">
+                      <label for="ds_property_sell_exp">Selling Expenses</label>
+                      <div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="ds_property_sell_exp" placeholder="0"></div>
+                      <div class="field-help">Brokerage, transfer taxes, recording fees, and other closing costs.</div>
+                    </div>
+                    <div class="form-group">
+                      <label for="ds_property_inside_basis">Partnership's Inside Basis</label>
+                      <div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="ds_property_inside_basis" placeholder="0"></div>
+                      <div class="field-help">Partnership's adjusted basis in the relinquished property. Informational; partner-level outcomes use outside basis per &sect;&nbsp;732(b).</div>
+                    </div>
+                    <div class="form-group">
+                      <label for="ds_property_accum_dep">Accumulated Depreciation (Total)</label>
+                      <div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="ds_property_accum_dep" placeholder="0"></div>
+                      <div class="field-help">All depreciation taken on the property at the partnership level. Allocated pro-rata to partners for recapture stacking.</div>
+                    </div>
+                    <div class="form-group">
+                      <label for="ds_property_1245_dep">&sect;&nbsp;1245 Cost Seg / Bonus Portion</label>
+                      <div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="ds_property_1245_dep" placeholder="0"></div>
+                      <div class="field-help">Portion of accumulated depreciation attributable to &sect;&nbsp;1245 personal property (cost-segregated components, bonus depreciation). Recaptured at ordinary rates on cash-out partners.</div>
+                    </div>
+                    <div class="form-group">
+                      <label for="ds_property_mortgage">Mortgage on Relinquished</label>
+                      <div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="ds_property_mortgage" placeholder="0"></div>
+                      <div class="field-help">Outstanding mortgage at sale. Allocated pro-rata to partners.</div>
+                    </div>
+                    <div class="form-group">
+                      <label for="ds_property_state">Relinquished Property State</label>
+                      <select id="ds_property_state" data-role="state-1031"></select>
+                      <div class="field-help">California triggers FTB 3840 claw-back flagging in the doctrinal analysis below.</div>
+                    </div>
+                    <div class="form-group">
+                      <label for="ds_replacement_fmv">Replacement FMV (Purchase Price)</label>
+                      <div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="ds_replacement_fmv" placeholder="0"></div>
+                      <div class="field-help">Total partnership- or exchange-level purchase price of the replacement property.</div>
+                    </div>
+                    <div class="form-group">
+                      <label for="ds_replacement_mortgage">Replacement Mortgage</label>
+                      <div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="ds_replacement_mortgage" placeholder="0"></div>
+                      <div class="field-help">Outstanding mortgage on the replacement. Allocated pro-rata to partners for boot computation.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="calc-section">
+                  <h3>DS3. Deal-Level Cash Flows</h3>
+                  <p class="calc-section-subtitle">Cash flows are at the deal level and allocated pro-rata to electing partners. Cash-out partners realize their full allocated gain regardless of these amounts.</p>
+                  <div class="calc-grid-2">
+                    <div class="form-group">
+                      <label for="ds_cash_added">Cash Added at Deal Level</label>
+                      <div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="ds_cash_added" placeholder="0"></div>
+                      <div class="field-help">Cash contributed by the partnership (or electing partners collectively) to the exchange. Offsets mortgage boot.</div>
+                    </div>
+                    <div class="form-group">
+                      <label for="ds_cash_received">Cash Boot Received at Deal Level</label>
+                      <div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="ds_cash_received" placeholder="0"></div>
+                      <div class="field-help">Cash boot received from the QI at the deal level. Triggers recognition for electing partners on their allocated share.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="calc-section">
+                  <h3>DS4. Timing</h3>
+                  <p class="calc-section-subtitle">The gap between distribution and exchange drives the holding-period risk classification. There is no bright-line safe harbor &mdash; the cases turn on whether the property was "held for productive use" at the moment of exchange, not elapsed days.</p>
+                  <div class="calc-grid-2">
+                    <div class="form-group">
+                      <label for="ds_distribution_date">Distribution Date</label>
+                      <input type="date" id="ds_distribution_date">
+                      <div class="field-help">Date the partnership distributed the relinquished property (drop-and-swap) or the replacement property (swap-and-drop) to the partners as TICs.</div>
+                    </div>
+                    <div class="form-group">
+                      <label for="ds_exchange_date">Exchange Close Date</label>
+                      <input type="date" id="ds_exchange_date">
+                      <div class="field-help">Date the &sect;&nbsp;1031 closed at the level of the exchanging party (partners for drop-and-swap; partnership for swap-and-drop).</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="calc-section">
+                  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.85rem;">
+                    <h3 style="margin: 0;">DS5. Partners</h3>
+                    <button type="button" id="ds_add_partner" class="calc-btn-secondary" style="margin: 0; padding: 0.5rem 1rem; font-size: 0.85rem;">+ Add Partner</button>
+                  </div>
+                  <p class="calc-section-subtitle">Add one row per partner. Each partner's outside basis in their partnership interest determines their basis in the distributed TIC under &sect;&nbsp;732(b). Each partner can elect &sect;&nbsp;1031 (running their own per-partner exchange with their allocated portion) or cash out (recognizing their allocated realized gain immediately, stacked &sect;&nbsp;1245 &rarr; &sect;&nbsp;1250 &rarr; LTCG). Tax rates are per-partner because individual brackets, NIIT exposure, and state residency vary across the partner group.</p>
+                  <div id="ds_partner_list" class="multi-prop-list"></div>
+                </div>
+
+              </div>
+              <!-- /mode-panel data-mode="drop-swap" -->
+
+              <!-- =====================================================
+                   MULTI-PROPERTY MODE PANEL (placeholder for Phase 3)
+                   ===================================================== -->
+              <div class="mode-panel" data-mode="multi" style="display: none;">
+
+                <div class="calc-section">
+                  <h3>M1. Multi-Property Configuration</h3>
+                  <p class="calc-section-subtitle">Add one or more relinquished properties and one or more replacement properties using the "+ Add" buttons below. Configurations supported: 1&rarr;N (one relinquished, multiple replacement), M&rarr;1 (multiple relinquished, one replacement), M&rarr;N (multiple of each). Under Reg. &sect;&nbsp;1.1031(j)-1, properties of like-kind are grouped into a single exchange group; aggregate boot mechanics and FMV-ratio basis allocation are applied across the group.</p>
+                </div>
+
+                <div class="calc-section">
+                  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.85rem;">
+                    <h3 style="margin: 0;">M2. Relinquished Properties</h3>
+                    <button type="button" id="multi_add_rel" class="calc-btn-secondary" style="margin: 0; padding: 0.5rem 1rem; font-size: 0.85rem;">+ Add Relinquished Property</button>
+                  </div>
+                  <div id="multi_rel_list" class="multi-prop-list"></div>
+                </div>
+
+                <div class="calc-section">
+                  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.85rem;">
+                    <h3 style="margin: 0;">M3. Replacement Properties</h3>
+                    <button type="button" id="multi_add_rep" class="calc-btn-secondary" style="margin: 0; padding: 0.5rem 1rem; font-size: 0.85rem;">+ Add Replacement Property</button>
+                  </div>
+                  <div id="multi_rep_list" class="multi-prop-list"></div>
+                </div>
+
+                <div class="calc-section">
+                  <h3>M4. Aggregate Cash Flows</h3>
+                  <p class="calc-section-subtitle">Cash flows are computed at the aggregate level across the entire exchange group (not pairwise). Enter the total cash you contribute or receive across all properties combined.</p>
+                  <div class="calc-grid-2">
+                    <div class="form-group">
+                      <label for="multi_cash_added">Aggregate Cash Added by Taxpayer</label>
+                      <div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="multi_cash_added" placeholder="0"></div>
+                      <div class="field-help">Total cash you contribute across all replacement properties. Offsets aggregate mortgage boot dollar-for-dollar.</div>
+                    </div>
+                    <div class="form-group">
+                      <label for="multi_cash_received">Aggregate Cash Boot Received</label>
+                      <div class="input-prefix"><input type="text" inputmode="decimal" class="dl-currency" id="multi_cash_received" placeholder="0"></div>
+                      <div class="field-help">Total cash you receive from the QI across all properties. Recognized to the extent of aggregate gain.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="calc-section">
+                  <h3>M5. Identification Rule</h3>
+                  <p class="calc-section-subtitle">Identification rules apply at the AGGREGATE level in multi-property exchanges. The 3-property cap is global (across all identified replacements); the 200% rule looks at aggregate FMV of identified replacements vs. aggregate FMV of relinquished; the 95% exception requires acquiring at least 95% of aggregate identified FMV.</p>
+                  <div class="form-group">
+                    <div class="pill-toggle" data-role="id-rule-toggle" data-scope="multi">
+                      <button type="button" class="active" data-rule="three">3-Property Rule</button>
+                      <button type="button" data-rule="200">200% Rule</button>
+                      <button type="button" data-rule="95">95% Exception</button>
+                    </div>
+                  </div>
+                  <div class="id-rules-grid">
+                    <div class="id-rule-card active" data-rule="three">
+                      <div class="id-rule-card-num">Rule (a)</div>
+                      <div class="id-rule-card-title">3-Property Rule</div>
+                      <div class="id-rule-card-body">Identify up to <strong>three</strong> replacement properties globally. Most common; works if you have 3 or fewer replacements in mind.</div>
+                    </div>
+                    <div class="id-rule-card" data-rule="200">
+                      <div class="id-rule-card-num">Rule (b)</div>
+                      <div class="id-rule-card-title">200% Rule</div>
+                      <div class="id-rule-card-body">Identify any number of replacements with <strong>aggregate FMV &le; 200%</strong> of aggregate relinquished FMV. Useful when more than 3 candidates and total value within cap.</div>
+                    </div>
+                    <div class="id-rule-card" data-rule="95">
+                      <div class="id-rule-card-num">Rule (c)</div>
+                      <div class="id-rule-card-title">95% Exception</div>
+                      <div class="id-rule-card-body">Identify any number; must acquire <strong>&ge; 95%</strong> of aggregate identified FMV. Used when both 3-property and 200% are exceeded.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="calc-section">
+                  <h3>M6. Taxpayer Profile</h3>
+                  <div class="calc-grid-2">
+                    <div class="form-group"><label for="multi_marginal_rate">Marginal Federal Rate (Ordinary)</label><div class="input-suffix"><input type="text" inputmode="decimal" class="dl-percent" id="multi_marginal_rate" value="37"></div></div>
+                    <div class="form-group"><label for="multi_ltcg_rate">Long-Term Capital Gains Rate</label><div class="input-suffix"><input type="text" inputmode="decimal" class="dl-percent" id="multi_ltcg_rate" value="20"></div></div>
+                    <div class="form-group"><label for="multi_unrec_1250_rate">&sect; 1250 Unrecaptured Rate</label><div class="input-suffix"><input type="text" inputmode="decimal" class="dl-percent" id="multi_unrec_1250_rate" value="25"></div></div>
+                    <div class="form-group"><label for="multi_niit_rate">Net Investment Income Tax</label><div class="input-suffix"><input type="text" inputmode="decimal" class="dl-percent" id="multi_niit_rate" value="3.8"></div></div>
+                    <div class="form-group"><label for="multi_state_select">State of Residence</label><select id="multi_state_select" data-role="state-1031"></select></div>
+                    <div class="form-group"><label for="multi_state_rate">State Marginal Rate</label><div class="input-suffix"><input type="text" inputmode="decimal" class="dl-percent" id="multi_state_rate" value="5"></div></div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="calc-row" style="margin: 2rem 0; text-align: center;">
+                <button type="button" class="calc-btn" data-dvn-on="click" data-dvn-do="calculate1031()">Calculate Exchange</button>
+                <button type="button" class="calc-btn-secondary" data-dvn-on="click" data-dvn-do="reset1031()">Reset</button>
+              </div>
+
+              <!-- =====================================================
+                   RESULTS
+                   ===================================================== -->
+              <div class="results-panel" id="results">
+                <h3>Exchange Analysis Results</h3>
+                <div id="results_body"></div>
+              </div>
+
+              <!-- =====================================================
+                   STATE CONFORMITY
+                   ===================================================== -->
+              <div class="calc-section">
+                <h3>State Conformity to &sect;&nbsp;1031</h3>
+                <p class="calc-section-subtitle">Most states conform to the federal &sect;&nbsp;1031 like-kind exchange rules. The non-conformity below is general; verify state-specific rules at the time of the exchange.</p>
+                <div class="info-card">
+                  <strong>General conformity.</strong> All 41 states with an individual income tax generally conform to federal &sect;&nbsp;1031 for real property exchanges. <strong>California</strong> imposes a claw-back through the FTB Form 3840 annual reporting requirement: California-source gain from a 1031 exchange of California real property must be tracked indefinitely until ultimately recognized; failure to file produces immediate California gain recognition. <strong>Pennsylvania</strong> historically did not conform for personal income tax purposes (only for the Corporate Net Income Tax), but conformed for individuals beginning January 1, 2023. <strong>Oregon</strong> requires Form 24 reporting similar to California's FTB 3840. <strong>Massachusetts</strong> conforms but treats state-source gain similarly to California in some circumstances. The nine no-tax states (AK, FL, NV, NH, SD, TN, TX, WA, WY) produce no state-level deferral concern, but verify location of the relinquished property.
+                </div>
+              </div>
+
+              <!-- =====================================================
+                   ADVANCED STRUCTURES
+                   ===================================================== -->
+              <div class="calc-section">
+                <h3>Advanced &sect;&nbsp;1031 Structures &mdash; Reference</h3>
+                <p class="calc-section-subtitle">The calculator above models a standard forward exchange. The structures below are common variations; each involves additional technical requirements not modeled here.</p>
+
+                <h3 class="sub">Reverse Exchange (Rev. Proc. 2000-37)</h3>
+                <p style="font-size: 0.9rem; line-height: 1.65; margin-bottom: 1rem;">
+                  In a reverse exchange, the taxpayer acquires the replacement property <em>before</em> selling the relinquished property. The replacement property is "parked" with an Exchange Accommodation Titleholder (EAT) for up to 180 days, after which the relinquished property must close. Rev. Proc. 2000-37 provides a safe harbor for reverse exchanges; without the safe harbor, the IRS may attack the structure as a constructive receipt. Reverse exchanges are useful when the taxpayer cannot find a buyer for the relinquished property in the 180-day window after identifying the replacement.
+                </p>
+
+                <h3 class="sub">Improvement Exchange (Reg. &sect;&nbsp;1.1031(k)-1(e))</h3>
+                <p style="font-size: 0.9rem; line-height: 1.65; margin-bottom: 1rem;">
+                  In an improvement exchange (also called a construction exchange or build-to-suit exchange), the taxpayer uses exchange proceeds to fund improvements to the replacement property while it is held by the EAT. The improvements must be completed and the property delivered to the taxpayer within the 180-day window. The improvements increase the cost basis of the replacement property for &sect;&nbsp;1031 purposes only if completed within the deadline.
+                </p>
+
+                <h3 class="sub">Drop-and-Swap (Rev. Rul. 75-292)</h3>
+                <p style="font-size: 0.9rem; line-height: 1.65; margin-bottom: 1rem;">
+                  When real property is held in a partnership and individual partners want to either exchange or cash out, the partnership distributes tenancy-in-common (TIC) interests in the property to the partners pro rata before the exchange. Each partner then independently elects to exchange (under &sect;&nbsp;1031) or sell. Rev. Rul. 75-292 establishes that the partnership distribution alone does not preclude &sect;&nbsp;1031 treatment, but the IRS has long argued that the partner's "holding for investment" requirement is jeopardized when the distribution occurs in close proximity to the exchange. Holding the distributed TIC interest for at least one tax year before exchange is the conservative practice.
+                </p>
+
+                <h3 class="sub">Tenancy-in-Common as Replacement Property</h3>
+                <p style="font-size: 0.9rem; line-height: 1.65; margin-bottom: 1rem;">
+                  TIC interests in real property generally qualify as like-kind to other real property under &sect;&nbsp;1031, provided the TIC arrangement is structured as a co-ownership rather than as a partnership for federal tax purposes. Rev. Proc. 2002-22 sets forth 15 conditions the IRS will examine when issuing a private letter ruling on TIC treatment, including unanimous consent for major decisions, individual rights to sell or encumber, and absence of business activities beyond customary co-ownership.
+                </p>
+
+                <h3 class="sub">Delaware Statutory Trusts (DSTs)</h3>
+                <p style="font-size: 0.9rem; line-height: 1.65; margin-bottom: 0;">
+                  A Delaware Statutory Trust holding real property may be treated as a grantor trust under Rev. Rul. 2004-86, meaning the beneficial interest holders are treated as direct owners of the underlying real property for &sect;&nbsp;1031 purposes. DSTs are commonly used as replacement properties for investors seeking passive ownership of institutional-quality real estate while preserving 1031 deferral. The trust must satisfy seven prohibitions ("the seven deadly sins") set forth in Rev. Rul. 2004-86 to maintain grantor trust status.
+                </p>
+              </div>
+
+              <!-- =====================================================
+                   METHODOLOGY
+                   ===================================================== -->
+              <details class="methodology">
+                <summary>METHODOLOGY &mdash; How the Calculations Work</summary>
+                <div class="methodology-body">
+                  <h5>Realized Gain Computation</h5>
+                  <p>Realized gain under &sect;&nbsp;1001(a) = Amount Realized &minus; Adjusted Basis. Amount Realized = Relinquished FMV &minus; Selling Expenses &minus; Adjusted Basis. The Amount Realized includes the FMV of all consideration received: the FMV of the replacement property, cash, and any net liability relief. For a typical exchange, the Amount Realized is equivalent to the value of the relinquished property net of selling costs.</p>
+
+                  <h5>Boot Identification</h5>
+                  <p>Two forms of boot can trigger gain recognition under &sect;&nbsp;1031(b). <strong>Cash boot</strong> is cash or non-like-kind property received by the taxpayer (or paid out by the taxpayer to itself). <strong>Mortgage boot</strong> (net debt relief) arises when the relinquished mortgage exceeds the replacement mortgage. Under Reg. &sect;&nbsp;1.1031(b)-1(c), mortgage boot is offset by cash paid (but not by additional debt assumed beyond the relinquished mortgage). Recognized gain equals the lesser of (i) total boot received or (ii) realized gain.</p>
+
+                  <h5>Depreciation Recapture in Boot Recognition</h5>
+                  <p>When boot triggers partial gain recognition, the recognized portion is allocated first to depreciation recapture: &sect;&nbsp;1245 recapture (cost segregation reclass and bonus depreciation portion) is recognized as ordinary income to the extent of boot under &sect;&nbsp;1245(b)(4) and Reg. &sect;&nbsp;1.1245-4(d); &sect;&nbsp;1250 unrecaptured gain is recognized at the maximum 25% rate; residual gain is recognized at LTCG rates. The remaining recapture carries over into the replacement property's basis structure.</p>
+
+                  <h5>Substituted Basis under &sect;&nbsp;1031(d)</h5>
+                  <p>The replacement property's basis = Adjusted Basis of Relinquished + Boot Paid + Recognized Gain &minus; Boot Received. Equivalently: New Basis = FMV of Replacement &minus; Deferred Gain. The basis is then allocated between the building shell and personal property components for continuing depreciation purposes. Pre-existing depreciation recapture potential carries into the replacement property.</p>
+
+                  <h5>Continuing Depreciation on Replacement Property</h5>
+                  <p>Under Reg. &sect;&nbsp;1.168(i)-6, the replacement property's basis is split into two components: (i) the carryover basis (equal to the adjusted basis of the relinquished property at exchange) continues depreciating on the relinquished property's remaining depreciable life and method; and (ii) the excess basis (replacement basis above carryover, attributable to additional cash paid or debt assumed) is depreciated as a new asset over the full applicable life. The taxpayer may elect under Reg. &sect;&nbsp;1.168(i)-6(i) to treat the entire basis as a single new asset; this is generally less favorable for income tax planning.</p>
+
+                  <h5>The 45-Day Identification Deadline</h5>
+                  <p>Under &sect;&nbsp;1031(a)(3)(A), the taxpayer must identify replacement properties in writing within 45 days after the relinquished property transfer. Identification must be unambiguous, in a written document signed by the taxpayer, delivered to the qualified intermediary or other party to the exchange (not the seller of replacement property). The taxpayer may revoke or amend identifications within the 45-day window. After day 45, the identifications are locked.</p>
+
+                  <h5>The 180-Day Acquisition Deadline</h5>
+                  <p>Under &sect;&nbsp;1031(a)(3)(B), the replacement property must be acquired within the earlier of (i) 180 days after the relinquished property transfer, or (ii) the due date (including extensions) of the taxpayer's federal income tax return for the year in which the relinquished property was transferred. For an exchange closing late in the year, the 180-day window is often truncated by the tax filing deadline, requiring the taxpayer to file an extension to preserve the full 180 days. Federally declared disaster relief under Rev. Proc. 2018-58 may extend these deadlines.</p>
+
+                  <h5>Qualified Intermediary Requirement</h5>
+                  <p>Under Reg. &sect;&nbsp;1.1031(k)-1(g)(4), the taxpayer must use a qualified intermediary (QI) to hold the exchange proceeds during the period between sale of relinquished property and acquisition of replacement property. The QI is a person who is not the taxpayer, a related party, or a disqualified person. Constructive receipt of the proceeds by the taxpayer voids the exchange.</p>
+
+                  <h5>Deferred Tax Computation</h5>
+                  <p>The deferred federal tax shown in the results = (Federal tax that would have been owed on the recognized gain in a non-exchange sale) &minus; (Federal tax recognized in the exchange under &sect;&nbsp;1031(b) due to boot). This deferred amount is preserved as a reduction of the replacement property's basis and becomes due when the replacement is sold in a taxable disposition (or is permanently eliminated if held until death and stepped up under &sect;&nbsp;1014).</p>
+
+                  <h5>&sect;&nbsp;121 + &sect;&nbsp;1031 Interaction</h5>
+                  <p>Under &sect;&nbsp;121(d)(10), property converted from principal residence use to rental or investment use within the 5-year window preceding sale may qualify for the &sect;&nbsp;121 exclusion ($250K single / $500K MFJ) on the residential portion of the gain. The remaining gain may then be exchanged under &sect;&nbsp;1031. The interaction is fact-specific: the property must have been used as the taxpayer's principal residence for 2 of the 5 years preceding sale (&sect;&nbsp;121(a)) and held for investment or productive use in a trade or business at the time of exchange (&sect;&nbsp;1031(a)(1)). Both requirements must coexist with respect to the same property at different points in the 5-year window. Depreciation taken after May 6, 1997 is not excludable under &sect;&nbsp;121 (&sect;&nbsp;121(d)(6)) and is treated as &sect;&nbsp;1250 unrecaptured gain at sale.</p>
+
+                  <h5>Limitations of This Tool</h5>
+                  <p>The tool computes a federal-level analysis. It does not model: (i) state taxes other than the simplified marginal-rate computation; (ii) holding period considerations (the replacement property tacks the relinquished property's holding period under &sect;&nbsp;1223(1)); (iii) related-party rules under &sect;&nbsp;1031(f) which impose a two-year holding requirement; (iv) installment treatment of boot received in a deferred exchange; (v) partnership-level exchange issues, including the "drop-and-swap" partnership distribution timing; (vi) qualified intermediary mechanics, fees, and escrow arrangements; (vii) earnest money or option payments treated as cash boot; (viii) reverse exchange or improvement exchange parking arrangements. Consult qualified counsel for any of these scenarios.</p>
+                </div>
+              </details>
+
+              <!-- =====================================================
+                   CONTACT CTA
+                   ===================================================== -->
+              <div class="info-card" style="margin-top: 2rem;">
+                <strong>Considering a &sect;&nbsp;1031 exchange?</strong> Donovan Legal PLLC represents real estate investors on the structuring, qualified intermediary selection, identification strategy, replacement property due diligence, and post-exchange compliance for like-kind exchanges across the United States. To discuss your specific transaction, <a href="../contact.html" style="color: #107A4D; font-weight: 600;">contact the firm</a>.
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- JORDAN-LAUNCH-POLISH: click-to-call / email / social. Styles live in css/main.css. -->
+      <div class="dl-connect">
+        <a class="dl-connect-cta" href="tel:+15616666022"><svg class="dl-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.03-.24c1.12.37 2.33.57 3.56.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>Click Here To Call Donovan Legal</a>
+        <p class="dl-connect-direct">
+          <a href="tel:+15616666022">(561) 666-6022</a>
+          <span class="dl-connect-sep">|</span>
+          <a href="mailto:info@donovan.law">info@donovan.law</a>
+        </p>
+        <ul class="dl-social">
+          <li><a href="https://www.facebook.com/people/Donovan-Legal-PLLC/61590654057720/" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.324.103a8.16 8.16 0 0 1 1.021.215v3.324c-.153-.015-.33-.03-.582-.045a8.98 8.98 0 0 0-.594-.023c-.673 0-1.194.092-1.583.276a1.73 1.73 0 0 0-.786.732c-.179.303-.256.68-.256 1.155v1.821h3.86l-.334 1.847-.335 1.82h-3.191v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647z"/></svg></a></li>
+          <li><a href="https://www.tiktok.com/@donovan.legal" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on TikTok" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a></li>
+          <li><a href="https://www.instagram.com/donovan_legalpllc" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227a3.81 3.81 0 0 1-.899 1.382 3.744 3.744 0 0 1-1.38.896c-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421a3.716 3.716 0 0 1-1.379-.899 3.644 3.644 0 0 1-.9-1.38c-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.846-10.405a1.441 1.441 0 0 1-2.881 0 1.441 1.441 0 0 1 2.881 0z"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/company/donovan-legal-pllc/" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="copy-inside margin-practice">&copy; Donovan Legal PLLC. 2026. | <a class="disclaimer-link" href="../disclaimer.html">DISCLAIMER</a></div>
+    </div>
+  </div>
+  <script src="../js/vendor/modernizr-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/js/vendor/jquery-fallback.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <script src="../js/vendor/bootstrap.min.js"></script>
+  <script src="../js/plugins.js"></script>
+  <script src="../js/main.js"></script>
+
+<script src="../js/tool-1031-exchange.js"></script>
+
+
+
+  <!-- B3: dispatches data-dvn-on/-do, the CSP-safe replacement for inline on*= handlers. -->
+  <script src="/js/inline-actions.js" defer></script>
+  <!-- JORDAN-LAUNCH-POLISH: sticky click-to-call bar (mobile only, see css/main.css). -->
+  <div class="dl-callbar">
+    <a href="tel:+15616666022"><svg class="dl-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.03-.24c1.12.37 2.33.57 3.56.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>Click Here To Call Donovan Legal</a>
+  </div>
+</body>
+
+</html>

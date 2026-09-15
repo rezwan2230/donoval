@@ -1,0 +1,158 @@
+/* ── JORDAN-HEADER-UTILITY-BAR: the top utility bar ──────────────────────────
+   Injected on every page by functions/_lib/utility-bar-inject.js. Read that file
+   first — it carries the whole argument for the markup, the two link targets and
+   the placement. This file is only the presentation.
+
+   WHY THIS IS ITS OWN SHEET AND NOT A BLOCK IN css/main.css.
+   26 of the 141 pages that receive the bar do not load css/main.css: the four
+   tier areas (gold/platinum/diamond/reserve), the eight controversy-roadmap
+   posts, engagement-scoping and 404 are standalone documents with their own
+   <style> blocks and no site chrome. A rule in main.css would ship an unstyled
+   bar on all 26, and injecting main.css into them to compensate would repaint
+   documents that deliberately carry their own styling. Same shape as
+   css/perch-layer.css, which is injected for the same reason.
+
+   NOTHING HERE IS INLINE. The middleware issues a per-request nonce CSP; this
+   sheet is an external same-origin reference admitted by `style-src 'self'`, so
+   no nonce is involved and no CSP directive moves. The responsive behaviour is
+   media queries only — there is no companion script.
+
+   Brand, matching the footer block in css/main.css exactly: green #107a4d
+   (hover #0a5a37), cream #F5F5F0, Gotham with the site's Open Sans fallback. */
+
+.dl-ubar {
+  background: #F5F5F0;
+  border-bottom: 1px solid rgba(16, 122, 77, 0.18);
+  /* Static, not fixed. It pushes the page down instead of covering the navbar
+     (`nav.navbar.menubar` is position: relative; z-index: 100) and it is nowhere
+     near the bottom-fixed `.dl-callbar`, so it needs no z-index of its own. */
+  position: static;
+  width: 100%;
+}
+
+.dl-ubar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  /* 1170px is the width `.container` resolves to on this site at >=1200px, so the
+     bar's contents line up with the nav and the page body beneath it. */
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0.4rem 15px;
+  min-height: 44px;
+}
+
+/* ── social row ──────────────────────────────────────────────────────────────
+   Same four destinations as the footer `.dl-social` block, deliberately styled
+   smaller and flatter: the footer row is the destination, this is a utility
+   affordance and must not compete with the CTA next to it. */
+.dl-ubar-social-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+/* !important on `color`, for the same cascade reason the footer's `.dl-connect-cta`
+   needs it: the homepage-wide rule
+   `.home-section a:not(.btn):not(.dropdown-item):not(.nav-link):not(.mobile-menu-item)`
+   scores (0,5,1) and outranks this (0,1,0) selector. `body` carries
+   `.home-section` on every page, so without this the icons repaint. */
+.dl-ubar-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: #107a4d !important;
+  text-decoration: none;
+  transition: ease-in-out 150ms;
+}
+
+.dl-ubar-social:hover,
+.dl-ubar-social:focus {
+  background: #107a4d;
+  color: #FFFFFF !important;
+  text-decoration: none;
+}
+
+.dl-ubar-social svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  display: block;
+}
+
+/* ── primary CTA ─────────────────────────────────────────────────────────────
+   A pill in the footer CTA's green, sized down to fit a 44px-tall bar. Same
+   !important on `color` and for the same reason as `.dl-ubar-social` above. */
+.dl-ubar-cta {
+  display: inline-block;
+  background: #107a4d;
+  color: #FFFFFF !important;
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.5rem 1.4rem;
+  border-radius: 30px;
+  white-space: nowrap;
+  transition: background-color ease-in-out 150ms;
+}
+
+.dl-ubar-cta:hover,
+.dl-ubar-cta:focus {
+  background: #0a5a37;
+  color: #FFFFFF !important;
+  text-decoration: none;
+}
+
+/* A keyboard user must be able to see where they are. `outline-offset` alone does
+   nothing without an outline, so both are set. */
+.dl-ubar-cta:focus-visible,
+.dl-ubar-social:focus-visible {
+  outline: 2px solid #107a4d;
+  outline-offset: 2px;
+}
+
+/* ── responsive collapse ─────────────────────────────────────────────────────
+   Two steps, and neither one hides anything the page does not still offer:
+
+   <=767px  the row centres and tightens instead of spreading edge to edge. The
+            bar stays 40px tall, which is the height the sticky `.dl-callbar`
+            leaves alone entirely — that bar is fixed to the BOTTOM, so the two
+            never meet.
+   <=479px  the CTA label shortens to "Book". The anchor carries
+            aria-label="Book a Consultation", so the ACCESSIBLE name does not
+            shrink with the viewport — only the ink does. */
+@media (max-width: 767px) {
+  .dl-ubar-inner {
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.35rem 12px;
+    min-height: 40px;
+  }
+  .dl-ubar-social-list {
+    gap: 0.25rem;
+  }
+  .dl-ubar-social {
+    width: 26px;
+    height: 26px;
+  }
+  .dl-ubar-cta {
+    font-size: 0.68rem;
+    letter-spacing: 1.2px;
+    padding: 0.45rem 1.1rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .dl-ubar-cta-full {
+    display: none;
+  }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+  SARAH-CHROME-DIFF-R2 — the fixture every trap is a one-line mutation of.
+
+  This is a miniature of the shape 92 of the 143 site pages use: the site nav is
+  buried four levels deep (div.box > div.border-grey > div.container > nav.menubar)
+  and the page content is a LATER SIBLING of that div.container, with the .copy-inside
+  copyright line after it, the trailing vendor scripts at body level, and the
+  persistent .dl-callbar last. That shape is what `functions/_lib/perch-main.js`
+  reads to decide where <main id="perch-main"> opens and closes, so a mutation of
+  this file exercises the real decision, not a toy one.
+
+  Nothing here is served. It exists only so the traps in test/chrome-diff.test.mjs
+  can be shown to (a) break the middleware's plan and (b) be caught by the gate.
+-->
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tax Controversy — Donovan Legal PLLC</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="canonical" href="https://www.donovan.law/sample">
+</head>
+
+<body>
+  <div class="box">
+    <div class="border-grey">
+      <div class="container">
+        <nav class="navbar menubar padding-0 navbar-expand-lg d-flex align-items-center justify-content-between">
+          <a class="navbar-brand" href="index.html">Donovan Legal PLLC</a>
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="practice.html">Practice</a></li>
+            <li class="nav-item"><a class="nav-link" href="tools.html">Tools</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="content-block">
+        <h1>Tax Controversy</h1>
+        <p class="lead">We represent taxpayers before the IRS at every stage of a controversy.</p>
+        <div class="panel">
+          <h2>What we handle</h2>
+          <p>Audit defense, Appeals, collection alternatives, and litigation.</p>
+        </div>
+      </div>
+      <div class="copy-inside margin-practice">&copy; Donovan Legal PLLC. 2026. | <a class="disclaimer-link"
+          href="disclaimer.html">DISCLAIMER</a></div>
+    </div>
+  </div>
+  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="https://vantage.ticoai.net/perch.js" async data-deployment="donovan-intake"></script>
+  <script src="/js/donovan-widget.js" defer></script>
+  <div class="dl-callbar">
+    <a href="tel:+15616666022">Click Here To Call Donovan Legal</a>
+  </div>
+</body>
+
+</html>

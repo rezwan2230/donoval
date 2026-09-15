@@ -1,0 +1,828 @@
+{
+  "base": "https://jordan-perch-a21-overlay.donovan-site.pages.dev",
+  "startedAt": "2026-07-24T21:20:33.643Z",
+  "steps": [
+    {
+      "name": "Preview is serving this working tree",
+      "ok": true,
+      "detail": [
+        {
+          "asset": "/js/perch-layer.js",
+          "status": 200,
+          "matches": true
+        },
+        {
+          "asset": "/js/donovan-widget.js",
+          "status": 200,
+          "matches": true
+        },
+        {
+          "asset": "/js/perch/placement.js",
+          "status": 200,
+          "matches": true
+        },
+        {
+          "asset": "/css/perch-layer.css",
+          "status": 200,
+          "matches": true
+        }
+      ]
+    },
+    {
+      "name": "every public page: exactly one concierge, inside the layer, direct sibling of #perch-main, clickable",
+      "ok": true,
+      "detail": {
+        "pages": 103,
+        "ok": 103,
+        "problems": 0,
+        "skipPages": 3,
+        "hostFallbacks": 0,
+        "pagesWithNoConcierge": [
+          "/book",
+          "/engagement-scoping/"
+        ]
+      }
+    },
+    {
+      "name": "swap continuity — wrap-div (div.box nav) (/contact)",
+      "ok": true,
+      "detail": {
+        "instanceIdUnchanged": true,
+        "sameLayerNode": true,
+        "sameConciergeNode": true,
+        "sameLayerApi": true,
+        "layerStillConnected": true,
+        "conciergeStillConnected": true,
+        "conciergeStillInLayer": true,
+        "ticksAdvanced": true,
+        "uptimeAdvanced": true,
+        "audioClockAdvanced": true,
+        "audioStillRunning": true,
+        "stillOutsideContainer": true,
+        "stillDirectSibling": true,
+        "noFallbackNeeded": true,
+        "containerReResolves": true,
+        "audio": "0.451 → 1.880",
+        "ticks": "7 → 22"
+      }
+    },
+    {
+      "name": "swap continuity — wrap-body (header nav) (/blog-controversy-roadmap-0-overview)",
+      "ok": true,
+      "detail": {
+        "instanceIdUnchanged": true,
+        "sameLayerNode": true,
+        "sameConciergeNode": true,
+        "sameLayerApi": true,
+        "layerStillConnected": true,
+        "conciergeStillConnected": true,
+        "conciergeStillInLayer": true,
+        "ticksAdvanced": true,
+        "uptimeAdvanced": true,
+        "audioClockAdvanced": true,
+        "audioStillRunning": true,
+        "stillOutsideContainer": true,
+        "stillDirectSibling": true,
+        "noFallbackNeeded": true,
+        "containerReResolves": true,
+        "audio": "0.691 → 2.112",
+        "ticks": "7 → 21"
+      }
+    },
+    {
+      "name": "swap continuity — wrap-body (no site nav) (/blog-bramblett-phelan-two-entity-structure)",
+      "ok": true,
+      "detail": {
+        "instanceIdUnchanged": true,
+        "sameLayerNode": true,
+        "sameConciergeNode": true,
+        "sameLayerApi": true,
+        "layerStillConnected": true,
+        "conciergeStillConnected": true,
+        "conciergeStillInLayer": true,
+        "ticksAdvanced": true,
+        "uptimeAdvanced": true,
+        "audioClockAdvanced": true,
+        "audioStillRunning": true,
+        "stillOutsideContainer": true,
+        "stillDirectSibling": true,
+        "noFallbackNeeded": true,
+        "containerReResolves": true,
+        "audio": "0.691 → 2.120",
+        "ticks": "7 → 21"
+      }
+    },
+    {
+      "name": "swap continuity — wrap-div (booking page) (/book)",
+      "ok": true,
+      "detail": {
+        "instanceIdUnchanged": true,
+        "sameLayerNode": true,
+        "sameConciergeNode": true,
+        "sameLayerApi": true,
+        "layerStillConnected": true,
+        "conciergeStillConnected": true,
+        "conciergeStillInLayer": true,
+        "ticksAdvanced": true,
+        "uptimeAdvanced": true,
+        "audioClockAdvanced": true,
+        "audioStillRunning": true,
+        "stillOutsideContainer": true,
+        "stillDirectSibling": true,
+        "noFallbackNeeded": true,
+        "containerReResolves": true,
+        "audio": "0.680 → 2.091",
+        "ticks": "7 → 21"
+      }
+    },
+    {
+      "name": "swap continuity — wrap-div (tool page) (/tool-capital-gains)",
+      "ok": true,
+      "detail": {
+        "instanceIdUnchanged": true,
+        "sameLayerNode": true,
+        "sameConciergeNode": true,
+        "sameLayerApi": true,
+        "layerStillConnected": true,
+        "conciergeStillConnected": true,
+        "conciergeStillInLayer": true,
+        "ticksAdvanced": true,
+        "uptimeAdvanced": true,
+        "audioClockAdvanced": true,
+        "audioStillRunning": true,
+        "stillOutsideContainer": true,
+        "stillDirectSibling": true,
+        "noFallbackNeeded": true,
+        "containerReResolves": true,
+        "audio": "0.691 → 2.101",
+        "ticks": "7 → 21"
+      }
+    },
+    {
+      "name": "/ (the shell) — exactly one orb, no layer, iframed page mounts none",
+      "ok": true,
+      "detail": {
+        "orbCount": 1,
+        "hasLayer": false,
+        "hasContainer": false,
+        "iframeLayer": {
+          "hasLayer": false,
+          "orbCount": 0
+        }
+      }
+    },
+    {
+      "name": "no CSP violations",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "no uncaught page errors",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "no layer asset 404s",
+      "ok": true,
+      "detail": {
+        "layer404": [],
+        "otherNotFound": 0
+      }
+    }
+  ],
+  "sweep": {
+    "pages": 103,
+    "ok": 103,
+    "problems": []
+  },
+  "skips": [
+    {
+      "rel": "index.html",
+      "landedOn": "/perch",
+      "hasOrb": true,
+      "hasLayer": false
+    },
+    {
+      "rel": "nav-block.html",
+      "landedOn": "/nav-block",
+      "hasOrb": false,
+      "hasLayer": false
+    },
+    {
+      "rel": "perch.html",
+      "landedOn": "/perch",
+      "hasOrb": true,
+      "hasLayer": false
+    }
+  ],
+  "fallbacks": [],
+  "noConcierge": [
+    {
+      "rel": "book.html",
+      "landedOn": "/book"
+    },
+    {
+      "rel": "engagement-scoping/index.html",
+      "landedOn": "/engagement-scoping/"
+    }
+  ],
+  "deep": [
+    {
+      "label": "wrap-div (div.box nav)",
+      "path": "/contact",
+      "url": "https://jordan-perch-a21-overlay.donovan-site.pages.dev/contact",
+      "armed": {
+        "ok": true
+      },
+      "before": {
+        "instanceId": "perch-fxd5ktpe",
+        "ticks": 7,
+        "uptimeMs": 794.0999999940395,
+        "hostFallback": false,
+        "callLive": null,
+        "callUptimeMs": null,
+        "concierge": {
+          "kind": "widget",
+          "count": 1,
+          "allInLayer": true,
+          "insideContainer": false
+        },
+        "resources": {
+          "verifier-audio": {
+            "clock": 0.45066666666666666,
+            "state": "running"
+          }
+        },
+        "placement": {
+          "hasContainer": true,
+          "hasLayer": true,
+          "hasOrb": false,
+          "layerInsideContainer": false,
+          "orbInsideContainer": false,
+          "isDirectSibling": true,
+          "orbInsideLayer": false,
+          "layerParent": "div",
+          "containerParent": "div",
+          "ok": true
+        }
+      },
+      "innerHTMLSwap": {
+        "containerText": "A21 swapped contentthe container was rep"
+      },
+      "replaceWithSwap": {
+        "containerText": "A21 element-level swap"
+      },
+      "after": {
+        "probe": {
+          "instanceId": "perch-fxd5ktpe",
+          "ticks": 22,
+          "uptimeMs": 2216.199999988079,
+          "hostFallback": false,
+          "callLive": null,
+          "callUptimeMs": null,
+          "concierge": {
+            "kind": "widget",
+            "count": 1,
+            "allInLayer": true,
+            "insideContainer": false
+          },
+          "resources": {
+            "verifier-audio": {
+              "clock": 1.88,
+              "state": "running"
+            }
+          },
+          "placement": {
+            "hasContainer": true,
+            "hasLayer": true,
+            "hasOrb": false,
+            "layerInsideContainer": false,
+            "orbInsideContainer": false,
+            "isDirectSibling": true,
+            "orbInsideLayer": false,
+            "layerParent": "div",
+            "containerParent": "div",
+            "ok": true
+          }
+        },
+        "identity": {
+          "sameLayerNode": true,
+          "sameConciergeNode": true,
+          "sameLayerApi": true,
+          "layerStillConnected": true,
+          "conciergeStillConnected": true,
+          "conciergeStillInLayer": true
+        },
+        "containerReResolves": true
+      },
+      "checks": {
+        "instanceIdUnchanged": true,
+        "sameLayerNode": true,
+        "sameConciergeNode": true,
+        "sameLayerApi": true,
+        "layerStillConnected": true,
+        "conciergeStillConnected": true,
+        "conciergeStillInLayer": true,
+        "ticksAdvanced": true,
+        "uptimeAdvanced": true,
+        "audioClockAdvanced": true,
+        "audioStillRunning": true,
+        "stillOutsideContainer": true,
+        "stillDirectSibling": true,
+        "noFallbackNeeded": true,
+        "containerReResolves": true
+      },
+      "ok": true
+    },
+    {
+      "label": "wrap-body (header nav)",
+      "path": "/blog-controversy-roadmap-0-overview",
+      "url": "https://jordan-perch-a21-overlay.donovan-site.pages.dev/blog-controversy-roadmap-0-overview",
+      "armed": {
+        "ok": true
+      },
+      "before": {
+        "instanceId": "perch-tuc2e1d8",
+        "ticks": 7,
+        "uptimeMs": 736.7999999821186,
+        "hostFallback": false,
+        "callLive": null,
+        "callUptimeMs": null,
+        "concierge": {
+          "kind": "widget",
+          "count": 1,
+          "allInLayer": true,
+          "insideContainer": false
+        },
+        "resources": {
+          "verifier-audio": {
+            "clock": 0.6906666666666667,
+            "state": "running"
+          }
+        },
+        "placement": {
+          "hasContainer": true,
+          "hasLayer": true,
+          "hasOrb": false,
+          "layerInsideContainer": false,
+          "orbInsideContainer": false,
+          "isDirectSibling": true,
+          "orbInsideLayer": false,
+          "layerParent": "body",
+          "containerParent": "body",
+          "ok": true
+        }
+      },
+      "innerHTMLSwap": {
+        "containerText": "A21 swapped contentthe container was rep"
+      },
+      "replaceWithSwap": {
+        "containerText": "A21 element-level swap"
+      },
+      "after": {
+        "probe": {
+          "instanceId": "perch-tuc2e1d8",
+          "ticks": 21,
+          "uptimeMs": 2160.699999988079,
+          "hostFallback": false,
+          "callLive": null,
+          "callUptimeMs": null,
+          "concierge": {
+            "kind": "widget",
+            "count": 1,
+            "allInLayer": true,
+            "insideContainer": false
+          },
+          "resources": {
+            "verifier-audio": {
+              "clock": 2.112,
+              "state": "running"
+            }
+          },
+          "placement": {
+            "hasContainer": true,
+            "hasLayer": true,
+            "hasOrb": false,
+            "layerInsideContainer": false,
+            "orbInsideContainer": false,
+            "isDirectSibling": true,
+            "orbInsideLayer": false,
+            "layerParent": "body",
+            "containerParent": "body",
+            "ok": true
+          }
+        },
+        "identity": {
+          "sameLayerNode": true,
+          "sameConciergeNode": true,
+          "sameLayerApi": true,
+          "layerStillConnected": true,
+          "conciergeStillConnected": true,
+          "conciergeStillInLayer": true
+        },
+        "containerReResolves": true
+      },
+      "checks": {
+        "instanceIdUnchanged": true,
+        "sameLayerNode": true,
+        "sameConciergeNode": true,
+        "sameLayerApi": true,
+        "layerStillConnected": true,
+        "conciergeStillConnected": true,
+        "conciergeStillInLayer": true,
+        "ticksAdvanced": true,
+        "uptimeAdvanced": true,
+        "audioClockAdvanced": true,
+        "audioStillRunning": true,
+        "stillOutsideContainer": true,
+        "stillDirectSibling": true,
+        "noFallbackNeeded": true,
+        "containerReResolves": true
+      },
+      "ok": true
+    },
+    {
+      "label": "wrap-body (no site nav)",
+      "path": "/blog-bramblett-phelan-two-entity-structure",
+      "url": "https://jordan-perch-a21-overlay.donovan-site.pages.dev/blog-bramblett-phelan-two-entity-structure",
+      "armed": {
+        "ok": true
+      },
+      "before": {
+        "instanceId": "perch-aog87ynb",
+        "ticks": 7,
+        "uptimeMs": 739.9000000059605,
+        "hostFallback": false,
+        "callLive": null,
+        "callUptimeMs": null,
+        "concierge": {
+          "kind": "widget",
+          "count": 1,
+          "allInLayer": true,
+          "insideContainer": false
+        },
+        "resources": {
+          "verifier-audio": {
+            "clock": 0.6906666666666667,
+            "state": "running"
+          }
+        },
+        "placement": {
+          "hasContainer": true,
+          "hasLayer": true,
+          "hasOrb": false,
+          "layerInsideContainer": false,
+          "orbInsideContainer": false,
+          "isDirectSibling": true,
+          "orbInsideLayer": false,
+          "layerParent": "body",
+          "containerParent": "body",
+          "ok": true
+        }
+      },
+      "innerHTMLSwap": {
+        "containerText": "A21 swapped contentthe container was rep"
+      },
+      "replaceWithSwap": {
+        "containerText": "A21 element-level swap"
+      },
+      "after": {
+        "probe": {
+          "instanceId": "perch-aog87ynb",
+          "ticks": 21,
+          "uptimeMs": 2174.2000000178814,
+          "hostFallback": false,
+          "callLive": null,
+          "callUptimeMs": null,
+          "concierge": {
+            "kind": "widget",
+            "count": 1,
+            "allInLayer": true,
+            "insideContainer": false
+          },
+          "resources": {
+            "verifier-audio": {
+              "clock": 2.12,
+              "state": "running"
+            }
+          },
+          "placement": {
+            "hasContainer": true,
+            "hasLayer": true,
+            "hasOrb": false,
+            "layerInsideContainer": false,
+            "orbInsideContainer": false,
+            "isDirectSibling": true,
+            "orbInsideLayer": false,
+            "layerParent": "body",
+            "containerParent": "body",
+            "ok": true
+          }
+        },
+        "identity": {
+          "sameLayerNode": true,
+          "sameConciergeNode": true,
+          "sameLayerApi": true,
+          "layerStillConnected": true,
+          "conciergeStillConnected": true,
+          "conciergeStillInLayer": true
+        },
+        "containerReResolves": true
+      },
+      "checks": {
+        "instanceIdUnchanged": true,
+        "sameLayerNode": true,
+        "sameConciergeNode": true,
+        "sameLayerApi": true,
+        "layerStillConnected": true,
+        "conciergeStillConnected": true,
+        "conciergeStillInLayer": true,
+        "ticksAdvanced": true,
+        "uptimeAdvanced": true,
+        "audioClockAdvanced": true,
+        "audioStillRunning": true,
+        "stillOutsideContainer": true,
+        "stillDirectSibling": true,
+        "noFallbackNeeded": true,
+        "containerReResolves": true
+      },
+      "ok": true
+    },
+    {
+      "label": "wrap-div (booking page)",
+      "path": "/book",
+      "url": "https://jordan-perch-a21-overlay.donovan-site.pages.dev/book",
+      "armed": {
+        "ok": true
+      },
+      "before": {
+        "instanceId": "perch-ivwyu9td",
+        "ticks": 7,
+        "uptimeMs": 741.2000000178814,
+        "hostFallback": false,
+        "callLive": null,
+        "callUptimeMs": null,
+        "concierge": {
+          "kind": "none",
+          "count": 0,
+          "allInLayer": false,
+          "insideContainer": false
+        },
+        "resources": {
+          "verifier-audio": {
+            "clock": 0.68,
+            "state": "running"
+          }
+        },
+        "placement": {
+          "hasContainer": true,
+          "hasLayer": true,
+          "hasOrb": false,
+          "layerInsideContainer": false,
+          "orbInsideContainer": false,
+          "isDirectSibling": true,
+          "orbInsideLayer": false,
+          "layerParent": "div",
+          "containerParent": "div",
+          "ok": true
+        }
+      },
+      "innerHTMLSwap": {
+        "containerText": "A21 swapped contentthe container was rep"
+      },
+      "replaceWithSwap": {
+        "containerText": "A21 element-level swap"
+      },
+      "after": {
+        "probe": {
+          "instanceId": "perch-ivwyu9td",
+          "ticks": 21,
+          "uptimeMs": 2152.4000000059605,
+          "hostFallback": false,
+          "callLive": null,
+          "callUptimeMs": null,
+          "concierge": {
+            "kind": "none",
+            "count": 0,
+            "allInLayer": false,
+            "insideContainer": false
+          },
+          "resources": {
+            "verifier-audio": {
+              "clock": 2.0906666666666665,
+              "state": "running"
+            }
+          },
+          "placement": {
+            "hasContainer": true,
+            "hasLayer": true,
+            "hasOrb": false,
+            "layerInsideContainer": false,
+            "orbInsideContainer": false,
+            "isDirectSibling": true,
+            "orbInsideLayer": false,
+            "layerParent": "div",
+            "containerParent": "div",
+            "ok": true
+          }
+        },
+        "identity": {
+          "sameLayerNode": true,
+          "sameConciergeNode": false,
+          "sameLayerApi": true,
+          "layerStillConnected": true,
+          "conciergeStillConnected": false,
+          "conciergeStillInLayer": false
+        },
+        "containerReResolves": true
+      },
+      "checks": {
+        "instanceIdUnchanged": true,
+        "sameLayerNode": true,
+        "sameConciergeNode": true,
+        "sameLayerApi": true,
+        "layerStillConnected": true,
+        "conciergeStillConnected": true,
+        "conciergeStillInLayer": true,
+        "ticksAdvanced": true,
+        "uptimeAdvanced": true,
+        "audioClockAdvanced": true,
+        "audioStillRunning": true,
+        "stillOutsideContainer": true,
+        "stillDirectSibling": true,
+        "noFallbackNeeded": true,
+        "containerReResolves": true
+      },
+      "ok": true
+    },
+    {
+      "label": "wrap-div (tool page)",
+      "path": "/tool-capital-gains",
+      "url": "https://jordan-perch-a21-overlay.donovan-site.pages.dev/tool-capital-gains",
+      "armed": {
+        "ok": true
+      },
+      "before": {
+        "instanceId": "perch-jrswhrj6",
+        "ticks": 7,
+        "uptimeMs": 738.9000000059605,
+        "hostFallback": false,
+        "callLive": null,
+        "callUptimeMs": null,
+        "concierge": {
+          "kind": "widget",
+          "count": 1,
+          "allInLayer": true,
+          "insideContainer": false
+        },
+        "resources": {
+          "verifier-audio": {
+            "clock": 0.6906666666666667,
+            "state": "running"
+          }
+        },
+        "placement": {
+          "hasContainer": true,
+          "hasLayer": true,
+          "hasOrb": false,
+          "layerInsideContainer": false,
+          "orbInsideContainer": false,
+          "isDirectSibling": true,
+          "orbInsideLayer": false,
+          "layerParent": "div",
+          "containerParent": "div",
+          "ok": true
+        }
+      },
+      "innerHTMLSwap": {
+        "containerText": "A21 swapped contentthe container was rep"
+      },
+      "replaceWithSwap": {
+        "containerText": "A21 element-level swap"
+      },
+      "after": {
+        "probe": {
+          "instanceId": "perch-jrswhrj6",
+          "ticks": 21,
+          "uptimeMs": 2149,
+          "hostFallback": false,
+          "callLive": null,
+          "callUptimeMs": null,
+          "concierge": {
+            "kind": "widget",
+            "count": 1,
+            "allInLayer": true,
+            "insideContainer": false
+          },
+          "resources": {
+            "verifier-audio": {
+              "clock": 2.1013333333333333,
+              "state": "running"
+            }
+          },
+          "placement": {
+            "hasContainer": true,
+            "hasLayer": true,
+            "hasOrb": false,
+            "layerInsideContainer": false,
+            "orbInsideContainer": false,
+            "isDirectSibling": true,
+            "orbInsideLayer": false,
+            "layerParent": "div",
+            "containerParent": "div",
+            "ok": true
+          }
+        },
+        "identity": {
+          "sameLayerNode": true,
+          "sameConciergeNode": true,
+          "sameLayerApi": true,
+          "layerStillConnected": true,
+          "conciergeStillConnected": true,
+          "conciergeStillInLayer": true
+        },
+        "containerReResolves": true
+      },
+      "checks": {
+        "instanceIdUnchanged": true,
+        "sameLayerNode": true,
+        "sameConciergeNode": true,
+        "sameLayerApi": true,
+        "layerStillConnected": true,
+        "conciergeStillConnected": true,
+        "conciergeStillInLayer": true,
+        "ticksAdvanced": true,
+        "uptimeAdvanced": true,
+        "audioClockAdvanced": true,
+        "audioStillRunning": true,
+        "stillOutsideContainer": true,
+        "stillDirectSibling": true,
+        "noFallbackNeeded": true,
+        "containerReResolves": true
+      },
+      "ok": true
+    }
+  ],
+  "console": [
+    "error: Error: <svg> attribute height: Expected length, \"auto\".",
+    "error: Error: <svg> attribute height: Expected length, \"auto\".",
+    "error: Error: <svg> attribute height: Expected length, \"auto\".",
+    "error: Error: <svg> attribute height: Expected length, \"auto\".",
+    "error: Error: <svg> attribute height: Expected length, \"auto\".",
+    "error: Error: <svg> attribute height: Expected length, \"auto\".",
+    "error: Error: <svg> attribute height: Expected length, \"auto\".",
+    "error: Error: <svg> attribute height: Expected length, \"auto\".",
+    "log: [Donovan formatter] attached 34 currency + 15 percent inputs",
+    "log: [Donovan formatter] attached 2 currency + 0 percent inputs",
+    "log: [Donovan formatter] attached 2 currency + 5 percent inputs",
+    "log: [Donovan formatter] attached 1 currency + 1 percent inputs",
+    "log: [Donovan formatter] attached 4 currency + 0 percent inputs",
+    "error: Error: <svg> attribute height: Expected length, \"auto\".",
+    "log: [Donovan formatter] attached 2 currency + 0 percent inputs"
+  ],
+  "cspViolations": [],
+  "pageErrors": [],
+  "notFound": [],
+  "verdict": {
+    "sweepClean": true,
+    "sweepPages": 103,
+    "deepAllOk": true,
+    "shellUnchanged": true,
+    "cspClean": true,
+    "pageErrorsClean": true,
+    "layerAssetsResolve": true,
+    "PASS": true
+  },
+  "preflight": [
+    {
+      "asset": "/js/perch-layer.js",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "asset": "/js/donovan-widget.js",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "asset": "/js/perch/placement.js",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "asset": "/css/perch-layer.css",
+      "status": 200,
+      "matches": true
+    }
+  ],
+  "shell": {
+    "orbCount": 1,
+    "hasLayer": false,
+    "hasContainer": false,
+    "iframeLayer": {
+      "hasLayer": false,
+      "orbCount": 0
+    }
+  },
+  "finishedAt": "2026-07-24T21:21:13.446Z"
+}

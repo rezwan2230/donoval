@@ -1,0 +1,77 @@
+# CI — Donovan Law Site  (Cloudflare Pages app in donovan-legal-site/)
+#
+# WHY THIS CHANGED — 2026-07-20 (Zane, authored for David to commit):
+#   The old pipeline ran `docker build .` on the legacy nginx site in src/ and
+#   never touched the shipped Cloudflare Pages app. This runs the committed test
+#   suite instead.
+#
+#   Layout note (corrected after the R3 gate): package.json, package-lock.json
+#   and test/ live at the REPO ROOT — the site itself is under donovan-legal-site/,
+#   but the test harness is root-level. So CI runs from root, NOT from the site dir.
+#   `npm test` = `node --test test/**/*.test.mjs` (93 tests, includes the CSP /
+#   _middleware.js invariant in repo-invariants.test.mjs). There is no Playwright /
+#   test:e2e script in the tree, so this does not invent one.
+#
+#   CodeQL runs in its own workflow and is unaffected.
+
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: ['**']
+
+# Least privilege: this pipeline only reads the repo.
+permissions:
+  contents: read
+
+jobs:
+  # Job id MUST stay `build-and-test` — it is the required status-check name in
+  # branch protection for `main`. Renaming it strands that check as "Expected"
+  # and blocks every PR.
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Full history, NOT the default shallow single-commit checkout.
+          # test/chrome-diff.test.mjs compares every changed page against the page as
+          # it was before the change, and reconstructs that "before" with `git show`
+          # at the merge base. A depth-1 checkout has no merge base and no
+          # `origin/main` to find, so the gate cannot see what changed. It is written
+          # to FAIL in that situation rather than report a clean result it never
+          # checked — so without this line every pull request goes red. (SARAH-CHROME-DIFF-R2.)
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          # Node 22, NOT 20: `npm test` is `node --test "test/**/*.test.mjs"`, and
+          # node only expands that glob on v21+. On v20 it dies on a literal path
+          # and the 93 tests (incl. the CSP invariant) never run. (Dr. Insane R4/C1.)
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Test (unit + tier-auth + consent gate + CSP invariant)
+        run: npm test
+
+      # ADAM-TEST-SCOPE-R1 — repo hygiene and meta assertions (hygiene/), run
+      # HERE and ONLY here.
+      #
+      # These compare repo files against each other: the YAML recorded in
+      # docs/deploy-drift-workflow.md against .github/workflows/deploy-drift.yml,
+      # and the wiring of these two lanes. They say nothing about what the
+      # deployed site does.
+      #
+      # deploy-pages.yml must NEVER gain this step. Its `production` job declares
+      # `needs: [test, guard]`, so anything in that workflow's test job is a
+      # precondition for deploying the live site — and a documentation mismatch
+      # is not a reason to hold a deploy. Running it here gates pull requests,
+      # which is the right place: the fix is a doc edit in the same PR.
+      # hygiene/deploy-drift-record.test.mjs asserts both halves of that split
+      # and reds if the step ever lands in the deploy workflow.
+      - name: Hygiene (docs/workflow records, lane wiring)
+        run: npm run test:hygiene

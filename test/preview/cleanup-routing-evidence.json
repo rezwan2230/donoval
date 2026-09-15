@@ -1,0 +1,491 @@
+{
+  "order": "SHELDON-PERCH-CLEANUP-ROUTING-KEYS",
+  "base": "https://d664583c.donovan-site.pages.dev",
+  "startedAt": "2026-07-26T13:17:51.803Z",
+  "steps": [
+    {
+      "name": "§A1 the Preview homepage is a PAGE, not a redirect",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "location": null,
+        "cacheControl": "no-store"
+      }
+    },
+    {
+      "name": "§A1 …and it is the real indexable homepage, not the noindex shell",
+      "ok": true,
+      "detail": {
+        "noindex": false,
+        "bytes": 45169
+      }
+    },
+    {
+      "name": "§A1 …and it is no-store, so no cache entry exists at `/` at all",
+      "ok": true,
+      "detail": {
+        "cacheControl": "no-store"
+      }
+    },
+    {
+      "name": "§A2 THE HEADLINE: no hop from `/` is a permanent redirect",
+      "ok": true,
+      "detail": [
+        {
+          "path": "/",
+          "status": 200,
+          "location": null,
+          "cacheControl": "no-store"
+        }
+      ]
+    },
+    {
+      "name": "§A3 /perch — the rollback target — still serves the shipped shell, content for content",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "identical": true,
+        "shippedBytes": 9504,
+        "servedBytes": 9389,
+        "note": "compared after CRLF→LF on both sides: this worktree is a Windows checkout, CI uploads the LF one"
+      }
+    },
+    {
+      "name": "§A4 nothing else was downgraded — the intentional 301s and the canonicaliser 308 are untouched",
+      "ok": true,
+      "detail": {
+        "/perch.html": {
+          "status": 308,
+          "location": "/perch",
+          "cacheControl": null
+        },
+        "/index.html": {
+          "status": 301,
+          "location": "/",
+          "cacheControl": null
+        },
+        "/taxation": {
+          "status": 301,
+          "location": "/tax",
+          "cacheControl": null
+        },
+        "/the-cmm2": {
+          "status": 301,
+          "location": "/practice",
+          "cacheControl": null
+        }
+      }
+    },
+    {
+      "name": "§A5 CONTROL — production is the switched-ON deployment, so its `/` is a page, not a redirect",
+      "ok": true,
+      "detail": {
+        "chain": [
+          {
+            "path": "/",
+            "status": 200,
+            "location": null,
+            "cacheControl": "no-store"
+          }
+        ],
+        "note": "the rolled-back answer is not observable on ANY live deployment — see the note in this file"
+      }
+    },
+    {
+      "name": "§A6 discovery answers no GET (404/405) and discloses no key list",
+      "ok": true,
+      "detail": {
+        "discoveryGET": 404,
+        "unauthScrollTo": 401,
+        "leaked": false
+      }
+    },
+    {
+      "name": "§A6 the NEW key is behind the same tool secret — an unauthenticated scroll_to is 401",
+      "ok": true,
+      "detail": {
+        "discoveryGET": 404,
+        "unauthScrollTo": 401
+      }
+    },
+    {
+      "name": "§B0 the router is on and ready for this deployment",
+      "ok": true,
+      "detail": {
+        "ready": true,
+        "container": "#perch-main",
+        "errors": []
+      }
+    },
+    {
+      "name": "§B0 the command channel is mounted on a content page (#92)",
+      "ok": true,
+      "detail": {
+        "commandChannel": {
+          "polling": false,
+          "callId": null,
+          "polls": 0,
+          "commands": 0,
+          "prefillPending": false,
+          "log": []
+        },
+        "qualifierMounted": true
+      }
+    },
+    {
+      "name": "§B0 bindCall() accepted the call",
+      "ok": true,
+      "detail": {
+        "ok": true
+      }
+    },
+    {
+      "name": "§B0 the poll loop is running",
+      "ok": true,
+      "detail": {
+        "polling": true,
+        "callId": "set",
+        "polls": 2,
+        "commands": 0,
+        "prefillPending": false,
+        "log": []
+      }
+    },
+    {
+      "name": "§B1 a scrollable, below-the-fold target with a plain id exists on this page (harness sanity)",
+      "ok": true,
+      "detail": {
+        "id": "name",
+        "tag": "INPUT",
+        "docTop": 1479,
+        "viewportHeight": 720,
+        "docHeight": 2840
+      }
+    },
+    {
+      "name": "§B1 THE HEADLINE: `scroll` MOVES THE PAGE and brings the target into view",
+      "ok": true,
+      "detail": {
+        "target": {
+          "id": "name",
+          "tag": "INPUT",
+          "docTop": 1479,
+          "viewportHeight": 720,
+          "docHeight": 2840
+        },
+        "scrollBefore": 0,
+        "scrollAfter": 1479,
+        "scrolledIntoView": {
+          "top": 0,
+          "inViewport": true
+        }
+      }
+    },
+    {
+      "name": "§B1 …through the SHIPPED js/perch/page-control.js, not the unobserved postMessage road",
+      "ok": true,
+      "detail": {
+        "scrollEntry": {
+          "handled": true,
+          "cmd": "scroll",
+          "target": "#name",
+          "via": "scrollIntoView"
+        },
+        "pageLog": {
+          "commands": [
+            "scroll",
+            "scrollby",
+            "highlight"
+          ],
+          "log": [
+            {
+              "handled": true,
+              "cmd": "scroll",
+              "target": "#name",
+              "via": "scrollIntoView"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "§B2 THE HEADLINE: `highlight` paints the ring on the real element",
+      "ok": true,
+      "detail": {
+        "inline": "rgb(193, 162, 33) 0px 0px 0px 3px",
+        "computed": "rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+        "transition": "box-shadow 0.3s"
+      }
+    },
+    {
+      "name": "§B2 …and it clears itself after the 2600 ms window (no permanent gold box)",
+      "ok": true,
+      "detail": {
+        "inline": "",
+        "computed": "none"
+      }
+    },
+    {
+      "name": "§B2 …through the shipped executor",
+      "ok": true,
+      "detail": {
+        "handled": true,
+        "cmd": "highlight",
+        "target": "#name",
+        "via": "boxShadow"
+      }
+    },
+    {
+      "name": "§B3 navigation still swaps, with no document load and the same layer instance",
+      "ok": true,
+      "detail": {
+        "url": "/tax-controversy",
+        "swaps": 1,
+        "documentLoads": 0,
+        "instanceStable": true,
+        "audioBefore": {
+          "clock": 6.930666666666666,
+          "state": "running"
+        },
+        "audioAfter": {
+          "clock": 8.021333333333333,
+          "state": "running"
+        }
+      }
+    },
+    {
+      "name": "§B3 …and the live call resource survived it",
+      "ok": true,
+      "detail": {
+        "before": {
+          "clock": 6.930666666666666,
+          "state": "running"
+        },
+        "after": {
+          "clock": 8.021333333333333,
+          "state": "running"
+        }
+      }
+    },
+    {
+      "name": "§B4 the qualifier still renders a visible, tappable card",
+      "ok": true,
+      "detail": {
+        "present": true,
+        "display": "flex",
+        "cardRect": {
+          "w": 440,
+          "h": 433
+        },
+        "options": [
+          "tax",
+          "real_estate",
+          "other",
+          "not_sure_matter"
+        ],
+        "topOfCardIsInsideCard": true,
+        "callId": "set"
+      }
+    },
+    {
+      "name": "§B5 booking still works: the caller is on /book with the calendar REVEALED",
+      "ok": true,
+      "detail": {
+        "url": "/book",
+        "gateDisplay": "none",
+        "liveDisplay": "block",
+        "liveRect": {
+          "w": 1110,
+          "h": 308
+        },
+        "dlBooking": "object",
+        "widgetChildren": 7
+      }
+    },
+    {
+      "name": "§B5 …as a swap, with the layer instance and the live resource intact",
+      "ok": true,
+      "detail": {
+        "documentLoads": 0,
+        "instanceStable": true
+      }
+    },
+    {
+      "name": "§B5 …and the prefill reached DLBooking.prefill (the batch was not clobbered, #94)",
+      "ok": true,
+      "detail": {
+        "prefillEntry": {
+          "handled": true,
+          "cmd": "booking_prefill",
+          "via": "DLBooking.prefill",
+          "result": null,
+          "acked": true
+        },
+        "widgetPresent": true
+      }
+    },
+    {
+      "name": "§B6 the channel is still polling after every command and swap",
+      "ok": true,
+      "detail": {
+        "polling": true,
+        "callId": "set",
+        "polls": 11,
+        "commands": 7,
+        "prefillPending": false,
+        "log": [
+          {
+            "cmd": "scroll",
+            "target": "#name",
+            "via": "host.drive"
+          },
+          {
+            "cmd": "highlight",
+            "target": "#name",
+            "via": "host.drive"
+          },
+          {
+            "cmd": "navigate",
+            "target": "/tax-controversy.html",
+            "via": "host.go"
+          },
+          {
+            "cmd": "open_qualifier",
+            "via": "openQualifier"
+          },
+          {
+            "cmd": "navigate",
+            "target": "/book.html",
+            "via": "host.go"
+          },
+          {
+            "cmd": "booking_prefill",
+            "via": "deliverPrefill"
+          },
+          {
+            "cmd": "batch",
+            "n": 2,
+            "ran": [
+              "navigate",
+              "booking_prefill"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "§B6 NOTHING reached the booking write path",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "§B6 no CSP violation",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "§B6 no uncaught page errors",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "§B7 the SHELL at /perch still serves and still builds its own concierge",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "orb": true,
+        "qual": true,
+        "iframe": true,
+        "frameSrc": "/home.html",
+        "layerInShell": false
+      }
+    }
+  ],
+  "routing": {
+    "previewRoot": {
+      "status": 200,
+      "location": null,
+      "cacheControl": "no-store"
+    },
+    "previewRootChain": [
+      {
+        "path": "/",
+        "status": 200,
+        "location": null,
+        "cacheControl": "no-store"
+      }
+    ],
+    "previewPerch": {
+      "status": 200,
+      "cacheControl": "no-store",
+      "identical": true
+    },
+    "previewOthers": {
+      "/perch.html": {
+        "status": 308,
+        "location": "/perch",
+        "cacheControl": null
+      },
+      "/index.html": {
+        "status": 301,
+        "location": "/",
+        "cacheControl": null
+      },
+      "/taxation": {
+        "status": 301,
+        "location": "/tax",
+        "cacheControl": null
+      },
+      "/the-cmm2": {
+        "status": 301,
+        "location": "/practice",
+        "cacheControl": null
+      }
+    },
+    "productionRootChain": [
+      {
+        "path": "/",
+        "status": 200,
+        "location": null,
+        "cacheControl": "no-store"
+      }
+    ],
+    "authGate": {
+      "discoveryGET": 404,
+      "unauthScrollTo": 401
+    }
+  },
+  "writes": [],
+  "qualifierSubmits": [],
+  "console": [
+    {
+      "type": "log",
+      "text": "[perch] page-control → {cmd: scroll, target: #name}"
+    },
+    {
+      "type": "log",
+      "text": "[perch] page-control → {cmd: highlight, target: #name}"
+    },
+    {
+      "type": "log",
+      "text": "[perch] page-control → {cmd: navigate, target: /tax-controversy.html}"
+    },
+    {
+      "type": "log",
+      "text": "[perch] page-control → {cmd: open_qualifier, payload: Object}"
+    },
+    {
+      "type": "log",
+      "text": "[perch] page-control → {cmd: batch, actions: Array(2)}"
+    }
+  ],
+  "pageErrors": [],
+  "cspViolations": [],
+  "notes": [
+    "The rolled-back answer cannot be measured on a Preview (routerEnabled() is true on every *.pages.dev host) nor on production (switched on since #90). Measured instead in local workerd with --binding PERCH_ROUTER=off: main → 308 → /perch, this branch → 307 → /perch + no-store; and in CI against the real onRequest with env {}."
+  ],
+  "finishedAt": "2026-07-26T13:18:13.663Z",
+  "passed": 30,
+  "failed": 0,
+  "verdict": "GO"
+}

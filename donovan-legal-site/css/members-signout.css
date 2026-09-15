@@ -1,0 +1,124 @@
+/* ── MEMBER SIGN-OUT control ───────────────────────────────────────────────────
+ * JORDAN / ORDER JORDAN-196-LOGIN-SIGNOUT-R1 (#196)
+ *
+ * WHY THIS EXISTS
+ * A member signs in through the gate card (js/members-gate.js), lands in one of
+ * the four portals, and has had no way back out ever since: /members/auth/signout
+ * has existed since MEMBERS-CLIO-GATED-ACCESS-R1 and NOTHING on the site called
+ * it. On a shared machine the session simply stayed open until the browser was
+ * closed. js/members-signout.js renders the control; this file is what it looks
+ * like.
+ *
+ * WHY AN EXTERNAL STYLESHEET AND NOT el.style
+ * Same reason as css/members-gate.css and css/consent-gate.css: the middleware
+ * issues a per-request nonce CSP, so anything served out of /css/ is admitted by
+ * `style-src 'self'` with no nonce to plumb through and keeps working on the day
+ * 'unsafe-inline' is dropped. js/members-signout.js writes no style attribute and
+ * no el.style property; it appends a <link> to this file and adds class names.
+ *
+ * WHY IT CARRIES ITS OWN COLOURS INSTEAD OF INHERITING
+ * The four portals and the 35 tool pages under them are standalone documents:
+ * they do not load css/main.css, and each carries its own <style> block with its
+ * own tokens. There is no shared sheet to inherit from, so the three values this
+ * control needs are restated here — and they are the portal's own values, read
+ * out of gold/index.html: --accent #C9A961, --accent-dk #8a6f1f, --mute #8a8a82,
+ * --emerald #169B62, --line #d9d6cc. Same reasoning as css/dl-utility-bar.css.
+ *
+ * CASCADE. This sheet is appended to <head> at runtime, so it lands after every
+ * page's own <style> block and wins at equal specificity without a single
+ * !important. The control's class names are its own (`dvnms-`), so there is
+ * nothing on any of the 39 pages for it to collide with.
+ */
+
+.dvnms-signout {
+  /* A <button>, so it is announced as an action and not as a destination — this
+     posts and clears a session, it does not navigate to a page. The browser's own
+     button chrome is reset here rather than in JS. */
+  display: inline-flex;
+  align-items: center;
+  gap: .45em;
+  margin: 0;
+  padding: .42rem .85rem;
+  background: transparent;
+  border: 1px solid #d9d6cc;
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: 'Gotham Medium', 'Open Sans', -apple-system, system-ui, sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 1.2;
+  color: #8a8a82;
+  transition: color .16s ease, border-color .16s ease, background-color .16s ease;
+}
+
+.dvnms-signout:hover {
+  color: #8a6f1f;
+  border-color: #C9A961;
+  background: rgba(201, 169, 97, .08);
+}
+
+/* A REAL outline, and an offset that has something to sit against. An offset with
+   no outline paints nothing — see feedback_outline_offset_without_outline; the
+   width and style are both stated so `outline-style: none` from a page's own
+   reset cannot leave a 3px nothing. */
+.dvnms-signout:focus-visible {
+  outline: 3px solid #169B62;
+  outline-offset: 2px;
+}
+
+.dvnms-signout[disabled] {
+  cursor: default;
+  opacity: .6;
+}
+
+/* The refusal line. Rendered only when the POST did not succeed, next to the
+   control that failed, so the member is never navigated away from a session that
+   is in fact still open. role="status" is set in JS. */
+.dvnms-msg {
+  margin: 0;
+  font-family: 'Open Sans', -apple-system, system-ui, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #8a6f1f;
+}
+
+.dvnms-msg[hidden] {
+  display: none;
+}
+
+/* ── The three hosts ─────────────────────────────────────────────────────────
+ * js/members-signout.js mounts into the member page's own header when it has one
+ * and falls back to a bar of its own when it does not. All three carry the same
+ * button; only the box around it differs. */
+
+/* 1. The four portal index pages: appended inside .phead-right, beside
+      "Return to donovan.law". That flex row already sets its own gap. */
+
+/* 2. The 15 tool pages with .tool-header-back: the control is wrapped so it sits
+      at the end of the header row rather than inline with the back link. */
+.dvnms-slot {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+/* 3. The 20 pages with neither: a slim in-flow bar of the control's own, placed
+      after the utility bar and before the page. IN FLOW, never position:fixed —
+      a fixed chip would land on top of the utility bar's own right-hand CTA. */
+.dvnms-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 8px 20px;
+  background: #FFFFFF;
+  border-bottom: 1px solid #d9d6cc;
+}
+
+@media (max-width: 600px) {
+  .dvnms-bar { padding: 8px 14px; }
+  .dvnms-signout { letter-spacing: 1px; padding: .4rem .7rem; }
+}

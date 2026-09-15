@@ -1,0 +1,27 @@
+# SHELDON-PERCH-A22 (#52) — the vendored router is byte-pinned.
+#
+# test/perch-swup-router.test.mjs asserts the sha256 of js/vendor/swup.umd.js so
+# that "the bytes the A2.5 spike proved on Preview" and "the bytes that ship" stay
+# the same statement. With core.autocrlf=true (the Windows default) a checkout
+# would rewrite that file's line endings, reding the pin locally while CI — which
+# checks out LF on Linux — stayed green. `-text` means: never convert this file.
+donovan-legal-site/js/vendor/swup.umd.js -text
+
+# ADAM-VENDOR-CLIO-SPEC (#112) — the vendored Clio contract is byte-pinned.
+#
+# integrations/clio/openapi.v4.json is a verbatim third-party artifact: 82,276
+# bare LF and zero CR. Under core.autocrlf=true a checkout rewrote every one of
+# them to CRLF, yielding 3,297,381 bytes / sha256 6df19a26... instead of the
+# retrieved 3,215,105 bytes / sha256 164af6b6... — i.e. the "canonical contract"
+# would not be the bytes Clio published. `-text` means: never convert this file.
+integrations/clio/openapi.v4.json -text
+
+# ADAM-DEPLOY-GATE-NETWORK (#152) — the F-10 differential baseline is byte-pinned.
+#
+# test/fixtures/f10-middleware.baseline.js is a verbatim copy of the blob
+# f833826:donovan-legal-site/functions/_middleware.js, and the test's whole
+# integrity story is that its GIT BLOB SHA-1 still computes to BASELINE_BLOB. That
+# hash is over the raw bytes, so a checkout that rewrote 220 LF to CRLF would fail
+# the pin on Windows while CI — which checks out LF on Linux — stayed green.
+# `-text` means: never convert this file. It is a historical artifact, not source.
+test/fixtures/f10-middleware.baseline.js -text

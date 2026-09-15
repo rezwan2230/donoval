@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Collection Station | Roadmap Part 5 | Donovan Legal</title>
+<meta name="description" content="The CP14-to-CP504 notice stream, the final notice of intent to levy and its 30-day CDP rights, lien versus levy, and the ten-year collection statute.">
+<style>
+  :root{--ink:#16242F;--mute:#5A7181;--bg:#FCFCFB;--panel:#FFFFFF;--line:#E2E8EC;
+        --emer:#01873F;--gold:#C9A961;--teal:#357E91;--indigo:#5B62A8;--sienna:#AE6038;
+        --serif:Georgia,'Times New Roman',serif;--sans:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;}
+  *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.72;font-size:18px;-webkit-font-smoothing:antialiased}
+  .article{max-width:1120px;margin:0 auto;padding:0 28px 80px}.prose{max-width:720px;margin:0 auto}
+  .masthead{max-width:1120px;margin:0 auto;padding:22px 28px 0;display:flex;align-items:center;justify-content:space-between}
+  .brand{font-weight:700;letter-spacing:1.5px;font-size:13px}.brand .re{color:var(--emer)}
+  .masthead .tag{color:var(--mute);font-size:12px;letter-spacing:1px}
+  .rule{max-width:1120px;margin:14px auto 0;padding:0 28px}.rule hr{border:0;border-top:2px solid var(--emer);margin:0}
+  header.post{padding:46px 0 8px}
+  .backlink{display:inline-block;color:var(--mute);font-size:13px;letter-spacing:.4px;margin-bottom:18px}.backlink:hover{color:var(--emer)}
+  /* JORDAN-195: gold as TEXT on the #FCFCFB page reads 2.19:1 and fails. --gold
+     itself stays the band fill (.num, and .closing .sig on the dark block, where
+     it reads 7.75:1) and is deliberately not re-valued. */
+  .eyebrow{color:#806633;font-weight:700;letter-spacing:2.4px;font-size:12.5px;text-transform:uppercase;margin:0 0 14px}
+  h1{font-family:var(--serif);font-weight:400;font-size:46px;line-height:1.08;margin:0 0 18px;letter-spacing:-.3px}
+  .standfirst{font-family:var(--serif);font-style:italic;color:var(--mute);font-size:21px;line-height:1.5;margin:0}
+  .meta{color:var(--mute);font-size:13.5px;letter-spacing:.4px;margin:22px 0 0;padding-top:16px;border-top:1px solid var(--line)}
+  .disclaimer{background:#FAF7EF;border:1px solid #E9DFC4;border-left:4px solid var(--gold);border-radius:10px;padding:18px 22px;margin:30px auto 8px;max-width:720px;font-size:15px;line-height:1.6;color:#4a4634}.disclaimer b{color:var(--ink)}
+  figure.map{margin:40px 0 18px}.map-frame{background:#F2F5F7;border:1px solid var(--line);border-radius:14px;padding:18px;overflow:hidden}
+  .roadmap-svg{display:block}figcaption{color:var(--mute);font-size:13.5px;text-align:center;margin-top:12px;font-style:italic}
+  h2{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.15;margin:52px 0 6px;letter-spacing:-.2px}
+  p{margin:0 0 18px}.lead{font-size:19.5px}
+  .roads{list-style:none;padding:0;margin:22px 0 8px}
+  .roads li{padding:16px 0 16px 18px;border-left:3px solid var(--line);margin-bottom:4px}
+  .roads li.sienna{border-color:var(--sienna)}.roads li.indigo{border-color:var(--indigo)}.roads li.emer{border-color:var(--emer)}
+  .roads h3{margin:0 0 4px;font-size:18px;font-family:var(--sans);font-weight:700}
+  .roads h3 .pt{font-size:11px;font-weight:700;color:#fff;background:var(--mute);border-radius:9px;padding:2px 8px;margin-left:8px;letter-spacing:.4px;vertical-align:2px}
+  .roads h3 .pt.i{background:var(--indigo)}.roads h3 .pt.e{background:var(--emer)}
+  .roads p{margin:0;color:var(--mute);font-size:16px;line-height:1.55}
+  .clockline{background:#FAF7EF;border-radius:10px;padding:14px 18px;margin:8px 0 0;font-size:15.5px;color:#4a4634}.clockline b{color:var(--ink)}
+  .warn{background:#FBF1EC;border:1px solid #ECCDBD;border-left:4px solid var(--sienna);border-radius:10px;padding:16px 20px;margin:24px 0 0;font-size:16px;color:#5a3a2c}.warn b{color:var(--ink)}
+  .next{display:flex;gap:14px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:30px 0 0}
+  .next .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--emer);color:#fff;font-weight:700;display:inline-flex;align-items:center;justify-content:center;font-size:13px}
+  .next .t{font-weight:700}.next .d{color:var(--mute);font-size:15px}
+  .closing{background:#0E1B26;color:#EDEFEC;border-radius:14px;padding:34px;margin:50px auto 0;max-width:1120px}
+  .closing h2{color:#fff;margin-top:0;font-size:27px}.closing p{color:#C5D0D6;font-size:17px}
+  /* JORDAN-195: the closing block is dark (#0E1B26), so the page link colour
+     darkened for the light body (--emer #01873F) reads only 3.77:1 on it. Light
+     and dark cannot share one value here, so this block keeps the lighter
+     emerald, which is 4.75:1 against #0E1B26. */
+  .closing a{color:#019A48 /* a11y:dark-surface */}
+  .closing .sig{color:var(--gold);font-style:italic;font-family:var(--serif);font-size:18px;margin-top:10px}
+  footer{max-width:1120px;margin:46px auto 0;padding:24px 28px 60px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  footer .fine{color:var(--mute);font-size:12.5px;max-width:720px;line-height:1.5}
+  footer .fm{text-align:right}footer .fm b{letter-spacing:1px}footer .fm span{display:block;color:var(--mute);font-style:italic;font-size:12px;font-family:var(--serif)}
+  a{color:var(--emer);text-decoration:none}
+  /* JORDAN-195 (link-in-text-block, WCAG 1.4.1): a link inside running text must
+     be tellable from that text by something other than colour. The rule above
+     strips the underline site-wide on these posts, so the eight body cross-links
+     added by #197 were distinguished by hue alone - axe measured 2.33:1 against
+     the surrounding text, against a 3:1 floor. Scoped to <a> inside a paragraph
+     so the station cards and the masthead links are untouched: those carry their
+     own inline text-decoration:none, which wins over this rule anyway. */
+  p a{text-decoration:underline}a:hover{text-decoration:underline}a:focus-visible{outline:2px solid var(--emer);outline-offset:3px;border-radius:2px}
+  code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em;background:#EEF2F4;padding:1px 5px;border-radius:4px}
+  @media (max-width:720px){body{font-size:17px}h1{font-size:32px}h2{font-size:24px}.standfirst{font-size:18px}.closing{padding:26px 22px}footer{flex-direction:column;align-items:flex-start}footer .fm{text-align:left}}
+</style>  <link rel="canonical" href="https://www.donovan.law/blog-controversy-roadmap-5-collection">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Donovan Legal PLLC">
+  <meta property="og:url" content="https://www.donovan.law/blog-controversy-roadmap-5-collection">
+  <meta property="og:title" content="The Collection Station | Tax Controversy Roadmap Part 5 | Donovan Legal">
+  <meta property="og:description" content="How IRS collection works — the CP14 to CP504 notice stream, the final notice of intent to levy and its 30-day CDP rights, the federal tax lien versus the levy, and the ten-year collection statute. Part 5 of the Donovan Legal Tax Controversy Roadmap.">
+  <meta property="og:image" content="https://www.donovan.law/img/firm-img.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Collection Station | Tax Controversy Roadmap Part 5 | Donovan Legal">
+  <meta name="twitter:description" content="How IRS collection works — the CP14 to CP504 notice stream, the final notice of intent to levy and its 30-day CDP rights, the federal tax lien versus the levy, and the ten-year collection statute. Part 5 of the Donovan Legal Tax Controversy Roadmap.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Collection Station | Tax Controversy Roadmap Part 5","url":"https://www.donovan.law/blog-controversy-roadmap-5-collection","author":{"@type":"Organization","name":"Donovan Legal PLLC"},"publisher":{"@type":"Organization","name":"Donovan Legal PLLC","logo":{"@type":"ImageObject","url":"https://www.donovan.law/img/favicon.png"}}}</script>
+</head><body>
+<div class="masthead"><a class="brand" href="index.html" style="color:inherit;text-decoration:none">DONOVAN <span class="re">LEGAL</span></a><div class="tag"><a href="blog.html" style="color:inherit;text-decoration:none">&larr; All Tax Notes</a></div></div>
+<div class="rule"><hr></div>
+<div class="article">
+  <header class="post prose">
+    <a class="backlink" href="blog-controversy-roadmap-4-appeals.html">← Part 4 · The Appeal Station</a>
+    <p class="eyebrow">Tax Controversy Roadmap — Part 5</p>
+    <h1>The Collection Station</h1>
+    <p class="standfirst">What the IRS does to collect an unpaid balance — and where, in the stream of notices, the hearing rights actually are.</p>
+    <p class="meta">Donovan Legal&nbsp;·&nbsp;Tax Controversy Practice</p>
+  </header>
+  <div class="disclaimer"><b>This post is part of a high-level series.</b> It explains federal tax collection in general terms and is not legal advice; reading it does not create an attorney–client relationship. The 30-day window to request a Collection Due Process hearing is short and easy to lose. If you have received a collection notice, consult counsel promptly.</div>
+  <figure class="map"><div class="map-frame"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1480 860" width="100%" height="auto" class="roadmap-svg" role="img" aria-label="Detail map of the Collection Station: the notice stream from CP14 through CP504 to the final notice of intent to levy, the federal tax lien track, the levy, and the Collection Due Process off-ramp to Appeals and collection alternatives"> font-family="'Helvetica Neue',Arial,sans-serif">
+<rect width="1480" height="860" fill="#F2F5F7"/>
+<text x="70" y="58" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" fill="#C9A961" font-weight="700" text-anchor="start" letter-spacing="2">TAX CONTROVERSY ROADMAP · PART 5</text>
+<text x="70" y="96" font-family="Georgia,'Times New Roman',serif" font-size="35" fill="#16242F" font-weight="400" text-anchor="start">The Collection Station</text>
+<text x="72" y="122" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#5E7686" font-weight="400" text-anchor="start" font-style="italic">What the IRS does to collect an unpaid balance — and where the hearing rights are.</text>
+<rect x="72" y="138" width="340" height="3" fill="#C06A3E"/>
+<text x="72" y="162" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12.5" fill="#5E7686" font-weight="400" text-anchor="start">Throughout, the collection statute (CSED) runs: ten years from assessment · §6502.</text>
+<text x="1410" y="58" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="700" text-anchor="end" letter-spacing="1.5">DETAIL MAP</text>
+<line x1="280.0" y1="430" x2="305.0" y2="430" stroke="#C06A3E" stroke-width="3" stroke-linecap="round"/>
+<polygon points="304.0,430 294.2,423 294.2,437" fill="#C06A3E"/>
+<line x1="515.0" y1="430" x2="540.0" y2="430" stroke="#C06A3E" stroke-width="3" stroke-linecap="round"/>
+<polygon points="539.0,430 529.2,423 529.2,437" fill="#C06A3E"/>
+<line x1="750.0" y1="430" x2="780.0" y2="430" stroke="#C06A3E" stroke-width="3" stroke-linecap="round"/>
+<polygon points="779.0,430 769.2,423 769.2,437" fill="#C06A3E"/>
+<line x1="990.0" y1="430" x2="1025.0" y2="430" stroke="#C06A3E" stroke-width="3" stroke-linecap="round"/>
+<polygon points="1024.0,430 1014.2,423 1014.2,437" fill="#C06A3E"/>
+<line x1="410" y1="384.0" x2="410" y2="287" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="410,286 403,295.8 417,295.8" fill="#90A2AD"/>
+<line x1="885" y1="476.0" x2="885" y2="477" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<rect x="835.0" y="477.0" width="100" height="46" rx="10" fill="#C9A961"/>
+<rect x="835.0" y="477.0" width="100" height="14" rx="7" fill="#FFFFFF" opacity="0.18"/>
+<circle cx="853.0" cy="500" r="9" fill="none" stroke="#16242F" stroke-width="2"/>
+<line x1="853.0" y1="500" x2="853.0" y2="495" stroke="#16242F" stroke-width="2" stroke-linecap="round"/>
+<line x1="853.0" y1="500" x2="857.0" y2="502" stroke="#16242F" stroke-width="2" stroke-linecap="round"/>
+<text x="898" y="499" font-family="'Helvetica Neue',Arial,sans-serif" font-size="18" fill="#16242F" font-weight="700" text-anchor="middle">30</text>
+<text x="898" y="514" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="#16242F" font-weight="700" text-anchor="middle">§6330</text>
+<line x1="885" y1="523" x2="885" y2="600" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<circle cx="885" cy="600" r="4" fill="#90A2AD"/>
+<line x1="705" y1="600" x2="1085" y2="600" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="705" y1="600" x2="705" y2="664" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="705,663 698,653.2 712,653.2" fill="#90A2AD"/>
+<line x1="1085" y1="600" x2="1085" y2="664" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="1085,663 1078,653.2 1092,653.2" fill="#90A2AD"/>
+<text x="957" y="540" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10.5" fill="#5E7686" font-weight="400" text-anchor="start" font-style="italic">Right to a CDP hearing</text>
+<rect x="72.0" y="388.0" width="210" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="70.0" y="384.0" width="210" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="70.0" y="384.0" width="6.5" height="92" fill="#C06A3E"/>
+<rect x="70.0" y="384.0" width="6.5" height="13" rx="6" fill="#C06A3E"/>
+<text x="178" y="420.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Assessed · CP14</text>
+<text x="178" y="438.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">First bill —</text>
+<text x="178" y="453.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Notice &amp; Demand · §6303</text>
+<rect x="307.0" y="388.0" width="210" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="305.0" y="384.0" width="210" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="305.0" y="384.0" width="6.5" height="92" fill="#C06A3E"/>
+<rect x="305.0" y="384.0" width="6.5" height="13" rx="6" fill="#C06A3E"/>
+<text x="413" y="420.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Reminders</text>
+<text x="413" y="438.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">CP501 · CP503</text>
+<text x="413" y="453.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">balance due notices</text>
+<rect x="542.0" y="388.0" width="210" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="540.0" y="384.0" width="210" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="540.0" y="384.0" width="6.5" height="92" fill="#C06A3E"/>
+<rect x="540.0" y="384.0" width="6.5" height="13" rx="6" fill="#C06A3E"/>
+<text x="648" y="420.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">CP504</text>
+<text x="648" y="438.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Intent to levy —</text>
+<text x="648" y="453.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">but NO CDP rights</text>
+<rect x="782.0" y="388.0" width="210" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="780.0" y="384.0" width="210" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="780.0" y="384.0" width="6.5" height="92" fill="#C06A3E"/>
+<rect x="780.0" y="384.0" width="6.5" height="13" rx="6" fill="#C06A3E"/>
+<text x="888" y="420.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Final Notice</text>
+<text x="888" y="438.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">L.1058 / LT11 / CP90</text>
+<text x="888" y="453.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Intent to Levy + Hearing</text>
+<rect x="1027.0" y="388.0" width="210" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="1025.0" y="384.0" width="210" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="1025.0" y="384.0" width="6.5" height="92" fill="#C06A3E"/>
+<rect x="1025.0" y="384.0" width="6.5" height="13" rx="6" fill="#C06A3E"/>
+<text x="1133" y="420.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Levy</text>
+<text x="1133" y="438.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Seizes property · §6331</text>
+<text x="1133" y="453.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">some exempt · §6334</text>
+<rect x="242.0" y="187.0" width="340" height="104" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="240.0" y="183.0" width="340" height="104" rx="12" fill="#FFFFFF"/>
+<rect x="240.0" y="183.0" width="6.5" height="104" fill="#C06A3E"/>
+<rect x="240.0" y="183.0" width="6.5" height="13" rx="6" fill="#C06A3E"/>
+<text x="413" y="217.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="16" fill="#16242F" font-weight="700" text-anchor="middle">Federal Tax Lien</text>
+<text x="413" y="235.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Arises on assessment · §6321</text>
+<text x="413" y="250.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Perfected by NFTL · Letter 3172</text>
+<text x="413" y="265.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">§6320 — same 30-day CDP right</text>
+<rect x="557.0" y="668.0" width="300" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="555.0" y="664.0" width="300" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="555.0" y="664.0" width="6.5" height="92" fill="#5B62A8"/>
+<rect x="555.0" y="664.0" width="6.5" height="13" rx="6" fill="#5B62A8"/>
+<text x="708" y="713.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">CDP Hearing</text>
+<text x="708" y="731.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Form 12153 · independent review</text>
+<text x="708" y="746.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">→ Appeals (Part 4)</text>
+<rect x="751.8" y="672.0" width="95.19999999999999" height="18" rx="9" fill="#5B62A8"/>
+<text x="799.4" y="685.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.4">→ TAX CT · 7</text>
+<rect x="937.0" y="668.0" width="300" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="935.0" y="664.0" width="300" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="935.0" y="664.0" width="6.5" height="92" fill="#019A48"/>
+<rect x="935.0" y="664.0" width="6.5" height="13" rx="6" fill="#019A48"/>
+<text x="1088" y="713.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Collection Alternatives</text>
+<text x="1088" y="731.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Full pay · IA · OIC · CNC</text>
+<text x="1088" y="746.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">resolve the balance</text>
+<rect x="1171.4" y="672.0" width="55.599999999999994" height="18" rx="9" fill="#019A48"/>
+<text x="1199.2" y="685.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.4">PART 6</text>
+<line x1="70" y1="794" x2="1410" y2="794" stroke="#C4D0D8" stroke-width="1.5"/>
+<text x="70" y="820" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" fill="#16242F" font-weight="700" text-anchor="start" letter-spacing="0.5">PART 5 OF THE SERIES.</text>
+<text x="232" y="820" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" fill="#5E7686" font-weight="400" text-anchor="start">General information about tax procedure — not legal advice. CP504 is not the notice that carries hearing rights.</text>
+<text x="1410" y="814" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" fill="#16242F" font-weight="700" text-anchor="end" letter-spacing="1">DONOVAN LEGAL</text>
+<text x="1410" y="831" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10.5" fill="#5E7686" font-weight="400" text-anchor="end" font-style="italic">One firm. One signature. Full-arc defense.</text>
+</svg></div>
+    <figcaption>Part 5: the notice stream and enforcement tools, with the one notice that opens a Collection Due Process hearing.</figcaption></figure>
+  
+<div class="prose">
+  <h2>The clock that frames everything</h2>
+  <p class="lead">Once a tax is assessed, the IRS has ten years to collect it — the Collection Statute Expiration Date, or CSED (IRC §6502). Every notice, lien, and levy that follows is a move against that clock.</p>
+  <p>The clock matters because some events pause it — a pending offer, a CDP hearing, bankruptcy, time abroad. A collection strategy is, in part, a strategy about that ten-year horizon: what to resolve now, and what the statute may resolve on its own.</p>
+
+  <h2>The notice stream</h2>
+  <p>Collection opens with a bill. The first is <code>CP14</code> — the formal notice and demand for payment required by §6303. If it goes unpaid, reminders follow: <code>CP501</code>, then <code>CP503</code>. Then comes <code>CP504</code>, which announces an intent to levy and reads like a final warning.</p>
+  <div class="warn"><b>CP504 is not the notice that carries your hearing rights.</b> Despite its tone, a CP504 does not give you Collection Due Process rights. Those attach to a different, later notice — and confusing the two is one of the most common and costly mistakes in collection.</div>
+
+  <h2>The notice that actually matters</h2>
+  <p>The notice that opens the door to a hearing is the <strong>Final Notice of Intent to Levy and Notice of Your Right to a Hearing</strong> — issued as <code>Letter 1058</code>, <code>LT11</code>, or <code>CP90</code>. It starts a 30-day Collection Due Process clock under §6330. A request filed on <code>Form 12153</code> within those 30 days generally stops levy action, sends the matter to Appeals, and preserves the right to Tax Court review.</p>
+
+  <h2>Two tools: the lien and the levy</h2>
+  <p>People use the words interchangeably; the law does not.</p>
+  <ul class="roads">
+    <li class="sienna"><h3>The federal tax lien</h3><p>A lien arises automatically on assessment under §6321 — a claim against everything the taxpayer owns. It becomes public, and gains priority over other creditors, only when the IRS files a Notice of Federal Tax Lien (announced by <code>Letter 3172</code>). That filing carries its <em>own</em> 30-day CDP right under §6320. A lien secures the debt; it does not take anything.</p></li>
+    <li class="sienna"><h3>The levy</h3><p>A levy actually seizes — wages, bank accounts, receivables (§6331). Some property is protected: §6334 shields certain items, exempts a residence where the tax owed is $5,000 or less, and requires a court proceeding under §6334(e)(1) before the IRS can seize a principal residence. A levy that creates economic hardship can be released under §6343.</p></li>
+  </ul>
+
+  <h2>Collection Due Process — the off-ramp</h2>
+  <p>A timely CDP request is the taxpayer's leverage. It routes the matter to the Independent Office of Appeals (Part 4), where collection alternatives and the underlying liability (in some cases) can be raised, and it preserves Tax Court review of the resulting determination. Miss the 30 days and a lesser "equivalent hearing" may still be available — but with no path to the Tax Court.</p>
+
+  <h2>Where this leads</h2>
+  <p>The point of engaging collection early is to choose the exit rather than be assigned one. Almost every balance has a resolution — full payment, an installment agreement, an offer, or a hardship suspension — and the right one depends on the numbers and the CSED. Those are the subject of the next post.</p>
+</div>
+
+<div class="prose">
+  <a class="next" href="blog-controversy-roadmap-6-collection-alternatives.html"><span class="n">6</span><span><span class="t">Next — Part 6: Collection Alternatives</span><br><span class="d">Installment agreements, partial-pay plans, currently-not-collectible status, and offers in compromise.</span></span></a>
+</div>
+
+  <div class="closing">
+    <h2>One firm, the full arc</h2>
+    <p>Collection is where a tax problem becomes a cash-flow problem — liens that cloud title, levies that hit payroll and accounts. The leverage is in the calendar: the CDP window, the CSED, the timing of an alternative. Donovan Legal represents taxpayers across the entire arc, exam through collection and litigation, under one signature.</p>
+    <p>For how the firm responds to liens, levies, and garnishment, see <a href="irs-liens-levies.html">IRS Liens &amp; Levies</a>.</p>
+    <p class="sig">One firm. One signature. Full-arc defense.</p>
+  </div>
+</div>
+<footer>
+  <div class="fine"><b>General information, not legal advice.</b> This post describes federal tax collection in general terms and does not address the facts or deadlines of any particular matter. It does not create an attorney–client relationship. Collection rights and timelines are fact-specific; consult qualified counsel before acting on any notice.</div>
+  <div class="fm"><b>DONOVAN LEGAL</b><span>One firm. One signature. Full-arc defense.</span></div>
+</footer>
+</body></html>

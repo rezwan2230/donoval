@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Litigation Station | Roadmap Part 7 | Donovan Legal</title>
+<meta name="description" content="Where a federal tax dispute is litigated: the prepayment route to Tax Court, the pay-first refund forums, and the appellate ladder above them.">
+<style>
+  :root{--ink:#16242F;--mute:#5A7181;--bg:#FCFCFB;--panel:#FFFFFF;--line:#E2E8EC;
+        --emer:#01873F;--gold:#C9A961;--teal:#357E91;--indigo:#5B62A8;--sienna:#AE6038;
+        --serif:Georgia,'Times New Roman',serif;--sans:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;}
+  *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.72;font-size:18px;-webkit-font-smoothing:antialiased}
+  .article{max-width:1120px;margin:0 auto;padding:0 28px 80px}.prose{max-width:720px;margin:0 auto}
+  .masthead{max-width:1120px;margin:0 auto;padding:22px 28px 0;display:flex;align-items:center;justify-content:space-between}
+  .brand{font-weight:700;letter-spacing:1.5px;font-size:13px}.brand .re{color:var(--emer)}
+  .masthead .tag{color:var(--mute);font-size:12px;letter-spacing:1px}
+  .rule{max-width:1120px;margin:14px auto 0;padding:0 28px}.rule hr{border:0;border-top:2px solid var(--emer);margin:0}
+  header.post{padding:46px 0 8px}
+  .backlink{display:inline-block;color:var(--mute);font-size:13px;letter-spacing:.4px;margin-bottom:18px}.backlink:hover{color:var(--emer)}
+  /* JORDAN-195: gold as TEXT on the #FCFCFB page reads 2.19:1 and fails. --gold
+     itself stays the band fill (.num, and .closing .sig on the dark block, where
+     it reads 7.75:1) and is deliberately not re-valued. */
+  .eyebrow{color:#806633;font-weight:700;letter-spacing:2.4px;font-size:12.5px;text-transform:uppercase;margin:0 0 14px}
+  h1{font-family:var(--serif);font-weight:400;font-size:46px;line-height:1.08;margin:0 0 18px;letter-spacing:-.3px}
+  .standfirst{font-family:var(--serif);font-style:italic;color:var(--mute);font-size:21px;line-height:1.5;margin:0}
+  .meta{color:var(--mute);font-size:13.5px;letter-spacing:.4px;margin:22px 0 0;padding-top:16px;border-top:1px solid var(--line)}
+  .disclaimer{background:#FAF7EF;border:1px solid #E9DFC4;border-left:4px solid var(--gold);border-radius:10px;padding:18px 22px;margin:30px auto 8px;max-width:720px;font-size:15px;line-height:1.6;color:#4a4634}.disclaimer b{color:var(--ink)}
+  figure.map{margin:40px 0 18px}.map-frame{background:#F2F5F7;border:1px solid var(--line);border-radius:14px;padding:18px;overflow:hidden}
+  .roadmap-svg{display:block}figcaption{color:var(--mute);font-size:13.5px;text-align:center;margin-top:12px;font-style:italic}
+  h2{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.15;margin:52px 0 6px;letter-spacing:-.2px}
+  p{margin:0 0 18px}.lead{font-size:19.5px}
+  .roads{list-style:none;padding:0;margin:22px 0 8px}
+  .roads li{padding:16px 0 16px 18px;border-left:3px solid var(--line);margin-bottom:4px}
+  .roads li.indigo{border-color:var(--indigo)}.roads li.emer{border-color:var(--emer)}.roads li.teal{border-color:var(--teal)}
+  .roads h3{margin:0 0 4px;font-size:18px;font-family:var(--sans);font-weight:700}
+  .roads p{margin:0;color:var(--mute);font-size:16px;line-height:1.55}
+  .clockline{background:#FAF7EF;border-radius:10px;padding:14px 18px;margin:8px 0 0;font-size:15.5px;color:#4a4634}.clockline b{color:var(--ink)}
+  .warn{background:#FBF1EC;border:1px solid #ECCDBD;border-left:4px solid var(--sienna);border-radius:10px;padding:16px 20px;margin:24px 0 0;font-size:16px;color:#5a3a2c}.warn b{color:var(--ink)}
+  .next{display:flex;gap:14px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:30px 0 0}
+  .next .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--emer);color:#fff;font-weight:700;display:inline-flex;align-items:center;justify-content:center;font-size:13px}
+  .next .t{font-weight:700}.next .d{color:var(--mute);font-size:15px}
+  .closing{background:#0E1B26;color:#EDEFEC;border-radius:14px;padding:34px;margin:50px auto 0;max-width:1120px}
+  .closing h2{color:#fff;margin-top:0;font-size:27px}.closing p{color:#C5D0D6;font-size:17px}
+  /* JORDAN-195: the closing block is dark (#0E1B26), so the page link colour
+     darkened for the light body (--emer #01873F) reads only 3.77:1 on it. Light
+     and dark cannot share one value here, so this block keeps the lighter
+     emerald, which is 4.75:1 against #0E1B26. */
+  .closing a{color:#019A48 /* a11y:dark-surface */}
+  .closing .sig{color:var(--gold);font-style:italic;font-family:var(--serif);font-size:18px;margin-top:10px}
+  footer{max-width:1120px;margin:46px auto 0;padding:24px 28px 60px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  footer .fine{color:var(--mute);font-size:12.5px;max-width:720px;line-height:1.5}
+  footer .fm{text-align:right}footer .fm b{letter-spacing:1px}footer .fm span{display:block;color:var(--mute);font-style:italic;font-size:12px;font-family:var(--serif)}
+  a{color:var(--emer);text-decoration:none}
+  /* JORDAN-195 (link-in-text-block, WCAG 1.4.1): a link inside running text must
+     be tellable from that text by something other than colour. The rule above
+     strips the underline site-wide on these posts, so the eight body cross-links
+     added by #197 were distinguished by hue alone - axe measured 2.33:1 against
+     the surrounding text, against a 3:1 floor. Scoped to <a> inside a paragraph
+     so the station cards and the masthead links are untouched: those carry their
+     own inline text-decoration:none, which wins over this rule anyway. */
+  p a{text-decoration:underline}a:hover{text-decoration:underline}a:focus-visible{outline:2px solid var(--emer);outline-offset:3px;border-radius:2px}
+  code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em;background:#EEF2F4;padding:1px 5px;border-radius:4px}
+  @media (max-width:720px){body{font-size:17px}h1{font-size:32px}h2{font-size:24px}.standfirst{font-size:18px}.closing{padding:26px 22px}footer{flex-direction:column;align-items:flex-start}footer .fm{text-align:left}}
+</style>  <link rel="canonical" href="https://www.donovan.law/blog-controversy-roadmap-7-litigation">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Donovan Legal PLLC">
+  <meta property="og:url" content="https://www.donovan.law/blog-controversy-roadmap-7-litigation">
+  <meta property="og:title" content="The Litigation Station | Tax Controversy Roadmap Part 7 | Donovan Legal">
+  <meta property="og:description" content="Where a federal tax dispute is litigated: the prepayment route to the U.S. Tax Court (including the S-case election), the pay-first refund forums of district court and the Court of Federal Claims, and the appellate ladder to the Supreme Court — plus the Golsen rule. Part 7 of the Donovan Legal Tax Controversy Roadmap.">
+  <meta property="og:image" content="https://www.donovan.law/img/firm-img.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Litigation Station | Tax Controversy Roadmap Part 7 | Donovan Legal">
+  <meta name="twitter:description" content="Where a federal tax dispute is litigated: the prepayment route to the U.S. Tax Court (including the S-case election), the pay-first refund forums of district court and the Court of Federal Claims, and the appellate ladder to the Supreme Court — plus the Golsen rule. Part 7 of the Donovan Legal Tax Controversy Roadmap.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Litigation Station | Tax Controversy Roadmap Part 7","url":"https://www.donovan.law/blog-controversy-roadmap-7-litigation","author":{"@type":"Organization","name":"Donovan Legal PLLC"},"publisher":{"@type":"Organization","name":"Donovan Legal PLLC","logo":{"@type":"ImageObject","url":"https://www.donovan.law/img/favicon.png"}}}</script>
+</head><body>
+<div class="masthead"><a class="brand" href="index.html" style="color:inherit;text-decoration:none">DONOVAN <span class="re">LEGAL</span></a><div class="tag"><a href="blog.html" style="color:inherit;text-decoration:none">&larr; All Tax Notes</a></div></div>
+<div class="rule"><hr></div>
+<div class="article">
+  <header class="post prose">
+    <a class="backlink" href="blog-controversy-roadmap-6-collection-alternatives.html">← Part 6 · Collection Alternatives</a>
+    <p class="eyebrow">Tax Controversy Roadmap — Part 7</p>
+    <h1>The Litigation Station</h1>
+    <p class="standfirst">Two doors to a courtroom — pay first or don't — and the appellate ladder that rises above them.</p>
+    <p class="meta">Donovan Legal&nbsp;·&nbsp;Tax Controversy Practice&nbsp;·&nbsp;Final part</p>
+  </header>
+  <div class="disclaimer"><b>This post is part of a high-level series.</b> It explains federal tax litigation in general terms and is not legal advice; reading it does not create an attorney–client relationship. The choice of forum, the deadlines to reach it, and the precedent that will govern are fact-specific and consequential. Before petitioning any court, consult counsel.</div>
+  <figure class="map"><div class="map-frame"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1480 870" font-family="'Helvetica Neue',Arial,sans-serif" width="100%" height="auto" class="roadmap-svg" role="img" aria-label="Detail map of the Litigation Station: the prepayment door to the U.S. Tax Court and the pay-first door to the district court and Court of Federal Claims, with appeals running up to the regional Court of Appeals, the Federal Circuit, and the Supreme Court">>
+<rect width="1480" height="870" fill="#F2F5F7"/>
+<text x="70" y="58" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" fill="#C9A961" font-weight="700" text-anchor="start" letter-spacing="2">TAX CONTROVERSY ROADMAP · PART 7</text>
+<text x="70" y="96" font-family="Georgia,'Times New Roman',serif" font-size="35" fill="#16242F" font-weight="400" text-anchor="start">The Litigation Station</text>
+<text x="72" y="122" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#5E7686" font-weight="400" text-anchor="start" font-style="italic">Two doors to a courtroom — and the appellate ladder above them.</text>
+<rect x="72" y="138" width="320" height="3" fill="#5B62A8"/>
+<text x="1410" y="58" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="700" text-anchor="end" letter-spacing="1.5">DETAIL MAP</text>
+<text x="210" y="210" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5B62A8" font-weight="700" text-anchor="middle" letter-spacing="0.8">PREPAYMENT — DON'T PAY FIRST</text>
+<text x="210" y="478" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#019A48" font-weight="700" text-anchor="middle" letter-spacing="0.8">PAY FIRST — REFUND SUIT</text>
+<line x1="360" y1="290" x2="495" y2="290" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="494,290 484.2,283 484.2,297" fill="#90A2AD"/>
+<line x1="360" y1="560" x2="410" y2="560" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<circle cx="410" cy="560" r="4" fill="#90A2AD"/>
+<line x1="410" y1="475" x2="410" y2="655" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="410" y1="475" x2="495" y2="475" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="494,475 484.2,468 484.2,482" fill="#90A2AD"/>
+<line x1="410" y1="655" x2="495" y2="655" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="494,655 484.2,648 484.2,662" fill="#90A2AD"/>
+<line x1="755" y1="290" x2="845" y2="290" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<circle cx="845" cy="290" r="4" fill="#90A2AD"/>
+<line x1="755" y1="475" x2="845" y2="475" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<circle cx="845" cy="475" r="4" fill="#90A2AD"/>
+<line x1="845" y1="290" x2="845" y2="475" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="845" y1="380" x2="925" y2="380" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="924,380 914.2,373 914.2,387" fill="#90A2AD"/>
+<line x1="755" y1="655" x2="925" y2="655" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="924,655 914.2,648 914.2,662" fill="#90A2AD"/>
+<line x1="1175" y1="380" x2="1218" y2="380" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<circle cx="1218" cy="380" r="4" fill="#90A2AD"/>
+<line x1="1175" y1="655" x2="1218" y2="655" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<circle cx="1218" cy="655" r="4" fill="#90A2AD"/>
+<line x1="1218" y1="380" x2="1218" y2="655" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="1218" y1="510" x2="1240" y2="510" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="1239,510 1229.2,503 1229.2,517" fill="#90A2AD"/>
+<rect x="62.0" y="242.0" width="300" height="104" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="60.0" y="238.0" width="300" height="104" rx="12" fill="#FFFFFF"/>
+<rect x="60.0" y="238.0" width="6.5" height="104" fill="#5B62A8"/>
+<rect x="60.0" y="238.0" width="6.5" height="13" rx="6" fill="#5B62A8"/>
+<text x="213" y="272.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="16" fill="#16242F" font-weight="700" text-anchor="middle">Petition a Court</text>
+<text x="213" y="290.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">SNOD · 90 days · §6213(a) (jurisdictional)</text>
+<text x="213" y="305.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Determination · 30 days · §6330(d)(1)</text>
+<text x="213" y="320.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Innocent spouse · §6015(e)</text>
+<rect x="62.0" y="512.0" width="300" height="104" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="60.0" y="508.0" width="300" height="104" rx="12" fill="#FFFFFF"/>
+<rect x="60.0" y="508.0" width="6.5" height="104" fill="#019A48"/>
+<rect x="60.0" y="508.0" width="6.5" height="13" rx="6" fill="#019A48"/>
+<text x="213" y="542.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="16" fill="#16242F" font-weight="700" text-anchor="middle">Pay First, Then Sue</text>
+<text x="213" y="560.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Pay the tax in full</text>
+<text x="213" y="575.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Claim · §6511 / §7422</text>
+<text x="213" y="590.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Suit · §6532 (2 yrs after denial)</text>
+<rect x="497.0" y="248.0" width="260" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="495.0" y="244.0" width="260" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="495.0" y="244.0" width="6.5" height="92" fill="#3C8DA3"/>
+<rect x="495.0" y="244.0" width="6.5" height="13" rx="6" fill="#3C8DA3"/>
+<text x="628" y="280.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="16" fill="#16242F" font-weight="700" text-anchor="middle">U.S. Tax Court</text>
+<text x="628" y="298.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Prepayment forum</text>
+<text x="628" y="313.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">S-case ≤ $50k · §7463 (informal)</text>
+<rect x="497.0" y="437.0" width="260" height="84" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="495.0" y="433.0" width="260" height="84" rx="12" fill="#FFFFFF"/>
+<rect x="495.0" y="433.0" width="6.5" height="84" fill="#3C8DA3"/>
+<rect x="495.0" y="433.0" width="6.5" height="13" rx="6" fill="#3C8DA3"/>
+<text x="628" y="472.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="16" fill="#16242F" font-weight="700" text-anchor="middle">U.S. District Court</text>
+<text x="628" y="490.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Refund suit · jury available</text>
+<rect x="497.0" y="617.0" width="260" height="84" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="495.0" y="613.0" width="260" height="84" rx="12" fill="#FFFFFF"/>
+<rect x="495.0" y="613.0" width="6.5" height="84" fill="#3C8DA3"/>
+<rect x="495.0" y="613.0" width="6.5" height="13" rx="6" fill="#3C8DA3"/>
+<text x="628" y="652.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Court of Federal Claims</text>
+<text x="628" y="670.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Refund suit · §1346 (no jury)</text>
+<rect x="927.0" y="342.0" width="250" height="84" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="925.0" y="338.0" width="250" height="84" rx="12" fill="#FFFFFF"/>
+<rect x="925.0" y="338.0" width="6.5" height="84" fill="#5B62A8"/>
+<rect x="925.0" y="338.0" width="6.5" height="13" rx="6" fill="#5B62A8"/>
+<text x="1053" y="377.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">U.S. Court of Appeals</text>
+<text x="1053" y="395.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Regional circuit · §7482 / §1294</text>
+<rect x="927.0" y="617.0" width="250" height="84" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="925.0" y="613.0" width="250" height="84" rx="12" fill="#FFFFFF"/>
+<rect x="925.0" y="613.0" width="6.5" height="84" fill="#5B62A8"/>
+<rect x="925.0" y="613.0" width="6.5" height="13" rx="6" fill="#5B62A8"/>
+<text x="1053" y="652.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Federal Circuit</text>
+<text x="1053" y="670.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Appeals from the CFC · §1295</text>
+<rect x="1242.0" y="468.0" width="190" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="1240.0" y="464.0" width="190" height="92" rx="12" fill="#FFFFFF" stroke="#C9A961" stroke-width="2.5"/>
+<rect x="1240.0" y="464.0" width="6.5" height="92" fill="#C9A961"/>
+<rect x="1240.0" y="464.0" width="6.5" height="13" rx="6" fill="#C9A961"/>
+<text x="1338" y="500.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">U.S. Supreme Court</text>
+<text x="1338" y="518.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Discretionary review</text>
+<text x="1338" y="533.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">by certiorari</text>
+<text x="208" y="748" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" fill="#5E7686" font-weight="400" text-anchor="start" font-style="italic">Golsen rule: the Tax Court follows the precedent of the Court of Appeals to which the case would be appealable.</text>
+<line x1="70" y1="804" x2="1410" y2="804" stroke="#C4D0D8" stroke-width="1.5"/>
+<text x="70" y="830" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" fill="#16242F" font-weight="700" text-anchor="start" letter-spacing="0.5">PART 7 OF THE SERIES.</text>
+<text x="232" y="830" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" fill="#5E7686" font-weight="400" text-anchor="start">General information about tax procedure — not legal advice. The choice of forum is strategic and depends on the facts.</text>
+<text x="1410" y="824" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" fill="#16242F" font-weight="700" text-anchor="end" letter-spacing="1">DONOVAN LEGAL</text>
+<text x="1410" y="841" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10.5" fill="#5E7686" font-weight="400" text-anchor="end" font-style="italic">One firm. One signature. Full-arc defense.</text>
+</svg></div>
+    <figcaption>Part 7: the two doors into court, the three trial forums, and the appellate tracks that lead to the Supreme Court.</figcaption></figure>
+  
+<div class="prose">
+  <h2>Two doors</h2>
+  <p class="lead">A federal tax dispute reaches a courtroom in one of two ways: without paying first, in the United States Tax Court — or by paying the tax, claiming it back, and suing for a refund in a district court or the Court of Federal Claims. Which door a taxpayer uses shapes nearly everything that follows.</p>
+  <p>Cash position, the availability of a jury, the expertise of the bench, and — decisively — the precedent that will bind the court all turn on that single choice. It is one of the highest-leverage decisions in the entire arc.</p>
+
+  <h2>The prepayment door — the Tax Court</h2>
+  <ul class="roads">
+    <li class="indigo"><h3>U.S. Tax Court</h3><p>The Tax Court lets a taxpayer litigate <em>without paying the disputed tax first</em>. It is reached on a Statutory Notice of Deficiency (90 days, §6213(a) — jurisdictional), on a CDP Notice of Determination (30 days, §6330(d)(1) — tollable under <em>Boechler</em>), or on an innocent-spouse claim (§6015(e)). Its judges are tax specialists, and it sits nationwide.</p></li>
+  </ul>
+  <div class="clockline"><b>The small-case option.</b> Where the disputed tax and penalties (not counting interest) are $50,000 or less for a year, a taxpayer may elect "S-case" procedures under §7463: faster, informal, and forgiving on the rules of evidence. The trade-off is real — an S-case decision <b>cannot be appealed</b> and sets <b>no precedent</b>.</div>
+
+  <h2>The pay-first door — refund litigation</h2>
+  <p>The other route requires writing the check first. The taxpayer pays the tax, files a refund claim (the §6511 filing window, with §7422 making the claim a prerequisite to suit), and then — after six months, or within the two-year window of §6532 once the claim is denied — sues for the money back.</p>
+  <ul class="roads">
+    <li class="teal"><h3>U.S. District Court</h3><p>The taxpayer's home federal court, and the only tax forum where a <strong>jury</strong> is available — sometimes decisive where the facts have jury appeal.</p></li>
+    <li class="teal"><h3>U.S. Court of Federal Claims</h3><p>A national court of claims against the government (§1346), heard by judges, often with deep exposure to fiscal and government-contract matters. No jury.</p></li>
+  </ul>
+
+  <h2>The ladder above</h2>
+  <p>Appeals run upward along fixed tracks. Tax Court and district-court decisions go to the regional U.S. Court of Appeals (§7482 supplies the Tax Court track; 28 U.S.C. §1294 the district track). Court of Federal Claims decisions go instead to the Court of Appeals for the Federal Circuit (28 U.S.C. §1295). From either, the only remaining step is the U.S. Supreme Court, which takes tax cases rarely and only by certiorari.</p>
+
+  <div class="warn"><b>Where you litigate can change the outcome.</b> Under the <em>Golsen</em> rule, the Tax Court follows the precedent of the Court of Appeals to which the case would be appealable — so the identical issue can be won in one circuit and lost in another. Forum and venue selection are not housekeeping; they are strategy, and they belong at the front of a case, not the end.</div>
+
+  <h2>Where the case is really won</h2>
+  <p>By the time a dispute reaches any of these courts, the record built back at the audit and sharpened at Appeals is largely set. Litigation rewards the file that was assembled with a courtroom in mind from the first IDR. That is the through-line of this whole roadmap: the leverage is upstream, and the strategy is one continuous arc — from the return, to the exam, to the notice, to the bench.</p>
+</div>
+
+<div class="prose">
+  <a class="next" href="blog-controversy-roadmap-0-overview.html"><span class="n">0</span><span><span class="t">Back to the start — Part 0: How a Return Becomes a Dispute</span><br><span class="d">The full map, from a filed return to every branch that can follow. Revisit the overview.</span></span></a>
+</div>
+
+  <div class="closing">
+    <h2>One firm, the full arc</h2>
+    <p>A tax case is won or lost long before it is filed — in the audit record, the protest, the choice of forum. The advantage of a single firm carrying a matter from the first notice to the courtroom is that nothing is rebuilt and nothing is lost in translation. That is what this roadmap has traced, station by station, and it is how Donovan Legal practices.</p>
+    <p>For how the firm handles Tax Court and refund litigation, see <a href="tax-court.html">U.S. Tax Court &amp; Refund Litigation</a>.</p>
+    <p class="sig">One firm. One signature. Full-arc defense.</p>
+  </div>
+</div>
+<footer>
+  <div class="fine"><b>General information, not legal advice.</b> This post describes federal tax litigation in general terms and does not address the facts, deadlines, or forum considerations of any particular matter. It does not create an attorney–client relationship. Litigation procedure and precedent are fact-specific; consult qualified counsel before acting.</div>
+  <div class="fm"><b>DONOVAN LEGAL</b><span>One firm. One signature. Full-arc defense.</span></div>
+</footer>
+</body></html>

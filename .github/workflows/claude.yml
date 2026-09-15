@@ -1,0 +1,74 @@
+# Claude content lane — Donovan Legal
+#
+# WHY THIS EXISTS:
+#   Paul Donovan (the firm's attorney, not a developer) needs to update page
+#   copy himself. This lets him do it by writing a plain-English GitHub issue
+#   or comment that starts with "@claude". Claude edits, opens a PR, CI runs,
+#   Cloudflare posts a preview URL. David reviews the preview and merges.
+#
+#   Paul needs NO write access, NO token, and NO local setup. Read-role
+#   collaborator is enough to comment, and commenting is all he does.
+#
+# WHAT KEEPS THIS SAFE:
+#   1. `author_association` gate below — only OWNER / MEMBER / COLLABORATOR can
+#      trigger it. Drive-by commenters get nothing.
+#   2. No `actions: write` permission — Claude cannot dispatch the production
+#      deploy workflow.
+#   3. `main` is branch-protected — Claude opens PRs, it cannot push to main.
+#   4. Production deploy is manual `workflow_dispatch` requiring a human to type
+#      `deploy-production`. Nothing here reaches donovan.law on its own.
+#   5. CLAUDE.md at repo root carries the editing contract and is read on every
+#      run. Update the rules THERE, not here.
+
+name: Claude
+
+on:
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+  issues:
+    types: [opened]
+
+# Least privilege. Deliberately NO `actions: write`.
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+# One Claude run at a time per issue/PR. Stops a rapid back-and-forth from
+# spawning overlapping jobs that fight over the same branch.
+concurrency:
+  group: claude-${{ github.event.issue.number || github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  claude:
+    # Two conditions, both required:
+    #   (a) the body mentions @claude
+    #   (b) the author is a real collaborator on this repo
+    if: >-
+      (
+        (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
+        (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude')) ||
+        (github.event_name == 'issues' && contains(github.event.issue.body, '@claude'))
+      ) && (
+        contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'),
+                 github.event.comment.author_association || github.event.issue.author_association)
+      )
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run Claude
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_args: |
+            --max-turns 25
+            --append-system-prompt "You are editing the live website of a Florida law firm. Read CLAUDE.md at the repo root and follow it exactly. Stay inside the content lane in section 2. If the request needs anything in the not-allowed list, stop and escalate to @TicoDavid instead of attempting it. Never push to main, never merge, never run the production deploy workflow. Reply to the requester in plain English with no code."

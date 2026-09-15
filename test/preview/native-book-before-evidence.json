@@ -1,0 +1,372 @@
+{
+  "order": "JORDAN-PERCH-NATIVE-BOOK",
+  "phase": "before",
+  "baseline": true,
+  "base": "https://2d218794.donovan-site.pages.dev",
+  "startedAt": "2026-07-30T03:07:29.458Z",
+  "steps": [
+    {
+      "name": "[desktop] the router is on for this deployment",
+      "ok": true,
+      "detail": {
+        "ready": true,
+        "container": "#perch-main",
+        "errors": []
+      }
+    },
+    {
+      "name": "[desktop] the channel and the card are mounted on a content page",
+      "ok": true,
+      "detail": {
+        "commandChannel": {
+          "polling": false,
+          "callId": null,
+          "polls": 0,
+          "commands": 0,
+          "prefillPending": false,
+          "log": []
+        },
+        "qualifierMounted": true
+      }
+    },
+    {
+      "name": "[desktop] bindCall() — the seam js/donovan-widget.js calls — accepted the call",
+      "ok": true,
+      "detail": {
+        "ok": true
+      }
+    },
+    {
+      "name": "[desktop] ?qualifier=1 opens a tappable card",
+      "ok": true,
+      "detail": {
+        "present": true,
+        "display": "flex",
+        "cardRect": {
+          "w": 440,
+          "h": 433
+        },
+        "heading": "What type of matter would you like to discuss?",
+        "options": [
+          "tax",
+          "real_estate",
+          "other",
+          "not_sure_matter"
+        ]
+      }
+    },
+    {
+      "name": "[desktop] the completed card still POSTs the lead get_qualifier_result reads",
+      "ok": true,
+      "detail": {
+        "submit": {
+          "matter_category": "real_estate",
+          "matter": "real_estate",
+          "matter_sub": "acquisition",
+          "state": "FL",
+          "for_whom": "yourself",
+          "income_band": "1_5m_3m",
+          "net_worth_band": "5m_15m",
+          "language": "en",
+          "source": "google",
+          "call_id": "verify-nativebook-jcdexqmm"
+        },
+        "note": "captured and ABORTED — it forwards to Vantage /upsert-lead"
+      }
+    },
+    {
+      "name": "[desktop] and the done-state copy is unchanged",
+      "ok": true,
+      "detail": {
+        "text": "All setThanks — that’s what I needed Paula has it. She’ll pull up the calendar so you can pick a time. Continue"
+      }
+    },
+    {
+      "name": "[desktop] THE DEFECT, MEASURED: the caller is still on /contact, and no calendar exists",
+      "ok": true,
+      "detail": {
+        "url": "/contact",
+        "bookLiveExists": false,
+        "cardStillOpen": false,
+        "bodyText": "CONTACT THE FIRM Donovan Legal PLLC welcomes inquiries about tax planning, tax compliance, tax contr"
+      }
+    },
+    {
+      "name": "[desktop] …because nothing ever navigated: zero /book navigations",
+      "ok": true,
+      "detail": {
+        "commandChannel": {
+          "polling": true,
+          "callId": "set",
+          "polls": 11,
+          "commands": 0,
+          "prefillPending": false,
+          "log": []
+        },
+        "documentLoads": 0
+      }
+    },
+    {
+      "name": "[desktop] no CSP violation on the baseline either",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "[mobile] the router is on for this deployment",
+      "ok": true,
+      "detail": {
+        "ready": true,
+        "container": "#perch-main",
+        "errors": []
+      }
+    },
+    {
+      "name": "[mobile] the channel and the card are mounted on a content page",
+      "ok": true,
+      "detail": {
+        "commandChannel": {
+          "polling": false,
+          "callId": null,
+          "polls": 0,
+          "commands": 0,
+          "prefillPending": false,
+          "log": []
+        },
+        "qualifierMounted": true
+      }
+    },
+    {
+      "name": "[mobile] bindCall() — the seam js/donovan-widget.js calls — accepted the call",
+      "ok": true,
+      "detail": {
+        "ok": true
+      }
+    },
+    {
+      "name": "[mobile] ?qualifier=1 opens a tappable card",
+      "ok": true,
+      "detail": {
+        "present": true,
+        "display": "flex",
+        "cardRect": {
+          "w": 354,
+          "h": 433
+        },
+        "heading": "What type of matter would you like to discuss?",
+        "options": [
+          "tax",
+          "real_estate",
+          "other",
+          "not_sure_matter"
+        ]
+      }
+    },
+    {
+      "name": "[mobile] the completed card still POSTs the lead get_qualifier_result reads",
+      "ok": true,
+      "detail": {
+        "submit": {
+          "matter_category": "real_estate",
+          "matter": "real_estate",
+          "matter_sub": "acquisition",
+          "state": "FL",
+          "for_whom": "yourself",
+          "income_band": "1_5m_3m",
+          "net_worth_band": "5m_15m",
+          "language": "en",
+          "source": "google",
+          "call_id": "verify-nativebook-gyonozlu"
+        },
+        "note": "captured and ABORTED — it forwards to Vantage /upsert-lead"
+      }
+    },
+    {
+      "name": "[mobile] and the done-state copy is unchanged",
+      "ok": true,
+      "detail": {
+        "text": "All setThanks — that’s what I needed Paula has it. She’ll pull up the calendar so you can pick a time. Continue"
+      }
+    },
+    {
+      "name": "[mobile] THE DEFECT, MEASURED: the caller is still on /contact, and no calendar exists",
+      "ok": true,
+      "detail": {
+        "url": "/contact",
+        "bookLiveExists": false,
+        "cardStillOpen": false,
+        "bodyText": "CONTACT THE FIRM Donovan Legal PLLC welcomes inquiries about tax planning, tax compliance, tax contr"
+      }
+    },
+    {
+      "name": "[mobile] …because nothing ever navigated: zero /book navigations",
+      "ok": true,
+      "detail": {
+        "commandChannel": {
+          "polling": true,
+          "callId": "set",
+          "polls": 10,
+          "commands": 0,
+          "prefillPending": false,
+          "log": []
+        },
+        "documentLoads": 0
+      }
+    },
+    {
+      "name": "[mobile] no CSP violation on the baseline either",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "the caller was never auto-submitted — NOTHING reached /booking/create",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "no CSP violation across the whole flow — every module is a same-origin external",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "no uncaught page errors (Turnstile 600010 exempted — it is the headless driver)",
+      "ok": true,
+      "detail": {
+        "realErrors": [],
+        "exempted": []
+      }
+    },
+    {
+      "name": "the SHELL at /perch still serves and still builds its own concierge",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "orb": true,
+        "qual": true,
+        "iframe": true,
+        "layerInShell": false,
+        "writes": []
+      }
+    }
+  ],
+  "writes": [],
+  "qualifierSubmits": [
+    {
+      "arm": "desktop",
+      "body": {
+        "matter_category": "real_estate",
+        "matter": "real_estate",
+        "matter_sub": "acquisition",
+        "state": "FL",
+        "for_whom": "yourself",
+        "income_band": "1_5m_3m",
+        "net_worth_band": "5m_15m",
+        "language": "en",
+        "source": "google",
+        "call_id": "verify-nativebook-jcdexqmm"
+      }
+    },
+    {
+      "arm": "mobile",
+      "body": {
+        "matter_category": "real_estate",
+        "matter": "real_estate",
+        "matter_sub": "acquisition",
+        "state": "FL",
+        "for_whom": "yourself",
+        "income_band": "1_5m_3m",
+        "net_worth_band": "5m_15m",
+        "language": "en",
+        "source": "google",
+        "call_id": "verify-nativebook-gyonozlu"
+      }
+    }
+  ],
+  "console": [
+    {
+      "arm": "desktop",
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "arm": "mobile",
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    }
+  ],
+  "pageErrors": [],
+  "cspViolations": [],
+  "screenshots": [
+    {
+      "arm": "desktop",
+      "phase": "before",
+      "name": "before-card-open",
+      "file": "C:\\Users\\d0527\\DonovanLegal-wt-jordan-nativebook\\test\\preview\\screenshots\\nativebook-before-desktop-before-card-open.png",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "note": "the caller is on /contact with the qualifier card up; no calendar exists"
+    },
+    {
+      "arm": "desktop",
+      "phase": "before",
+      "name": "during-done-state",
+      "file": "C:\\Users\\d0527\\DonovanLegal-wt-jordan-nativebook\\test\\preview\\screenshots\\nativebook-before-desktop-during-done-state.png",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "note": "the done card promising the calendar — on the tree without the fix"
+    },
+    {
+      "arm": "desktop",
+      "phase": "before",
+      "name": "after-nothing-happened",
+      "file": "C:\\Users\\d0527\\DonovanLegal-wt-jordan-nativebook\\test\\preview\\screenshots\\nativebook-before-desktop-after-nothing-happened.png",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "note": "the caller stalled on the content page — the live symptom"
+    },
+    {
+      "arm": "mobile",
+      "phase": "before",
+      "name": "before-card-open",
+      "file": "C:\\Users\\d0527\\DonovanLegal-wt-jordan-nativebook\\test\\preview\\screenshots\\nativebook-before-mobile-before-card-open.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "note": "the caller is on /contact with the qualifier card up; no calendar exists"
+    },
+    {
+      "arm": "mobile",
+      "phase": "before",
+      "name": "during-done-state",
+      "file": "C:\\Users\\d0527\\DonovanLegal-wt-jordan-nativebook\\test\\preview\\screenshots\\nativebook-before-mobile-during-done-state.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "note": "the done card promising the calendar — on the tree without the fix"
+    },
+    {
+      "arm": "mobile",
+      "phase": "before",
+      "name": "after-nothing-happened",
+      "file": "C:\\Users\\d0527\\DonovanLegal-wt-jordan-nativebook\\test\\preview\\screenshots\\nativebook-before-mobile-after-nothing-happened.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "note": "the caller stalled on the content page — the live symptom"
+    }
+  ],
+  "notes": [],
+  "exemptedErrors": [],
+  "finishedAt": "2026-07-30T03:08:01.803Z",
+  "passed": 22,
+  "failed": 0,
+  "verdict": "GO"
+}

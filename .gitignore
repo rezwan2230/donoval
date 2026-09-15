@@ -1,0 +1,63 @@
+node_modules/
+.wrangler/
+*.env
+.dev.vars
+.DS_Store
+
+# SHELDON-CLIO-PAGING-PROBE-R1 — the live-grant probe's output.
+#
+# NOT committed, and the rule is here rather than left to discipline. The file is
+# a VERBATIM capture of a real Clio response taken with a real access token: it
+# carries the observed `meta` object unaltered, page cursors included.
+#
+# Before anything is written, the CLI scrubs the serialised output through a
+# FRESH redactor built from process.env, holding the THREE credential values —
+# CLIO_CLIENT_ID, CLIO_CLIENT_SECRET, CLIO_REFRESH_TOKEN. Not four, and not the
+# minted access token: that redactor is constructed in the CLI block, which never
+# sees the token. It does not need to. The token is held in a local inside
+# runPagingProbe and is never written into the returned object, which is the only
+# thing serialised here — a control asserts exactly that, so the day it stops
+# being true the suite reds rather than the file quietly gaining a bearer token.
+#
+# So this line is a second defence and not the first — but a capture of a live
+# grant's responses is not repository content either way.
+#
+# THIS RULE IS LOAD-BEARING, not hygiene. verify-clio-paging.mjs refuses any
+# --evidence path that does not resolve to a file matching the glob below,
+# sitting directly in test/preview/. Widen, narrow or move this pattern and the
+# probe's write target moves with it; the controls read this file and assert the
+# pattern is still here, so an edit here reds the suite rather than silently
+# unbounding a write that runs with the live Clio credentials in the environment.
+#
+# The committed record of what was observed is docs/CLIO-PAGING-CONTRACT.md,
+# which quotes the same shapes with the opaque cursor value elided.
+#
+# The other test/preview/*-evidence.json files ARE tracked. That predates this
+# order and is deliberately left alone; nothing here joins them.
+test/preview/clio-paging-evidence*.json
+
+# SHELDON-CLIO-WRITEPATH-VERIFY-R1 — the write-path verifier's output.
+#
+# The same rule, for a file whose contents are worse. The paging probe's evidence
+# held response SHAPES. This one holds the CLIENT'S INTAKE ANSWERS — the seven
+# fields issue 153 is about, income_band and net_worth_band among them — plus the
+# contact's name and the attendee's email address. It is a law firm's client
+# record with the finances attached.
+#
+# Two things are NEVER in it, by construction rather than by scrub: the calendar
+# entry's `location` and conference_meeting.join_url. In dynamic mode Clio fills
+# `location` with a video_conferences wrapper URL, and a join URL is a bearer
+# capability — anyone holding it is in the client's consultation. Both are read
+# into locals so the leak search can look at them and neither is ever written into
+# the returned object; controls assert that.
+#
+# The three credentials are scrubbed from the serialised output by a fresh
+# redactor, exactly as above. That is the second defence, not the first.
+#
+# THIS RULE IS LOAD-BEARING, not hygiene. verify-clio-writepath.mjs refuses any
+# --evidence path that does not resolve to a file matching the glob below,
+# sitting directly in test/preview/. Widen, narrow or move this pattern and the
+# verifier's write target moves with it; the controls read this file and assert
+# the pattern is still here, so an edit here reds the suite rather than silently
+# unbounding a write that runs with the live Clio credentials in the environment.
+test/preview/clio-writepath-evidence*.json

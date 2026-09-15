@@ -1,0 +1,1884 @@
+/* =============================================================================
+   DEAL BUILDER TOOL — Reserve members only
+   Donovan Legal PLLC — Phase I
+   Matches the entity formation tool aesthetic; extends with deal-builder
+   specific components (member class cards, promote tier editor, capital
+   stack summary cards, sensitivity heat map, etc.)
+   ============================================================================= */
+
+* { box-sizing: border-box; }
+body { font-family: 'Open Sans', sans-serif; background: #F5F5F0; margin: 0; color: #1a1a1a; }
+
+/* ===== TOOL HEADER (matches entity formation tool) ===== */
+.tool-header {
+  background: #1a1a1a; color: #F5F5F0; padding: 0.85rem 0;
+  border-bottom: 3px solid #169B62;
+}
+.tool-header-inner {
+  max-width: 1280px; margin: 0 auto; padding: 0 1.5rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.tool-header-brand {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.8rem; letter-spacing: 4px;
+}
+.tool-header-back {
+  color: #F5F5F0; text-decoration: none; font-size: 0.82rem;
+  letter-spacing: 1.5px; text-transform: uppercase;
+}
+.tool-header-back:hover { color: #169B62; text-decoration: none; }
+
+/* ===== TOOL CONTAINER ===== */
+.tool-container { max-width: 1180px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+.tool-title-bar { margin-bottom: 2rem; }
+.tool-title-eyebrow {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.72rem; letter-spacing: 3.5px; color: #169B62;
+  font-weight: 700; margin-bottom: 0.4rem;
+}
+.tool-title-bar h1 {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1.95rem; line-height: 1.2; color: #1a1a1a;
+  margin: 0 0 0.85rem 0;
+}
+.tool-title-subtitle {
+  font-size: 0.98rem; line-height: 1.65; color: #4a4a4a;
+  max-width: 920px; margin-bottom: 0;
+}
+
+/* ===== PROGRESS / TAB BAR ===== */
+.db-progress {
+  display: grid; grid-template-columns: repeat(10, 1fr); gap: 0.2rem;
+  margin: 2rem 0; background: #FFFFFF; padding: 0.75rem;
+  border: 1px solid #d4d4d0;
+}
+.db-progress-step {
+  padding: 0.7rem 0.5rem; text-align: center;
+  background: #f5f5f0; border: 1px solid #e0e0d8; color: #6b6b6b;
+  cursor: pointer; transition: all 0.15s ease;
+  font-family: 'Open Sans', sans-serif;
+}
+.db-progress-step:hover { border-color: #169B62; color: #1a1a1a; }
+.db-progress-step.db-active {
+  background: #169B62; color: #FFFFFF; border-color: #107a4d;
+}
+.db-progress-step.db-complete {
+  background: #FFFFFF; color: #169B62; border-color: #169B62;
+}
+.db-progress-step span {
+  display: block; font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-weight: 700; font-size: 1rem; margin-bottom: 0.2rem;
+}
+.db-progress-step label {
+  display: block; font-size: 0.72rem; line-height: 1.2; font-weight: 600;
+  margin: 0; cursor: pointer;
+}
+
+@media (max-width: 1100px) {
+  .db-progress { grid-template-columns: repeat(4, 1fr); gap: 0.35rem; }
+  .db-progress-step label { font-size: 0.68rem; }
+}
+@media (max-width: 700px) {
+  .db-progress { grid-template-columns: repeat(3, 1fr); }
+  .db-progress-step label { font-size: 0.64rem; }
+}
+@media (max-width: 480px) {
+  .db-progress { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ===== STEP SECTIONS ===== */
+.db-step {
+  display: none; background: #FFFFFF; border: 1px solid #d4d4d0;
+  padding: 2rem 2.25rem; margin-bottom: 1rem;
+}
+.db-step.db-step-active { display: block; }
+.db-step h2 {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1.4rem; color: #1a1a1a; margin: 0 0 0.85rem 0;
+  padding-bottom: 0.75rem; border-bottom: 2px solid #169B62;
+}
+.db-section-intro {
+  font-size: 0.95rem; line-height: 1.7; color: #4a4a4a;
+  max-width: 920px; margin-bottom: 1.75rem;
+}
+.db-subhead {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1.05rem; color: #1a1a1a; margin: 2rem 0 1rem 0;
+  padding: 0.5rem 0 0.4rem 0; border-bottom: 1px solid #e0e0d8;
+  text-transform: uppercase; letter-spacing: 1.5px;
+}
+
+/* ===== FORM FIELDS ===== */
+.db-field { margin-bottom: 1.5rem; }
+.db-field label {
+  display: block; font-weight: 700; font-size: 0.92rem;
+  color: #1a1a1a; margin-bottom: 0.4rem;
+}
+.db-required { color: #B01F24; }
+.db-field input[type="text"],
+.db-field input[type="number"],
+.db-field input[type="date"],
+.db-field select,
+.db-field textarea {
+  width: 100%; padding: 0.65rem 0.85rem; border: 1px solid #d4d4d0;
+  font-family: 'Open Sans', sans-serif; font-size: 0.95rem;
+  background: #FFFFFF; color: #1a1a1a;
+}
+.db-field input:focus, .db-field select:focus, .db-field textarea:focus {
+  outline: none; border-color: #169B62; box-shadow: 0 0 0 2px rgba(22,155,98,0.15);
+}
+.db-help {
+  margin-top: 0.5rem; font-size: 0.82rem; color: #6b6b6b;
+  line-height: 1.55; padding: 0.65rem 0.85rem;
+  background: rgba(22,155,98,0.04); border-left: 2px solid #169B62;
+}
+.db-help-block {
+  font-size: 0.88rem; color: #4a4a4a; line-height: 1.65;
+  padding: 1rem 1.15rem; background: #fafaf5;
+  border-left: 3px solid #169B62; margin: 1rem 0 1.5rem 0;
+}
+.db-help-inline {
+  display: block; font-weight: normal; font-size: 0.78rem;
+  color: #6b6b6b; line-height: 1.5; margin-top: 0.25rem;
+}
+
+/* ===== GRID LAYOUTS ===== */
+.db-grid-2 {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;
+}
+.db-grid-3 {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+}
+.db-grid-4 {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+}
+@media (max-width: 768px) {
+  .db-grid-2, .db-grid-3, .db-grid-4 { grid-template-columns: 1fr; gap: 0.85rem; }
+}
+
+/* ===== CHECKBOX GRIDS ===== */
+.db-checkbox-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem 1.5rem;
+  padding: 1rem 1.1rem; background: #fafaf5; border: 1px solid #e8e8e0;
+}
+.db-checkbox-block {
+  padding: 1rem 1.1rem; background: #fafaf5; border: 1px solid #e8e8e0;
+  margin-bottom: 1.5rem;
+}
+.db-checkbox {
+  display: flex; align-items: flex-start; gap: 0.55rem;
+  font-weight: normal; color: #1a1a1a; cursor: pointer;
+  font-size: 0.93rem; line-height: 1.45; margin: 0 0 0.55rem 0;
+}
+.db-checkbox input[type="checkbox"] {
+  width: 1.1rem; height: 1.1rem; margin-top: 0.1rem;
+  accent-color: #169B62; flex-shrink: 0;
+}
+.db-checkbox-block .db-checkbox:last-child { margin-bottom: 0; }
+
+@media (max-width: 768px) {
+  .db-checkbox-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== NAV BUTTONS ===== */
+.db-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #e0e0d8;
+}
+.btn-db-next, .btn-db-back, .btn-primary-green, .btn-secondary-sm, .btn-db-add {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 0.75rem 1.5rem; border: none; cursor: pointer;
+  transition: all 0.15s ease;
+}
+.btn-db-next, .btn-primary-green {
+  background: #169B62; color: #FFFFFF;
+}
+.btn-db-next:hover, .btn-primary-green:hover { background: #107a4d; }
+.btn-db-back {
+  background: #FFFFFF; color: #6b6b6b; border: 1px solid #d4d4d0;
+}
+.btn-db-back:hover { color: #1a1a1a; border-color: #1a1a1a; }
+.btn-secondary-sm {
+  background: #FFFFFF; color: #1a1a1a; border: 1px solid #d4d4d0;
+  padding: 0.55rem 1.1rem; font-size: 0.78rem;
+}
+.btn-secondary-sm:hover { border-color: #169B62; color: #169B62; }
+.btn-db-add {
+  background: #FFFFFF; color: #169B62; border: 1px dashed #169B62;
+  padding: 0.6rem 1.25rem; font-size: 0.82rem;
+  margin: 0.5rem 0 1.25rem 0;
+}
+.btn-db-add:hover { background: rgba(22,155,98,0.06); }
+
+/* =============================================================================
+   MEMBER CLASS CARDS
+   ============================================================================= */
+.member-class-card {
+  background: #fafaf5; border: 1px solid #e0e0d8;
+  border-left: 3px solid #169B62;
+  padding: 1.25rem 1.5rem; margin-bottom: 1rem;
+  position: relative;
+}
+.member-class-card.is-sponsor {
+  border-left-color: #C9A961;
+  background: rgba(201, 169, 97, 0.04);
+}
+.member-class-card.is-guarantor {
+  border-left-color: #8b3a3a;
+}
+.member-class-card .mc-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 1rem; padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+.mc-title-row {
+  display: flex; align-items: center; gap: 0.85rem;
+}
+.mc-class-badge {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.72rem; letter-spacing: 2px;
+  padding: 0.25rem 0.55rem;
+  background: #169B62; color: #FFFFFF;
+}
+.mc-class-badge.sponsor { background: #C9A961; color: #1a1a1a; }
+.mc-class-badge.guarantor { background: #8b3a3a; }
+.mc-name-input {
+  font-size: 0.95rem !important; font-weight: 600;
+  border: none !important; border-bottom: 1px dotted #d4d4d0 !important;
+  padding: 0.3rem 0 !important; background: transparent !important;
+  width: auto !important; min-width: 180px;
+}
+.mc-name-input:focus {
+  border-bottom-color: #169B62 !important;
+  box-shadow: none !important;
+}
+.mc-remove {
+  background: transparent; border: 1px solid #d4d4d0;
+  color: #6b6b6b; cursor: pointer;
+  padding: 0.3rem 0.65rem; font-size: 0.75rem;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
+}
+.mc-remove:hover { color: #8b3a3a; border-color: #8b3a3a; }
+
+.mc-fields {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.85rem;
+}
+.mc-fields.mc-fields-3 { grid-template-columns: repeat(3, 1fr); }
+.mc-field-mini label {
+  display: block; font-size: 0.74rem; letter-spacing: 1px;
+  text-transform: uppercase; color: #6b6b6b; margin-bottom: 0.25rem;
+  font-weight: 700;
+}
+.mc-field-mini input, .mc-field-mini select {
+  width: 100%; padding: 0.45rem 0.6rem; border: 1px solid #d4d4d0;
+  font-family: 'Open Sans', sans-serif; font-size: 0.88rem;
+  background: #FFFFFF; color: #1a1a1a;
+}
+.mc-field-mini input:focus, .mc-field-mini select:focus {
+  outline: none; border-color: #169B62;
+}
+
+@media (max-width: 880px) {
+  .mc-fields, .mc-fields.mc-fields-3 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 540px) {
+  .mc-fields, .mc-fields.mc-fields-3 { grid-template-columns: 1fr; }
+}
+
+/* =============================================================================
+   MEMBER DEBT ROWS
+   ============================================================================= */
+.member-debt-row {
+  background: #fafaf5; border: 1px solid #e0e0d8;
+  border-left: 3px solid #d4a017;
+  padding: 1rem 1.25rem; margin-bottom: 0.85rem;
+}
+.member-debt-row .md-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 0.85rem;
+}
+.md-fields {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 0.65rem;
+}
+@media (max-width: 880px) {
+  .md-fields { grid-template-columns: 1fr 1fr; }
+}
+
+/* =============================================================================
+   PROMOTE TIERS
+   ============================================================================= */
+.promote-tier-row {
+  background: #fafaf5; border: 1px solid #e0e0d8;
+  border-left: 3px solid #169B62;
+  padding: 1rem 1.25rem; margin-bottom: 0.85rem;
+}
+.promote-tier-row.tier-final {
+  border-left-color: #C9A961;
+  background: rgba(201, 169, 97, 0.04);
+}
+.promote-tier-row .pt-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 0.85rem;
+}
+.pt-title {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase;
+  color: #1a1a1a;
+}
+.pt-fields {
+  display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 0.65rem;
+}
+@media (max-width: 880px) {
+  .pt-fields { grid-template-columns: 1fr 1fr; }
+}
+
+/* =============================================================================
+   SUMMARY ROWS (capital stack, budget totals)
+   ============================================================================= */
+.db-summary-row {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+  margin: 1.5rem 0 2rem 0;
+  padding: 1.1rem 1.25rem; background: #1a1a1a; color: #F5F5F0;
+}
+.db-summary-row-emphasis {
+  background: #169B62; color: #FFFFFF;
+}
+.db-summary-cell {
+  padding: 0.25rem 0.5rem;
+}
+.db-summary-label {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase;
+  opacity: 0.7; margin-bottom: 0.3rem;
+}
+.db-summary-value {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1.45rem; letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+  .db-summary-row { grid-template-columns: 1fr; gap: 0.5rem; }
+  .db-summary-value { font-size: 1.25rem; }
+}
+
+/* =============================================================================
+   WARNINGS & ALERTS
+   ============================================================================= */
+.db-warning {
+  padding: 0.85rem 1.1rem; background: rgba(176, 31, 36, 0.06);
+  border-left: 3px solid #B01F24; color: #1a1a1a;
+  font-size: 0.9rem; line-height: 1.5; margin: 1rem 0;
+}
+.db-warning strong { color: #B01F24; }
+.db-info {
+  padding: 0.85rem 1.1rem; background: rgba(22,155,98,0.06);
+  border-left: 3px solid #169B62; color: #1a1a1a;
+  font-size: 0.9rem; line-height: 1.5; margin: 1rem 0;
+}
+
+/* =============================================================================
+   STATE SUMMARY CARD
+   ============================================================================= */
+.db-state-summary {
+  background: #fafaf5; border: 1px solid #e0e0d8;
+  padding: 1.25rem 1.5rem; margin-bottom: 1.5rem;
+}
+.db-state-summary .ss-title {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1rem; letter-spacing: 1px;
+  color: #1a1a1a; margin-bottom: 0.85rem;
+  padding-bottom: 0.55rem; border-bottom: 1px solid #d4d4d0;
+}
+.db-state-summary .ss-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.85rem 1.25rem;
+}
+.db-state-summary .ss-item label {
+  display: block; font-size: 0.7rem; letter-spacing: 1.5px;
+  text-transform: uppercase; color: #6b6b6b; margin-bottom: 0.15rem;
+  font-weight: 700;
+}
+.db-state-summary .ss-item .ss-value {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.95rem; color: #1a1a1a;
+}
+.db-state-summary .ss-item .ss-value.green { color: #169B62; }
+.db-state-summary .ss-item .ss-value.red { color: #B01F24; }
+.db-state-summary .ss-item .ss-value.amber { color: #d4a017; }
+.db-state-summary .ss-flag {
+  display: inline-block; padding: 0.15rem 0.45rem;
+  font-size: 0.7rem; letter-spacing: 1px;
+  text-transform: uppercase; font-weight: 700;
+}
+.db-state-summary .ss-flag.conform { background: rgba(22,155,98,0.15); color: #107a4d; }
+.db-state-summary .ss-flag.decouple { background: rgba(176, 31, 36, 0.12); color: #B01F24; }
+.db-state-summary .ss-flag.none { background: rgba(107, 107, 107, 0.15); color: #6b6b6b; }
+
+@media (max-width: 768px) {
+  .db-state-summary .ss-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* =============================================================================
+   RESULTS — VERDICT CARD
+   ============================================================================= */
+.db-results-actions {
+  display: flex; gap: 0.65rem; flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.db-verdict {
+  background: #1a1a1a; color: #F5F5F0;
+  padding: 1.75rem 2rem; margin-bottom: 2rem;
+  border-left: 4px solid #169B62;
+}
+.db-verdict.is-marginal { border-left-color: #d4a017; }
+.db-verdict.is-fail { border-left-color: #B01F24; }
+.db-verdict-label {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase;
+  opacity: 0.6; margin-bottom: 0.45rem;
+}
+.db-verdict-headline {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1.65rem; letter-spacing: 1px; margin-bottom: 0.75rem;
+}
+.db-verdict-criteria {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+  margin-top: 1rem; padding-top: 1rem;
+  border-top: 1px solid rgba(245, 245, 240, 0.15);
+}
+.db-verdict-criteria .vc-item {
+  font-size: 0.85rem; line-height: 1.45;
+}
+.db-verdict-criteria .vc-label {
+  font-size: 0.68rem; letter-spacing: 1.5px;
+  text-transform: uppercase; opacity: 0.65; margin-bottom: 0.2rem;
+}
+.db-verdict-criteria .vc-value {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1.15rem;
+}
+.db-verdict-criteria .vc-value.green { color: #5dd09a; }
+.db-verdict-criteria .vc-value.amber { color: #ffc857; }
+.db-verdict-criteria .vc-value.red { color: #ff8a8a; }
+
+@media (max-width: 768px) {
+  .db-verdict-criteria { grid-template-columns: 1fr 1fr; }
+}
+
+/* =============================================================================
+   OUTPUT TABLES
+   ============================================================================= */
+.db-output-table-wrap {
+  overflow-x: auto; margin-bottom: 2rem;
+  border: 1px solid #e0e0d8;
+}
+.db-output-table {
+  width: 100%; border-collapse: collapse;
+  font-family: 'Open Sans', sans-serif; font-size: 0.9rem;
+  background: #FFFFFF;
+}
+.db-output-table th {
+  background: #1a1a1a; color: #F5F5F0;
+  padding: 0.7rem 0.9rem; text-align: left;
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase;
+  font-weight: 700;
+}
+.db-output-table th.right { text-align: right; }
+.db-output-table td {
+  padding: 0.7rem 0.9rem; border-bottom: 1px solid #f0f0e8;
+  color: #1a1a1a;
+}
+.db-output-table td.right { text-align: right; font-variant-numeric: tabular-nums; }
+.db-output-table tr:hover td { background: #fafaf5; }
+.db-output-table tr.row-total td {
+  background: #169B62; color: #FFFFFF;
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif; font-weight: 700;
+}
+.db-output-table tr.row-total:hover td { background: #107a4d; }
+.db-output-table tr.row-subtotal td {
+  background: #f0f0e8;
+  font-weight: 700;
+}
+
+/* =============================================================================
+   SENSITIVITY HEAT MAP
+   ============================================================================= */
+.db-sensitivity th, .db-sensitivity td {
+  text-align: center; padding: 0.6rem 0.7rem;
+  font-variant-numeric: tabular-nums;
+}
+.db-sensitivity th.row-label, .db-sensitivity td.row-label {
+  background: #1a1a1a; color: #F5F5F0; text-align: left;
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif; font-size: 0.75rem;
+  letter-spacing: 1px; text-transform: uppercase;
+}
+.db-sensitivity td.center {
+  border: 2px solid #1a1a1a;
+  font-weight: 700;
+}
+.db-sensitivity td.heat-excellent { background: #169B62; color: #FFFFFF; }
+.db-sensitivity td.heat-good { background: #5dd09a; color: #1a1a1a; }
+.db-sensitivity td.heat-marginal { background: #ffd97a; color: #1a1a1a; }
+.db-sensitivity td.heat-poor { background: #ff8a8a; color: #1a1a1a; }
+.db-sensitivity td.heat-fail { background: #B01F24; color: #FFFFFF; }
+
+/* =============================================================================
+   ORG CHART
+   ============================================================================= */
+.db-org-chart {
+  background: #FFFFFF; border: 1px solid #e0e0d8;
+  padding: 1.5rem; margin-bottom: 2rem;
+  min-height: 200px;
+  overflow-x: auto;
+}
+.org-tree {
+  font-family: 'Open Sans', monospace;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 0;
+}
+.org-node {
+  display: inline-block; padding: 0.6rem 1.1rem;
+  background: #fafaf5; border: 1px solid #d4d4d0;
+  font-size: 0.88rem; text-align: center; min-width: 200px;
+}
+.org-node.is-spv {
+  background: #169B62; color: #FFFFFF; border-color: #107a4d;
+}
+.org-node.is-sponsor {
+  background: #C9A961; color: #1a1a1a; border-color: #b09144;
+}
+.org-node.is-blocker {
+  background: #8b3a3a; color: #FFFFFF; border-color: #6e2828;
+  font-style: italic;
+}
+.org-node-label {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-weight: 700; font-size: 0.78rem; letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.org-node-sub {
+  font-size: 0.75rem; opacity: 0.8; margin-top: 0.15rem;
+}
+.org-connector {
+  height: 1.5rem; width: 1px; background: #6b6b6b;
+}
+.org-row {
+  display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;
+}
+
+/* =============================================================================
+   NOTES & WARNINGS PANEL
+   ============================================================================= */
+.db-notes {
+  background: #fafaf5; border: 1px solid #e0e0d8;
+  padding: 1.25rem 1.5rem;
+}
+.db-notes .note-item {
+  padding: 0.6rem 0; border-bottom: 1px dotted #d4d4d0;
+  font-size: 0.92rem; line-height: 1.55; color: #1a1a1a;
+}
+.db-notes .note-item:last-child { border-bottom: none; }
+.db-notes .note-item.note-warn {
+  color: #1a1a1a;
+}
+.db-notes .note-item.note-warn::before {
+  content: '⚠ '; color: #8b3a3a; font-weight: 700;
+}
+.db-notes .note-item.note-info::before {
+  content: 'ℹ '; color: #169B62; font-weight: 700;
+}
+.db-notes .note-item.note-tax::before {
+  content: '§ '; color: #C9A961; font-weight: 700;
+}
+
+/* =============================================================================
+   TOOL FOOTER
+   ============================================================================= */
+.tool-footer {
+  background: #1a1a1a; color: #d4d4d0;
+  padding: 2rem 0; margin-top: 3rem;
+}
+.tool-footer-inner {
+  max-width: 1180px; margin: 0 auto; padding: 0 1.5rem;
+}
+.tool-footer p {
+  font-size: 0.82rem; line-height: 1.65; color: #d4d4d0;
+  font-family: 'Open Sans', sans-serif; margin-bottom: 1rem;
+}
+.tool-footer-meta {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.7rem !important; letter-spacing: 2px;
+  text-transform: uppercase; color: #6b6b6b !important;
+  margin-top: 0.5rem;
+}
+
+/* =============================================================================
+   PRINT STYLES
+   ============================================================================= */
+@media print {
+  .tool-header, .tool-footer, .db-progress, .db-nav,
+  .db-results-actions, .btn-db-next, .btn-db-back,
+  .btn-primary-green, .btn-secondary-sm, .btn-db-add { display: none !important; }
+
+  .db-step { display: block !important; page-break-inside: avoid; }
+  .db-step h2 { border-bottom-color: #1a1a1a; }
+
+  body { background: #FFFFFF; }
+  .tool-container { max-width: 100%; padding: 0; }
+
+  .db-summary-row, .db-verdict {
+    background: #FFFFFF !important; color: #1a1a1a !important;
+    border: 1px solid #1a1a1a !important;
+  }
+  .db-summary-value { color: #1a1a1a !important; }
+  .db-output-table th { background: #1a1a1a !important; color: #FFFFFF !important;
+                       -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .db-sensitivity td.heat-excellent,
+  .db-sensitivity td.heat-good,
+  .db-sensitivity td.heat-marginal,
+  .db-sensitivity td.heat-poor,
+  .db-sensitivity td.heat-fail {
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+}
+
+/* =============================================================================
+   PHASE 2 — TAX ALLOCATIONS
+   §704(c) layer cards, capital account roll-forward, three-method comparison
+   ============================================================================= */
+
+/* §704(c) Layer Card */
+.sec704c-layer-card {
+  background: #fafaf5; border: 1px solid #e0e0d8;
+  border-left: 3px solid #8b3a3a;
+  padding: 1.25rem 1.5rem; margin-bottom: 1rem;
+}
+.sec704c-layer-card .layer-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 1rem; padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+.sec704c-layer-card .layer-badge {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.72rem; letter-spacing: 2px;
+  padding: 0.25rem 0.55rem;
+  background: #8b3a3a; color: #FFFFFF;
+}
+.sec704c-layer-card .layer-built-in {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.85rem; color: #8b3a3a; font-weight: 700;
+  margin-top: 0.65rem; padding-top: 0.5rem;
+  border-top: 1px dotted #d4d4d0;
+}
+.sec704c-layer-card .layer-fields {
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; gap: 0.75rem;
+}
+@media (max-width: 880px) {
+  .sec704c-layer-card .layer-fields { grid-template-columns: 1fr 1fr; }
+}
+
+/* §704(c) Three-Method Comparison */
+.method-comparison {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+  margin-bottom: 2rem;
+}
+@media (max-width: 880px) {
+  .method-comparison { grid-template-columns: 1fr; }
+}
+.method-card {
+  background: #FFFFFF; border: 1px solid #d4d4d0;
+  border-top: 4px solid #169B62;
+  padding: 1.25rem 1.5rem;
+}
+.method-card.traditional { border-top-color: #6b6b6b; }
+.method-card.curative { border-top-color: #d4a017; }
+.method-card.remedial { border-top-color: #169B62; }
+.method-card .method-name {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.92rem; letter-spacing: 1.5px; text-transform: uppercase;
+  color: #1a1a1a; margin-bottom: 0.25rem;
+}
+.method-card .method-cite {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.78rem; color: #6b6b6b;
+  margin-bottom: 1rem; padding-bottom: 0.75rem;
+  border-bottom: 1px solid #f0f0e8;
+  font-style: italic;
+}
+.method-card .method-stat {
+  margin-bottom: 0.85rem;
+}
+.method-card .method-stat:last-child { margin-bottom: 0; }
+.method-card .method-stat-label {
+  font-size: 0.7rem; letter-spacing: 1.2px;
+  text-transform: uppercase; color: #6b6b6b;
+  font-weight: 700; margin-bottom: 0.15rem;
+}
+.method-card .method-stat-value {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1.05rem; color: #1a1a1a;
+  font-variant-numeric: tabular-nums;
+}
+.method-card .method-stat-value.warn { color: #8b3a3a; }
+.method-card .method-stat-value.good { color: #169B62; }
+.method-card .method-note {
+  font-size: 0.82rem; line-height: 1.5; color: #4a4a4a;
+  margin-top: 1rem; padding-top: 0.75rem;
+  border-top: 1px solid #f0f0e8;
+}
+.method-card.recommended {
+  box-shadow: 0 0 0 2px #169B62;
+}
+.method-card .recommended-flag {
+  display: inline-block; padding: 0.15rem 0.45rem;
+  background: #169B62; color: #FFFFFF;
+  font-size: 0.68rem; letter-spacing: 1.5px; text-transform: uppercase;
+  font-weight: 700; margin-bottom: 0.5rem;
+}
+
+/* Capital Account Roll-Forward Tables */
+.capital-account-table-wrap {
+  margin-bottom: 1.5rem;
+}
+.capital-account-table-wrap h4 {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.9rem; color: #1a1a1a; margin: 1rem 0 0.5rem 0;
+  text-transform: uppercase; letter-spacing: 1.2px;
+}
+.cap-acct-class-block {
+  background: #fafaf5; border: 1px solid #e8e8e0;
+  border-left: 3px solid #169B62;
+  padding: 1rem 1.25rem; margin-bottom: 1rem;
+}
+.cap-acct-class-block.sponsor { border-left-color: #C9A961; }
+.cap-acct-class-block.guarantor { border-left-color: #8b3a3a; }
+.cap-acct-class-block .class-name {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.9rem; color: #1a1a1a; margin-bottom: 0.75rem;
+  text-transform: uppercase; letter-spacing: 1px;
+  padding-bottom: 0.5rem; border-bottom: 1px solid #e0e0d8;
+}
+.cap-acct-roll {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 0.5rem 1rem;
+  font-size: 0.88rem;
+}
+.cap-acct-roll .roll-label { color: #6b6b6b; padding: 0.25rem 0; }
+.cap-acct-roll .roll-value { text-align: right; font-variant-numeric: tabular-nums; padding: 0.25rem 0; }
+.cap-acct-roll .roll-header {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.7rem; letter-spacing: 1px;
+  text-transform: uppercase; color: #1a1a1a;
+  padding-bottom: 0.4rem; border-bottom: 1px solid #d4d4d0;
+}
+.cap-acct-roll .roll-total {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  color: #1a1a1a; font-weight: 700;
+  padding-top: 0.4rem; border-top: 1px solid #d4d4d0;
+}
+
+@media (max-width: 768px) {
+  .cap-acct-roll { grid-template-columns: 1.5fr 1fr; font-size: 0.82rem; }
+  .cap-acct-roll .roll-header:nth-child(3),
+  .cap-acct-roll .roll-header:nth-child(4),
+  .cap-acct-roll > div:nth-child(4n+3),
+  .cap-acct-roll > div:nth-child(4n+4) { display: none; }
+}
+
+/* §754 Analysis Block */
+#sec754_analysis .note-item.note-743 {
+  border-bottom-style: solid; padding: 0.75rem 1rem;
+  background: rgba(201, 169, 97, 0.08);
+  margin: 0.4rem 0; border-left: 3px solid #C9A961;
+}
+#sec754_analysis .note-item.note-743::before {
+  content: '§743 ';
+  color: #C9A961; font-weight: 700;
+}
+#sec754_analysis .note-item.note-734 {
+  border-bottom-style: solid; padding: 0.75rem 1rem;
+  background: rgba(22, 155, 98, 0.06);
+  margin: 0.4rem 0; border-left: 3px solid #169B62;
+}
+#sec754_analysis .note-item.note-734::before {
+  content: '§734 ';
+  color: #169B62; font-weight: 700;
+}
+
+/* =============================================================================
+   PHASE 3 — INVESTOR TAX PROFILES, BLOCKERS, FIRPTA, UBTI
+   ============================================================================= */
+
+/* Investor Profile Card */
+.investor-profile-card {
+  background: #fafaf5; border: 1px solid #e0e0d8;
+  border-left: 3px solid #169B62;
+  padding: 1.1rem 1.4rem; margin-bottom: 0.85rem;
+}
+.investor-profile-card.us-taxexempt { border-left-color: #8b3a3a; }
+.investor-profile-card.foreign { border-left-color: #C9A961; }
+.investor-profile-card.foreign-pension { border-left-color: #169B62; }
+.investor-profile-card .ip-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 0.85rem;
+}
+.investor-profile-card .ip-class-row {
+  display: flex; align-items: center; gap: 0.85rem;
+}
+.investor-profile-card .ip-class-badge {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.7rem; letter-spacing: 1.8px;
+  padding: 0.2rem 0.55rem;
+  background: #169B62; color: #FFFFFF;
+}
+.investor-profile-card .ip-class-badge.taxexempt { background: #8b3a3a; }
+.investor-profile-card .ip-class-badge.foreign { background: #C9A961; color: #1a1a1a; }
+.investor-profile-card .ip-class-name {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.95rem; color: #1a1a1a;
+}
+.investor-profile-card .ip-capital {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.92rem; color: #4a4a4a;
+}
+.investor-profile-card .ip-fields {
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 0.75rem;
+}
+.investor-profile-card .ip-subfields {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;
+  margin-top: 0.75rem; padding-top: 0.75rem;
+  border-top: 1px dotted #d4d4d0;
+}
+.investor-profile-card .ip-checkboxes {
+  margin-top: 0.75rem; padding-top: 0.75rem;
+  border-top: 1px dotted #d4d4d0;
+}
+.investor-profile-card .ip-flag {
+  display: inline-block; padding: 0.18rem 0.5rem;
+  font-size: 0.68rem; letter-spacing: 1.2px; text-transform: uppercase;
+  font-weight: 700; margin-left: 0.5rem;
+  font-family: 'Open Sans', sans-serif;
+}
+.investor-profile-card .ip-flag.exempt { background: rgba(22,155,98,0.15); color: #107a4d; }
+.investor-profile-card .ip-flag.exposure { background: rgba(176, 31, 36, 0.12); color: #B01F24; }
+@media (max-width: 880px) {
+  .investor-profile-card .ip-fields,
+  .investor-profile-card .ip-subfields { grid-template-columns: 1fr; }
+}
+
+/* Blocker Entity Card */
+.blocker-card {
+  background: rgba(139, 58, 58, 0.04); border: 1px solid #e0e0d8;
+  border-left: 3px solid #8b3a3a;
+  padding: 1.1rem 1.4rem; margin-bottom: 0.85rem;
+}
+.blocker-card.us-ccorp { border-left-color: #1a1a1a; background: rgba(26,26,26,0.04); }
+.blocker-card.reit { border-left-color: #169B62; background: rgba(22,155,98,0.04); }
+.blocker-card.treaty { border-left-color: #C9A961; background: rgba(201,169,97,0.05); }
+.blocker-card .bk-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 1rem; padding-bottom: 0.55rem;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+.blocker-card .bk-badge {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.7rem; letter-spacing: 1.8px;
+  padding: 0.2rem 0.55rem;
+  background: #8b3a3a; color: #FFFFFF;
+}
+.blocker-card.us-ccorp .bk-badge { background: #1a1a1a; }
+.blocker-card.reit .bk-badge { background: #169B62; }
+.blocker-card.treaty .bk-badge { background: #C9A961; color: #1a1a1a; }
+.blocker-card .bk-fields {
+  display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.5fr; gap: 0.75rem;
+}
+.blocker-card .bk-members {
+  margin-top: 0.85rem; padding-top: 0.75rem;
+  border-top: 1px dotted #d4d4d0;
+}
+.blocker-card .bk-members-label {
+  font-size: 0.7rem; letter-spacing: 1.2px;
+  text-transform: uppercase; color: #6b6b6b; font-weight: 700;
+  margin-bottom: 0.45rem;
+}
+.blocker-card .bk-members-checkboxes {
+  display: flex; gap: 0.85rem; flex-wrap: wrap;
+}
+.blocker-card .bk-members-checkboxes label {
+  font-size: 0.85rem; color: #1a1a1a; margin: 0;
+  display: flex; align-items: center; gap: 0.4rem; cursor: pointer;
+}
+.blocker-card .bk-members-checkboxes input[type="checkbox"] {
+  width: 1rem; height: 1rem; accent-color: #169B62;
+}
+@media (max-width: 880px) {
+  .blocker-card .bk-fields { grid-template-columns: 1fr 1fr; }
+}
+
+/* FIRPTA Analysis Panel */
+.firpta-panel {
+  background: #FFFFFF; border: 1px solid #d4d4d0;
+  padding: 1.5rem; margin-bottom: 1.5rem;
+}
+.firpta-panel-header {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.9rem; color: #1a1a1a;
+  margin-bottom: 1rem; padding-bottom: 0.55rem;
+  border-bottom: 1px solid #e8e8e0;
+  text-transform: uppercase; letter-spacing: 1.5px;
+}
+.firpta-investor-row {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 0.85rem; padding: 0.75rem 0;
+  border-bottom: 1px dotted #d4d4d0;
+}
+.firpta-investor-row:last-child { border-bottom: none; }
+.firpta-investor-row .fi-name {
+  font-weight: 700; color: #1a1a1a;
+}
+.firpta-investor-row .fi-status {
+  font-size: 0.88rem;
+}
+.firpta-investor-row .fi-status.exposed { color: #B01F24; font-weight: 700; }
+.firpta-investor-row .fi-status.protected { color: #169B62; font-weight: 700; }
+.firpta-investor-row .fi-status.partial { color: #d4a017; font-weight: 700; }
+.firpta-investor-row .fi-amount {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.firpta-summary {
+  margin-top: 1rem; padding: 0.85rem 1rem;
+  background: #fafaf5; border-left: 3px solid #169B62;
+  font-size: 0.88rem; line-height: 1.5; color: #1a1a1a;
+}
+.firpta-summary strong { color: #1a1a1a; }
+@media (max-width: 768px) {
+  .firpta-investor-row { grid-template-columns: 1fr; gap: 0.35rem; }
+}
+
+/* UBTI Analysis Panel */
+.ubti-panel {
+  background: #FFFFFF; border: 1px solid #d4d4d0;
+  padding: 1.5rem; margin-bottom: 1.5rem;
+}
+.ubti-panel-header {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.9rem; color: #1a1a1a;
+  margin-bottom: 1rem; padding-bottom: 0.55rem;
+  border-bottom: 1px solid #e8e8e0;
+  text-transform: uppercase; letter-spacing: 1.5px;
+}
+.ubti-row {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr 1fr;
+  gap: 0.85rem; padding: 0.75rem 0;
+  border-bottom: 1px dotted #d4d4d0;
+}
+.ubti-row:last-child { border-bottom: none; }
+.ubti-row .ur-name { font-weight: 700; color: #1a1a1a; }
+.ubti-row .ur-value {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.ubti-row .ur-status.exempt { color: #169B62; font-weight: 700; }
+.ubti-row .ur-status.exposed { color: #B01F24; font-weight: 700; }
+.ubti-row .ur-status.partial { color: #d4a017; font-weight: 700; }
+@media (max-width: 768px) {
+  .ubti-row { grid-template-columns: 1fr; gap: 0.35rem; }
+}
+
+/* Blocker Leakage Panel */
+.leakage-panel {
+  background: #FFFFFF; border: 1px solid #d4d4d0;
+  padding: 1.5rem; margin-bottom: 1.5rem;
+}
+.leakage-table {
+  width: 100%; border-collapse: collapse;
+  font-family: 'Open Sans', sans-serif; font-size: 0.9rem;
+}
+.leakage-table th {
+  background: #1a1a1a; color: #F5F5F0;
+  padding: 0.6rem 0.85rem; text-align: left;
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.74rem; letter-spacing: 1.3px; text-transform: uppercase;
+}
+.leakage-table th.right { text-align: right; }
+.leakage-table td {
+  padding: 0.6rem 0.85rem; border-bottom: 1px solid #f0f0e8;
+}
+.leakage-table td.right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+}
+.leakage-table td.leakage-good { color: #169B62; font-weight: 700; }
+.leakage-table td.leakage-warn { color: #d4a017; font-weight: 700; }
+.leakage-table td.leakage-bad { color: #B01F24; font-weight: 700; }
+
+/* Recommendation note types */
+#structural_recommendations .note-item.note-recommend {
+  border-left: 3px solid #169B62; background: rgba(22,155,98,0.06);
+  padding: 0.85rem 1.1rem; margin: 0.5rem 0;
+}
+#structural_recommendations .note-item.note-recommend::before {
+  content: '★ Recommend: ';
+  color: #169B62; font-weight: 700;
+}
+#structural_recommendations .note-item.note-flag {
+  border-left: 3px solid #d4a017; background: rgba(212,160,23,0.06);
+  padding: 0.85rem 1.1rem; margin: 0.5rem 0;
+}
+#structural_recommendations .note-item.note-flag::before {
+  content: '⚐ ';
+  color: #d4a017; font-weight: 700;
+}
+#structural_recommendations .note-item.note-critical {
+  border-left: 3px solid #B01F24; background: rgba(176,31,36,0.06);
+  padding: 0.85rem 1.1rem; margin: 0.5rem 0;
+}
+#structural_recommendations .note-item.note-critical::before {
+  content: '! Critical: ';
+  color: #B01F24; font-weight: 700;
+}
+
+/* =============================================================================
+   PHASE 4 — SPECIALIZED COMPLIANCE
+   REIT / OZ / TIC / DST compliance dashboards
+   ============================================================================= */
+
+.compliance-section {
+  margin-bottom: 2rem;
+}
+
+/* Compliance Dashboard (Results step) */
+.compliance-dashboard {
+  background: #FFFFFF; border: 1px solid #d4d4d0;
+  padding: 1.5rem 1.85rem; margin-bottom: 1.5rem;
+}
+.compliance-dashboard .cd-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-bottom: 0.85rem; margin-bottom: 1.25rem;
+  border-bottom: 2px solid #1a1a1a;
+}
+.compliance-dashboard .cd-title {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1.05rem; letter-spacing: 1.5px;
+  text-transform: uppercase; color: #1a1a1a;
+}
+.compliance-dashboard .cd-overall {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.78rem; letter-spacing: 2px;
+  padding: 0.35rem 0.85rem;
+  text-transform: uppercase;
+}
+.compliance-dashboard .cd-overall.pass { background: #169B62; color: #FFFFFF; }
+.compliance-dashboard .cd-overall.warn { background: #d4a017; color: #1a1a1a; }
+.compliance-dashboard .cd-overall.fail { background: #B01F24; color: #FFFFFF; }
+
+.compliance-test {
+  display: grid; grid-template-columns: 1fr 130px 130px 130px;
+  gap: 0.85rem; padding: 0.85rem 0;
+  border-bottom: 1px dotted #d4d4d0;
+  align-items: start;
+}
+.compliance-test:last-child { border-bottom: none; }
+.compliance-test .ct-name {
+  font-weight: 700; color: #1a1a1a;
+  font-size: 0.92rem;
+}
+.compliance-test .ct-cite {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.74rem; font-style: italic;
+  color: #6b6b6b; margin-top: 0.15rem;
+}
+.compliance-test .ct-detail {
+  font-size: 0.82rem; line-height: 1.5;
+  color: #4a4a4a; margin-top: 0.35rem;
+}
+.compliance-test .ct-actual,
+.compliance-test .ct-threshold {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-variant-numeric: tabular-nums;
+  text-align: right; font-size: 0.92rem;
+  padding-top: 0.15rem;
+}
+.compliance-test .ct-actual-label,
+.compliance-test .ct-threshold-label {
+  font-size: 0.66rem; letter-spacing: 1.2px;
+  text-transform: uppercase; color: #6b6b6b;
+  font-weight: 700; margin-bottom: 0.15rem;
+  font-family: 'Open Sans', sans-serif;
+  text-align: right;
+}
+.compliance-test .ct-status {
+  text-align: center; padding-top: 0.15rem;
+}
+.compliance-test .ct-status-badge {
+  display: inline-block;
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.68rem; letter-spacing: 1.5px;
+  text-transform: uppercase; font-weight: 700;
+  padding: 0.3rem 0.65rem;
+}
+.compliance-test .ct-status-badge.pass { background: #169B62; color: #FFFFFF; }
+.compliance-test .ct-status-badge.warn { background: #d4a017; color: #1a1a1a; }
+.compliance-test .ct-status-badge.fail { background: #B01F24; color: #FFFFFF; }
+.compliance-test .ct-status-badge.na { background: #d4d4d0; color: #1a1a1a; }
+.compliance-test .ct-status-badge.info { background: #1a1a1a; color: #F5F5F0; }
+
+@media (max-width: 768px) {
+  .compliance-test {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+  .compliance-test .ct-actual,
+  .compliance-test .ct-threshold,
+  .compliance-test .ct-status { text-align: left; }
+  .compliance-test .ct-actual-label,
+  .compliance-test .ct-threshold-label { text-align: left; }
+}
+
+.cd-notes {
+  margin-top: 1.5rem; padding-top: 1.25rem;
+  border-top: 1px solid #e0e0d8;
+}
+.cd-notes .note-item {
+  padding: 0.55rem 0; border-bottom: 1px dotted #d4d4d0;
+  font-size: 0.88rem; line-height: 1.55;
+}
+.cd-notes .note-item:last-child { border-bottom: none; }
+.cd-notes .note-item.critical { color: #B01F24; }
+.cd-notes .note-item.warn { color: #d4a017; }
+.cd-notes .note-item::before { font-weight: 700; margin-right: 0.4rem; }
+.cd-notes .note-item.critical::before { content: '! '; color: #B01F24; }
+.cd-notes .note-item.warn::before { content: '⚐ '; color: #d4a017; }
+.cd-notes .note-item.info::before { content: '§ '; color: #169B62; }
+
+/* =============================================================================
+   PHASE 5 — ORG CHART EDITOR (SVG-based, drag-and-drop)
+   ============================================================================= */
+
+.org-editor-toolbar {
+  display: flex; align-items: center; gap: 0.6rem;
+  flex-wrap: wrap; margin-bottom: 0.85rem;
+}
+.org-editor-toolbar .org-editor-hint {
+  font-size: 0.8rem; color: #6b6b6b;
+  font-style: italic; margin-left: 0.5rem;
+}
+
+.db-org-chart {
+  background: #FFFFFF; border: 1px solid #e0e0d8;
+  padding: 0; margin-bottom: 2rem;
+  min-height: 480px;
+  overflow: auto;
+  position: relative;
+}
+
+/* SVG canvas */
+.org-svg {
+  display: block;
+  width: 100%;
+  min-height: 480px;
+  user-select: none;
+  background: #fafaf5;
+  background-image:
+    linear-gradient(rgba(22,155,98,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22,155,98,0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* SVG nodes */
+.org-svg .org-node-rect {
+  fill: #fafaf5;
+  stroke: #1a1a1a; stroke-width: 1.5;
+  cursor: grab;
+  transition: filter 0.15s;
+}
+.org-svg .org-node-rect:hover {
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.18));
+}
+.org-svg .org-node-rect.dragging { cursor: grabbing; }
+.org-svg .org-node-rect.selected {
+  stroke: #169B62; stroke-width: 3;
+  filter: drop-shadow(0 3px 8px rgba(22,155,98,0.3));
+}
+.org-svg .org-node-rect.type-spv {
+  fill: #169B62; stroke: #107a4d;
+}
+.org-svg .org-node-rect.type-sponsor {
+  fill: #C9A961; stroke: #b09144;
+}
+.org-svg .org-node-rect.type-lp {
+  fill: #FFFFFF; stroke: #169B62; stroke-width: 2;
+}
+.org-svg .org-node-rect.type-guarantor-lp {
+  fill: #FFFFFF; stroke: #8b3a3a; stroke-width: 2;
+}
+.org-svg .org-node-rect.type-foreign {
+  fill: #FFFFFF; stroke: #C9A961; stroke-width: 2;
+}
+.org-svg .org-node-rect.type-taxexempt {
+  fill: #FFFFFF; stroke: #8b3a3a; stroke-width: 2; stroke-dasharray: 4 2;
+}
+.org-svg .org-node-rect.type-blocker {
+  fill: rgba(139, 58, 58, 0.06); stroke: #8b3a3a; stroke-width: 2;
+}
+.org-svg .org-node-rect.type-reit {
+  fill: rgba(22, 155, 98, 0.08); stroke: #169B62; stroke-width: 2;
+}
+.org-svg .org-node-rect.type-lender {
+  fill: #FFFFFF; stroke: #d4a017; stroke-width: 2;
+}
+.org-svg .org-node-rect.type-property {
+  fill: #1a1a1a; stroke: #1a1a1a;
+}
+.org-svg .org-node-rect.type-custom {
+  fill: #FFFFFF; stroke: #6b6b6b; stroke-width: 1.5; stroke-dasharray: 3 2;
+}
+
+.org-svg text {
+  font-family: 'Open Sans', sans-serif;
+  pointer-events: none;
+  user-select: none;
+}
+.org-svg .org-node-label {
+  font-size: 11px; font-weight: 700; fill: #1a1a1a;
+  text-anchor: middle;
+}
+.org-svg .org-node-label.light { fill: #FFFFFF; }
+.org-svg .org-node-sub {
+  font-size: 9px; fill: #4a4a4a;
+  text-anchor: middle;
+}
+.org-svg .org-node-sub.light { fill: #F5F5F0; }
+.org-svg .org-node-jurisdiction {
+  font-size: 8px; fill: #6b6b6b;
+  text-anchor: middle; font-style: italic;
+}
+.org-svg .org-node-jurisdiction.light { fill: #d4d4d0; }
+.org-svg .org-edge {
+  stroke: #4a4a4a; stroke-width: 1.5; fill: none;
+  pointer-events: none;
+}
+.org-svg .org-edge.debt {
+  stroke: #d4a017; stroke-width: 2;
+  stroke-dasharray: 4 3;
+}
+.org-svg .org-edge.distribution {
+  stroke: #169B62; stroke-width: 1.5;
+  stroke-dasharray: 2 2;
+}
+.org-svg .org-edge-label {
+  font-size: 9px; fill: #4a4a4a;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: #fafaf5; stroke-width: 3;
+}
+.org-svg .org-edge-label.debt { fill: #d4a017; }
+.org-svg .org-edge-label.distribution { fill: #169B62; }
+
+/* Inline label editor */
+.org-label-editor {
+  position: absolute;
+  background: #FFFFFF;
+  border: 2px solid #169B62;
+  padding: 0.4rem 0.6rem;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.85rem;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.org-label-editor input {
+  border: none;
+  width: 200px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  outline: none;
+}
+
+/* Legend */
+.org-legend {
+  display: flex; flex-wrap: wrap; gap: 0.85rem;
+  padding: 0.75rem 1rem;
+  background: #fafaf5;
+  border-top: 1px solid #e0e0d8;
+  font-size: 0.78rem;
+}
+.org-legend-item {
+  display: flex; align-items: center; gap: 0.4rem;
+  color: #4a4a4a;
+}
+.org-legend-swatch {
+  width: 16px; height: 12px;
+  border: 1.5px solid #1a1a1a;
+}
+.org-legend-swatch.spv { background: #169B62; border-color: #107a4d; }
+.org-legend-swatch.sponsor { background: #C9A961; border-color: #b09144; }
+.org-legend-swatch.lp { background: #FFFFFF; border-color: #169B62; border-width: 2px; }
+.org-legend-swatch.blocker { background: rgba(139,58,58,0.06); border-color: #8b3a3a; border-width: 2px; }
+.org-legend-swatch.lender { background: #FFFFFF; border-color: #d4a017; border-width: 2px; }
+.org-legend-swatch.property { background: #1a1a1a; }
+
+/* =============================================================================
+   PHASE 5 — DEAL MEMO (Print-optimized HTML for PDF export)
+   These styles are injected into the deal memo document, not used in the tool itself.
+   ============================================================================= */
+
+@media print {
+  .org-editor-toolbar { display: none !important; }
+  .db-org-chart { border: 1px solid #1a1a1a; background: #FFFFFF !important; }
+  .org-svg { background: #FFFFFF !important; background-image: none !important; }
+}
+
+/* =============================================================================
+   PHASE 6 — TAX OVERLAY DETAIL SECTIONS
+   §163(j), §461(l), §199A, PTET, apportionment outputs
+   ============================================================================= */
+
+.overlay-detail {
+  background: rgba(212, 160, 23, 0.04);
+  border-left: 3px solid #d4a017;
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+}
+
+.overlay-detail h3 {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1rem; color: #1a1a1a;
+  margin-top: 0 !important; margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #d4a017 !important;
+  text-transform: uppercase; letter-spacing: 1.2px;
+}
+
+/* Overlay output panel (Results step) */
+.overlay-output-panel {
+  background: #FFFFFF; border: 1px solid #d4d4d0;
+  padding: 1.5rem 1.75rem; margin-bottom: 1.5rem;
+  border-left: 4px solid #d4a017;
+}
+.overlay-output-panel.green-accent { border-left-color: #169B62; }
+.overlay-output-panel.charcoal-accent { border-left-color: #1a1a1a; }
+
+.overlay-output-panel .oop-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 1rem; padding-bottom: 0.6rem;
+  border-bottom: 1px solid #e8e8e0;
+}
+.overlay-output-panel .oop-title {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1rem; color: #1a1a1a;
+  text-transform: uppercase; letter-spacing: 1.5px;
+}
+.overlay-output-panel .oop-cite {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.78rem; color: #6b6b6b; font-style: italic;
+}
+
+.overlay-output-panel .oop-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+@media (max-width: 880px) {
+  .overlay-output-panel .oop-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .overlay-output-panel .oop-grid { grid-template-columns: 1fr; }
+}
+.overlay-output-panel .oop-stat {
+  padding: 0.85rem 1rem;
+  background: #fafaf5; border-left: 2px solid #169B62;
+}
+.overlay-output-panel .oop-stat.warn { border-left-color: #d4a017; }
+.overlay-output-panel .oop-stat.bad { border-left-color: #B01F24; }
+.overlay-output-panel .oop-stat-label {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.7rem; letter-spacing: 1.2px; text-transform: uppercase;
+  color: #6b6b6b; font-weight: 700; margin-bottom: 0.25rem;
+}
+.overlay-output-panel .oop-stat-value {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1.1rem; color: #1a1a1a;
+  font-variant-numeric: tabular-nums;
+}
+.overlay-output-panel .oop-stat-value.warn { color: #d4a017; }
+.overlay-output-panel .oop-stat-value.bad { color: #B01F24; }
+.overlay-output-panel .oop-stat-value.good { color: #169B62; }
+
+.overlay-output-panel .oop-detail {
+  font-size: 0.92rem; line-height: 1.6; color: #1a1a1a;
+  padding: 0.85rem 1rem;
+  background: #fafaf5;
+}
+.overlay-output-panel .oop-detail strong { color: #1a1a1a; }
+
+/* Year-by-year capital account roll-forward */
+.cap-acct-annual-table {
+  width: 100%; border-collapse: collapse; margin-top: 0.85rem;
+  font-family: 'Open Sans', sans-serif; font-size: 0.86rem;
+  background: #FFFFFF;
+}
+.cap-acct-annual-table th {
+  background: #1a1a1a; color: #F5F5F0;
+  padding: 0.55rem 0.7rem; text-align: left;
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.72rem; letter-spacing: 1.2px; text-transform: uppercase;
+}
+.cap-acct-annual-table th.right { text-align: right; }
+.cap-acct-annual-table td {
+  padding: 0.5rem 0.7rem; border-bottom: 1px solid #f0f0e8;
+}
+.cap-acct-annual-table td.right { text-align: right; font-variant-numeric: tabular-nums; }
+.cap-acct-annual-table tr.year-row { background: #fafaf5; }
+.cap-acct-annual-table tr.year-row td:first-child { font-weight: 700; }
+.cap-acct-annual-table tr.row-total td {
+  background: #169B62; color: #FFFFFF;
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif; font-weight: 700;
+}
+
+/* =============================================================================
+   PHASE 7 — DEAL DOCUMENT PACKAGE
+   Step 10 UI: securities level cards, signatories, investors, generation
+   ============================================================================= */
+
+/* Securities Level Selector */
+.sec-level-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+  margin: 1rem 0 2rem 0;
+}
+@media (max-width: 1100px) {
+  .sec-level-grid { grid-template-columns: 1fr; }
+}
+.sec-level-card {
+  display: block; cursor: pointer; position: relative;
+  background: #FFFFFF; border: 1.5px solid #d4d4d0;
+  padding: 1.25rem 1.4rem;
+  transition: all 0.15s;
+}
+.sec-level-card:hover { border-color: #169B62; }
+.sec-level-card input[type="radio"] {
+  position: absolute; top: 1rem; right: 1rem;
+  width: 1.1rem; height: 1.1rem; accent-color: #169B62;
+}
+.sec-level-card:has(input[type="radio"]:checked) {
+  border-color: #169B62; border-width: 2px;
+  background: rgba(22,155,98,0.03);
+  box-shadow: 0 3px 12px rgba(22,155,98,0.12);
+}
+.sec-level-card .sec-level-tag {
+  display: inline-block;
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.68rem; letter-spacing: 1.5px;
+  padding: 0.18rem 0.55rem;
+  background: #C9A961; color: #1a1a1a;
+  text-transform: uppercase; margin-bottom: 0.55rem;
+}
+.sec-level-card:has(input[type="radio"]:checked) .sec-level-tag {
+  background: #169B62; color: #FFFFFF;
+}
+.sec-level-card h4 {
+  margin: 0 0 0.3rem 0;
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1.05rem; color: #1a1a1a;
+}
+.sec-level-card .sec-level-cite {
+  font-size: 0.78rem; font-style: italic; color: #6b6b6b;
+  margin-bottom: 0.75rem;
+}
+.sec-level-card ul {
+  list-style: none; padding: 0; margin: 0 0 0.75rem 0;
+  font-size: 0.85rem; color: #1a1a1a; line-height: 1.55;
+}
+.sec-level-card ul li {
+  padding: 0.25rem 0 0.25rem 1.2rem;
+  position: relative;
+}
+.sec-level-card ul li::before {
+  content: '✓'; position: absolute; left: 0; top: 0.25rem;
+  color: #169B62; font-weight: 700;
+}
+.sec-level-card .sec-level-docs {
+  margin-top: 0.75rem; padding-top: 0.75rem;
+  border-top: 1px dotted #d4d4d0;
+  font-size: 0.78rem; color: #4a4a4a; line-height: 1.55;
+}
+
+/* Signatory cards */
+.signatory-card {
+  background: rgba(201,169,97,0.04); border: 1px solid #e0e0d8;
+  border-left: 3px solid #C9A961;
+  padding: 1rem 1.25rem; margin-bottom: 0.75rem;
+}
+.signatory-card .sig-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 0.85rem;
+}
+.signatory-card .sig-badge {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.68rem; letter-spacing: 1.5px;
+  padding: 0.18rem 0.55rem;
+  background: #C9A961; color: #1a1a1a;
+  text-transform: uppercase;
+}
+.signatory-card .sig-fields {
+  display: grid; grid-template-columns: 1.3fr 1fr 1.2fr 1fr; gap: 0.65rem;
+}
+@media (max-width: 880px) {
+  .signatory-card .sig-fields { grid-template-columns: 1fr 1fr; }
+}
+
+/* Investor cards */
+.investor-card {
+  background: #FFFFFF; border: 1px solid #e0e0d8;
+  border-left: 3px solid #169B62;
+  padding: 1rem 1.25rem; margin-bottom: 0.75rem;
+}
+.investor-card .inv-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 0.85rem;
+}
+.investor-card .inv-badge {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.68rem; letter-spacing: 1.5px;
+  padding: 0.18rem 0.55rem;
+  background: #169B62; color: #FFFFFF;
+  text-transform: uppercase;
+}
+.investor-card .inv-fields-row1 {
+  display: grid; grid-template-columns: 1.5fr 1.2fr 1.5fr 1fr; gap: 0.65rem;
+}
+.investor-card .inv-fields-row2 {
+  display: grid; grid-template-columns: 1fr 1fr 1.3fr 1fr; gap: 0.65rem;
+  margin-top: 0.65rem;
+}
+.investor-card .inv-fields-row3 {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.65rem;
+  margin-top: 0.65rem;
+}
+@media (max-width: 1100px) {
+  .investor-card .inv-fields-row1,
+  .investor-card .inv-fields-row2,
+  .investor-card .inv-fields-row3 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 680px) {
+  .investor-card .inv-fields-row1,
+  .investor-card .inv-fields-row2,
+  .investor-card .inv-fields-row3 { grid-template-columns: 1fr; }
+}
+
+/* Investor summary totals */
+.dp-investor-summary {
+  margin: 1rem 0 1.5rem 0;
+  padding: 1rem 1.25rem;
+  background: #fafaf5; border-left: 3px solid #169B62;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.85rem;
+  font-size: 0.92rem;
+}
+.dp-investor-summary .dis-stat .dis-label {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.7rem; letter-spacing: 1.2px;
+  text-transform: uppercase; color: #6b6b6b; font-weight: 700;
+}
+.dp-investor-summary .dis-stat .dis-value {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1.05rem; color: #1a1a1a;
+  font-variant-numeric: tabular-nums;
+  margin-top: 0.15rem;
+}
+.dp-investor-summary .dis-stat .dis-value.warn { color: #d4a017; }
+.dp-investor-summary .dis-stat .dis-value.good { color: #169B62; }
+.dp-investor-summary .dis-stat .dis-value.bad { color: #B01F24; }
+@media (max-width: 880px) {
+  .dp-investor-summary { grid-template-columns: 1fr 1fr; }
+}
+
+/* Generate Deal Package Button block */
+.dp-generate-block {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: #1a1a1a;
+  text-align: center;
+  border-radius: 2px;
+}
+.dp-generate-btn {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 1rem !important;
+  padding: 0.85rem 2rem !important;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.dp-generate-note {
+  margin: 0.85rem 0 0 0;
+  font-size: 0.82rem; color: #d4d4d0;
+  line-height: 1.55;
+  max-width: 600px; margin-left: auto; margin-right: auto;
+}
+
+/* =============================================================================
+   PHASE 8 — MULTI-TIER ENTITY STRUCTURE
+   ============================================================================= */
+
+/* Entity Card */
+.entity-card {
+  background: #FFFFFF; border: 1px solid #e0e0d8;
+  border-left: 3px solid #1a1a1a;
+  padding: 1rem 1.25rem; margin-bottom: 0.75rem;
+}
+.entity-card.is-issuer { border-left-color: #169B62; }
+.entity-card.is-sponsor { border-left-color: #C9A961; }
+.entity-card.is-holdco { border-left-color: #4a6fa5; }
+.entity-card.is-trust { border-left-color: #8b3a3a; }
+.entity-card.is-blocker { border-left-color: #d4a017; }
+.entity-card.is-feeder { border-left-color: #5a3a8b; }
+
+.entity-card .ent-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 0.85rem;
+}
+.entity-card .ent-badge {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.68rem; letter-spacing: 1.5px;
+  padding: 0.18rem 0.55rem; color: #FFFFFF;
+  text-transform: uppercase;
+}
+.entity-card .ent-badge.bg-issuer { background: #169B62; }
+.entity-card .ent-badge.bg-sponsor { background: #C9A961; color: #1a1a1a; }
+.entity-card .ent-badge.bg-holdco { background: #4a6fa5; }
+.entity-card .ent-badge.bg-trust { background: #8b3a3a; }
+.entity-card .ent-badge.bg-blocker { background: #d4a017; color: #1a1a1a; }
+.entity-card .ent-badge.bg-feeder { background: #5a3a8b; }
+.entity-card .ent-badge.bg-other { background: #6b6b6b; }
+.entity-card .ent-badge.bg-property_opco { background: #169B62; }
+.entity-card .ent-badge.bg-custodian { background: #6b6b6b; }
+
+.entity-card .ent-fields-row1 {
+  display: grid; grid-template-columns: 1.5fr 1.2fr 1.2fr 1fr; gap: 0.65rem;
+}
+.entity-card .ent-fields-row2 {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 0.65rem;
+  margin-top: 0.65rem;
+}
+.entity-card .ent-fields-row3 {
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 0.65rem;
+  margin-top: 0.65rem;
+}
+.entity-card .ent-fields-row4 {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.65rem;
+  margin-top: 0.65rem;
+}
+.entity-card .ent-statelaw-summary {
+  margin-top: 0.85rem; padding: 0.65rem 0.85rem;
+  background: rgba(22,155,98,0.04); border-left: 2px solid #169B62;
+  font-size: 0.82rem; line-height: 1.5;
+}
+.entity-card .ent-statelaw-summary strong { color: #1a1a1a; }
+.entity-card .ent-issuer-toggle {
+  margin-top: 0.85rem; padding: 0.6rem 0.85rem;
+  background: rgba(212,160,23,0.06); border: 1px dashed #d4a017;
+  font-size: 0.82rem; display: flex; align-items: center; gap: 0.5rem;
+}
+@media (max-width: 1100px) {
+  .entity-card .ent-fields-row1,
+  .entity-card .ent-fields-row2,
+  .entity-card .ent-fields-row3,
+  .entity-card .ent-fields-row4 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 680px) {
+  .entity-card .ent-fields-row1,
+  .entity-card .ent-fields-row2,
+  .entity-card .ent-fields-row3,
+  .entity-card .ent-fields-row4 { grid-template-columns: 1fr; }
+}
+
+/* Entity Tree Preview */
+.entity-tree-preview {
+  margin: 1rem 0 1.5rem 0; padding: 1rem 1.25rem;
+  background: #f8f8f0; border: 1px solid #d4d4d0;
+  border-left: 3px solid #1a1a1a;
+}
+.entity-tree-preview h4 {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase;
+  color: #1a1a1a; margin: 0 0 0.85rem 0;
+}
+.entity-tree-node {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.88rem; line-height: 1.6;
+  margin: 0.2rem 0; padding: 0.35rem 0.5rem;
+  background: #FFFFFF; border: 1px solid #e0e0d8;
+  border-left: 3px solid #1a1a1a;
+}
+.entity-tree-node.role-issuer { border-left-color: #169B62; }
+.entity-tree-node.role-sponsor { border-left-color: #C9A961; }
+.entity-tree-node.role-holdco { border-left-color: #4a6fa5; }
+.entity-tree-node.role-trust { border-left-color: #8b3a3a; }
+.entity-tree-node.role-blocker { border-left-color: #d4a017; }
+.entity-tree-node.role-feeder { border-left-color: #5a3a8b; }
+.entity-tree-node .ent-tree-name { font-weight: 700; color: #1a1a1a; }
+.entity-tree-node .ent-tree-meta { font-size: 0.78rem; color: #6b6b6b; }
+.entity-tree-node .ent-tree-issuer-flag {
+  display: inline-block; margin-left: 0.5rem;
+  padding: 0.05rem 0.35rem; background: #169B62; color: #FFFFFF;
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.6rem; letter-spacing: 1px; text-transform: uppercase;
+}
+
+/* =============================================================================
+   PHASE 8.6 — INPUT FORMATTING + STARTER SCENARIOS
+   ============================================================================= */
+.db-fmt-currency, .db-fmt-percent {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.db-fmt-currency:focus, .db-fmt-percent:focus {
+  text-align: left;
+}
+
+/* Starter scenario picker */
+.starter-scenario-bar {
+  margin: 0 0 1.5rem 0;
+  padding: 1.15rem 1.4rem;
+  background: linear-gradient(135deg, rgba(22,155,98,0.05), rgba(201,169,97,0.05));
+  border: 1px solid #d4d4d0;
+  border-left: 3px solid #C9A961;
+}
+.starter-scenario-bar h3 {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  margin: 0 0 0.5rem 0;
+}
+.starter-scenario-bar p {
+  font-size: 0.85rem;
+  color: #4a4a4a;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.5;
+}
+.starter-scenario-bar .scenario-controls {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.starter-scenario-bar select {
+  flex: 1;
+  min-width: 260px;
+  padding: 0.55rem 0.75rem;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9rem;
+  border: 1px solid #6b6b6b;
+  background: #FFFFFF;
+}
+.starter-scenario-bar button {
+  padding: 0.55rem 1.1rem;
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: #169B62;
+  color: #FFFFFF;
+  border: none;
+  cursor: pointer;
+}
+.starter-scenario-bar button:hover { background: #107a4d; }
+.starter-scenario-bar button.btn-clear {
+  background: #FFFFFF;
+  color: #8b3a3a;
+  border: 1px solid #8b3a3a;
+}
+.starter-scenario-bar button.btn-clear:hover { background: rgba(139,58,58,0.08); }
+.starter-scenario-bar .scenario-desc {
+  margin-top: 0.65rem;
+  padding: 0.55rem 0.85rem;
+  background: rgba(255,255,255,0.65);
+  font-size: 0.83rem;
+  color: #4a4a4a;
+  border-left: 2px solid #C9A961;
+  font-style: italic;
+  display: none;
+}
+.starter-scenario-bar .scenario-desc.visible { display: block; }
+
+/* =============================================================================
+   PHASE 8.7 — IN-CLASS INVESTOR PANEL + NO-REG-D SECURITIES LEVEL
+   ============================================================================= */
+
+.mc-investors-panel {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem 1rem 1rem;
+  background: rgba(22,155,98,0.04);
+  border-left: 2px solid #169B62;
+}
+.mc-investors-panel h4 {
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  margin: 0 0 0.65rem 0;
+}
+.mc-investors-summary {
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #4a4a4a;
+  font-weight: 400;
+  margin-top: 0.25rem;
+}
+.mc-inv-row {
+  background: #FFFFFF;
+  border: 1px solid #e0e0d8;
+  padding: 0.55rem 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.mc-inv-fields {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.8fr 1fr auto;
+  gap: 0.5rem;
+  align-items: end;
+}
+@media (max-width: 1100px) {
+  .mc-inv-fields { grid-template-columns: 1fr 1fr; }
+}
+.mc-inv-remove {
+  padding: 0.4rem 0.7rem;
+  background: transparent;
+  color: #8b3a3a;
+  border: 1px solid #8b3a3a;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.mc-inv-remove:hover { background: rgba(139,58,58,0.08); }
+.mc-add-investor {
+  margin-top: 0.5rem;
+  padding: 0.45rem 0.85rem;
+  background: #169B62;
+  color: #FFFFFF;
+  border: none;
+  font-family: 'Gotham Bold', 'Open Sans', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.mc-add-investor:hover { background: #107a4d; }
+
+/* No-Reg-D securities level styling */
+.sec-level-card.is-no-reg-d {
+  border-left-color: #6b6b6b;
+}
+.sec-level-card.is-no-reg-d.is-selected {
+  border-color: #6b6b6b;
+  background: rgba(107,107,107,0.05);
+}

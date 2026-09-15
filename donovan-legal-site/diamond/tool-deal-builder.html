@@ -1,0 +1,1870 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Deal Builder | Donovan Reserve</title>
+  <meta name="description" content="Comprehensive deal-structuring and economics tool for Donovan Legal PLLC Reserve members. Models multi-class capital stacks, configurable waterfalls, member debt under §752, governance frameworks, state tax overlays, and sensitivity analysis across all real estate deal structures including operating LLCs, joint ventures, funds, REITs, UPREIT and DownREIT structures, Qualified Opportunity Funds and Businesses, TIC structures under Rev. Proc. 2002-22, DST structures under Rev. Rul. 2004-86, Series LLCs, ground lease structures, and cooperatives.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow"><!-- Reserve-only tool — not indexed -->
+  <link rel="apple-touch-icon" href="../img/favicon.png">
+  <link rel="icon" type="image/png" href="../img/favicon.png">
+  <link href="../css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../css/fontawesome.min.css" rel="stylesheet" />
+  <link href="../css/normalize.css" rel="stylesheet" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <link href="../css/animate.min.css" rel="stylesheet" />
+  <link href="../css/tool-deal-builder.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&amp;display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Access is controlled by Apache Basic Auth via cPanel Directory Privacy
+       on the /reserve/ folder. No client-side gate needed here. -->
+
+  <!-- ===== MAIN TOOL ===== -->
+  <div id="tool_main">
+
+    <header class="tool-header">
+      <div class="tool-header-inner">
+        <div class="tool-header-brand">DONOVAN LEGAL PLLC &middot; <span class="brand-reserve"><span class="re">RE</span>SERVE</span></div>
+        <a href="index.html" class="tool-header-back">&larr; <span class="brand-reserve"><span class="re">RE</span>SERVE</span> Dossier</a>
+      </div>
+    </header>
+
+    <div class="tool-container">
+
+      <!-- Title -->
+      <div class="tool-title-bar">
+        <div class="tool-title-eyebrow">DEAL BUILDER &middot; PHASE I</div>
+        <h1>Real Estate Deal Structuring &amp; Economics Tool</h1>
+        <p class="tool-title-subtitle">
+          Comprehensive deal-modeling environment for sophisticated practitioners. Configure deal type, capital stack, debt, distribution waterfall, governance, and state tax treatment; output investor IRR / MOIC / DPI / TVPI, sponsor promote, sensitivity, and a deal summary suitable for term-sheet circulation. <strong>All output is mechanical computation based on inputs and assumptions documented on this page. No part of this tool constitutes legal, tax, or accounting advice; engagement of the firm for review of any structure modeled here is required before reliance.</strong>
+        </p>
+      </div>
+
+      <!-- Progress / Tab Bar (10 sections) -->
+      <div class="db-progress">
+        <button class="db-progress-step db-active" data-step="1" type="button"><span>1</span><label>Structure</label></button>
+        <button class="db-progress-step" data-step="2" type="button"><span>2</span><label>Capital Stack</label></button>
+        <button class="db-progress-step" data-step="3" type="button"><span>3</span><label>Budget</label></button>
+        <button class="db-progress-step" data-step="4" type="button"><span>4</span><label>Waterfall</label></button>
+        <button class="db-progress-step" data-step="5" type="button"><span>5</span><label>State &amp; Tax</label></button>
+        <button class="db-progress-step" data-step="6" type="button"><span>6</span><label>Tax Allocations</label></button>
+        <button class="db-progress-step" data-step="7" type="button"><span>7</span><label>Investors</label></button>
+        <button class="db-progress-step" data-step="8" type="button"><span>8</span><label>Compliance</label></button>
+        <button class="db-progress-step" data-step="9" type="button"><span>9</span><label>Results</label></button>
+        <button class="db-progress-step" data-step="10" type="button"><span>10</span><label>Deal Package</label></button>
+      </div>
+
+      <!-- ============================================================
+           STEP 1 — STRUCTURE
+           ============================================================ -->
+      <section class="db-step db-step-active" data-step="1">
+        <h2>Step 1 &mdash; Deal Structure</h2>
+
+        <div class="starter-scenario-bar">
+          <h3>Starter Scenarios</h3>
+          <p>Select a representative deal structure to pre-populate the tool with realistic starting values. The values are common industry defaults; revise every field for your specific deal before generating documents.</p>
+          <div class="scenario-controls">
+            <select id="starter_scenario_select">
+              <option value="">— Select a starter scenario or work from scratch —</option>
+              <option value="small_jv_no_reg_d">Small Operating-Member JV (No Reg D Filing)</option>
+              <option value="sf_spec_build_fl">Single-Family Spec Build (FL) &mdash; small JV</option>
+              <option value="multifamily_value_add">Multifamily Value-Add Joint Venture (Southeast)</option>
+              <option value="groundup_multifamily_dev">Ground-Up Multifamily Development (DE Holdco / TX Opco / WY Sponsor)</option>
+              <option value="opportunity_zone">Opportunity Zone Multifamily (QOF + QOZB, 10-year hold)</option>
+              <option value="friends_family">Friends &amp; Family Single-Asset (506(b) F&amp;F)</option>
+              <option value="institutional_fund">Institutional Fund &mdash; Master-Feeder with Foreign Investor Blocker (506(c))</option>
+            </select>
+            <button id="btn_load_scenario" type="button">Load Scenario</button>
+            <button id="btn_clear_scenario" class="btn-clear" type="button">Clear All</button>
+          </div>
+          <div id="scenario_desc" class="scenario-desc"></div>
+        </div>
+
+        <p class="db-section-intro">
+          Select the deal type. The tool adapts capital-stack defaults, governance options, debt treatment, and warnings based on the structure selected. Phase I models the economics of every structure. Phase IV will add the deep compliance engines (REIT income/asset/distribution tests, OZ 90% / 70% tests, TIC Rev. Proc. 2002-22 conditions, DST Rev. Rul. 2004-86 seven deadly sins).
+        </p>
+
+        <div class="db-field">
+          <label>Deal Type <span class="db-required">*</span></label>
+          <select id="deal_type">
+            <optgroup label="Operating Structures">
+              <option value="operating_llc">Operating LLC &mdash; single-asset</option>
+              <option value="joint_venture">Joint Venture &mdash; sponsor + LP(s)</option>
+              <option value="fund">Fund &mdash; multiple LPs, single or portfolio</option>
+              <option value="master_feeder">Master-Feeder Fund (with offshore feeder)</option>
+              <option value="series_llc">Series LLC</option>
+            </optgroup>
+            <optgroup label="REIT Structures">
+              <option value="reit_private">Private REIT (closely-held)</option>
+              <option value="reit_public">Public / Listed REIT</option>
+              <option value="upreit">UPREIT (REIT + Operating Partnership)</option>
+              <option value="downreit">DownREIT</option>
+            </optgroup>
+            <optgroup label="Opportunity Zone">
+              <option value="qof">Qualified Opportunity Fund (QOF)</option>
+              <option value="qozb">Qualified Opportunity Zone Business (QOZB)</option>
+            </optgroup>
+            <optgroup label="Tenant-in-Common &amp; Trust">
+              <option value="tic">TIC &mdash; Rev. Proc. 2002-22</option>
+              <option value="dst">DST &mdash; Rev. Rul. 2004-86</option>
+            </optgroup>
+            <optgroup label="Specialized">
+              <option value="ground_lease">Ground Lease Structure</option>
+              <option value="cooperative">Cooperative</option>
+            </optgroup>
+          </select>
+          <div class="db-help" id="deal_type_help">
+            <strong>Operating LLC &mdash; single-asset:</strong> Most common structure for a single-property real estate venture. Limited liability, flexible governance, pass-through taxation by default. No special compliance regime beyond §704(b) allocation rules. Best for sponsor + small group of LPs holding a single building or development.
+          </div>
+        </div>
+
+        <div class="db-field">
+          <label>Jurisdiction of Formation <span class="db-required">*</span></label>
+          <select id="jurisdiction">
+            <option value="FL">Florida</option>
+            <option value="DE">Delaware</option>
+            <option value="WY">Wyoming</option>
+            <option value="NV">Nevada</option>
+            <option value="TX">Texas</option>
+            <option value="NY">New York</option>
+            <option value="CA">California</option>
+            <option value="MD">Maryland (REITs)</option>
+            <option value="VG">British Virgin Islands</option>
+            <option value="KY">Cayman Islands</option>
+            <option value="OTHER">Other (specify in notes)</option>
+          </select>
+          <div class="db-help" id="jurisdiction_help">
+            <strong>Florida:</strong> Default for FL-resident principals and FL property. No state income tax. Annual report due May 1. Single-member LLC charging-order protection weakened post-<em>Olmstead v. FTC</em>, 44 So.3d 76 (Fla. 2010).
+          </div>
+        </div>
+
+        <div class="db-field">
+          <label>Project Name</label>
+          <input type="text" id="project_name" placeholder="e.g., Pinnacle Heights Development" />
+          <div class="db-help">Used in headings, outputs, and saved deal files. Not legally binding.</div>
+        </div>
+
+        <div class="db-field">
+          <label>Property Location</label>
+          <input type="text" id="property_location" placeholder="City, State" />
+          <div class="db-help">Property location drives state apportionment and FIRPTA analysis (Phase III).</div>
+        </div>
+
+        <h3 class="db-subhead">Governance</h3>
+
+        <div class="db-field">
+          <label>Management Structure</label>
+          <select id="management_structure">
+            <option value="manager_managed">Manager-Managed (single managing member)</option>
+            <option value="board_managed">Board of Managers</option>
+            <option value="member_managed">Member-Managed</option>
+            <option value="sponsor_gp">Sponsor as GP (LP structure)</option>
+          </select>
+          <div class="db-help">Manager-Managed concentrates authority in a designated manager (typical sponsor structure). Board adds a layer of committee governance. Sponsor as GP applies where the entity is an LP rather than an LLC.</div>
+        </div>
+
+        <div class="db-field">
+          <label>Major Decisions &mdash; Required Member Approval</label>
+          <div class="db-checkbox-grid">
+            <label class="db-checkbox"><input type="checkbox" id="md_sale" checked> Sale of Project</label>
+            <label class="db-checkbox"><input type="checkbox" id="md_refinance" checked> Refinancing</label>
+            <label class="db-checkbox"><input type="checkbox" id="md_budget"> Budget Approval</label>
+            <label class="db-checkbox"><input type="checkbox" id="md_admit"> Admission of New Members</label>
+            <label class="db-checkbox"><input type="checkbox" id="md_amend" checked> Amendment of Operating Agreement</label>
+            <label class="db-checkbox"><input type="checkbox" id="md_dissolve" checked> Dissolution</label>
+            <label class="db-checkbox"><input type="checkbox" id="md_affiliate"> Related-Party Transactions</label>
+            <label class="db-checkbox"><input type="checkbox" id="md_capital_call"> Capital Calls (above threshold)</label>
+          </div>
+        </div>
+
+        <div class="db-field">
+          <label>Required Vote for Major Decisions</label>
+          <select id="major_vote_threshold">
+            <option value="majority">Majority (&gt; 50%)</option>
+            <option value="supermajority_60">Supermajority (60%)</option>
+            <option value="supermajority_66" selected>Supermajority (66 2/3%)</option>
+            <option value="supermajority_75">Supermajority (75%)</option>
+            <option value="unanimous">Unanimous</option>
+          </select>
+        </div>
+
+        <h3 class="db-subhead">Transfer &amp; Exit Provisions</h3>
+
+        <div class="db-checkbox-block">
+          <label class="db-checkbox"><input type="checkbox" id="provision_rofr" checked> Right of First Refusal (ROFR)</label>
+          <label class="db-checkbox"><input type="checkbox" id="provision_rofo"> Right of First Offer (ROFO)</label>
+          <label class="db-checkbox"><input type="checkbox" id="provision_tag"> Tag-Along</label>
+          <label class="db-checkbox"><input type="checkbox" id="provision_drag"> Drag-Along</label>
+          <label class="db-checkbox"><input type="checkbox" id="provision_buysell"> Buy-Sell (Texas Shoot-Out)</label>
+          <label class="db-checkbox"><input type="checkbox" id="provision_putcall"> Put / Call Options</label>
+          <label class="db-checkbox"><input type="checkbox" id="provision_clawback" checked> Sponsor Promote Clawback</label>
+          <label class="db-checkbox"><input type="checkbox" id="provision_keyman"> Key-Man Provision</label>
+        </div>
+
+        <div class="db-nav">
+          <span></span>
+          <button class="btn-db-next" data-target="2" type="button">Continue to Capital Stack &rarr;</button>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           STEP 2 — CAPITAL STACK
+           ============================================================ -->
+      <section class="db-step" data-step="2">
+        <h2>Step 2 &mdash; Capital Stack</h2>
+        <p class="db-section-intro">
+          Define member classes, capital contributions, and debt. The tool supports unlimited member classes with independent preferred return, profit share, loss share, voting rights, and transfer restrictions. Member debt is classified by §752 treatment: recourse, nonrecourse, or qualified nonrecourse financing under §465(b)(6).
+        </p>
+
+        <h3 class="db-subhead">Member Classes</h3>
+
+        <div id="member_classes_container">
+          <!-- Member class rows populated by JS -->
+        </div>
+
+        <button id="add_member_class" class="btn-db-add" type="button">+ Add Member Class</button>
+
+        <div class="db-summary-row">
+          <div class="db-summary-cell">
+            <div class="db-summary-label">Total Member Capital</div>
+            <div class="db-summary-value" id="total_member_capital">$0</div>
+          </div>
+          <div class="db-summary-cell">
+            <div class="db-summary-label">Number of Classes</div>
+            <div class="db-summary-value" id="total_classes">0</div>
+          </div>
+        </div>
+
+        <h3 class="db-subhead">Senior Construction / Acquisition Debt</h3>
+
+        <div class="db-grid-2">
+          <div class="db-field">
+            <label>Senior Loan Amount ($)</label>
+            <input type="number" id="senior_loan" value="0" min="0" step="100000" />
+            <div class="db-help">Principal amount of the senior debt facility.</div>
+          </div>
+          <div class="db-field">
+            <label>Senior Loan Type</label>
+            <select id="senior_loan_type">
+              <option value="bank_recourse">Bank Recourse Construction Loan</option>
+              <option value="bank_carve_out">Bank Loan with Springing Recourse Carve-Outs</option>
+              <option value="private_nonrecourse">Private Non-Recourse</option>
+              <option value="agency_perm">Agency Permanent Financing (Fannie/Freddie)</option>
+              <option value="cmbs">CMBS</option>
+              <option value="bridge">Bridge / Mezzanine</option>
+              <option value="none">No Senior Debt (all-equity)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="db-grid-2">
+          <div class="db-field">
+            <label>Interest Rate (% per annum)</label>
+            <input type="number" id="senior_rate" value="6.5" min="0" max="30" step="0.05" />
+          </div>
+          <div class="db-field">
+            <label>Average Outstanding Balance (% of principal)</label>
+            <input type="number" id="senior_avg_balance" value="75" min="0" max="100" step="5" />
+            <div class="db-help">Approximates the construction draw curve. 75% is typical for an 18-month build.</div>
+          </div>
+        </div>
+
+        <div class="db-field">
+          <label>§752 Classification of Senior Debt</label>
+          <select id="senior_752_class">
+            <option value="nonrecourse">Nonrecourse (Reg §1.752-1(a)(2))</option>
+            <option value="qnrf">Qualified Nonrecourse Financing &mdash; §465(b)(6)</option>
+            <option value="recourse">Recourse to one or more members</option>
+            <option value="partner_nonrecourse">Partner Nonrecourse Debt &mdash; Reg §1.704-2(b)(4)</option>
+          </select>
+          <div class="db-help" id="senior_752_help">
+            <strong>Nonrecourse:</strong> Allocated to members in accordance with their share of partnership profits under the third tier of Reg §1.752-3(a)(3). Does not increase basis for at-risk purposes under §465.
+          </div>
+        </div>
+
+        <h3 class="db-subhead">Member Debt / Mezzanine</h3>
+
+        <div id="member_debt_container">
+          <!-- Member debt rows populated by JS -->
+        </div>
+
+        <button id="add_member_debt" class="btn-db-add" type="button">+ Add Member Loan / Mezzanine</button>
+
+        <div class="db-summary-row">
+          <div class="db-summary-cell">
+            <div class="db-summary-label">Total Senior Debt</div>
+            <div class="db-summary-value" id="total_senior_debt">$0</div>
+          </div>
+          <div class="db-summary-cell">
+            <div class="db-summary-label">Total Member Debt</div>
+            <div class="db-summary-value" id="total_member_debt">$0</div>
+          </div>
+          <div class="db-summary-cell">
+            <div class="db-summary-label">Total Debt</div>
+            <div class="db-summary-value" id="total_debt">$0</div>
+          </div>
+        </div>
+
+        <div class="db-summary-row db-summary-row-emphasis">
+          <div class="db-summary-cell">
+            <div class="db-summary-label">Total Capital Stack</div>
+            <div class="db-summary-value" id="total_capital_stack">$0</div>
+          </div>
+          <div class="db-summary-cell">
+            <div class="db-summary-label">LTC %</div>
+            <div class="db-summary-value" id="ltc_pct">0%</div>
+          </div>
+          <div class="db-summary-cell">
+            <div class="db-summary-label">Equity %</div>
+            <div class="db-summary-value" id="equity_pct">0%</div>
+          </div>
+        </div>
+
+        <div class="db-nav">
+          <button class="btn-db-back" data-target="1" type="button">&larr; Back to Structure</button>
+          <button class="btn-db-next" data-target="3" type="button">Continue to Budget &rarr;</button>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           STEP 3 — PROJECT BUDGET
+           ============================================================ -->
+      <section class="db-step" data-step="3">
+        <h2>Step 3 &mdash; Project Budget</h2>
+        <p class="db-section-intro">
+          Build the project budget. Total project cost should reconcile to total capital stack. Variances indicate either an over- or under-funded position that may require capital calls or distribution of excess.
+        </p>
+
+        <h3 class="db-subhead">Acquisition &amp; Development</h3>
+
+        <div class="db-grid-2">
+          <div class="db-field">
+            <label>Land Basis ($)</label>
+            <input type="number" id="budget_land" value="0" min="0" step="50000" />
+          </div>
+          <div class="db-field">
+            <label>Existing Building / Improvements ($)</label>
+            <input type="number" id="budget_building" value="0" min="0" step="50000" />
+            <div class="db-help">For acquisition-and-renovate deals; leave at $0 for ground-up.</div>
+          </div>
+        </div>
+
+        <div class="db-grid-2">
+          <div class="db-field">
+            <label>Hard Construction Costs ($)</label>
+            <input type="number" id="budget_hard" value="0" min="0" step="50000" />
+            <div class="db-help">Materials, labor, subcontractor work. Include contingency line below separately if you want to track.</div>
+          </div>
+          <div class="db-field">
+            <label>Construction Contingency ($)</label>
+            <input type="number" id="budget_contingency" value="0" min="0" step="10000" />
+            <div class="db-help">Recommend 5&ndash;10% of hard costs on CM-Agency structures (vs. 3&ndash;5% on GMP).</div>
+          </div>
+        </div>
+
+        <div class="db-grid-2">
+          <div class="db-field">
+            <label>Soft Costs ($)</label>
+            <input type="number" id="budget_soft" value="0" min="0" step="10000" />
+            <div class="db-help">Architecture, engineering, permits, surveys, insurance, legal, accounting.</div>
+          </div>
+          <div class="db-field">
+            <label>Sponsor / Development Fees ($)</label>
+            <input type="number" id="budget_dev_fees" value="0" min="0" step="10000" />
+          </div>
+        </div>
+
+        <div class="db-grid-2">
+          <div class="db-field">
+            <label>Interest Carry / <span class="brand-reserve"><span class="re">RE</span>SERVE</span> ($)</label>
+            <input type="number" id="budget_interest" value="0" min="0" step="10000" />
+            <div class="db-help">Computed below if you set debt rate and hold period in earlier steps. Override if you have a more precise estimate.</div>
+          </div>
+          <div class="db-field">
+            <label>Property Tax &amp; Insurance Carry ($)</label>
+            <input type="number" id="budget_tax_ins" value="0" min="0" step="5000" />
+          </div>
+        </div>
+
+        <div class="db-grid-2">
+          <div class="db-field">
+            <label>Marketing &amp; Sales <span class="brand-reserve"><span class="re">RE</span>SERVE</span> ($)</label>
+            <input type="number" id="budget_marketing" value="0" min="0" step="5000" />
+          </div>
+          <div class="db-field">
+            <label>Other / Working Capital ($)</label>
+            <input type="number" id="budget_other" value="0" min="0" step="5000" />
+          </div>
+        </div>
+
+        <h3 class="db-subhead">Project Timing &amp; Exit</h3>
+
+        <div class="db-grid-2">
+          <div class="db-field">
+            <label>Hold Period (months)</label>
+            <input type="number" id="hold_months" value="36" min="1" max="240" step="1" />
+          </div>
+          <div class="db-field">
+            <label>Target Sale Price / Stabilized Value ($)</label>
+            <input type="number" id="exit_price" value="0" min="0" step="100000" />
+            <div class="db-help">Anticipated gross sale price or stabilized value at exit.</div>
+          </div>
+        </div>
+
+        <h3 class="db-subhead">Disposition Costs</h3>
+
+        <div class="db-grid-3">
+          <div class="db-field">
+            <label>Broker Commission (%)</label>
+            <input type="number" id="disp_commission" value="5" min="0" max="15" step="0.25" />
+          </div>
+          <div class="db-field">
+            <label>Transfer Tax / Doc Stamps (%)</label>
+            <input type="number" id="disp_stamps" value="0.7" min="0" max="10" step="0.05" />
+            <div class="db-help">FL doc stamps on deed are $0.70 per $100 (0.7%).</div>
+          </div>
+          <div class="db-field">
+            <label>Other Closing Costs ($)</label>
+            <input type="number" id="disp_other" value="15000" min="0" step="1000" />
+          </div>
+        </div>
+
+        <div class="db-summary-row db-summary-row-emphasis">
+          <div class="db-summary-cell">
+            <div class="db-summary-label">Total Project Cost</div>
+            <div class="db-summary-value" id="total_project_cost">$0</div>
+          </div>
+          <div class="db-summary-cell">
+            <div class="db-summary-label">Capital Stack</div>
+            <div class="db-summary-value" id="capital_stack_check">$0</div>
+          </div>
+          <div class="db-summary-cell">
+            <div class="db-summary-label">Variance</div>
+            <div class="db-summary-value" id="budget_variance">$0</div>
+          </div>
+        </div>
+
+        <div id="budget_variance_warning" class="db-warning" style="display:none;">
+          <strong>Variance detected.</strong> Capital stack and total project cost differ. Adjust capital contributions, debt, or budget line items to reconcile.
+        </div>
+
+        <div class="db-nav">
+          <button class="btn-db-back" data-target="2" type="button">&larr; Back to Capital</button>
+          <button class="btn-db-next" data-target="4" type="button">Continue to Waterfall &rarr;</button>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           STEP 4 — WATERFALL
+           ============================================================ -->
+      <section class="db-step" data-step="4">
+        <h2>Step 4 &mdash; Distribution Waterfall</h2>
+        <p class="db-section-intro">
+          Configure how distributable cash flows to members. The engine supports American (deal-by-deal) and European (fund-level) waterfalls, multi-class preferred returns, tiered IRR or MOIC hurdles, catch-up provisions, and clawback. Each tier can use either IRR or MOIC as its trigger.
+        </p>
+
+        <h3 class="db-subhead">Waterfall Framework</h3>
+
+        <div class="db-grid-2">
+          <div class="db-field">
+            <label>Waterfall Style</label>
+            <select id="waterfall_style">
+              <option value="american">American &mdash; deal-by-deal (single-asset)</option>
+              <option value="european">European &mdash; fund-level (whole fund)</option>
+              <option value="hybrid">Hybrid &mdash; interim with true-up</option>
+            </select>
+          </div>
+          <div class="db-field">
+            <label>Hurdle Basis</label>
+            <select id="hurdle_basis">
+              <option value="irr">IRR-based hurdles</option>
+              <option value="moic">MOIC-based hurdles</option>
+              <option value="mixed">Mixed (IRR + MOIC floor)</option>
+            </select>
+          </div>
+        </div>
+
+        <h3 class="db-subhead">Tier 1 — Preferred Return</h3>
+
+        <div class="db-grid-3">
+          <div class="db-field">
+            <label>Pref Rate (% per annum)</label>
+            <input type="number" id="pref_rate" value="10" min="0" max="30" step="0.25" />
+          </div>
+          <div class="db-field">
+            <label>Pref Type</label>
+            <select id="pref_type">
+              <option value="cumulative_simple">Cumulative, Simple</option>
+              <option value="cumulative_compound">Cumulative, Compound</option>
+              <option value="non_cumulative">Non-Cumulative</option>
+            </select>
+          </div>
+          <div class="db-field">
+            <label>Pref Priority</label>
+            <select id="pref_priority">
+              <option value="pari_passu">Pari Passu (all LPs)</option>
+              <option value="class_ordered">By Class (priority order)</option>
+            </select>
+          </div>
+        </div>
+
+        <h3 class="db-subhead">Tier 2 — Return of Capital</h3>
+
+        <div class="db-field">
+          <label>ROC Order</label>
+          <select id="roc_order">
+            <option value="pari_passu">Pari Passu (proportionate)</option>
+            <option value="class_ordered">By Class (priority order)</option>
+            <option value="pref_only_first">Pref-only payment first, then ROC</option>
+          </select>
+        </div>
+
+        <h3 class="db-subhead">Promote Tiers (Tier 3+)</h3>
+
+        <p class="db-help-block">
+          Add as many promote tiers as needed. Each tier specifies an IRR or MOIC threshold and the split of distributions above the prior tier&rsquo;s endpoint. A typical deal might use 80/20 to 15% IRR, 70/30 to 25% IRR, 60/40 above 25%.
+        </p>
+
+        <div id="promote_tiers_container">
+          <!-- Promote tier rows populated by JS -->
+        </div>
+
+        <button id="add_promote_tier" class="btn-db-add" type="button">+ Add Promote Tier</button>
+
+        <h3 class="db-subhead">Catch-Up Provision</h3>
+
+        <div class="db-grid-2">
+          <div class="db-field">
+            <label>GP Catch-Up</label>
+            <select id="catchup_style">
+              <option value="none">None</option>
+              <option value="50_50">50/50 Catch-Up</option>
+              <option value="80_20">80/20 Catch-Up</option>
+              <option value="full">Full Catch-Up (100% to GP)</option>
+            </select>
+            <div class="db-help">Catch-up runs after the pref is paid and before normal promote tiers begin. Closes the gap between LP pref and sponsor's pro-rata share.</div>
+          </div>
+          <div class="db-field">
+            <label>Catch-Up Target</label>
+            <select id="catchup_target">
+              <option value="20">20% of profits to GP</option>
+              <option value="25">25% of profits to GP</option>
+              <option value="30">30% of profits to GP</option>
+            </select>
+          </div>
+        </div>
+
+        <h3 class="db-subhead">Clawback</h3>
+
+        <div class="db-field">
+          <label>Clawback Provision</label>
+          <select id="clawback_type">
+            <option value="none">None</option>
+            <option value="minimum_return">Clawback if LP Minimum Return Not Met</option>
+            <option value="full">Full Clawback (GP returns excess promote)</option>
+            <option value="full_with_interest">Full Clawback with Interest</option>
+          </select>
+        </div>
+
+        <div class="db-grid-2" id="clawback_threshold_group" style="display:none;">
+          <div class="db-field">
+            <label>LP Minimum Return Threshold</label>
+            <input type="number" id="clawback_threshold" value="12" min="0" max="30" step="0.5" />
+            <div class="db-help">Minimum IRR (or MOIC) that LPs must receive at exit; sponsor returns promote to make up any shortfall.</div>
+          </div>
+          <div class="db-field">
+            <label>Threshold Basis</label>
+            <select id="clawback_basis">
+              <option value="irr">IRR (%)</option>
+              <option value="moic">MOIC (x)</option>
+            </select>
+          </div>
+        </div>
+
+        <h3 class="db-subhead">Sponsor Compensation (Fees, paid before waterfall)</h3>
+
+        <div class="db-grid-2">
+          <div class="db-field">
+            <label>Acquisition Fee (% of land)</label>
+            <input type="number" id="fee_acquisition" value="0" min="0" max="5" step="0.25" />
+          </div>
+          <div class="db-field">
+            <label>Development Fee (% of TPC)</label>
+            <input type="number" id="fee_development" value="2" min="0" max="6" step="0.25" />
+          </div>
+        </div>
+
+        <div class="db-grid-2">
+          <div class="db-field">
+            <label>Construction Mgmt Fee (% of hard)</label>
+            <input type="number" id="fee_cm" value="5" min="0" max="10" step="0.25" />
+          </div>
+          <div class="db-field">
+            <label>Disposition Fee (% of sale)</label>
+            <input type="number" id="fee_disposition" value="1" min="0" max="3" step="0.25" />
+          </div>
+        </div>
+
+        <div class="db-grid-2">
+          <div class="db-field">
+            <label>Asset Management Fee (% of equity/yr)</label>
+            <input type="number" id="fee_asset_mgmt" value="0" min="0" max="3" step="0.05" />
+          </div>
+          <div class="db-field">
+            <label>Other Fees / Reimbursements ($)</label>
+            <input type="number" id="fee_other" value="0" min="0" step="5000" />
+          </div>
+        </div>
+
+        <div class="db-nav">
+          <button class="btn-db-back" data-target="3" type="button">&larr; Back to Budget</button>
+          <button class="btn-db-next" data-target="5" type="button">Continue to State &amp; Tax &rarr;</button>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           STEP 5 — STATE & TAX
+           ============================================================ -->
+      <section class="db-step" data-step="5">
+        <h2>Step 5 &mdash; State &amp; Tax Overlays</h2>
+        <p class="db-section-intro">
+          State income tax and federal tax overlays applied at the partnership and member level. Phase II will add full §704(b) targeted vs. substantial-economic-effect allocations; Phase III will add blocker structures, FIRPTA, and tax-exempt UBTI; Phase VI will refine §163(j), §461(l), and §199A treatment. Phase I provides directional output based on top marginal rates.
+        </p>
+
+        <h3 class="db-subhead">Property State (for sourcing &amp; apportionment)</h3>
+
+        <div class="db-field">
+          <label>State Where Property is Located</label>
+          <select id="property_state">
+            <!-- Populated by JS -->
+          </select>
+        </div>
+
+        <div id="property_state_summary" class="db-state-summary">
+          <!-- State info card populated by JS -->
+        </div>
+
+        <h3 class="db-subhead">Federal Tax Overlays</h3>
+
+        <div class="db-checkbox-block">
+          <label class="db-checkbox">
+            <input type="checkbox" id="overlay_dealer" />
+            Treat sale as <strong>ordinary income</strong> (dealer property / inventory)
+            <span class="db-help-inline">Build-and-sell single-family is generally dealer activity. Disables LTCG treatment; affects §1031, §199A.</span>
+          </label>
+          <label class="db-checkbox">
+            <input type="checkbox" id="overlay_bonus" checked />
+            Apply §168(k) bonus depreciation (federal)
+            <span class="db-help-inline">100% bonus restored under OBBBA after January 19, 2025.</span>
+          </label>
+          <label class="db-checkbox">
+            <input type="checkbox" id="overlay_cost_seg" />
+            Apply cost segregation reclassification
+            <span class="db-help-inline">Reclassifies a portion of building basis to 5/7/15-year property. Captured in §1245 recapture at sale.</span>
+          </label>
+          <label class="db-checkbox">
+            <input type="checkbox" id="overlay_163j" />
+            §163(j) interest limitation applies (project is over $31M average gross receipts)
+            <span class="db-help-inline">Real property trades and businesses may elect out (irrevocable; longer depreciation lives).</span>
+          </label>
+          <label class="db-checkbox">
+            <input type="checkbox" id="overlay_461l" />
+            §461(l) excess business loss limitation applies (individual member)
+            <span class="db-help-inline">2026 threshold approximately $313K single / $626K MFJ. Excess carries forward as NOL.</span>
+          </label>
+          <label class="db-checkbox">
+            <input type="checkbox" id="overlay_199a" />
+            §199A QBI deduction applies to member share
+            <span class="db-help-inline">20% deduction on qualified REIT dividends and qualified PTP income; safe harbor for rentals (Rev. Proc. 2019-38).</span>
+          </label>
+          <label class="db-checkbox">
+            <input type="checkbox" id="overlay_dlts" />
+            <strong>Donovan Legal Tax Strategy (DLTS) Overlay</strong>
+            <span class="db-help-inline">Reserved methodology. Re-runs analysis with firm-developed assumptions for combined planning. <span class="brand-reserve"><span class="re">RE</span>SERVE</span>-tier access.</span>
+          </label>
+        </div>
+
+        <h3 class="db-subhead">Member Tax Profile (assumed for IRR computation)</h3>
+
+        <div class="db-grid-2">
+          <div class="db-field">
+            <label>Assumed Member Federal Marginal Rate (%)</label>
+            <input type="number" id="member_fed_rate" value="37" min="0" max="50" step="0.5" />
+          </div>
+          <div class="db-field">
+            <label>NIIT Applies (3.8%)</label>
+            <select id="member_niit">
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="db-grid-2">
+          <div class="db-field">
+            <label>LTCG Rate (%)</label>
+            <input type="number" id="member_ltcg_rate" value="20" min="0" max="35" step="0.5" />
+          </div>
+          <div class="db-field">
+            <label>§1250 Unrecaptured Gain Rate (%)</label>
+            <input type="number" id="member_1250_rate" value="25" min="0" max="35" step="0.5" />
+          </div>
+        </div>
+
+        <!-- ============================================================
+             PHASE 6 — DETAILED TAX OVERLAY SUB-INPUTS
+             Each section appears when the corresponding overlay checkbox is enabled.
+             ============================================================ -->
+
+        <!-- §163(j) Detail -->
+        <div id="overlay_163j_detail" class="overlay-detail" style="display:none;">
+          <h3 class="db-subhead">&sect;&nbsp;163(j) &mdash; Interest Limitation Detail</h3>
+          <div class="db-grid-2">
+            <div class="db-field">
+              <label>Average Annual Gross Receipts ($, prior 3-year average)</label>
+              <input type="number" id="ovl_163j_gross_receipts" value="0" min="0" step="100000" />
+              <div class="db-help">&sect;&nbsp;448(c) small business exception: if average annual gross receipts for the prior 3 taxable years are at or below $31M (2025; indexed), the partnership is exempt from &sect;&nbsp;163(j). Aggregation rules under &sect;&nbsp;448(c)(2) may bring related entities into the calculation.</div>
+            </div>
+            <div class="db-field">
+              <label>Electing Real Property Trade or Business under &sect;&nbsp;163(j)(7)(B)</label>
+              <select id="ovl_163j_rptb_election">
+                <option value="no" selected>No &mdash; subject to limitation</option>
+                <option value="yes">Yes &mdash; irrevocable election; ADS depreciation required</option>
+              </select>
+              <div class="db-help">Real property trades and businesses may elect out of &sect;&nbsp;163(j). Election is irrevocable. Consequence: residential rental property depreciated under ADS over 30 years (vs. 27.5 GDS); nonresidential over 40 years (vs. 39); qualified improvement property over 20 years (vs. 15). For high-leverage deals, the trade-off generally favors election out.</div>
+            </div>
+          </div>
+          <div class="db-grid-2">
+            <div class="db-field">
+              <label>Adjusted Taxable Income ($)</label>
+              <input type="number" id="ovl_163j_ati" value="0" min="0" step="50000" />
+              <div class="db-help">For tax years beginning after 12/31/2021, ATI is computed including depreciation and amortization (no longer EBITDA-equivalent). For most real estate deals during construction, ATI is small or negative.</div>
+            </div>
+            <div class="db-field">
+              <label>Total Business Interest Expense ($)</label>
+              <input type="number" id="ovl_163j_total_interest" value="0" min="0" step="10000" />
+              <div class="db-help">If 0, the engine uses the computed senior interest carry from Step&nbsp;3. Floor plan financing interest and small-business interest are excluded from the limitation.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- §461(l) Detail -->
+        <div id="overlay_461l_detail" class="overlay-detail" style="display:none;">
+          <h3 class="db-subhead">&sect;&nbsp;461(l) &mdash; Excess Business Loss Detail</h3>
+          <p class="db-help-block">
+            &sect;&nbsp;461(l) limits the deduction of business losses for non-corporate taxpayers. Excess losses are deferred to the following year as a &sect;&nbsp;172 net operating loss. The 2026 threshold (after inflation adjustment) is approximately $313,000 single / $626,000 MFJ. Excess business loss is computed by aggregating net trade or business income/loss; capital losses and wage income are excluded.
+          </p>
+          <div class="db-grid-2">
+            <div class="db-field">
+              <label>Member Filing Status (typical)</label>
+              <select id="ovl_461l_filing">
+                <option value="single">Single</option>
+                <option value="mfj" selected>Married Filing Jointly</option>
+                <option value="mfs">Married Filing Separately</option>
+                <option value="hoh">Head of Household</option>
+              </select>
+            </div>
+            <div class="db-field">
+              <label>Member Other Business Income ($, ex-this-deal)</label>
+              <input type="number" id="ovl_461l_other_income" value="0" min="-5000000" max="10000000" step="50000" />
+              <div class="db-help">Other trade or business income from member&rsquo;s other activities (active or passive). Aggregated with this deal&rsquo;s allocation to determine excess.</div>
+            </div>
+          </div>
+          <div class="db-grid-2">
+            <div class="db-field">
+              <label>Existing &sect;&nbsp;172 NOL Carryforward ($)</label>
+              <input type="number" id="ovl_461l_existing_nol" value="0" min="0" step="50000" />
+              <div class="db-help">Existing NOL carryforward from prior years. Subject to 80% of current-year taxable income limitation under &sect;&nbsp;172(a)(2) for losses arising in post-TCJA years.</div>
+            </div>
+            <div class="db-field">
+              <label>2026 Threshold Override (if statutory amount changes)</label>
+              <input type="number" id="ovl_461l_threshold_override" value="0" min="0" step="1000" />
+              <div class="db-help">Leave at 0 to use the engine default ($313K single / $626K MFJ for 2026). Provide explicit override if Congress has changed the threshold.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- §199A Detail -->
+        <div id="overlay_199a_detail" class="overlay-detail" style="display:none;">
+          <h3 class="db-subhead">&sect;&nbsp;199A &mdash; Qualified Business Income Deduction Detail</h3>
+          <div class="db-grid-2">
+            <div class="db-field">
+              <label>Rental Activity Qualifies as Trade or Business</label>
+              <select id="ovl_199a_qualifies">
+                <option value="safe_harbor" selected>Yes &mdash; Rev. Proc. 2019-38 safe harbor (250+ hours)</option>
+                <option value="common_law">Yes &mdash; common-law trade or business analysis</option>
+                <option value="no">No &mdash; passive investment, no &sect;&nbsp;199A</option>
+                <option value="dealer">Dealer activity &mdash; ordinary income, separate &sect;&nbsp;199A analysis</option>
+              </select>
+              <div class="db-help">Rev. Proc. 2019-38: rental real estate qualifies if 250+ hours of rental services performed annually (lower threshold for properties placed in service in current year), separate books and records maintained, and contemporaneous records. Triple-net leases generally do NOT meet the safe harbor and require common-law analysis.</div>
+            </div>
+            <div class="db-field">
+              <label>Member Taxable Income Above &sect;&nbsp;199A Threshold</label>
+              <select id="ovl_199a_above_threshold">
+                <option value="yes" selected>Yes &mdash; above $383,900 MFJ / $191,950 single (2024)</option>
+                <option value="no">No &mdash; full 20% deduction available</option>
+              </select>
+              <div class="db-help">Above threshold, the deduction is limited by the greater of (i) 50% of W-2 wages paid by the partnership or (ii) 25% of W-2 wages plus 2.5% of UBIA of qualified property. SSTBs phased out entirely above the upper threshold (real estate is not an SSTB).</div>
+            </div>
+          </div>
+          <div class="db-grid-2">
+            <div class="db-field">
+              <label>W-2 Wages Paid by Partnership ($, annual)</label>
+              <input type="number" id="ovl_199a_w2_wages" value="0" min="0" step="10000" />
+              <div class="db-help">If property is operated through an independent property manager, W-2 wages at the partnership level may be minimal. Consider TRS-like structure or in-sourcing management to generate qualifying W-2 wages.</div>
+            </div>
+            <div class="db-field">
+              <label>UBIA of Qualified Property ($)</label>
+              <input type="number" id="ovl_199a_ubia" value="0" min="0" step="100000" />
+              <div class="db-help">Unadjusted basis immediately after acquisition of qualified depreciable property. For a real estate deal, generally the building basis (excluding land). 2.5% of UBIA contributes to the wage/UBIA limit.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PTET / Multi-State Detail -->
+        <h3 class="db-subhead">State Pass-Through Entity Tax (PTET) &amp; Multi-State</h3>
+
+        <div class="db-grid-2">
+          <div class="db-field">
+            <label>Make Property-State PTET Election</label>
+            <select id="ovl_ptet_election">
+              <option value="evaluate" selected>Evaluate &mdash; show net benefit/cost</option>
+              <option value="yes">Yes &mdash; election made (will be paid by partnership)</option>
+              <option value="no">No &mdash; pay state tax at member level</option>
+            </select>
+            <div class="db-help">A PTET election shifts state income tax from the member to the partnership, federally deductible (avoiding the $10,000 SALT cap). Available in most states with state income tax. Mechanics vary &mdash; some are mandatory once elected, some are annual elections, some have specific tax periods. The <span class="brand-reserve"><span class="re">RE</span>SERVE</span> member dossier should ensure proper documentation prior to election.</div>
+          </div>
+          <div class="db-field">
+            <label>Additional Operating States (comma-separated, 2-letter codes)</label>
+            <input type="text" id="ovl_apportionment_states" value="" placeholder="e.g., DE, NY, CA" />
+            <div class="db-help">For deals operating in multiple states. Real estate income is generally sourced to the state of property location, but operating income from services, management fees, and similar may apportion under each state&rsquo;s formula.</div>
+          </div>
+        </div>
+
+        <div class="db-grid-2">
+          <div class="db-field">
+            <label>Member Residency Profile</label>
+            <select id="ovl_member_residency">
+              <option value="all_resident" selected>All members reside in property state</option>
+              <option value="mixed">Mixed &mdash; some nonresident</option>
+              <option value="all_nonresident">All nonresident</option>
+            </select>
+            <div class="db-help">Nonresident members may trigger state withholding obligations on the partnership. Most states require withholding at the state top rate or a fixed nonresident rate.</div>
+          </div>
+          <div class="db-field">
+            <label>Composite Return Option</label>
+            <select id="ovl_composite_return">
+              <option value="evaluate" selected>Evaluate availability</option>
+              <option value="yes">File composite return for all nonresidents</option>
+              <option value="no">Individual nonresident filing required</option>
+            </select>
+            <div class="db-help">Composite returns allow the partnership to file a single return on behalf of all nonresident members, simplifying compliance. Available in most states but with eligibility restrictions and rate implications.</div>
+          </div>
+        </div>
+
+        <!-- Year-by-Year Roll-Forward Toggle -->
+        <div class="db-field">
+          <label>Capital Account Roll-Forward Detail</label>
+          <select id="ovl_rollforward_detail">
+            <option value="snapshots" selected>Three Snapshots (opening, cumulative, closing)</option>
+            <option value="annual">Year-by-Year (each year of hold period)</option>
+          </select>
+          <div class="db-help">Year-by-year detail tracks each member&rsquo;s capital account and outside basis through each year of the hold period. Useful for documenting allocations through annual returns and for partnership audit defense.</div>
+        </div>
+
+        <div class="db-nav">
+          <button class="btn-db-back" data-target="4" type="button">&larr; Back to Waterfall</button>
+          <button class="btn-db-next" data-target="6" type="button">Continue to Tax Allocations &rarr;</button>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           STEP 6 — TAX ALLOCATIONS (§704(b), §704(c), §754)
+           ============================================================ -->
+      <section class="db-step" data-step="6">
+        <h2>Step 6 &mdash; Tax Allocations</h2>
+        <p class="db-section-intro">
+          Configure the partnership&rsquo;s allocation methodology under &sect;&nbsp;704(b) and &sect;&nbsp;704(c). The engine runs all three &sect;&nbsp;704(c) methods (traditional, traditional with curative, remedial) in parallel for comparison. Capital account roll-forward is computed for each member class. Mandatory adjustments under &sect;&nbsp;743(b) for substantial built-in loss and &sect;&nbsp;734(b) for substantial built-in loss on distributions are flagged automatically.
+        </p>
+
+        <h3 class="db-subhead">&sect;&nbsp;704(b) &mdash; Allocation Method</h3>
+
+        <div class="db-field">
+          <label>Allocation Method</label>
+          <select id="alloc_704b_method">
+            <option value="targeted" selected>Targeted Capital Account Method (modern default)</option>
+            <option value="see_dro">Substantial Economic Effect with Deficit Restoration Obligation</option>
+            <option value="see_qio">Substantial Economic Effect with Qualified Income Offset</option>
+          </select>
+          <div class="db-help" id="alloc_704b_help">
+            <strong>Targeted Capital Account Method:</strong> Modern default for real estate partnerships. Allocations are made to drive capital account balances to the amounts each partner would receive on a hypothetical liquidation following the partnership&rsquo;s distribution waterfall. Implicitly satisfies the partner-by-partner economic effect test through the qualified income offset. Does not require a deficit restoration obligation. Reg.&nbsp;&sect;&nbsp;1.704-1(b)(2) safe harbor not formally claimed but allocations respected if economic effect is preserved.
+          </div>
+        </div>
+
+        <div class="db-grid-2">
+          <div class="db-field">
+            <label>Capital Account Maintenance</label>
+            <select id="alloc_capacct_maintenance">
+              <option value="full" selected>Full Reg.&nbsp;&sect;&nbsp;1.704-1(b)(2)(iv) Maintenance</option>
+              <option value="simplified">Simplified (book = tax)</option>
+            </select>
+            <div class="db-help">Full maintenance tracks book and tax capital separately with revaluations under Reg.&nbsp;&sect;&nbsp;1.704-1(b)(2)(iv)(f). Required for SEE methods.</div>
+          </div>
+          <div class="db-field">
+            <label>Minimum Gain Chargeback Provisions</label>
+            <select id="alloc_min_gain_chargeback">
+              <option value="full" selected>Full (PMG and partner nonrecourse debt MG)</option>
+              <option value="pmg_only">Partnership Minimum Gain Only</option>
+              <option value="none">None (only if all debt is recourse to all partners)</option>
+            </select>
+            <div class="db-help">Required by Reg.&nbsp;&sect;&nbsp;1.704-2 when partnership has nonrecourse debt. Reverses prior nonrecourse deductions on debt paydown.</div>
+          </div>
+        </div>
+
+        <div id="dro_group" style="display:none;">
+          <h3 class="db-subhead">Deficit Restoration Obligation &mdash; By Member Class</h3>
+          <div class="db-help-block">
+            Under SEE+DRO, partners with negative capital account balances at liquidation must restore the deficit. Typically only the sponsor or a guarantor partner agrees to a DRO. Select which classes have a DRO.
+          </div>
+          <div id="dro_class_checkboxes" class="db-checkbox-block">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <h3 class="db-subhead">&sect;&nbsp;704(c) &mdash; Built-In Gain or Loss on Contributed Property</h3>
+
+        <div class="db-field">
+          <label>Was any property contributed with a difference between book value and tax basis?</label>
+          <select id="alloc_704c_present">
+            <option value="no" selected>No &mdash; all contributions in cash; no built-in gain or loss</option>
+            <option value="yes">Yes &mdash; one or more property contributions with built-in gain or loss</option>
+          </select>
+          <div class="db-help">&sect;&nbsp;704(c) applies when contributed property has a book value different from its tax basis. The contributing partner generally bears the tax burden of pre-contribution appreciation. Common in roll-up transactions, UPREIT contributions under &sect;&nbsp;721, and family-owned property contributions.</div>
+        </div>
+
+        <div id="sec704c_layers_wrap" style="display:none;">
+          <h4 class="db-subhead" style="font-size:0.95rem; margin-top:1rem;">&sect;&nbsp;704(c) Layers</h4>
+          <p class="db-help-block">
+            Each contribution event with a book/tax basis difference is a separate layer. The engine will run traditional, curative, and remedial methods in parallel for comparison.
+          </p>
+
+          <div id="sec704c_layers_container">
+            <!-- Layers populated by JS -->
+          </div>
+
+          <button id="add_704c_layer" class="btn-db-add" type="button">+ Add &sect;&nbsp;704(c) Layer</button>
+
+          <div class="db-grid-2" style="margin-top: 1.25rem;">
+            <div class="db-field">
+              <label>Run All Three Methods in Parallel</label>
+              <select id="alloc_704c_parallel">
+                <option value="yes" selected>Yes &mdash; comparison output</option>
+                <option value="no">No &mdash; selected method only</option>
+              </select>
+            </div>
+            <div class="db-field">
+              <label>Selected Method (if not parallel)</label>
+              <select id="alloc_704c_method">
+                <option value="traditional">Traditional &mdash; Reg.&nbsp;&sect;&nbsp;1.704-3(b)</option>
+                <option value="curative">Traditional with Curative &mdash; Reg.&nbsp;&sect;&nbsp;1.704-3(c)</option>
+                <option value="remedial" selected>Remedial &mdash; Reg.&nbsp;&sect;&nbsp;1.704-3(d)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="db-subhead">&sect;&nbsp;754 Election &amp; Basis Adjustments</h3>
+
+        <div class="db-grid-2">
+          <div class="db-field">
+            <label>Make &sect;&nbsp;754 Election</label>
+            <select id="alloc_754_election">
+              <option value="yes">Yes &mdash; permanent partnership-level election</option>
+              <option value="no" selected>No</option>
+            </select>
+            <div class="db-help">A &sect;&nbsp;754 election triggers basis adjustments under &sect;&nbsp;743(b) (transfers) and &sect;&nbsp;734(b) (distributions). Permanent unless revoked with Commissioner consent (Reg.&nbsp;&sect;&nbsp;1.754-1(c)). Note that &sect;&nbsp;743(b) is <em>mandatory</em> on transfers if there is a substantial built-in loss; &sect;&nbsp;734(b) is mandatory on distributions causing substantial built-in loss.</div>
+          </div>
+          <div class="db-field">
+            <label>Anticipated Sale of Partnership Interest</label>
+            <select id="alloc_anticipated_transfer">
+              <option value="no" selected>No</option>
+              <option value="yes">Yes &mdash; trigger &sect;&nbsp;743(b) analysis</option>
+            </select>
+            <div class="db-help">If yes, the engine will surface the &sect;&nbsp;743(b) adjustment a transferee would receive.</div>
+          </div>
+        </div>
+
+        <h3 class="db-subhead">Special Allocations</h3>
+
+        <div class="db-checkbox-block">
+          <label class="db-checkbox">
+            <input type="checkbox" id="alloc_1245_recapture" checked />
+            Allocate &sect;&nbsp;1245 recapture to historic deduction recipients
+            <span class="db-help-inline">Under Reg.&nbsp;&sect;&nbsp;1.1245-1(e)(2), recapture follows the partners who received the original depreciation deductions.</span>
+          </label>
+          <label class="db-checkbox">
+            <input type="checkbox" id="alloc_1250_unrecaptured" checked />
+            Track &sect;&nbsp;1250 unrecaptured gain separately (25% rate)
+            <span class="db-help-inline">Real property depreciation creates &sect;&nbsp;1250 unrecaptured gain taxed at 25% to non-corporate taxpayers.</span>
+          </label>
+          <label class="db-checkbox">
+            <input type="checkbox" id="alloc_cost_seg_pickup" />
+            Cost segregation reclassification: allocate accelerated deduction
+            <span class="db-help-inline">If cost segregation reclassifies a portion of building basis to 5/7/15-year property, the accelerated deduction can be specially allocated.</span>
+          </label>
+          <label class="db-checkbox">
+            <input type="checkbox" id="alloc_nonrecourse_deduction" checked />
+            Allocate nonrecourse deductions in accordance with partnership profit-sharing ratios
+            <span class="db-help-inline">Reg.&nbsp;&sect;&nbsp;1.704-2(b)(1) safe harbor: nonrecourse deductions allocated consistently with another significant item of partnership income or gain.</span>
+          </label>
+        </div>
+
+        <div class="db-grid-2" id="cost_seg_alloc_group" style="display:none;">
+          <div class="db-field">
+            <label>Cost Seg Reclassification (% of building basis)</label>
+            <input type="number" id="cost_seg_pct" value="25" min="0" max="60" step="1" />
+            <div class="db-help">Typical reclassification ranges 15&ndash;30% for residential and 20&ndash;40% for hospitality and industrial.</div>
+          </div>
+          <div class="db-field">
+            <label>Allocate to</label>
+            <select id="cost_seg_allocation_target">
+              <option value="pro_rata">Pro Rata (all members)</option>
+              <option value="sponsor">Sponsor / GP</option>
+              <option value="lp_only">LP Classes Only</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="db-nav">
+          <button class="btn-db-back" data-target="5" type="button">&larr; Back to State &amp; Tax</button>
+          <button class="btn-db-next" data-target="7" type="button">Continue to Investors &amp; Blockers &rarr;</button>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           STEP 7 — INVESTOR TAX PROFILES, BLOCKERS, FIRPTA, UBTI
+           ============================================================ -->
+      <section class="db-step" data-step="7">
+        <h2>Step 7 &mdash; Investor Tax Profiles, Blockers &amp; Cross-Border</h2>
+        <p class="db-section-intro">
+          Specify the tax profile of each investor class and insert blocker entities where structural protection is needed. The engine analyzes FIRPTA exposure (USRPI determination, &sect;&nbsp;1445 withholding, &sect;&nbsp;1446(f) partnership-interest withholding, &sect;&nbsp;897(l) qualified foreign pension fund exemption, &sect;&nbsp;897(h)(1) domestically-controlled QIE exception), UBTI exposure for U.S. tax-exempts (&sect;&nbsp;514 unrelated debt-financed income, &sect;&nbsp;514(c)(9) qualified organizations exception with the fractions rule), and the tax leakage of alternative blocker structures. Structural recommendations are generated from the resulting investor matrix.
+        </p>
+
+        <h3 class="db-subhead">Investor Tax Profiles &mdash; By Member Class</h3>
+
+        <div id="investor_profiles_container">
+          <!-- Populated by JS from DB.memberClasses -->
+        </div>
+
+        <h3 class="db-subhead">Blocker Entities</h3>
+
+        <p class="db-help-block">
+          Insert blocker entities to interpose between specific investors and the main SPV. Common patterns: (1) <strong>domestic C-corp blocker</strong> for U.S. tax-exempt investors to convert UBTI into corporate-level income; (2) <strong>foreign corporation blocker</strong> (Cayman, BVI, Bermuda) for foreign investors to avoid ECI filing obligations; (3) <strong>REIT blocker</strong> for mixed pools, addressing both UBTI and certain FIRPTA exposures; (4) <strong>treaty blocker</strong> (Netherlands, Luxembourg, Ireland) to reduce withholding on distributions to qualifying foreign holders subject to LOB; (5) <strong>double-blocker</strong> stacking foreign + domestic blockers for foreign investors in fund structures.
+        </p>
+
+        <div id="blockers_container">
+          <!-- Populated by JS -->
+        </div>
+
+        <button id="add_blocker" class="btn-db-add" type="button">+ Add Blocker Entity</button>
+
+        <h3 class="db-subhead">FIRPTA Configuration</h3>
+
+        <div class="db-grid-2">
+          <div class="db-field">
+            <label>Project is a U.S. Real Property Interest (USRPI)</label>
+            <select id="firpta_is_usrpi">
+              <option value="yes" selected>Yes &mdash; direct ownership of U.S. real property</option>
+              <option value="no">No &mdash; non-real-property assets only</option>
+            </select>
+            <div class="db-help">USRPI under &sect;&nbsp;897(c) includes: (1) any interest in real property located in the U.S. or U.S. Virgin Islands, including improvements thereto; (2) interests in domestic corporations that are USRPHCs; and (3) certain partnership and trust interests where look-through applies.</div>
+          </div>
+          <div class="db-field">
+            <label>SPV USRPHC Status</label>
+            <select id="firpta_usrphc_status">
+              <option value="auto" selected>Auto-Determine (50% test)</option>
+              <option value="usrphc">USRPHC &mdash; treat as such</option>
+              <option value="not_usrphc">Not USRPHC</option>
+              <option value="cleansed">Cleansed (sold all USRPIs in last 5 years &mdash; &sect;&nbsp;897(c)(1)(B))</option>
+            </select>
+            <div class="db-help">Under &sect;&nbsp;897(c)(2), a domestic corporation is a USRPHC if 50% or more of the FMV of its real property and trade or business assets are USRPIs. The cleansing rule under &sect;&nbsp;897(c)(1)(B) requires that no USRPIs be held at the date of disposition AND that all USRPIs held during the prior 5 years be disposed of in fully-taxable transactions.</div>
+          </div>
+        </div>
+
+        <div class="db-grid-2">
+          <div class="db-field">
+            <label>Domestically-Controlled REIT Treatment</label>
+            <select id="firpta_domestic_controlled">
+              <option value="auto" selected>Auto-Determine from ownership matrix</option>
+              <option value="yes">Yes &mdash; &gt;50% U.S. ownership</option>
+              <option value="no">No</option>
+              <option value="na">N/A (not a REIT)</option>
+            </select>
+            <div class="db-help">&sect;&nbsp;897(h)(1): foreign person&rsquo;s gain on disposition of stock in a domestically-controlled QIE is generally NOT treated as gain from a USRPI. Under TCJA-era guidance and post-2024 final regulations, the 50% test looks through certain entities (including foreign-owned domestic C-corps in some cases).</div>
+          </div>
+          <div class="db-field">
+            <label>Anticipated Disposition Sale Price for &sect;&nbsp;1445 / &sect;&nbsp;1446(f)</label>
+            <input type="number" id="firpta_disposition_amount" value="0" min="0" step="100000" />
+            <div class="db-help">If 0, the engine uses the exit_price from Step 3. Used to compute &sect;&nbsp;1445 (15% of gross proceeds for direct USRPI sale) and &sect;&nbsp;1446(f) (10% of amount realized for partnership-interest transfer).</div>
+          </div>
+        </div>
+
+        <h3 class="db-subhead">UBTI Configuration</h3>
+
+        <div class="db-grid-2">
+          <div class="db-field">
+            <label>Acquisition Indebtedness Present</label>
+            <select id="ubti_acq_indebtedness">
+              <option value="auto" selected>Auto-Determine (debt &gt; $0)</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+            <div class="db-help">&sect;&nbsp;514(c) defines acquisition indebtedness broadly. Real estate construction and acquisition loans almost always qualify. UDFI is computed as: average acquisition indebtedness / average adjusted basis &times; net income from the property.</div>
+          </div>
+          <div class="db-field">
+            <label>Average Debt-to-Basis Ratio</label>
+            <input type="number" id="ubti_debt_basis_ratio" value="60" min="0" max="100" step="5" />
+            <div class="db-help">Estimate of the debt-to-basis ratio over the hold period. Used as the UDFI percentage for tax-exempt investors not protected by &sect;&nbsp;514(c)(9) or a blocker. Default 60% reflects typical levered RE.</div>
+          </div>
+        </div>
+
+        <div class="db-nav">
+          <button class="btn-db-back" data-target="6" type="button">&larr; Back to Tax Allocations</button>
+          <button class="btn-db-next" data-target="8" type="button">Continue to Compliance &rarr;</button>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           STEP 8 — SPECIALIZED COMPLIANCE
+           REIT (§856 et seq.) / OZ (§1400Z-2) / TIC (Rev. Proc. 2002-22) / DST (Rev. Rul. 2004-86)
+           ============================================================ -->
+      <section class="db-step" data-step="8">
+        <h2>Step 8 &mdash; Specialized Compliance</h2>
+        <p class="db-section-intro">
+          Compliance dashboards for structure-specific regimes. The applicable module is determined by the deal type selected in Step&nbsp;1. <strong>REIT</strong> structures run the full battery under &sect;&nbsp;856 et seq. (100-shareholder rule, 5/50 closely-held test, 75% and 95% gross income tests, 75% asset test, TRS 20% limit, 5% securities and 10% voting/value rules, 90% distribution requirement). <strong>Opportunity Zone</strong> structures run the QOF 90% asset test and the QOZB 70% tangible property test with active-conduct, working-capital-safe-harbor, substantial improvement, original use, and sin-business analyses. <strong>TIC</strong> structures run Rev. Proc. 2002-22 conditions. <strong>DST</strong> structures run the Rev. Rul. 2004-86 seven deadly sins.
+        </p>
+
+        <div id="compliance_no_module" class="db-help-block" style="display:none;">
+          The deal type selected in Step&nbsp;1 does not require specialized compliance modeling under this tab. If you change the deal type to a REIT, UPREIT, DownREIT, QOF, QOZB, TIC, or DST structure, the corresponding compliance module will appear here.
+        </div>
+
+        <!-- ============== REIT COMPLIANCE ============== -->
+        <div id="reit_compliance_section" class="compliance-section" style="display:none;">
+          <h3 class="db-subhead">REIT Compliance &mdash; &sect;&nbsp;856 et seq.</h3>
+
+          <div class="db-grid-2">
+            <div class="db-field">
+              <label>Number of Beneficial Owners</label>
+              <input type="number" id="reit_num_shareholders" value="100" min="0" max="100000" step="1" />
+              <div class="db-help">&sect;&nbsp;856(a)(5): a REIT must have at least 100 beneficial owners after its first taxable year. Use of demand-redemption / 100-shareholder accommodation preferred is common for private REITs to satisfy this requirement without diluting principal investors. Failure rules under &sect;&nbsp;856(g)(1)(B) provide cure procedures.</div>
+            </div>
+            <div class="db-field">
+              <label>Aggregate Ownership of Top 5 Individuals (%)</label>
+              <input type="number" id="reit_top5_ownership" value="50" min="0" max="100" step="1" />
+              <div class="db-help">&sect;&nbsp;856(h) closely-held test: during the last half of the taxable year, 5 or fewer individuals (applying &sect;&nbsp;544 attribution) may not own more than 50% of the value of stock. Private REITs typically structure with a "demand-redemption" preferred class to satisfy both this and the 100-shareholder rule.</div>
+            </div>
+          </div>
+
+          <div class="db-grid-2">
+            <div class="db-field">
+              <label>Qualifying Real Estate Income (% of gross)</label>
+              <input type="number" id="reit_re_income_pct" value="95" min="0" max="100" step="1" />
+              <div class="db-help">Includes rents from real property (&sect;&nbsp;856(d)), interest on obligations secured by real property mortgages, gain from sale of real property not held primarily for sale (&sect;&nbsp;856(c)(3)(C) and (D)), refunds and abatements of real property taxes, income from foreclosure property, and commitment fees. The 75% test requires 75% from these sources; the 95% test requires 95% from these plus dividends, interest, gain on stock/securities, and qualified temporary investment income.</div>
+            </div>
+            <div class="db-field">
+              <label>Income from Stock / Securities / Interest (% of gross)</label>
+              <input type="number" id="reit_other_passive_income_pct" value="3" min="0" max="100" step="1" />
+              <div class="db-help">Other passive income that counts toward the 95% test but NOT the 75% test: dividends, interest other than mortgage interest, gain from sale of stock or securities.</div>
+            </div>
+          </div>
+
+          <div class="db-grid-2">
+            <div class="db-field">
+              <label>Real Estate Assets (% of total asset value)</label>
+              <input type="number" id="reit_re_assets_pct" value="80" min="0" max="100" step="1" />
+              <div class="db-help">&sect;&nbsp;856(c)(4)(A): at least 75% of value of total assets must be real estate assets, cash, cash items, and government securities. Real estate assets include real property (incl. land, buildings, improvements, leaseholds of 30 years or more), shares in other REITs, and debt instruments issued by publicly offered REITs.</div>
+            </div>
+            <div class="db-field">
+              <label>TRS Asset Value (% of total)</label>
+              <input type="number" id="reit_trs_pct" value="0" min="0" max="100" step="1" />
+              <div class="db-help">&sect;&nbsp;856(c)(4)(B)(ii): securities of one or more Taxable REIT Subsidiaries (TRSs) may not exceed 20% of the value of the REIT&rsquo;s total assets (reduced from 25% by TCJA, effective for taxable years beginning after 12/31/2017). TRSs hold non-qualifying business activities and operating tenant services.</div>
+            </div>
+          </div>
+
+          <div class="db-grid-2">
+            <div class="db-field">
+              <label>Largest Single Issuer (% of REIT&rsquo;s asset value)</label>
+              <input type="number" id="reit_largest_issuer_pct" value="5" min="0" max="100" step="0.5" />
+              <div class="db-help">&sect;&nbsp;856(c)(4)(B)(iii)(I): not more than 5% of the value of REIT&rsquo;s total assets may be securities of one issuer (with exclusions for real estate assets, government securities, and TRS securities, which are tested separately).</div>
+            </div>
+            <div class="db-field">
+              <label>Planned Distribution (% of REIT taxable income)</label>
+              <input type="number" id="reit_distribution_pct" value="100" min="0" max="120" step="1" />
+              <div class="db-help">&sect;&nbsp;857(a)(1)(A): must distribute at least 90% of REIT taxable income (excluding net capital gain) to avoid loss of REIT status. &sect;&nbsp;4981 imposes a 4% excise tax on undistributed amounts above thresholds; 100% distribution avoids both.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============== OPPORTUNITY ZONE COMPLIANCE ============== -->
+        <div id="oz_compliance_section" class="compliance-section" style="display:none;">
+          <h3 class="db-subhead">Opportunity Zone Compliance &mdash; &sect;&nbsp;1400Z-2</h3>
+
+          <div id="qof_compliance_block">
+            <h4 class="db-subhead" style="font-size:0.95rem;">QOF &mdash; Qualified Opportunity Fund</h4>
+
+            <div class="db-grid-2">
+              <div class="db-field">
+                <label>QOF Assets Held in QOZ Property (% at last measurement date)</label>
+                <input type="number" id="qof_90_pct" value="90" min="0" max="100" step="1" />
+                <div class="db-help">&sect;&nbsp;1400Z-2(d)(1): a QOF must hold at least 90% of its assets in QOZ property (direct QOZBP, partnership interests in QOZBs, or stock in QOZB corporations). Measured semi-annually at June 30 and December 31, averaged. &sect;&nbsp;1400Z-2(f) imposes a penalty for failure unless reasonable cause.</div>
+              </div>
+              <div class="db-field">
+                <label>Form 8996 Filed for Election</label>
+                <select id="qof_form_8996">
+                  <option value="yes" selected>Yes &mdash; election made</option>
+                  <option value="planned">Planned</option>
+                  <option value="no">No</option>
+                </select>
+                <div class="db-help">Form 8996 must be attached to the federal tax return for the first year of QOF status.</div>
+              </div>
+            </div>
+          </div>
+
+          <div id="qozb_compliance_block">
+            <h4 class="db-subhead" style="font-size:0.95rem;">QOZB &mdash; Qualified Opportunity Zone Business</h4>
+
+            <div class="db-grid-2">
+              <div class="db-field">
+                <label>Tangible Property in QOZ (% of all tangible property)</label>
+                <input type="number" id="qozb_70_pct" value="70" min="0" max="100" step="1" />
+                <div class="db-help">&sect;&nbsp;1400Z-2(d)(3)(A)(i): "substantially all" of tangible property must be QOZ business property. Final regulations define "substantially all" as 70% for this purpose. Lower threshold than the 90% test applicable at the QOF level.</div>
+              </div>
+              <div class="db-field">
+                <label>Active Conduct Gross Income from QOZ (%)</label>
+                <input type="number" id="qozb_active_income_pct" value="50" min="0" max="100" step="1" />
+                <div class="db-help">&sect;&nbsp;1400Z-2(d)(3)(A)(ii): at least 50% of total gross income must be derived from the active conduct of a trade or business within the QOZ. Three safe harbors under final regs: tangible property and management hours in QOZ; tangible property + management compensation in QOZ; or facts-and-circumstances.</div>
+              </div>
+            </div>
+
+            <div class="db-grid-2">
+              <div class="db-field">
+                <label>Working Capital Safe Harbor in Place</label>
+                <select id="qozb_wcsh">
+                  <option value="yes" selected>Yes &mdash; 31-month written plan with quarterly schedule</option>
+                  <option value="extended">62-month plan (governmental delay)</option>
+                  <option value="no">No</option>
+                </select>
+                <div class="db-help">&sect;&nbsp;1400Z-2(d)(3)(A)(v): cash held under a written plan with a schedule and intended use within 31 months for acquisition, construction, or substantial improvement of QOZBP is treated as a reasonable amount of working capital and as held in QOZ. Extended to 62 months for governmental delay.</div>
+              </div>
+              <div class="db-field">
+                <label>Substantial Improvement Basis Test</label>
+                <select id="qozb_sub_improvement">
+                  <option value="met" selected>Met &mdash; additions &ge; original basis within 30-month period</option>
+                  <option value="planned">Planned &mdash; in progress within 30-month window</option>
+                  <option value="not_required">Not Required &mdash; original use property</option>
+                  <option value="failed">Not Met</option>
+                </select>
+                <div class="db-help">&sect;&nbsp;1400Z-2(d)(2)(D)(ii): if QOZBP is not "original use," it must be substantially improved &mdash; additions to basis during any 30-month period must equal or exceed the adjusted basis of the property at the start of the period. Land is excluded from the basis comparison under final regs.</div>
+              </div>
+            </div>
+
+            <div class="db-grid-2">
+              <div class="db-field">
+                <label>Sin Business Confirmation</label>
+                <select id="qozb_sin_business">
+                  <option value="no" selected>No &mdash; not a prohibited business</option>
+                  <option value="yes">Yes &mdash; sin business (DISQUALIFIES)</option>
+                </select>
+                <div class="db-help">&sect;&nbsp;1400Z-2(d)(3)(A)(iii) incorporates &sect;&nbsp;144(c)(6)(B): excludes golf courses, country clubs, massage parlors, hot tub or sun-tan facilities, racetracks or other gambling facilities, and liquor stores. Mixed-use projects may have de minimis exception.</div>
+              </div>
+              <div class="db-field">
+                <label>Investor Hold Period at Anticipated Exit</label>
+                <select id="qof_investor_hold">
+                  <option value="lt_5">Less than 5 years</option>
+                  <option value="5_to_7">5 to 7 years (10% step-up vintage)</option>
+                  <option value="7_to_10">7 to 10 years (additional 5% step-up vintage)</option>
+                  <option value="10_plus" selected>10+ years (full exclusion of post-investment gain)</option>
+                </select>
+                <div class="db-help">Deferral runs to the earlier of disposition or 12/31/2026 (date now passed for new deferrals). Hold-period basis step-ups for 5/7-year holds are historical. The 10-year benefit &mdash; exclusion of post-investment gain on QOF interest disposition &mdash; remains available and is the dominant OZ benefit going forward.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============== TIC COMPLIANCE ============== -->
+        <div id="tic_compliance_section" class="compliance-section" style="display:none;">
+          <h3 class="db-subhead">TIC Compliance &mdash; Rev. Proc. 2002-22</h3>
+
+          <div class="db-grid-2">
+            <div class="db-field">
+              <label>Number of Co-Tenants</label>
+              <input type="number" id="tic_cotenants" value="10" min="1" max="40" step="1" />
+              <div class="db-help">Rev. Proc. 2002-22, &sect;&nbsp;6.01: no more than 35 co-tenants permitted. Most practitioners cap at 15 to maintain a safety margin and reduce Service scrutiny. Spousal joint tenancy counts as one co-tenant.</div>
+            </div>
+            <div class="db-field">
+              <label>Largest Co-Tenant Interest (%)</label>
+              <input type="number" id="tic_largest_interest" value="30" min="0" max="100" step="1" />
+              <div class="db-help">No single-co-tenant cap is imposed by Rev. Proc. 2002-22, but a high concentration may invite a "partnership in substance" reclassification challenge. Some practitioners use 50% as a soft ceiling.</div>
+            </div>
+          </div>
+
+          <div class="db-grid-2">
+            <div class="db-field">
+              <label>Unanimous Vote for Major Decisions</label>
+              <select id="tic_unanimous">
+                <option value="yes" selected>Yes &mdash; all decisions on sale, leases, refi require unanimous</option>
+                <option value="no">No (DISQUALIFIES)</option>
+              </select>
+              <div class="db-help">Rev. Proc. 2002-22, &sect;&nbsp;6.05: hiring of any manager, sale, leasing of substantially all of the property, financing or refinancing, and bringing legal action require unanimous approval of all co-tenants. Less-than-unanimous decisions destroy TIC characterization.</div>
+            </div>
+            <div class="db-field">
+              <label>Each Co-Tenant Holds Undivided Fee Interest</label>
+              <select id="tic_fee_interest">
+                <option value="yes" selected>Yes</option>
+                <option value="no">No (DISQUALIFIES)</option>
+              </select>
+              <div class="db-help">Rev. Proc. 2002-22, &sect;&nbsp;6.02: each co-tenant must hold title as a tenant in common under local law. Holding through a partnership, LLC, or corporation defeats TIC treatment.</div>
+            </div>
+          </div>
+
+          <div class="db-grid-2">
+            <div class="db-field">
+              <label>Proportionate Sharing of Revenue and Expenses</label>
+              <select id="tic_proportionate">
+                <option value="yes" selected>Yes &mdash; pro rata to interests</option>
+                <option value="no">No (special allocations DISQUALIFY)</option>
+              </select>
+              <div class="db-help">Rev. Proc. 2002-22, &sect;&nbsp;6.06: each co-tenant must share in income and expenses in proportion to its undivided interest. Special allocations or cash-flow waterfalls characteristic of partnerships defeat TIC treatment.</div>
+            </div>
+            <div class="db-field">
+              <label>Co-Tenant Debt Arrangement</label>
+              <select id="tic_debt">
+                <option value="separate_recourse" selected>Each co-tenant separately liable for share</option>
+                <option value="joint_and_several">Joint and several (DISQUALIFIES under Rev. Proc.)</option>
+                <option value="partnership_debt">Partnership-form debt (DISQUALIFIES)</option>
+              </select>
+              <div class="db-help">Rev. Proc. 2002-22, &sect;&nbsp;6.12: debt is "co-ownership debt" under which each co-tenant is severally liable for its proportionate share. Most commercial lenders require joint and several liability, presenting a structural tension. Cross-defaults and cross-collateralization are problematic.</div>
+            </div>
+          </div>
+
+          <div class="db-grid-2">
+            <div class="db-field">
+              <label>Manager Arrangement</label>
+              <select id="tic_manager">
+                <option value="independent_lease" selected>Property leased to single arm&rsquo;s-length operator</option>
+                <option value="separate_managers">Each co-tenant separately manages share</option>
+                <option value="cotenant_manager">A co-tenant manages on behalf of others (PROBLEMATIC)</option>
+              </select>
+              <div class="db-help">Rev. Proc. 2002-22, &sect;&nbsp;6.07-6.10: the co-tenants cannot conduct an active business on the property. Typical structure: a single operator leases the property from all co-tenants on a master lease (often triple-net). The co-tenants are passive investors.</div>
+            </div>
+            <div class="db-field">
+              <label>Tax Reporting Position</label>
+              <select id="tic_tax_reporting">
+                <option value="separate" selected>Separate Schedule E for each co-tenant</option>
+                <option value="form_1065">Form 1065 filed (DISQUALIFIES &mdash; admits partnership)</option>
+              </select>
+              <div class="db-help">Rev. Proc. 2002-22, &sect;&nbsp;6.04: co-tenants cannot file a partnership return. Each reports its share on Schedule E (or equivalent). Filing Form 1065 is fatal &mdash; it admits the arrangement is a partnership.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============== DST COMPLIANCE ============== -->
+        <div id="dst_compliance_section" class="compliance-section" style="display:none;">
+          <h3 class="db-subhead">DST Compliance &mdash; Rev. Rul. 2004-86 (Seven Deadly Sins)</h3>
+
+          <p class="db-help-block">
+            Under Rev. Rul. 2004-86, a Delaware Statutory Trust is treated as a grantor trust for federal tax purposes &mdash; beneficial interests held by investors are treated as direct ownership of undivided fractional interests in the underlying property (eligible as &sect;&nbsp;1031 replacement property). Violation of any of the seven prohibitions reclassifies the DST as a business entity (partnership), defeating &sect;&nbsp;1031 eligibility for any acquisition still in progress and disrupting in-place exchanges retroactively.
+          </p>
+
+          <div class="db-checkbox-block">
+            <label class="db-checkbox">
+              <input type="checkbox" id="dst_sin_1" checked />
+              <strong>Sin 1:</strong> No new beneficial owners after closing
+              <span class="db-help-inline">No additional capital can be raised after the offering closes; no new investors may be admitted to the trust.</span>
+            </label>
+            <label class="db-checkbox">
+              <input type="checkbox" id="dst_sin_2" checked />
+              <strong>Sin 2:</strong> No debt refinancing
+              <span class="db-help-inline">The original debt cannot be refinanced; if a refinancing is required, the property must first be transferred out of the DST.</span>
+            </label>
+            <label class="db-checkbox">
+              <input type="checkbox" id="dst_sin_3" checked />
+              <strong>Sin 3:</strong> No debt prepayment except from sale proceeds
+              <span class="db-help-inline">Debt can be paid down only from proceeds of the eventual disposition of the property.</span>
+            </label>
+            <label class="db-checkbox">
+              <input type="checkbox" id="dst_sin_4" checked />
+              <strong>Sin 4:</strong> No reinvestment of sale proceeds
+              <span class="db-help-inline">Disposition proceeds must be distributed; the DST cannot reinvest in additional property.</span>
+            </label>
+            <label class="db-checkbox">
+              <input type="checkbox" id="dst_sin_5" checked />
+              <strong>Sin 5:</strong> No tenant improvements except "normal repairs"
+              <span class="db-help-inline">Only routine maintenance and minor non-structural repairs permitted; capital expenditures and substantial TI work prohibited.</span>
+            </label>
+            <label class="db-checkbox">
+              <input type="checkbox" id="dst_sin_6" checked />
+              <strong>Sin 6:</strong> No new leases except market-rate triple-net replacements
+              <span class="db-help-inline">Existing leases run their term; replacement leases must be at market rate, typically triple-net. Lease renegotiation or rent adjustments prohibited.</span>
+            </label>
+            <label class="db-checkbox">
+              <input type="checkbox" id="dst_sin_7" checked />
+              <strong>Sin 7:</strong> Cash reserves limited and held short term
+              <span class="db-help-inline">Capital reserves limited to amounts necessary for normal operations; operating cash distributed periodically; no investment portfolio.</span>
+            </label>
+          </div>
+
+          <div class="db-grid-2">
+            <div class="db-field">
+              <label>Trust Modeled on Master Lease (DST 2.0)</label>
+              <select id="dst_master_lease">
+                <option value="no" selected>No &mdash; pure pass-through DST</option>
+                <option value="yes">Yes &mdash; "DST 2.0" with TRS-leased operating partner</option>
+              </select>
+              <div class="db-help">Some DSTs interpose an Affiliated Master Tenant that leases the property from the DST and conducts operating activity. This permits some flexibility around Sin 5 and 6 because operational changes occur at the master-tenant level, not the DST level. The master tenant is typically a TRS-like entity owned by the sponsor or its affiliate.</div>
+            </div>
+            <div class="db-field">
+              <label>Springing LLC Provision</label>
+              <select id="dst_springing_llc">
+                <option value="yes" selected>Yes &mdash; DST converts to LLC on triggering event</option>
+                <option value="no">No</option>
+              </select>
+              <div class="db-help">Trust agreement contains a "springing LLC" provision allowing the trustee to convert the DST into an LLC upon a triggering event (e.g., loan default, lender demand for refinancing). The conversion exits Rev. Rul. 2004-86 compliance but preserves the property and gives the trustee operational flexibility to address the event.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="db-nav">
+          <button class="btn-db-back" data-target="7" type="button">&larr; Back to Investors &amp; Blockers</button>
+          <button class="btn-db-next" data-target="9" type="button">Continue to Results &rarr;</button>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           STEP 9 — RESULTS
+           ============================================================ -->
+      <section class="db-step" data-step="9">
+        <h2>Step 9 &mdash; Results &amp; Output</h2>
+        <p class="db-section-intro">
+          Computed deal economics. Sensitivity table flexes exit price and hold period to show how returns shift. Save the configuration as a JSON file to reload later or to share with co-counsel; export a deal summary for term-sheet circulation.
+        </p>
+
+        <div class="db-results-actions">
+          <button id="btn_recalculate" class="btn-primary-green" type="button">&#x21bb; Recalculate</button>
+          <button id="btn_save_json" class="btn-secondary-sm" type="button">&darr; Save Deal (JSON)</button>
+          <button id="btn_load_json" class="btn-secondary-sm" type="button">&uarr; Load Deal (JSON)</button>
+          <input type="file" id="load_json_input" accept="application/json" style="display:none;">
+          <button id="btn_print_summary" class="btn-secondary-sm" type="button">&#x2399; Print Summary</button>
+          <button id="btn_export_summary" class="btn-secondary-sm" type="button">&#x2398; Term Sheet</button>
+          <button id="btn_deal_memo" class="btn-primary-green" type="button">&#x270D; Deal Memo (PDF)</button>
+        </div>
+
+        <!-- Verdict Card -->
+        <div id="verdict_card" class="db-verdict">
+          <div class="db-verdict-label">Deal Verdict</div>
+          <div class="db-verdict-headline" id="verdict_headline">Awaiting Inputs</div>
+          <div class="db-verdict-criteria" id="verdict_criteria">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Sources & Uses -->
+        <h3 class="db-subhead">Sources &amp; Uses</h3>
+        <div class="db-output-table-wrap">
+          <table class="db-output-table" id="sources_uses_table">
+            <thead>
+              <tr>
+                <th>Source</th>
+                <th class="right">Amount</th>
+                <th>Use</th>
+                <th class="right">Amount</th>
+              </tr>
+            </thead>
+            <tbody id="sources_uses_body">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- LP / Sponsor Outcomes -->
+        <h3 class="db-subhead">Returns by Class</h3>
+        <div class="db-output-table-wrap">
+          <table class="db-output-table" id="returns_table">
+            <thead>
+              <tr>
+                <th>Class</th>
+                <th class="right">Capital Contributed</th>
+                <th class="right">Total Distributions</th>
+                <th class="right">Profit</th>
+                <th class="right">MOIC</th>
+                <th class="right">IRR</th>
+              </tr>
+            </thead>
+            <tbody id="returns_body">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Waterfall Trace -->
+        <h3 class="db-subhead">Waterfall Trace</h3>
+        <div class="db-output-table-wrap">
+          <table class="db-output-table" id="waterfall_trace_table">
+            <thead>
+              <tr>
+                <th>Tier</th>
+                <th>Description</th>
+                <th class="right">Total Distribution</th>
+                <th class="right">To LPs</th>
+                <th class="right">To Sponsor</th>
+                <th class="right">Remaining Pool</th>
+              </tr>
+            </thead>
+            <tbody id="waterfall_trace_body">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Fees Paid -->
+        <h3 class="db-subhead">Sponsor Fees</h3>
+        <div class="db-output-table-wrap">
+          <table class="db-output-table" id="fees_table">
+            <thead>
+              <tr>
+                <th>Fee</th>
+                <th>Basis</th>
+                <th class="right">Amount</th>
+              </tr>
+            </thead>
+            <tbody id="fees_body">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Sensitivity -->
+        <h3 class="db-subhead">Sensitivity &mdash; LP IRR Across Sale Price &amp; Hold</h3>
+        <div class="db-help-block">
+          The center cell reflects current inputs. Adjacent cells flex sale price by &plusmn;5% and &plusmn;10%, hold period by &plusmn;3 and &plusmn;6 months. Cells colored by IRR thresholds.
+        </div>
+        <div class="db-output-table-wrap">
+          <table class="db-output-table db-sensitivity" id="sensitivity_table">
+            <thead id="sensitivity_head">
+              <!-- Populated by JS -->
+            </thead>
+            <tbody id="sensitivity_body">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- §704(c) Method Comparison -->
+        <h3 class="db-subhead">&sect;&nbsp;704(c) &mdash; Three-Method Comparison</h3>
+        <div id="sec704c_comparison_wrap">
+          <!-- Populated by JS; hidden if no §704(c) layers -->
+        </div>
+
+        <!-- Phase 3: FIRPTA Analysis -->
+        <h3 class="db-subhead">FIRPTA Analysis</h3>
+        <div id="firpta_analysis_wrap">
+          <!-- Populated by JS; only shown if foreign investors present -->
+        </div>
+
+        <!-- Phase 3: UBTI Analysis -->
+        <h3 class="db-subhead">UBTI Analysis &mdash; U.S. Tax-Exempt Investors</h3>
+        <div id="ubti_analysis_wrap">
+          <!-- Populated by JS; only shown if tax-exempt investors present -->
+        </div>
+
+        <!-- Phase 3: Blocker Leakage Comparison -->
+        <h3 class="db-subhead">Blocker Tax Leakage</h3>
+        <div id="blocker_leakage_wrap">
+          <!-- Populated by JS; only shown if blockers configured -->
+        </div>
+
+        <!-- Phase 6: §163(j) Analysis -->
+        <div id="overlay_163j_output_wrap"></div>
+
+        <!-- Phase 6: §461(l) Excess Business Loss -->
+        <div id="overlay_461l_output_wrap"></div>
+
+        <!-- Phase 6: §199A QBI Analysis -->
+        <div id="overlay_199a_output_wrap"></div>
+
+        <!-- Phase 6: PTET / Multi-State / Nonresident WH -->
+        <div id="state_tax_overlay_output_wrap"></div>
+
+        <!-- Phase 4: Specialized Compliance Dashboard -->
+        <h3 class="db-subhead">Specialized Compliance Dashboard</h3>
+        <div id="compliance_dashboard_wrap">
+          <!-- Populated by JS based on deal type; only shown for REIT/OZ/TIC/DST -->
+        </div>
+
+        <!-- Phase 3: Structural Recommendations -->
+        <h3 class="db-subhead">Structural Recommendations</h3>
+        <div id="structural_recommendations" class="db-notes">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Capital Account Roll-Forward -->
+        <h3 class="db-subhead">Capital Account Roll-Forward</h3>
+        <div class="db-help-block">
+          Roll-forward shows each member class&rsquo;s &sect;&nbsp;704(b) book capital account and outside tax basis at three snapshots: opening (post-contribution), interim (mid-hold), and closing (post-disposition). Adjustments under &sect;&nbsp;743(b), &sect;&nbsp;734(b), and special allocations are flagged.
+        </div>
+        <div class="db-output-table-wrap">
+          <table class="db-output-table" id="capital_account_table">
+            <thead>
+              <tr>
+                <th>Member Class</th>
+                <th class="right">Opening Cap Acct</th>
+                <th class="right">Cumulative Allocations</th>
+                <th class="right">Distributions</th>
+                <th class="right">Closing Cap Acct</th>
+                <th class="right">Outside Basis</th>
+              </tr>
+            </thead>
+            <tbody id="capital_account_body">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- §754 / §743(b) / §734(b) Adjustments -->
+        <h3 class="db-subhead">&sect;&nbsp;754 / &sect;&nbsp;743(b) / &sect;&nbsp;734(b) Analysis</h3>
+        <div id="sec754_analysis" class="db-notes">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Org Chart — Interactive SVG Editor (Phase V) -->
+        <h3 class="db-subhead">Structure Diagram</h3>
+        <div class="org-editor-toolbar">
+          <button id="org_regenerate" class="btn-secondary-sm" type="button">&#x21bb; Auto-Layout</button>
+          <button id="org_add_node" class="btn-secondary-sm" type="button">+ Add Node</button>
+          <button id="org_clear_positions" class="btn-secondary-sm" type="button">Reset Positions</button>
+          <span class="org-editor-hint">Drag any node to reposition. Double-click to edit label. Click and press Delete to remove.</span>
+        </div>
+        <div class="db-org-chart" id="org_chart">
+          <!-- SVG generated by JS -->
+        </div>
+
+        <!-- Notes & Warnings -->
+        <h3 class="db-subhead">Structural Notes &amp; Warnings</h3>
+        <div id="notes_warnings" class="db-notes">
+          <!-- Populated by JS -->
+        </div>
+
+        <div class="db-nav">
+          <button class="btn-db-back" data-target="8" type="button">&larr; Back to Compliance</button>
+          <button class="btn-db-next" data-target="10" type="button">Continue to Deal Package &rarr;</button>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           STEP 10 — DEAL DOCUMENT PACKAGE (Phase 7)
+           Three securities levels (Reg D 506(b) F&F / 506(b) Sophisticated / 506(c))
+           Full document stack: Op Ag, Sub Ag, AI Q'naire, Risk Letter or PPM,
+           Form D, Blue Sky, plus verification docs for 506(c).
+           ============================================================ -->
+      <section class="db-step" data-step="10">
+        <h2>Step 10 &mdash; Deal Document Package</h2>
+        <p class="db-section-intro">
+          Generate the full deal document stack under Regulation D private placement exemption. All three levels are private placement &mdash; the distinction is the degree of disclosure, the breadth of investor pool, and whether general solicitation is permitted. Output is a single comprehensive HTML document with each component back-to-back, marked <strong>DRAFT &middot; PRIVILEGED &amp; CONFIDENTIAL</strong>, ready for your review and customization before execution.
+        </p>
+
+        <!-- ============== SECURITIES LEVEL SELECTOR ============== -->
+        <h3 class="db-subhead">Securities Compliance Level</h3>
+
+        <div class="sec-level-grid">
+          <label class="sec-level-card is-no-reg-d">
+            <input type="radio" name="sec_level" value="level_0_no_reg_d" />
+            <div class="sec-level-content">
+              <div class="sec-level-tag">Level 0</div>
+              <h4>No Reg D Filing &mdash; Small JV</h4>
+              <div class="sec-level-cite">Operating-Member JV &middot; Howey-Rebutted</div>
+              <ul>
+                <li><strong>For small JVs only:</strong> all members have pre-existing substantive relationships</li>
+                <li>All members are active participants in management (Howey "efforts of others" prong rebutted)</li>
+                <li>Typically 2&ndash;6 members; total raise commensurate with private business</li>
+                <li>Not held out as a passive investment; no general solicitation</li>
+                <li>No PPM, no Subscription Agreement, no Accredited Investor questionnaire, no Form D filing</li>
+                <li><strong>Lawyer must independently confirm</strong> the interests are not "securities" or fit a private offering exemption beyond Reg D</li>
+              </ul>
+              <div class="sec-level-docs">
+                <strong>Documents:</strong> Operating Agreement &middot; JV Securities Analysis Memo &middot; Member Joinder &amp; Acknowledgment
+              </div>
+            </div>
+          </label>
+
+          <label class="sec-level-card">
+            <input type="radio" name="sec_level" value="level_1_ff" checked />
+            <div class="sec-level-content">
+              <div class="sec-level-tag">Level 1</div>
+              <h4>Friends &amp; Family</h4>
+              <div class="sec-level-cite">Reg D Rule 506(b) &mdash; Lean</div>
+              <ul>
+                <li>Pre-existing substantive relationship required</li>
+                <li>Unlimited accredited; up to 35 sophisticated non-accredited</li>
+                <li>No general solicitation or advertising</li>
+                <li>Self-certification of accredited status</li>
+                <li>Lean disclosure: risk disclosure letter, no full PPM</li>
+              </ul>
+              <div class="sec-level-docs">
+                <strong>Documents:</strong> Operating Agreement &middot; Subscription Agreement &middot; Accredited Investor Questionnaire (self-cert) &middot; Risk Disclosure Letter &middot; Form D Worksheet &middot; Blue Sky Notice
+              </div>
+            </div>
+          </label>
+
+          <label class="sec-level-card">
+            <input type="radio" name="sec_level" value="level_2_soph" />
+            <div class="sec-level-content">
+              <div class="sec-level-tag">Level 2</div>
+              <h4>Sophisticated 506(b)</h4>
+              <div class="sec-level-cite">Reg D Rule 506(b) &mdash; Full Disclosure</div>
+              <ul>
+                <li>Pre-existing relationship still required</li>
+                <li>Comprehensive disclosure via full PPM</li>
+                <li>No general solicitation</li>
+                <li>Self-certification of accredited status</li>
+                <li>Standardized side letter framework</li>
+              </ul>
+              <div class="sec-level-docs">
+                <strong>Documents:</strong> Operating Agreement &middot; Subscription Agreement &middot; Accredited Investor Questionnaire (enhanced) &middot; Private Placement Memorandum &middot; Side Letter Template &middot; Form D &middot; Blue Sky Notices
+              </div>
+            </div>
+          </label>
+
+          <label class="sec-level-card">
+            <input type="radio" name="sec_level" value="level_3_506c" />
+            <div class="sec-level-content">
+              <div class="sec-level-tag">Level 3</div>
+              <h4>General Solicitation</h4>
+              <div class="sec-level-cite">Reg D Rule 506(c)</div>
+              <ul>
+                <li>General solicitation and advertising PERMITTED</li>
+                <li>All investors must be <strong>accredited and verified</strong></li>
+                <li>Reasonable verification steps required (Rule 506(c)(2)(ii))</li>
+                <li>Rule 506(d) bad actor disqualification check</li>
+                <li>Public-facing materials allowed</li>
+              </ul>
+              <div class="sec-level-docs">
+                <strong>Documents:</strong> Operating Agreement &middot; Subscription Agreement &middot; Accredited Investor Questionnaire (verification standard) &middot; PPM (enhanced) &middot; Investor Verification Letter &middot; General Solicitation Compliance Memo &middot; Form D &middot; Blue Sky Notices
+              </div>
+            </div>
+          </label>
+        </div>
+
+        <!-- ============== ENTITY STRUCTURE (Phase 8: Multi-Tier) ============== -->
+        <h3 class="db-subhead">Entity Structure</h3>
+        <p class="db-help-block">
+          Configure the full deal entity structure. Each entity in the tree has its own state of formation and state-specific legal provisions in the generated documents. Exactly one entity must be designated as the <strong>Issuer</strong> &mdash; the one receiving subscription agreements from investors. Other entities (Holdco, Sponsor, Trust, Blocker, Feeder) may be added at any depth, with parent-entity references to express the ownership chain.
+        </p>
+
+        <div id="entities_container">
+          <!-- Populated by JS -->
+        </div>
+        <button id="add_entity" class="btn-db-add" type="button">+ Add Entity</button>
+
+        <div id="entity_tree_preview" class="entity-tree-preview">
+          <!-- Auto-rendered tree visualization -->
+        </div>
+
+        <!-- Phase 8: legacy single-issuer/sponsor fields kept for backward compatibility but hidden -->
+        <div style="display:none;">
+          <input type="text" id="dp_issuer_name" />
+          <select id="dp_issuer_type"><option value="LLC">LLC</option></select>
+          <select id="dp_issuer_formation_state"><option value="FL">FL</option></select>
+          <input type="text" id="dp_issuer_formation_date" />
+          <input type="text" id="dp_issuer_address" />
+          <input type="text" id="dp_issuer_ein" />
+          <input type="text" id="dp_issuer_securities" value="Membership Interests" />
+          <input type="checkbox" id="dp_sponsor_individual" />
+          <input type="text" id="dp_sponsor_name" />
+          <select id="dp_sponsor_type"><option value="LLC">LLC</option></select>
+          <select id="dp_sponsor_formation_state"><option value="WY">WY</option></select>
+          <select id="dp_sponsor_relationship"><option value="manager">manager</option></select>
+          <input type="text" id="dp_sponsor_address" />
+        </div>
+
+        <!-- ============== AUTHORIZED SIGNATORIES ============== -->
+        <h3 class="db-subhead">Authorized Signatories</h3>
+        <p class="db-help-block">Individuals authorized to sign the offering and deal documents on behalf of the Issuer and/or Sponsor. Typical: the Manager principal(s) (LLC), General Partner (LP), or designated officer (corp). Each signature block in the generated documents will list one signatory.</p>
+
+        <div id="signatories_container">
+          <!-- Populated by JS -->
+        </div>
+        <button id="add_signatory" class="btn-db-add" type="button">+ Add Signatory</button>
+
+        <!-- ============== INVESTOR LIST ============== -->
+        <h3 class="db-subhead">Investor List</h3>
+        <p class="db-help-block">Each investor receives a personalized Subscription Agreement and Accredited Investor Questionnaire in the final package. Capital commitments here should aggregate to (and match) the member class commitments from Step&nbsp;2. Each investor must be assigned to one of the member classes you configured.</p>
+
+        <div id="investors_container">
+          <!-- Populated by JS -->
+        </div>
+        <button id="add_investor" class="btn-db-add" type="button">+ Add Investor</button>
+
+        <div class="dp-investor-summary" id="investor_summary">
+          <!-- Auto-computed totals shown here -->
+        </div>
+
+        <!-- ============== GENERATION OPTIONS ============== -->
+        <h3 class="db-subhead">Document Generation Options</h3>
+
+        <div class="db-grid-2">
+          <div class="db-field">
+            <label>Include Deal Memo as Appendix</label>
+            <select id="dp_include_deal_memo">
+              <option value="yes" selected>Yes &mdash; include full financial analysis as Exhibit</option>
+              <option value="no">No &mdash; documents only</option>
+            </select>
+            <div class="db-help">Embeds the Phase&nbsp;V Deal Memo content (executive summary, capital stack, waterfall, capital account roll-forward, FIRPTA/UBTI analysis, compliance dashboard, structural diagram, recommendations) as an Exhibit to the package.</div>
+          </div>
+          <div class="db-field">
+            <label>Output Format</label>
+            <select id="dp_output_format">
+              <option value="html_combined" selected>Single Combined HTML (recommended)</option>
+              <option value="html_per_investor">Combined HTML + per-investor sections</option>
+            </select>
+            <div class="db-help">Combined HTML opens in a new tab. Use browser print to PDF for distribution. Per-investor option produces one combined master document but with each investor&rsquo;s Sub Agreement and AI Questionnaire repeated, ready to detach.</div>
+          </div>
+        </div>
+
+        <div class="db-field">
+          <label>Additional Drafting Notes (will appear in package preamble)</label>
+          <textarea id="dp_drafting_notes" rows="3" placeholder="Optional. Any deal-specific notes you want surfaced at the top of the package for your review."></textarea>
+        </div>
+
+        <div class="dp-generate-block">
+          <button id="generate_deal_package" class="btn-primary-green dp-generate-btn" type="button">&#x270D; Generate Complete Deal Package</button>
+          <p class="dp-generate-note">
+            Output opens in a new browser tab. Use the browser&rsquo;s Print&nbsp;&rarr;&nbsp;Save&nbsp;as&nbsp;PDF to convert. All documents are templates for your review and customization under your engagement letter; nothing is filed or transmitted automatically.
+          </p>
+        </div>
+
+        <div class="db-nav">
+          <button class="btn-db-back" data-target="9" type="button">&larr; Back to Results</button>
+          <span></span>
+        </div>
+      </section>
+
+    </div><!-- /.tool-container -->
+
+    <footer class="tool-footer">
+      <div class="tool-footer-inner">
+        <p>
+          <strong>Disclaimer.</strong> This tool produces mechanical computation based on the inputs provided and the assumptions documented herein. It does not constitute legal, tax, or accounting advice and does not create an attorney-client relationship. <span class="brand-reserve"><span class="re">RE</span>SERVE</span> members are reminded that engagement of the firm under a written engagement letter is required for any structure modeled here to be reviewed, opined upon, or implemented. State and federal tax law change; tool outputs may not reflect current law. Phase I implements deal economics and structural framework; full §704(b)/§704(c) allocation engines, blocker analysis, FIRPTA, tax-exempt UBTI, and REIT/OZ/TIC compliance modules are sequenced for Phases II&ndash;IV. Donovan Legal PLLC, 301 W. Atlantic Avenue, Suite 5, Delray Beach, Florida 33444.
+        </p>
+        <p class="tool-footer-meta">
+          DEAL BUILDER &middot; PHASE I &middot; <span class="brand-reserve"><span class="re">RE</span>SERVE</span> ACCESS ONLY &middot; CONFIDENTIAL
+        </p>
+      </div>
+    </footer>
+
+  </div><!-- /#tool_main -->
+
+  <script src="../js/tool-deal-builder-reserve.js"></script>
+</body>
+</html>

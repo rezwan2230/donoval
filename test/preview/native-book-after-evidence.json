@@ -1,0 +1,1452 @@
+{
+  "order": "JORDAN-PERCH-NATIVE-BOOK",
+  "phase": "after",
+  "baseline": false,
+  "base": "https://9c9f0e1a.donovan-site.pages.dev",
+  "startedAt": "2026-07-30T03:09:23.215Z",
+  "steps": [
+    {
+      "name": "[desktop] the router is on for this deployment",
+      "ok": true,
+      "detail": {
+        "ready": true,
+        "container": "#perch-main",
+        "errors": []
+      }
+    },
+    {
+      "name": "[desktop] the channel and the card are mounted on a content page",
+      "ok": true,
+      "detail": {
+        "commandChannel": {
+          "polling": false,
+          "callId": null,
+          "polls": 0,
+          "commands": 0,
+          "prefillPending": false,
+          "prefillFields": [],
+          "bookNavs": 0,
+          "autoAdvanced": false,
+          "log": []
+        },
+        "qualifierMounted": true
+      }
+    },
+    {
+      "name": "[desktop] bindCall() — the seam js/donovan-widget.js calls — accepted the call",
+      "ok": true,
+      "detail": {
+        "ok": true
+      }
+    },
+    {
+      "name": "[desktop] ?qualifier=1 opens a tappable card",
+      "ok": true,
+      "detail": {
+        "present": true,
+        "display": "flex",
+        "cardRect": {
+          "w": 440,
+          "h": 433
+        },
+        "heading": "What type of matter would you like to discuss?",
+        "options": [
+          "tax",
+          "real_estate",
+          "other",
+          "not_sure_matter"
+        ]
+      }
+    },
+    {
+      "name": "[desktop] the completed card still POSTs the lead get_qualifier_result reads",
+      "ok": true,
+      "detail": {
+        "submit": {
+          "matter_category": "real_estate",
+          "matter": "real_estate",
+          "matter_sub": "acquisition",
+          "state": "FL",
+          "for_whom": "yourself",
+          "income_band": "1_5m_3m",
+          "net_worth_band": "5m_15m",
+          "language": "en",
+          "source": "google",
+          "call_id": "verify-nativebook-4n8b1zvx"
+        },
+        "note": "captured and ABORTED — it forwards to Vantage /upsert-lead"
+      }
+    },
+    {
+      "name": "[desktop] and the done-state copy is unchanged",
+      "ok": true,
+      "detail": {
+        "text": "All setThanks — that’s what I needed Paula has it. She’ll pull up the calendar so you can pick a time. Continue"
+      }
+    },
+    {
+      "name": "[desktop] THE HEADLINE: no Paula command, and the caller is ON /book with the calendar REVEALED",
+      "ok": true,
+      "detail": {
+        "startUrl": "/contact",
+        "url": "/book",
+        "gateDisplay": "none",
+        "liveDisplay": "block",
+        "liveRect": {
+          "w": 1110,
+          "h": 308
+        },
+        "widgetChildren": 7,
+        "widgetText": "Select a dateTHU30JULFRI31JULMON3AUGTUE4AUGWED5AUGTHU6AUGFRI7AUGMON10AUGTUE11AUGWED12AUGTHU13AUGFRI14AUGMON17AUGTUE18AUGWED19AUGTHU20AUGFRI21AUGMON24AUGTUE25AUG",
+        "dlBooking": "object",
+        "prefillHeld": {
+          "name": false,
+          "email": false,
+          "phone": false,
+          "notes": true
+        },
+        "notesValueOnScreen": null,
+        "callId": "verify-nativebook-4n8b1zvx"
+      }
+    },
+    {
+      "name": "[desktop] …as a SWAP, so a live call survives it — zero document loads",
+      "ok": true,
+      "detail": {
+        "documentLoads": 0,
+        "swaps": 1,
+        "instanceStable": true
+      }
+    },
+    {
+      "name": "[desktop] …and the live session resource was never torn down",
+      "ok": true,
+      "detail": {
+        "before": {
+          "clock": 0,
+          "state": "running"
+        },
+        "after": {
+          "clock": 7.741333333333333,
+          "state": "running"
+        }
+      }
+    },
+    {
+      "name": "[desktop] the booking widget booted from the adoption allow-list",
+      "ok": true,
+      "detail": {
+        "url": "/book",
+        "gateDisplay": "none",
+        "liveDisplay": "block",
+        "liveRect": {
+          "w": 1110,
+          "h": 308
+        },
+        "widgetChildren": 7,
+        "widgetText": "Select a dateTHU30JULFRI31JULMON3AUGTUE4AUGWED5AUGTHU6AUGFRI7AUGMON10AUGTUE11AUGWED12AUGTHU13AUGFRI14AUGMON17AUGTUE18AUGWED19AUGTHU20AUGFRI21AUGMON24AUGTUE25AUG",
+        "dlBooking": "object",
+        "prefillHeld": {
+          "name": false,
+          "email": false,
+          "phone": false,
+          "notes": true
+        },
+        "notesValueOnScreen": null,
+        "callId": "verify-nativebook-4n8b1zvx"
+      }
+    },
+    {
+      "name": "[desktop] EXACTLY ONE navigate and ONE prefill batch",
+      "ok": true,
+      "detail": {
+        "bookNavs": 1,
+        "autoAdvanced": true,
+        "prefillFields": [],
+        "log": [
+          {
+            "cmd": "navigate",
+            "target": "/book.html",
+            "via": "host.go"
+          },
+          {
+            "cmd": "booking_prefill",
+            "via": "deliverPrefill"
+          },
+          {
+            "cmd": "batch",
+            "n": 2,
+            "ran": [
+              "navigate",
+              "booking_prefill"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "[desktop] the prefill reached DLBooking.prefill (not the unobserved postMessage road)",
+      "ok": true,
+      "detail": {
+        "widgetPresent": true,
+        "prefillEntry": {
+          "handled": true,
+          "cmd": "booking_prefill",
+          "via": "DLBooking.prefill",
+          "result": null,
+          "acked": true
+        }
+      }
+    },
+    {
+      "name": "[desktop] THE OTHER HEADLINE: the tapped answers are typed into the form's note",
+      "ok": true,
+      "detail": {
+        "skipped": false,
+        "fields": {
+          "name": "",
+          "email": "",
+          "phone": "",
+          "notes": "Matter: Real estate — Acquisition (buying) · For: Yourself (personal) · State: Florida · Heard via: google"
+        },
+        "prefillHeld": {
+          "name": false,
+          "email": false,
+          "phone": false,
+          "notes": true
+        }
+      }
+    },
+    {
+      "name": "[desktop] and the caller's own fields are left for the caller to type",
+      "ok": true,
+      "detail": {
+        "skipped": false,
+        "fields": {
+          "name": "",
+          "email": "",
+          "phone": "",
+          "notes": "Matter: Real estate — Acquisition (buying) · For: Yourself (personal) · State: Florida · Heard via: google"
+        }
+      }
+    },
+    {
+      "name": "[desktop] the money bands stayed OFF the caller-visible note",
+      "ok": true,
+      "detail": {
+        "notes": "Matter: Real estate — Acquisition (buying) · For: Yourself (personal) · State: Florida · Heard via: google"
+      }
+    },
+    {
+      "name": "[desktop] Paula's later goto_booking costs NO second navigation",
+      "ok": true,
+      "detail": {
+        "bookNavsBefore": 1,
+        "bookNavsAfter": 1,
+        "coalesced": [
+          {
+            "cmd": "navigate",
+            "target": "/book.html",
+            "via": "none",
+            "coalesced": "book_nav_already_run"
+          }
+        ],
+        "documentLoads": 0
+      }
+    },
+    {
+      "name": "[desktop] and her fields MERGE with the qualifier note — neither half is dropped",
+      "ok": true,
+      "detail": {
+        "widgetHolds": {
+          "name": true,
+          "email": true,
+          "phone": true,
+          "notes": true
+        },
+        "channelPending": []
+      }
+    },
+    {
+      "name": "[desktop] …and if the form is on screen, all four fields are in it",
+      "ok": true,
+      "detail": {
+        "skipped": false,
+        "merged": {
+          "name": "Ada Lovelace",
+          "email": "ada@example.test",
+          "phone": "5615550100",
+          "notes": "Matter: Real estate — Acquisition (buying) · For: Yourself (personal) · State: Florida · Heard via: google"
+        }
+      }
+    },
+    {
+      "name": "[desktop] window.__perch is still the read-only probe, and nothing new is published",
+      "ok": true,
+      "detail": {
+        "topLevel": true,
+        "perchWritable": false,
+        "perchKeys": [
+          "probe"
+        ],
+        "layerKeys": [
+          "attachLiveResource",
+          "bookingProbe",
+          "detachLiveResource",
+          "probe"
+        ]
+      }
+    },
+    {
+      "name": "[desktop] the channel is still polling after the swap",
+      "ok": true,
+      "detail": {
+        "polling": true,
+        "callId": "set",
+        "polls": 11,
+        "commands": 8,
+        "prefillPending": false,
+        "prefillFields": [],
+        "bookNavs": 1,
+        "autoAdvanced": true,
+        "log": [
+          {
+            "cmd": "navigate",
+            "target": "/book.html",
+            "via": "host.go"
+          },
+          {
+            "cmd": "booking_prefill",
+            "via": "deliverPrefill"
+          },
+          {
+            "cmd": "batch",
+            "n": 2,
+            "ran": [
+              "navigate",
+              "booking_prefill"
+            ]
+          },
+          {
+            "cmd": "booking_show_date",
+            "via": "host.drive"
+          },
+          {
+            "cmd": "booking_select_slot",
+            "via": "host.drive"
+          },
+          {
+            "cmd": "navigate",
+            "target": "/book.html",
+            "via": "none",
+            "coalesced": "book_nav_already_run"
+          },
+          {
+            "cmd": "booking_prefill",
+            "via": "deliverPrefill"
+          },
+          {
+            "cmd": "batch",
+            "n": 2,
+            "ran": [
+              "navigate",
+              "booking_prefill"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "[mobile] the router is on for this deployment",
+      "ok": true,
+      "detail": {
+        "ready": true,
+        "container": "#perch-main",
+        "errors": []
+      }
+    },
+    {
+      "name": "[mobile] the channel and the card are mounted on a content page",
+      "ok": true,
+      "detail": {
+        "commandChannel": {
+          "polling": false,
+          "callId": null,
+          "polls": 0,
+          "commands": 0,
+          "prefillPending": false,
+          "prefillFields": [],
+          "bookNavs": 0,
+          "autoAdvanced": false,
+          "log": []
+        },
+        "qualifierMounted": true
+      }
+    },
+    {
+      "name": "[mobile] bindCall() — the seam js/donovan-widget.js calls — accepted the call",
+      "ok": true,
+      "detail": {
+        "ok": true
+      }
+    },
+    {
+      "name": "[mobile] ?qualifier=1 opens a tappable card",
+      "ok": true,
+      "detail": {
+        "present": true,
+        "display": "flex",
+        "cardRect": {
+          "w": 354,
+          "h": 433
+        },
+        "heading": "What type of matter would you like to discuss?",
+        "options": [
+          "tax",
+          "real_estate",
+          "other",
+          "not_sure_matter"
+        ]
+      }
+    },
+    {
+      "name": "[mobile] the completed card still POSTs the lead get_qualifier_result reads",
+      "ok": true,
+      "detail": {
+        "submit": {
+          "matter_category": "real_estate",
+          "matter": "real_estate",
+          "matter_sub": "acquisition",
+          "state": "FL",
+          "for_whom": "yourself",
+          "income_band": "1_5m_3m",
+          "net_worth_band": "5m_15m",
+          "language": "en",
+          "source": "google",
+          "call_id": "verify-nativebook-cxrdn4or"
+        },
+        "note": "captured and ABORTED — it forwards to Vantage /upsert-lead"
+      }
+    },
+    {
+      "name": "[mobile] and the done-state copy is unchanged",
+      "ok": true,
+      "detail": {
+        "text": "All setThanks — that’s what I needed Paula has it. She’ll pull up the calendar so you can pick a time. Continue"
+      }
+    },
+    {
+      "name": "[mobile] THE HEADLINE: no Paula command, and the caller is ON /book with the calendar REVEALED",
+      "ok": true,
+      "detail": {
+        "startUrl": "/contact",
+        "url": "/book",
+        "gateDisplay": "none",
+        "liveDisplay": "block",
+        "liveRect": {
+          "w": 338,
+          "h": 350
+        },
+        "widgetChildren": 7,
+        "widgetText": "Select a dateTHU30JULFRI31JULMON3AUGTUE4AUGWED5AUGTHU6AUGFRI7AUGMON10AUGTUE11AUGWED12AUGTHU13AUGFRI14AUGMON17AUGTUE18AUGWED19AUGTHU20AUGFRI21AUGMON24AUGTUE25AUG",
+        "dlBooking": "object",
+        "prefillHeld": {
+          "name": false,
+          "email": false,
+          "phone": false,
+          "notes": true
+        },
+        "notesValueOnScreen": null,
+        "callId": "verify-nativebook-cxrdn4or"
+      }
+    },
+    {
+      "name": "[mobile] …as a SWAP, so a live call survives it — zero document loads",
+      "ok": true,
+      "detail": {
+        "documentLoads": 0,
+        "swaps": 1,
+        "instanceStable": true
+      }
+    },
+    {
+      "name": "[mobile] …and the live session resource was never torn down",
+      "ok": true,
+      "detail": {
+        "before": {
+          "clock": 0.010666666666666666,
+          "state": "running"
+        },
+        "after": {
+          "clock": 7.570666666666667,
+          "state": "running"
+        }
+      }
+    },
+    {
+      "name": "[mobile] the booking widget booted from the adoption allow-list",
+      "ok": true,
+      "detail": {
+        "url": "/book",
+        "gateDisplay": "none",
+        "liveDisplay": "block",
+        "liveRect": {
+          "w": 338,
+          "h": 350
+        },
+        "widgetChildren": 7,
+        "widgetText": "Select a dateTHU30JULFRI31JULMON3AUGTUE4AUGWED5AUGTHU6AUGFRI7AUGMON10AUGTUE11AUGWED12AUGTHU13AUGFRI14AUGMON17AUGTUE18AUGWED19AUGTHU20AUGFRI21AUGMON24AUGTUE25AUG",
+        "dlBooking": "object",
+        "prefillHeld": {
+          "name": false,
+          "email": false,
+          "phone": false,
+          "notes": true
+        },
+        "notesValueOnScreen": null,
+        "callId": "verify-nativebook-cxrdn4or"
+      }
+    },
+    {
+      "name": "[mobile] EXACTLY ONE navigate and ONE prefill batch",
+      "ok": true,
+      "detail": {
+        "bookNavs": 1,
+        "autoAdvanced": true,
+        "prefillFields": [],
+        "log": [
+          {
+            "cmd": "navigate",
+            "target": "/book.html",
+            "via": "host.go"
+          },
+          {
+            "cmd": "booking_prefill",
+            "via": "deliverPrefill"
+          },
+          {
+            "cmd": "batch",
+            "n": 2,
+            "ran": [
+              "navigate",
+              "booking_prefill"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "[mobile] the prefill reached DLBooking.prefill (not the unobserved postMessage road)",
+      "ok": true,
+      "detail": {
+        "widgetPresent": true,
+        "prefillEntry": {
+          "handled": true,
+          "cmd": "booking_prefill",
+          "via": "DLBooking.prefill",
+          "result": null,
+          "acked": true
+        }
+      }
+    },
+    {
+      "name": "[mobile] THE OTHER HEADLINE: the tapped answers are typed into the form's note",
+      "ok": true,
+      "detail": {
+        "skipped": false,
+        "fields": {
+          "name": "",
+          "email": "",
+          "phone": "",
+          "notes": "Matter: Real estate — Acquisition (buying) · For: Yourself (personal) · State: Florida · Heard via: google"
+        },
+        "prefillHeld": {
+          "name": false,
+          "email": false,
+          "phone": false,
+          "notes": true
+        }
+      }
+    },
+    {
+      "name": "[mobile] and the caller's own fields are left for the caller to type",
+      "ok": true,
+      "detail": {
+        "skipped": false,
+        "fields": {
+          "name": "",
+          "email": "",
+          "phone": "",
+          "notes": "Matter: Real estate — Acquisition (buying) · For: Yourself (personal) · State: Florida · Heard via: google"
+        }
+      }
+    },
+    {
+      "name": "[mobile] the money bands stayed OFF the caller-visible note",
+      "ok": true,
+      "detail": {
+        "notes": "Matter: Real estate — Acquisition (buying) · For: Yourself (personal) · State: Florida · Heard via: google"
+      }
+    },
+    {
+      "name": "[mobile] Paula's later goto_booking costs NO second navigation",
+      "ok": true,
+      "detail": {
+        "bookNavsBefore": 1,
+        "bookNavsAfter": 1,
+        "coalesced": [
+          {
+            "cmd": "navigate",
+            "target": "/book.html",
+            "via": "none",
+            "coalesced": "book_nav_already_run"
+          }
+        ],
+        "documentLoads": 0
+      }
+    },
+    {
+      "name": "[mobile] and her fields MERGE with the qualifier note — neither half is dropped",
+      "ok": true,
+      "detail": {
+        "widgetHolds": {
+          "name": true,
+          "email": true,
+          "phone": true,
+          "notes": true
+        },
+        "channelPending": []
+      }
+    },
+    {
+      "name": "[mobile] …and if the form is on screen, all four fields are in it",
+      "ok": true,
+      "detail": {
+        "skipped": false,
+        "merged": {
+          "name": "Ada Lovelace",
+          "email": "ada@example.test",
+          "phone": "5615550100",
+          "notes": "Matter: Real estate — Acquisition (buying) · For: Yourself (personal) · State: Florida · Heard via: google"
+        }
+      }
+    },
+    {
+      "name": "[mobile] window.__perch is still the read-only probe, and nothing new is published",
+      "ok": true,
+      "detail": {
+        "topLevel": true,
+        "perchWritable": false,
+        "perchKeys": [
+          "probe"
+        ],
+        "layerKeys": [
+          "attachLiveResource",
+          "bookingProbe",
+          "detachLiveResource",
+          "probe"
+        ]
+      }
+    },
+    {
+      "name": "[mobile] the channel is still polling after the swap",
+      "ok": true,
+      "detail": {
+        "polling": true,
+        "callId": "set",
+        "polls": 10,
+        "commands": 7,
+        "prefillPending": false,
+        "prefillFields": [],
+        "bookNavs": 1,
+        "autoAdvanced": true,
+        "log": [
+          {
+            "cmd": "navigate",
+            "target": "/book.html",
+            "via": "host.go"
+          },
+          {
+            "cmd": "booking_prefill",
+            "via": "deliverPrefill"
+          },
+          {
+            "cmd": "batch",
+            "n": 2,
+            "ran": [
+              "navigate",
+              "booking_prefill"
+            ]
+          },
+          {
+            "cmd": "booking_select_slot",
+            "via": "host.drive"
+          },
+          {
+            "cmd": "navigate",
+            "target": "/book.html",
+            "via": "none",
+            "coalesced": "book_nav_already_run"
+          },
+          {
+            "cmd": "booking_prefill",
+            "via": "deliverPrefill"
+          },
+          {
+            "cmd": "batch",
+            "n": 2,
+            "ran": [
+              "navigate",
+              "booking_prefill"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "the caller was never auto-submitted — NOTHING reached /booking/create",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "no CSP violation across the whole flow — every module is a same-origin external",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "no uncaught page errors (Turnstile 600010 exempted — it is the headless driver)",
+      "ok": true,
+      "detail": {
+        "realErrors": [],
+        "exempted": [
+          {
+            "arm": "desktop",
+            "error": "Uncaught TurnstileError: [Cloudflare Turnstile] Error: 600010."
+          },
+          {
+            "arm": "mobile",
+            "error": "Uncaught TurnstileError: [Cloudflare Turnstile] Error: 600010."
+          }
+        ]
+      }
+    },
+    {
+      "name": "the SHELL at /perch still serves and still builds its own concierge",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "orb": true,
+        "qual": true,
+        "iframe": true,
+        "layerInShell": false,
+        "writes": []
+      }
+    }
+  ],
+  "writes": [],
+  "qualifierSubmits": [
+    {
+      "arm": "desktop",
+      "body": {
+        "matter_category": "real_estate",
+        "matter": "real_estate",
+        "matter_sub": "acquisition",
+        "state": "FL",
+        "for_whom": "yourself",
+        "income_band": "1_5m_3m",
+        "net_worth_band": "5m_15m",
+        "language": "en",
+        "source": "google",
+        "call_id": "verify-nativebook-4n8b1zvx"
+      }
+    },
+    {
+      "arm": "mobile",
+      "body": {
+        "matter_category": "real_estate",
+        "matter": "real_estate",
+        "matter_sub": "acquisition",
+        "state": "FL",
+        "for_whom": "yourself",
+        "income_band": "1_5m_3m",
+        "net_worth_band": "5m_15m",
+        "language": "en",
+        "source": "google",
+        "call_id": "verify-nativebook-cxrdn4or"
+      }
+    }
+  ],
+  "console": [
+    {
+      "arm": "desktop",
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "arm": "desktop",
+      "type": "log",
+      "text": "[perch] page-control → {cmd: booking_show_date, payload: Object}"
+    },
+    {
+      "arm": "desktop",
+      "type": "log",
+      "text": "[perch] page-control → {cmd: booking_select_slot, payload: Object}"
+    },
+    {
+      "arm": "desktop",
+      "type": "warning",
+      "text": "No available adapters."
+    },
+    {
+      "arm": "desktop",
+      "type": "startGroupCollapsed",
+      "text": ""
+    },
+    {
+      "arm": "desktop",
+      "type": "debug",
+      "text": "Error"
+    },
+    {
+      "arm": "desktop",
+      "type": "log",
+      "text": "/.*.*=.*/"
+    },
+    {
+      "arm": "desktop",
+      "type": "log",
+      "text": "/.*.*=.*/"
+    },
+    {
+      "arm": "desktop",
+      "type": "log",
+      "text": "function () { [native code] }"
+    },
+    {
+      "arm": "desktop",
+      "type": "log",
+      "text": "function () { [native code] }"
+    },
+    {
+      "arm": "desktop",
+      "type": "log",
+      "text": "JSHandle@node"
+    },
+    {
+      "arm": "desktop",
+      "type": "log",
+      "text": "JSHandle@node"
+    },
+    {
+      "arm": "desktop",
+      "type": "count",
+      "text": "\u0000: 1"
+    },
+    {
+      "arm": "desktop",
+      "type": "count",
+      "text": "\u0000: 1"
+    },
+    {
+      "arm": "desktop",
+      "type": "debug",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "arm": "desktop",
+      "type": "debug",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "arm": "desktop",
+      "type": "dir",
+      "text": " Error"
+    },
+    {
+      "arm": "desktop",
+      "type": "dir",
+      "text": " Error"
+    },
+    {
+      "arm": "desktop",
+      "type": "dirxml",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "arm": "desktop",
+      "type": "dirxml",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "arm": "desktop",
+      "type": "error",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "arm": "desktop",
+      "type": "error",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "arm": "desktop",
+      "type": "info",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "arm": "desktop",
+      "type": "info",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "arm": "desktop",
+      "type": "log",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "arm": "desktop",
+      "type": "log",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "arm": "desktop",
+      "type": "table",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "arm": "desktop",
+      "type": "table",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "arm": "desktop",
+      "type": "trace",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "arm": "desktop",
+      "type": "trace",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "arm": "desktop",
+      "type": "warning",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "arm": "desktop",
+      "type": "warning",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "arm": "desktop",
+      "type": "endGroup",
+      "text": "console.groupEnd"
+    },
+    {
+      "arm": "desktop",
+      "type": "warning",
+      "text": "OTS parsing error: Size of decompressed WOFF 2.0 is less than compressed size"
+    },
+    {
+      "arm": "desktop",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "arm": "desktop",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "arm": "desktop",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "arm": "desktop",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "arm": "desktop",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "arm": "desktop",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "arm": "desktop",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "arm": "desktop",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "arm": "desktop",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "arm": "desktop",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "arm": "desktop",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "arm": "desktop",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_[half_]float is not enabled"
+    },
+    {
+      "arm": "desktop",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "arm": "desktop",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "arm": "desktop",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "arm": "desktop",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_[half_]float is not enabled"
+    },
+    {
+      "arm": "desktop",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "arm": "desktop",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_[half_]float is not enabled"
+    },
+    {
+      "arm": "desktop",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "arm": "desktop",
+      "type": "log",
+      "text": "[perch] page-control → {cmd: batch, actions: Array(2)}"
+    },
+    {
+      "arm": "desktop",
+      "type": "warning",
+      "text": "[.WebGL-0x185402a3a000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "arm": "desktop",
+      "type": "warning",
+      "text": "[.WebGL-0x185402a3a000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "arm": "mobile",
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "arm": "mobile",
+      "type": "log",
+      "text": "[perch] page-control → {cmd: booking_select_slot, payload: Object}"
+    },
+    {
+      "arm": "mobile",
+      "type": "warning",
+      "text": "No available adapters."
+    },
+    {
+      "arm": "mobile",
+      "type": "startGroupCollapsed",
+      "text": ""
+    },
+    {
+      "arm": "mobile",
+      "type": "debug",
+      "text": "Error"
+    },
+    {
+      "arm": "mobile",
+      "type": "log",
+      "text": "/.*.*=.*/"
+    },
+    {
+      "arm": "mobile",
+      "type": "log",
+      "text": "/.*.*=.*/"
+    },
+    {
+      "arm": "mobile",
+      "type": "log",
+      "text": "function () { [native code] }"
+    },
+    {
+      "arm": "mobile",
+      "type": "log",
+      "text": "function () { [native code] }"
+    },
+    {
+      "arm": "mobile",
+      "type": "log",
+      "text": "JSHandle@node"
+    },
+    {
+      "arm": "mobile",
+      "type": "log",
+      "text": "JSHandle@node"
+    },
+    {
+      "arm": "mobile",
+      "type": "count",
+      "text": "\u0000: 1"
+    },
+    {
+      "arm": "mobile",
+      "type": "count",
+      "text": "\u0000: 1"
+    },
+    {
+      "arm": "mobile",
+      "type": "debug",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "arm": "mobile",
+      "type": "debug",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "arm": "mobile",
+      "type": "dir",
+      "text": " Error"
+    },
+    {
+      "arm": "mobile",
+      "type": "dir",
+      "text": " Error"
+    },
+    {
+      "arm": "mobile",
+      "type": "dirxml",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "arm": "mobile",
+      "type": "dirxml",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "arm": "mobile",
+      "type": "error",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "arm": "mobile",
+      "type": "error",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "arm": "mobile",
+      "type": "info",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "arm": "mobile",
+      "type": "info",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "arm": "mobile",
+      "type": "log",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "arm": "mobile",
+      "type": "log",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "arm": "mobile",
+      "type": "table",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "arm": "mobile",
+      "type": "table",
+      "text": "%c%d font-size:0;color:transparent Error"
+    },
+    {
+      "arm": "mobile",
+      "type": "trace",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "arm": "mobile",
+      "type": "trace",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "arm": "mobile",
+      "type": "warning",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "arm": "mobile",
+      "type": "warning",
+      "text": "%c%d font-size:0;color:transparent NaN"
+    },
+    {
+      "arm": "mobile",
+      "type": "endGroup",
+      "text": "console.groupEnd"
+    },
+    {
+      "arm": "mobile",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "arm": "mobile",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "arm": "mobile",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "arm": "mobile",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "arm": "mobile",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "arm": "mobile",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "arm": "mobile",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "arm": "mobile",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "arm": "mobile",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "arm": "mobile",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "arm": "mobile",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "arm": "mobile",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_[half_]float is not enabled"
+    },
+    {
+      "arm": "mobile",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "arm": "mobile",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "arm": "mobile",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat"
+    },
+    {
+      "arm": "mobile",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_[half_]float is not enabled"
+    },
+    {
+      "arm": "mobile",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "arm": "mobile",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_[half_]float is not enabled"
+    },
+    {
+      "arm": "mobile",
+      "type": "warning",
+      "text": "WebGL: INVALID_ENUM: getInternalformatParameter: invalid internalformat when EXT_color_buffer_float is not enabled"
+    },
+    {
+      "arm": "mobile",
+      "type": "warning",
+      "text": "[.WebGL-0x6e8c0259f800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "arm": "mobile",
+      "type": "warning",
+      "text": "[.WebGL-0x6e8c0259f800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+    },
+    {
+      "arm": "mobile",
+      "type": "warning",
+      "text": "OTS parsing error: Size of decompressed WOFF 2.0 is less than compressed size"
+    },
+    {
+      "arm": "mobile",
+      "type": "log",
+      "text": "[perch] page-control → {cmd: batch, actions: Array(2)}"
+    }
+  ],
+  "pageErrors": [
+    {
+      "arm": "desktop",
+      "error": "Uncaught TurnstileError: [Cloudflare Turnstile] Error: 600010."
+    },
+    {
+      "arm": "mobile",
+      "error": "Uncaught TurnstileError: [Cloudflare Turnstile] Error: 600010."
+    }
+  ],
+  "cspViolations": [],
+  "screenshots": [
+    {
+      "arm": "desktop",
+      "phase": "after",
+      "name": "before-card-open",
+      "file": "C:\\Users\\d0527\\DonovanLegal-wt-jordan-nativebook\\test\\preview\\screenshots\\nativebook-after-desktop-before-card-open.png",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "note": "the caller is on /contact with the qualifier card up; no calendar exists"
+    },
+    {
+      "arm": "desktop",
+      "phase": "after",
+      "name": "during-done-state",
+      "file": "C:\\Users\\d0527\\DonovanLegal-wt-jordan-nativebook\\test\\preview\\screenshots\\nativebook-after-desktop-during-done-state.png",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "note": "the done card, with the calendar already loading behind it"
+    },
+    {
+      "arm": "desktop",
+      "phase": "after",
+      "name": "after-calendar-revealed",
+      "file": "C:\\Users\\d0527\\DonovanLegal-wt-jordan-nativebook\\test\\preview\\screenshots\\nativebook-after-desktop-after-calendar-revealed.png",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "note": "auto-revealed #book-live, no Paula command issued"
+    },
+    {
+      "arm": "desktop",
+      "phase": "after",
+      "name": "after-form-prefilled",
+      "file": "C:\\Users\\d0527\\DonovanLegal-wt-jordan-nativebook\\test\\preview\\screenshots\\nativebook-after-desktop-after-form-prefilled.png",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "note": "the booking form, with the tapped answers in the note"
+    },
+    {
+      "arm": "mobile",
+      "phase": "after",
+      "name": "before-card-open",
+      "file": "C:\\Users\\d0527\\DonovanLegal-wt-jordan-nativebook\\test\\preview\\screenshots\\nativebook-after-mobile-before-card-open.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "note": "the caller is on /contact with the qualifier card up; no calendar exists"
+    },
+    {
+      "arm": "mobile",
+      "phase": "after",
+      "name": "during-done-state",
+      "file": "C:\\Users\\d0527\\DonovanLegal-wt-jordan-nativebook\\test\\preview\\screenshots\\nativebook-after-mobile-during-done-state.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "note": "the done card, with the calendar already loading behind it"
+    },
+    {
+      "arm": "mobile",
+      "phase": "after",
+      "name": "after-calendar-revealed",
+      "file": "C:\\Users\\d0527\\DonovanLegal-wt-jordan-nativebook\\test\\preview\\screenshots\\nativebook-after-mobile-after-calendar-revealed.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "note": "auto-revealed #book-live, no Paula command issued"
+    },
+    {
+      "arm": "mobile",
+      "phase": "after",
+      "name": "after-form-prefilled",
+      "file": "C:\\Users\\d0527\\DonovanLegal-wt-jordan-nativebook\\test\\preview\\screenshots\\nativebook-after-mobile-after-form-prefilled.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "note": "the booking form, with the tapped answers in the note"
+    }
+  ],
+  "notes": [],
+  "exemptedErrors": [
+    {
+      "arm": "desktop",
+      "error": "Uncaught TurnstileError: [Cloudflare Turnstile] Error: 600010."
+    },
+    {
+      "arm": "mobile",
+      "error": "Uncaught TurnstileError: [Cloudflare Turnstile] Error: 600010."
+    }
+  ],
+  "finishedAt": "2026-07-30T03:09:55.242Z",
+  "passed": 44,
+  "failed": 0,
+  "verdict": "GO"
+}

@@ -1,0 +1,178 @@
+# Cloudflare Pages redirects — 301 duplicate/legacy URLs → canonical (consolidates SEO equity, kills duplicate content)
+# Format:  /from   /to   301
+# NOTE: on CF Pages, _redirects rules take precedence over static files at the same path, so a
+# 301 fires even though the orphan .html still ships (see /index.html below). Deleting the orphan
+# FILES is a separate SEO/Jason call (audit internal links first) — NOT required for these to work.
+
+# Homepage = the Perch concierge shell. It iframes /home.html (a dedicated content
+# copy) — NOT /index.html or / — so nothing the iframe loads can resolve back to the
+# shell and nest it. Home links inside the iframe are redirected to /home.html by
+/index.html              /                       301
+/realestate.html         /real-estate       301
+/taxation.html           /tax               301
+/tax-controversies.html  /tax-controversy   301
+/desclimer.html          /disclaimer        301
+/the-cmm.html            /practice          301
+/the-cmm2.html           /practice          301
+
+# ---- 2026-08-11 (JAY-SEO-E1) — redirect targets are extensionless ----
+# Every 301 above points at a CLEAN url, not a .html one. Cloudflare Pages already
+# 308s /foo.html -> /foo, so a target ending in .html produced a two-hop chain:
+#     /family-law.html -> 301 -> /experience.html -> 308 -> /experience
+# Google follows chains but they dilute and they waste crawl budget, and an
+# external audit reads the first hop's destination as the page's real content —
+# which is how /family-law.html came to be reported as "a page about REIT IPOs".
+# One hop now. Verified: every target below resolves 200 extensionless.
+
+# ---- added 2026-06-30 from htaccess.proposed (Apache rules are no-ops on Pages); targets verified to exist ----
+/formation.html          /entity-formation  301
+/business-formation.html /entity-formation  301
+/financing.html          /re-financing      301
+/re-transaction.html     /property-acquisition  301
+/family-law.html         /experience        301
+/martial.html            /experience        301
+/tool-str-strategy-analyzer.html  /tool-rental-real-estate-tax-strategy-analyzer  301
+
+# ---- added 2026-07-21 (JORDAN-SITE-INTEGRITY) — Operating Agreement Builder removed ----
+# The builder pages shipped a <script src=".../tool-operating-agreement-builder.js"> that has
+# NEVER existed in this repo (absent from origin/main and from all git history). The page reveals
+# <div id="tool_main"> only from that script, so the tool was permanently dead on every tier —
+# a live 404 on each load. The tier-gated `tool-operating-agreement.html` is a DIFFERENT tool with
+# a different DOM contract (entity_stack/generate_docs/access_gate/progress_bar: 0 hits in
+# tool-operating-agreement.js), so repointing the tag would have hidden the 404 while leaving the
+# page just as dead. Entry points removed instead; these 301s keep the indexed URL off the 404 page.
+# Re-authoring the builder engine is a separate scoped ticket, NOT a site-integrity fix.
+/tool-operating-agreement-builder.html  /tools  301
+/tool-operating-agreement-builder       /tools  301
+/diamond/tool-operating-agreement-builder.html  /diamond/  301
+/reserve/tool-operating-agreement-builder.html  /reserve/  301
+
+# ---- CONFLICT — resolve canonical structure (Jason/Paul) before enabling ----
+# Tax cluster: htaccess.proposed wanted  /tax.html → /tax-planning.html  AND  /taxation.html → /practice.html,
+# but this file sends /taxation.html → /tax.html (tax.html as the Tax landing). Enabling tax→tax-planning
+# would chain taxation→tax→tax-planning, and Paula's goto_tax points at /tax.html. Decide if /tax.html is a
+# real Tax overview or redundant with /tax-planning.html first.
+# /tax.html              /tax-planning.html      301   # VERIFY canonical Tax page
+# business-law: htaccess.proposed says /business-law.html → /practice.html (orphan), but the VERIFY note
+# below treats business-law.html as a canonical target. Pick one.
+# /business-law.html     /practice.html          301   # VERIFY business-law.html is an orphan, not the keeper
+
+# ---- VERIFY canonical target before enabling (don't 301 to the wrong page) ----
+# /equitable2.html       /equitable.html         301   # confirm equitable.html is the keeper
+# /businesslaw.html      /business-law.html      301   # confirm which is canonical
+
+# ---- added 2026-08-08 (JORDAN-196-LOGIN-SIGNOUT-R1, #196) — the Coming Soon orphan is gone ----
+# login.html was a "Coming Soon" splash carrying the PREVIOUS site's nav (Clients /
+# THE FIRM / THE PRACTICE) and no login of any kind. Real member authentication is
+# the gate modal in js/members-gate.js, which opens off the four MEMBERS dropdown
+# links and posts to /members/auth/signin. Shipping a page that says the member area
+# is "coming soon" while the member area is live is the defect; the page is deleted.
+#
+# WHY 301 AND NOT 17 NAV EDITS. Seventeen legacy pages still spell the nav item
+# `href="login.html"`. Repointing them means editing `nav.menubar` on each, which is
+# the one region test/chrome-diff.test.mjs compares byte-for-byte and does NOT waive
+# (`site-navigation` is outside REVIEWED_STRUCTURAL, which suppresses `page-structure`
+# and nothing else). A redirect fixes all seventeen at the edge, with no page edited.
+#
+# BOTH SPELLINGS, per the /desclimer lesson above: CF Pages serves login.html at
+# `/login` as well as `/login.html`, so an .html-only rule would leave the deleted
+# file's canonical URL answering 404. Target is extensionless because /engagement
+# self-canonicalises to the extensionless form.
+#
+# DESTINATION IS /engagement — the canonical MEMBERS page (JORDAN-MEMBERSHIP-CANONICAL,
+# #43). It is in sitemap.xml, it describes the four levels, and it carries the MEMBERS
+# dropdown whose GOLD / PLATINUM / DIAMOND / RESERVE links members-gate.js intercepts
+# to open the sign-in card. That is the gate, reached the same way it is reached from
+# every other page.
+/login.html              /engagement             301
+/login                   /engagement             301
+
+# retire duplicate membership page → canonical /engagement (JORDAN-MEMBERSHIP-CANONICAL)
+/members/about-membership.html  /engagement  301
+/members/about-membership  /engagement  301
+# root duplicate missed by #43 - retire /about-membership too (JORDAN-ROOT-MEMBERSHIP-RETIRE)
+/about-membership.html  /engagement  301
+/about-membership  /engagement  301
+
+# Extensionless variants of the two dedup rules above. CF Pages serves /desclimer
+# from desclimer.html directly, so the .html-only rules left the typo page live at
+# its canonical (extensionless) URL - which is the form its own self-canonical used.
+# 2026-07-18 SEO audit; the 19 internal links to the typo were also repointed.
+/desclimer               /disclaimer             301
+/the-cmm2                /practice               301
+
+# ---- added 2026-07-24 (SHELDON-SEO-SITEMAP-CLEANUP, #68) ----
+# The eight remaining .html-only dedup rules above had the same hole /desclimer had:
+# CF Pages serves the extensionless URL straight from the file, so the .html rule
+# 301s while the extensionless twin - which is the form sitemap.xml and every
+# rel=canonical uses - kept serving duplicate content. The A1.1 SEO gate pinned all
+# eight as known drift; these rules close them.
+# Targets are extensionless because every destination page self-canonicalises to the
+# extensionless URL (verified in-tree), so a .html target would 301 into a URL that
+# immediately canonicalises away again. Destination PAGE is identical to the .html twin.
+/business-formation      /entity-formation       301
+/financing               /re-financing           301
+/formation               /entity-formation       301
+/re-transaction          /property-acquisition   301
+/tax-controversies       /tax-controversy        301
+/taxation                /tax                    301
+/the-cmm                 /practice               301
+/tool-str-strategy-analyzer  /tool-rental-real-estate-tax-strategy-analyzer  301
+
+# ---- 2026-08-20 (voice-concierge removal + Vantage severance) ----
+# `/  /perch.html  200` used to sit at the top of this file: a REWRITE that served the
+# Perch concierge shell at the homepage while leaving the URL as `/`. The shell is
+# deleted, so the rewrite is deleted with it and `/` now resolves to index.html — the
+# real, indexable homepage. That is SHELDON-PERCH-A51's outcome reached by deletion
+# instead of by a kill switch, which is why functions/_lib/perch-shell-retire.js is
+# gone too.
+#
+# Four URLs stop having files behind them. Per the /desclimer and /login lessons above,
+# BOTH spellings need a rule — CF Pages serves `/perch` from perch.html as readily as
+# `/perch.html`, so an .html-only rule would leave the canonical form answering 404.
+#
+# /perch — the shell itself. It carried <meta name="robots" content="noindex"> and is
+# in no sitemap, so Google should hold no copy; the 301 is for anyone holding the URL
+# directly. It was the route the voice concierge connected on and it appears in old
+# runbooks and PR descriptions.
+#
+# /home — a byte-copy of index.html that existed ONLY so the shell had something to
+# iframe that could not resolve back to the shell and nest it. Nothing iframes anything
+# now. It is not in sitemap.xml, but it answered 200 for months and may have been
+# picked up, so it 301s rather than 404s.
+#
+# Target is `/` for all four: that is what both files were a copy or a wrapper of, and
+# index.html already self-canonicalises there.
+/perch.html              /                       301
+/perch                   /                       301
+/home.html               /                       301
+/home                    /                       301
+
+# ---- 2026-09-05 — STR Tax Strategy Analyzer retired into the Rental Real Estate Tax Strategy Analyzer ----
+# The STR tool was the rental analyzer's first version; it was renamed and expanded on
+# 2026-05-11 (all seven §469 paths, ten presets) and the plan then was a 301 in .htaccess
+# plus deletion of the old files. The site moved to Cloudflare before that happened, so the
+# .htaccess rule never applied here and the old page kept answering 200 — and got a card on
+# /tools by mistake in the 2026-09-04 index rewrite. Both spellings, per the /desclimer lesson.
+# The file itself stays on disk for the test suites that mount it; the 301 fires first.
+/tool-str-strategy-analyzer.html   /tool-rental-real-estate-tax-strategy-analyzer   301
+/tool-str-strategy-analyzer        /tool-rental-real-estate-tax-strategy-analyzer   301
+
+# ---- 2026-09-05 — the four-tier members program is retired ----
+# Tier roots and their copies of the tools → the portal explanation; the four
+# marketing pages → How We Engage. The gate middleware under functions/{tier}/
+# runs before these for the tier roots (Functions precede _redirects), and
+# redirects an unauthenticated visitor to the marketing page, which lands here.
+/membership-gold          /engagement.html   301
+/membership-gold.html     /engagement.html   301
+/membership-platinum      /engagement.html   301
+/membership-platinum.html /engagement.html   301
+/membership-diamond       /engagement.html   301
+/membership-diamond.html  /engagement.html   301
+/membership-reserve       /engagement.html   301
+/membership-reserve.html  /engagement.html   301
+/members/*                /client-portal.html 301
+/gold/*                   /client-portal.html 301
+/platinum/*               /client-portal.html 301
+/diamond/*                /client-portal.html 301
+/reserve/*                /client-portal.html 301

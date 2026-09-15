@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Collection Alternatives | Roadmap Part 6 | Donovan Legal</title>
+<meta name="description" content="Resolving an unpaid IRS balance by ability to pay: full payment, installment agreements under §6159, currently-not-collectible status, and offers.">
+<style>
+  :root{--ink:#16242F;--mute:#5A7181;--bg:#FCFCFB;--panel:#FFFFFF;--line:#E2E8EC;
+        --emer:#01873F;--gold:#C9A961;--teal:#357E91;--indigo:#5B62A8;--sienna:#AE6038;
+        --serif:Georgia,'Times New Roman',serif;--sans:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;}
+  *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.72;font-size:18px;-webkit-font-smoothing:antialiased}
+  .article{max-width:1120px;margin:0 auto;padding:0 28px 80px}.prose{max-width:720px;margin:0 auto}
+  .masthead{max-width:1120px;margin:0 auto;padding:22px 28px 0;display:flex;align-items:center;justify-content:space-between}
+  .brand{font-weight:700;letter-spacing:1.5px;font-size:13px}.brand .re{color:var(--emer)}
+  .masthead .tag{color:var(--mute);font-size:12px;letter-spacing:1px}
+  .rule{max-width:1120px;margin:14px auto 0;padding:0 28px}.rule hr{border:0;border-top:2px solid var(--emer);margin:0}
+  header.post{padding:46px 0 8px}
+  .backlink{display:inline-block;color:var(--mute);font-size:13px;letter-spacing:.4px;margin-bottom:18px}.backlink:hover{color:var(--emer)}
+  /* JORDAN-195: gold as TEXT on the #FCFCFB page reads 2.19:1 and fails. --gold
+     itself stays the band fill (.num, and .closing .sig on the dark block, where
+     it reads 7.75:1) and is deliberately not re-valued. */
+  .eyebrow{color:#806633;font-weight:700;letter-spacing:2.4px;font-size:12.5px;text-transform:uppercase;margin:0 0 14px}
+  h1{font-family:var(--serif);font-weight:400;font-size:46px;line-height:1.08;margin:0 0 18px;letter-spacing:-.3px}
+  .standfirst{font-family:var(--serif);font-style:italic;color:var(--mute);font-size:21px;line-height:1.5;margin:0}
+  .meta{color:var(--mute);font-size:13.5px;letter-spacing:.4px;margin:22px 0 0;padding-top:16px;border-top:1px solid var(--line)}
+  .disclaimer{background:#FAF7EF;border:1px solid #E9DFC4;border-left:4px solid var(--gold);border-radius:10px;padding:18px 22px;margin:30px auto 8px;max-width:720px;font-size:15px;line-height:1.6;color:#4a4634}.disclaimer b{color:var(--ink)}
+  figure.map{margin:40px 0 18px}.map-frame{background:#F2F5F7;border:1px solid var(--line);border-radius:14px;padding:18px;overflow:hidden}
+  .roadmap-svg{display:block}figcaption{color:var(--mute);font-size:13.5px;text-align:center;margin-top:12px;font-style:italic}
+  h2{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.15;margin:52px 0 6px;letter-spacing:-.2px}
+  p{margin:0 0 18px}.lead{font-size:19.5px}
+  .roads{list-style:none;padding:0;margin:22px 0 8px}
+  .roads li{padding:16px 0 16px 18px;border-left:3px solid var(--line);margin-bottom:4px}
+  .roads li.emer{border-color:var(--emer)}.roads li.gold{border-color:var(--gold)}.roads li.teal{border-color:var(--teal)}.roads li.indigo{border-color:var(--indigo)}
+  .roads h3{margin:0 0 4px;font-size:18px;font-family:var(--sans);font-weight:700}
+  .roads h3 .pt{font-size:11px;font-weight:700;color:#fff;background:var(--mute);border-radius:9px;padding:2px 8px;margin-left:8px;letter-spacing:.4px;vertical-align:2px}
+  .roads p{margin:0;color:var(--mute);font-size:16px;line-height:1.55}
+  .tiers{list-style:none;padding:0;margin:8px 0 0}
+  .tiers li{padding:7px 0 7px 14px;border-left:2px solid #E5D8B5;margin:0 0 2px;font-size:15.5px;color:#4a4634}
+  .tiers b{color:var(--ink)}
+  .clockline{background:#FAF7EF;border-radius:10px;padding:14px 18px;margin:8px 0 0;font-size:15.5px;color:#4a4634}.clockline b{color:var(--ink)}
+  .warn{background:#FBF1EC;border:1px solid #ECCDBD;border-left:4px solid var(--sienna);border-radius:10px;padding:16px 20px;margin:24px 0 0;font-size:16px;color:#5a3a2c}.warn b{color:var(--ink)}
+  .next{display:flex;gap:14px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:30px 0 0}
+  .next .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--indigo);color:#fff;font-weight:700;display:inline-flex;align-items:center;justify-content:center;font-size:13px}
+  .next .t{font-weight:700}.next .d{color:var(--mute);font-size:15px}
+  .closing{background:#0E1B26;color:#EDEFEC;border-radius:14px;padding:34px;margin:50px auto 0;max-width:1120px}
+  .closing h2{color:#fff;margin-top:0;font-size:27px}.closing p{color:#C5D0D6;font-size:17px}
+  /* JORDAN-195: the closing block is dark (#0E1B26), so the page link colour
+     darkened for the light body (--emer #01873F) reads only 3.77:1 on it. Light
+     and dark cannot share one value here, so this block keeps the lighter
+     emerald, which is 4.75:1 against #0E1B26. */
+  .closing a{color:#019A48 /* a11y:dark-surface */}
+  .closing .sig{color:var(--gold);font-style:italic;font-family:var(--serif);font-size:18px;margin-top:10px}
+  footer{max-width:1120px;margin:46px auto 0;padding:24px 28px 60px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  footer .fine{color:var(--mute);font-size:12.5px;max-width:720px;line-height:1.5}
+  footer .fm{text-align:right}footer .fm b{letter-spacing:1px}footer .fm span{display:block;color:var(--mute);font-style:italic;font-size:12px;font-family:var(--serif)}
+  a{color:var(--emer);text-decoration:none}
+  /* JORDAN-195 (link-in-text-block, WCAG 1.4.1): a link inside running text must
+     be tellable from that text by something other than colour. The rule above
+     strips the underline site-wide on these posts, so the eight body cross-links
+     added by #197 were distinguished by hue alone - axe measured 2.33:1 against
+     the surrounding text, against a 3:1 floor. Scoped to <a> inside a paragraph
+     so the station cards and the masthead links are untouched: those carry their
+     own inline text-decoration:none, which wins over this rule anyway. */
+  p a{text-decoration:underline}a:hover{text-decoration:underline}a:focus-visible{outline:2px solid var(--emer);outline-offset:3px;border-radius:2px}
+  code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em;background:#EEF2F4;padding:1px 5px;border-radius:4px}
+  @media (max-width:720px){body{font-size:17px}h1{font-size:32px}h2{font-size:24px}.standfirst{font-size:18px}.closing{padding:26px 22px}footer{flex-direction:column;align-items:flex-start}footer .fm{text-align:left}}
+</style>  <link rel="canonical" href="https://www.donovan.law/blog-controversy-roadmap-6-collection-alternatives">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Donovan Legal PLLC">
+  <meta property="og:url" content="https://www.donovan.law/blog-controversy-roadmap-6-collection-alternatives">
+  <meta property="og:title" content="Collection Alternatives | Tax Controversy Roadmap Part 6 | Donovan Legal">
+  <meta property="og:description" content="How to resolve an unpaid IRS balance, ordered by ability to pay: full payment, installment agreement tiers under §6159, partial-pay agreements, currently-not-collectible status, and offers in compromise — plus lien relief. Part 6 of the Donovan Legal Tax Controversy Roadmap.">
+  <meta property="og:image" content="https://www.donovan.law/img/firm-img.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Collection Alternatives | Tax Controversy Roadmap Part 6 | Donovan Legal">
+  <meta name="twitter:description" content="How to resolve an unpaid IRS balance, ordered by ability to pay: full payment, installment agreement tiers under §6159, partial-pay agreements, currently-not-collectible status, and offers in compromise — plus lien relief. Part 6 of the Donovan Legal Tax Controversy Roadmap.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Collection Alternatives | Tax Controversy Roadmap Part 6","url":"https://www.donovan.law/blog-controversy-roadmap-6-collection-alternatives","author":{"@type":"Organization","name":"Donovan Legal PLLC"},"publisher":{"@type":"Organization","name":"Donovan Legal PLLC","logo":{"@type":"ImageObject","url":"https://www.donovan.law/img/favicon.png"}}}</script>
+</head><body>
+<div class="masthead"><a class="brand" href="index.html" style="color:inherit;text-decoration:none">DONOVAN <span class="re">LEGAL</span></a><div class="tag"><a href="blog.html" style="color:inherit;text-decoration:none">&larr; All Tax Notes</a></div></div>
+<div class="rule"><hr></div>
+<div class="article">
+  <header class="post prose">
+    <a class="backlink" href="blog-controversy-roadmap-5-collection.html">← Part 5 · The Collection Station</a>
+    <p class="eyebrow">Tax Controversy Roadmap — Part 6</p>
+    <h1>Collection Alternatives</h1>
+    <p class="standfirst">Every balance has a resolution — the right one turns on what you can actually pay, and on the clock running behind it.</p>
+    <p class="meta">Donovan Legal&nbsp;·&nbsp;Tax Controversy Practice</p>
+  </header>
+  <div class="disclaimer"><b>This post is part of a high-level series.</b> It explains federal tax collection alternatives in general terms and is not legal advice; reading it does not create an attorney–client relationship. Thresholds, eligibility, and the financial analysis behind each option turn on the specific facts of a matter. Before pursuing any alternative, consult counsel.</div>
+  <figure class="map"><div class="map-frame"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1480 985" width="100%" height="auto" class="roadmap-svg" role="img" aria-label="Detail map of Collection Alternatives ordered by ability to pay: full payment, installment agreement tiers, partial-pay installment agreement, currently not collectible, and offer in compromise, plus lien relief options" font-family="'Helvetica Neue',Arial,sans-serif">
+<rect width="1480" height="985" fill="#F2F5F7"/>
+<text x="70" y="58" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" fill="#C9A961" font-weight="700" text-anchor="start" letter-spacing="2">TAX CONTROVERSY ROADMAP · PART 6</text>
+<text x="70" y="96" font-family="Georgia,'Times New Roman',serif" font-size="35" fill="#16242F" font-weight="400" text-anchor="start">Collection Alternatives</text>
+<text x="72" y="122" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#5E7686" font-weight="400" text-anchor="start" font-style="italic">Every balance has a resolution — the right one turns on what you can pay.</text>
+<rect x="72" y="138" width="340" height="3" fill="#019A48"/>
+<text x="1410" y="58" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="700" text-anchor="end" letter-spacing="1.5">DETAIL MAP</text>
+<text x="830" y="178.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="700" text-anchor="middle" letter-spacing="1">ORDERED BY ABILITY TO PAY   ·   MORE ↑    LESS ↓</text>
+<line x1="305.0" y1="512.5" x2="460.0" y2="512.5" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<circle cx="460.0" cy="512.5" r="4" fill="#90A2AD"/>
+<line x1="460.0" y1="235" x2="460.0" y2="790" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="460.0" y1="235" x2="615.0" y2="235" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="614.0,235 604.2,228 604.2,242" fill="#90A2AD"/>
+<circle cx="460.0" cy="235" r="4" fill="#90A2AD"/>
+<line x1="460.0" y1="390" x2="615.0" y2="390" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="614.0,390 604.2,383 604.2,397" fill="#90A2AD"/>
+<circle cx="460.0" cy="390" r="4" fill="#90A2AD"/>
+<line x1="460.0" y1="555" x2="615.0" y2="555" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="614.0,555 604.2,548 604.2,562" fill="#90A2AD"/>
+<circle cx="460.0" cy="555" r="4" fill="#90A2AD"/>
+<line x1="460.0" y1="675" x2="615.0" y2="675" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="614.0,675 604.2,668 604.2,682" fill="#90A2AD"/>
+<circle cx="460.0" cy="675" r="4" fill="#90A2AD"/>
+<line x1="460.0" y1="790" x2="615.0" y2="790" stroke="#90A2AD" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="614.0,790 604.2,783 604.2,797" fill="#90A2AD"/>
+<circle cx="460.0" cy="790" r="4" fill="#90A2AD"/>
+<rect x="97.0" y="470.5" width="210" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="95.0" y="466.5" width="210" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="95.0" y="466.5" width="6.5" height="92" fill="#C06A3E"/>
+<rect x="95.0" y="466.5" width="6.5" height="13" rx="6" fill="#C06A3E"/>
+<text x="203" y="502.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Unpaid Balance</text>
+<text x="203" y="520.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">from Collection</text>
+<text x="203" y="535.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Part 5</text>
+<rect x="617.0" y="198.0" width="430" height="82" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="615.0" y="194.0" width="430" height="82" rx="12" fill="#FFFFFF"/>
+<rect x="615.0" y="194.0" width="6.5" height="82" fill="#019A48"/>
+<rect x="615.0" y="194.0" width="6.5" height="13" rx="6" fill="#019A48"/>
+<text x="833" y="245.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="16" fill="#16242F" font-weight="700" text-anchor="middle">Full Payment</text>
+<text x="833" y="263.5" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Pay in full now — or short-term, within ~180 days</text>
+<rect x="974.8" y="202.0" width="62.199999999999996" height="18" rx="9" fill="#019A48"/>
+<text x="1005.9" y="215.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.4">NO FORM</text>
+<rect x="617.0" y="332.0" width="430" height="124" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="615.0" y="328.0" width="430" height="124" rx="12" fill="#FFFFFF"/>
+<rect x="615.0" y="328.0" width="6.5" height="124" fill="#C9A961"/>
+<rect x="615.0" y="328.0" width="6.5" height="13" rx="6" fill="#C9A961"/>
+<text x="833" y="378.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="16" fill="#16242F" font-weight="700" text-anchor="middle">Installment Agreement</text>
+<text x="833" y="396.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Guaranteed  ≤ $10k · 36 mo · IRS must accept</text>
+<text x="833" y="411.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Streamlined  ≤ $50k · 72 mo · no statement</text>
+<text x="833" y="426.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">$50k–$250k · no statement · DDIA · within CSED</text>
+<text x="833" y="441.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Over $250k (or can’t full-pay) → Form 433-F · §6159</text>
+<rect x="928.6" y="336.0" width="108.39999999999999" height="18" rx="9" fill="#C9A961"/>
+<text x="982.8" y="349.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.4">NO CIS ≤ $250K</text>
+<rect x="617.0" y="518.0" width="430" height="82" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="615.0" y="514.0" width="430" height="82" rx="12" fill="#FFFFFF"/>
+<rect x="615.0" y="514.0" width="6.5" height="82" fill="#C9A961"/>
+<rect x="615.0" y="514.0" width="6.5" height="13" rx="6" fill="#C9A961"/>
+<text x="833" y="558.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Partial-Pay Installment Agreement</text>
+<text x="833" y="576.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Pay part over the remaining CSED; balance</text>
+<text x="833" y="591.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">expires at the CSED · reviewed about every 2 yrs</text>
+<rect x="955.0" y="522.0" width="82.0" height="18" rx="9" fill="#C9A961"/>
+<text x="996.0" y="535.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.4">FORM 433-A</text>
+<rect x="617.0" y="638.0" width="430" height="82" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="615.0" y="634.0" width="430" height="82" rx="12" fill="#FFFFFF"/>
+<rect x="615.0" y="634.0" width="6.5" height="82" fill="#3C8DA3"/>
+<rect x="615.0" y="634.0" width="6.5" height="13" rx="6" fill="#3C8DA3"/>
+<text x="833" y="678.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Currently Not Collectible</text>
+<text x="833" y="696.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Hardship pause — collection stops,</text>
+<text x="833" y="711.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">but the CSED keeps running</text>
+<rect x="955.0" y="642.0" width="82.0" height="18" rx="9" fill="#3C8DA3"/>
+<text x="996.0" y="655.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.4">FORM 433-F</text>
+<rect x="617.0" y="748.0" width="430" height="92" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="615.0" y="744.0" width="430" height="92" rx="12" fill="#FFFFFF"/>
+<rect x="615.0" y="744.0" width="6.5" height="92" fill="#5B62A8"/>
+<rect x="615.0" y="744.0" width="6.5" height="13" rx="6" fill="#5B62A8"/>
+<text x="833" y="793.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="15" fill="#16242F" font-weight="700" text-anchor="middle">Offer in Compromise</text>
+<text x="833" y="811.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Settle for less than owed · §7122</text>
+<text x="833" y="826.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5E7686" font-weight="400" text-anchor="middle">Doubt as to collectibility / ETA · Form 656</text>
+<rect x="955.0" y="752.0" width="82.0" height="18" rx="9" fill="#5B62A8"/>
+<text x="996.0" y="765.0" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.4">433-A(OIC)</text>
+<rect x="142.0" y="867.0" width="1240" height="84" rx="12" fill="#16242F" opacity="0.10"/>
+<rect x="140.0" y="863.0" width="1240" height="84" rx="12" fill="#FFFFFF"/>
+<rect x="140.0" y="863.0" width="6.5" height="84" fill="#C06A3E"/>
+<rect x="140.0" y="863.0" width="6.5" height="13" rx="6" fill="#C06A3E"/>
+<text x="760" y="887" font-family="'Helvetica Neue',Arial,sans-serif" font-size="14" fill="#16242F" font-weight="700" text-anchor="middle">Alongside any option — lien relief &amp; cautions</text>
+<text x="760" y="907" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11.5" fill="#5E7686" font-weight="400" text-anchor="middle">Withdrawal §6323(j)  ·  Discharge §6325(b)  ·  Subordination §6325(d)  ·  Release §6325(a)</text>
+<text x="760" y="925" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11.5" fill="#5E7686" font-weight="400" text-anchor="middle">Default an agreement → CP523 (balance reinstated).  Certain income taxes may be dischargeable in bankruptcy, subject to strict timing.</text>
+<line x1="70" y1="955" x2="1410" y2="955" stroke="#C4D0D8" stroke-width="1.5"/>
+<text x="70" y="978" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" fill="#5E7686" font-weight="400" text-anchor="start">PART 6 OF THE SERIES.  General information about tax procedure — not legal advice. Thresholds and eligibility turn on the facts.</text>
+<text x="1410" y="972" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12.5" fill="#16242F" font-weight="700" text-anchor="end" letter-spacing="1">DONOVAN LEGAL</text>
+</svg></div>
+    <figcaption>Part 6: the resolution menu, ordered from most ability to pay to least, with the financial statement each option requires.</figcaption></figure>
+  
+<div class="prose">
+  <h2>The menu is sorted by one number</h2>
+  <p class="lead">Almost every unpaid balance has a resolution. Which one fits is governed by a single question the IRS asks in financial terms: how much can the taxpayer actually pay — in full, over time, in part, or not at all?</p>
+  <p>That is why the collection information statements (the 433 series) sit underneath most of these options. The art is matching the resolution to the real capacity — and to the ten-year collection clock running in the background.</p>
+
+  <h2>If you can pay it</h2>
+  <ul class="roads">
+    <li class="emer"><h3>Full payment</h3><p>Pay the balance, in full, now — or over a short-term window (generally up to 180 days). No financial disclosure, no lien analysis, no ongoing obligation. Where the cash exists, it is almost always the cheapest path once interest is counted.</p></li>
+  </ul>
+
+  <h2>If you can pay it over time</h2>
+  <p>The installment agreement (IRC §6159) is the workhorse, and it comes in tiers defined by the balance — and by a threshold most taxpayers don’t know about:</p>
+  <ul class="tiers">
+    <li><b>Guaranteed</b> — $10,000 or less, paid within 36 months. The IRS must accept it, with no financial statement.</li>
+    <li><b>Streamlined</b> — $50,000 or less, paid within 72 months (or the CSED, if sooner), with no financial statement. A direct-debit agreement in the $25,000–$50,000 range is what keeps the IRS from filing a lien.</li>
+    <li><b>Streamlined processing, up to $250,000</b> — under the IRS’s expanded criteria, an individual (or out-of-business sole proprietor) owing between $50,000 and $250,000 can <em>still</em> avoid a financial statement, provided the monthly payment full-pays the balance within the collection statute. Above $50,000 the agreement must be direct-debit, a manager must approve it, and the IRS makes a Notice-of-Federal-Tax-Lien determination — so a lien may still be filed even though no statement is required.</li>
+    <li><b>Full financial disclosure</b> — required only above $250,000, or for any balance that cannot be full-paid within the CSED. Now the IRS wants a collection information statement (<code>Form 433-F</code> or <code>Form 433-A</code>) and an ability-to-pay analysis against its collection standards.</li>
+  </ul>
+
+  <h2>If you can pay only part</h2>
+  <ul class="roads">
+    <li class="gold"><h3>Partial-pay installment agreement</h3><p>Where full payment isn't realistic even over time, a PPIA (also under §6159) lets the taxpayer pay what the budget allows over the remaining collection period — and whatever is still owed when the CSED arrives simply expires. It requires a financial statement (<code>Form 433-A</code>) and is typically revisited about every two years.</p></li>
+  </ul>
+
+  <h2>If you can't pay now</h2>
+  <ul class="roads">
+    <li class="teal"><h3>Currently not collectible</h3><p>When paying anything would leave the taxpayer unable to meet basic living expenses, the account can be placed in CNC (hardship) status. Active collection stops — but, critically, the CSED keeps running. For some taxpayers, CNC quietly runs out the statute.</p></li>
+  </ul>
+
+  <h2>If you should pay less</h2>
+  <ul class="roads">
+    <li class="indigo"><h3>Offer in compromise</h3><p>An OIC (IRC §7122) settles the liability for less than the full amount — on doubt as to collectibility (you can't pay it before the CSED) or effective tax administration (paying it would be inequitable), filed on <code>Form 656</code> with <code>Form 433-A(OIC)</code>. This is the collectibility offer; the doubt-as-to-<em>liability</em> offer, which disputes whether the tax is owed at all, lived back in Part 3.</p></li>
+  </ul>
+  <p>A different forum, mentioned for completeness: certain older income tax liabilities can be discharged in <strong>bankruptcy</strong>, but only under strict timing rules. It is a specialized analysis, not a collection alternative in the ordinary sense.</p>
+
+  <div class="clockline"><b>Lien relief travels alongside any of these.</b> A filed lien can be withdrawn (§6323(j)), discharged from specific property (§6325(b)), subordinated to another creditor to enable financing (§6325(d)), or released once satisfied (§6325(a)) — often a precondition to selling or refinancing while a balance is resolved.</div>
+
+  <div class="warn"><b>An installment agreement is only as good as its payments.</b> Miss them, or incur a new balance, and the IRS issues <code>CP523</code> — the agreement terminates, the full balance is reinstated, and enforcement resumes. Staying current, and staying compliant on new years, is part of the deal.</div>
+
+  <h2>Why this station matters</h2>
+  <p>The right alternative is rarely the obvious one. It is the one that fits the actual budget, protects against a lien where it counts, and is chosen with the CSED in view — because sometimes the least expensive resolution is the one that lets the statute do the work.</p>
+</div>
+
+<div class="prose">
+  <a class="next" href="blog-controversy-roadmap-7-litigation.html"><span class="n">7</span><span><span class="t">Next — Part 7: The Litigation Station</span><br><span class="d">The Tax Court, the pay-first refund forums, and how a tax case reaches the courts of appeals.</span></span></a>
+</div>
+
+  <div class="closing">
+    <h2>One firm, the full arc</h2>
+    <p>Choosing among an installment agreement, a partial-pay plan, hardship status, and an offer is a financial and strategic problem at once — built on the same numbers, weighed against the same statute. Donovan Legal represents taxpayers across the entire arc, exam through collection and litigation, under one signature.</p>
+    <p>For how the firm assesses the collection alternatives, see <a href="tax-debt-resolution.html">Tax Debt Resolution</a>.</p>
+    <p class="sig">One firm. One signature. Full-arc defense.</p>
+  </div>
+</div>
+<footer>
+  <div class="fine"><b>General information, not legal advice.</b> This post describes federal tax collection alternatives in general terms and does not address the facts or finances of any particular matter. It does not create an attorney–client relationship. Eligibility and thresholds are fact-specific and subject to change; consult qualified counsel before acting.</div>
+  <div class="fm"><b>DONOVAN LEGAL</b><span>One firm. One signature. Full-arc defense.</span></div>
+</footer>
+</body></html>

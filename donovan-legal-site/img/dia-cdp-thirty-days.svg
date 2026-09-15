@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 1360 724" role="img" aria-labelledby="cdp-t cdp-d">
+<title id="cdp-t">The thirty-day Collection Due Process deadline</title>
+<desc id="cdp-d">A decision diagram showing what happens when a final notice of intent to levy is received. Requesting a Collection Due Process hearing within thirty days suspends collection, tolls the collection statute, and preserves review by the United States Tax Court. Requesting one after thirty days produces an equivalent hearing, which hears similar issues but carries no judicial review and does not automatically suspend collection.</desc>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#12643F"/></marker></defs>
+<rect width="1360" height="724" fill="#F6F5F1"/>
+<text x="52" y="56" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" letter-spacing="3.4" font-weight="700" fill="#C9A961">LIENS &amp; LEVIES</text>
+<text x="52" y="100" font-family="Georgia, 'Times New Roman', serif" font-size="32" font-weight="700" fill="#1B1B1B">The thirty days that decide whether a judge ever sees it.</text>
+<text x="52" y="130" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" fill="#434343">A final notice of intent to levy starts one clock, and it is short.</text>
+<line x1="52" y1="152" x2="1308" y2="152" stroke="#C9A961" stroke-width="1.4"/>
+<rect x="52" y="196" width="400" height="104" rx="3" fill="#FFFFFF" stroke="#0C5334" stroke-width="1.6"/>
+<text x="68" y="222" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="1.8" font-weight="700" fill="#C9A961">THE TRIGGER</text>
+<text x="68" y="248" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#0C5334">Final Notice of Intent to Levy</text>
+<text x="68" y="275" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">Arrives by certified mail. Carries the right</text>
+<text x="68" y="292" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">to a Collection Due Process hearing.</text>
+<line x1="452" y1="248" x2="522" y2="248" stroke="#12643F" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="530" y="190" width="300" height="116" rx="3" fill="#F3EBD9" stroke="#C9A961" stroke-width="2.4"/>
+<text x="546" y="224" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#0C5334">A thirty-day</text>
+<text x="546" y="246" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#0C5334">clock starts</text>
+<text x="546" y="273" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">Counted from the date on the notice,</text>
+<text x="546" y="290" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">not the date you opened it.</text>
+<rect x="52" y="364" width="560" height="150" rx="3" fill="#0C5334" stroke="#0C5334" stroke-width="1.6"/>
+<text x="68" y="390" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="1.8" font-weight="700" fill="#C9A961">INSIDE 30 DAYS</text>
+<text x="68" y="416" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#F6F5F1">Collection Due Process hearing</text>
+<text x="68" y="443" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#C6D8CC">Collection is suspended while it is pending.</text>
+<text x="68" y="460" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#C6D8CC">The collection statute is tolled.</text>
+<text x="68" y="477" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#C6D8CC">A determination is reviewable by the U.S. Tax Court.</text>
+<text x="68" y="494" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#C6D8CC">Collection alternatives are considered on the record.</text>
+<rect x="748" y="364" width="560" height="150" rx="3" fill="#FFFFFF" stroke="#8C2026" stroke-width="1.6"/>
+<text x="764" y="390" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="1.8" font-weight="700" fill="#C9A961">AFTER 30 DAYS</text>
+<text x="764" y="416" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#8C2026">Equivalent hearing</text>
+<text x="764" y="443" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">Collection is NOT automatically suspended.</text>
+<text x="764" y="460" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">Similar issues heard, similar officer.</text>
+<text x="764" y="477" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">No judicial review of the determination.</text>
+<text x="764" y="494" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">The one difference is the one that matters.</text>
+<line x1="612" y1="310" x2="332" y2="356" stroke="#12643F" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="439" y="318.0" width="65" height="28" rx="14" fill="#F6F5F1" stroke="#C9A961" stroke-width="1.1"/>
+<text x="472.0" y="337.0" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#0C5334">TIMELY</text>
+<line x1="752" y1="310" x2="1028" y2="356" stroke="#12643F" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="865" y="318.0" width="51" height="28" rx="14" fill="#F6F5F1" stroke="#C9A961" stroke-width="1.1"/>
+<text x="890.0" y="337.0" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#0C5334">LATE</text>
+<text x="52" y="560" font-family="Georgia, 'Times New Roman', serif" font-size="19" font-weight="700" fill="#1B1B1B">Same hearing. Same officer. Same arguments.</text>
+<text x="52" y="586" font-family="Georgia, 'Times New Roman', serif" font-size="19" font-weight="700" fill="#8C2026">One of them can be appealed to a judge.</text>
+<text x="52" y="616" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#434343">The difference between the two boxes above is the calendar, and nothing else.</text>
+<line x1="52" y1="644" x2="1308" y2="644" stroke="#DAD8D2" stroke-width="1"/>
+<text x="52" y="668" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" fill="#6E6E6E">General information about federal tax procedure — not legal advice.</text>
+<text x="52" y="685" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" fill="#6E6E6E">Deadlines run from the date on the notice. Before responding to one, consult counsel.</text>
+<text x="1308" y="668" text-anchor="end" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" letter-spacing="1.6" font-weight="700" fill="#C9A961">DONOVAN LEGAL PLLC · DELRAY BEACH, FLORIDA</text>
+</svg>

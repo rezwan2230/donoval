@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1360 830" role="img" aria-labelledby="flmap-t flmap-d" class="dl-statemap">
+<title id="flmap-t">Florida sales and use tax audit roadmap</title>
+<desc id="flmap-d">A station map of a Florida Department of Revenue sales and use tax audit: the Form DR-840 notice of intent to audit, the audit itself, the notice of intent to make audit changes with a 30-day window to request a supervisor conference, the Notice of Proposed Assessment with a 60-day protest deadline, review by Technical Assistance and Dispute Resolution, the Notice of Decision, and a final fork between a chapter 120 hearing at the Division of Administrative Hearings and a chapter 72 circuit court action requiring the tax to be paid or bonded first.</desc>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#12643F"/></marker></defs>
+<style>.stn rect{transition:fill .18s ease,stroke-width .18s ease}.stn:hover rect,.stn:focus rect{fill:#EDF3EF;stroke-width:2.8}.stn:focus{outline:none}.stn:focus rect{stroke:#C9A961}</style>
+<rect width="1360" height="830" fill="#F6F5F1"/>
+<text x="52" y="56" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" letter-spacing="3.4" font-weight="700" fill="#C9A961">STATE ROADMAP · FLORIDA</text>
+<text x="52" y="100" font-family="Georgia, 'Times New Roman', serif" font-size="32" font-weight="700" fill="#1B1B1B">The Florida Sales &amp; Use Tax Audit</text>
+<text x="52" y="130" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" fill="#434343">Six stations, three deadlines, and one fork most taxpayers never see coming.</text>
+<line x1="52" y1="152" x2="1308" y2="152" stroke="#C9A961" stroke-width="1.4"/>
+<a href="/florida-sales-tax-audit#dr840" class="stn" aria-label="Notice of Intent to Audit — DR-840">
+<g id="fl1">
+<rect x="52" y="196" width="312" height="126" rx="3" fill="#FFFFFF" stroke="#0C5334" stroke-width="1.6"/>
+<text x="68" y="222" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="1.8" fill="#C9A961" font-weight="700">STATION 1</text>
+<text x="68" y="248" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#0C5334" font-weight="700">Notice of Intent</text>
+<text x="68" y="270" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#0C5334" font-weight="700">to Audit — DR-840</text>
+<text x="68" y="298" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">The audit opens. Self-correction</text>
+<text x="68" y="315" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">for these periods closes here.</text>
+</g></a>
+<line x1="368" y1="259.0" x2="514" y2="259.0" stroke="#12643F" stroke-width="1.6" marker-end="url(#ar)"/>
+<a href="/florida-sales-tax-audit#audit" class="stn" aria-label="The Audit">
+<g id="fl2">
+<rect x="524" y="196" width="312" height="126" rx="3" fill="#FFFFFF" stroke="#0C5334" stroke-width="1.6"/>
+<text x="540" y="222" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="1.8" fill="#C9A961" font-weight="700">STATION 2</text>
+<text x="540" y="248" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#0C5334" font-weight="700">The Audit</text>
+<text x="540" y="276" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">Records examined. Inadequate</text>
+<text x="540" y="293" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">records permit estimates.</text>
+</g></a>
+<line x1="840" y1="259.0" x2="986" y2="259.0" stroke="#12643F" stroke-width="1.6" marker-end="url(#ar)"/>
+<a href="/florida-sales-tax-audit#noi" class="stn" aria-label="Notice of Intent to Make Audit Changes">
+<g id="fl3">
+<rect x="996" y="196" width="312" height="126" rx="3" fill="#FFFFFF" stroke="#0C5334" stroke-width="1.6"/>
+<text x="1012" y="222" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="1.8" fill="#C9A961" font-weight="700">STATION 3</text>
+<text x="1012" y="248" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#0C5334" font-weight="700">Notice of Intent to</text>
+<text x="1012" y="270" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#0C5334" font-weight="700">Make Audit Changes</text>
+<text x="1012" y="298" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">The proposed result. Cheapest</text>
+<text x="1012" y="315" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">stage at which to move numbers.</text>
+</g></a>
+<line x1="1152.0" y1="326" x2="1152.0" y2="396" stroke="#12643F" stroke-width="1.6" marker-end="url(#ar)"/>
+<g>
+<rect x="1076.2" y="342.0" width="151.6" height="44" rx="22.0" fill="#F3EBD9"/>
+<rect x="1076.2" y="342.0" width="151.6" height="44" rx="22.0" fill="none" stroke="#C9A961" stroke-width="1.2"/>
+<text x="1152.0" y="360.0" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0C5334">30 DAYS</text>
+<text x="1152.0" y="377.0" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10" letter-spacing="0.6" fill="#434343">SUPERVISOR CONFERENCE</text>
+</g>
+<a href="/florida-sales-tax-audit#nopa" class="stn" aria-label="Notice of Proposed Assessment — NOPA">
+<g id="fl4">
+<rect x="996" y="406" width="312" height="126" rx="3" fill="#FFFFFF" stroke="#0C5334" stroke-width="1.6"/>
+<text x="1012" y="432" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="1.8" fill="#C9A961" font-weight="700">STATION 4</text>
+<text x="1012" y="458" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#0C5334" font-weight="700">Notice of Proposed</text>
+<text x="1012" y="480" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#0C5334" font-weight="700">Assessment — NOPA</text>
+<text x="1012" y="508" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">The clock that matters.</text>
+<text x="1012" y="525" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">Written protest to TADR.</text>
+</g></a>
+<line x1="992" y1="469.0" x2="846" y2="469.0" stroke="#12643F" stroke-width="1.6" marker-end="url(#ar)"/>
+<g>
+<rect x="854.2" y="447.0" width="123.6" height="44" rx="22.0" fill="#F3EBD9"/>
+<rect x="854.2" y="447.0" width="123.6" height="44" rx="22.0" fill="none" stroke="#C9A961" stroke-width="2.2"/>
+<text x="916.0" y="465.0" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0C5334">60 DAYS</text>
+<text x="916.0" y="482.0" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10" letter-spacing="0.6" fill="#434343">150 OUTSIDE U.S.</text>
+</g>
+<a href="/florida-sales-tax-audit#tadr" class="stn" aria-label="Technical Assistance &amp; Dispute Resolution">
+<g id="fl5">
+<rect x="524" y="406" width="312" height="126" rx="3" fill="#FFFFFF" stroke="#0C5334" stroke-width="1.6"/>
+<text x="540" y="432" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="1.8" fill="#C9A961" font-weight="700">STATION 5</text>
+<text x="540" y="458" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#0C5334" font-weight="700">Technical Assistance</text>
+<text x="540" y="480" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#0C5334" font-weight="700">&amp; Dispute Resolution</text>
+<text x="540" y="508" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">Protest reviewed. Conference</text>
+<text x="540" y="525" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">in Tallahassee, untranscribed.</text>
+</g></a>
+<line x1="520" y1="469.0" x2="374" y2="469.0" stroke="#12643F" stroke-width="1.6" marker-end="url(#ar)"/>
+<a href="/florida-sales-tax-audit#nod" class="stn" aria-label="Notice of Decision">
+<g id="fl6">
+<rect x="52" y="406" width="312" height="126" rx="3" fill="#FFFFFF" stroke="#0C5334" stroke-width="1.6"/>
+<text x="68" y="432" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="1.8" fill="#C9A961" font-weight="700">STATION 6</text>
+<text x="68" y="458" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#0C5334" font-weight="700">Notice of Decision</text>
+<text x="68" y="486" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">The assessment becomes final.</text>
+<text x="68" y="503" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">Reconsideration may follow.</text>
+</g></a>
+<line x1="208.0" y1="536" x2="208.0" y2="606" stroke="#12643F" stroke-width="1.6" marker-end="url(#ar)"/>
+<g>
+<rect x="123.8" y="552.0" width="168.4" height="44" rx="22.0" fill="#F3EBD9"/>
+<rect x="123.8" y="552.0" width="168.4" height="44" rx="22.0" fill="none" stroke="#C9A961" stroke-width="1.2"/>
+<text x="208.0" y="570.0" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0C5334">60 DAYS FROM NOD</text>
+<text x="208.0" y="587.0" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10" letter-spacing="0.6" fill="#434343">OR 120 FROM THE NOPA</text>
+</g>
+<text x="524" y="579.0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" letter-spacing="2.6" font-weight="700" fill="#C9A961">THE FORK — TWO FORUMS</text>
+<a href="/florida-sales-tax-audit#doah" class="stn" aria-label="DOAH — Chapter 120">
+<g id="fl7a">
+<rect x="52" y="616" width="312" height="126" rx="3" fill="#0C5334" stroke="#0C5334" stroke-width="1.6"/>
+<text x="68" y="642" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="1.8" fill="#C9A961" font-weight="700">FORUM A</text>
+<text x="68" y="668" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#F6F5F1" font-weight="700">DOAH — Chapter 120</text>
+<text x="68" y="696" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#C6D8CC">Formal hearing before an</text>
+<text x="68" y="713" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#C6D8CC">administrative law judge.</text>
+</g></a>
+<a href="/florida-sales-tax-audit#circuit" class="stn" aria-label="Circuit Court — Ch. 72">
+<g id="fl7b">
+<rect x="524" y="616" width="312" height="126" rx="3" fill="#FFFFFF" stroke="#8C2026" stroke-width="1.6"/>
+<text x="540" y="642" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="1.8" fill="#C9A961" font-weight="700">FORUM B</text>
+<text x="540" y="668" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#8C2026" font-weight="700">Circuit Court — Ch. 72</text>
+<text x="540" y="696" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">§72.011 requires the tax paid,</text>
+<text x="540" y="713" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">or a bond, before filing.</text>
+</g></a>
+<text x="996" y="650" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#1B1B1B">A narrow last door</text>
+<text x="996" y="678" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">§213.21(11)(a) — discretionary settlement,</text>
+<text x="996" y="696" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">within 180 days after the §72.011 window</text>
+<text x="996" y="714" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#434343">has expired. Statutory conditions apply.</text>
+<text x="996" y="732" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#6E6E6E">Not reviewable under chapter 120.</text>
+<line x1="52" y1="750" x2="1308" y2="750" stroke="#DAD8D2" stroke-width="1"/>
+<text x="52" y="774" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" fill="#6E6E6E">Deadlines per Fla. Admin. Code R. 12-6.003 and Fla. Stat. chs. 72 and 213. General information about tax procedure — not legal advice.</text>
+<text x="52" y="791" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" fill="#6E6E6E">Procedure turns on facts and dates specific to each matter. Before acting on a notice, consult counsel.</text>
+<text x="1308" y="774" text-anchor="end" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" letter-spacing="1.6" font-weight="700" fill="#C9A961">DONOVAN LEGAL PLLC · DELRAY BEACH, FLORIDA</text>
+</svg>

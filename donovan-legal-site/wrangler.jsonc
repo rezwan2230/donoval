@@ -1,0 +1,8 @@
+{
+  "name": "donovan-site",
+  "pages_build_output_dir": ".",
+  "compatibility_date": "2026-06-01",
+  "kv_namespaces": [
+    { "binding": "PERCH_ACTIONS", "id": "fff1865cad734214acdebf8b3b944289" }
+  ]
+}

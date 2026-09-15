@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Deal Builder | Real Estate Structuring Tool | Donovan Legal</title>
+  <meta name="description" content="Model real estate deal structure and economics: multi-class capital stacks, distribution waterfalls, §752 member debt, and 50-state tax overlays.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" href="img/favicon.png">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link href="site.webmanifest" rel="manifest" />
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/fontawesome.min.css" rel="stylesheet" />
+  <link href="css/normalize.css" rel="stylesheet" />
+  <link href="css/main.css?v=20260721a" rel="stylesheet" />
+  <link href="css/animate.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&amp;display=swap" rel="stylesheet" />
+  <style>
+    /* Page-specific styles for the Deal Builder preview */
+    .db-preview-body { background: #F5F5F0; font-family: 'Open Sans', sans-serif; color: #1a1a1a; }
+    .preview-header { background: #1a1a1a; color: #F5F5F0; padding: 0.85rem 0; border-bottom: 3px solid #107A4D; }
+    .preview-header-inner { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+    .preview-header-brand { font-family: 'Gotham Bold', 'Open Sans', sans-serif; font-size: 0.8rem; letter-spacing: 4px; }
+    .preview-header-back { color: #F5F5F0; text-decoration: none; font-size: 0.82rem; letter-spacing: 1.5px; text-transform: uppercase; }
+    .preview-header-back:hover { color: #107A4D; text-decoration: none; }
+
+    .preview-hero { max-width: 1180px; margin: 0 auto; padding: 3rem 1.5rem 1rem; }
+    .preview-eyebrow { font-family: 'Gotham Bold', 'Open Sans', sans-serif; font-size: 0.72rem; letter-spacing: 3.5px; color: #806633; font-weight: 700; margin-bottom: 0.4rem; }
+    .preview-hero h1 { font-family: 'Gotham Bold', 'Open Sans', sans-serif; font-size: 2.1rem; line-height: 1.15; color: #1a1a1a; margin: 0 0 0.85rem 0; }
+    .preview-hero .lede { font-size: 1.05rem; line-height: 1.7; color: #4a4a4a; max-width: 880px; margin-bottom: 0; }
+
+    .gate-card { max-width: 1180px; margin: 2rem auto; padding: 1.85rem 2.1rem; background: #FFFFFF; border: 1px solid #d4d4d0; border-left: 4px solid #C9A961; display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
+    .gate-card .gate-icon { font-family: 'Gotham Bold', 'Open Sans', sans-serif; font-size: 2rem; color: #806633; letter-spacing: 4px; flex-shrink: 0; }
+    .gate-card .gate-text { flex: 1; min-width: 320px; }
+    .gate-card .gate-label { font-family: 'Gotham Bold', 'Open Sans', sans-serif; font-size: 0.72rem; letter-spacing: 3px; color: #806633; text-transform: uppercase; margin-bottom: 0.3rem; }
+    .gate-card .gate-headline { font-family: 'Gotham Bold', 'Open Sans', sans-serif; font-size: 1.2rem; color: #1a1a1a; margin-bottom: 0.4rem; }
+    .gate-card .gate-sub { font-size: 0.92rem; line-height: 1.6; color: #4a4a4a; margin: 0; }
+    .gate-card .gate-actions { display: flex; gap: 0.65rem; flex-wrap: wrap; }
+    .gate-card .gate-actions a { font-family: 'Gotham Bold', 'Open Sans', sans-serif; font-size: 0.78rem; letter-spacing: 1.5px; text-transform: uppercase; padding: 0.65rem 1.25rem; text-decoration: none; transition: all 0.15s ease; }
+    .gate-card .gate-primary { background: #1a1a1a; color: #F5F5F0; }
+    .gate-card .gate-primary:hover { background: #107A4D; color: #FFFFFF; }
+    .gate-card .gate-secondary { background: #FFFFFF; color: #1a1a1a; border: 1px solid #d4d4d0; }
+    .gate-card .gate-secondary:hover { color: #107A4D; border-color: #107A4D; }
+
+    .preview-section { max-width: 1180px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .preview-section h2 { font-family: 'Gotham Bold', 'Open Sans', sans-serif; font-size: 1.4rem; color: #1a1a1a; margin: 0 0 1.25rem 0; padding-bottom: 0.65rem; border-bottom: 2px solid #107A4D; }
+    .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+    @media (max-width: 768px) { .feature-grid { grid-template-columns: 1fr; } }
+    .feature-card { background: #FFFFFF; border: 1px solid #d4d4d0; padding: 1.5rem; border-left: 3px solid #107A4D; }
+    .feature-card.gold { border-left-color: #C9A961; }
+    .feature-card.charcoal { border-left-color: #1a1a1a; }
+    .feature-card h3 { font-family: 'Gotham Bold', 'Open Sans', sans-serif; font-size: 1rem; color: #1a1a1a; margin: 0 0 0.65rem 0; text-transform: uppercase; letter-spacing: 1.5px; }
+    .feature-card p { font-size: 0.92rem; line-height: 1.65; color: #4a4a4a; margin: 0 0 0.65rem 0; }
+    .feature-card ul { margin: 0; padding-left: 1.25rem; font-size: 0.88rem; line-height: 1.65; color: #4a4a4a; }
+    .feature-card ul li { margin-bottom: 0.25rem; }
+
+    .deal-types { background: #FFFFFF; padding: 1.5rem 2rem; border: 1px solid #d4d4d0; }
+    .deal-types-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.85rem; }
+    @media (max-width: 768px) { .deal-types-grid { grid-template-columns: 1fr 1fr; } }
+    .deal-type-item { padding: 0.65rem 0.85rem; background: #fafaf5; border-left: 2px solid #107A4D; font-size: 0.85rem; color: #1a1a1a; line-height: 1.4; }
+    .deal-type-item strong { display: block; font-family: 'Gotham Bold', 'Open Sans', sans-serif; font-size: 0.82rem; margin-bottom: 0.15rem; }
+    .deal-type-item span { font-size: 0.78rem; color: #6b6b6b; }
+
+    .phases { background: #1a1a1a; color: #F5F5F0; padding: 2rem; }
+    .phases h2 { color: #F5F5F0; border-bottom-color: #C9A961; }
+    .phase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.25rem; }
+    @media (max-width: 880px) { .phase-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 540px) { .phase-grid { grid-template-columns: 1fr; } }
+    .phase-card { background: rgba(245, 245, 240, 0.04); padding: 1.25rem; border-left: 2px solid #C9A961; }
+    .phase-card.live { border-left-color: #107A4D; background: rgba(22, 155, 98, 0.10); }
+    .phase-card .phase-label { font-family: 'Gotham Bold', 'Open Sans', sans-serif; font-size: 0.7rem; letter-spacing: 2px; color: #C9A961 /* a11y:dark-surface — the phase cards are #232323; brand gold reads 6.98:1 here, and the dark-gold used for gold text on light backgrounds would drop it to 2.89:1 */; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .phase-card.live .phase-label { color: #5dd09a; }
+    .phase-card h3 { font-family: 'Gotham Bold', 'Open Sans', sans-serif; font-size: 0.95rem; color: #F5F5F0; margin: 0 0 0.55rem 0; }
+    .phase-card p { font-size: 0.85rem; line-height: 1.55; color: #d4d4d0; margin: 0; }
+
+    .preview-footer { background: #1a1a1a; color: #d4d4d0; padding: 2rem 0; margin-top: 3rem; }
+    .preview-footer-inner { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem; }
+    .preview-footer p { font-size: 0.82rem; line-height: 1.65; color: #d4d4d0; margin-bottom: 1rem; }
+    /* JORDAN-195: this line sits on the near-black #1a1a1a footer band, where the
+       site's caption grey #6b6b6b reads at 3.26:1. Lightened to #828282 (4.53:1)
+       rather than darkened — the background here is dark, so the fix runs the
+       opposite way to every other grey on the site. Scoped to this one rule on
+       purpose: #6b6b6b already clears 4.5:1 on the light backgrounds it is used
+       on everywhere else, and lightening it globally would break those. */
+    .preview-footer-meta { font-family: 'Gotham Bold', 'Open Sans', sans-serif; font-size: 0.7rem !important; letter-spacing: 2px; text-transform: uppercase; color: #828282 !important; }
+  </style>
+  <link rel="canonical" href="https://www.donovan.law/tool-deal-builder-preview">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Donovan Legal PLLC">
+  <meta property="og:url" content="https://www.donovan.law/tool-deal-builder-preview">
+  <meta property="og:title" content="Deal Builder | Real Estate Structuring &amp; Economics Tool | Donovan Legal PLLC">
+  <meta property="og:description" content="Comprehensive real estate deal-structuring and economics modeling tool. Multi-class capital stacks, configurable distribution waterfalls, member debt under §752, governance frameworks, state tax overlays across 50 states, and sensitivity analysis. Reserve members of Donovan Legal PLLC.">
+  <meta property="og:image" content="https://www.donovan.law/img/firm-img.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Deal Builder | Real Estate Structuring &amp; Economics Tool | Donovan Legal PLLC">
+  <meta name="twitter:description" content="Comprehensive real estate deal-structuring and economics modeling tool. Multi-class capital stacks, configurable distribution waterfalls, member debt under §752, governance frameworks, state tax overlays across 50 states, and sensitivity analysis. Reserve members of Donovan Legal PLLC.">
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Deal Builder - Real Estate Structuring and Economics","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"LegalService","name":"Donovan Legal PLLC","url":"https://www.donovan.law","telephone":"+1-561-666-6022","address":{"@type":"PostalAddress","streetAddress":"301 W. Atlantic Avenue, Suite 5","addressLocality":"Delray Beach","addressRegion":"FL","postalCode":"33444","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":26.461706,"longitude":-80.076278},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"]},"sameAs":["https://www.linkedin.com/company/donovan-legal-pllc/","https://www.facebook.com/people/Donovan-Legal-PLLC/61590654057720/","https://www.instagram.com/donovan_legalpllc","https://www.tiktok.com/@donovan.legal"],"areaServed":[{"@type":"State","name":"Florida"},{"@type":"AdministrativeArea","name":"Palm Beach County"}],"priceRange":"$$"},"url":"https://www.donovan.law/tool-deal-builder-preview"}
+  </script>
+</head>
+<body class="db-preview-body">
+
+  <!-- Standard site nav -->
+  <header>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 menubar-header">
+          <nav class="navbar menubar padding-0 navbar-expand-lg d-flex align-items-center justify-content-between">
+            <div class="logo animate__animated animate__fadeIn animate__delay-1s">
+              <a href="index.html"><img class="logo" src="img/base-hover.png" / alt="Donovan Legal PLLC logo"></a>
+            </div>
+            <div class="burger-toggle animate__animated animate__fadeIn animate__delay-1s">
+              <div class="hamburger"><span class="line"></span><span class="line"></span><span class="line"></span></div>
+            </div>
+            <ul id="menu-desktop" class="navbar-nav ml-auto animate__animated animate__fadeIn animate__delay-1s">
+              <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="ourfirm.html">ABOUT</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="ourfirm.html">THE FIRM</a>
+                  <a class="dropdown-item" href="profile.html">PAUL DONOVAN, JD, CPA, CCM</a>
+                  <a class="dropdown-item" href="tefera.html">DR. TEFERA BEYENE, PhD, CPA</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="practice.html">PRACTICE</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="tax-planning.html">TAX PLANNING</a>
+                  <a class="dropdown-item" href="tax-compliance.html">TAX COMPLIANCE</a>
+                  <a class="dropdown-item" href="tax-controversy.html">TAX CONTROVERSY</a>
+                  <a class="dropdown-item" href="real-estate.html">REAL ESTATE</a>
+                </div>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="experience.html">EXPERIENCE</a></li>
+              <li class="nav-item"><a class="nav-link" href="testimonials.html">TESTIMONIALS</a></li>
+              <li class="nav-item"><a class="nav-link" href="tools.html">TOOLS</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">CONTACT</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page strip header -->
+  <div class="preview-header">
+    <div class="preview-header-inner">
+      <div class="preview-header-brand">DEAL BUILDER &middot; PUBLIC PREVIEW</div>
+      <a href="tools.html" class="preview-header-back">&larr; All Tools</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="preview-hero">
+    <div class="preview-eyebrow">REAL ESTATE / DEAL STRUCTURING &middot; <span class="brand-reserve"><span class="re">RE</span>SERVE</span> MEMBER ACCESS</div>
+    <h1>Deal Builder &mdash; Real Estate Structuring &amp; Economics</h1>
+    <p class="lede">
+      Top-tier modeling environment for sophisticated practitioners. Build the capital stack, configure the distribution waterfall, classify debt under &sect;&nbsp;752, configure &sect;&nbsp;704(b) and &sect;&nbsp;704(c) allocations (with all three methods compared side-by-side), layer state tax overlays, run sensitivity, and export a term sheet &mdash; all in one place. Designed for real estate principals, developers, sponsors, and the counsel and CPAs who advise them. Used inside the firm; available to <span class="brand-reserve"><span class="re">RE</span>SERVE</span> members.
+    </p>
+  </div>
+
+  <!-- Gate card -->
+  <div class="gate-card">
+    <div class="gate-icon"><span class="brand-reserve"><span class="re">RE</span>SERVE</span></div>
+    <div class="gate-text">
+      <div class="gate-label">Member Tool</div>
+      <div class="gate-headline">The full Deal Builder is only for Donovan Legal <span class="brand-reserve"><span class="re">RE</span>SERVE</span> members.</div>
+      <p class="gate-sub"><span class="brand-reserve"><span class="re">RE</span>SERVE</span> members access the full tool through their member dossier at <code>/reserve/</code>, behind firm authentication. If you would like to engage the firm at the <span class="brand-reserve"><span class="re">RE</span>SERVE</span> tier or have us run a deal through the tool for you, contact us directly.</p>
+    </div>
+    <div class="gate-actions">
+      <a href="engagement.html" class="gate-primary"><span class="brand-reserve"><span class="re">RE</span>SERVE</span> Membership &rarr;</a>
+      <a href="contact.html" class="gate-secondary">Contact the Firm</a>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <section class="preview-section">
+    <h2>What the Deal Builder Does</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>Capital Stack</h3>
+        <p>Unlimited member classes with independent capital, preferred return rate, profit share, loss share, voting rights, and transfer restrictions.</p>
+        <ul>
+          <li>Class A, B, C, D&hellip; with custom labels and color-coded badges</li>
+          <li>Guarantor LP class with enhanced pref and guaranty fee support</li>
+          <li>Sponsor / GP class with promote-only economics</li>
+          <li>Senior debt + member debt + mezzanine tracked separately</li>
+          <li>Real-time LTC, equity %, and capital stack totals</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <h3>Waterfall Engine</h3>
+        <p>Configure the distribution mechanics with the precision a modern deal requires.</p>
+        <ul>
+          <li>American (deal-by-deal) and European (fund-level) styles</li>
+          <li>Multi-class preferred return (cumulative simple, compound, non-cumulative)</li>
+          <li>Multiple promote tiers with IRR or MOIC hurdles</li>
+          <li>GP catch-up: 50/50, 80/20, or full to sponsor target</li>
+          <li>Clawback (full, partial, with interest, minimum return threshold)</li>
+          <li>Per-tier trace showing dollars and remaining pool</li>
+        </ul>
+      </div>
+
+      <div class="feature-card gold">
+        <h3>Debt under &sect;&nbsp;752</h3>
+        <p>Member debt classification and allocation, integrated with the deal economics.</p>
+        <ul>
+          <li>Nonrecourse, recourse, qualified nonrecourse financing under &sect;&nbsp;465(b)(6), and partner nonrecourse debt under Reg.&nbsp;&sect;&nbsp;1.704-2(b)(4)</li>
+          <li>Senior construction loan + mezzanine + member loan stacking</li>
+          <li>Interest carry computed off average outstanding balance</li>
+          <li>Treatment notes per classification surfaced inline</li>
+        </ul>
+      </div>
+
+      <div class="feature-card gold">
+        <h3>Governance &amp; Provisions</h3>
+        <p>Capture the structural framework that becomes the operating agreement.</p>
+        <ul>
+          <li>Manager-managed, board-managed, member-managed, or sponsor-as-GP</li>
+          <li>Major decision matrix with required vote threshold</li>
+          <li>ROFR, ROFO, tag-along, drag-along, buy-sell, put/call, key-man</li>
+          <li>Promote clawback with personal guaranty</li>
+        </ul>
+      </div>
+
+      <div class="feature-card charcoal">
+        <h3>State Tax Engine</h3>
+        <p>50 states plus DC with marginal income tax rate, capital gains rate, and conformity flags for &sect;&nbsp;168(k) bonus, &sect;&nbsp;163(j) interest limitation, &sect;&nbsp;461(l) excess business loss, and &sect;&nbsp;199A QBI. PTET election availability flagged where applicable.</p>
+      </div>
+
+      <div class="feature-card charcoal">
+        <h3>Results, Sensitivity, Export</h3>
+        <p>Verdict card with PENCILS / MARGINAL / DOES NOT PENCIL output. Sources &amp; uses table. Returns by class with MOIC and IRR. Waterfall trace tier-by-tier. 5&times;5 sensitivity heat map flexing exit price and hold period. Structural diagram. Notes engine surfacing securities, &sect;&nbsp;752, dealer-property, and state-conformity issues automatically. Save / load JSON, print summary, export term sheet for circulation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Deal types -->
+  <section class="preview-section">
+    <h2>Deal Structures Supported</h2>
+    <div class="deal-types">
+      <div class="deal-types-grid">
+        <div class="deal-type-item"><strong>Operating LLC</strong><span>Single-asset SPV</span></div>
+        <div class="deal-type-item"><strong>Joint Venture</strong><span>Sponsor + LP(s)</span></div>
+        <div class="deal-type-item"><strong>Fund</strong><span>Multiple LPs</span></div>
+        <div class="deal-type-item"><strong>Master-Feeder</strong><span>Onshore + offshore</span></div>
+        <div class="deal-type-item"><strong>Series LLC</strong><span>Multi-asset isolation</span></div>
+        <div class="deal-type-item"><strong>Private REIT</strong><span>&sect;&nbsp;856 closely-held</span></div>
+        <div class="deal-type-item"><strong>Public REIT</strong><span>Listed</span></div>
+        <div class="deal-type-item"><strong>UPREIT</strong><span>REIT + OP</span></div>
+        <div class="deal-type-item"><strong>DownREIT</strong><span>Property-specific OP</span></div>
+        <div class="deal-type-item"><strong>QOF</strong><span>&sect;&nbsp;1400Z-2 fund</span></div>
+        <div class="deal-type-item"><strong>QOZB</strong><span>QOZ business</span></div>
+        <div class="deal-type-item"><strong>TIC</strong><span>Rev. Proc. 2002-22</span></div>
+        <div class="deal-type-item"><strong>DST</strong><span>Rev. Rul. 2004-86</span></div>
+        <div class="deal-type-item"><strong>Ground Lease</strong><span>Fee + leasehold</span></div>
+        <div class="deal-type-item"><strong>Cooperative</strong><span>&sect;&nbsp;216 housing</span></div>
+        <div class="deal-type-item"><strong>+ more&hellip;</strong><span>Phase II&ndash;IV</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Phases -->
+  <section class="preview-section">
+    <div class="phases">
+      <h2>Build Schedule</h2>
+      <p style="color: #d4d4d0; margin-top: 0.5rem; font-size: 0.92rem;">Six phases. Phase I is live to <span class="brand-reserve"><span class="re">RE</span>SERVE</span> members today. Each subsequent phase deepens capability on a discrete dimension &mdash; allocation engines, blocker structures, REIT and OZ compliance, structural diagram editor, and tax-overlay refinements.</p>
+      <div class="phase-grid">
+        <div class="phase-card live">
+          <div class="phase-label">Phase I &middot; Live</div>
+          <h3>Core Deal Economics</h3>
+          <p>Capital stack, waterfall engine, member debt, governance, state selector, sensitivity, save/load, term sheet export.</p>
+        </div>
+        <div class="phase-card">
+          <div class="phase-label">Phase II &middot; Build</div>
+          <h3>&sect;&nbsp;704(b) and &sect;&nbsp;704(c)</h3>
+          <p>Targeted capital accounts vs. substantial economic effect; traditional, curative, and remedial &sect;&nbsp;704(c) methods compared side-by-side.</p>
+        </div>
+        <div class="phase-card">
+          <div class="phase-label">Phase III &middot; Build</div>
+          <h3>Blockers &middot; FIRPTA &middot; UBTI</h3>
+          <p>Domestic and foreign corporate blockers, REIT-blocker for tax-exempts, FIRPTA at the investor level, &sect;&nbsp;514 UBTI with fractions rule.</p>
+        </div>
+        <div class="phase-card">
+          <div class="phase-label">Phase IV &middot; Build</div>
+          <h3>REIT &middot; OZ &middot; TIC Compliance</h3>
+          <p>Full REIT income/asset/distribution engines, QOF 90% test, QOZB 70% test with working capital safe harbor, TIC Rev. Proc. 2002-22 conditions.</p>
+        </div>
+        <div class="phase-card">
+          <div class="phase-label">Phase V &middot; Build</div>
+          <h3>Org Chart &amp; PDF Export</h3>
+          <p>Interactive drag-and-drop structure editor with blocker entities, parallel feeders, tax-classification badges. Branded PDF export with methodology footnotes.</p>
+        </div>
+        <div class="phase-card">
+          <div class="phase-label">Phase VI &middot; Build</div>
+          <h3>Tax Overlay Refinements</h3>
+          <p>&sect;&nbsp;163(j), &sect;&nbsp;461(l) with 2026 threshold, &sect;&nbsp;199A with rental safe harbor, multi-state apportionment and sourcing, PTET modeling by jurisdiction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="preview-footer">
+    <div class="preview-footer-inner">
+      <p>
+        <strong>Disclaimer.</strong> The Deal Builder tool produces mechanical computation based on the inputs provided and the assumptions documented within the tool. It does not constitute legal, tax, or accounting advice and does not create an attorney-client relationship. Use by <span class="brand-reserve"><span class="re">RE</span>SERVE</span> members is governed by the engagement letter on file with Donovan Legal PLLC. Engagement of the firm under a written engagement letter is required for any structure modeled with the tool to be reviewed, opined upon, or implemented. Tax rates, statutory thresholds, and conformity flags change; tool outputs may not reflect current law. Donovan Legal PLLC, 301 W. Atlantic Avenue, Suite 5, Delray Beach, Florida 33444.
+      </p>
+      <p class="preview-footer-meta">
+        DEAL BUILDER &middot; PUBLIC PREVIEW &middot; FULL TOOL: <span class="brand-reserve"><span class="re">RE</span>SERVE</span> MEMBER ACCESS ONLY
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/vendor/jquery-3.3.1.min.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

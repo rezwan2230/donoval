@@ -1,0 +1,4641 @@
+{
+  "date": "May 13, 2026",
+  "body": [
+    {
+      "type": "table",
+      "headers": [
+        "Field",
+        "Value"
+      ],
+      "rows": [
+        [
+          "Author",
+          "ConnexUS AI / Tico AI / Scale Agile Solutions"
+        ],
+        [
+          "CEO",
+          "David Pierce (Scale Agile Solutions)"
+        ],
+        [
+          "First Client",
+          "Donovan Legal PLLC"
+        ],
+        [
+          "Document Version",
+          "2.1 (revised post-kickoff meeting)"
+        ],
+        [
+          "Original Date",
+          "April 7, 2026"
+        ],
+        [
+          "Revised",
+          "May 13, 2026"
+        ],
+        [
+          "Classification",
+          "Internal Engineering \u2014 Confidential"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "v2.1 REVISION ADDENDUM \u2014 May 13, 2026 (Donovan Kickoff Meeting Outcomes)"
+    },
+    {
+      "type": "paragraph",
+      "text": "This addendum supersedes any conflicting content in the body of the document below. The body is preserved for architectural reference; the decisions captured here represent the as-of-May-13-2026 ground truth for the Donovan Legal PLLC implementation."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "A. Project Entity Structure (Compliance-Driven)"
+    },
+    {
+      "type": "paragraph",
+      "text": "To comply with Florida Bar Rule 4-7 attorney advertising rules and referral-agency registration requirements, the engagement is structured with deliberate entity separation:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Function",
+        "Entity",
+        "Reason"
+      ],
+      "rows": [
+        [
+          "Tech platform & agent",
+          "ConnexUS AI",
+          "Platform of record for SDK and infrastructure"
+        ],
+        [
+          "Lead generation / project ownership",
+          "Tico AI",
+          "Ad agency of record \u2014 NOT in Paul's name"
+        ],
+        [
+          "Law firm",
+          "Donovan Legal PLLC",
+          "Owner of donovan.law and all client relationships"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Google Ads account: registered to Tico AI. All paid traffic lands on donovan.law (Paul's owned URL, his owned funnel) \u2014 Tico AI drives traffic TO the site, not directly to v-reps. Paul will forward the FL Bar advertising rules and referral-agency registration requirements; we register Tico AI as a referral agency if required."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "B. Donovan Site Status: Enhance, Don't Rebuild"
+    },
+    {
+      "type": "paragraph",
+      "text": "Paul shipped his own rebuild of donovan.law before the kickoff meeting. The four-pillar practice structure (Tax Planning / Tax Compliance / Tax Controversy / Real Estate), the Gold/Platinum/Reserve engagement tiers, the Donovan-Structured. Donovan-Defended. callout, the lifecycle SVG wheel, the full bio, and seven tax tools are all live. Our scope is now enhancement, not redesign."
+    },
+    {
+      "type": "paragraph",
+      "text": "Gaps we are filling:"
+    },
+    {
+      "type": "numbered",
+      "items": [
+        "AI voice concierge + intake funnel (ConnexUS SDK from advisoryconnect.net, adapted)",
+        "Calendar booking via GoHighLevel",
+        "GHL CRM behind the intake",
+        "Florida Bar advertising compliance layer (disclaimers, TCPA consent, attorney-advertisement language)",
+        "Build out /gold/, /platinum/, /reserve/ (currently blank)",
+        "Footer rebuild + analytics + conversion tracking",
+        "Fix three future-dated blog posts"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "C. Two-Funnel Intake Model (Confirmed)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Two distinct intake funnels share one site. Visitor self-selects on entry."
+    },
+    {
+      "type": "paragraph",
+      "text": "Funnel 1 \u2014 Tax Planning (HNW Real Estate)"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "Profile: $1M+ income (ideal $2\u20135M), $10M+ net worth",
+        "Hooks: short-term rental (Airbnb) strategy, W-2 earners in NY/CA/MA seeking real estate tax shelter, cross-border FIRPTA inbound capital",
+        "Decision points (4-step modal, adapted from advisoryconnect.net's ACCIDENT\u2192DAMAGE\u2192LEGAL\u2192CONNECT pattern): 1. PROFILE \u2014 income range, net worth range, real estate status 2. GOAL \u2014 short-term rental? developer? passive investor? international? 3. TIMING \u2014 current tax year vs next vs immediate transaction 4. CONNECT \u2014 book a 30-minute consultation"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Funnel 2 \u2014 Tax Controversy (IRS / State Tax Problems)"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "Profile: $250K+ owed in income, sales, or employment tax",
+        "Hook is stronger \u2014 problem-aware buyers convert faster",
+        "Lifecycle phase: pre-controversy / controversy / post-controversy",
+        "Decision points: 1. ISSUE \u2014 audit / levy / lien / unfiled / criminal exposure 2. AMOUNT \u2014 $0\u201350K / $50K\u2013250K / $250K\u20131M / $1M+ 3. URGENCY \u2014 notice received? collection started? court date scheduled? 4. CONNECT \u2014 book a 30-minute consultation"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Cross-funnel insight (Paul's observation): Controversy clients frequently become Planning clients post-resolution. Planning clients regularly disclose unfiled returns mid-engagement and become Controversy clients. The two funnels feed each other \u2014 the unified GHL CRM must support transitioning a contact between funnels."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "D. Disqualifiers (Confirmed in Meeting)"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Disqualifier",
+        "Treatment"
+      ],
+      "rows": [
+        [
+          "H-1B visa holder",
+          "Hard decline \u2014 too unstable, unpredictable U.S. tenure"
+        ],
+        [
+          "Undocumented status",
+          "Hard decline"
+        ],
+        [
+          "Below thresholds with no controversy matter",
+          "Polite handoff with self-serve resources"
+        ],
+        [
+          "Behavioral red flags (grandiose claims, instability)",
+          "Soft screen \u2014 escalate to human review"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "NOT disqualifiers (Paul flagged these as actually attractive):"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "International / foreign nationals \u2192 FIRPTA & cross-border = high-value engagements",
+        "Multiple-passport holders, green card holders",
+        "Tourist-visa investors parking capital in U.S. real estate"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Paul to deliver a complete disqualifier list to Veronica before the next meeting."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "E. Tier Routing Logic (V-Rep Behavior)"
+    },
+    {
+      "type": "paragraph",
+      "text": "The agent acts as 24/7 receptionist + intake + screener. Routing decisions:"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "INBOUND CALL or VISITOR",
+        "        \u25bc",
+        " Concierge greets, asks: existing client or new?"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Reserve = 100 members hand-selected, numbered 001\u2013100, physical black card, monthly meetings, on-site visits, etc. (Per Paul: \"There'll be a 007. There'll be an Agent 69. There'll be an Agent 99.\")"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "F. Technology Stack (Confirmed)"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Layer",
+        "Decision",
+        "Status"
+      ],
+      "rows": [
+        [
+          "CRM",
+          "GoHighLevel (GHL) \u2014 natively integrated with ConnexUS AI",
+          "Decided"
+        ],
+        [
+          "Voice agent SDK",
+          "ConnexUS AI (portal.theconnexus.ai/ai-agent-sdk.js)",
+          "Proven on advisoryconnect.net"
+        ],
+        [
+          "Calendar",
+          "Embedded in GHL",
+          "Replaces missing scheduling widget"
+        ],
+        [
+          "Business phone",
+          "New line with SMS (provisioned by Elroy)",
+          "To replace RingCentral for voice/SMS"
+        ],
+        [
+          "Fax",
+          "Paul keeps RingCentral fax",
+          "IRS / state authorities still require fax"
+        ],
+        [
+          "E-signature",
+          "Paul's existing DocuSign + Adobe Sign via API",
+          "For engagement letter automation"
+        ],
+        [
+          "Practice management",
+          "Currently Lawbility \u2014 David evaluating Clio API quality",
+          "TBD"
+        ],
+        [
+          "Compliance",
+          "SOC 2 + PII isolated environment, encryption keys held by client",
+          "Required"
+        ],
+        [
+          "Call recording",
+          "On during POC, off post-validation",
+          "To protect attorney-client privilege"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "G. KPIs & Targets (Confirmed)"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Metric",
+        "Phase 1 Target",
+        "Note"
+      ],
+      "rows": [
+        [
+          "Bookings / month",
+          "20",
+          "30-min slots; solo-attorney calendar capacity"
+        ],
+        [
+          "Close rate",
+          "20%",
+          "Yields ~48 new clients/year at the booking target"
+        ],
+        [
+          "Year-1 new clients",
+          "100",
+          "Paul's stretch goal"
+        ],
+        [
+          "Launch channel",
+          "Google Ads only",
+          "Establish baseline before adding channels"
+        ],
+        [
+          "Veronica's role",
+          "Define Google campaign structure for each funnel; develop social creative for HNW big-fish hooks (post-baseline)",
+          ""
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "H. Timeline (Confirmed)"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Milestone",
+        "Target",
+        "Owner"
+      ],
+      "rows": [
+        [
+          "Documents distributed",
+          "May 13, 2026",
+          "David"
+        ],
+        [
+          "Document feedback returned",
+          "Within 1 week",
+          "Whole team"
+        ],
+        [
+          "Next full team meeting",
+          "May 20, 2026",
+          "David schedules"
+        ],
+        [
+          "Proof-of-concept agent demo",
+          "~May 27, 2026",
+          "Elroy"
+        ],
+        [
+          "Production deployment to donovan.law",
+          "~June 3, 2026",
+          "Elroy"
+        ],
+        [
+          "Cadence beyond launch",
+          "Every 2 weeks",
+          "Standing"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "I. Deferred Decisions (Tabled to Next Meeting)"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "Public vs gated pricing on the engagement tier pages (Paul thinking)",
+        "Whether to fund /gold/, /platinum/, /reserve/ build-out in Phase 1 or Phase 2",
+        "Whether to retool advisoryconnect.net as a parallel landing platform for Donovan",
+        "Final practice-management decision (Clio vs Lawbility vs alternative)",
+        "Whether call recording defaults OFF immediately or stays ON through POC only"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "J. Phase-2 Automation Roadmap (Paul's Vision)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Paul's eventual end-state: visitor lands on donovan.law, picks services from a menu (a-la-carte fixed fees + bundled tiers), system auto-generates the engagement letter, DocuSign/Adobe Sign sends it for signature, retainer collected post-signature. \"Just like ordering off a menu in a restaurant. Boom. Boom. Boom.\" \u2014 Paul Donovan."
+    },
+    {
+      "type": "paragraph",
+      "text": "This is Phase 2 scope. Phase 1 stays focused on: book a qualified 30-minute consultation. Retainer is collected after the consultation, not before."
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "Table of Contents"
+    },
+    {
+      "type": "numbered",
+      "items": [
+        "Executive Summary (#1-executive-summary)",
+        "Market Opportunity (#2-market-opportunity)",
+        "Platform Architecture (#3-platform-architecture)",
+        "Intake Flows by Practice Area (#4-intake-flows-by-practice-area)",
+        "CON-989 as Universal Framework (#5-con-989-as-universal-framework)",
+        "Donovan Law Implementation (#6-donovan-law-implementation)",
+        "Competitive Advantage (#7-competitive-advantage)",
+        "Development Phases (#8-development-phases)",
+        "Technical Architecture (#9-technical-architecture)",
+        "Data Model (#10-data-model)",
+        "Pricing Strategy (#11-pricing-strategy)"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "1. Executive Summary"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The Product"
+    },
+    {
+      "type": "paragraph",
+      "text": "Legal Concierge is a multi-tenant AI intake platform that deploys to thousands of law firms via a single embeddable script tag. When a potential client lands on any law firm website, they encounter a floating widget \u2014 mobile bottom sheet on phones, expanding panel on desktop \u2014 that connects them to a voice AI concierge, conducts a structured intake conversation, qualifies their case against the firm's real criteria, books a consultation with the right attorney, and dispatches a pre-populated retainer for e-signature \u2014 all without any human involvement and regardless of what time it is. The platform serves any law firm in any practice area from a single codebase: each firm is a tenant, each practice area is a configurable JSON template, and each deployment requires only one script tag added to an existing website."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Why It Wins"
+    },
+    {
+      "type": "paragraph",
+      "text": "The after-hours problem: 40\u201342% of legal inquiries arrive outside business hours (PILMMA cites 67% for PI). During business hours, 40% of law firms still do not answer their phones (Clio 2024 Legal Trends Report). 80% of callers who reach voicemail hang up without leaving a message. Every one of those is a lost lead that cost $649 to generate (LEX Reception data). Legal Concierge answers every single one, 24/7, with a consistent, intelligent intake experience."
+    },
+    {
+      "type": "paragraph",
+      "text": "Speed-to-lead: Responding within 5 minutes makes a firm 21x more likely to qualify a lead vs. a 30-minute response (InsideSales.com/MIT Study). 78% of legal clients hire the first firm to respond. Current average law firm response time is 8+ hours by phone, 24+ hours by web form (AgentZap 2026). Legal Concierge responds in under 5 seconds."
+    },
+    {
+      "type": "paragraph",
+      "text": "Cost: A full-time intake receptionist costs ~$52,000/year with benefits. Legal answering services run $330\u2013$1,950/month with per-minute/per-call billing that spikes unpredictably. Legal Concierge delivers unlimited, 24/7, intelligent intake for a flat monthly rate \u2014 87\u201393% savings over equivalent human coverage."
+    },
+    {
+      "type": "paragraph",
+      "text": "Full lifecycle: Competitors stop at lead capture. Legal Concierge goes: questions \u2192 qualification \u2192 retainer e-signature \u2192 calendar booking with the specific attorney. A signed retainer within 60 seconds of qualification completion is the product's defining capability."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Total Addressable Market"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Segment",
+        "Market Size",
+        "CAGR"
+      ],
+      "rows": [
+        [
+          "Legal Practice Management Software (global)",
+          "$3.0B (2026) \u2192 $4.66B by 2030",
+          "11.6\u201311.9%"
+        ],
+        [
+          "Legal AI Software (global)",
+          "~$1.4B (2025), +$2.92B by 2029",
+          "32.4%"
+        ],
+        [
+          "U.S. law firms (total)",
+          "~450,000 licensed attorneys across ~175,000 firms",
+          "\u2014"
+        ],
+        [
+          "Firms spending on answering services",
+          "$300M\u2013$2B estimated annual spend",
+          "\u2014"
+        ],
+        [
+          "Average firm monthly intake tech spend",
+          "$500\u2013$2,000 (small firm); $2,000\u2013$6,000 (mid)",
+          "\u2014"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Sources: The Business Research Company, Technavio, Clio 2024 Legal Trends Report."
+    },
+    {
+      "type": "paragraph",
+      "text": "At a $299/month average SaaS price, capturing 1% of U.S. small-to-mid law firms (1,750 firms) = $6.3M ARR. The legal AI software segment is growing at 32.4% CAGR \u2014 nearly 3x the overall legal software market rate."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Competitive Positioning Summary"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Competitor",
+        "What They Do",
+        "What They Don't Do"
+      ],
+      "rows": [
+        [
+          "Smith.ai",
+          "Hybrid AI+human answering",
+          "No embeddable widget; no retainer; no booking inside intake; $292\u2013$2,025/mo"
+        ],
+        [
+          "Clio Grow",
+          "Forms + booking + CRM",
+          "No voice; no AI conversation; no retainer dispatch; per-user pricing"
+        ],
+        [
+          "Lawmatics",
+          "CRM + automation",
+          "No voice; no AI intake conversation; $149\u2013$1,149/mo"
+        ],
+        [
+          "Intaker",
+          "Legal chatbot",
+          "Text only; no voice; no retainer; limited depth"
+        ],
+        [
+          "LawDroid",
+          "Document automation",
+          "Not intake-focused; no voice"
+        ],
+        [
+          "Ruby/LEX/Answering Legal",
+          "Human answering services",
+          "Human-dependent; per-minute billing; no retainer; no booking"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Legal Concierge is the only platform that combines: embeddable anywhere + voice AI + real-time transcript + practice-area-specific intake intelligence + retainer e-signature + calendar booking + full CRM integration in a single product."
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "2. Market Opportunity"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "2.1 The After-Hours Problem"
+    },
+    {
+      "type": "paragraph",
+      "text": "The data is unambiguous. Law firms are structurally losing a significant fraction of the leads they pay for:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Source",
+        "Finding"
+      ],
+      "rows": [
+        [
+          "Above the Bar Marketing (2026)",
+          "42% of legal service searches occur outside traditional business hours"
+        ],
+        [
+          "Ferdinand Agent (2025)",
+          "40% of legal leads happen after hours"
+        ],
+        [
+          "PILMMA (2026)",
+          "67% of legal leads call outside business hours (PI-heavy sample)"
+        ],
+        [
+          "Market My Market (2022)",
+          "From 30,000 calls: 14.97% are after-hours weekday calls; 2.57% weekend"
+        ],
+        [
+          "LegalNavigator (2025)",
+          "35% of calls to law firms go unanswered during business hours"
+        ],
+        [
+          "Clio 2024",
+          "40% of firms answer calls during business hours (down from 56% in 2019)"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "After-hours distribution by practice area is significant: personal injury spikes evenings and weekends (accidents happen anytime); criminal defense clusters late nights following arrests (DUI arrests are predominantly Thursday\u2013Sunday, 10pm\u20133am); family law peaks Sunday evenings (weekend reflection). These are the highest-urgency, highest-value intake moments \u2014 and the moments when nearly every firm is dark."
+    },
+    {
+      "type": "paragraph",
+      "text": "The cascade effect: an accident happens at 9pm on Saturday. The victim Googles \"car accident lawyer.\" They click three or four results. The first firm to respond gets the client. 78% of legal clients hire the first firm to respond to their inquiry (Legal Navigator, multiple sources). Voicemail and 8-hour callback times are fatal."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "2.2 Speed-to-Lead \u2014 The Conversion Math"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Response Window",
+        "Conversion Multiplier",
+        "Source"
+      ],
+      "rows": [
+        [
+          "< 1 minute",
+          "391% higher conversion vs. 2-minute response",
+          "Velocify"
+        ],
+        [
+          "< 5 minutes",
+          "21x more likely to qualify vs. 30-minute response",
+          "InsideSales.com/MIT Study"
+        ],
+        [
+          "< 5 minutes",
+          "400% higher conversion vs. 1+ hour response",
+          "ALM Global"
+        ],
+        [
+          "1 hour",
+          "7x more likely to qualify vs. waiting longer",
+          "Dripify"
+        ],
+        [
+          "Immediate",
+          "78% of legal clients hire the first firm to respond",
+          "Legal Navigator"
+        ],
+        [
+          "Next day callback",
+          "80% of prospects have moved on after 48 hours",
+          "Andava Digital (2025)"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Only 28% of firms achieve a sub-5-minute response (AffiniPay 2025). Legal Concierge responds in under 5 seconds, 24/7."
+    },
+    {
+      "type": "paragraph",
+      "text": "The nationwide average intake \u2192 retained client conversion rate is only 7% (range 3\u201330%) for firms without optimized intake systems. AI intake systems deliver 35\u201350% better conversion (Above the Bar Marketing). That gap represents the platform's core value proposition."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "2.3 Current Solutions and Their Limitations"
+    },
+    {
+      "type": "paragraph",
+      "text": "Human answering services \u2014 the dominant current solution \u2014 have two fundamental problems: (1) per-minute/per-call billing that punishes engagement depth; and (2) humans who can only answer questions, not qualify leads, dispatch retainers, or book calendars."
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Service",
+        "Model",
+        "Entry Price",
+        "Top Tier",
+        "Key Limitation"
+      ],
+      "rows": [
+        [
+          "Ruby Receptionists",
+          "Per-minute, human",
+          "$245/50 min",
+          "$1,695/500 min",
+          "Most expensive/minute; no AI; no retainer or booking"
+        ],
+        [
+          "LEX Reception",
+          "Per-minute, human",
+          "$425/150 min",
+          "$775/500 min",
+          "Legal-specialized but still message-taking"
+        ],
+        [
+          "Smith.ai (human)",
+          "Per-call",
+          "$292.50/30 calls",
+          "$2,025/300 calls",
+          "Hybrid AI+human; no retainer; no booking inside intake"
+        ],
+        [
+          "Answering Legal",
+          "Per-minute",
+          "$330/100 min",
+          "$737/250 min",
+          "High customization but still per-minute billing"
+        ],
+        [
+          "Smith.ai AI Voice",
+          "Per-call",
+          "$97.50/30 calls",
+          "$825/300 calls",
+          "60\u201380% cheaper but lower intelligence for complex intake"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "At scale, these services are deeply unpredictable. A firm with 150 monthly after-hours contacts at 8\u201312 minutes average call length hits $1,800\u2013$3,000/month in overages on mid-tier plans. Legal Concierge runs flat-rate unlimited."
+    },
+    {
+      "type": "paragraph",
+      "text": "CRM/intake platforms (Clio Grow, Lawmatics, Filevine) solve the data organization problem but not the response problem. They wait for a human to pick up the phone or a visitor to fill out a form. They do not initiate, conduct, or complete an intake conversation."
+    },
+    {
+      "type": "paragraph",
+      "text": "Chatbots (Intaker, LawDroid) engage website visitors via text but lack voice capability, real-time transcript display, and the intelligence to handle nuanced legal qualification conversations. 72% of legal consumers are comfortable with AI for initial intake \u2014 but only when it \"feels like a conversation, not a disguised form\" (Clio 2024 survey)."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "2.4 What Firms Already Pay"
+    },
+    {
+      "type": "paragraph",
+      "text": "Total monthly intake technology spend by firm size:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Firm Type",
+        "Typical Monthly Intake Spend"
+      ],
+      "rows": [
+        [
+          "Solo practitioner",
+          "$100\u2013$500/mo"
+        ],
+        [
+          "Small firm (2\u20135 attorneys)",
+          "$500\u2013$2,000/mo"
+        ],
+        [
+          "Mid-size firm (6\u201320 attorneys)",
+          "$2,000\u2013$6,000/mo"
+        ],
+        [
+          "Large / PI firm",
+          "$5,000\u2013$20,000+/mo"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Components: answering service ($250\u2013$2,000+), CRM/intake software ($150\u2013$1,200), chatbot ($80\u2013$500), marketing ($1,000\u2013$10,000+)."
+    },
+    {
+      "type": "paragraph",
+      "text": "A solo or small firm currently spending $600\u2013$1,200/month on a human answering service plus $89\u2013$149/month on a basic CRM represents a direct addressable budget of $700\u2013$1,400/month \u2014 well above Legal Concierge's target pricing at every tier."
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "3. Platform Architecture"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "3.1 Design Principles"
+    },
+    {
+      "type": "paragraph",
+      "text": "The platform is built around five non-negotiable principles:"
+    },
+    {
+      "type": "numbered",
+      "items": [
+        "Multi-tenant from day one. Every data model, API call, webhook, Redis key, and log entry carries a firm_id. There is no single-tenant code path. Firm data never leaks to other firms."
+      ]
+    },
+    {
+      "type": "numbered",
+      "items": [
+        "Template-driven, not code-driven. Adding a new practice area or a new firm requires zero code changes. Every intake flow is a configurable template (JSON/YAML). Every qualification rule is a data record. Firm admins change their configuration; engineers do not."
+      ]
+    },
+    {
+      "type": "numbered",
+      "items": [
+        "Embeddable anywhere, zero dependencies. The widget is a 2KB loader script that creates an iframe. It drops into any website \u2014 WordPress, Squarespace, Wix, custom HTML, whatever the firm uses. No framework. No server-side requirement on the host site. One script tag."
+      ]
+    },
+    {
+      "type": "numbered",
+      "items": [
+        "Mobile-first. More than 60% of legal searches happen on mobile devices. The widget renders as a full-screen bottom sheet on mobile and as a floating panel on desktop. Every touch target is minimum 48\u00d748px. The entire intake experience \u2014 voice conversation, transcript, progress tracker, booking, retainer link \u2014 is designed for a 375px screen first."
+      ]
+    },
+    {
+      "type": "numbered",
+      "items": [
+        "Full lifecycle, not lead capture. The platform's job is not done when a visitor's name is captured. It is done when the retainer is signed and the calendar appointment is confirmed. Every integration (Athena, GHL, HelloSign) exists to close that loop."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "3.2 Tenant Configuration Model"
+    },
+    {
+      "type": "paragraph",
+      "text": "Each law firm is a tenant. Tenant configuration is the master record that governs everything the platform does for that firm."
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "Tenant"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "3.3 Intake Template Engine"
+    },
+    {
+      "type": "paragraph",
+      "text": "The intake template engine is the heart of the platform. Every practice area is a JSON template describing the complete intake flow. The engine executes templates \u2014 it does not hard-code any practice-area logic."
+    },
+    {
+      "type": "paragraph",
+      "text": "Template structure:"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "{",
+        "  \"template_id\": \"personal_injury_mva_v1\",",
+        "  \"practice_area\": \"personal_injury\",",
+        "  \"display_name\": \"Personal Injury / Motor Vehicle Accident\",",
+        "  \"version\": 1,",
+        "  \"stages\": [",
+        "    {",
+        "      \"stage_id\": \"contact\",",
+        "      \"label\": \"Contact Information\",",
+        "      \"milestone_index\": 1,",
+        "      \"questions\": [",
+        "        {",
+        "          \"variable\": \"ClaimantFirstName\",",
+        "          \"type\": \"string\",",
+        "          \"required\": true,",
+        "          \"agent_prompt\": \"May I get your first name?\",",
+        "          \"validation\": { \"min_length\": 1, \"max_length\": 100 }",
+        "        },",
+        "        {",
+        "          \"variable\": \"ClaimantPhone\",",
+        "          \"type\": \"phone\",",
+        "          \"required\": true,",
+        "          \"agent_prompt\": \"What is the best phone number to reach you?\"",
+        "        },",
+        "        {",
+        "          \"variable\": \"ClaimantEmail\",",
+        "          \"type\": \"email\",",
+        "          \"required\": false,",
+        "          \"agent_prompt\": \"And your email address, if you have one?\"",
+        "        },",
+        "        {",
+        "          \"variable\": \"SmsConsent\",",
+        "          \"type\": \"boolean\",",
+        "          \"required\": true,",
+        "          \"agent_prompt\": \"Do I have your permission to send you text message updates about your case? Standard message rates apply.\",",
+        "          \"tcpa_disclosure\": true",
+        "        }",
+        "      ]",
+        "    },",
+        "    {",
+        "      \"stage_id\": \"incident_basics\",",
+        "      \"label\": \"Incident Details\",",
+        "      \"milestone_index\": 2,",
+        "      \"questions\": [",
+        "        {",
+        "          \"variable\": \"IncidentDate\",",
+        "          \"type\": \"date\",",
+        "          \"required\": true,",
+        "          \"agent_prompt\": \"When did the accident occur?\",",
+        "          \"triggers\": [",
+        "            {",
+        "              \"action\": \"calculate_sol\",",
+        "              \"depends_on\": [\"IncidentDate\", \"IncidentState\"],",
+        "              \"on_expired\": \"disqualify\",",
+        "              \"disqualify_reason\": \"statute_of_limitations_expired\"",
+        "            }",
+        "          ]",
+        "        },",
+        "        {",
+        "          \"variable\": \"IncidentState\",",
+        "          \"type\": \"us_state\",",
+        "          \"required\": true,",
+        "          \"agent_prompt\": \"What state did the accident occur in?\"",
+        "        },",
+        "        {",
+        "          \"variable\": \"IncidentLocation\",",
+        "          \"type\": \"string\",",
+        "          \"required\": true,",
+        "          \"agent_prompt\": \"What city and county did it happen in?\"",
+        "        },",
+        "        {",
+        "          \"variable\": \"AccidentType\",",
+        "          \"type\": \"enum\",",
+        "          \"options\": [\"car_accident\", \"truck_accident\", \"motorcycle\", \"slip_fall\", \"other\"],",
+        "          \"required\": true,",
+        "          \"agent_prompt\": \"Was this a car accident, truck accident, motorcycle accident, slip and fall, or something else?\"",
+        "        }",
+        "      ]",
+        "    },",
+        "    {",
+        "      \"stage_id\": \"injury_details\",",
+        "      \"label\": \"Injuries & Treatment\",",
+        "      \"milestone_index\": 3,",
+        "      \"questions\": [",
+        "        {",
+        "          \"variable\": \"InjuryDescription\",",
+        "          \"type\": \"text\",",
+        "          \"required\": true,",
+        "          \"agent_prompt\": \"Can you describe the injuries you sustained?\"",
+        "        },",
+        "        {",
+        "          \"variable\": \"ERVisit\",",
+        "          \"type\": \"boolean\",",
+        "          \"required\": true,",
+        "          \"agent_prompt\": \"Did you visit the emergency room or urgent care?\"",
+        "        },",
+        "        {",
+        "          \"variable\": \"TreatingFacility\",",
+        "          \"type\": \"string\",",
+        "          \"required\": false,",
+        "          \"condition\": { \"if\": \"ERVisit == true\" },",
+        "          \"agent_prompt\": \"What hospital or facility did you go to?\"",
+        "        },",
+        "        {",
+        "          \"variable\": \"OngoingTreatment\",",
+        "          \"type\": \"boolean\",",
+        "          \"required\": true,",
+        "          \"agent_prompt\": \"Are you currently receiving any ongoing medical treatment?\"",
+        "        },",
+        "        {",
+        "          \"variable\": \"TreatingDoctor\",",
+        "          \"type\": \"string\",",
+        "          \"required\": false,",
+        "          \"condition\": { \"if\": \"OngoingTreatment == true\" },",
+        "          \"agent_prompt\": \"Who is your treating physician or physical therapist?\"",
+        "        },",
+        "        {",
+        "          \"variable\": \"WageLoss\",",
+        "          \"type\": \"boolean\",",
+        "          \"required\": true,",
+        "          \"agent_prompt\": \"Have you missed any work or lost income because of your injuries?\"",
+        "        }",
+        "      ]",
+        "    },",
+        "    {",
+        "      \"stage_id\": \"accident_scene\",",
+        "      \"label\": \"Accident Scene\",",
+        "      \"milestone_index\": 4,",
+        "      \"questions\": [",
+        "        {",
+        "          \"variable\": \"AtFaultParty\",",
+        "          \"type\": \"string\",",
+        "          \"required\": true,",
+        "          \"agent_prompt\": \"Who do you believe was at fault for the accident?\"",
+        "        },",
+        "        {",
+        "          \"variable\": \"AtFaultInsurance\",",
+        "          \"type\": \"string\",",
+        "          \"required\": false,",
+        "          \"agent_prompt\": \"Do you know the name of the at-fault party's insurance company?\"",
+        "        },",
+        "        {",
+        "          \"variable\": \"PoliceReportFiled\",",
+        "          \"type\": \"boolean\",",
+        "          \"required\": true,",
+        "          \"agent_prompt\": \"Was a police report filed at the scene?\"",
+        "        },",
+        "        {",
+        "          \"variable\": \"PoliceReportNumber\",",
+        "          \"type\": \"string\",",
+        "          \"required\": false,",
+        "          \"condition\": { \"if\": \"PoliceReportFiled == true\" },",
+        "          \"agent_prompt\": \"Do you have the report number?\"",
+        "        },",
+        "        {",
+        "          \"variable\": \"Witnesses\",",
+        "          \"type\": \"boolean\",",
+        "          \"required\": true,",
+        "          \"agent_prompt\": \"Were there any witnesses to the accident?\"",
+        "        },",
+        "        {",
+        "          \"variable\": \"WitnessInfo\",",
+        "          \"type\": \"text\",",
+        "          \"required\": false,",
+        "          \"condition\": { \"if\": \"Witnesses == true\" },",
+        "          \"agent_prompt\": \"Do you have contact information for any witnesses?\"",
+        "        }",
+        "      ]",
+        "    },",
+        "    {",
+        "      \"stage_id\": \"eligibility\",",
+        "      \"label\": \"Eligibility\",",
+        "      \"milestone_index\": 5,",
+        "      \"questions\": [",
+        "        {",
+        "          \"variable\": \"CurrentlyRepresented\",",
+        "          \"type\": \"boolean\",",
+        "          \"required\": true,",
+        "          \"agent_prompt\": \"Do you currently have an attorney representing you for this accident?\",",
+        "          \"triggers\": [",
+        "            {",
+        "              \"action\": \"disqualify\",",
+        "              \"condition\": { \"if\": \"CurrentlyRepresented == true\" },",
+        "              \"reason\": \"already_represented\",",
+        "              \"message\": \"Since you are already working with an attorney, I am not able to assist further, but I wish you well with your case.\"",
+        "            }",
+        "          ]",
+        "        },",
+        "        {",
+        "          \"variable\": \"PriorSettlement\",",
+        "          \"type\": \"boolean\",",
+        "          \"required\": true,",
+        "          \"agent_prompt\": \"Have you previously settled a claim or lawsuit for this accident?\"",
+        "        }",
+        "      ]",
+        "    }",
+        "  ],",
+        "  \"qualification_score\": {",
+        "    \"max_score\": 10,",
+        "    \"rules\": [",
+        "      { \"condition\": \"InjuryDescription is not empty\", \"points\": 2 },",
+        "      { \"condition\": \"ERVisit == true\", \"points\": 2 },",
+        "      { \"condition\": \"OngoingTreatment == true\", \"points\": 1 },",
+        "      { \"condition\": \"WageLoss == true\", \"points\": 2 },",
+        "      { \"condition\": \"PoliceReportFiled == true\", \"points\": 1 },",
+        "      { \"condition\": \"AtFaultInsurance is not empty\", \"points\": 1 },",
+        "      { \"condition\": \"Witnesses == true\", \"points\": 1 },",
+        "      { \"condition\": \"PriorSettlement == true\", \"points\": -3 }",
+        "    ],",
+        "    \"thresholds\": {",
+        "      \"qualified\": 5,",
+        "      \"qualified_with_flag\": 3,",
+        "      \"disqualified\": 0",
+        "    }",
+        "  },",
+        "  \"disqualification_triggers\": [",
+        "    { \"variable\": \"CurrentlyRepresented\", \"value\": true, \"reason\": \"already_represented\" },",
+        "    { \"action\": \"sol_expired\", \"reason\": \"statute_of_limitations_expired\" }",
+        "  ],",
+        "  \"urgency_flags\": [",
+        "    { \"condition\": \"days_until_sol <= 90\", \"flag\": \"sol_urgent\", \"message\": \"This case is approaching its filing deadline. Connecting you immediately.\" },",
+        "    { \"condition\": \"IncidentDate is within 7 days\", \"flag\": \"fresh_accident\", \"message\": \"Your accident is recent \u2014 acting now preserves your strongest evidence.\" }",
+        "  ],",
+        "  \"documents_to_request\": [",
+        "    \"Police accident report\",",
+        "    \"Medical bills and treatment records\",",
+        "    \"Photos of vehicle damage and injuries\",",
+        "    \"Insurance information for both parties\",",
+        "    \"Photos of the accident scene if available\"",
+        "  ],",
+        "  \"handoff_type\": \"retainer_then_booking\",",
+        "  \"milestones\": [",
+        "    { \"index\": 1, \"label\": \"Contact Info\", \"stage_id\": \"contact\" },",
+        "    { \"index\": 2, \"label\": \"Incident Details\", \"stage_id\": \"incident_basics\" },",
+        "    { \"index\": 3, \"label\": \"Injuries\", \"stage_id\": \"injury_details\" },",
+        "    { \"index\": 4, \"label\": \"Accident Scene\", \"stage_id\": \"accident_scene\" },",
+        "    { \"index\": 5, \"label\": \"Qualification\", \"stage_id\": \"eligibility\" }",
+        "  ]",
+        "}"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "This same structure applies to every practice area. The agent is instructed to follow the template. The qualification engine scores the collected variables. The disqualification engine watches for triggers. The milestone tracker advances as stages complete. No practice-area-specific code exists in the application layer \u2014 only template data."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "3.4 The Widget"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Architecture"
+    },
+    {
+      "type": "paragraph",
+      "text": "The widget follows the canonical embeddable architecture used by Intercom, Drift, and Calendly: a small loader script creates an isolated iframe."
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "Host Website"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Embed Code"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "<!-- Legal Concierge Widget \u2014 add before </body> -->",
+        "<script",
+        "  src=\"https://widget.legalconcierge.ai/v1.js\"",
+        "  data-firm=\"donovan-law\"",
+        "  data-position=\"bottom-right\"",
+        "  data-primary-color=\"#1a3a5c\"",
+        "  data-cta-text=\"Get a Free Consultation\"",
+        "  async",
+        "></script>"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Optional explicit CTA trigger on any page element:"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "<button data-lc-trigger class=\"your-existing-cta-class\">",
+        "  Talk to Our Legal Concierge",
+        "</button>"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Mobile: Bottom Sheet Pattern"
+    },
+    {
+      "type": "paragraph",
+      "text": "On screens \u2264768px, the launcher renders as a full-width fixed bar at the bottom of the viewport. On tap, a bottom sheet slides up to 90vh with a drag handle. The sheet is the complete intake UI: voice waveform, real-time transcript, milestone progress bar, and input controls."
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "/ Desktop: floating bubble /",
+        ".lc-launcher {",
+        "  position: fixed;",
+        "  bottom: 20px;",
+        "  right: 20px;",
+        "  width: 56px;",
+        "  height: 56px;",
+        "  border-radius: 50%;",
+        "  z-index: 9998;",
+        "}",
+        "/ Mobile: full-width CTA bar /",
+        "@media (max-width: 768px) {",
+        "  .lc-launcher {",
+        "    bottom: 0; right: 0; left: 0;",
+        "    width: 100%;",
+        "    border-radius: 0;",
+        "    height: 56px;",
+        "    z-index: 9998;",
+        "  }",
+        "  .lc-panel {",
+        "    position: fixed;",
+        "    bottom: 0; left: 0; right: 0;",
+        "    height: 90vh;",
+        "    border-radius: 16px 16px 0 0;",
+        "    transform: translateY(100%);",
+        "    transition: transform 0.3s ease;",
+        "  }",
+        "  .lc-panel.open { transform: translateY(0); }",
+        "}"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Real-Time Transcript Panel"
+    },
+    {
+      "type": "paragraph",
+      "text": "As the voice AI speaks and the caller responds, text appears in real-time in a scrolling transcript panel. This serves two purposes: (1) it shows the caller that they're being understood; (2) it gives them a text record of the conversation. The transcript is driven by Athena's real-time STT stream \u2192 WebSocket \u2192 Redis pub-sub \u2192 SSE to the widget iframe."
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Visual Milestone Tracker"
+    },
+    {
+      "type": "paragraph",
+      "text": "The progress bar shows labeled milestones corresponding to template stages. Each milestone lights up when the corresponding stage is complete. The backend fires a webhook when each stage completes \u2192 Redis \u2192 SSE \u2192 widget updates visually."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Performance Target"
+    },
+    {
+      "type": "paragraph",
+      "text": "< 100ms load impact on host page. The loader script is async (non-blocking). The iframe and its contents load after page content. No host-page render blocking."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Accessibility"
+    },
+    {
+      "type": "paragraph",
+      "text": "WCAG 2.2 AA compliance required:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "role=\"dialog\", aria-modal=\"true\", aria-label=\"Legal consultation\" on the panel",
+        "aria-live=\"polite\" on transcript output region (screen readers announce new messages)",
+        "Focus trapped within open panel; returns to launcher on close",
+        "Escape key closes panel",
+        "All touch targets minimum 48\u00d748px",
+        "Color contrast ratios \u2265 4.5:1 on all text",
+        "Voice input always has a typed text fallback; microphone permission consent screen before browser prompt",
+        "TCPA consent checkbox: explicit opt-in before any SMS/outbound trigger"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "3.5 Voice + Text Engine (via Athena)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Athena (ConnexUS AI Platform) provides the voice AI backbone. One assistant is created per firm during onboarding (or per practice area for complex firms)."
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "POST /api/v1/assistants",
+        "{",
+        "  \"name\": \"Donovan-Legal-Alex-v1\",",
+        "  \"llm_config\": {",
+        "    \"provider\": \"openai\",",
+        "    \"model\": \"gpt-4o\",",
+        "    \"temperature\": 0.3,",
+        "    \"system_prompt\": \"You are Alex, a professional legal intake concierge for Donovan Legal PLLC. Your role is to conduct a structured intake conversation, collect required information, qualify the caller's case, and guide them toward scheduling a consultation. You never provide legal advice. You always disclose you are an AI assistant. Follow the intake template loaded in your knowledge base precisely.\"",
+        "  },",
+        "  \"voice_config\": {",
+        "    \"transcriber_provider\": \"deepgram\",",
+        "    \"synthesizer_provider\": \"elevenlabs\",",
+        "    \"voice_id\": \"professional-neutral-v2\"",
+        "  },",
+        "  \"knowledge_base_id\": \"kb_donovan_xxx\",",
+        "  \"webhook_url\": \"https://api.legalconcierge.ai/webhooks/athena/tool-call?firm_id=donovan_pllc\",",
+        "  \"tools\": [",
+        "    \"log_milestone\", \"capture_contact_info\", \"capture_practice_area\",",
+        "    \"capture_qualification_data\", \"submit_qualified_lead\",",
+        "    \"flag_disqualification\", \"request_booking_slot\", \"confirm_booking\", \"end_call\"",
+        "  ]",
+        "}"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Text-only fallback: If the caller is in a quiet environment or declines microphone access, the widget switches to text chat seamlessly. The Athena agent handles both modalities. Transcript is identical in both modes."
+    },
+    {
+      "type": "paragraph",
+      "text": "Multi-language: Spanish is the priority second language. The system_prompt can be language-configured per tenant. The concierge detects the caller's language within the first exchange and switches automatically."
+    },
+    {
+      "type": "paragraph",
+      "text": "Agent personality: Configurable per tenant. Options: professional (default), empathetic (for DV, family law, criminal defense contexts), direct (business law, tax). The Knowledge Base contains the firm's specific context: practice areas, qualification criteria, attorney bios, FAQs, geographic restrictions, fee structure disclosures."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "3.6 CRM Integration (via GoHighLevel)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Base URL: https://services.leadconnectorhq.com/ Auth: Authorization: Bearer {oauth_access_token} + Version: 2021-07-28 Note: GHL's legacy RSA-SHA256 webhook signature (X-WH-Signature) is deprecated July 1, 2026. Implement Ed25519 (X-GHL-Signature) verification now."
+    },
+    {
+      "type": "paragraph",
+      "text": "Each law firm maps to a GHL Location (sub-account). Legal Concierge authenticates at the Agency level via OAuth 2.0, then uses Location-scoped tokens for all firm operations."
+    },
+    {
+      "type": "paragraph",
+      "text": "Pipeline stages per firm (configured at GHL setup):"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "New Lead \u2192 Qualified \u2192 Retainer Sent \u2192 Retainer Signed \u2192 Appointment Booked \u2192 Active Client \u2192 Closed Won / Closed Lost"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Contact creation (fires immediately on qualification):"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "POST /contacts/",
+        "{",
+        "  \"locationId\": \"{ghl_location_id}\",",
+        "  \"firstName\": \"Jane\", \"lastName\": \"Doe\",",
+        "  \"phone\": \"+15551234567\", \"email\": \"jane@example.com\",",
+        "  \"source\": \"Legal Concierge Widget\",",
+        "  \"tags\": [\"qualified\", \"personal_injury\", \"intake_2026_04_07\"],",
+        "  \"customFields\": [",
+        "    { \"id\": \"cf_practice_area\", \"value\": \"personal_injury\" },",
+        "    { \"id\": \"cf_incident_date\", \"value\": \"2026-03-15\" },",
+        "    { \"id\": \"cf_jurisdiction\", \"value\": \"TX\" },",
+        "    { \"id\": \"cf_qual_score\", \"value\": \"8\" },",
+        "    { \"id\": \"cf_session_id\", \"value\": \"call_xxx\" },",
+        "    { \"id\": \"cf_injury_description\", \"value\": \"Whiplash, back pain, ER visit at Houston Methodist\" },",
+        "    { \"id\": \"cf_attorney_id\", \"value\": \"paul_donovan\" }",
+        "  ]",
+        "}"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Pre-built GHL Workflows (configured at firm onboarding):"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "retainer-followup: SMS at 2h, 24h, 48h if unsigned. Email at 24h. Athena outbound call at 72h.",
+        "appointment-reminder: SMS 24h before and 1h before. Email 24h before.",
+        "unqualified-nurture: Email with legal resource content, 3-touch over 7 days.",
+        "new-intake-alert: Immediate Slack/email notification to attorney on new qualified lead."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Required OAuth scopes:"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "contacts.readonly contacts.write",
+        "calendars.readonly calendars.write",
+        "calendars/events.readonly calendars/events.write",
+        "opportunities.readonly opportunities.write",
+        "conversations.readonly conversations.write",
+        "conversations/message.readonly conversations/message.write",
+        "workflows.readonly",
+        "locations.readonly locations.write",
+        "voice-ai-agents.readonly",
+        "users.readonly businesses.readonly"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "3.7 E-Signature Integration"
+    },
+    {
+      "type": "paragraph",
+      "text": "Recommended default: HelloSign (Dropbox Sign) \u2014 $15/month for typical volumes, solid API, ESIGN Act + UETA compliant, consumer-recognized brand. DocuSign for firms requiring maximum court defensibility. PandaDoc for firms that want to manage templates inside a document editor."
+    },
+    {
+      "type": "paragraph",
+      "text": "Template selection logic (waterfall):"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "async function selectRetainerTemplate(db, firmId, practiceArea, stateCode, attorneyId) {",
+        "  // Most specific: practice_area + state + attorney",
+        "  const t1 = await db.query(`SELECT * FROM retainer_templates ",
+        "    WHERE firm_id=$1 AND practice_area=$2 AND state_code=$3 AND attorney_id=$4 AND active=true",
+        "    ORDER BY version DESC LIMIT 1`, [firmId, practiceArea, stateCode, attorneyId]);",
+        "  if (t1.rows[0]) return t1.rows[0];",
+        "  // Fallback: practice_area + state (any attorney)",
+        "  const t2 = await db.query(`SELECT * FROM retainer_templates",
+        "    WHERE firm_id=$1 AND practice_area=$2 AND state_code=$3 AND active=true",
+        "    ORDER BY version DESC LIMIT 1`, [firmId, practiceArea, stateCode]);",
+        "  if (t2.rows[0]) return t2.rows[0];",
+        "  // Fallback: practice_area only (firm-wide default)",
+        "  const t3 = await db.query(`SELECT * FROM retainer_templates",
+        "    WHERE firm_id=$1 AND practice_area=$2 AND active=true",
+        "    ORDER BY version DESC LIMIT 1`, [firmId, practiceArea]);",
+        "  if (t3.rows[0]) return t3.rows[0];",
+        "  throw new Error(No retainer template for ${practiceArea}/${stateCode}/${firmId});",
+        "}"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Target: retainer SMS delivered within 60 seconds of qualification completion."
+    },
+    {
+      "type": "paragraph",
+      "text": "The HelloSign envelope is created concurrently with calendar booking (parallel dispatch). SMS contains the signing link. Email contains the full document preview. The signature_request_signed webhook fires to /webhooks/esign/completed \u2192 advance GHL pipeline to \"Retainer Signed\" \u2192 write audit log \u2192 remove from follow-up workflow \u2192 enroll in attorney notification workflow."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "3.8 Calendar Booking"
+    },
+    {
+      "type": "paragraph",
+      "text": "Calendar booking is offered to the caller during (or immediately after) the qualification conversation. The concierge agent fires the request_booking_slot tool \u2192 backend fetches 3 available slots from GHL Calendar API \u2192 returns them to the agent \u2192 agent presents 3 options verbally \u2192 caller chooses \u2192 confirm_booking tool fires."
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "# Step 1: Fetch available slots",
+        "GET /calendars/{calendarId}/free-slots",
+        "  ?startDate=1712484000000   # Unix ms \u2014 now",
+        "  &endDate=1713088800000     # Unix ms \u2014 +7 days",
+        "  &timezone=America/Chicago   # Detected from caller's browser",
+        "Authorization: Bearer {token}",
+        "Version: 2021-07-28",
+        "# Step 2: Book appointment",
+        "POST /calendars/events/appointments",
+        "{",
+        "  \"calendarId\": \"cal_donovan_real_estate\",",
+        "  \"locationId\": \"{ghl_location_id}\",",
+        "  \"contactId\": \"contact_xxx\",",
+        "  \"startTime\": \"2026-04-08T10:00:00-05:00\",",
+        "  \"appointmentStatus\": \"confirmed\",",
+        "  \"title\": \"Initial Consultation \u2014 Jane Doe \u2014 Real Estate\",",
+        "  \"notes\": \"AI case summary: {generated_from_transcript}\",",
+        "  \"assignedUserId\": \"{ghl_user_id_paul_donovan}\"",
+        "}",
+        "# Step 3: SMS confirmation",
+        "POST /conversations/messages",
+        "{",
+        "  \"type\": \"SMS\",",
+        "  \"contactId\": \"contact_xxx\",",
+        "  \"locationId\": \"{ghl_location_id}\",",
+        "  \"message\": \"Your consultation with Paul Donovan is confirmed for April 8 at 10:00 AM CT. Reply STOP to opt out.\"",
+        "}"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Timezone awareness: The widget reads Intl.DateTimeFormat().resolvedOptions().timeZone from the browser and passes it with the booking request. Slots are presented to the caller in their local timezone."
+    },
+    {
+      "type": "paragraph",
+      "text": "Gmail/Google Calendar fallback: For firms not yet on GHL, or if GHL calendar is temporarily unavailable, the platform falls back to Google Calendar API using an attorney's connected Google account."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "3.9 Multi-Tenancy Architecture"
+    },
+    {
+      "type": "paragraph",
+      "text": "Every data entity carries firm_id. Isolation is enforced at five layers:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Layer",
+        "Isolation Mechanism"
+      ],
+      "rows": [
+        [
+          "Database",
+          "firm_id FK on every table; Row-level Security policies in PostgreSQL"
+        ],
+        [
+          "API",
+          "JWT includes firm_id claim; middleware rejects mismatched access"
+        ],
+        [
+          "Webhooks",
+          "firm_id in query string; validated against call's registered firm"
+        ],
+        [
+          "Redis",
+          "Namespaced keys: session:{firm_id}:{call_id}:milestone"
+        ],
+        [
+          "GHL",
+          "Each firm uses its own locationId on every API call"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Onboarding a new firm (Phase 6 Admin Portal):"
+    },
+    {
+      "type": "numbered",
+      "items": [
+        "Firm creates account \u2192 new firms record",
+        "Select practice areas \u2192 load templates into their KB",
+        "Connect GHL \u2192 OAuth flow creates Location mapping",
+        "Connect Athena \u2192 create assistant, upload KB documents",
+        "Configure attorneys + calendars",
+        "Upload retainer templates",
+        "Generate embed code \u2192 one script tag to add to their website"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "4. Intake Flows by Practice Area"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "4.1 Personal Injury / MVA"
+    },
+    {
+      "type": "paragraph",
+      "text": "The most common case type. Contingency fee (33\u201340%) creates high urgency for firms to qualify quickly \u2014 a good PI case is worth $3,000\u2013$50,000+ in fees."
+    },
+    {
+      "type": "paragraph",
+      "text": "AI-guided flow:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Stage",
+        "Variables Captured",
+        "Key Agent Actions"
+      ],
+      "rows": [
+        [
+          "Contact",
+          "FirstName, LastName, Phone, Email, SmsConsent",
+          "\"May I get your name and the best number to reach you?\""
+        ],
+        [
+          "Incident Basics",
+          "IncidentDate, IncidentState, IncidentLocation, AccidentType",
+          "SOL auto-calculated; urgency flag if < 90 days to deadline"
+        ],
+        [
+          "Injury & Treatment",
+          "InjuryDescription, ERVisit, TreatingFacility, OngoingTreatment, TreatingDoctor, WageLoss",
+          "Empathetic tone; probe for severity and continuity of treatment"
+        ],
+        [
+          "Accident Scene",
+          "AtFaultParty, AtFaultInsurance, PoliceReportFiled, PoliceReportNumber, Witnesses, WitnessInfo",
+          "Capture documentation inventory"
+        ],
+        [
+          "Eligibility",
+          "CurrentlyRepresented, PriorSettlement, PriorClaims",
+          "Hard stop on CurrentlyRepresented = true"
+        ],
+        [
+          "Employment & Damages",
+          "Employer, WeeklyIncome, InsuranceCarrier, UIMCoverage",
+          "Adds case value context"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Qualification scoring (max 10):"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Condition",
+        "Points"
+      ],
+      "rows": [
+        [
+          "ERVisit = true",
+          "+2"
+        ],
+        [
+          "OngoingTreatment = true",
+          "+1"
+        ],
+        [
+          "WageLoss = true",
+          "+2"
+        ],
+        [
+          "InjuryDescription present (non-trivial)",
+          "+2"
+        ],
+        [
+          "PoliceReportFiled = true",
+          "+1"
+        ],
+        [
+          "Witnesses = true",
+          "+1"
+        ],
+        [
+          "AtFaultInsurance confirmed",
+          "+1"
+        ],
+        [
+          "PriorSettlement = true",
+          "\u22123"
+        ],
+        [
+          "PriorClaims in same body part",
+          "\u22122"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Threshold: \u22655 = Qualified \u2192 retainer + booking. 3\u20134 = Qualified with flag (book consult, attorney decides). <3 = Resource mode."
+    },
+    {
+      "type": "paragraph",
+      "text": "Disqualification triggers:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "CurrentlyRepresented = true \u2192 hard stop, polite exit",
+        "SOL expired \u2192 graceful exit with non-engagement explanation",
+        "PriorSettlement = true on same accident \u2192 flag for attorney review (not auto-disqualify)",
+        "Minor impact, no injury, no treatment \u2192 resource mode (not retained)"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Urgency flags:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "Any government entity involved (45\u2013180 day notice requirement in most states) \u2192 immediate escalation",
+        "IncidentDate within 90 days of SOL expiry \u2192 \"We need to act quickly\"",
+        "Fresh accident (within 7 days) \u2192 \"Evidence preservation is critical right now\""
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Documents to request:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "Police/accident report",
+        "Medical bills and records",
+        "Photos of vehicle damage, scene, injuries",
+        "Insurance information (both parties)",
+        "Pay stubs (for lost wages claim)"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Fee structure disclosure: \"Our attorneys work on a contingency fee \u2014 you pay nothing upfront and no attorney fee unless you win. Costs and expenses are discussed in the retainer agreement.\""
+    },
+    {
+      "type": "paragraph",
+      "text": "Handoff: Qualified \u2192 retainer (HelloSign, within 60 seconds) + booking (first available attorney slot). High-urgency cases (SOL < 90 days) \u2192 warm transfer attempt first."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "4.2 Real Estate (Donovan Law Primary)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Transaction-driven intake. Strong deadline urgency (30\u201360 day closing windows). Flat fee or hourly."
+    },
+    {
+      "type": "paragraph",
+      "text": "AI-guided flow:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Stage",
+        "Variables Captured",
+        "Key Agent Actions"
+      ],
+      "rows": [
+        [
+          "Contact",
+          "Standard contact fields",
+          "Establish name, phone, email"
+        ],
+        [
+          "Matter Type",
+          "TransactionType (purchase/sale/lease/dispute/zoning), PropertyType (residential/commercial/land)",
+          "Route to appropriate sub-flow"
+        ],
+        [
+          "Property Details",
+          "PropertyAddress, PropertyState, TransactionValue, PropertyRole (buyer/seller/landlord/tenant)",
+          "Jurisdiction check; confirms firm is licensed"
+        ],
+        [
+          "Transaction Details",
+          "PurchaseAgreementSigned, ClosingDateScheduled, FinancingInvolved, Lender, TitleCompany, Contingencies",
+          "For commercial: EntityStructure, ExistingTenants, Is1031Exchange"
+        ],
+        [
+          "Dispute Details",
+          "DisputeNature (non-payment/habitability/eviction/title/fraud), ExistingCourtFilings, EvictionTimeline",
+          "For dispute sub-flow"
+        ],
+        [
+          "Eligibility",
+          "CurrentlyRepresented, PropertyState matches active_states",
+          ""
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Qualification scoring (max 10):"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Condition",
+        "Points"
+      ],
+      "rows": [
+        [
+          "Commercial property",
+          "+3"
+        ],
+        [
+          "Active transaction (purchase/sale) with contract signed",
+          "+2"
+        ],
+        [
+          "Contract dispute with defined dollar amount",
+          "+2"
+        ],
+        [
+          "Client is decision-maker / owner",
+          "+1"
+        ],
+        [
+          "Closing deadline within 30 days",
+          "+2"
+        ],
+        [
+          "EvictionTimeline imminent",
+          "+2"
+        ],
+        [
+          "Outside active states (firm not licensed)",
+          "\u22125"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Disqualification triggers:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "Property in state where firm is not licensed \u2192 graceful exit with referral guidance",
+        "Currently represented by another attorney on same matter \u2192 exit",
+        "Both buyer and seller seeking firm representation in same transaction \u2192 conflict, exit"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Urgency flags:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "ClosingDateScheduled within 14 days \u2192 \"With closing coming up, we should connect with you today\"",
+        "EvictionTimeline < 7 days \u2192 immediate escalation"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Documents to request:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "Signed purchase agreement or LOI",
+        "Existing title report or prior title insurance policy",
+        "HOA documents (if applicable)",
+        "Mortgage commitment letter",
+        "Seller disclosures / inspection report"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Fee structure disclosure: \"Real estate transaction matters are typically handled on a flat fee basis. Dispute representation is hourly. Paul Donovan will review the specific fee structure with you in your consultation.\""
+    },
+    {
+      "type": "paragraph",
+      "text": "Handoff: Qualified \u2192 booking (Paul Donovan's calendar, real estate slot) + retainer dispatch. Flat fee or hourly engagement letter."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "4.3 Business Law (Donovan Law)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Entity- and contract-driven intake. High variability in matter type. Hourly or flat fee."
+    },
+    {
+      "type": "paragraph",
+      "text": "AI-guided flow:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Stage",
+        "Variables Captured",
+        "Key Agent Actions"
+      ],
+      "rows": [
+        [
+          "Contact",
+          "Standard",
+          "Establish identity and role (owner, officer, authorized agent)"
+        ],
+        [
+          "Matter Type",
+          "BusinessMatterType (formation/contract/dispute/MA/compliance)",
+          "Branch to appropriate sub-flow"
+        ],
+        [
+          "Entity Details",
+          "EntityType (LLC/Corp/Partnership/Sole Prop), BusinessName, StateOfOrganization, YearsOperating, NumberOfOwners",
+          ""
+        ],
+        [
+          "Matter Details",
+          "ContractInDispute, PartiesInvolved, ApproxDollarValue, IsLitigationPending, FilingDeadline",
+          ""
+        ],
+        [
+          "Financial Context",
+          "IsRevenueGenerating, AnnualRevenue (approximate range)",
+          "Ensures case value justifies fees"
+        ],
+        [
+          "Eligibility",
+          "CurrentlyRepresented, ConflictCheck fields",
+          ""
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Qualification scoring (max 10):"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Condition",
+        "Points"
+      ],
+      "rows": [
+        [
+          "Revenue-generating business (not idea stage)",
+          "+3"
+        ],
+        [
+          "Active contract dispute with defined dollar amount",
+          "+3"
+        ],
+        [
+          "Business formation (clear, low-risk engagement)",
+          "+2"
+        ],
+        [
+          "Multiple partners involved",
+          "+1"
+        ],
+        [
+          "Deadline or filing deadline within 60 days",
+          "+1"
+        ],
+        [
+          "Criminal/regulatory enforcement action",
+          "+2 (escalate priority)"
+        ],
+        [
+          "No assets/revenue, startup idea only",
+          "\u22122"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Disqualification triggers:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "Securities law or complex federal regulatory matter beyond firm's scope \u2192 graceful referral",
+        "Representing both parties in same transaction (conflict) \u2192 exit"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Documents to request (varies by matter type):"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "Entity formation: prior articles, operating agreement, business licenses",
+        "Contracts: term sheet, LOI, existing drafts",
+        "M&A: entity financials, target company info, LOI",
+        "Dispute: existing contract, correspondence, evidence of breach"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Fee structure disclosure: \"Business law matters are handled on an hourly basis or flat fee depending on the type of matter. Paul Donovan will discuss the specific arrangement during your consultation.\""
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "4.4 Tax Law (Donovan Law)"
+    },
+    {
+      "type": "paragraph",
+      "text": "IRS-deadline-driven intake. Missing a 90-day Tax Court deadline is permanent and catastrophic. Urgency is the primary qualifier."
+    },
+    {
+      "type": "paragraph",
+      "text": "AI-guided flow:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Stage",
+        "Variables Captured",
+        "Key Agent Actions"
+      ],
+      "rows": [
+        [
+          "Contact",
+          "Standard",
+          ""
+        ],
+        [
+          "Issue Type",
+          "TaxIssueType (audit/debt/lien/levy/OfferInCompromise/TaxCourt/planning/criminal)",
+          "\"Which of these best describes your situation?\""
+        ],
+        [
+          "Scope",
+          "IsPersOrBusiness, TaxAuthority (IRS/state/both), TaxYearsAtIssue",
+          ""
+        ],
+        [
+          "Urgency",
+          "NoticeType (CP2000/CP3219A/NoticeOfDeficiency/IntentToLevy/LienNotice), NoticeDeadline, DeadlineDate",
+          "CRITICAL \u2014 90-day letter triggers immediate escalation"
+        ],
+        [
+          "Amount",
+          "ApproxTaxLiability (range: <$10K/$10K-$50K/$50K-$200K/>$200K)",
+          "Qualifies for attorney fees vs. CPA referral"
+        ],
+        [
+          "Current Status",
+          "HasSpokenToIRS, MadeAdmissions, HasFiled4Years",
+          ""
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Qualification scoring (max 10):"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Condition",
+        "Points"
+      ],
+      "rows": [
+        [
+          "Active IRS audit or collection action",
+          "+4"
+        ],
+        [
+          "Tax debt > $10,000",
+          "+3"
+        ],
+        [
+          "90-day Notice of Deficiency received",
+          "+4 (auto-escalate)"
+        ],
+        [
+          "Business tax matter",
+          "+2"
+        ],
+        [
+          "Correspondence deadline within 30 days",
+          "+3"
+        ],
+        [
+          "Criminal tax investigation",
+          "+5 (immediate attorney call)"
+        ],
+        [
+          "Tax balance < $10,000 (CPA-level)",
+          "\u22123"
+        ],
+        [
+          "State-only matter, state where firm not licensed",
+          "\u22124"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Critical urgency flags:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "NoticeType = \"NoticeOfDeficiency\" \u2192 \"The 90-day deadline to petition Tax Court is one of the most critical in all of law. Missing it permanently eliminates your right to contest in Tax Court without paying first. We need to connect you with Paul immediately.\"",
+        "NoticeType = \"IntentToLevy\" \u2192 \"A Notice of Intent to Levy means the IRS can seize your assets within 30 days. This is urgent \u2014 let's get you connected today.\"",
+        "DeadlineDate < 14 days away \u2192 immediate warm transfer attempt"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Documents to request:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "All IRS notices and correspondence (chronological order)",
+        "Last 2\u20133 years of filed tax returns",
+        "Bank statements (3\u20136 months)",
+        "Business P&L (if business matter)",
+        "Prior collection correspondence"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Fee structure disclosure: \"Tax law matters are handled on a flat fee by type of matter, or hourly for complex cases. Paul will review the specific fee with you in your consultation.\""
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "4.5 Family Law"
+    },
+    {
+      "type": "paragraph",
+      "text": "Safety-first intake. Domestic violence requires immediate escalation. High emotional sensitivity required. Contingency fees prohibited in most states \u2014 retainer required upfront."
+    },
+    {
+      "type": "paragraph",
+      "text": "AI-guided flow:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Stage",
+        "Variables Captured",
+        "Key Agent Actions"
+      ],
+      "rows": [
+        [
+          "Safety Check",
+          "ImmediateSafetyRisk, NeedsEmergencyProtectiveOrder",
+          "FIRST \u2014 if yes, immediate escalation and hotline referral"
+        ],
+        [
+          "Contact",
+          "Standard",
+          ""
+        ],
+        [
+          "Matter Type",
+          "FamilyMatterType (divorce/custody/support/adoption/prenup/DV)",
+          ""
+        ],
+        [
+          "Marriage Details",
+          "DateOfMarriage, CurrentlyLivingTogether, SeparationDate, SpouseHasAttorney",
+          ""
+        ],
+        [
+          "Children",
+          "HasMinorChildren, ChildrenNames, CurrentCustodyArrangement, CustodyGoals, SpecialNeeds",
+          ""
+        ],
+        [
+          "Assets",
+          "MaritalResidenceValue, EstimatedTotalAssets, SharedDebts, RetirementAccounts, BusinessInterests",
+          ""
+        ],
+        [
+          "Eligibility",
+          "MeetsResidencyRequirement, CurrentlyRepresented, ClientCanAffordRetainer",
+          ""
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Qualification scoring (max 10):"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Condition",
+        "Points"
+      ],
+      "rows": [
+        [
+          "Active children custody dispute",
+          "+3"
+        ],
+        [
+          "Significant assets to divide (>$100K)",
+          "+3"
+        ],
+        [
+          "Domestic violence / emergency order needed",
+          "+3 (escalate immediately)"
+        ],
+        [
+          "Contested divorce (not agreed)",
+          "+2"
+        ],
+        [
+          "Meets residency requirements",
+          "+1"
+        ],
+        [
+          "No assets, no children, fully agreed",
+          "\u22124 (refer to doc prep service)"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Disqualification triggers:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "No assets, no children, fully uncontested \u2192 resource mode (refer to self-help court programs or legal document prep)",
+        "Jurisdiction where firm not licensed"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Urgency flags:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "ImmediateSafetyRisk = true \u2192 pause intake, provide National DV Hotline (1-800-799-7233), offer immediate attorney call",
+        "Child removal threat \u2192 emergency filing capability flagged",
+        "Pending court date within 14 days \u2192 immediate escalation"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Documents to request:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "Marriage certificate",
+        "Birth certificates for all children",
+        "Last 2 years tax returns, 3 months pay stubs",
+        "Bank statements, property deeds, retirement account statements",
+        "Any existing court orders (custody, support, restraining orders)",
+        "Prenuptial agreement (if any)"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Fee structure disclosure: \"Family law matters require an upfront retainer. Paul will discuss the specific retainer amount and hourly rate during your consultation based on the complexity of your case.\""
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "4.6 Criminal Defense"
+    },
+    {
+      "type": "paragraph",
+      "text": "Time-critical intake. Arrests happen at night. DUI hearings and arraignments have 48-hour deadlines. The platform must have the firmest urgency detection of any practice area."
+    },
+    {
+      "type": "paragraph",
+      "text": "AI-guided flow:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Stage",
+        "Variables Captured",
+        "Key Agent Actions"
+      ],
+      "rows": [
+        [
+          "Contact",
+          "Standard + ImmigrationStatus",
+          "Immigration status is critical \u2014 convictions can trigger deportation"
+        ],
+        [
+          "Charge Details",
+          "ChargesField, ArrestDate, ArrestAgency, BondAmount, CourtDate",
+          "FIRST for current matter"
+        ],
+        [
+          "Incident Description",
+          "ClientDescriptionOfEvents, MirandaGiven, StatementMade, RequestedAttorney",
+          ""
+        ],
+        [
+          "Prior Record",
+          "PriorConvictions, OnProbation, ProbationOfficer",
+          ""
+        ],
+        [
+          "DUI-Specific",
+          "BACReading, ChemicalTestRefused, DMVHearingRequested, PriorDUIs",
+          "10-day DMV hearing deadline"
+        ],
+        [
+          "Financial",
+          "CanAffordRetainer, EmploymentStatus",
+          ""
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Qualification scoring (max 10):"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Condition",
+        "Points"
+      ],
+      "rows": [
+        [
+          "Felony charges",
+          "+4"
+        ],
+        [
+          "Arraignment within 48\u201372 hours",
+          "+4 (immediate escalation)"
+        ],
+        [
+          "DUI: DMV hearing deadline < 10 days",
+          "+5 (immediate)"
+        ],
+        [
+          "Client made no statement to police",
+          "+1"
+        ],
+        [
+          "Currently detained (in jail)",
+          "+5 (emergency)"
+        ],
+        [
+          "Federal charges (if firm handles federal)",
+          "+3"
+        ],
+        [
+          "Cannot afford retainer, qualifies for public defender",
+          "\u22125"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Critical urgency flags:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "CurrentlyDetained = true \u2192 \"If someone is currently in custody, it is important that they speak to an attorney immediately. Let me connect you right now.\"",
+        "DUI arrest: \"In most states, you have only 10 days from your arrest date to request a DMV hearing to protect your driver's license. This deadline is separate from your criminal case.\"",
+        "CourtDate within 48 hours \u2192 immediate warm transfer attempt"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Disqualification triggers:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "Federal charges at firms that only handle state matters",
+        "Client cannot afford retainer and doesn't qualify for public defender \u2192 referral with information",
+        "Immigration detainer: coordinate with immigration attorney referral"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Documents to request:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "Arrest/booking paperwork",
+        "Bond paperwork and conditions of release",
+        "Any citations or charging documents",
+        "Prior conviction records (if client has them)",
+        "Character reference contacts"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Fee structure disclosure: \"Criminal defense is typically handled on a flat fee for defined case stages. The attorney will discuss the retainer amount during your consultation.\""
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "4.7 Immigration"
+    },
+    {
+      "type": "paragraph",
+      "text": "Document-intensive. Language-critical. Spanish, Portuguese, and other language support essential. Filing deadlines are jurisdictional and unforgiving."
+    },
+    {
+      "type": "paragraph",
+      "text": "AI-guided flow:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Stage",
+        "Variables Captured",
+        "Key Agent Actions"
+      ],
+      "rows": [
+        [
+          "Language",
+          "PreferredLanguage",
+          "Switch to Spanish/etc. immediately if needed"
+        ],
+        [
+          "Contact",
+          "Standard",
+          ""
+        ],
+        [
+          "Matter Type",
+          "ImmigrationMatterType (family/employment/asylum/removal/DACA/naturalization/UVisa)",
+          ""
+        ],
+        [
+          "Current Status",
+          "CurrentImmigrationStatus, EntryDate, VisaType, ALienRegistrationNumber",
+          ""
+        ],
+        [
+          "Family Ties",
+          "HasUSCSpouse, HasUSCParent, HasLPRSponsor",
+          "Critical for family-based pathways"
+        ],
+        [
+          "Deadline Check",
+          "HasNoticeToAppear, CourtDate, AsylumFilingDeadline, RFEDeadline",
+          ""
+        ],
+        [
+          "Criminal History",
+          "AnyCriminalHistory",
+          "Critical \u2014 affects nearly all relief categories"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Critical urgency flags:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "Asylum: DaysSinceEntry > 300 \u2192 \"The 1-year asylum filing deadline is very strict. If you entered more than a year ago without filing, we need to discuss potential exceptions immediately.\"",
+        "HasNoticeToAppear = true and court date present \u2192 \"You have active removal proceedings. Missing your court date results in an automatic order of removal.\"",
+        "RFEDeadline within 30 days \u2192 immediate priority"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "4.8 Estate Planning / Probate"
+    },
+    {
+      "type": "paragraph",
+      "text": "Trust-based intake. Clients are often elderly or recently bereaved. High emotional sensitivity. No SOL urgency unless terminal illness or probate deadlines."
+    },
+    {
+      "type": "paragraph",
+      "text": "AI-guided flow:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Stage",
+        "Variables Captured",
+        "Key Agent Actions"
+      ],
+      "rows": [
+        [
+          "Contact",
+          "Standard",
+          ""
+        ],
+        [
+          "Matter Type",
+          "EstateMatterType (will/trust/POA/healthcare_directive/probate/guardianship)",
+          ""
+        ],
+        [
+          "Life Circumstances",
+          "MarriedOrPartnered, HasMinorChildren, HasSpecialNeedsChild, PriorWillExists",
+          ""
+        ],
+        [
+          "Urgency",
+          "TerminalIllnessPresent, ImmediateCapacityConcerns, ProbateDeadline",
+          ""
+        ],
+        [
+          "Asset Overview",
+          "RealEstateOwned, RetirementAccounts, LifeInsurance, BusinessInterests, EstimatedEstatValue",
+          ""
+        ],
+        [
+          "Family Situation",
+          "BlendedFamily, Divorced, ChildrenFromMultipleRelationships",
+          ""
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Critical urgency flags:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "TerminalIllnessPresent = true \u2192 \"We can accommodate expedited appointments and can come to your home or facility if needed.\"",
+        "Probate deadlines (creditor periods, estate tax returns due 9 months from date of death) \u2192 immediate flag"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "4.9 Bankruptcy"
+    },
+    {
+      "type": "paragraph",
+      "text": "Document-intensive. Automatic stay is an extremely powerful urgency trigger. Foreclosure sale dates, wage garnishments, and bank levies can be stopped immediately upon filing."
+    },
+    {
+      "type": "paragraph",
+      "text": "AI-guided flow:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Stage",
+        "Variables Captured",
+        "Key Agent Actions"
+      ],
+      "rows": [
+        [
+          "Contact",
+          "Standard",
+          ""
+        ],
+        [
+          "Urgency",
+          "ForeclosureSaleDate, WageGarnishmentActive, BankLevied",
+          "Critical \u2014 bankruptcy stops these immediately"
+        ],
+        [
+          "Debt Overview",
+          "PrimaryDebtType (mortgage/credit/medical/student/tax), TotalDebtEstimate",
+          ""
+        ],
+        [
+          "Income",
+          "GrossMonthlyIncome, HouseholdSize",
+          "For Means Test (Chapter 7 eligibility)"
+        ],
+        [
+          "Assets",
+          "RealEstateOwned, VehiclesOwned, RetirementAccountBalance",
+          ""
+        ],
+        [
+          "Prior Filings",
+          "PriorBankruptcyFiled, PriorChapter, YearOfPriorDischarge",
+          "Determines re-filing eligibility"
+        ],
+        [
+          "Credit Counseling",
+          "CreditCounselingCompleted",
+          "Mandatory within 180 days before filing"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Critical urgency flags:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "ForeclosureSaleDate within 14 days \u2192 \"Filing bankruptcy immediately triggers an automatic stay, which stops the foreclosure sale. We should move quickly.\"",
+        "WageGarnishmentActive = true \u2192 \"Bankruptcy filing stops wage garnishment immediately.\""
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "4.10 Employment Law"
+    },
+    {
+      "type": "paragraph",
+      "text": "EEOC-deadline-driven. Firms accept fewer than 5% of cases presented. The most stringent qualification criteria of any practice area."
+    },
+    {
+      "type": "paragraph",
+      "text": "AI-guided flow:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Stage",
+        "Variables Captured",
+        "Key Agent Actions"
+      ],
+      "rows": [
+        [
+          "Contact",
+          "Standard",
+          ""
+        ],
+        [
+          "Claim Type",
+          "EmploymentClaimType (discrimination/harassment/wrongful_termination/wage_hour/FMLA/retaliation)",
+          ""
+        ],
+        [
+          "Employer",
+          "EmployerName, EmployerSize (employees), YourJobTitle, TerminationDate",
+          "Size matters \u2014 Title VII requires 15+ employees"
+        ],
+        [
+          "Protected Class",
+          "ProtectedBasis (race/sex/age/disability/religion/national_origin/pregnancy/other)",
+          ""
+        ],
+        [
+          "EEOC Status",
+          "EEOCChargeFiled, EEOCChargeDate, RightToSueReceived, RightToSueDate",
+          "MOST CRITICAL \u2014 90-day filing deadline"
+        ],
+        [
+          "Damages",
+          "LostWages, CurrentlyEmployed, NewSalary, EmotionalDistress",
+          ""
+        ],
+        [
+          "Arbitration",
+          "SignedArbitrationAgreement",
+          "Changes available forum"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Critical urgency flags:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "RightToSueDate present and DaysRemaining <= 30 \u2192 \"You have {X} days remaining to file suit after receiving your right-to-sue letter. This deadline cannot be extended. We need to act immediately.\"",
+        "TerminationDate present and approaching 180/300-day EEOC filing window \u2192 flag"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Disqualification triggers:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "At-will termination with no protected class nexus",
+        "EEOC deadline passed without charge filed",
+        "Right-to-sue expired (90 days)",
+        "Employer under 15 employees (Title VII inapplicable)",
+        "No recoverable damages",
+        "Client signed arbitration agreement (changes analysis \u2014 not disqualify, but flag)"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "5. CON-989 as Universal Framework"
+    },
+    {
+      "type": "paragraph",
+      "text": "CON-989 refers to the MVA intake expansion variables that transform the AdvisoryConnect base (accident \u2192 damage \u2192 legal \u2192 connect) into the deep clinical-quality intake pattern needed for serious cases. The insight is that these variables are not MVA-specific \u2014 they are the pattern for all practice areas."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "5.1 The Pattern"
+    },
+    {
+      "type": "paragraph",
+      "text": "Every intake flow collects the same structural categories of information. Only the domain-specific labels change:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Universal Category",
+        "PI/MVA Variables",
+        "Family Law Variables",
+        "Criminal Defense Variables",
+        "Tax Law Variables"
+      ],
+      "rows": [
+        [
+          "What happened",
+          "AccidentType, AccidentDate, AccidentLocation",
+          "MarriageDate, SeparationDate, FamilyMatterType",
+          "ChargesField, ArrestDate, AllegedOffense",
+          "TaxIssueType, TaxYearsAtIssue"
+        ],
+        [
+          "Impact/injury",
+          "InjuryDescription, ERVisit, TreatingFacility, WageLoss",
+          "ChildCustodyGoals, AssetDivisionImpact",
+          "BondAmount, ImpactOnEmployment",
+          "TaxLiabilityAmount, ImpactOnBusiness"
+        ],
+        [
+          "Scene/context",
+          "AtFaultParty, PoliceReportFiled, Witnesses, WitnessInfo",
+          "SpouseHasAttorney, CourtOrders, PrenuptialAgreement",
+          "ArrestingAgency, MirandaGiven, StatementMade",
+          "IRSNoticeType, IRSDeadlineDate"
+        ],
+        [
+          "Eligibility gates",
+          "CurrentlyRepresented, SOLStatus",
+          "MeetsResidency, ClientCanAfford",
+          "CanAffordRetainer, OnProbation",
+          "DebtOverThreshold, CanAffordFees"
+        ],
+        [
+          "Document inventory",
+          "PoliceReport, MedicalRecords, Photos, InsuranceInfo",
+          "MarriageCert, TaxReturns, BankStatements",
+          "ArrestDocs, BondPapers",
+          "IRSNotices, FiledReturns, BankStatements"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "5.2 The Conditional Logic Pattern"
+    },
+    {
+      "type": "paragraph",
+      "text": "The conditional if (ERVisit == true) \u2192 ask TreatingFacility pattern from CON-989 is universal:"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "PI:        if (ERVisit == true)        \u2192 ask TreatingFacility",
+        "Family:    if (HasMinorChildren == true) \u2192 ask CustodyGoals, ChildInfo",
+        "Criminal:  if (MirandaGiven == true)   \u2192 ask StatementMade",
+        "Tax:       if (NoticeType == \"NoticeOfDeficiency\") \u2192 ask NoticeDeadline, escalate urgency",
+        "Immigration: if (HasNoticeToAppear == true) \u2192 ask CourtDate, RemovalProceedingsDetails",
+        "Estate:    if (TerminalIllnessPresent == true) \u2192 set urgency_flag, offer expedited_appointment",
+        "Bankruptcy: if (ForeclosureSaleDate present) \u2192 calculate days_until_sale, trigger urgency_flow",
+        "Employment: if (RightToSueReceived == true)  \u2192 calculate days_remaining, trigger deadline_flag"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Implementation: The template engine processes condition objects on question nodes. When condition.if evaluates true, the question becomes required and is added to the next exchange. When false, it is skipped. This is a single generic evaluation function \u2014 not practice-area-specific code."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "5.3 The submit_lead Payload \u2014 Universal Structure"
+    },
+    {
+      "type": "paragraph",
+      "text": "The submit_lead tool fires when qualification is complete. Its payload structure accommodates any practice area:"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "{",
+        "  \"firm_id\": \"donovan_pllc\",",
+        "  \"session_id\": \"call_xxx\",",
+        "  \"practice_area\": \"personal_injury\",",
+        "  \"contact\": {",
+        "    \"first_name\": \"Jane\",",
+        "    \"last_name\": \"Doe\",",
+        "    \"phone\": \"+15551234567\",",
+        "    \"email\": \"jane@example.com\",",
+        "    \"sms_consent\": true,",
+        "    \"timezone\": \"America/Chicago\"",
+        "  },",
+        "  \"qualification\": {",
+        "    \"score\": 8,",
+        "    \"max_score\": 10,",
+        "    \"status\": \"qualified\",",
+        "    \"thresholds_met\": [\"qualified\"],",
+        "    \"disqualify_reason\": null",
+        "  },",
+        "  \"intake_data\": {",
+        "    \"IncidentDate\": \"2026-03-15\",",
+        "    \"IncidentState\": \"TX\",",
+        "    \"AccidentType\": \"car_accident\",",
+        "    \"InjuryDescription\": \"Whiplash, lower back pain, ER visit\",",
+        "    \"ERVisit\": true,",
+        "    \"TreatingFacility\": \"Houston Methodist\",",
+        "    \"OngoingTreatment\": true,",
+        "    \"WageLoss\": true,",
+        "    \"AtFaultParty\": \"Other driver ran red light\",",
+        "    \"AtFaultInsurance\": \"State Farm\",",
+        "    \"PoliceReportFiled\": true,",
+        "    \"Witnesses\": true",
+        "  },",
+        "  \"urgency_flags\": [\"fresh_accident\"],",
+        "  \"milestones_completed\": [1, 2, 3, 4, 5],",
+        "  \"documents_requested\": [\"police_report\", \"medical_records\", \"photos\", \"insurance_info\"],",
+        "  \"transcript_url\": \"https://storage.googleapis.com/lc-docs/call_xxx_transcript.txt\",",
+        "  \"call_duration_seconds\": 312",
+        "}"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "The intake_data object is a generic key-value map. The template defines which keys exist. The application layer does not need to know what keys are present \u2014 it stores the full JSONB in the leads.qualification_data column and passes it to GHL as custom fields (mapped from template field definitions)."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "5.4 Milestones \u2014 Configurable Per Template"
+    },
+    {
+      "type": "paragraph",
+      "text": "The 16-milestone system from AdvisoryConnect is generalized. Templates define their own milestone list (typically 4\u20137 stages). The milestone tracker in the widget renders whatever milestones the template defines. The backend fires log_milestone tool calls for each stage completion. The widget subscribes via SSE and advances the progress bar."
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "\"milestones\": [",
+        "  { \"index\": 1, \"label\": \"Contact Info\",     \"stage_id\": \"contact\",        \"icon\": \"user\" },",
+        "  { \"index\": 2, \"label\": \"Incident Details\", \"stage_id\": \"incident_basics\",\"icon\": \"calendar\" },",
+        "  { \"index\": 3, \"label\": \"Your Injuries\",    \"stage_id\": \"injury_details\", \"icon\": \"heart\" },",
+        "  { \"index\": 4, \"label\": \"Accident Scene\",   \"stage_id\": \"accident_scene\", \"icon\": \"map-pin\" },",
+        "  { \"index\": 5, \"label\": \"Eligibility\",      \"stage_id\": \"eligibility\",    \"icon\": \"check\" }",
+        "]"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "The widget renders exactly these labels in the progress bar. Family law might show: Contact \u2192 Your Marriage \u2192 Children \u2192 Assets \u2192 Goals. Tax might show: Contact \u2192 Your Issue \u2192 IRS Notices \u2192 Financial Overview. The code is identical \u2014 only the data changes."
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "6. Donovan Law Implementation"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "6.1 Firm Profile"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Attribute",
+        "Value"
+      ],
+      "rows": [
+        [
+          "Firm name",
+          "Donovan Legal PLLC"
+        ],
+        [
+          "Primary attorney",
+          "Paul Donovan"
+        ],
+        [
+          "Practice areas",
+          "Real Estate, Business Law, Taxation"
+        ],
+        [
+          "Jurisdiction",
+          "Texas (primary); federal for tax matters"
+        ],
+        [
+          "Website",
+          "donovan-law-site (deployed on GCP Cloud Run)"
+        ],
+        [
+          "CRM",
+          "GoHighLevel \u2014 new Location to be created"
+        ],
+        [
+          "Calendar",
+          "Paul Donovan's GHL calendar (per practice area)"
+        ],
+        [
+          "Concierge name",
+          "Alex (gender-neutral; confirm with Paul)"
+        ],
+        [
+          "E-signature",
+          "HelloSign (default; Paul may have preference)"
+        ],
+        [
+          "Retainer templates",
+          "Paul Donovan to provide \u2014 one per practice area minimum"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "6.2 Knowledge Base Documents"
+    },
+    {
+      "type": "paragraph",
+      "text": "KB Document 1 \u2014 Firm Overview:"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "Donovan Legal PLLC serves clients in Texas and federal matters.",
+        "Attorney: Paul Donovan, licensed in Texas.",
+        "Practice areas: Real Estate, Business Law, Taxation.",
+        "Consultations by appointment. Available hours: [Paul to provide].",
+        "Fee structure: [Paul to provide \u2014 hourly/flat fee per area].",
+        "After-hours: AI intake available 24/7; Paul responds to qualified leads within one business day."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "KB Document 2 \u2014 Real Estate Intake Criteria: (Full qualification questions, disqualification rules, active states, SOL reference, document checklist \u2014 as defined in Section 4.2)"
+    },
+    {
+      "type": "paragraph",
+      "text": "KB Document 3 \u2014 Business Law Intake Criteria: (Full qualification questions, entity formation specifics, contract/dispute/M&A sub-flows \u2014 as defined in Section 4.3)"
+    },
+    {
+      "type": "paragraph",
+      "text": "KB Document 4 \u2014 Tax Law Intake Criteria: (Full qualification questions, IRS notice types, 90-day petition warning, urgency triggers \u2014 as defined in Section 4.4)"
+    },
+    {
+      "type": "paragraph",
+      "text": "KB Document 5 \u2014 Paul Donovan Attorney Profile:"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "Paul Donovan is a Texas-licensed attorney with experience in real estate transactions and disputes, ",
+        "business formation and contracts, and federal and state tax law including IRS representation.",
+        "He accepts appointments Monday\u2013Friday, 9am\u20135pm CT, with occasional evening slots.",
+        "Consultations are offered via phone, video, or in-person."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "6.3 GHL Setup for Donovan Legal"
+    },
+    {
+      "type": "paragraph",
+      "text": "Location: Create one GHL Location \u2014 \"Donovan Legal PLLC\" User: Paul Donovan (one GHL user) Calendars:"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "{",
+        "  \"paul_donovan\": {",
+        "    \"real_estate\":  \"cal_donovan_re\",",
+        "    \"business_law\": \"cal_donovan_biz\",",
+        "    \"taxation\":     \"cal_donovan_tax\",",
+        "    \"default\":      \"cal_donovan_consultations\"",
+        "  }",
+        "}"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Custom fields to create in GHL Location:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "cf_practice_area (text)",
+        "cf_incident_date (date)",
+        "cf_jurisdiction (text)",
+        "cf_qual_score (number)",
+        "cf_session_id (text)",
+        "cf_retainer_status (text: not_sent / sent / signed / expired)",
+        "cf_matter_description (textarea \u2014 AI-generated summary)"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Pipeline stages:"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "New Lead \u2192 Qualified \u2192 Retainer Sent \u2192 Retainer Signed \u2192 Appointment Booked \u2192 Active Client \u2192 Closed Won / Closed Lost"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Workflows to configure:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "donovan-retainer-followup (SMS 2h/24h/48h; email 24h)",
+        "donovan-appointment-reminder (SMS 24h/1h before; email 24h before)",
+        "donovan-unqualified-nurture (3-touch email over 7 days with legal info resources)",
+        "donovan-new-lead-alert (immediate SMS/email to Paul on new qualified lead)"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "6.4 Retainer Template Requirements"
+    },
+    {
+      "type": "paragraph",
+      "text": "Paul Donovan must provide approved retainer templates. At minimum one per practice area. Preferred: one per practice area \u00d7 active state."
+    },
+    {
+      "type": "paragraph",
+      "text": "Auto-populated fields (minimum):"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "{{ClientFullName}}       \u2014 from FirstName + LastName",
+        "{{ClientPhone}}          \u2014 from ClaimantPhone",
+        "{{ClientEmail}}          \u2014 from ClaimantEmail",
+        "{{MatterDescription}}    \u2014 AI-generated 2-sentence summary from transcript",
+        "{{PracticeArea}}         \u2014 from template.display_name",
+        "{{Jurisdiction}}         \u2014 state where matter arises",
+        "{{DateOfAgreement}}      \u2014 today's date",
+        "{{AttorneyName}}         \u2014 \"Paul Donovan\"",
+        "{{FirmName}}             \u2014 \"Donovan Legal PLLC\"",
+        "{{FeeStructure}}         \u2014 e.g., \"Hourly rate of $X/hr, billed in 0.1-hour increments\"",
+        "{{EngagementScope}}      \u2014 brief description of matter",
+        "{{SignatureBlock_Client}}",
+        "{{SignatureBlock_Attorney}}"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Texas Bar compliance notes for Paul's review:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "Texas Disciplinary Rules of Professional Conduct Rule 1.04 governs fee agreements",
+        "Texas advertising rules apply to any intake-related AI communications",
+        "Tax matter retainers should include Circular 230 disclosures",
+        "All templates must be reviewed and approved by Paul before production deployment"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "6.5 Athena Assistant Configuration"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "POST /api/v1/assistants",
+        "{",
+        "  \"name\": \"Donovan-Legal-Alex-v1\",",
+        "  \"description\": \"Legal intake concierge for Donovan Legal PLLC \u2014 Real Estate, Business Law, Taxation\",",
+        "  \"llm_config\": {",
+        "    \"provider\": \"openai\",",
+        "    \"model\": \"gpt-4o\",",
+        "    \"temperature\": 0.3,",
+        "    \"system_prompt\": \"You are Alex, a professional legal intake concierge for Donovan Legal PLLC. You conduct structured intake conversations for real estate, business law, and tax matters. You follow the intake template in your knowledge base precisely. You do not provide legal advice. You always disclose you are an AI assistant. You route callers to the correct practice area within the first two exchanges. Paul Donovan is the sole attorney and will be available for consultations by appointment.\"",
+        "  },",
+        "  \"voice_config\": {",
+        "    \"transcriber_provider\": \"deepgram\",",
+        "    \"synthesizer_provider\": \"elevenlabs\",",
+        "    \"voice_id\": \"professional-neutral-v2\"",
+        "  },",
+        "  \"knowledge_base_id\": \"kb_donovan_xxx\",",
+        "  \"webhook_url\": \"https://api.legalconcierge.ai/webhooks/athena/tool-call?firm_id=donovan_pllc\"",
+        "}"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "6.6 Website Embed Code"
+    },
+    {
+      "type": "paragraph",
+      "text": "Add to donovan-law-site before </body> (Cloud Run deployment \u2014 add to HTML template):"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "<!-- Legal Concierge Widget \u2014 Donovan Legal PLLC -->",
+        "<script",
+        "  src=\"https://widget.legalconcierge.ai/v1.js\"",
+        "  data-firm=\"donovan-law\"",
+        "  data-position=\"bottom-right\"",
+        "  data-primary-color=\"#[PaulsBrandColor]\"",
+        "  data-cta-text=\"Get a Free Consultation\"",
+        "  async",
+        "></script>"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Optional explicit CTAs on service pages:"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "<!-- On Real Estate page -->",
+        "<button data-lc-trigger data-practice-area=\"real_estate\" class=\"cta-button\">",
+        "  Talk to Our Legal Concierge",
+        "</button>",
+        "<!-- On Tax law page -->",
+        "<button data-lc-trigger data-practice-area=\"taxation\" class=\"cta-button\">",
+        "  Get a Free Consultation",
+        "</button>"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "The data-practice-area attribute pre-routes the intake to the correct practice area, skipping the routing question for visitors who arrive from a practice-area-specific page."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "6.7 Donovan Law First-Lead Definition of Done"
+    },
+    {
+      "type": "paragraph",
+      "text": "A visitor to the Donovan Law website:"
+    },
+    {
+      "type": "numbered",
+      "items": [
+        "Clicks the widget CTA (or calls the 24/7 number via Athena phone)",
+        "Has a full intake conversation with Alex covering their practice area",
+        "A qualified lead record is created in the Legal Concierge PostgreSQL database",
+        "A GHL contact is created with all qualification data and custom fields",
+        "A GHL opportunity is created in the correct pipeline stage",
+        "Paul receives an immediate SMS/email notification of the new qualified lead",
+        "The lead receives a HelloSign retainer link via SMS and email within 60 seconds",
+        "The lead books a consultation slot with Paul via the in-conversation booking UI",
+        "Paul's GHL calendar shows the appointment with a case summary note",
+        "The audit_log table has an immutable record of every event"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "7. Competitive Advantage"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "7.1 Smith.ai ($292\u2013$2,025/month)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Smith.ai is the most direct competitor for AI-enhanced legal intake. Their core weakness: they are fundamentally a receptionist service with AI layering, not an intake platform with legal intelligence."
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Dimension",
+        "Smith.ai",
+        "Legal Concierge"
+      ],
+      "rows": [
+        [
+          "Pricing model",
+          "Per-call; overages spike unpredictably",
+          "Flat monthly; unlimited calls"
+        ],
+        [
+          "Intelligence",
+          "Hybrid AI+human; AI is a call router",
+          "AI conducts full qualification conversation with practice-area-specific knowledge"
+        ],
+        [
+          "Depth",
+          "Message-taking and appointment booking",
+          "Full qualification \u2192 retainer \u2192 booking in single session"
+        ],
+        [
+          "Embeddability",
+          "Web chat widget embeds",
+          "Voice + text widget embeds; mobile-optimized bottom sheet"
+        ],
+        [
+          "Retainer",
+          "No",
+          "Yes \u2014 auto-populated, dispatched within 60 seconds"
+        ],
+        [
+          "Real-time transcript",
+          "No",
+          "Yes \u2014 live STT display in widget"
+        ],
+        [
+          "Practice areas",
+          "Generic intake scripting",
+          "Per-practice-area templates with qualification scoring, SOL logic, urgency flags"
+        ],
+        [
+          "Multi-firm platform",
+          "Single-firm per subscription",
+          "Multi-tenant; one codebase deploys to thousands of firms"
+        ],
+        [
+          "Integrations",
+          "9,000+ via Zapier",
+          "Direct GHL, Athena, HelloSign API (not webhook relay)"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "The decisive advantage: Smith.ai at $1,950/month (300 calls) caps at 300 interactions. Legal Concierge at $299\u2013$599/month handles unlimited calls with more intelligence per call."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "7.2 Clio Grow (~$59/user/month)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Clio Grow is the dominant legal CRM. Its weakness: it is a forms and pipeline tool, not a conversational intake agent."
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Dimension",
+        "Clio Grow",
+        "Legal Concierge"
+      ],
+      "rows": [
+        [
+          "Intake method",
+          "Static web forms (no voice, no AI conversation)",
+          "Voice AI + text with real-time transcript"
+        ],
+        [
+          "24/7 response",
+          "No (forms are passive)",
+          "Yes \u2014 active AI conversation any time"
+        ],
+        [
+          "Practice area intelligence",
+          "Generic intake forms",
+          "Practice-area-specific qualification templates"
+        ],
+        [
+          "Speed to lead",
+          "Form submitted; staff follows up",
+          "Immediate conversation; retainer in 60 seconds"
+        ],
+        [
+          "Retainer",
+          "E-signature for documents",
+          "Auto-populated retainer dispatched within 60 seconds"
+        ],
+        [
+          "Case management",
+          "Deep Clio Manage integration",
+          "GHL integration; Clio integration planned (Phase 6+)"
+        ],
+        [
+          "Target",
+          "Clio Manage users",
+          "Any firm, any website stack"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "The decisive advantage: Clio Grow waits for a visitor to fill out a form and a human to follow up. Legal Concierge closes the loop in minutes. Legal Concierge is a complement to Clio Grow, not a full replacement \u2014 they solve different problems. A Clio firm using Legal Concierge for 24/7 voice intake + Legal Concierge retainer dispatch, then feeding leads into Clio Manage for case management, is an excellent pairing."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "7.3 Lawmatics ($149\u2013$1,149/month)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Lawmatics is the most powerful legal CRM for intake automation. Weakness: no voice, no AI conversation."
+    },
+    {
+      "type": "paragraph",
+      "text": "Lawmatics' QualifyAI add-on uses AI to score leads from form data. Legal Concierge generates the lead data in the first place through a live AI conversation \u2014 a fundamentally earlier and richer intervention. The depth difference: Lawmatics processes what a visitor manually typed into a form vs. Legal Concierge extracting structured data from a full spoken intake conversation."
+    },
+    {
+      "type": "paragraph",
+      "text": "Lawmatics also requires per-user pricing that scales steeply ($649\u2013$1,149/month for growing firms). Legal Concierge flat-rate pricing is predictable at any call volume."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "7.4 Intaker (~$80/month starting)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Intaker is the closest competitor in the \"legal chatbot on website\" category. Key limitations:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "Text-only (no voice)",
+        "No real-time transcript",
+        "No retainer dispatch",
+        "No deep qualification intelligence (template-based chatbot, not LLM-native)",
+        "No multi-practice-area routing intelligence"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Intaker's strength is its legal-specific chatbot templates and video introduction feature. Legal Concierge surpasses on intelligence depth (LLM-native), voice capability, and the full lifecycle (retainer + booking)."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "7.5 LawDroid ($25\u2013$99/month)"
+    },
+    {
+      "type": "paragraph",
+      "text": "LawDroid focuses on document automation, not intake. It is not a real competitor for intake \u2014 it is a complementary tool that helps firms generate legal documents. The intake market is not LawDroid's primary focus."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "7.6 Ruby / LEX Reception / Answering Legal"
+    },
+    {
+      "type": "paragraph",
+      "text": "Human answering services have three structural problems:"
+    },
+    {
+      "type": "numbered",
+      "items": [
+        "Per-minute billing creates misaligned incentives and unpredictable costs",
+        "Humans can only work so many calls at once \u2014 overflow still goes to voicemail",
+        "Humans cannot dispatch retainers, run qualification scoring, or book calendars \u2014 they take messages"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "The most expensive human answering service plan (Ruby at $1,695/month for 500 minutes) handles roughly 50\u2013100 calls per month at typical legal intake durations. Legal Concierge handles unlimited calls for less money, with more intelligence per call, and closes the loop further down the funnel."
+    },
+    {
+      "type": "paragraph",
+      "text": "Human services remain valuable for warm transfers where attorney availability is required. Legal Concierge handles the intake; humans handle the attorney-caller interaction when needed. The two are complementary, not exclusive."
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "8. Development Phases"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Phase 1: Widget + Voice MVP (Weeks 1\u20134)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Goal: A multi-practice-area concierge that qualifies leads, persists data, and creates GHL contacts \u2014 zero stubs."
+    },
+    {
+      "type": "paragraph",
+      "text": "Deliverables:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "[ ] Backend scaffold: Node.js/Fastify \u2192 Cloud Run, PostgreSQL (Cloud SQL), Redis (Memorystore)",
+        "[ ] Tenant data models: firms, firm_config, attorneys, intake_sessions, leads, audit_log",
+        "[ ] Athena integration service: createAssistant(), createWebCallSession(), createKnowledgeBase(), uploadKBDocument()",
+        "[ ] Webhook receiver: /webhooks/athena/tool-call \u2014 milestone processing, qualification data extraction, Redis pub-sub, per-session isolation",
+        "[ ] Athena tool definitions: log_milestone, capture_contact_info, capture_practice_area, capture_qualification_data, submit_qualified_lead, flag_disqualification, end_call",
+        "[ ] Template engine: load JSON template \u2192 execute question stages \u2192 score qualification \u2192 fire disqualification triggers",
+        "[ ] 3 practice area templates: real_estate_v1, business_law_v1, taxation_v1 (for Donovan)",
+        "[ ] Frontend: Widget loader script (2KB, vanilla TS, iframe-based)",
+        "[ ] Frontend: Intake panel (Preact/vanilla TS inside iframe): voice mode + text mode + mode switching",
+        "[ ] Frontend: Real-time transcript panel (SSE \u2192 Redis \u2192 widget)",
+        "[ ] Frontend: Milestone progress bar (template-driven, configurable labels)",
+        "[ ] Per-session SSE isolation (Redis pub-sub, namespaced per session)",
+        "[ ] Mobile: bottom sheet + desktop: floating panel (CSS, no JS framework dependencies)",
+        "[ ] Widget API: data-firm, data-position, data-primary-color, data-cta-text, data-practice-area attributes",
+        "[ ] WCAG 2.2 AA baseline: dialog roles, focus management, aria-live transcript",
+        "[ ] Donovan Legal tenant: Athena assistant, GHL Location, KB documents, 3 practice area templates",
+        "[ ] Environment: Secret Manager integration, documented .env.example",
+        "[ ] CI/CD: Cloud Build pipeline (existing pattern from Donovan Law site)"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Non-goals for Phase 1: Retainer generation, calendar booking, e-signature, mobile app."
+    },
+    {
+      "type": "paragraph",
+      "text": "Definition of done: A visitor to donovan-law-site clicks the widget, has a full intake conversation with Alex, the lead is created in GHL with all qualification data and custom fields, the audit_log has an immutable record, and the qualifying lead appears in the GHL pipeline as \"Qualified.\""
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Phase 2: Practice Area Templates \u00d7 10 (Weeks 5\u20137)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Goal: Full template library covering all 10 practice areas. Any firm in any area can be served."
+    },
+    {
+      "type": "paragraph",
+      "text": "Deliverables:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "[ ] Template engine hardening: full conditional logic, all variable types (string/enum/boolean/date/us_state/phone/email/text)",
+        "[ ] Template validator: catches missing required fields, undefined variable references, circular conditions",
+        "[ ] personal_injury_mva_v1 \u2014 full CON-989 expansion (all Section 4.1 variables)",
+        "[ ] family_law_v1 \u2014 safety-first flow with DV detection",
+        "[ ] criminal_defense_v1 \u2014 urgency-first flow with DUI and detention handling",
+        "[ ] immigration_v1 \u2014 multilingual support, asylum deadline detection",
+        "[ ] estate_planning_v1 \u2014 expedited path for terminal illness",
+        "[ ] bankruptcy_v1 \u2014 automatic stay urgency triggers",
+        "[ ] employment_law_v1 \u2014 EEOC deadline tracking",
+        "[ ] Urgency flag system: configurable per template; SOL auto-calculation; deadline proximity alerts",
+        "[ ] Disqualification graceful exit: reason-specific messaging, resource mode content per practice area",
+        "[ ] Multi-language: Spanish toggle; Athena system prompt switches language; transcript renders in caller's language"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Definition of done: An attorney in any of the 10 practice areas can be onboarded with an existing template in under 2 hours."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Phase 3: CRM Integration \u2014 GoHighLevel (Weeks 5\u20137, parallel with Phase 2)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Goal: Full GHL integration \u2014 contact lifecycle, pipeline, SMS/email, workflows."
+    },
+    {
+      "type": "paragraph",
+      "text": "Deliverables:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "[ ] GHL OAuth 2.0: agency-level auth, per-firm Location token management, auto-refresh",
+        "[ ] ghl.contacts.create() \u2014 on submit_qualified_lead",
+        "[ ] ghl.contacts.update() \u2014 qualification data as conversation progresses",
+        "[ ] ghl.opportunities.create() \u2014 pipeline deal on qualification",
+        "[ ] ghl.opportunities.updateStage() \u2014 advance stages throughout lifecycle",
+        "[ ] ghl.conversations.sendSMS() \u2014 qualified lead confirmation",
+        "[ ] ghl.conversations.sendEmail() \u2014 qualification summary",
+        "[ ] Workflow enrollment: addToWorkflow(), removeFromWorkflow()",
+        "[ ] GHL webhook receiver: /webhooks/ghl/events \u2014 Ed25519 signature verification, event dispatch",
+        "[ ] Pre-built workflows for Donovan: retainer-followup, appointment-reminder, unqualified-nurture, new-intake-alert",
+        "[ ] Custom fields schema for Donovan GHL Location"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Definition of done: Every qualified lead in GHL with full data; every disqualified lead tagged and in nurture workflow; attorney receives immediate notification; pipeline shows correct stage."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Phase 4: Calendar Booking (Weeks 8\u20139)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Goal: Concierge offers and books time with the attorney during the intake conversation."
+    },
+    {
+      "type": "paragraph",
+      "text": "Deliverables:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "[ ] ghl.calendar.getFreeSlots(calendarId, startDate, endDate, timezone) \u2014 returns available times",
+        "[ ] Athena tool: request_booking_slot \u2014 triggers during conversation; returns 3 options",
+        "[ ] Athena tool: confirm_booking \u2014 receives selection, fires booking",
+        "[ ] ghl.calendar.bookAppointment() \u2014 creates appointment",
+        "[ ] Appointment confirmation SMS",
+        "[ ] Appointment record in appointments table",
+        "[ ] Pipeline stage \u2192 \"Appointment Booked\"",
+        "[ ] Frontend: slot selection UI (3 date/time buttons in widget; accessible; mobile-friendly)",
+        "[ ] Timezone detection: Intl.DateTimeFormat in widget \u2192 passed to slot fetch",
+        "[ ] Gmail/Google Calendar fallback (Phase 4b)",
+        "[ ] Attorney-specific calendar routing: match practice area \u2192 attorney \u2192 calendar_id from firm_config.calendar_ids"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Definition of done: Qualified lead selects a time slot during intake; appointment in attorney's calendar; lead receives SMS confirmation; pipeline shows \"Appointment Booked.\""
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Phase 5: Retainer & E-Signature (Weeks 9\u201311)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Goal: Qualified lead receives pre-populated retainer for e-signature within 60 seconds of qualification."
+    },
+    {
+      "type": "paragraph",
+      "text": "Deliverables:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "[ ] retainer_templates table + admin upload UI",
+        "[ ] Template selection logic: selectRetainerTemplate(firmId, practiceArea, stateCode, attorneyId)",
+        "[ ] Field population engine: map qualificationData \u2192 template field values",
+        "[ ] AI matter summary generation: 2-sentence summary from transcript for MatterDescription field",
+        "[ ] HelloSign API client: createEnvelope(), getEnvelopeStatus(), downloadSignedDocument()",
+        "[ ] DocuSign API client: same interface (pluggable adapter)",
+        "[ ] Envelope creation: fires in parallel with booking on qualification",
+        "[ ] Retainer SMS delivery (within 60 seconds of qualification)",
+        "[ ] E-sign webhook receiver: /webhooks/esign/completed \u2014 signature confirmation handler",
+        "[ ] Post-signature: GHL \u2192 \"Retainer Signed\"; audit log; retainer PDF \u2192 GCS; remove from follow-up; enroll in attorney notification",
+        "[ ] Unsigned retainer follow-up: detect unsigned at 4h \u2192 trigger Athena outbound campaign",
+        "[ ] Retainer templates loaded for Donovan PLLC (Paul to provide)"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Definition of done: Lead receives retainer link via SMS within 60 seconds; upon signing, pipeline advances to \"Retainer Signed\"; audit log records event; Paul receives notification with signed document."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Phase 6: Admin Portal \u2014 Firm Self-Service (Weeks 12\u201316)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Goal: Onboard a second law firm with zero engineering involvement."
+    },
+    {
+      "type": "paragraph",
+      "text": "Deliverables:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "[ ] Admin portal: Next.js 15 app (apps/web)",
+        "[ ] Firm onboarding wizard:",
+        "Firm details (name, slug, states, practice areas)",
+        "Athena assistant auto-creation on form submit",
+        "Knowledge base creation + document upload UI",
+        "GHL Location creation (or link to existing)",
+        "Attorney roster configuration",
+        "Calendar ID linking",
+        "Retainer template upload and field mapping",
+        "E-sign provider selection + API key entry",
+        "Widget embed code generation (copy-paste ready)",
+        "[ ] Firm isolation audit: confirm no cross-tenant data leakage at all layers",
+        "[ ] Per-firm widget customization: concierge name, voice, persona, color scheme, greeting",
+        "[ ] Per-firm qualification question library (configurable overrides on base templates)",
+        "[ ] Per-firm disqualification rules",
+        "[ ] Billing integration foundation (Stripe per-firm subscription)",
+        "[ ] Analytics page: lead volume, qualification rate, retainer conversion, booking rate"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Definition of done: Second firm onboards via admin portal; their widget works end-to-end; their data is completely isolated; no engineering involvement beyond initial portal deployment."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Phase 7: Mobile App (Weeks 16\u201322)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Goal: iOS and Android app for 24/7 mobile access and attorney push notifications."
+    },
+    {
+      "type": "paragraph",
+      "text": "Deliverables:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "[ ] React Native (Expo) scaffold",
+        "[ ] Athena Widget SDK: React Native component or WebView bridge",
+        "[ ] Push notifications: Firebase Cloud Messaging (FCM) \u2014 lead alerts to attorneys",
+        "[ ] Lead receives push if retainer unsigned (alternative to SMS)",
+        "[ ] White-label build system: firm-branded app name, colors, icon",
+        "[ ] Deep links: retainer SMS link opens app if installed",
+        "[ ] Biometric auth for attorney/admin view",
+        "[ ] Offline state handling: queue calls for connectivity restore",
+        "[ ] App Store + Google Play submission"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Phase 8: Analytics Dashboard + Verification Pipeline (Weeks 20\u201328)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Goal: Full pipeline visibility for firms + verification intelligence for high-value cases."
+    },
+    {
+      "type": "paragraph",
+      "text": "Analytics Dashboard Deliverables:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "[ ] Lead volume by practice area, state, time period",
+        "[ ] Qualification rate (widget conversations \u2192 qualified leads)",
+        "[ ] Retainer conversion rate (qualified \u2192 signed)",
+        "[ ] Booking rate (qualified \u2192 appointment booked)",
+        "[ ] Average time: widget click \u2192 signed retainer (target: < 5 minutes for ideal flow)",
+        "[ ] Attorney utilization by practice area",
+        "[ ] GHL pipeline funnel visualization"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Verification Pipeline Deliverables:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "[ ] Gate 1 (free, immediate): duplicate check, conflict check, SOL calculation",
+        "[ ] Gate 2 (low cost): ID verification (Persona/Jumio); insurance verification (Verisk)",
+        "[ ] Gate 3 (medium cost, post-qualification): police report (LexisNexis/CrashDocs) \u2014 PI only",
+        "[ ] Gate 4 (post-retainer): medical records request (Ciox/Datavant) \u2014 PI only",
+        "[ ] Connector framework: pluggable provider adapters (user picks provider per category)",
+        "[ ] Per-lead cost cap enforcement; monthly budget alerts",
+        "[ ] Quality score threshold per gate (configurable)",
+        "[ ] Outbound campaigns: Athena Campaigns API, unsigned retainer follow-up, missed appointment re-engage"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "9. Technical Architecture"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "9.1 Monorepo Structure"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "legal-concierge/"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "9.2 Technology Stack"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Layer",
+        "Technology",
+        "Rationale"
+      ],
+      "rows": [
+        [
+          "Widget loader",
+          "Vanilla TypeScript (IIFE)",
+          "No framework = 2KB loader; iframe isolates widget from host page"
+        ],
+        [
+          "Widget UI",
+          "Preact (~3KB) + TypeScript",
+          "Preact core is 3KB vs React's 40\u201350KB; React-compatible API"
+        ],
+        [
+          "Admin portal",
+          "Next.js 15 (App Router)",
+          "SSR for law firm marketing pages (SEO); Server Actions for admin forms"
+        ],
+        [
+          "API",
+          "Node.js + Fastify",
+          "Fast, lightweight, TypeScript-native"
+        ],
+        [
+          "ORM",
+          "Drizzle ORM",
+          "TypeScript-first, excellent PostgreSQL support, no runtime overhead"
+        ],
+        [
+          "Database",
+          "PostgreSQL (Cloud SQL)",
+          "Relational integrity for multi-tenant data; Row-level Security"
+        ],
+        [
+          "Cache / PubSub",
+          "Redis (Cloud Memorystore)",
+          "Session state, milestone event bus (namespaced per session)"
+        ],
+        [
+          "Real-time (server\u2192client)",
+          "Server-Sent Events (SSE) + Redis pub-sub",
+          "Replaces WebSocket; proxy-friendly; auto-reconnect; scales horizontally"
+        ],
+        [
+          "Voice AI",
+          "Athena (ConnexUS AI Platform)",
+          "Owned platform; WebRTC; configurable voice/LLM; Campaigns API for outbound"
+        ],
+        [
+          "CRM",
+          "GoHighLevel API v2",
+          "Multi-location; full lifecycle (contacts, pipeline, calendar, SMS, workflows)"
+        ],
+        [
+          "E-signature",
+          "HelloSign (default) / DocuSign",
+          "ESIGN Act compliant; established audit trail; consumer trust"
+        ],
+        [
+          "Storage",
+          "Google Cloud Storage",
+          "Retainer PDFs, media assets, KB documents"
+        ],
+        [
+          "Secrets",
+          "Google Secret Manager",
+          "API keys, OAuth tokens per firm"
+        ],
+        [
+          "Compute",
+          "Google Cloud Run",
+          "Already proven for Donovan Law; auto-scaling; containerized"
+        ],
+        [
+          "CI/CD",
+          "Cloud Build",
+          "Already configured for Donovan Law deployment"
+        ],
+        [
+          "Monorepo",
+          "Turborepo",
+          "Shared types, unified CI, independent deployability"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "9.3 Real-Time Architecture"
+    },
+    {
+      "type": "paragraph",
+      "text": "Why SSE over WebSocket:"
+    },
+    {
+      "type": "paragraph",
+      "text": "AdvisoryConnect's current WebSocket implementation has known issues: ws:// URL hardcoded (breaks behind HTTPS reverse proxy); global channel (all users share events \u2014 security bug); sticky session requirement for horizontal scaling."
+    },
+    {
+      "type": "paragraph",
+      "text": "The replacement pattern:"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "Athena webhook fires call.tool_called",
+        "     \u2193",
+        "/webhooks/athena/tool-call handler",
+        "     \u2193",
+        "Redis PUBLISH milestone:{firm_id}:{call_id} {payload}",
+        "     \u2193",
+        "GET /api/v1/sessions/{call_id}/events (SSE endpoint \u2014 one per active session)",
+        "     \u2193  (server holds connection; reads from Redis channel)",
+        "Widget iframe receives event \u2192 updates TranscriptView and MilestoneBar"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "SSE advantages over WebSocket for this use case:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "Works through all HTTP/2 proxies and CDNs",
+        "Automatic reconnect built into EventSource API",
+        "Unidirectional (server \u2192 client) \u2014 milestone and transcript events are server-originated",
+        "Browser-to-server communication (user selections) uses standard HTTP POST \u2014 clean separation",
+        "Scales horizontally: any Cloud Run instance serves any SSE connection via shared Redis"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "9.4 Widget Security"
+    },
+    {
+      "type": "paragraph",
+      "text": "The widget iframe loads from https://widget.legalconcierge.ai. The host page (the law firm's website) cannot access the iframe's internal state \u2014 no XSS attack surface against conversation data."
+    },
+    {
+      "type": "paragraph",
+      "text": "iframe attributes:"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "<iframe",
+        "  src=\"https://widget.legalconcierge.ai/app?firm={firm_id}&session={session_id}\"",
+        "  allow=\"microphone; autoplay; clipboard-write\"",
+        "  sandbox=\"allow-scripts allow-same-origin allow-popups allow-forms allow-popups-to-escape-sandbox\"",
+        "  referrerpolicy=\"no-referrer-when-downgrade\"",
+        "></iframe>"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "postMessage security: Origin validation on both sides. Widget only accepts messages from https://widget.legalconcierge.ai. Host page only accepts messages from https://widget.legalconcierge.ai."
+    },
+    {
+      "type": "paragraph",
+      "text": "CSP headers (served from widget origin):"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "Content-Security-Policy:",
+        "  default-src 'self' https://api.legalconcierge.ai;",
+        "  script-src 'self' 'nonce-{RANDOM}';",
+        "  connect-src https://api.legalconcierge.ai wss://realtime.legalconcierge.ai;",
+        "  media-src blob:;",
+        "  microphone 'self';"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "9.5 API Reference Quick Guide"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Integration",
+        "Base URL",
+        "Auth",
+        "Version"
+      ],
+      "rows": [
+        [
+          "Athena",
+          "https://[connexus-domain]/api/v1",
+          "X-API-Key: sk_live_...",
+          "\u2014"
+        ],
+        [
+          "GoHighLevel",
+          "https://services.leadconnectorhq.com/",
+          "Authorization: Bearer {token}",
+          "Version: 2021-07-28"
+        ],
+        [
+          "HelloSign",
+          "https://api.hellosign.com/v3",
+          "Authorization: Basic {base64(key:)}",
+          "\u2014"
+        ],
+        [
+          "DocuSign",
+          "https://[account].docusign.net/restapi/v2.1",
+          "Authorization: Bearer {token}",
+          "\u2014"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "9.6 Environment Variables Reference"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "# Athena Platform",
+        "ATHENA_BASE_URL=https://your-connexus-domain/api/v1",
+        "ATHENA_API_KEY=sk_live_...",
+        "ATHENA_WEBHOOK_SECRET=whsec_...",
+        "# GoHighLevel",
+        "GHL_CLIENT_ID=...",
+        "GHL_CLIENT_SECRET=...",
+        "GHL_AGENCY_TOKEN=...         # Agency-level private token (for Location creation)",
+        "# Database",
+        "DATABASE_URL=postgresql://user:pass@host:5432/legal_concierge",
+        "REDIS_URL=redis://host:6379",
+        "# E-Signature",
+        "HELLOSIGN_API_KEY=...",
+        "DOCUSIGN_ACCOUNT_ID=...      # if DocuSign used",
+        "DOCUSIGN_INTEGRATION_KEY=...",
+        "# Storage",
+        "GCS_BUCKET=legal-concierge-docs",
+        "GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account.json",
+        "# Webhook secrets",
+        "GHL_WEBHOOK_SECRET=...       # Ed25519 public key for X-GHL-Signature",
+        "# Application",
+        "NODE_ENV=production",
+        "PORT=8080",
+        "WIDGET_ORIGIN=https://widget.legalconcierge.ai",
+        "ALLOWED_ORIGINS=https://donovanlegalpllc.com,https://admin.legalconcierge.ai",
+        "# Secret Manager (production \u2014 values stored in GCP)",
+        "SECRET_MANAGER_PROJECT=your-gcp-project-id"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "10. Data Model"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "10.1 Core Tables"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "-- =====================",
+        "-- TENANT LAYER",
+        "-- =====================",
+        "CREATE TABLE firms (",
+        "  id                UUID PRIMARY KEY DEFAULT gen_random_uuid(),",
+        "  name              VARCHAR(255) NOT NULL,",
+        "  slug              VARCHAR(100) UNIQUE NOT NULL,  -- used in widget embed",
+        "  ghl_location_id   VARCHAR(100) UNIQUE,",
+        "  athena_org_id     VARCHAR(100),",
+        "  stripe_customer_id VARCHAR(100),",
+        "  active            BOOLEAN DEFAULT TRUE,",
+        "  created_at        TIMESTAMPTZ DEFAULT NOW()",
+        ");",
+        "CREATE TABLE firm_config (",
+        "  firm_id               UUID PRIMARY KEY REFERENCES firms(id) ON DELETE CASCADE,",
+        "  practice_areas        TEXT[] NOT NULL,              -- ['real_estate','business_law','taxation']",
+        "  active_states         TEXT[],                       -- ['TX','FL'] or null = all states",
+        "  concierge_name        VARCHAR(100) DEFAULT 'Your Legal Concierge',",
+        "  concierge_persona     VARCHAR(50) DEFAULT 'professional',",
+        "  concierge_language    VARCHAR(10) DEFAULT 'en',",
+        "  athena_assistant_id   VARCHAR(100),",
+        "  athena_kb_id          VARCHAR(100),",
+        "  ghl_pipeline_id       VARCHAR(100),",
+        "  calendar_ids          JSONB DEFAULT '{}',           -- { \"attorney_id\": { \"practice_area\": \"cal_id\" } }",
+        "  esign_provider        VARCHAR(50) DEFAULT 'hellosign',",
+        "  esign_api_key_ref     VARCHAR(255),                 -- Secret Manager path",
+        "  widget_config         JSONB DEFAULT '{}',           -- position, colors, cta_text, allowed_domains",
+        "  verification_config   JSONB DEFAULT '{}',           -- gate thresholds, cost caps",
+        "  updated_at            TIMESTAMPTZ DEFAULT NOW()",
+        ");",
+        "CREATE TABLE attorneys (",
+        "  id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),",
+        "  firm_id         UUID REFERENCES firms(id) ON DELETE CASCADE,",
+        "  name            VARCHAR(255) NOT NULL,",
+        "  photo_url       TEXT,",
+        "  bio             TEXT,",
+        "  ghl_user_id     VARCHAR(100),",
+        "  calendar_id     VARCHAR(100),",
+        "  practice_areas  TEXT[] NOT NULL DEFAULT '{}',",
+        "  active_states   TEXT[],",
+        "  active          BOOLEAN DEFAULT TRUE,",
+        "  created_at      TIMESTAMPTZ DEFAULT NOW()",
+        ");",
+        "-- =====================",
+        "-- TEMPLATE LAYER",
+        "-- =====================",
+        "CREATE TABLE intake_templates (",
+        "  id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),",
+        "  firm_id         UUID REFERENCES firms(id),          -- NULL = global template (shared library)",
+        "  practice_area   VARCHAR(100) NOT NULL,",
+        "  version         INTEGER NOT NULL DEFAULT 1,",
+        "  display_name    VARCHAR(255) NOT NULL,",
+        "  template_data   JSONB NOT NULL,                     -- full template JSON (stages, milestones, scoring, etc.)",
+        "  active          BOOLEAN DEFAULT TRUE,",
+        "  created_at      TIMESTAMPTZ DEFAULT NOW()",
+        ");",
+        "CREATE TABLE retainer_templates (",
+        "  id                UUID PRIMARY KEY DEFAULT gen_random_uuid(),",
+        "  firm_id           UUID REFERENCES firms(id),",
+        "  practice_area     VARCHAR(100) NOT NULL,",
+        "  state_code        CHAR(2),                          -- NULL = any state",
+        "  attorney_id       UUID REFERENCES attorneys(id),    -- NULL = any attorney",
+        "  esign_provider    VARCHAR(50) NOT NULL,",
+        "  esign_template_id VARCHAR(255) NOT NULL,",
+        "  version           INTEGER NOT NULL DEFAULT 1,",
+        "  active            BOOLEAN DEFAULT TRUE,",
+        "  created_at        TIMESTAMPTZ DEFAULT NOW()",
+        ");",
+        "-- =====================",
+        "-- SESSION + LEAD LAYER",
+        "-- =====================",
+        "CREATE TABLE intake_sessions (",
+        "  id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),",
+        "  firm_id         UUID REFERENCES firms(id),",
+        "  athena_call_id  VARCHAR(255) UNIQUE,",
+        "  channel         VARCHAR(20) NOT NULL CHECK (channel IN ('voice','chat','mobile','phone')),",
+        "  status          VARCHAR(50) DEFAULT 'active'",
+        "                    CHECK (status IN ('active','completed','abandoned','error')),",
+        "  started_at      TIMESTAMPTZ DEFAULT NOW(),",
+        "  ended_at        TIMESTAMPTZ,",
+        "  source_url      TEXT,                               -- URL of page where widget was opened",
+        "  source_page     VARCHAR(255)                        -- slug of page (e.g., 'real-estate')",
+        ");",
+        "CREATE TABLE leads (",
+        "  id                    UUID PRIMARY KEY DEFAULT gen_random_uuid(),",
+        "  firm_id               UUID REFERENCES firms(id),",
+        "  session_id            UUID REFERENCES intake_sessions(id),",
+        "  attorney_id           UUID REFERENCES attorneys(id),",
+        "  -- Contact",
+        "  first_name            VARCHAR(255),",
+        "  last_name             VARCHAR(255),",
+        "  phone                 VARCHAR(30),",
+        "  email                 VARCHAR(255),",
+        "  sms_consent           BOOLEAN DEFAULT FALSE,",
+        "  sms_consent_timestamp TIMESTAMPTZ,",
+        "  timezone              VARCHAR(100),",
+        "  -- Qualification",
+        "  practice_area         VARCHAR(100),",
+        "  template_id           UUID REFERENCES intake_templates(id),",
+        "  qualification_data    JSONB DEFAULT '{}',           -- all captured variables",
+        "  qualification_score   SMALLINT,",
+        "  qualification_status  VARCHAR(50) DEFAULT 'in_progress'",
+        "                          CHECK (qualification_status IN ('in_progress','qualified','disqualified','escalated','resource_mode')),",
+        "  disqualify_reason     TEXT,",
+        "  urgency_flags         TEXT[],",
+        "  -- GHL",
+        "  ghl_contact_id        VARCHAR(100),",
+        "  ghl_opportunity_id    VARCHAR(100),",
+        "  -- E-sign",
+        "  esign_envelope_id     VARCHAR(255),",
+        "  esign_status          VARCHAR(50) DEFAULT 'not_sent'",
+        "                          CHECK (esign_status IN ('not_sent','sent','signed','expired','declined')),",
+        "  retainer_sent_at      TIMESTAMPTZ,",
+        "  retainer_signed_at    TIMESTAMPTZ,",
+        "  retainer_url          TEXT,                         -- GCS path to signed PDF",
+        "  -- Appointment",
+        "  appointment_id        VARCHAR(100),                 -- GHL event ID",
+        "  appointment_time      TIMESTAMPTZ,",
+        "  -- Timestamps",
+        "  created_at            TIMESTAMPTZ DEFAULT NOW(),",
+        "  updated_at            TIMESTAMPTZ DEFAULT NOW()",
+        ");",
+        "CREATE TABLE milestones (",
+        "  id            BIGSERIAL PRIMARY KEY,",
+        "  session_id    UUID REFERENCES intake_sessions(id),",
+        "  firm_id       UUID REFERENCES firms(id),",
+        "  milestone_idx SMALLINT NOT NULL,",
+        "  milestone_label VARCHAR(100),",
+        "  stage_id      VARCHAR(100),",
+        "  completed_at  TIMESTAMPTZ DEFAULT NOW()",
+        ");",
+        "-- =====================",
+        "-- BOOKING LAYER",
+        "-- =====================",
+        "CREATE TABLE calendar_bookings (",
+        "  id                UUID PRIMARY KEY DEFAULT gen_random_uuid(),",
+        "  lead_id           UUID REFERENCES leads(id),",
+        "  firm_id           UUID REFERENCES firms(id),",
+        "  attorney_id       UUID REFERENCES attorneys(id),",
+        "  ghl_event_id      VARCHAR(100),",
+        "  ghl_calendar_id   VARCHAR(100),",
+        "  start_time        TIMESTAMPTZ NOT NULL,",
+        "  end_time          TIMESTAMPTZ NOT NULL,",
+        "  status            VARCHAR(50) DEFAULT 'confirmed',",
+        "  confirmation_sent BOOLEAN DEFAULT FALSE,",
+        "  created_at        TIMESTAMPTZ DEFAULT NOW()",
+        ");",
+        "-- =====================",
+        "-- AUDIT LAYER (append-only \u2014 no UPDATE or DELETE)",
+        "-- =====================",
+        "CREATE TABLE audit_log (",
+        "  id              BIGSERIAL PRIMARY KEY,",
+        "  event_type      VARCHAR(100) NOT NULL,",
+        "  -- e.g.: 'session_created', 'milestone_completed', 'lead_qualified', 'lead_disqualified',",
+        "  --       'ghl_contact_created', 'retainer_sent', 'retainer_signed', 'booking_created',",
+        "  --       'conflict_check_passed', 'sol_calculated'",
+        "  lead_id         UUID,",
+        "  firm_id         UUID NOT NULL,",
+        "  session_id      UUID,",
+        "  actor           VARCHAR(255),                       -- 'system', 'athena', 'attorney:{id}', 'lead:{id}'",
+        "  event_data      JSONB NOT NULL,                     -- full context",
+        "  ip_address      INET,",
+        "  user_agent      TEXT,",
+        "  created_at      TIMESTAMPTZ DEFAULT NOW()",
+        "  -- NO UPDATE or DELETE ever issued against this table",
+        "  -- Enforced via: DB trigger + application constraint + monitored alert",
+        ");",
+        "-- Enforcement trigger",
+        "CREATE OR REPLACE FUNCTION audit_log_immutable()",
+        "RETURNS TRIGGER LANGUAGE plpgsql AS $$",
+        "BEGIN",
+        "  RAISE EXCEPTION 'audit_log is immutable \u2014 updates and deletes are not permitted';",
+        "END;",
+        "$$;",
+        "CREATE TRIGGER enforce_audit_immutability",
+        "  BEFORE UPDATE OR DELETE ON audit_log",
+        "  FOR EACH ROW EXECUTE FUNCTION audit_log_immutable();",
+        "-- =====================",
+        "-- INDEXES",
+        "-- =====================",
+        "CREATE INDEX idx_leads_firm_id ON leads(firm_id);",
+        "CREATE INDEX idx_leads_ghl_contact ON leads(ghl_contact_id);",
+        "CREATE INDEX idx_leads_esign_envelope ON leads(esign_envelope_id);",
+        "CREATE INDEX idx_leads_created_at ON leads(created_at DESC);",
+        "CREATE INDEX idx_sessions_firm_id ON intake_sessions(firm_id);",
+        "CREATE INDEX idx_sessions_athena_call ON intake_sessions(athena_call_id);",
+        "CREATE INDEX idx_milestones_session ON milestones(session_id);",
+        "CREATE INDEX idx_audit_log_firm_lead ON audit_log(firm_id, lead_id);",
+        "CREATE INDEX idx_audit_log_created ON audit_log(created_at DESC);"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "10.2 Entity Relationships"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "firms"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "10.3 Key Design Decisions"
+    },
+    {
+      "type": "numbered",
+      "items": [
+        "qualification_data JSONB \u2014 stores all practice-area-specific variables. The schema is open \u2014 any template can add any variables. The application stores whatever the template extracts. Avoids rigid per-practice-area columns."
+      ]
+    },
+    {
+      "type": "numbered",
+      "items": [
+        "intake_templates.template_data JSONB \u2014 the full template JSON lives in the database. Firms can override global templates. New templates can be loaded without code deploys."
+      ]
+    },
+    {
+      "type": "numbered",
+      "items": [
+        "Audit log trigger \u2014 enforces immutability at the database level, not just the application level. A compromised application layer cannot delete audit records."
+      ]
+    },
+    {
+      "type": "numbered",
+      "items": [
+        "sms_consent_timestamp \u2014 TCPA compliance requires logging exactly when consent was given. The field stores the timestamp of the agent's TCPA disclosure question."
+      ]
+    },
+    {
+      "type": "numbered",
+      "items": [
+        "retainer_templates.attorney_id nullable \u2014 allows firm-wide templates (no attorney specified) as fallbacks, while supporting attorney-specific templates where applicable."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "11. Pricing Strategy"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "11.1 Pricing Philosophy"
+    },
+    {
+      "type": "paragraph",
+      "text": "The goal is to replace what firms already pay \u2014 not add a new line item. A solo firm currently spending $245\u2013$425/month on a human answering service plus $89\u2013$149/month on a basic CRM is spending $334\u2013$574/month for less capability. Legal Concierge should slot in at or below that range for the Starter tier while delivering dramatically more value."
+    },
+    {
+      "type": "paragraph",
+      "text": "Pricing comparison framework:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "What firms pay today",
+        "Monthly cost",
+        "What they get"
+      ],
+      "rows": [
+        [
+          "Ruby Receptionists (Starter)",
+          "$245",
+          "50 minutes of human answering"
+        ],
+        [
+          "Answering Legal (100 min)",
+          "$330",
+          "100 minutes of human legal intake"
+        ],
+        [
+          "Smith.ai (AI, 30 calls)",
+          "$97.50",
+          "30 AI-handled calls"
+        ],
+        [
+          "Clio Grow (1 user)",
+          "$59",
+          "CRM + forms (no voice)"
+        ],
+        [
+          "Ruby + Clio Grow combined",
+          "$304",
+          "Human answering + basic CRM"
+        ],
+        [
+          "Legal Concierge Starter",
+          "$199",
+          "Unlimited AI intake + retainer + booking + CRM"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "11.2 Pricing Tiers"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Starter \u2014 $199/month"
+    },
+    {
+      "type": "paragraph",
+      "text": "Target: Solo practitioners, 1\u20132 practice areas, low-to-medium volume"
+    },
+    {
+      "type": "paragraph",
+      "text": "Includes:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "1 law firm (1 tenant)",
+        "Up to 2 practice areas configured",
+        "Unlimited intake conversations",
+        "Real-time transcript + milestone tracker",
+        "GHL CRM integration (contact + pipeline creation)",
+        "Calendar booking (via GHL or Gmail)",
+        "E-signature retainer dispatch (HelloSign, up to 30 envelopes/month \u2014 typically sufficient for 10\u201320 qualified leads/month)",
+        "Standard practice area templates (from library)",
+        "Email + SMS confirmation sequences",
+        "Basic analytics dashboard",
+        "Email support"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Not included: Admin self-service portal (concierge-assisted onboarding), verification pipeline, mobile app, custom branding beyond basic colors/name."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Professional \u2014 $399/month"
+    },
+    {
+      "type": "paragraph",
+      "text": "Target: Small-to-mid firms, 2\u20135 attorneys, multiple practice areas, steady volume"
+    },
+    {
+      "type": "paragraph",
+      "text": "Includes everything in Starter, plus:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "Up to 5 attorneys configured",
+        "Unlimited practice areas",
+        "HelloSign envelopes up to 100/month",
+        "Multi-language support (Spanish + English)",
+        "Custom qualification question overrides per practice area",
+        "Attorney-specific calendar routing",
+        "Full analytics: qualification rate, retainer conversion, booking rate, attorney utilization",
+        "GHL workflow automation (pre-built workflows included)",
+        "Priority email + chat support",
+        "Admin portal access (self-service configuration)",
+        "Outbound follow-up campaigns (unsigned retainer at 4h/24h/72h via Athena)"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Enterprise \u2014 $799/month (or custom)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Target: Multi-location firms, high-volume PI/personal injury practices, legal marketing agencies"
+    },
+    {
+      "type": "paragraph",
+      "text": "Includes everything in Professional, plus:"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "Unlimited attorneys and locations",
+        "Unlimited HelloSign envelopes (or DocuSign integration)",
+        "Custom intake template development (Engineering-assisted)",
+        "Verification pipeline (Gate 1\u20133): ID verification, insurance verification, police reports (API costs passed through at cost)",
+        "White-label widget (firm's branding on widget, no \"Legal Concierge\" branding)",
+        "Dedicated Slack channel support",
+        "SLA: 99.9% uptime; < 2-hour response for critical issues",
+        "API access for custom integrations",
+        "Multi-GHL agency account support",
+        "Custom analytics and reporting exports",
+        "GDPR/CCPA data deletion flow"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Comparison to Current Spend"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Firm Profile",
+        "Current Monthly Spend",
+        "Legal Concierge Tier",
+        "Savings"
+      ],
+      "rows": [
+        [
+          "Solo, 1 practice area",
+          "$330\u2013$600 (answering service + CRM)",
+          "Starter: $199",
+          "$131\u2013$401/mo"
+        ],
+        [
+          "Small firm (2\u20135 atty)",
+          "$800\u2013$2,000 (answering + CRM + chatbot)",
+          "Professional: $399",
+          "$401\u2013$1,601/mo"
+        ],
+        [
+          "Mid-size / PI firm",
+          "$2,000\u2013$6,000",
+          "Enterprise: $799",
+          "$1,201\u2013$5,201/mo"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "11.3 Implementation Cost Notes"
+    },
+    {
+      "type": "paragraph",
+      "text": "Add-on costs passed through at cost (not marked up):"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "HelloSign platform fee (~$15/month) included in Starter/Professional",
+        "Verification API costs (Gate 2\u20134): charged to firm at provider cost with 0% markup \u2014 competitive differentiator vs. verification platforms that mark up 100\u2013300%",
+        "Athena usage (per-minute voice AI) is absorbed in platform pricing at target volumes; excess usage for very high-volume firms billed separately"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "First client discount for Donovan Legal PLLC: Paul Donovan is the first production deployment. He receives the Professional tier at $0 for the first 60 days (while the platform is in active development and testing). After 60 days, $199/month (Starter rate) until the platform reaches general availability."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "11.4 Revenue Model"
+    },
+    {
+      "type": "paragraph",
+      "text": "SaaS subscription (primary): Flat monthly per-firm. Predictable ARR. Scales with firm acquisition, not call volume."
+    },
+    {
+      "type": "paragraph",
+      "text": "Usage overage (secondary): E-signature envelopes above plan limit ($2/envelope for HelloSign, $3/envelope if DocuSign). Very high-volume voice usage (>1,000 calls/month) triggers a usage tier."
+    },
+    {
+      "type": "paragraph",
+      "text": "Implementation fee (optional): $500 white-glove onboarding for firms that want engineering assistance with custom templates, complex GHL setup, or retainer template review. Not required \u2014 most firms self-serve after Phase 6."
+    },
+    {
+      "type": "paragraph",
+      "text": "Revenue projection:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Scenario",
+        "Firms",
+        "Avg MRR/Firm",
+        "Monthly Revenue",
+        "ARR"
+      ],
+      "rows": [
+        [
+          "MVP (1\u20132 clients)",
+          "2",
+          "$250",
+          "$500",
+          "$6,000"
+        ],
+        [
+          "Early traction (6 mo)",
+          "25",
+          "$300",
+          "$7,500",
+          "$90,000"
+        ],
+        [
+          "Growth (12 mo)",
+          "100",
+          "$350",
+          "$35,000",
+          "$420,000"
+        ],
+        [
+          "Scale (24 mo)",
+          "500",
+          "$400",
+          "$200,000",
+          "$2,400,000"
+        ],
+        [
+          "Target (36 mo)",
+          "1,750",
+          "$399",
+          "$698,250",
+          "$8,379,000"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "At 1,750 firms (1% of U.S. small-to-mid law firms), ARR exceeds $8.3M. The legal AI software segment is growing at 32.4% CAGR. A 1% market capture by month 36 is conservative given the structural advantages."
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "Appendix A: Full Data Flow \u2014 Lifecycle of a Qualified Lead"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Diagram \u2014 see source document for ASCII tree]"
+    },
+    {
+      "type": "bullet",
+      "items": [
+        "Visitor lands on law firm website (e.g., donovanlegalpllc.com/real-estate)",
+        "  \u25bc",
+        "[1] Widget loader.js (2KB) loads asynchronously",
+        "    \u25bc",
+        "[2] Visitor clicks widget CTA",
+        "    \u25bc",
+        "[3] POST /api/v1/sessions/create",
+        "    \u25bc",
+        "[4] Widget opens iframe panel; initializes Athena WebRTC session",
+        "    \u25bc",
+        "[5] AI conversation begins \u2014 Alex conducts intake",
+        "    \u25bc",
+        "[6] Webhook: POST /webhooks/athena/tool-call",
+        "    \u25bc",
+        "[7] Qualification complete (score \u2265 threshold)",
+        "    \u25bc",
+        "[8] POST /api/v1/leads (lead record created in PostgreSQL)",
+        "    \u25bc",
+        "[9] PARALLEL DISPATCH (concurrent):",
+        "              GHL: GET /calendars/cal_donovan_re/free-slots (next 7 days, caller's TZ)",
+        "              Returns 3 options to Athena agent (via tool response)",
+        "              Agent presents options verbally",
+        "              Caller: \"I'll take Wednesday at 10am\"",
+        "              Athena fires confirm_booking tool",
+        "              GHL: POST /calendars/events/appointments",
+        "              GHL: POST /conversations/messages (confirmation SMS)",
+        "              Pipeline stage \u2192 \"Appointment Booked\"",
+        "    \u25bc",
+        "[10] audit_log entry written (immutable):",
+        "     event_type: 'lead_qualified', all qualification data, session_id, timestamps",
+        "    \u25bc",
+        "[11] Lead receives:",
+        "     - In-widget: \"Your retainer agreement has been sent to your phone and email.\"",
+        "     - SMS: \"Your retainer from Donovan Legal is ready. Sign here: [link]\"",
+        "     - SMS: \"Your consultation with Paul Donovan is confirmed for April 8 at 10:00 AM CT.\"",
+        "    \u25bc",
+        "[12] Lead signs retainer (HelloSign UI)",
+        "    \u25bc",
+        "[13] Webhook: POST /webhooks/esign/completed",
+        "     \u25bc",
+        "[14] Paul receives notification with signed retainer attached",
+        "     Case is ready to work."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "Appendix B: Statute of Limitations Quick Reference"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Practice Area",
+        "Key Deadlines"
+      ],
+      "rows": [
+        [
+          "Personal Injury",
+          "2\u20133 years (state-dependent); 45\u2013180 days for government entities"
+        ],
+        [
+          "Family Law",
+          "No strict SOL for divorce; separation date matters"
+        ],
+        [
+          "Criminal Defense",
+          "Arraignment within 48\u201372 hours; DMV hearing: 10 days (CA); speedy trial: ~70 days federal"
+        ],
+        [
+          "Immigration",
+          "Asylum: 1 year from entry; motion to reopen: 90 days; bond: 5 days from detention"
+        ],
+        [
+          "Real Estate",
+          "Contract to closing: typically 30\u201360 days; eviction notice: 3\u201330 days"
+        ],
+        [
+          "Business Law",
+          "Contract disputes: 4\u20136 years (state-dependent)"
+        ],
+        [
+          "Estate Planning",
+          "No SOL for creation; probate creditor period: 3\u20136 months from death notice"
+        ],
+        [
+          "Bankruptcy",
+          "Prior Chapter 7: wait 8 years; Chapter 13: wait 4 years before Chapter 7"
+        ],
+        [
+          "Employment (EEOC)",
+          "180/300 days to file EEOC charge; 90 days from right-to-sue to file"
+        ],
+        [
+          "Tax (IRS)",
+          "CDP hearing: 30 days; Tax Court petition: 90 days; IRS audit window: 3\u20136 years"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Document Version 2.0 \u2014 April 7, 2026 Source files: legal-concierge-strategy.md (v1), law-firm-intake-research.md, legal-tech-widget-research.md, advisoryconnect-analysis.md, external-research.md, RAGbrain_Legal_Intake_Module_Plan.md All statistics, API endpoints, and pricing data sourced from primary research compiled April 7, 2026."
+    }
+  ],
+  "closing": "Respectfully submitted,",
+  "signer_name": "Walter White",
+  "signer_title": "Liaison to David Pierce"
+}

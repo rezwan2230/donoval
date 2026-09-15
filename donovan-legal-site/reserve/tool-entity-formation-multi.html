@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Entity Formation &mdash; Multi-Member LLC (Eight-Step) | Donovan RESERVE</title>
+  <meta name="description" content="Platinum-tier tool for drafting a multi-member LLC operating agreement with traditional allocations, single class of membership interests, all-cash contributions, and Reg D Level 0 / Level 1 securities compliance. Generates Operating Agreement, Subscription Agreement, Joinder, and companion securities document." />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="apple-touch-icon" href="../img/favicon.png" />
+  <link rel="icon" type="image/png" href="../img/favicon.png" />
+  <link href="../css/main.css" rel="stylesheet" />
+  <link href="../css/tool-form-shared.css" rel="stylesheet" />
+  <link href="../css/tool-entity-formation-multi.css" rel="stylesheet" />
+  <script src="/js/tier/reserve.js"></script>
+</head>
+<body>
+
+  <!-- ============================================================
+       MAIN TOOL — cPanel basic-auth at /platinum/ is the access gate
+       ============================================================ -->
+  <div id="tool_main">
+
+    <!-- Header bar -->
+    <div class="tool-header" data-tier="reserve">
+      <div class="tool-header-inner">
+        <span class="tool-header-brand">DONOVAN&nbsp;&nbsp;<span class="brand-reserve"><span class="re">RE</span>SERVE</span></span>
+        <a href="../index.html" class="tool-header-back">&larr; donovan.law</a>
+      </div>
+    </div>
+
+    <div class="oa-shell">
+
+      <!-- ===========================================================
+           SIDEBAR NAV
+           =========================================================== -->
+      <aside class="oa-sidebar">
+        <div class="oa-sidebar-title">Entity Formation</div>
+        <div class="oa-sidebar-subtitle">Multi-Member LLC &middot; Eight-Step</div>
+        <nav class="oa-nav">
+          <a href="#" class="oa-nav-item oa-nav-active" data-panel="company">1. Company &amp; Jurisdiction</a>
+          <a href="#" class="oa-nav-item" data-panel="members">2. Members &amp; Contributions</a>
+          <a href="#" class="oa-nav-item" data-panel="management">3. Management &amp; Governance</a>
+          <a href="#" class="oa-nav-item" data-panel="distributions">4. Distributions</a>
+          <a href="#" class="oa-nav-item" data-panel="tax">5. Tax Elections</a>
+          <a href="#" class="oa-nav-item" data-panel="transfers">6. Transfers</a>
+          <a href="#" class="oa-nav-item" data-panel="securities">7. Securities Compliance</a>
+          <a href="#" class="oa-nav-item oa-nav-generate" data-panel="generate">8. Review &amp; Generate</a>
+        </nav>
+        <div class="oa-sidebar-footer">
+          <button id="btn_save_state" class="oa-btn-ghost">Save Draft</button>
+          <button id="btn_load_state" class="oa-btn-ghost">Load Draft</button>
+          <button id="btn_clear_state" class="oa-btn-ghost oa-btn-warn">Reset</button>
+        </div>
+      </aside>
+
+      <!-- ===========================================================
+           MAIN PANEL
+           =========================================================== -->
+      <main class="oa-main">
+
+        <!-- ================================================
+             PANEL 1 — COMPANY & JURISDICTION
+             ================================================ -->
+        <section class="oa-panel oa-panel-active" data-panel="company">
+          <div class="oa-panel-header">
+            <div class="oa-panel-eyebrow">Section 1 of 8</div>
+            <h2>Company &amp; Jurisdiction</h2>
+            <p class="oa-panel-sub">Establish the entity structure, formation state, company name, principal office, registered agent, and effective date.</p>
+          </div>
+
+          <div class="oa-callout oa-callout-info">
+            <strong>Single-entity structure.</strong> This tool produces a single-entity Multi-Member LLC. HoldCo&middot;OpCo structures with bankruptcy-remote sub-entities are addressed in the <span class="brand-reserve"><span class="re">RE</span>SERVE</span> 12-step tool; please use that tool if the deal requires a HoldCo&middot;OpCo split.
+          </div>
+
+          <div class="oa-field">
+            <label>Jurisdiction of Formation <span class="oa-req">*</span></label>
+            <select id="jurisdiction"><!-- Populated by JS --></select>
+            <p class="oa-help" id="jurisdiction_help">&nbsp;</p>
+          </div>
+
+          <div class="oa-field-grid">
+            <div class="oa-field">
+              <label>Company Name <span class="oa-req">*</span></label>
+              <input type="text" id="company_name" placeholder="e.g., Atlantic Holdings" />
+              <p class="oa-help">Tool appends &ldquo;, LLC&rdquo; in the document; verify name availability with the relevant Secretary of State before filing.</p>
+            </div>
+            <div class="oa-field">
+              <label>Effective Date <span class="oa-req">*</span></label>
+              <input type="date" id="effective_date" />
+              <p class="oa-help">Effective date of the Operating Agreement.</p>
+            </div>
+          </div>
+
+          <div class="oa-field">
+            <label>Principal Office Address <span class="oa-req">*</span></label>
+            <input type="text" id="principal_street" placeholder="Street Address" />
+            <input type="text" id="principal_csz" placeholder="City, State ZIP" style="margin-top:0.5rem;" />
+          </div>
+
+          <div class="oa-field">
+            <label>Registered Agent <span class="oa-req">*</span></label>
+            <input type="text" id="ra_name" placeholder="Name (commercial registered agent typical out-of-state)" />
+            <input type="text" id="ra_street" placeholder="Street Address (must be in state of formation)" style="margin-top:0.5rem;" />
+            <input type="text" id="ra_csz" placeholder="City, State ZIP" style="margin-top:0.5rem;" />
+          </div>
+
+          <div class="oa-field">
+            <label>Primary Business Purpose</label>
+            <select id="business_purpose">
+              <option value="real_estate_holding">Real Estate Holding (acquire, hold, lease, dispose)</option>
+              <option value="real_estate_development">Real Estate Development</option>
+              <option value="real_estate_operating">Operating Real Estate Business (STR, hospitality)</option>
+              <option value="investment_fund">Investment Fund / Investment Holding</option>
+              <option value="operating_business">General Operating Business</option>
+              <option value="general">General Purpose (any lawful activity)</option>
+            </select>
+            <p class="oa-help">Determines the purpose clause in Article II of the generated Operating Agreement.</p>
+          </div>
+
+          <div class="oa-panel-nav">
+            <span></span>
+            <button class="oa-btn-primary" data-next="members">Continue to Members &rarr;</button>
+          </div>
+        </section>
+
+        <!-- ================================================
+             PANEL 2 — MEMBERS & CONTRIBUTIONS
+             ================================================ -->
+        <section class="oa-panel" data-panel="members">
+          <div class="oa-panel-header">
+            <div class="oa-panel-eyebrow">Section 2 of 8</div>
+            <h2>Members &amp; Contributions</h2>
+            <p class="oa-panel-sub">Define each Member of the Company. Members may be individuals, trusts, or entities. Capital contributions are all-cash; Percentage Interests must total 100%.</p>
+          </div>
+
+          <div class="oa-callout oa-callout-info">
+            <strong>All-cash contributions only.</strong> This tool assumes that all Capital Contributions are made in cash. If any Member intends to contribute property (real estate, securities, IP, services), the engagement requires &sect;&nbsp;704(c) allocation analysis and routes to the <span class="brand-reserve"><span class="re">RE</span>SERVE</span> 12-step tool. The generated Operating Agreement contains a recital confirming the all-cash structure.
+          </div>
+
+          <div id="members_list" class="oa-list">
+            <!-- Populated by JS -->
+          </div>
+
+          <div class="oa-list-actions">
+            <button class="oa-btn-secondary" id="btn_add_member">+ Add Member</button>
+            <button class="oa-btn-ghost" id="btn_equalize_members">Equalize Percentage Interests</button>
+          </div>
+
+          <div id="members_summary">
+            <!-- Populated by JS -->
+          </div>
+
+          <div class="oa-callout" style="background:#fdf5ef; border-left:3px solid #b8501e; margin-top:1rem;">
+            <strong>Soft cap.</strong> This tool is sized for the ten-member soft cap. If the deal contemplates more than ten Members or accredited-investor counts beyond this scope, consult the firm to determine whether the <span class="brand-reserve"><span class="re">RE</span>SERVE</span> 12-step tool with full PPM is more appropriate.
+          </div>
+
+          <div class="oa-panel-nav">
+            <button class="oa-btn-ghost" data-prev="company">&larr; Back</button>
+            <button class="oa-btn-primary" data-next="management">Continue to Management &rarr;</button>
+          </div>
+        </section>
+
+        <!-- ================================================
+             PANEL 3 — MANAGEMENT & GOVERNANCE
+             ================================================ -->
+        <section class="oa-panel" data-panel="management">
+          <div class="oa-panel-header">
+            <div class="oa-panel-eyebrow">Section 3 of 8</div>
+            <h2>Management &amp; Governance</h2>
+            <p class="oa-panel-sub">Designate the management structure, identify the Manager (if Manager-Managed), and specify Major Decisions requiring Member-level consent over and above Manager authority.</p>
+          </div>
+
+          <div class="oa-field">
+            <label>Management Structure</label>
+            <select id="management_structure">
+              <option value="member_managed">Member-Managed</option>
+              <option value="manager_managed" selected>Manager-Managed</option>
+            </select>
+            <p class="oa-help">Manager-Managed is standard where one Member (or an affiliate) will run day-to-day operations and the other Members are largely passive. Member-Managed is appropriate for small joint ventures where every Member has a hands-on role. Board-Managed (multi-Manager governance) is reserved for the <span class="brand-reserve"><span class="re">RE</span>SERVE</span> 12-step tool.</p>
+          </div>
+
+          <div class="oa-field" id="manager_name_block">
+            <label>Manager Name <span class="oa-req">*</span></label>
+            <input type="text" id="manager_name" placeholder="Manager&rsquo;s legal name (may be a Member or third party)" />
+            <p class="oa-help">If a Member, the Manager-Member retains a Member capital position separately from its Manager role.</p>
+          </div>
+
+          <div class="oa-field">
+            <label>Fiduciary Duty Treatment</label>
+            <select id="fiduciary_duties">
+              <option value="default" selected>Default &mdash; implied covenant of good faith and fair dealing, plus duties as the agreement provides</option>
+              <option value="eliminated_per_18_1101">Eliminated to maximum extent permitted (DE: 6 Del. C. &sect;&nbsp;18-1101(c))</option>
+              <option value="modified_business_judgment">Modified business-judgment-rule standard</option>
+              <option value="retained">Retained at common-law levels (loyalty and care)</option>
+            </select>
+            <p class="oa-help">Delaware permits broad elimination of fiduciary duties under &sect;&nbsp;18-1101(c). Other states are more restrictive; the firm will calibrate this provision to the formation state.</p>
+          </div>
+
+          <div class="oa-field">
+            <label>Major Decisions Requiring Member-Level Consent</label>
+            <p class="oa-help" style="margin-top:0;">Decisions requiring Member approval beyond Manager-level authority.</p>
+            <div class="oa-checks">
+              <label class="oa-check"><input type="checkbox" id="md_sale_assets" checked /> Sale of all or substantially all of the Company&rsquo;s assets</label>
+              <label class="oa-check"><input type="checkbox" id="md_merger" checked /> Merger, consolidation, or conversion of the Company</label>
+              <label class="oa-check"><input type="checkbox" id="md_dissolution" checked /> Dissolution or winding up of the Company</label>
+              <label class="oa-check"><input type="checkbox" id="md_indebtedness" checked /> Incurrence of indebtedness above a stated threshold</label>
+              <label class="oa-check"><input type="checkbox" id="md_amend_oa" checked /> Amendment of this Operating Agreement</label>
+              <label class="oa-check"><input type="checkbox" id="md_admit_member" checked /> Admission of new Members (except permitted transferees)</label>
+              <label class="oa-check"><input type="checkbox" id="md_tax_election" checked /> Material tax elections (other than annual elections)</label>
+              <label class="oa-check"><input type="checkbox" id="md_affiliate_tx" checked /> Affiliate transactions other than at arm&rsquo;s length on disclosed terms</label>
+              <label class="oa-check"><input type="checkbox" id="md_change_business" checked /> Change in the Company&rsquo;s principal business purpose</label>
+            </div>
+          </div>
+
+          <div class="oa-field-grid">
+            <div class="oa-field">
+              <label>Major-Decision Threshold</label>
+              <select id="major_decision_threshold">
+                <option value="majority">Majority in Interest (&gt;50%)</option>
+                <option value="supermajority_66" selected>Supermajority (66 2/3%)</option>
+                <option value="supermajority_75">Supermajority (75%)</option>
+                <option value="unanimous">Unanimous</option>
+              </select>
+            </div>
+            <div class="oa-field">
+              <label>Manager Removal</label>
+              <select id="manager_removal">
+                <option value="cause_only" selected>For Cause only (with cure period)</option>
+                <option value="cause_or_majority">For Cause or upon Majority in Interest vote</option>
+                <option value="supermajority">Upon Supermajority (66 2/3%) of non-Manager-affiliated Members</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="oa-panel-nav">
+            <button class="oa-btn-ghost" data-prev="members">&larr; Back</button>
+            <button class="oa-btn-primary" data-next="distributions">Continue to Distributions &rarr;</button>
+          </div>
+        </section>
+
+        <!-- ================================================
+             PANEL 4 — DISTRIBUTIONS
+             ================================================ -->
+        <section class="oa-panel" data-panel="distributions">
+          <div class="oa-panel-header">
+            <div class="oa-panel-eyebrow">Section 4 of 8</div>
+            <h2>Distributions</h2>
+            <p class="oa-panel-sub">Configure how distributions of Available Cash will be made. The default is pro-rata in proportion to Percentage Interests, with an optional single-tier Preferred Return ahead of the pro-rata split. Multi-tier IRR promote waterfalls with catch-up and clawback are reserved for the <span class="brand-reserve"><span class="re">RE</span>SERVE</span> 12-step tool.</p>
+          </div>
+
+          <div class="oa-callout oa-callout-info">
+            <strong>Single-class, traditional allocations.</strong> This tool produces a single class of Membership Interests with optional Preferred Return. Allocations follow Percentage Interests on a traditional basis; the tool does not generate &sect;&nbsp;704(b) safe-harbor allocations (PIPCA, QIO, minimum-gain chargebacks). If the deal economics require special allocations, route to the <span class="brand-reserve"><span class="re">RE</span>SERVE</span> 12-step tool.
+          </div>
+
+          <div class="oa-field">
+            <label class="oa-check" style="font-weight:600;">
+              <input type="checkbox" id="pref_return_enabled" />
+              <strong>Include a Preferred Return on Capital Contributions</strong>
+            </label>
+            <p class="oa-help" style="margin-left:1.6rem;">If enabled, Members receive their accrued Preferred Return first, then return of Unreturned Capital Contributions, then pro-rata residual. If disabled, all distributions are pro-rata to Percentage Interests.</p>
+          </div>
+
+          <div id="pref_return_details" style="display:none;">
+            <div class="oa-field-grid">
+              <div class="oa-field">
+                <label>Preferred Return Rate</label>
+                <select id="pref_return_rate">
+                  <option value="0.06">6%</option>
+                  <option value="0.07">7%</option>
+                  <option value="0.08" selected>8% (institutional standard)</option>
+                  <option value="0.09">9%</option>
+                  <option value="0.10">10%</option>
+                  <option value="0.12">12%</option>
+                </select>
+              </div>
+              <div class="oa-field">
+                <label>Compounding</label>
+                <select id="pref_return_compounding">
+                  <option value="simple">Simple (not compounded)</option>
+                  <option value="annual" selected>Annually compounded</option>
+                  <option value="quarterly">Quarterly compounded</option>
+                  <option value="monthly">Monthly compounded</option>
+                </select>
+              </div>
+              <div class="oa-field">
+                <label>Treatment</label>
+                <select id="pref_return_cumulative">
+                  <option value="cumulative" selected>Cumulative (accrues until paid)</option>
+                  <option value="non_cumulative">Non-cumulative (forfeited if not paid)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="oa-field-grid">
+            <div class="oa-field">
+              <label>Distribution Timing</label>
+              <select id="distribution_timing">
+                <option value="quarterly" selected>Quarterly (within 45 days of quarter-end, to extent of Available Cash)</option>
+                <option value="semi_annual">Semi-annually</option>
+                <option value="annual">Annually</option>
+                <option value="manager_discretion">Manager&rsquo;s discretion</option>
+              </select>
+            </div>
+            <div class="oa-field">
+              <label>Liquidating Distributions</label>
+              <select id="liquidation_method">
+                <option value="per_waterfall" selected>Per the distribution order (consistent with operating distributions)</option>
+                <option value="per_capital_accounts">Per positive Capital Account balances (PIPCA)</option>
+              </select>
+            </div>
+          </div>
+
+          <h3 class="oa-subheader">Additional Capital Contributions</h3>
+          <div class="oa-field">
+            <label>Additional Capital Mode</label>
+            <select id="additional_capital_mode">
+              <option value="none">No additional capital required or permitted (amendment required)</option>
+              <option value="permissive" selected>Permitted with Manager / majority Member consent (voluntary only)</option>
+              <option value="mandatory_pro_rata">Mandatory pro-rata capital calls on Manager discretion (with default remedies)</option>
+              <option value="conditional">Permitted only on specified conditions (cash shortfall, lender requirement)</option>
+            </select>
+            <p class="oa-help">For mandatory capital calls, default remedies include Member-loan-with-priority-return at 25% per annum. Full institutional capital-call default machinery (punitive dilution, forced sale, forfeiture of profits interests) is reserved for the <span class="brand-reserve"><span class="re">RE</span>SERVE</span> 12-step tool.</p>
+          </div>
+
+          <div class="oa-panel-nav">
+            <button class="oa-btn-ghost" data-prev="management">&larr; Back</button>
+            <button class="oa-btn-primary" data-next="tax">Continue to Tax Elections &rarr;</button>
+          </div>
+        </section>
+
+        <!-- ================================================
+             PANEL 5 — TAX ELECTIONS
+             ================================================ -->
+        <section class="oa-panel" data-panel="tax">
+          <div class="oa-panel-header">
+            <div class="oa-panel-eyebrow">Section 5 of 8</div>
+            <h2>Tax Elections &amp; Provisions</h2>
+            <p class="oa-panel-sub">Configure federal tax classification, &sect;&nbsp;754 election, &sect;&nbsp;752 debt-allocation method, BBA Partnership Representative, tax year, and tax distributions. The tool defaults to partnership classification (Subchapter K), which is appropriate for nearly all multi-member real estate LLCs.</p>
+          </div>
+
+          <div class="oa-field">
+            <label>Federal Tax Classification</label>
+            <select id="tax_classification">
+              <option value="partnership" selected>Partnership (Subchapter K) &mdash; default</option>
+              <option value="s_corp">S-Corporation (Form 2553) &mdash; restricted eligibility; consult counsel</option>
+              <option value="c_corp">C-Corporation (Form 8832)</option>
+            </select>
+            <p class="oa-help">Multi-member LLCs default to partnership treatment. S-corp election is rarely appropriate for real estate (single-class-of-stock restriction; ineligible shareholders). C-corp election typically reflects a specific strategic objective.</p>
+          </div>
+
+          <h3 class="oa-subheader">&sect;&nbsp;754 Inside Basis Adjustment</h3>
+          <div class="oa-field">
+            <label>&sect;&nbsp;754 Election</label>
+            <select id="section_754_election">
+              <option value="mandatory_make">Mandatory &mdash; Company shall make the election effective for first taxable year</option>
+              <option value="manager_discretion" selected>Manager Discretion &mdash; Manager may elect if and when beneficial</option>
+              <option value="member_request">Upon Request &mdash; Manager shall elect upon request of any Member acquiring by purchase or transfer</option>
+              <option value="no_election">No Election (note: still mandatory under &sect;&nbsp;743 for substantial built-in loss)</option>
+            </select>
+            <p class="oa-help">A &sect;&nbsp;754 election permits the Company to adjust the inside basis of its assets upon a transfer of an interest or distribution to a Member. Once made, it binds the Company for that year and all subsequent years.</p>
+          </div>
+
+          <h3 class="oa-subheader">&sect;&nbsp;752 Liability Allocation</h3>
+          <div class="oa-field-grid">
+            <div class="oa-field">
+              <label>Nonrecourse Liabilities &mdash; Third Tier</label>
+              <select id="section_752_method">
+                <option value="profit_sharing_ratios" selected>Per Profit Sharing Ratios</option>
+                <option value="significant_item">Per &ldquo;significant item&rdquo; method</option>
+                <option value="alternative">Alternative method</option>
+                <option value="additional_method">&ldquo;Additional method&rdquo;</option>
+              </select>
+            </div>
+            <div class="oa-field">
+              <label>Qualified Nonrecourse Financing (&sect;&nbsp;465)</label>
+              <select id="qualified_nonrecourse_method">
+                <option value="real_estate_special_rule" selected>Per &sect;&nbsp;465(b)(6) special rule for real estate</option>
+                <option value="general_rule">General &sect;&nbsp;465 rule (at-risk only to extent of personal liability)</option>
+              </select>
+            </div>
+          </div>
+
+          <h3 class="oa-subheader">BBA Partnership Representative</h3>
+          <div class="oa-field-grid">
+            <div class="oa-field">
+              <label>Partnership Representative</label>
+              <select id="bba_pr_designation">
+                <option value="manager" selected>Manager (or its designee)</option>
+                <option value="specific_member">A specifically named Member</option>
+                <option value="third_party">An independent third party (outside CPA firm)</option>
+                <option value="rotating">Rotating among named Members</option>
+              </select>
+            </div>
+            <div class="oa-field">
+              <label>Designated Individual (if PR is an entity)</label>
+              <input type="text" id="bba_designated_individual" placeholder="Individual&rsquo;s name (required if PR is not an individual)" />
+            </div>
+          </div>
+
+          <div class="oa-field">
+            <label>Push-Out Election under &sect;&nbsp;6226</label>
+            <select id="push_out_election">
+              <option value="mandatory_for_audits" selected>Mandatory &mdash; PR shall make push-out election for any audit adjustment</option>
+              <option value="manager_discretion">Manager&rsquo;s discretion</option>
+              <option value="no_election">No push-out (Company pays the imputed underpayment)</option>
+            </select>
+            <p class="oa-help">Push-out shifts audit-year tax liability to the reviewed-year Members. Without it, current-year Members bear the imputed underpayment regardless of who held interests in the reviewed year.</p>
+          </div>
+
+          <h3 class="oa-subheader">Tax Year, Accounting Method &amp; Tax Distributions</h3>
+          <div class="oa-field-grid">
+            <div class="oa-field">
+              <label>Tax Year</label>
+              <select id="tax_year">
+                <option value="calendar" selected>Calendar year</option>
+                <option value="fiscal_required">Required fiscal year under &sect;&nbsp;706</option>
+                <option value="majority_member">Majority Member&rsquo;s tax year</option>
+              </select>
+            </div>
+            <div class="oa-field">
+              <label>Accounting Method</label>
+              <select id="accounting_method">
+                <option value="accrual" selected>Accrual</option>
+                <option value="cash">Cash (if eligible under &sect;&nbsp;448)</option>
+                <option value="manager_election">Manager&rsquo;s election</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="oa-field">
+            <label>Tax Distributions</label>
+            <select id="tax_distributions_enabled">
+              <option value="mandatory" selected>Mandatory &mdash; quarterly distributions to cover estimated tax</option>
+              <option value="permissive">Permitted &mdash; Manager may, but need not, make them</option>
+              <option value="none">None &mdash; no tax distributions provision</option>
+            </select>
+          </div>
+
+          <div class="oa-field-grid">
+            <div class="oa-field">
+              <label>Assumed Tax Rate</label>
+              <select id="assumed_tax_rate">
+                <option value="0.40">40% (lower-tax-state combined)</option>
+                <option value="0.45">45%</option>
+                <option value="0.50" selected>50% (high-state default)</option>
+                <option value="0.54">54% (NY/NJ + federal top)</option>
+                <option value="0.55">55% (CA + federal top)</option>
+                <option value="highest_marginal">Highest marginal federal + state of any Member</option>
+              </select>
+            </div>
+            <div class="oa-field">
+              <label>Tax Distribution Treatment</label>
+              <select id="tax_distribution_treatment">
+                <option value="advance" selected>Advance against future distributions (recouped from same Member)</option>
+                <option value="not_advance">Not an advance; in addition to other distributions</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="oa-panel-nav">
+            <button class="oa-btn-ghost" data-prev="distributions">&larr; Back</button>
+            <button class="oa-btn-primary" data-next="transfers">Continue to Transfers &rarr;</button>
+          </div>
+        </section>
+
+        <!-- ================================================
+             PANEL 6 — TRANSFERS
+             ================================================ -->
+        <section class="oa-panel" data-panel="transfers">
+          <div class="oa-panel-header">
+            <div class="oa-panel-eyebrow">Section 6 of 8</div>
+            <h2>Transfers &amp; Exit Mechanics</h2>
+            <p class="oa-panel-sub">Configure restrictions on Membership Interest transfers, permitted-transferee categories, and exit mechanics (ROFO, ROFR, drag-along, tag-along).</p>
+          </div>
+
+          <div class="oa-field">
+            <label>General Transfer Restriction</label>
+            <select id="transfer_general">
+              <option value="strict_consent" selected>Strict prohibition without prior written consent of all Members</option>
+              <option value="consent_with_permitted">Prohibition with enumerated permitted transferees and Majority consent</option>
+              <option value="open_with_compliance">Open subject to securities-law and tax-compliance representations</option>
+            </select>
+          </div>
+
+          <div class="oa-field">
+            <label>Permitted Transferees</label>
+            <p class="oa-help" style="margin-top:0;">Transfers to these categories are permitted without Member consent (subject to securities and tax compliance).</p>
+            <div class="oa-checks">
+              <label class="oa-check"><input type="checkbox" id="pt_family" checked /> <strong>Estate planning transfers</strong> to revocable trust, irrevocable trust for spouse/descendants, GRAT, IDGT, family limited partnership</label>
+              <label class="oa-check"><input type="checkbox" id="pt_wholly_owned" checked /> <strong>Wholly-owned entity</strong> of the transferring Member (single-member LLC, S-Corp)</label>
+              <label class="oa-check"><input type="checkbox" id="pt_affiliates" checked /> <strong>Affiliates</strong> of the transferring Member (controlled / under common control)</label>
+              <label class="oa-check"><input type="checkbox" id="pt_at_death" checked /> <strong>Transfer by will / intestacy</strong> upon death of an individual Member</label>
+              <label class="oa-check"><input type="checkbox" id="pt_charitable" /> <strong>Charitable organizations</strong> (501(c)(3) and DAFs)</label>
+              <label class="oa-check"><input type="checkbox" id="pt_employee_benefit" /> <strong>Employee benefit trusts</strong> of the transferring Member or its Affiliates</label>
+            </div>
+          </div>
+
+          <div class="oa-field-grid">
+            <div class="oa-field">
+              <label>Right of First Offer (ROFO)</label>
+              <select id="rofo">
+                <option value="enabled" selected>Enabled</option>
+                <option value="disabled">Not included</option>
+              </select>
+              <p class="oa-help">Transferring Member must first offer to non-transferring Members at the proposed transfer price and terms.</p>
+            </div>
+            <div class="oa-field">
+              <label>Right of First Refusal (ROFR)</label>
+              <select id="rofr">
+                <option value="enabled">Enabled</option>
+                <option value="disabled" selected>Not included (typically not combined with ROFO)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="oa-field-grid">
+            <div class="oa-field">
+              <label>Drag-Along Right</label>
+              <select id="drag_along">
+                <option value="enabled" selected>Enabled</option>
+                <option value="disabled">Not included</option>
+              </select>
+            </div>
+            <div class="oa-field">
+              <label>Drag-Along Trigger Threshold</label>
+              <select id="drag_along_threshold">
+                <option value="majority">Majority in Interest (&gt;50%)</option>
+                <option value="supermajority_66" selected>Supermajority (66 2/3%)</option>
+                <option value="supermajority_75">Supermajority (75%)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="oa-field-grid">
+            <div class="oa-field">
+              <label>Tag-Along Right</label>
+              <select id="tag_along">
+                <option value="enabled" selected>Enabled</option>
+                <option value="disabled">Not included</option>
+              </select>
+            </div>
+            <div class="oa-field">
+              <label>Tag-Along Trigger</label>
+              <select id="tag_along_trigger">
+                <option value="any_transfer">Any third-party transfer</option>
+                <option value="change_of_control" selected>Change of control (transfer of &gt;25% to non-affiliate)</option>
+                <option value="majority_transfer">Transfer of a Majority in Interest</option>
+              </select>
+            </div>
+          </div>
+
+          <h3 class="oa-subheader">Special Provisions</h3>
+          <div class="oa-field-grid">
+            <div class="oa-field">
+              <label>SPE Covenants</label>
+              <select id="spe_provisions">
+                <option value="none" selected>None</option>
+                <option value="standard">Standard SPE covenants</option>
+                <option value="standard_plus_independent">Standard SPE + Independent Manager</option>
+              </select>
+              <p class="oa-help">Required by most commercial real estate lenders for entities holding financed property.</p>
+            </div>
+            <div class="oa-field">
+              <label>Charging Order Protection</label>
+              <select id="charging_order">
+                <option value="standard" selected>Standard (state-statute exclusive remedy)</option>
+                <option value="enhanced">Enhanced (no foreclosure, no info rights)</option>
+                <option value="none">None</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="oa-field-grid">
+            <div class="oa-field">
+              <label>Manager / Member Indemnification</label>
+              <select id="indemnification">
+                <option value="standard" selected>Standard</option>
+                <option value="enhanced">Enhanced (mandatory D&amp;O insurance)</option>
+                <option value="basic">Basic (no indemnification for gross negligence / willful misconduct)</option>
+              </select>
+            </div>
+            <div class="oa-field">
+              <label>Confidentiality</label>
+              <select id="confidentiality">
+                <option value="standard" selected>Standard</option>
+                <option value="enhanced">Enhanced (liquidated damages + injunctive relief)</option>
+                <option value="none">None</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="oa-field-grid">
+            <div class="oa-field">
+              <label>Restrictive Covenants</label>
+              <select id="restrictive_covenants">
+                <option value="none" selected>None</option>
+                <option value="non_solicit">Non-solicit only (2 years post-withdrawal)</option>
+                <option value="full">Non-compete and non-solicit (2 years, reasonable scope)</option>
+              </select>
+            </div>
+            <div class="oa-field">
+              <label>Dispute Resolution</label>
+              <select id="dispute_resolution">
+                <option value="delaware_chancery" selected>Delaware Court of Chancery</option>
+                <option value="mediation_then_aaa">Mediation, then AAA Commercial Arbitration</option>
+                <option value="aaa_arbitration">AAA Commercial Arbitration (Wilmington seat)</option>
+                <option value="jams_arbitration">JAMS Arbitration</option>
+                <option value="state_court_only">State court of competent jurisdiction</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="oa-panel-nav">
+            <button class="oa-btn-ghost" data-prev="tax">&larr; Back</button>
+            <button class="oa-btn-primary" data-next="securities">Continue to Securities &rarr;</button>
+          </div>
+        </section>
+
+        <!-- ================================================
+             PANEL 7 — SECURITIES COMPLIANCE
+             ================================================ -->
+        <section class="oa-panel" data-panel="securities">
+          <div class="oa-panel-header">
+            <div class="oa-panel-eyebrow">Section 7 of 8</div>
+            <h2>Securities Compliance</h2>
+            <p class="oa-panel-sub">Select the securities compliance posture appropriate for the deal. This tool supports two postures: Level 0 (joint venture &mdash; no securities offering) and Level 1 (Reg D 506(b) friends-and-family offering with Risk Disclosure Letter). Higher-complexity offerings (Level 2 full PPM, Level 3 506(c) with general solicitation) are reserved for the <span class="brand-reserve"><span class="re">RE</span>SERVE</span> 12-step tool.</p>
+          </div>
+
+          <div class="oa-field">
+            <label>Securities Compliance Level <span class="oa-req">*</span></label>
+            <select id="securities_level">
+              <option value="level_0" selected>Level 0 &mdash; Joint Venture (Howey / Williamson; not a security)</option>
+              <option value="level_1">Level 1 &mdash; Reg D 506(b) (accredited + up to 35 sophisticated non-accredited)</option>
+            </select>
+            <p class="oa-help"><strong>Level 0:</strong> Operating-member joint venture; companion document is the JV Securities Analysis Memo addressing the <em>Williamson v. Tucker</em> factors. <strong>Level 1:</strong> Reg D 506(b) friends-and-family private placement; companion document is the Risk Disclosure Letter (in lieu of full PPM).</p>
+          </div>
+
+          <div id="securities_level_1_block" style="display:none;">
+            <h3 class="oa-subheader">Offering Parameters (Level 1)</h3>
+
+            <div class="oa-field-grid">
+              <div class="oa-field">
+                <label>Target Raise</label>
+                <input type="text" id="securities_target_raise" placeholder="e.g., $5,000,000" />
+              </div>
+              <div class="oa-field">
+                <label>Minimum Subscription</label>
+                <input type="text" id="securities_min_subscription" placeholder="e.g., $100,000" />
+              </div>
+              <div class="oa-field">
+                <label>Maximum Number of Investors</label>
+                <input type="text" id="securities_max_investors" placeholder="e.g., 35 (506(b) limit on non-accredited)" />
+              </div>
+              <div class="oa-field">
+                <label>Offering Period (months to close)</label>
+                <input type="text" id="offering_period" placeholder="e.g., 6" />
+              </div>
+              <div class="oa-field">
+                <label>Project / Property Location</label>
+                <input type="text" id="property_location" placeholder="e.g., 1234 Main Street, Miami, FL 33101" />
+              </div>
+              <div class="oa-field">
+                <label>Anticipated Hold Period (years)</label>
+                <input type="text" id="anticipated_hold" placeholder="e.g., 5" />
+              </div>
+              <div class="oa-field oa-field-wide">
+                <label>Securities Description</label>
+                <input type="text" id="securities_description" placeholder="e.g., Class A Membership Interests" value="Class A Membership Interests" />
+              </div>
+            </div>
+
+            <div class="oa-field">
+              <label>Project / Business Description (1&ndash;3 paragraphs)</label>
+              <textarea id="project_description" rows="5" placeholder="Describe the business purpose, the asset, the operating or development plan, target market, projected timeline. Used in the Risk Disclosure Letter Business Description section."></textarea>
+            </div>
+
+            <div class="oa-field">
+              <label>Use of Proceeds (sources &amp; uses summary)</label>
+              <textarea id="use_of_proceeds" rows="4" placeholder="One line per use. Example:&#10;Property acquisition  $4,000,000&#10;Closing costs and reserves  $500,000&#10;Working capital  $500,000"></textarea>
+            </div>
+
+            <div class="oa-field">
+              <label>States Where Investors Reside (Blue Sky)</label>
+              <input type="text" id="blue_sky_states" placeholder="Comma-separated state codes: e.g., FL, MA, NY, CA, TX" />
+              <p class="oa-help">Blue Sky notice filings are required in each state where an investor resides at the time of sale. The firm handles state-by-state filings on issuance.</p>
+            </div>
+          </div>
+
+          <div class="oa-panel-nav">
+            <button class="oa-btn-ghost" data-prev="transfers">&larr; Back</button>
+            <button class="oa-btn-primary" data-next="generate">Continue to Review &amp; Generate &rarr;</button>
+          </div>
+        </section>
+
+        <!-- ================================================
+             PANEL 8 — REVIEW & GENERATE
+             ================================================ -->
+        <section class="oa-panel" data-panel="generate">
+          <div class="oa-panel-header">
+            <div class="oa-panel-eyebrow">Section 8 of 8</div>
+            <h2>Review &amp; Generate</h2>
+            <p class="oa-panel-sub">Review the configuration and generate the draft document set. All documents are DRAFTS subject to attorney review and final issuance by Donovan Legal PLLC under a written engagement letter.</p>
+          </div>
+
+          <div id="review_summary" class="oa-review-summary">
+            <!-- Populated by JS at panel activation -->
+          </div>
+
+          <div class="oa-action-row">
+            <button id="btn_generate" class="oa-btn-primary oa-btn-large">Generate Draft Documents</button>
+            <button class="oa-btn-ghost" data-prev="securities">&larr; Back to Edit</button>
+          </div>
+
+          <!-- Generated documents -->
+          <div id="generated_docs" style="display:none;">
+
+            <div class="oa-doc-tabs">
+              <!-- Populated by JS -->
+            </div>
+
+            <div class="oa-doc-actions">
+              <button id="btn_print_doc" class="oa-btn-secondary-sm">Print / Save as PDF</button>
+              <button id="btn_copy_doc" class="oa-btn-secondary-sm">Copy Text</button>
+              <span class="oa-doc-actions-note">Save the printed PDF or copied text and forward to the firm for review and finalization.</span>
+            </div>
+
+            <div id="doc_preview" class="oa-doc-preview"></div>
+          </div>
+
+          <div class="oa-final-disclaimer">
+            <strong>Important.</strong> All documents generated by this tool are <strong>drafts intended for attorney review and final issuance by Donovan Legal PLLC</strong>. Drafts are not legally effective until reviewed, finalized, and signed in accordance with the firm&rsquo;s written engagement letter. <span class="brand-platinum">PLATINUM</span> and <span class="brand-reserve"><span class="re">RE</span>SERVE</span> members should forward the generated documents to the firm for review against the specific deal facts before execution or reliance. Tax, distribution, and securities-compliance provisions involve fact-specific determinations that the firm verifies against the underlying economic deal, lender requirements, and Members&rsquo; tax profiles before issuance. Reading or using this tool does not create an attorney-client relationship; an attorney-client relationship is created only by a signed engagement letter.
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+  </div>
+
+  <!-- Set tier BEFORE loading the engine -->
+  <script src="../js/tool-entity-formation-multi.js"></script>
+</body>
+</html>

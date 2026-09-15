@@ -1,0 +1,2378 @@
+{
+  "/home.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": ".container > a:nth-child(1) > span:nth-child(1)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.68 (foreground color: #0a5a37, background color: #c9a961, font size: 8.2pt (10.88px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "a:nth-child(1) > span:nth-child(3)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.68 (foreground color: #c9a961, background color: #0a5a37, font size: 10.6pt (14.08px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".container > a:nth-child(3) > span:nth-child(1)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.68 (foreground color: #0a5a37, background color: #c9a961, font size: 8.2pt (10.88px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "a:nth-child(3) > span:nth-child(3)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.68 (foreground color: #c9a961, background color: #0a5a37, font size: 10.6pt (14.08px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "a[href$=\"tax.html\"] > .practice-card-v2 > p:nth-child(3)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.41 (foreground color: #8a8b8d, background color: #ffffff, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "a[href$=\"real-estate.html\"] > .practice-card-v2 > p:nth-child(3)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.41 (foreground color: #8a8b8d, background color: #ffffff, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "a[href$=\"special-counsel.html\"] > .practice-card-v2 > p:nth-child(3)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.41 (foreground color: #8a8b8d, background color: #ffffff, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "a[target=\"_blank\"][rel=\"noopener\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #169b62, background color: #eaefe8, font size: 11.4pt (15.2px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a[href$=\"testimonials.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    }
+  ],
+  "/audit-reconsideration.html": [],
+  "/blog.html": [
+    {
+      "id": "aria-required-children",
+      "impact": "critical",
+      "nodes": [
+        {
+          "target": ".blog-filter",
+          "summary": "Fix any of the following:\n  Element has children which are not allowed: button"
+        }
+      ]
+    }
+  ],
+  "/blog-461l-excess-business-loss-and-172-nol.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-planning.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a[href$=\"real-estate.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    }
+  ],
+  "/blog-augusta-rule-280a-g.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-planning.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a[href$=\"real-estate.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 340\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/blog-bramblett-phelan-two-entity-structure.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": ".post-category",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.27 (foreground color: #c4e1d1, background color: #f5f5f0, font size: 9.4pt (12.48px), font weight: bold). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    }
+  ],
+  "/blog-character-amount-timing.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-planning.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a[href$=\"real-estate.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 430\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/blog-civil-fraud-eggshell-audit.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-controversy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "a[href=\"blog-penalty-regime-6751b.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-related > p > a[href$=\"blog-irs-summons.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a:nth-child(4)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 324\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/blog-conservation-easement-settlement.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-controversy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a:nth-child(2)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-related > p > a:nth-child(3)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 196\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/blog-controversy-roadmap-0-overview.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": ".re",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.57 (foreground color: #019a48, background color: #fcfcfb, font size: 9.8pt (13px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".eyebrow",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.19 (foreground color: #c9a961, background color: #fcfcfb, font size: 9.4pt (12.5px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".kicker",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.57 (foreground color: #019a48, background color: #fcfcfb, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "link-in-text-block",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "a[href$=\"tax-controversy.html\"]",
+          "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2.33:1 with the surrounding text. (Minimum contrast is 3:1, link text: #019a48, surrounding text: #c5d0d6)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        }
+      ]
+    }
+  ],
+  "/blog-controversy-roadmap-1-processing-assessment.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": ".re",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.57 (foreground color: #019a48, background color: #fcfcfb, font size: 9.8pt (13px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".eyebrow",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.19 (foreground color: #c9a961, background color: #fcfcfb, font size: 9.4pt (12.5px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".gold > p > code:nth-child(2)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > code:nth-child(3)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".exam > p > code",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".closed > p > code",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".pt.t",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.79 (foreground color: #ffffff, background color: #3c8da3, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".s",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.9 (foreground color: #ffffff, background color: #c06a3e, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "span:nth-child(2) > .t",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.57 (foreground color: #019a48, background color: #fcfcfb, font size: 13.5pt (18px), font weight: bold). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "link-in-text-block",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "a[href$=\"irs-notice.html\"]",
+          "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2.33:1 with the surrounding text. (Minimum contrast is 3:1, link text: #019a48, surrounding text: #c5d0d6)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        }
+      ]
+    }
+  ],
+  "/blog-controversy-roadmap-2-exam.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": ".re",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.57 (foreground color: #019a48, background color: #fcfcfb, font size: 9.8pt (13px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".eyebrow",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.19 (foreground color: #c9a961, background color: #fcfcfb, font size: 9.4pt (12.5px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".teal > p > code:nth-child(1)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".teal > p > code:nth-child(2)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".indigo > p > code:nth-child(1)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".indigo > p > code:nth-child(2)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".t",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.57 (foreground color: #019a48, background color: #fcfcfb, font size: 13.5pt (18px), font weight: bold). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "link-in-text-block",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "a[href$=\"irs-audit-defense.html\"]",
+          "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2.33:1 with the surrounding text. (Minimum contrast is 3:1, link text: #019a48, surrounding text: #c5d0d6)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        }
+      ]
+    }
+  ],
+  "/blog-controversy-roadmap-3-exam-alternatives.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": ".re",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.57 (foreground color: #019a48, background color: #fcfcfb, font size: 9.8pt (13px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".eyebrow",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.19 (foreground color: #c9a961, background color: #fcfcfb, font size: 9.4pt (12.5px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".teal:nth-child(1) > p > code:nth-child(1)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".teal:nth-child(1) > p > code:nth-child(3)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".teal:nth-child(2) > p > code:nth-child(1)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".teal:nth-child(2) > p > code:nth-child(2)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "ul:nth-child(9) > .indigo > p > code:nth-child(1)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".indigo > p > code:nth-child(2)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".indigo > p > code:nth-child(3)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "ul:nth-child(12) > .indigo > p > code",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".t",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.57 (foreground color: #019a48, background color: #fcfcfb, font size: 13.5pt (18px), font weight: bold). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "link-in-text-block",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "a[href=\"audit-reconsideration.html\"]",
+          "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2.33:1 with the surrounding text. (Minimum contrast is 3:1, link text: #019a48, surrounding text: #c5d0d6)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        }
+      ]
+    }
+  ],
+  "/blog-controversy-roadmap-4-appeals.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": ".re",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.57 (foreground color: #019a48, background color: #fcfcfb, font size: 9.8pt (13px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".eyebrow",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.19 (foreground color: #c9a961, background color: #fcfcfb, font size: 9.4pt (12.5px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".t.pt",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.79 (foreground color: #ffffff, background color: #3c8da3, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".teal > p > code",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".sienna:nth-child(2) > h3 > .s.pt",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.9 (foreground color: #ffffff, background color: #c06a3e, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".sienna:nth-child(2) > p > code:nth-child(1)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".sienna:nth-child(2) > p > code:nth-child(2)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".sienna:nth-child(3) > h3 > .s.pt",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.9 (foreground color: #ffffff, background color: #c06a3e, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".sienna:nth-child(3) > p > code",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".emer > p > code:nth-child(1)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".emer > p > code:nth-child(2)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".indigo:nth-child(3) > p > code",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "span:nth-child(2) > .t",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.57 (foreground color: #019a48, background color: #fcfcfb, font size: 13.5pt (18px), font weight: bold). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "link-in-text-block",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "a[href$=\"irs-appeals.html\"]",
+          "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2.33:1 with the surrounding text. (Minimum contrast is 3:1, link text: #019a48, surrounding text: #c5d0d6)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        }
+      ]
+    }
+  ],
+  "/blog-controversy-roadmap-5-collection.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": ".re",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.57 (foreground color: #019a48, background color: #fcfcfb, font size: 9.8pt (13px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".eyebrow",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.19 (foreground color: #c9a961, background color: #fcfcfb, font size: 9.4pt (12.5px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "li:nth-child(1) > p > code",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".t",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.57 (foreground color: #019a48, background color: #fcfcfb, font size: 13.5pt (18px), font weight: bold). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "link-in-text-block",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "a[href$=\"irs-liens-levies.html\"]",
+          "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2.33:1 with the surrounding text. (Minimum contrast is 3:1, link text: #019a48, surrounding text: #c5d0d6)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        }
+      ]
+    }
+  ],
+  "/blog-controversy-roadmap-6-collection-alternatives.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": ".re",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.57 (foreground color: #019a48, background color: #fcfcfb, font size: 9.8pt (13px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".eyebrow",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.19 (foreground color: #c9a961, background color: #fcfcfb, font size: 9.4pt (12.5px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".gold > p > code",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".indigo > p > code:nth-child(1)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > code:nth-child(2)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5e7686, background color: #eef2f4, font size: 11.0pt (14.72px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".t",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.57 (foreground color: #019a48, background color: #fcfcfb, font size: 13.5pt (18px), font weight: bold). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "link-in-text-block",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "a[href$=\"tax-debt-resolution.html\"]",
+          "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2.33:1 with the surrounding text. (Minimum contrast is 3:1, link text: #019a48, surrounding text: #c5d0d6)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        }
+      ]
+    }
+  ],
+  "/blog-controversy-roadmap-7-litigation.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": ".re",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.57 (foreground color: #019a48, background color: #fcfcfb, font size: 9.8pt (13px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".eyebrow",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.19 (foreground color: #c9a961, background color: #fcfcfb, font size: 9.4pt (12.5px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".t",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.57 (foreground color: #019a48, background color: #fcfcfb, font size: 13.5pt (18px), font weight: bold). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "link-in-text-block",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "a[href$=\"tax-court.html\"]",
+          "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2.33:1 with the surrounding text. (Minimum contrast is 3:1, link text: #019a48, surrounding text: #c5d0d6)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+        }
+      ]
+    }
+  ],
+  "/blog-criminal-tax-overview.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-controversy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a:nth-child(2)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-related > p > a[href$=\"blog-irs-summons.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a:nth-child(4)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 248\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/blog-currently-not-collectible-csed.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-controversy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "a[href$=\"blog-irs-levy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-related > p > a:nth-child(3)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a:nth-child(4)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 286\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/blog-fbar-foreign-account-penalties.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-controversy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a[href$=\"tax-compliance.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "a[href$=\"blog-irs-summons.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a:nth-child(4)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 264\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/blog-firpta-foreign-sellers.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-compliance.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a[href$=\"real-estate.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    }
+  ],
+  "/blog-foreclose-federal-tax-lien-suit.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-controversy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a:nth-child(2)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-related > p > a:nth-child(3)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a:nth-child(4)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 246\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/blog-irs-audit-notice-what-to-do.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-controversy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    }
+  ],
+  "/blog-irs-co-owned-marital-real-estate.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-controversy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-related > p > a:nth-child(2)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-related > p > a:nth-child(3)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a:nth-child(4)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 220\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/blog-irs-levy.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-controversy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a:nth-child(2)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-related > p > a:nth-child(3)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a:nth-child(4)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 326\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        },
+        {
+          "target": "svg[viewBox=\"0 0 760 378\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/blog-irs-summons.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-controversy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a:nth-child(2)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-related > p > a:nth-child(3)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a:nth-child(4)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 300\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/blog-jeopardy-termination-assessments.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-controversy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "a[href$=\"blog-irs-levy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-related > p > a:nth-child(3)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a:nth-child(4)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 312\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/blog-kwong-covid-deadlines.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-controversy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "a[href=\"blog-penalty-regime-6751b.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-related > p > a:nth-child(3)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 250\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/blog-material-participation-seven-tests.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-planning.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a[href$=\"real-estate.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 415\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/blog-notice-of-federal-tax-lien.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-controversy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a:nth-child(2)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-related > p > a:nth-child(3)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 452\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/blog-partnership-agreement-tax-document.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-planning.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a[href$=\"real-estate.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    }
+  ],
+  "/blog-passport-revocation-tax-debt.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-controversy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "a[href$=\"blog-irs-levy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-related > p > a:nth-child(3)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a:nth-child(4)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 286\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/blog-penalty-regime-6751b.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-controversy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a:nth-child(2)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-related > p > a:nth-child(3)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a:nth-child(4)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 246\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/blog-per-se-passive-rule-exceptions.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-planning.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a[href$=\"real-estate.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 420\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/blog-real-estate-professional-status-reps.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-planning.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a[href$=\"real-estate.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 410\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/blog-short-term-rental-material-participation.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-planning.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a[href$=\"real-estate.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    }
+  ],
+  "/blog-short-term-rental-play.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-planning.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a[href$=\"real-estate.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 430\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/blog-subdivision-basis-allocation.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-planning.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a[href$=\"real-estate.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 300\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/blog-substitute-for-return.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-controversy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a[href$=\"tax-compliance.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-related > p > a:nth-child(3)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a:nth-child(4)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 214\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/blog-tax-opinions.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-planning.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a[href$=\"tax-controversy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "a[href=\"blog-penalty-regime-6751b.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 432\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/blog-tenancy-by-entirety-federal-tax-lien.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-controversy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-related > p > a:nth-child(2)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-related > p > a:nth-child(3)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a:nth-child(4)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 360\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/blog-transferee-nominee-alter-ego.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-controversy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a:nth-child(2)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-related > p > a:nth-child(3)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a[href$=\"real-estate.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 322\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/blog-trust-fund-recovery-penalty.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "p > a[href$=\"tax-controversy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "a[href$=\"blog-irs-levy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-related > p > a:nth-child(3)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p > a:nth-child(4)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".article-back > a[href$=\"blog.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[viewBox=\"0 0 760 392\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        },
+        {
+          "target": "svg[viewBox=\"0 0 760 246\"]",
+          "summary": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ]
+    }
+  ],
+  "/business-law.html": [
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "html",
+          "summary": "Fix any of the following:\n  The <html> element does not have a lang attribute"
+        }
+      ]
+    }
+  ],
+  "/contact.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": ".contact-info-row:nth-child(1) > .contact-info-label",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.95 (foreground color: #7bc4a3, background color: #fafaf8, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".contact-info-row:nth-child(2) > .contact-info-label",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.95 (foreground color: #7bc4a3, background color: #fafaf8, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".contact-info-row:nth-child(3) > .contact-info-label",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.95 (foreground color: #7bc4a3, background color: #fafaf8, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".contact-info-row:nth-child(4) > .contact-info-label",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.95 (foreground color: #7bc4a3, background color: #fafaf8, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".contact-info-row:nth-child(5) > .contact-info-label",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.95 (foreground color: #7bc4a3, background color: #fafaf8, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".contact-info-row:nth-child(6) > .contact-info-label",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.95 (foreground color: #7bc4a3, background color: #fafaf8, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".contact-info-row:nth-child(7) > .contact-info-label",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.95 (foreground color: #7bc4a3, background color: #fafaf8, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".submit-btn",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.95 (foreground color: #fafaf8, background color: #7bc4a3, font size: 10.8pt (14.4px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "a[data-perch-book=\"contact_page\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.87 (foreground color: #7bc4a3, background color: #f5f5f0, font size: 11.4pt (15.2px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p:nth-child(8) > a[href$=\"mailto:info@donovan.law\"][target=\"_top\"][rel=\"noopener\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.87 (foreground color: #7bc4a3, background color: #f5f5f0, font size: 11.4pt (15.2px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "p:nth-child(8) > a[href=\"tel:+15615295873\"][target=\"_top\"][rel=\"noopener\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.87 (foreground color: #7bc4a3, background color: #f5f5f0, font size: 11.4pt (15.2px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    }
+  ],
+  "/contracts.html": [
+    {
+      "id": "aria-valid-attr-value",
+      "impact": "critical",
+      "nodes": [
+        {
+          "target": "button[data-target=\"#fl-inside3\"]",
+          "summary": "Fix all of the following:\n  Invalid ARIA attribute value: aria-controls=\"collapseOne\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside2\"]",
+          "summary": "Fix all of the following:\n  Invalid ARIA attribute value: aria-controls=\"collapseOne\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside4\"]",
+          "summary": "Fix all of the following:\n  Invalid ARIA attribute value: aria-controls=\"collapseOne\""
+        }
+      ]
+    },
+    {
+      "id": "button-name",
+      "impact": "critical",
+      "nodes": [
+        {
+          "target": "button[data-target=\"#fl-inside3\"]",
+          "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside2\"]",
+          "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside4\"]",
+          "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        }
+      ]
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "html",
+          "summary": "Fix any of the following:\n  The <html> element does not have a lang attribute"
+        }
+      ]
+    }
+  ],
+  "/development.html": [
+    {
+      "id": "aria-valid-attr-value",
+      "impact": "critical",
+      "nodes": [
+        {
+          "target": "button[data-target=\"#fl-inside3\"]",
+          "summary": "Fix all of the following:\n  Invalid ARIA attribute value: aria-controls=\"collapseOne\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside2\"]",
+          "summary": "Fix all of the following:\n  Invalid ARIA attribute value: aria-controls=\"collapseOne\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside4\"]",
+          "summary": "Fix all of the following:\n  Invalid ARIA attribute value: aria-controls=\"collapseOne\""
+        }
+      ]
+    },
+    {
+      "id": "button-name",
+      "impact": "critical",
+      "nodes": [
+        {
+          "target": "button[data-target=\"#fl-inside3\"]",
+          "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside2\"]",
+          "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside4\"]",
+          "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        }
+      ]
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "html",
+          "summary": "Fix any of the following:\n  The <html> element does not have a lang attribute"
+        }
+      ]
+    }
+  ],
+  "/eminent-domain.html": [
+    {
+      "id": "aria-valid-attr-value",
+      "impact": "critical",
+      "nodes": [
+        {
+          "target": "button[data-target=\"#fl-inside3\"]",
+          "summary": "Fix all of the following:\n  Invalid ARIA attribute value: aria-controls=\"collapseOne\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside2\"]",
+          "summary": "Fix all of the following:\n  Invalid ARIA attribute value: aria-controls=\"collapseOne\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside4\"]",
+          "summary": "Fix all of the following:\n  Invalid ARIA attribute value: aria-controls=\"collapseOne\""
+        }
+      ]
+    },
+    {
+      "id": "button-name",
+      "impact": "critical",
+      "nodes": [
+        {
+          "target": "button[data-target=\"#fl-inside3\"]",
+          "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside2\"]",
+          "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside4\"]",
+          "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        }
+      ]
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "html",
+          "summary": "Fix any of the following:\n  The <html> element does not have a lang attribute"
+        }
+      ]
+    }
+  ],
+  "/entity-formation.html": [
+    {
+      "id": "aria-valid-attr-value",
+      "impact": "critical",
+      "nodes": [
+        {
+          "target": "button[data-target=\"#fl-inside3\"]",
+          "summary": "Fix all of the following:\n  Invalid ARIA attribute value: aria-controls=\"collapseOne\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside2\"]",
+          "summary": "Fix all of the following:\n  Invalid ARIA attribute value: aria-controls=\"collapseOne\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside4\"]",
+          "summary": "Fix all of the following:\n  Invalid ARIA attribute value: aria-controls=\"collapseOne\""
+        }
+      ]
+    },
+    {
+      "id": "button-name",
+      "impact": "critical",
+      "nodes": [
+        {
+          "target": "button[data-target=\"#fl-inside3\"]",
+          "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside2\"]",
+          "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside4\"]",
+          "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        }
+      ]
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "html",
+          "summary": "Fix any of the following:\n  The <html> element does not have a lang attribute"
+        }
+      ]
+    }
+  ],
+  "/florida-sales-tax-audit.html": [
+    {
+      "id": "nested-interactive",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[width=\"100%\"]",
+          "summary": "Fix any of the following:\n  Element has focusable descendants"
+        }
+      ]
+    }
+  ],
+  "/irs-appeals.html": [],
+  "/irs-audit-defense.html": [],
+  "/irs-liens-levies.html": [],
+  "/irs-notice.html": [],
+  "/leasing.html": [
+    {
+      "id": "aria-valid-attr-value",
+      "impact": "critical",
+      "nodes": [
+        {
+          "target": "button[data-target=\"#fl-inside3\"]",
+          "summary": "Fix all of the following:\n  Invalid ARIA attribute value: aria-controls=\"collapseOne\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside2\"]",
+          "summary": "Fix all of the following:\n  Invalid ARIA attribute value: aria-controls=\"collapseOne\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside4\"]",
+          "summary": "Fix all of the following:\n  Invalid ARIA attribute value: aria-controls=\"collapseOne\""
+        }
+      ]
+    },
+    {
+      "id": "button-name",
+      "impact": "critical",
+      "nodes": [
+        {
+          "target": "button[data-target=\"#fl-inside3\"]",
+          "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside2\"]",
+          "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside4\"]",
+          "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        }
+      ]
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "html",
+          "summary": "Fix any of the following:\n  The <html> element does not have a lang attribute"
+        }
+      ]
+    }
+  ],
+  "/litigation.html": [
+    {
+      "id": "aria-valid-attr-value",
+      "impact": "critical",
+      "nodes": [
+        {
+          "target": "button[data-target=\"#fl-inside3\"]",
+          "summary": "Fix all of the following:\n  Invalid ARIA attribute value: aria-controls=\"collapseOne\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside2\"]",
+          "summary": "Fix all of the following:\n  Invalid ARIA attribute value: aria-controls=\"collapseOne\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside4\"]",
+          "summary": "Fix all of the following:\n  Invalid ARIA attribute value: aria-controls=\"collapseOne\""
+        }
+      ]
+    },
+    {
+      "id": "button-name",
+      "impact": "critical",
+      "nodes": [
+        {
+          "target": "button[data-target=\"#fl-inside3\"]",
+          "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside2\"]",
+          "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside4\"]",
+          "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        }
+      ]
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "html",
+          "summary": "Fix any of the following:\n  The <html> element does not have a lang attribute"
+        }
+      ]
+    }
+  ],
+  "/massachusetts-tax-appeal.html": [
+    {
+      "id": "nested-interactive",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "svg[width=\"100%\"]",
+          "summary": "Fix any of the following:\n  Element has focusable descendants"
+        }
+      ]
+    }
+  ],
+  "/ourfirm.html": [],
+  "/partnership-audits.html": [],
+  "/practice.html": [],
+  "/property-acquisition.html": [
+    {
+      "id": "aria-valid-attr-value",
+      "impact": "critical",
+      "nodes": [
+        {
+          "target": "button[data-target=\"#fl-inside3\"]",
+          "summary": "Fix all of the following:\n  Invalid ARIA attribute value: aria-controls=\"collapseOne\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside2\"]",
+          "summary": "Fix all of the following:\n  Invalid ARIA attribute value: aria-controls=\"collapseOne\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside4\"]",
+          "summary": "Fix all of the following:\n  Invalid ARIA attribute value: aria-controls=\"collapseOne\""
+        }
+      ]
+    },
+    {
+      "id": "button-name",
+      "impact": "critical",
+      "nodes": [
+        {
+          "target": "button[data-target=\"#fl-inside3\"]",
+          "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside2\"]",
+          "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside4\"]",
+          "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        }
+      ]
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "html",
+          "summary": "Fix any of the following:\n  The <html> element does not have a lang attribute"
+        }
+      ]
+    }
+  ],
+  "/re-financing.html": [
+    {
+      "id": "aria-valid-attr-value",
+      "impact": "critical",
+      "nodes": [
+        {
+          "target": "button[data-target=\"#fl-inside3\"]",
+          "summary": "Fix all of the following:\n  Invalid ARIA attribute value: aria-controls=\"collapseOne\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside2\"]",
+          "summary": "Fix all of the following:\n  Invalid ARIA attribute value: aria-controls=\"collapseOne\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside4\"]",
+          "summary": "Fix all of the following:\n  Invalid ARIA attribute value: aria-controls=\"collapseOne\""
+        }
+      ]
+    },
+    {
+      "id": "button-name",
+      "impact": "critical",
+      "nodes": [
+        {
+          "target": "button[data-target=\"#fl-inside3\"]",
+          "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside2\"]",
+          "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        },
+        {
+          "target": "button[data-target=\"#fl-inside4\"]",
+          "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        }
+      ]
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "html",
+          "summary": "Fix any of the following:\n  The <html> element does not have a lang attribute"
+        }
+      ]
+    }
+  ],
+  "/real-estate.html": [],
+  "/residency-audit.html": [],
+  "/tax.html": [],
+  "/tax-controversy.html": [],
+  "/tax-court.html": [],
+  "/tax-debt-resolution.html": [],
+  "/tax-penalties.html": [],
+  "/tool-1031-exchange.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": ".tier-banner-cta",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.35 (foreground color: #169b62, background color: #fff8e1, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".mode-selector-label",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.4 (foreground color: #169b62, background color: #fafaf5, font size: 9.4pt (12.48px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".active[data-mode=\"forward\"][type=\"button\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #ffffff, background color: #169b62, font size: 10.6pt (14.08px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "button[data-mode=\"reverse\"][type=\"button\"] > .mode-tier-tag",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #ffffff, background color: #169b62, font size: 7.4pt (9.92px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "button[data-mode=\"drop-swap\"][type=\"button\"] > .mode-tier-tag",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #ffffff, background color: #169b62, font size: 7.4pt (9.92px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "button[data-mode=\"multi\"][type=\"button\"] > .mode-tier-tag",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #ffffff, background color: #169b62, font size: 7.4pt (9.92px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".calc-section:nth-child(1) > h3",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 12.6pt (16.8px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".calc-section:nth-child(2) > h3",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 12.6pt (16.8px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".calc-section:nth-child(3) > h3",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 12.6pt (16.8px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".active[data-rule=\"three\"][type=\"button\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #ffffff, background color: #169b62, font size: 9.8pt (13.12px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".id-rule-card.active[data-rule=\"three\"] > .id-rule-card-num",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.36 (foreground color: #169b62, background color: #f3faf7, font size: 9.4pt (12.48px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".id-rule-card[data-rule=\"200\"] > .id-rule-card-num",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 9.4pt (12.48px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".id-rule-card[data-rule=\"95\"] > .id-rule-card-num",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 9.4pt (12.48px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".calc-section:nth-child(4) > h3",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 12.6pt (16.8px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".calc-section:nth-child(5) > h3",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 12.6pt (16.8px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".calc-section:nth-child(6) > h3",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 12.6pt (16.8px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".calc-section:nth-child(7) > h3",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 12.6pt (16.8px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".calc-section:nth-child(8) > h3",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 12.6pt (16.8px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".member-only-note",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 9.8pt (13.12px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".calc-btn",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #ffffff, background color: #169b62, font size: 10.8pt (14.4px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".calc-btn-secondary",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 10.8pt (14.4px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".calc-section:nth-child(11) > h3",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 12.6pt (16.8px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".calc-section:nth-child(11) > .info-card > strong:nth-child(1)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.4 (foreground color: #169b62, background color: #fafaf5, font size: 10.6pt (14.08px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".info-card > strong:nth-child(2)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.4 (foreground color: #169b62, background color: #fafaf5, font size: 10.6pt (14.08px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "strong:nth-child(3)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.4 (foreground color: #169b62, background color: #fafaf5, font size: 10.6pt (14.08px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "strong:nth-child(4)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.4 (foreground color: #169b62, background color: #fafaf5, font size: 10.6pt (14.08px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "strong:nth-child(5)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.4 (foreground color: #169b62, background color: #fafaf5, font size: 10.6pt (14.08px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".calc-section:nth-child(12) > h3:nth-child(1)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 12.6pt (16.8px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".col-lg-12 > .info-card > strong",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.4 (foreground color: #169b62, background color: #fafaf5, font size: 10.6pt (14.08px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".info-card > a[href$=\"contact.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.4 (foreground color: #169b62, background color: #fafaf5, font size: 10.6pt (14.08px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    }
+  ],
+  "/tool-capital-gains.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": ".calc-btn",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #ffffff, background color: #169b62, font size: 10.8pt (14.4px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".calc-btn-secondary",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 10.8pt (14.4px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "h5",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 15.0pt (20px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".cta-link",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #ffffff, background color: #169b62, font size: 10.8pt (14.4px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".tool-back > a[href$=\"tools.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".tool-back > a[href$=\"tax-planning.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    },
+    {
+      "id": "select-name",
+      "impact": "critical",
+      "nodes": [
+        {
+          "target": "#niit",
+          "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        }
+      ]
+    }
+  ],
+  "/tool-cost-segregation.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": ".calc-section:nth-child(3) > h3",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 12.6pt (16.8px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".calc-section:nth-child(4) > h3",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 12.6pt (16.8px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".calc-section:nth-child(5) > h3",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 12.6pt (16.8px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "#state_conform_note > strong",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.4 (foreground color: #169b62, background color: #fafaf5, font size: 10.2pt (13.6px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".calc-section:nth-child(6) > h3",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 12.6pt (16.8px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".calc-section:nth-child(7) > h3",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 12.6pt (16.8px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".calc-btn",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #ffffff, background color: #169b62, font size: 10.8pt (14.4px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".calc-btn-secondary",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 10.8pt (14.4px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".calc-section:nth-child(10) > h3:nth-child(1)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 12.6pt (16.8px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".calc-section:nth-child(11) > h3",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 12.6pt (16.8px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".col-lg-12 > .info-card > strong",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.4 (foreground color: #169b62, background color: #fafaf5, font size: 10.6pt (14.08px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".info-card > a[href$=\"contact.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.4 (foreground color: #169b62, background color: #fafaf5, font size: 10.6pt (14.08px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    }
+  ],
+  "/tool-deal-builder-preview.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": ".preview-eyebrow",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.05 (foreground color: #c9a961, background color: #f5f5f0, font size: 8.6pt (11.52px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".preview-eyebrow > .brand-reserve",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.05 (foreground color: #c9a961, background color: #f5f5f0, font size: 8.6pt (11.52px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".gate-icon > .brand-reserve",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.25 (foreground color: #c9a961, background color: #ffffff, font size: 24.0pt (32px), font weight: normal). Expected contrast ratio of 3:1"
+        },
+        {
+          "target": ".gate-label",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.25 (foreground color: #c9a961, background color: #ffffff, font size: 8.6pt (11.52px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".preview-footer-meta",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.26 (foreground color: #6b6b6b, background color: #1a1a1a, font size: 8.4pt (11.2px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".preview-footer-meta > .brand-reserve",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.26 (foreground color: #6b6b6b, background color: #1a1a1a, font size: 8.4pt (11.2px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    }
+  ],
+  "/tool-firpta-withholding.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": ".calc-btn",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #ffffff, background color: #169b62, font size: 10.8pt (14.4px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".calc-btn-secondary",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 10.8pt (14.4px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "h5",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 15.0pt (20px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".cta-link",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #ffffff, background color: #169b62, font size: 10.8pt (14.4px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".tool-back > a[href$=\"tools.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".tool-back > a[href$=\"real-estate.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".tool-back > a[href$=\"tax-compliance.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    }
+  ],
+  "/tool-irs-notice-guide.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "div[data-dvn-do=\"showDetail('Letter 525')\"] > .urgency-badge",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.72 (foreground color: #d35400, background color: #fdf0e3, font size: 8.4pt (11.2px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "div[data-dvn-do=\"showDetail('CP2000')\"] > .urgency-badge",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.72 (foreground color: #d35400, background color: #fdf0e3, font size: 8.4pt (11.2px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "div[data-dvn-do=\"showDetail('CP2501')\"] > .urgency-badge",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.72 (foreground color: #d35400, background color: #fdf0e3, font size: 8.4pt (11.2px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "div[data-dvn-do=\"showDetail('CP14')\"] > .urgency-badge",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.72 (foreground color: #d35400, background color: #fdf0e3, font size: 8.4pt (11.2px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "div[data-dvn-do=\"showDetail('CP504')\"] > .urgency-badge",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.72 (foreground color: #d35400, background color: #fdf0e3, font size: 8.4pt (11.2px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "div[data-dvn-do=\"showDetail('Letter 1153')\"] > .urgency-badge",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.72 (foreground color: #d35400, background color: #fdf0e3, font size: 8.4pt (11.2px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "div[data-dvn-do=\"showDetail('Letter 226-J')\"] > .urgency-badge",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.72 (foreground color: #d35400, background color: #fdf0e3, font size: 8.4pt (11.2px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "div[data-dvn-do=\"showDetail('CP59')\"] > .urgency-badge",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.72 (foreground color: #d35400, background color: #fdf0e3, font size: 8.4pt (11.2px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "div[data-dvn-do=\"showDetail('CP523')\"] > .urgency-badge",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.72 (foreground color: #d35400, background color: #fdf0e3, font size: 8.4pt (11.2px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "div[data-dvn-do=\"showDetail('CP501')\"] > .urgency-badge",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.17 (foreground color: #169b62, background color: #e8f5ee, font size: 8.4pt (11.2px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "div[data-dvn-do=\"showDetail('CP503')\"] > .urgency-badge",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.17 (foreground color: #169b62, background color: #e8f5ee, font size: 8.4pt (11.2px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "div[data-dvn-do=\"showDetail('CP05')\"] > .urgency-badge",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.17 (foreground color: #169b62, background color: #e8f5ee, font size: 8.4pt (11.2px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "div[data-dvn-do=\"showDetail('5071C')\"] > .urgency-badge",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.17 (foreground color: #169b62, background color: #e8f5ee, font size: 8.4pt (11.2px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".cta-link",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #ffffff, background color: #169b62, font size: 10.8pt (14.4px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".tool-back > a[href$=\"tools.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".tool-back > a[href$=\"tax-controversy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    }
+  ],
+  "/tool-oic-rcp-estimator.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": ".tool-form > h5:nth-child(1)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 15.0pt (20px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "h5:nth-child(4)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 15.0pt (20px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "h5:nth-child(7)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 15.0pt (20px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".calc-btn",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #ffffff, background color: #169b62, font size: 10.8pt (14.4px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".calc-btn-secondary",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 10.8pt (14.4px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".methodology > h5",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #169b62, background color: #ffffff, font size: 15.0pt (20px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".cta-link",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.55 (foreground color: #ffffff, background color: #169b62, font size: 10.8pt (14.4px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".tool-back > a[href$=\"tools.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".tool-back > a[href$=\"tax-controversy.html\"]",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.2pt (13.6px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    }
+  ],
+  "/tool-rental-real-estate-tax-strategy-analyzer.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": "div:nth-child(8) > strong:nth-child(1)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.6pt (14.08px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": ".rate-estimator-box > div:nth-child(1)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 9.6pt (12.8px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "target": "#step_5 > div:nth-child(6) > strong:nth-child(1)",
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.25 (foreground color: #169b62, background color: #f5f5f0, font size: 10.6pt (14.08px), font weight: bold). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    }
+  ],
+  "/tools.html": [],
+  "/unfiled-returns.html": [],
+  "/voluntary-disclosure.html": []
+}

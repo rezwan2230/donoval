@@ -1,0 +1,1258 @@
+/* ============================================================================
+ * Donovan Legal PLLC — RESERVE Structuring Tool (Advisory)
+ * Tool-specific stylesheet
+ * ----------------------------------------------------------------------------
+ * Load order: main.css -> tool-form-shared.css -> tool-structuring.css
+ *
+ * Conventions:
+ *   - .struct-* classes for tool inputs (parallels .oa-* in Tool #1)
+ *   - .memo-* classes for the memorandum preview pane (print-grade)
+ *   - Brand: RESERVE two-tone is applied at the HTML level via
+ *     <span class="brand-reserve"><span class="re">RE</span>SERVE</span>
+ *   - Colors mirror main.css for cross-site consistency:
+ *       #169B62 firm emerald     (RE in two-tone, links, primary accents)
+ *       #0A4A2A deep firm green  (header bar)
+ *       #5fc88e light emerald    (RE in dark headers, for contrast)
+ *       #c5c6c8 platinum silver
+ *       #C9A961 gold
+ *       #F5F5F0 paper / page bg
+ *       #d4d4d0 divider lines
+ *       #1a1a1a body copy
+ * ============================================================================ */
+
+/* ----------------------------------------------------------------------------
+ * Tool header — sticky bar with RESERVE branding
+ * ---------------------------------------------------------------------------- */
+.tool-header {
+  background: #0A4A2A;
+  color: #fff;
+  padding: 0.85rem 0;
+  border-bottom: 3px solid #169B62;
+}
+.tool-header-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tool-header-brand {
+  font-family: "Trajan Pro", "Gotham Bold", serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  color: #fff;
+}
+.tool-header-brand .brand-reserve .re { color: #5fc88e !important; }
+.tool-header-back {
+  color: #fff;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  opacity: 0.85;
+}
+.tool-header-back:hover { opacity: 1; }
+
+/* ----------------------------------------------------------------------------
+ * Shell — two-column layout
+ * ---------------------------------------------------------------------------- */
+.struct-shell {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 0;
+  max-width: 1320px;
+  margin: 0 auto;
+  min-height: calc(100vh - 75px);
+  background: #fff;
+}
+
+/* ----------------------------------------------------------------------------
+ * Sidebar
+ * ---------------------------------------------------------------------------- */
+.struct-sidebar {
+  background: #fafaf7;
+  border-right: 1px solid #d4d4d0;
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+}
+.struct-sidebar-title {
+  font-family: "Trajan Pro", "Gotham Bold", serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  color: #0A4A2A;
+  padding: 0 1.5rem;
+  margin-bottom: 0.25rem;
+}
+.struct-sidebar-subtitle {
+  font-size: 0.75rem;
+  color: #6a6a68;
+  letter-spacing: 0.04em;
+  padding: 0 1.5rem;
+  margin-bottom: 1.25rem;
+}
+.struct-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.struct-nav-item {
+  display: block;
+  padding: 0.65rem 1.5rem;
+  font-size: 0.85rem;
+  color: #444;
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+  cursor: pointer;
+}
+.struct-nav-item:hover {
+  background: #f0efea;
+  color: #0A4A2A;
+}
+.struct-nav-active {
+  background: #fff;
+  border-left-color: #169B62;
+  color: #0A4A2A;
+  font-weight: 600;
+}
+.struct-nav-generate {
+  margin-top: 0.5rem;
+  border-top: 1px solid #d4d4d0;
+  padding-top: 0.95rem;
+}
+.struct-sidebar-footer {
+  border-top: 1px solid #d4d4d0;
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* ----------------------------------------------------------------------------
+ * Main panel
+ * ---------------------------------------------------------------------------- */
+.struct-main {
+  padding: 2.25rem 2.75rem;
+  background: #fff;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.struct-panel {
+  display: none;
+  animation: structPanelIn 0.18s ease;
+}
+.struct-panel-active { display: block; }
+@keyframes structPanelIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.struct-panel-header {
+  border-bottom: 1px solid #d4d4d0;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+.struct-panel-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  color: #169B62;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+.struct-panel h2 {
+  font-family: "Trajan Pro", "Gotham Bold", serif;
+  font-size: 1.7rem;
+  color: #0A4A2A;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.02em;
+}
+.struct-panel-sub {
+  color: #555;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ----------------------------------------------------------------------------
+ * Callouts
+ * ---------------------------------------------------------------------------- */
+.struct-callout {
+  padding: 0.85rem 1.1rem;
+  border-radius: 3px;
+  margin: 1.25rem 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+.struct-callout-info {
+  background: #f5faf7;
+  border-left: 3px solid #169B62;
+  color: #214b35;
+}
+.struct-callout-warn {
+  background: #fdf6e9;
+  border-left: 3px solid #C9A961;
+  color: #5c4a16;
+}
+
+/* ----------------------------------------------------------------------------
+ * Form fields
+ * ---------------------------------------------------------------------------- */
+.struct-field {
+  margin-bottom: 1.1rem;
+}
+.struct-field label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #333;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+.struct-field input[type="text"],
+.struct-field input[type="number"],
+.struct-field input[type="date"],
+.struct-field select,
+.struct-field textarea {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid #c4c4be;
+  border-radius: 2px;
+  font-size: 0.92rem;
+  font-family: inherit;
+  background: #fff;
+  color: #1a1a1a;
+  transition: border-color 0.12s ease, box-shadow 0.12s ease;
+}
+.struct-field input:focus,
+.struct-field select:focus,
+.struct-field textarea:focus {
+  outline: none;
+  border-color: #169B62;
+  box-shadow: 0 0 0 2px rgba(22, 155, 98, 0.15);
+}
+.struct-field textarea {
+  resize: vertical;
+  min-height: 90px;
+  line-height: 1.5;
+}
+.struct-field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.struct-field-wide { grid-column: 1 / -1; }
+.struct-field-check label {
+  text-transform: none;
+  font-weight: normal;
+  letter-spacing: normal;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+.struct-help {
+  font-size: 0.78rem;
+  color: #6a6a68;
+  margin: 0.35rem 0 0;
+  line-height: 1.5;
+}
+.struct-req { color: #b94a48; font-weight: bold; }
+
+.struct-subheader {
+  font-family: "Trajan Pro", "Gotham Bold", serif;
+  font-size: 1.05rem;
+  color: #0A4A2A;
+  margin: 1.5rem 0 0.85rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #e4e4de;
+}
+
+/* ----------------------------------------------------------------------------
+ * Investor list component
+ * ---------------------------------------------------------------------------- */
+.struct-investor-row {
+  border: 1px solid #d4d4d0;
+  border-radius: 3px;
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 1rem;
+  background: #fafaf7;
+}
+.struct-investor-hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px dashed #d4d4d0;
+}
+.struct-investor-no {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #0A4A2A;
+  text-transform: uppercase;
+}
+.struct-route-blurb {
+  margin: 0.85rem 0 0;
+  padding: 0.65rem 0.9rem;
+  background: #fff;
+  border-left: 2px solid #169B62;
+  font-size: 0.84rem;
+  color: #444;
+  line-height: 1.5;
+}
+.struct-empty {
+  padding: 1.25rem;
+  text-align: center;
+  color: #6a6a68;
+  background: #fafaf7;
+  border: 1px dashed #d4d4d0;
+  border-radius: 3px;
+}
+
+/* ----------------------------------------------------------------------------
+ * Capital Structure subpanels (Thread 2) — collapsible by "present" toggle
+ * ---------------------------------------------------------------------------- */
+.struct-subpanel {
+  border: 1px solid #d4d4d0;
+  border-radius: 3px;
+  margin: 1.25rem 0;
+  background: #fafaf7;
+  overflow: hidden;
+}
+.struct-subpanel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 1.25rem;
+  background: #f0f0eb;
+  border-bottom: 1px solid #d4d4d0;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.struct-subpanel-header .struct-subheader-flush {
+  margin: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.struct-subpanel-body {
+  padding: 1.1rem 1.25rem;
+  background: #fff;
+}
+.struct-subpanel.struct-subpanel-collapsed .struct-subpanel-body {
+  display: none;
+}
+.struct-subpanel.struct-subpanel-collapsed .struct-subpanel-header {
+  background: #f5f5f0;
+  opacity: 0.78;
+  border-bottom: 1px dashed #d4d4d0;
+}
+.struct-subpanel.struct-subpanel-collapsed .struct-subpanel-header::after {
+  content: "Not applicable on present record";
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #6a6a68;
+  flex-basis: 100%;
+  text-align: left;
+  margin-top: 0.15rem;
+}
+.struct-check-toggle {
+  font-weight: 600;
+  color: #0A4A2A;
+  letter-spacing: 0.02em;
+  font-size: 0.86rem;
+  text-transform: uppercase;
+}
+.struct-subheader-mini {
+  font-family: "Trajan Pro", "Gotham Bold", serif;
+  font-size: 0.92rem;
+  color: #0A4A2A;
+  margin: 1.4rem 0 0.55rem;
+  letter-spacing: 0.02em;
+}
+.struct-factor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.55rem 1.1rem;
+}
+.struct-factor-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.45rem 0.6rem;
+  background: #fafaf7;
+  border: 1px solid #e4e4de;
+  border-radius: 3px;
+}
+.struct-factor-row label {
+  font-size: 0.82rem;
+  font-weight: normal;
+  color: #1a1a1a;
+  text-transform: none;
+  letter-spacing: 0;
+  margin: 0;
+}
+.struct-factor-row select {
+  width: 4.5rem;
+  padding: 0.3rem 0.4rem;
+  font-size: 0.85rem;
+  background: #fff;
+  border: 1px solid #d4d4d0;
+  border-radius: 2px;
+}
+@media (max-width: 720px) {
+  .struct-factor-grid { grid-template-columns: 1fr; }
+}
+
+/* ----------------------------------------------------------------------------
+ * Buttons
+ * ---------------------------------------------------------------------------- */
+.struct-btn-primary,
+.struct-btn-ghost,
+.struct-btn-secondary-sm {
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.55rem 1.1rem;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.12s ease;
+  border: 1px solid transparent;
+}
+.struct-btn-primary {
+  background: #169B62;
+  color: #fff;
+  border-color: #169B62;
+}
+.struct-btn-primary:hover { background: #0A4A2A; border-color: #0A4A2A; }
+.struct-btn-large {
+  font-size: 0.95rem;
+  padding: 0.8rem 1.6rem;
+}
+.struct-btn-ghost {
+  background: transparent;
+  color: #444;
+  border-color: #c4c4be;
+}
+.struct-btn-ghost:hover {
+  background: #f0efea;
+  color: #0A4A2A;
+  border-color: #169B62;
+}
+.struct-btn-warn:hover {
+  background: #fbecec !important;
+  color: #b94a48 !important;
+  border-color: #b94a48 !important;
+}
+.struct-btn-secondary-sm {
+  background: #fff;
+  color: #0A4A2A;
+  border-color: #169B62;
+  font-size: 0.78rem;
+  padding: 0.4rem 0.85rem;
+}
+.struct-btn-secondary-sm:hover { background: #169B62; color: #fff; }
+
+.struct-panel-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #d4d4d0;
+}
+
+.struct-action-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+.struct-add-row {
+  margin: 1rem 0 1.5rem;
+}
+
+/* ----------------------------------------------------------------------------
+ * Review summary
+ * ---------------------------------------------------------------------------- */
+.struct-review-summary {
+  background: #fafaf7;
+  border: 1px solid #d4d4d0;
+  border-radius: 3px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.struct-summary-line {
+  padding: 0.35rem 0;
+  font-size: 0.92rem;
+  color: #1a1a1a;
+}
+.struct-summary-line strong {
+  display: inline-block;
+  min-width: 9rem;
+  color: #0A4A2A;
+}
+.struct-summary-ok {
+  margin-top: 0.85rem;
+  padding: 0.65rem 0.9rem;
+  background: #f5faf7;
+  border-left: 3px solid #169B62;
+  color: #214b35;
+  font-size: 0.88rem;
+}
+.struct-warnings {
+  margin-top: 0.85rem;
+  padding: 0.85rem 1rem;
+  background: #fdf6e9;
+  border-left: 3px solid #C9A961;
+  color: #5c4a16;
+  font-size: 0.88rem;
+}
+.struct-warnings ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+  line-height: 1.55;
+}
+
+/* ----------------------------------------------------------------------------
+ * Generated documents wrapper
+ * ---------------------------------------------------------------------------- */
+.struct-generated {
+  margin-top: 2rem;
+  border-top: 2px solid #169B62;
+  padding-top: 1.5rem;
+}
+.struct-doc-actions {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.struct-doc-actions-note {
+  font-size: 0.78rem;
+  color: #6a6a68;
+  font-style: italic;
+}
+.struct-doc-preview {
+  border: 1px solid #d4d4d0;
+  background: #fff;
+  padding: 0;
+  margin-top: 0.5rem;
+  min-height: 400px;
+}
+
+.struct-final-disclaimer {
+  margin-top: 2rem;
+  padding: 1rem 1.25rem;
+  background: #fafaf7;
+  border-left: 3px solid #169B62;
+  font-size: 0.82rem;
+  color: #444;
+  line-height: 1.55;
+}
+
+/* ----------------------------------------------------------------------------
+ * Memorandum preview (print-grade document layout)
+ * ---------------------------------------------------------------------------- */
+.memo-document {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12pt;
+  line-height: 1.55;
+  color: #1a1a1a;
+  background: #fff;
+  padding: 2.5rem 3rem;
+  max-width: 8.5in;
+  margin: 0 auto;
+}
+.memo-header {
+  text-align: center;
+  border-bottom: 2px solid #0A4A2A;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.memo-firm {
+  font-family: "Trajan Pro", "Gotham Bold", serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  color: #0A4A2A;
+  font-weight: bold;
+}
+.memo-firm-sub {
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: #6a6a68;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+}
+.memo-draft-badge {
+  display: inline-block;
+  margin: 0.5rem 0 1rem;
+  padding: 0.3rem 0.85rem;
+  background: #fdf6e9;
+  border: 1px solid #C9A961;
+  color: #5c4a16;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+}
+.memo-title {
+  font-family: "Trajan Pro", "Gotham Bold", serif;
+  font-size: 1.55rem;
+  color: #0A4A2A;
+  margin: 0.5rem 0 0.25rem;
+  letter-spacing: 0.04em;
+}
+.memo-project {
+  font-size: 1.05rem;
+  color: #1a1a1a;
+  margin-top: 0.25rem;
+  font-weight: bold;
+}
+.memo-date,
+.memo-matter {
+  font-size: 0.85rem;
+  color: #444;
+  margin-top: 0.15rem;
+}
+.memo-disclaimer {
+  background: #fafaf7;
+  border-left: 3px solid #C9A961;
+  padding: 0.85rem 1rem;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+.memo-section {
+  margin-bottom: 1.5rem;
+}
+.memo-h2 {
+  font-family: "Trajan Pro", "Gotham Bold", serif;
+  font-size: 1.15rem;
+  color: #0A4A2A;
+  border-bottom: 1px solid #d4d4d0;
+  padding-bottom: 0.35rem;
+  margin: 1.5rem 0 0.85rem;
+  letter-spacing: 0.03em;
+}
+.memo-h3 {
+  font-family: Georgia, serif;
+  font-size: 1.02rem;
+  color: #214b35;
+  font-weight: bold;
+  margin: 1.1rem 0 0.5rem;
+}
+.memo-section p {
+  margin: 0 0 0.85rem;
+  text-align: justify;
+}
+.memo-list {
+  margin: 0.5rem 0 0.85rem 1.25rem;
+  padding-left: 0.5rem;
+  line-height: 1.55;
+}
+.memo-list li { margin-bottom: 0.35rem; }
+.memo-cites {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 0.25rem;
+}
+.memo-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.85rem 0 1.25rem;
+  font-size: 0.92rem;
+}
+.memo-table th {
+  background: #f5faf7;
+  border: 1px solid #c4c4be;
+  padding: 0.5rem 0.7rem;
+  text-align: left;
+  font-weight: 600;
+  color: #0A4A2A;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+}
+.memo-table td {
+  border: 1px solid #d4d4d0;
+  padding: 0.5rem 0.7rem;
+  vertical-align: top;
+}
+.memo-flag {
+  background: #fdf6e9;
+  border-left: 3px solid #C9A961;
+  padding: 0.7rem 1rem;
+  margin: 0.85rem 0;
+  font-size: 0.92rem;
+  color: #5c4a16;
+}
+.memo-recommendation {
+  background: #f5faf7;
+  border: 2px solid #169B62;
+  padding: 0.85rem 1.25rem;
+  margin: 0.85rem 0;
+  font-size: 1.05rem;
+  color: #0A4A2A;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+.memo-thread-notice {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: #fafaf7;
+  border-left: 3px solid #c4c4be;
+  font-size: 0.92rem;
+  color: #555;
+}
+.memo-thread-notice .memo-h2 {
+  margin-top: 0;
+  color: #555;
+  border-bottom-color: #d4d4d0;
+}
+
+/* ----------------------------------------------------------------------------
+ * Flash messages
+ * ---------------------------------------------------------------------------- */
+.struct-flash {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: #0A4A2A;
+  color: #fff;
+  padding: 0.7rem 1.1rem;
+  border-radius: 3px;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 10000;
+  pointer-events: none;
+}
+.struct-flash-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ----------------------------------------------------------------------------
+ * Brand two-tone (RESERVE)
+ * ---------------------------------------------------------------------------- */
+.brand-reserve .re { color: #169B62; }
+/* "SERVE" inherits surrounding text color */
+
+/* ----------------------------------------------------------------------------
+ * Gate page (root /tool-structuring.html — RESERVE-only message)
+ * ---------------------------------------------------------------------------- */
+.struct-gate {
+  max-width: 720px;
+  margin: 4rem auto;
+  padding: 3rem 2.5rem;
+  background: #fff;
+  border: 1px solid #d4d4d0;
+  border-top: 4px solid #169B62;
+  text-align: center;
+}
+.struct-gate h1 {
+  font-family: "Trajan Pro", "Gotham Bold", serif;
+  font-size: 1.65rem;
+  color: #0A4A2A;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.04em;
+}
+.struct-gate .gate-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  color: #169B62;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+.struct-gate p {
+  font-size: 0.96rem;
+  line-height: 1.6;
+  color: #444;
+  margin: 0.85rem 0;
+  text-align: left;
+}
+.struct-gate .gate-cta {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+.struct-gate .gate-cta a {
+  display: inline-block;
+  padding: 0.7rem 1.6rem;
+  background: #0A4A2A;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 2px;
+  font-size: 0.92rem;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  transition: background 0.15s ease;
+}
+.struct-gate .gate-cta a:hover { background: #169B62; }
+.struct-gate .gate-back {
+  display: block;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: #6a6a68;
+  text-decoration: none;
+}
+.struct-gate .gate-back:hover { color: #169B62; }
+
+/* ----------------------------------------------------------------------------
+ * Responsive
+ * ---------------------------------------------------------------------------- */
+@media (max-width: 880px) {
+  .struct-shell {
+    grid-template-columns: 1fr;
+  }
+  .struct-sidebar {
+    border-right: none;
+    border-bottom: 1px solid #d4d4d0;
+    padding: 1rem 0;
+  }
+  .struct-main {
+    padding: 1.5rem 1.25rem;
+  }
+  .struct-field-grid {
+    grid-template-columns: 1fr;
+  }
+  .memo-document {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+ * Print
+ * ---------------------------------------------------------------------------- */
+@media print {
+  .tool-header,
+  .struct-sidebar,
+  .struct-panel-header,
+  .struct-panel-nav,
+  .struct-action-row,
+  .struct-doc-actions,
+  .struct-final-disclaimer,
+  .struct-review-summary,
+  .struct-flash {
+    display: none !important;
+  }
+  .struct-shell { display: block; }
+  .struct-main { padding: 0; }
+  .struct-generated { border-top: none; padding-top: 0; margin-top: 0; }
+  .struct-doc-preview { border: none; }
+  .memo-document {
+    padding: 0.5in;
+    max-width: 100%;
+  }
+  .memo-section { page-break-inside: avoid; }
+  .memo-h2 { page-break-after: avoid; }
+}
+
+/* ============================================================================
+   THREAD 3 — STRUCTURE DIAGRAM PANEL & SVG STYLING
+   ============================================================================ */
+
+/* Mini helper text — used inside QOZ subsection field grid */
+.struct-help-mini {
+  font-size: 11px;
+  color: #6a6b6d;
+  margin: 4px 0 0 0;
+  line-height: 1.35;
+  font-style: italic;
+}
+
+/* QOZ subsection — checkbox toggle for "Present in this deal" */
+.struct-field-inline {
+  grid-column: 1 / -1;
+  margin: 6px 0;
+}
+
+/* ----- Diagram panel toolbar ----- */
+.struct-diagram-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0 12px 0;
+  padding: 10px 14px;
+  background: #fdfdfa;
+  border: 1px solid #d8d8d0;
+  border-radius: 6px;
+}
+
+.struct-diagram-status {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 12px;
+  color: #6a6b6d;
+  margin-left: auto;
+  font-style: italic;
+}
+
+.struct-diagram-status-modified {
+  color: #019A48;
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* ----- Diagram canvas ----- */
+.struct-diagram-container {
+  margin: 12px 0;
+  border: 1px solid #d8d8d0;
+  border-radius: 8px;
+  background: #fdfdfa;
+  overflow: auto;
+}
+
+.struct-diagram-canvas {
+  width: 100%;
+  min-height: 540px;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.struct-diagram-svg {
+  width: 100%;
+  height: auto;
+  max-width: 760px;
+  display: block;
+  margin: 0 auto;
+}
+
+.struct-diagram-svg-interactive {
+  cursor: default;
+  user-select: none;
+}
+
+.struct-diagram-svg-print {
+  /* Static — embedded in memo */
+}
+
+/* ----- Diagram nodes — interactive ----- */
+.struct-diagram-node {
+  transition: filter 0.12s ease-out;
+}
+
+.struct-diagram-node:hover {
+  filter: drop-shadow(0 2px 4px rgba(1, 154, 72, 0.25));
+}
+
+.struct-diagram-node-selected {
+  filter: drop-shadow(0 0 6px rgba(1, 154, 72, 0.5));
+}
+
+/* ----- Diagram edges ----- */
+.struct-diagram-edge {
+  pointer-events: stroke;
+}
+
+.struct-diagram-edge-ownership {
+  /* Solid black for ownership */
+}
+
+.struct-diagram-edge-management {
+  /* Dashed emerald for management */
+}
+
+.struct-diagram-edge-debt {
+  /* Dashed brick for debt */
+}
+
+.struct-diagram-edge-property_interest {
+  /* Dotted emerald for property */
+}
+
+/* ----- Node detail panel (selected node) ----- */
+.struct-diagram-detail {
+  margin: 12px 0;
+  padding: 12px 16px;
+  background: #f5f5f0;
+  border-left: 3px solid #169B62;
+  border-radius: 0 6px 6px 0;
+}
+
+.struct-diagram-detail h4 {
+  margin: 0 0 6px 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 13px;
+  color: #0A4A2A;
+  font-weight: 600;
+}
+
+/* ----- Generate panel — new handoff/export buttons ----- */
+.struct-doc-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.struct-doc-actions code {
+  background: #f5f5f0;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-family: 'SF Mono', Menlo, Consolas, monospace;
+  color: #0A4A2A;
+}
+
+/* ============================================================================
+   THREAD 3 — MEMO STRUCTURE DIAGRAM SECTION
+   ============================================================================ */
+
+.memo-section-diagram {
+  page-break-inside: avoid;
+}
+
+.memo-diagram-container {
+  margin: 12px 0;
+  padding: 12px;
+  background: #fdfdfa;
+  border: 1px solid #d8d8d0;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.memo-diagram-container svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.memo-diagram-caption {
+  font-size: 11px;
+  color: #4a4b4d;
+  font-style: italic;
+  margin: 6px 0 0 0;
+  line-height: 1.4;
+}
+
+/* ============================================================================
+   THREAD 3 — PRINT MEDIA — keep diagram inside the printed memo
+   ============================================================================ */
+@media print {
+  .struct-diagram-toolbar,
+  .struct-diagram-detail,
+  #btn_export_json,
+  #btn_continue_downstream {
+    display: none !important;
+  }
+  .memo-section-diagram {
+    page-break-inside: avoid;
+  }
+  .memo-diagram-container svg {
+    max-width: 6.5in;
+  }
+}
+
+/* ============================================================================
+   STRUCTURAL ARCHETYPE PRESETS — v11.3 preset bar
+   ============================================================================ */
+
+.struct-preset-bar {
+  margin: 16px 0 20px 0;
+  padding: 14px 16px 16px 16px;
+  background: linear-gradient(to bottom, #fafaf5, #f5f5f0);
+  border: 1px solid #d8d8d0;
+  border-radius: 8px;
+}
+
+.struct-preset-bar-header {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.struct-preset-bar-header strong {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0A4A2A;
+  letter-spacing: 0.04em;
+}
+
+.struct-preset-bar-sub {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 12px;
+  color: #4a4b4d;
+  font-style: italic;
+  line-height: 1.45;
+}
+
+.struct-preset-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 8px;
+}
+
+.struct-preset-tile {
+  position: relative;
+  text-align: left;
+  padding: 10px 11px 9px 11px;
+  background: #fdfdfa;
+  border: 1px solid #d8d8d0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.08s ease-out, border-color 0.12s ease-out, box-shadow 0.12s ease-out;
+  font-family: Georgia, 'Times New Roman', serif;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-height: 88px;
+}
+
+.struct-preset-tile:hover {
+  border-color: #169B62;
+  box-shadow: 0 1px 4px rgba(1, 154, 72, 0.18);
+  transform: translateY(-1px);
+}
+
+.struct-preset-tile:active {
+  transform: translateY(0);
+  box-shadow: 0 0 2px rgba(1, 154, 72, 0.3) inset;
+}
+
+.struct-preset-tile-emoji {
+  font-size: 18px;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.struct-preset-tile-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0A4A2A;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.struct-preset-tile-desc {
+  font-size: 10px;
+  color: #4a4b4d;
+  line-height: 1.3;
+  flex: 1;
+}
+
+.struct-preset-tile-cite {
+  font-size: 9px;
+  color: #6a6b6d;
+  font-style: italic;
+  margin-top: 2px;
+  line-height: 1.2;
+}
+
+.struct-preset-tile-badge {
+  display: inline-block;
+  font-size: 8px;
+  font-weight: 600;
+  padding: 1px 4px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.struct-preset-tile-badge-scaffold {
+  background: #C9A961;
+  color: #1a1a1a;
+}
+
+.struct-preset-tile-badge-partial {
+  background: #b5d4c5;
+  color: #0A4A2A;
+}
+
+.struct-preset-status {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #e8f0e8;
+  border-left: 3px solid #019A48;
+  border-radius: 0 4px 4px 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 12px;
+  color: #0A4A2A;
+}
+
+/* ============================================================================
+   v12.0 — VISUAL FOUNDATION: shape vocabulary, edge classes, legend
+   ============================================================================ */
+
+/* Legend group (auto-generated, rendered below the chart in the SVG) */
+.struct-diagram-legend rect:first-child {
+  fill: #f5f5f0;
+}
+
+/* Edge kind classes — visual encoding beyond stroke/dasharray for hover etc. */
+.struct-diagram-edge-ownership { /* default — base styling from stroke attr */ }
+.struct-diagram-edge-ownership_preferred {
+  /* preferred equity — gold-stroke edges */
+}
+.struct-diagram-edge-ownership_gp {
+  /* GP interest — bold dark-emerald stroke */
+}
+.struct-diagram-edge-ownership_carry {
+  /* carry / API — dashed light-emerald stroke */
+}
+.struct-diagram-edge-debt_senior { /* senior debt — deep red */ }
+.struct-diagram-edge-debt_mezzanine { /* mezz — brick red */ }
+.struct-diagram-edge-debt_subordinated { /* sub debt — lighter red */ }
+.struct-diagram-edge-distribution_waterfall { /* waterfall tier — dotted gold */ }
+.struct-diagram-edge-fee_flow { /* fee flow — fine dotted olive */ }
+.struct-diagram-edge-service_contract { /* service contract — dash-dot olive */ }
+
+/* Hover enhancement (interactive mode only) — all edge kinds */
+.struct-diagram-svg-interactive .struct-diagram-edge:hover {
+  filter: brightness(0.7);
+  stroke-width: 2.5;
+  cursor: pointer;
+}
+
+/* Node hover (interactive only) */
+.struct-diagram-svg-interactive .struct-diagram-node:hover rect,
+.struct-diagram-svg-interactive .struct-diagram-node:hover circle,
+.struct-diagram-svg-interactive .struct-diagram-node:hover path {
+  filter: drop-shadow(0 1px 3px rgba(1, 154, 72, 0.35));
+}
+
+/* ============================================================================
+   v12.1 — Blocker-strategy panel in Diagram section
+   ============================================================================ */
+
+.struct-blocker-strategy-panel {
+  margin: 12px 0 16px 0;
+  padding: 14px 16px;
+  background: #f5f5f0;
+  border: 1px solid #d8d8d0;
+  border-left: 4px solid #019A48;
+  border-radius: 0 6px 6px 0;
+}
+
+.struct-blocker-strategy-panel .struct-subheader-mini {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: #0A4A2A;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.struct-blocker-strategy-panel .struct-helper-text {
+  margin-top: 10px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 11px;
+  font-style: italic;
+  color: #4a4b4d;
+  line-height: 1.5;
+}

@@ -1,0 +1,37 @@
+RewriteEngine On 
+RewriteCond %{SERVER_PORT} 80
+RewriteCond %{HTTP_HOST} ^(www\.)?donovan\.law
+RewriteRule ^(.*)$ https://www.donovan.law/$1 [R,L]
+
+# =============================================================
+# DONOVAN LEGAL PLLC - URL REDIRECTS
+# =============================================================
+
+# Renames
+Redirect 301 /the-cmm.html /practice.html
+Redirect 301 /tax-controversies.html /tax-controversy.html
+Redirect 301 /desclimer.html /disclaimer.html
+
+# Consolidations - entity formation merged
+Redirect 301 /formation.html /entity-formation.html
+Redirect 301 /business-formation.html /entity-formation.html
+
+# Consolidations - financing merged
+Redirect 301 /financing.html /re-financing.html
+
+# Consolidations - real estate transactions merged
+Redirect 301 /re-transaction.html /property-acquisition.html
+
+# Deletions - orphans and duplicates
+Redirect 301 /the-cmm2.html /practice.html
+Redirect 301 /taxation.html /practice.html
+Redirect 301 /tax.html /tax-planning.html
+Redirect 301 /business-law.html /practice.html
+Redirect 301 /realestate.html /real-estate.html
+
+# Off-message family/divorce pages
+Redirect 301 /family-law.html /experience.html
+Redirect 301 /martial.html /experience.html
+
+# Tool rename: STR Tax Strategy Analyzer → Rental Real Estate Tax Strategy Analyzer
+Redirect 301 /tool-str-strategy-analyzer.html /tool-rental-real-estate-tax-strategy-analyzer.html

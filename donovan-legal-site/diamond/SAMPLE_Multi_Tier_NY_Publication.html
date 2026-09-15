@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Deal Package — 450 Park Avenue Owner LLC</title>
+<style>
+    @page { size: letter; margin: 0.85in 0.75in 1in 0.75in; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 11pt; line-height: 1.55;
+      color: #1a1a1a; background: #F5F5F0;
+      margin: 0; padding: 0;
+    }
+    .pkg-container { max-width: 7.5in; margin: 0 auto; padding: 0.5in 0.5in 1in 0.5in; background: #FFFFFF; }
+    .pkg-draft-stamp {
+      position: fixed; top: 0.4in; right: 0.4in;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.7rem; letter-spacing: 2px;
+      padding: 0.35rem 0.6rem; background: #8b3a3a; color: #FFFFFF;
+      transform: rotate(8deg); border: 2px solid #8b3a3a;
+      opacity: 0.85; z-index: 1000; pointer-events: none;
+    }
+    @media print {
+      .pkg-draft-stamp { display: none; }
+      .pkg-container { padding: 0; max-width: 100%; }
+      .pkg-section { page-break-after: always; }
+      .pkg-doc { page-break-before: always; }
+      h2.pkg-doc-title, h3.pkg-article { page-break-after: avoid; }
+      p, table { page-break-inside: avoid; }
+    }
+    .pkg-cover {
+      min-height: 9in; display: flex; flex-direction: column;
+      justify-content: space-between; padding: 1in 0.5in;
+      page-break-after: always;
+    }
+    .pkg-cover .firm-mark {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.8rem; letter-spacing: 3px;
+      color: #107A4D; font-weight: 700;
+    }
+    .pkg-cover .firm-name {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 1.6rem; font-weight: 700;
+      color: #1a1a1a; margin-top: 0.5rem;
+      letter-spacing: 1.5px;
+    }
+    .pkg-cover .memo-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem; letter-spacing: 2px;
+      color: #6b6b6b; text-transform: uppercase;
+    }
+    .pkg-cover h1 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 2.2rem; font-weight: 700;
+      color: #1a1a1a; margin: 0.5rem 0;
+      letter-spacing: -0.5px;
+    }
+    .pkg-cover .subhead {
+      font-size: 1.1rem; color: #4a4a4a;
+      margin: 0.35rem 0;
+    }
+    .pkg-cover .meta {
+      font-size: 0.9rem; color: #6b6b6b;
+      margin-top: 0.5rem; font-style: italic;
+    }
+    .pkg-cover .draft-stamp-large {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.9rem; letter-spacing: 3px;
+      padding: 0.6rem 1rem; background: #8b3a3a;
+      color: #FFFFFF; display: inline-block;
+      margin-bottom: 1rem; font-weight: 700;
+    }
+    .pkg-cover .cover-notice {
+      font-size: 0.85rem; line-height: 1.65;
+      color: #4a4a4a; max-width: 5.5in;
+      padding-top: 1rem; border-top: 1px solid #d4d4d0;
+    }
+    .pkg-toc { page-break-after: always; padding: 1in 0.5in; }
+    .pkg-toc h2 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 1.4rem; font-weight: 700;
+      color: #1a1a1a; margin: 0 0 1.5rem 0;
+      padding-bottom: 0.5rem; border-bottom: 2px solid #107A4D;
+      letter-spacing: 0.5px;
+    }
+    .pkg-toc ol {
+      list-style: none; counter-reset: toc-counter;
+      padding: 0; margin: 0;
+    }
+    .pkg-toc ol li {
+      counter-increment: toc-counter;
+      padding: 0.5rem 0; border-bottom: 1px dotted #d4d4d0;
+      font-size: 0.95rem; color: #1a1a1a;
+    }
+    .pkg-toc ol li::before {
+      content: counter(toc-counter, decimal) ". ";
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 700; color: #107A4D;
+      margin-right: 0.5rem;
+    }
+    .pkg-section { padding: 0.5in 0; }
+    .pkg-doc { padding-top: 0.5in; }
+    .pkg-doc-title {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 1.4rem; font-weight: 700;
+      color: #1a1a1a; margin: 0 0 0.35rem 0;
+      letter-spacing: 0.5px; text-transform: uppercase;
+      padding-bottom: 0.4rem; border-bottom: 3px solid #107A4D;
+    }
+    .pkg-doc-subtitle {
+      font-size: 0.95rem; color: #4a4a4a;
+      font-style: italic; margin: 0 0 1.5rem 0;
+    }
+    .pkg-article {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 1rem; font-weight: 700;
+      color: #1a1a1a; margin: 1.5rem 0 0.85rem 0;
+      letter-spacing: 0.5px;
+      padding-bottom: 0.25rem; border-bottom: 1px solid #d4d4d0;
+    }
+    .pkg-recital {
+      margin: 1rem 0; padding: 1rem;
+      background: #fafaf5; border-left: 3px solid #107A4D;
+      font-size: 0.95rem; line-height: 1.65;
+    }
+    .pkg-callout {
+      padding: 0.85rem 1rem; background: #fff8e0;
+      border-left: 3px solid #d4a017;
+      margin: 1rem 0; font-size: 0.9rem;
+    }
+    .pkg-legend {
+      padding: 0.85rem; background: #f0f0e8;
+      border: 1px solid #c4c4b8;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.78rem; letter-spacing: 0.3px;
+      margin: 0.85rem 0;
+    }
+    .pkg-list { font-size: 0.95rem; line-height: 1.7; }
+    .pkg-table {
+      width: 100%; border-collapse: collapse; margin: 0.85rem 0;
+      font-size: 0.92rem;
+    }
+    .pkg-table td {
+      padding: 0.4rem 0.6rem;
+      border-bottom: 1px solid #e8e8e0;
+      vertical-align: top;
+    }
+    .pkg-table td.right { text-align: right; font-variant-numeric: tabular-nums; }
+    .pkg-table th {
+      background: #1a1a1a; color: #F5F5F0;
+      padding: 0.5rem 0.6rem; text-align: left;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+    }
+    .pkg-table tr.total td {
+      background: #107A4D; color: #FFFFFF;
+      font-weight: 700;
+    }
+    .pkg-signature-block {
+      margin: 1.5rem 0; padding: 1rem 1.25rem;
+      background: #fafaf5; border: 1px solid #d4d4d0;
+      font-size: 0.92rem; line-height: 1.65;
+    }
+    .ppm-cover-block {
+      margin: 1.5rem 0 2rem 0; padding: 2rem 1.5rem;
+      border: 2px solid #1a1a1a; text-align: center;
+      page-break-after: avoid;
+    }
+    .ppm-legend-box {
+      margin: 1.5rem 0; padding: 1.25rem;
+      background: #f8f8f0; border: 1.5px solid #1a1a1a;
+      font-size: 0.88rem; line-height: 1.65;
+    }
+    .pkg-footer {
+      text-align: center; padding: 1rem 0; margin-top: 2rem;
+      font-size: 0.78rem; color: #6b6b6b; font-style: italic;
+      border-top: 1px solid #d4d4d0;
+    }
+    p { margin: 0.55rem 0; }
+    strong { font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="pkg-draft-stamp">DRAFT &middot; PRIVILEGED &amp; CONFIDENTIAL</div>
+  <div class="pkg-container">
+    
+<div class="pkg-cover">
+  <div>
+    <div class="firm-mark">DONOVAN LEGAL PLLC · RESERVE</div>
+    <div class="firm-name">DEAL DOCUMENT PACKAGE</div>
+  </div>
+  <div>
+    <div class="memo-label">Issuer</div>
+    <h1>450 Park Avenue Owner LLC</h1>
+    <div class="subhead">450 Park Avenue</div>
+    <div class="subhead">Sophisticated 506(b) — Full Disclosure</div>
+    <div class="meta">Generated May 17, 2026</div>
+  </div>
+  <div>
+    <div class="draft-stamp-large">DRAFT — PRIVILEGED &amp; CONFIDENTIAL</div>
+    <p class="cover-notice">
+      The documents in this package are templates generated by the Donovan Legal PLLC Reserve Deal Builder. They reflect the deal parameters as entered into the tool. Substantive review, customization, and execution are subject to a written engagement letter with the firm. Nothing in this package constitutes legal, tax, or accounting advice or creates an attorney-client relationship. Do not distribute or execute without firm approval.
+    </p>
+  </div>
+</div>
+
+<div class="pkg-toc">
+  <h2>Package Index</h2>
+  <ol>
+    <li><strong>Package Overview</strong> — securities-law summary and document map</li>
+    <li><strong>Entity Structure Diagram</strong> — multi-tier ownership and management structure (4 entities)</li><li><strong>Operating Agreement</strong> of Donovan Capital Management LLC (Wyoming LLC)</li><li><strong>Operating Agreement</strong> of Manhattan Holdings LLC (Delaware LLC)</li><li><strong>Operating Agreement</strong> of 450 Park Avenue Owner LLC (New York LLC) — Issuer</li><li><strong>Private Placement Memorandum</strong></li><li><strong>Subscription Agreement</strong> — Form (and 1 executed counterpart)</li><li><strong>Accredited Investor Questionnaire</strong> — Form (and 1 executed counterpart)</li><li><strong>Form D Filing Worksheet</strong></li><li><strong>State Blue Sky Notice(s)</strong> &mdash; Florida, Wyoming, Delaware, New York</li></ol>
+</div>
+
+<div class="pkg-section">
+  <h2 class="pkg-doc-title">1. Package Overview &amp; Securities-Law Summary</h2>
+
+  <h3>Offering Profile</h3>
+  <table class="pkg-table">
+    <tr><td><strong>Issuer:</strong></td><td>450 Park Avenue Owner LLC, a New York LLC</td></tr>
+    <tr><td><strong>Project:</strong></td><td>450 Park Avenue</td></tr>
+    <tr><td><strong>Deal Type:</strong></td><td>Joint Venture — sponsor + LP(s)</td></tr>
+    <tr><td><strong>Securities Offered:</strong></td><td>Class A Membership Interests</td></tr>
+    <tr><td><strong>Total Capital Sought:</strong></td><td>$2,000,000 (1 investor)</td></tr>
+    <tr><td><strong>Securities Exemption:</strong></td><td>Regulation D Rule 506(b)</td></tr>
+    <tr><td><strong>General Solicitation:</strong></td><td><strong>PROHIBITED</strong> — pre-existing relationship required</td></tr>
+    <tr><td><strong>Verification Standard:</strong></td><td>Self-certification of accredited status</td></tr>
+    <tr><td><strong>Investor Profile:</strong></td><td>1 of 1 represent accredited status under Rule 501(a)</td></tr>
+  </table>
+
+  <h3>Document Map</h3>
+  <p>This package contains the following materials, ordered as they appear:</p>
+  <ul>
+    <li><strong>Operating Agreement</strong> — the governance document of the Issuer LLC; binds members; sets out capital, allocations, distributions, management, transfers, dissolution.</li>
+    
+    <li><strong>Private Placement Memorandum (PPM)</strong> — comprehensive disclosure document including investment summary, risk factors, tax considerations, conflicts of interest, and securities regulatory disclosures.</li>
+    <li><strong>Subscription Agreement</strong> — binds each investor to the offering on the stated terms; contains investor representations regarding accredited status, sophistication, and ability to bear economic risk.</li>
+    <li><strong>Accredited Investor Questionnaire</strong> — captures investor identity, mailing address, AI category election under Rule 501(a), and (for 506(c)) supporting documentation.</li>
+    
+    
+    <li><strong>Form D Filing Worksheet</strong> — data pre-fill for the Form D notice filing with the SEC via EDGAR (15 days after first sale).</li>
+    <li><strong>State Blue Sky Notice</strong> — notice filing in the state of formation; additional state notices required where investors reside.</li>
+    
+  </ul>
+
+  
+
+  <h3>Important Securities-Law Considerations</h3>
+  <p><strong>Bad Actor Disqualification (Rule 506(d)).</strong> Each "covered person" (issuer, predecessors, affiliated issuers, directors, executive officers, general partners, managing members, beneficial owners of 20%+ of outstanding voting securities, promoters, investment managers, and persons compensated for solicitation) must be evaluated against the disqualifying events of Rule 506(d)(1). Disqualifying events generally include certain criminal convictions, court injunctions, regulatory orders, SEC disciplinary orders, suspensions, and postal fraud orders within specified lookback periods. The Issuer must perform this analysis and obtain certifications from each covered person prior to commencing the offering.</p>
+
+  <p><strong>Integration.</strong> Rule 152 (post-March 2021 framework) provides safe harbors for offerings made in close proximity. Separate offerings completed more than 30 days apart will not be integrated. Within 30 days, offerings are not integrated if (i) each offering complies with its own exemption, and (ii) for exempt offerings without general solicitation, no information about a concurrent general-solicitation offering would have caused the non-solicitation offering to fail.</p>
+
+  <p><strong>Form D Filing.</strong> A Form D notice must be filed with the SEC via EDGAR no later than 15 calendar days after the first sale of securities in the offering. Annual amendments and amendments upon material changes are required.</p>
+
+  <p><strong>State Notice Filings.</strong> Most states require a Form D / "Blue Sky" notice filing with the state securities administrator within a specified period after the first sale (typically 15 days; some states require pre-sale filing). The Issuer should identify each state in which an investor resides and confirm the applicable notice requirements.</p>
+
+  
+</div>
+
+<div class="pkg-section pkg-doc">
+  <h2 class="pkg-doc-title">2. ENTITY STRUCTURE DIAGRAM</h2>
+  <p class="pkg-doc-subtitle">Multi-tier ownership and management structure</p>
+
+  <p>The deal structure consists of 4 entities organized as follows. Each entity is governed by the law of its state of formation; provisions in the Operating Agreement(s) reflect state-specific statutory requirements.</p>
+
+  <h3 class="pkg-article">Structure Diagram</h3>
+  <div style="margin: 0.35rem 0; padding: 0.5rem 0.75rem; background: #fafaf5; border-left: 3px solid #1a1a1a;">
+      <strong>Reserve Family Trust</strong>
+      
+      <br><span style="font-size: 0.88rem; color: #4a4a4a;">Trust (non-statutory) · Florida · Trust</span>
+      <br><span style="font-size: 0.82rem; color: #6b6b6b;">301 W. Atlantic Ave, Delray Beach FL</span>
+    </div><div style="margin: 0.35rem 0; padding: 0.5rem 0.75rem; background: #fafaf5; border-left: 3px solid #1a1a1a;">
+      <strong>&nbsp;&nbsp;&nbsp;&nbsp;└─ Donovan Capital Management LLC</strong>
+      
+      <br><span style="font-size: 0.88rem; color: #4a4a4a;">LLC · Wyoming · Sponsor / Manager Entity</span>
+      <br><span style="font-size: 0.82rem; color: #6b6b6b;">301 W. Atlantic Ave, Delray Beach FL</span>
+    </div><div style="margin: 0.35rem 0; padding: 0.5rem 0.75rem; background: #fafaf5; border-left: 3px solid #1a1a1a;">
+      <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ Manhattan Holdings LLC</strong>
+      
+      <br><span style="font-size: 0.88rem; color: #4a4a4a;">LLC · Delaware · Holdco (Holding Company)</span>
+      <br><span style="font-size: 0.82rem; color: #6b6b6b;">c/o Corporation Trust, Wilmington DE</span>
+    </div><div style="margin: 0.35rem 0; padding: 0.5rem 0.75rem; background: #fafaf5; border-left: 3px solid #1a1a1a;">
+      <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ 450 Park Avenue Owner LLC</strong>
+       <span style="background:#107A4D;color:#FFFFFF;padding:0.05rem 0.4rem;font-size:0.7rem;letter-spacing:1px;">ISSUER</span>
+      <br><span style="font-size: 0.88rem; color: #4a4a4a;">LLC · New York · Property Opco (Operating Company)</span>
+      <br><span style="font-size: 0.82rem; color: #6b6b6b;">450 Park Avenue, New York NY 10022</span>
+    </div>
+
+  <h3 class="pkg-article">Entity Summary</h3>
+  <table class="pkg-table"><thead><tr><th>Entity</th><th>Type</th><th>State of Formation</th><th>Role</th><th>Parent</th></tr></thead><tbody><tr>
+      <td><strong>Reserve Family Trust</strong></td>
+      <td>Trust (non-statutory)</td>
+      <td>Florida</td>
+      <td>Trust</td>
+      <td>— Top —</td>
+    </tr><tr>
+      <td><strong>Donovan Capital Management LLC</strong></td>
+      <td>LLC</td>
+      <td>Wyoming</td>
+      <td>Sponsor / Manager Entity</td>
+      <td>Reserve Family Trust</td>
+    </tr><tr>
+      <td><strong>Manhattan Holdings LLC</strong></td>
+      <td>LLC</td>
+      <td>Delaware</td>
+      <td>Holdco (Holding Company)</td>
+      <td>Donovan Capital Management LLC</td>
+    </tr><tr>
+      <td><strong>450 Park Avenue Owner LLC</strong> (Issuer)</td>
+      <td>LLC</td>
+      <td>New York</td>
+      <td>Property Opco (Operating Company)</td>
+      <td>Manhattan Holdings LLC</td>
+    </tr></tbody></table>
+
+  <h3 class="pkg-article">Per-Entity Governing Law</h3>
+  <p><strong>Reserve Family Trust (Trust (non-statutory), Florida):</strong> governed by Florida Revised Limited Liability Company Act, Fla. Stat. ch. 605 (2014). Charging order: exclusive for multi-member only. Series LLC: recently enacted. </p><p><strong>Donovan Capital Management LLC (LLC, Wyoming):</strong> governed by Wyoming Limited Liability Company Act, W.S. §§ 17-29-101 et seq.. Charging order: exclusive remedy. Series LLC: available. </p><p><strong>Manhattan Holdings LLC (LLC, Delaware):</strong> governed by Delaware Limited Liability Company Act, 6 Del. C. §§ 18-101 et seq.. Charging order: exclusive remedy. Series LLC: available. </p><p><strong>450 Park Avenue Owner LLC (LLC, New York):</strong> governed by New York Limited Liability Company Law, N.Y. LLC Law §§ 101 et seq.. Charging order: not exclusive. Series LLC: not available. <strong>Publication required.</strong></p>
+</div>
+<div class="pkg-section pkg-doc">
+      <h2 class="pkg-doc-title">3. OPERATING AGREEMENT of Donovan Capital Management LLC</h2>
+      <p class="pkg-doc-subtitle">Donovan Capital Management LLC (Wyoming LLC) — Sponsor / Manager Entity</p>
+    </div>
+<div class="pkg-section pkg-doc">
+  <h2 class="pkg-doc-title">OPERATING AGREEMENT</h2>
+  <p class="pkg-doc-subtitle">DONOVAN CAPITAL MANAGEMENT LLC, a Wyoming LLC</p>
+
+  <p class="pkg-recital">This Operating Agreement (this <strong>"Agreement"</strong>) is entered into as of March 2024 (the <strong>"Effective Date"</strong>) by and among Donovan Capital Management LLC, a Wyoming LLC (the <strong>"Company"</strong>), and the persons listed on <strong>Exhibit&nbsp;A</strong> hereto (each, a <strong>"Member"</strong> and collectively, the <strong>"Members"</strong>).</p>
+
+  <h3 class="pkg-article">RECITALS</h3>
+  <p>WHEREAS, the Company was formed as a Wyoming LLC by the filing of Articles of Organization with Wyoming Secretary of State on March 2024;</p>
+  <p>WHEREAS, the Members desire to set forth the terms governing the operation and management of the Company in accordance with the Wyoming Limited Liability Company Act;</p>
+  <p>WHEREAS, the Company holds direct or indirect interests in the following entities, which form part of the consolidated deal structure: <strong>Manhattan Holdings LLC</strong>, a Delaware LLC (Holdco (Holding Company));</p>
+  <p>NOW, THEREFORE, in consideration of the mutual covenants herein contained, the Members agree as follows:</p>
+
+  
+
+  <h3 class="pkg-article">ARTICLE I — DEFINITIONS</h3>
+  <p><strong>1.1 Definitions.</strong> For purposes of this Agreement, the following terms have the meanings indicated:</p>
+  <p><strong>"Act"</strong> means the Wyoming Limited Liability Company Act, W.S. §§ 17-29-101 et seq., as amended.</p>
+  <p><strong>"Capital Account"</strong> means the capital account of each Member maintained in accordance with Section&nbsp;3.6 and Treasury Regulations § 1.704-1(b)(2)(iv).</p>
+  <p><strong>"Capital Contribution"</strong> means the cash or fair market value of property contributed by a Member to the capital of the Company.</p>
+  <p><strong>"Code"</strong> means the Internal Revenue Code of 1986, as amended.</p>
+  <p><strong>"Distribution"</strong> means any cash or other property distributed by the Company to a Member in respect of its Membership Interest.</p>
+  <p><strong>"Fiscal Year"</strong> means the Company's fiscal year, which shall end on December&nbsp;31 of each year unless otherwise required by the Code.</p>
+  <p><strong>"Manager"</strong> means Donovan Capital Management LLC, a Wyoming LLC, or such successor as may be appointed pursuant to this Agreement.</p>
+  <p><strong>"Member"</strong> means each person listed on Exhibit A and any additional or substituted person admitted as a Member in accordance with this Agreement.</p>
+  <p><strong>"Membership Interest"</strong> means a Member's entire interest in the Company, including its right to receive Distributions, its share of Profits and Losses, and any voting or consent rights.</p>
+  <p><strong>"Preferred Return"</strong> has the meaning set forth in Section&nbsp;5.2.</p>
+  <p><strong>"Profits"</strong> and <strong>"Losses"</strong> mean, for each Fiscal Year, the Company's taxable income or loss, computed in accordance with Code § 703(a) and adjusted as set forth in this Agreement.</p>
+  <p><strong>"Treasury Regulations"</strong> means the regulations promulgated under the Code, as in effect from time to time.</p>
+
+  <h3 class="pkg-article">ARTICLE II — FORMATION AND PURPOSE</h3>
+  <p><strong>2.1 Formation.</strong> The Company was formed under the Act by the filing of Articles of Organization with Wyoming Secretary of State. The Members confirm and ratify the filing.</p>
+  <p><strong>2.2 Name.</strong> The name of the Company is Donovan Capital Management LLC.</p>
+  <p><strong>2.3 Principal Office.</strong> The principal office of the Company is 301 W. Atlantic Ave, Delray Beach FL.</p>
+  <p><strong>2.4 Registered Agent.</strong> The registered agent for service of process in Wyoming shall be the person or entity designated in the Articles of Organization, as may be changed from time to time by the Manager.</p>
+  <p><strong>2.5 Purpose.</strong> The purpose of the Company is to act as Sponsor / Manager Entity in the deal structure described in the Recitals, and to engage in any lawful business or activity for which a LLC may be organized under the Act. The Company may also engage in any related or incidental activities approved by the Manager.</p>
+  <p><strong>2.6 Term.</strong> The Company shall continue in existence until terminated and dissolved as provided in Article XI.</p>
+
+  
+
+  <h3 class="pkg-article">ARTICLE III — CAPITAL CONTRIBUTIONS</h3>
+  <p><strong>3.1 Initial Capital Contributions.</strong> Each Member shall make the Initial Capital Contribution set forth opposite its name on <strong>Exhibit A</strong>.</p>
+  <p><strong>3.2 Additional Capital Contributions.</strong> No Member shall be required to make any Additional Capital Contribution. If the Manager determines that additional capital is required for the operation of the Company, the Manager may (but shall not be required to) call for Additional Capital Contributions from the Members pro rata in proportion to their respective Membership Interests.</p>
+  <p><strong>3.3 Failure to Fund.</strong> If any Member fails to fund a properly called Additional Capital Contribution within ten (10) Business Days of the call notice, the funding Members may (i) advance the shortfall as a member loan bearing interest at the prime rate plus four percent (4%) and repayable from distributions otherwise payable to the defaulting Member, or (ii) contribute the shortfall as additional capital and proportionately dilute the defaulting Member's Membership Interest.</p>
+  <p><strong>3.4 Loans by Members.</strong> A Member may, with the consent of the Manager, lend funds to the Company. Any such loan shall be on arm's-length terms and shall not be treated as a Capital Contribution.</p>
+  <p><strong>3.5 No Interest on Capital.</strong> No Member shall be entitled to interest on its Capital Contribution except as expressly provided herein.</p>
+  <p><strong>3.6 Capital Accounts.</strong> A separate Capital Account shall be maintained for each Member in accordance with Treas. Reg. § 1.704-1(b)(2)(iv). Capital Accounts shall be increased by Capital Contributions and allocations of Profits, and decreased by Distributions and allocations of Losses.</p>
+
+  <h3 class="pkg-article">ARTICLE IV — ALLOCATIONS OF PROFITS AND LOSSES</h3>
+  <p><strong>4.1 General Allocation.</strong> Except as otherwise provided in this Article IV, Profits and Losses shall be allocated to the Members in accordance with the <strong>targeted</strong> method, in a manner consistent with Treas. Reg. § 1.704-1(b) and the economic intent of the Members as reflected in the Distribution provisions of Article V.</p>
+  <p><strong>4.2 § 704(c) Allocations.</strong> If any property is contributed to the Company with a fair market value different from its adjusted tax basis, items of income, gain, loss, and deduction with respect to such property shall be allocated among the Members so as to take account of the variation between the basis of the property and its fair market value in accordance with Code § 704(c) and Treas. Reg. § 1.704-3, using the <strong>traditional</strong> method.</p>
+  <p><strong>4.3 Regulatory Allocations.</strong> Notwithstanding any other provision, the following allocations shall be made in the following order: (a) minimum gain chargeback under Treas. Reg. § 1.704-2(f); (b) chargeback of member nonrecourse debt minimum gain under Treas. Reg. § 1.704-2(i)(4); (c) qualified income offset under Treas. Reg. § 1.704-1(b)(2)(ii)(d); (d) gross income allocation; and (e) nonrecourse deductions and member nonrecourse deductions in accordance with Treas. Reg. §§ 1.704-2(b) and 1.704-2(i)(2).</p>
+  <p><strong>4.4 Recapture.</strong> To the extent permitted by Treas. Reg. § 1.1245-1(e) and § 1.1250-1(f), depreciation recapture shall be allocated to the Members who received the related depreciation deductions.</p>
+  <p><strong>4.5 Tax Allocations Generally Follow Book Allocations.</strong> Except as otherwise provided in Section 4.2, tax allocations of Profits, Losses, and other tax items shall follow the corresponding book allocations.</p>
+
+  <h3 class="pkg-article">ARTICLE V — DISTRIBUTIONS</h3>
+  <p><strong>5.1 Available Cash.</strong> The Manager shall cause the Company to distribute Available Cash to the Members in accordance with Section 5.2 (Distribution Waterfall).</p>
+  <p><strong>5.2 Distribution Waterfall.</strong> Available Cash shall be distributed in accordance with the waterfall set forth in the operating agreement of the Issuer entity, as flowed through to this Company on a pro-rata basis.</p>
+  
+  <p><strong>5.3 Tax Distributions.</strong> Within thirty (30) days following the end of each Fiscal Year, the Manager may cause the Company to make Tax Distributions to each Member in an amount equal to its allocated share of taxable income for such year multiplied by the Assumed Tax Rate.</p>
+  <p><strong>5.4 Withholding.</strong> The Company shall withhold and pay over to the appropriate tax authorities any amounts required to be withheld pursuant to the Code or applicable state, local, or foreign tax law (including FIRPTA withholding under Code § 1445 and § 1446 with respect to foreign Members).</p>
+
+  <h3 class="pkg-article">ARTICLE VI — MANAGEMENT</h3>
+  <p><strong>6.1 Manager.</strong> The business and affairs of the Company shall be managed by Donovan Capital Management LLC, a Wyoming LLC (the <strong>"Manager"</strong>). The Manager shall have all powers necessary or appropriate to carry out the purposes of the Company.</p>
+  <p><strong>6.2 Statutory Default.</strong> Default management is by the members under W.S. § 17-29-407 unless this Agreement provides for manager management.</p>
+  <p><strong>6.3 Powers of the Manager.</strong> Without limiting the generality of Section 6.1, the Manager shall have full power and authority to: (a) acquire, develop, finance, refinance, lease, manage, and dispose of Company assets; (b) execute and deliver all documents on behalf of the Company; (c) employ professionals, contractors, and consultants; (d) maintain books and records; (e) cause the Company to obtain insurance; (f) prosecute and defend legal actions; (g) make tax elections; and (h) take such other actions as the Manager deems necessary or appropriate.</p>
+  <p><strong>6.4 Major Decisions.</strong> Notwithstanding Section 6.3, the following actions shall require the affirmative vote of Members holding more than majority of the Membership Interests: (i) sale of all or substantially all Company assets; (ii) merger, consolidation, or conversion; (iii) admission of additional Members; (iv) amendment of this Agreement adversely affecting a class disproportionately; (v) dissolution (other than at end of term); (vi) commencement of bankruptcy; and (vii) any transaction with the Manager or its affiliates not on arm's-length terms.</p>
+  <p><strong>6.5 Standard of Care and Fiduciary Duties.</strong> The Manager shall perform its duties in good faith and with the care of an ordinarily prudent person.</p>
+  
+    <p>This Agreement may eliminate or modify the duty of loyalty and the duty of care of the Manager and other persons to the Company or to any Member, subject only to the implied contractual covenant of good faith and fair dealing, as permitted by W.S. § 17-29-110(b).</p>
+  
+  <p><strong>6.6 Compensation.</strong> The Manager shall be entitled to receive the fees set forth on <strong>Exhibit B</strong>.</p>
+  <p><strong>6.7 Removal.</strong> The Manager may be removed only for Cause upon the affirmative vote of Members holding seventy-five percent (75%) or more of the Membership Interests held by Members other than the Manager and its affiliates.</p>
+
+  <h3 class="pkg-article">ARTICLE VII — INDEMNIFICATION</h3>
+  <p>The Company shall indemnify and hold harmless the Manager, its affiliates, and their respective officers, directors, members, partners, employees, and agents from and against any and all losses, claims, damages, liabilities, judgments, fines, settlements, and reasonable expenses arising out of or relating to the business of the Company, except to the extent attributable to gross negligence, willful misconduct, or fraud.</p>
+
+  <h3 class="pkg-article">ARTICLE VIII — BOOKS, RECORDS, AND REPORTING</h3>
+  <p><strong>8.1 Books and Records.</strong> The Manager shall maintain complete and accurate books and records of the Company at its principal office.</p>
+  <p><strong>8.2 Annual Statements.</strong> Within one hundred twenty (120) days after the end of each Fiscal Year, the Manager shall deliver to each Member unaudited annual financial statements and tax information necessary to enable each Member to prepare its tax returns, including a Schedule K-1.</p>
+  <p><strong>8.3 Partnership Representative.</strong> The Manager (or such other Member as the Manager may designate) shall serve as the <strong>"Partnership Representative"</strong> within the meaning of Code § 6223.</p>
+  <p><strong>8.4 Tax Elections.</strong> The Manager shall make all tax elections deemed appropriate, including the election under Code § 754 if the Manager determines such election is in the best interests of the Members.</p>
+
+  <h3 class="pkg-article">ARTICLE IX — TRANSFERS, ASSIGNMENTS, AND CHARGING ORDER</h3>
+  <p><strong>9.1 Restrictions on Transfer.</strong> No Member may sell, assign, transfer, pledge, or otherwise dispose of all or any portion of its Membership Interest (a <strong>"Transfer"</strong>) without the prior written consent of the Manager. Any purported Transfer in violation of this Article shall be null and void.</p>
+  <p><strong>9.2 Permitted Transfers.</strong> A Member may Transfer all or part of its Membership Interest, without Manager consent, to: (i) an affiliate; (ii) a revocable trust for estate planning; or (iii) by reason of death to the Member's estate.</p>
+  <p><strong>9.3 Right of First Refusal.</strong> Any proposed Transfer (other than a Permitted Transfer) shall be subject to a right of first refusal in favor of the Company and then the other Members.</p>
+  <p><strong>9.4 Securities Law Compliance.</strong> No Transfer shall be permitted unless the proposed transferee provides representations satisfactory to the Manager that the Transfer is exempt from registration under the Securities Act of 1933 and applicable state securities laws.</p>
+  <p><strong>9.5 Charging Order.</strong></p>
+  
+    <p>On application by a judgment creditor of a Member, the court may charge the transferable interest of the Member with payment of the unsatisfied amount of the judgment with interest. To the extent so charged, the judgment creditor has only the rights of a transferee of the transferable interest. The charging order constitutes the exclusive remedy by which a judgment creditor may satisfy a judgment from the Member’s interest, and no foreclosure of the membership interest is permitted under W.S. § 17-29-503(c).</p>
+  
+
+  <h3 class="pkg-article">ARTICLE X — REPRESENTATIONS AND WARRANTIES</h3>
+  <p>Each Member represents and warrants that: (a) it has full power and authority to enter into this Agreement; (b) it is acquiring its Membership Interest for investment for its own account; (c) it qualifies as an "accredited investor" within the meaning of Rule 501(a) of Regulation D; (d) it has had the opportunity to ask questions of the Manager; and (e) it can bear the economic risk of its investment, including total loss.</p>
+
+  <h3 class="pkg-article">ARTICLE XI — DISSOLUTION AND WINDING UP</h3>
+  <p><strong>11.1 Events of Dissolution.</strong></p>
+  
+    <p>Dissolution per W.S. § 17-29-701: occurrence of an event specified in this Agreement; consent of all members; or judicial dissolution.</p>
+  
+  <p><strong>11.2 Winding Up.</strong> Upon dissolution, the Manager (or, if none, a liquidator) shall wind up the affairs of the Company, liquidate its assets, pay or provide for its liabilities, and distribute any remaining assets in accordance with Section 11.3.</p>
+  <p><strong>11.3 Final Distribution.</strong> The proceeds of liquidation shall be distributed: (a) to creditors (other than Members); (b) to establish reserves; (c) to Members in repayment of any member loans; and (d) to Members in accordance with positive Capital Account balances.</p>
+
+  <h3 class="pkg-article">ARTICLE XII — MISCELLANEOUS</h3>
+  <p><strong>12.1 Notices.</strong> All notices required under this Agreement shall be in writing and delivered to the address on Exhibit A.</p>
+  <p><strong>12.2 Governing Law.</strong> This Agreement shall be governed by and construed in accordance with the laws of the State of Wyoming, without regard to its conflicts of laws principles.</p>
+  <p><strong>12.3 Dispute Resolution.</strong> Any dispute shall be resolved by binding arbitration administered by the American Arbitration Association under its Commercial Arbitration Rules in Wyoming. </p>
+  <p><strong>12.4 Entire Agreement.</strong> This Agreement (with its Exhibits) constitutes the entire agreement among the Members.</p>
+  <p><strong>12.5 Amendments.</strong> This Agreement may be amended only by a written instrument signed by the Manager and Members holding majority of the Membership Interests.</p>
+  <p><strong>12.6 Counterparts.</strong> This Agreement may be executed in counterparts.</p>
+  <p><strong>12.7 Severability.</strong> If any provision is held invalid, the remainder shall continue in full force.</p>
+
+  <p style="margin-top:2rem;"><strong>IN WITNESS WHEREOF,</strong> the parties have executed this Agreement as of the Effective Date.</p>
+
+  <div class="pkg-signature-block">
+    <p><strong>MANAGER:</strong></p>
+    <p>Donovan Capital Management LLC<br></p>
+    
+      <p>By: __________________________________<br>
+      Name: Paul K. Donovan, Esq.<br>
+      Title: Manager<br>
+      Capacity: Manager</p>
+    
+  </div>
+
+  <p style="margin-top:2rem;"><strong>MEMBERS:</strong> Each Member shall execute a separate counterpart signature page incorporated herein as part of <strong>Exhibit A</strong>.</p>
+
+  <h3 class="pkg-article">EXHIBIT A — MEMBER ROSTER AND CAPITAL CONTRIBUTIONS</h3>
+  <table class="pkg-table">
+    <thead><tr><th>Member Legal Name</th><th>Mailing Address</th><th>Capital Contribution</th></tr></thead>
+    <tbody><tr><td colspan="3"><em>This entity is not the Issuer. Member roster reflects the parent entity in the structure: Reserve Family Trust.</em></td></tr></tbody>
+  </table>
+
+  
+
+  
+  <h3 class="pkg-article">EXHIBIT D — STATE-SPECIFIC PROVISIONS (Wyoming)</h3>
+  <p><strong>Statute.</strong> This Agreement is governed by Wyoming Limited Liability Company Act, W.S. §§ 17-29-101 et seq..</p>
+  <p><strong>Filing Office.</strong> Wyoming Secretary of State; formation document is the Articles of Organization.</p>
+  <p><strong>Charging Order.</strong> Charging order is the exclusive remedy of a judgment creditor; foreclosure of a member interest is not permitted.</p>
+  <p><strong>Fiduciary Duties.</strong> Waivability: broad (W.S. § 17-29-110).</p>
+  
+  <p><strong>Annual Fees.</strong> annual report license tax of $60, due first day of anniversary month.</p>
+  <p><strong>Notable Features.</strong></p>
+  <ul><li>No state income tax (individuals or entities)</li><li>Strong member anonymity: members not disclosed on Secretary of State filings</li><li>Charging order is exclusive remedy with foreclosure expressly prohibited</li><li>Robust Series LLC framework</li><li>Favored for sponsor entities, holding companies, and asset-protection structures</li></ul>
+  
+</div>
+<div class="pkg-section pkg-doc">
+      <h2 class="pkg-doc-title">4. OPERATING AGREEMENT of Manhattan Holdings LLC</h2>
+      <p class="pkg-doc-subtitle">Manhattan Holdings LLC (Delaware LLC) — Holdco (Holding Company)</p>
+    </div>
+<div class="pkg-section pkg-doc">
+  <h2 class="pkg-doc-title">OPERATING AGREEMENT</h2>
+  <p class="pkg-doc-subtitle">MANHATTAN HOLDINGS LLC, a Delaware LLC</p>
+
+  <p class="pkg-recital">This Operating Agreement (this <strong>"Agreement"</strong>) is entered into as of June 1, 2026 (the <strong>"Effective Date"</strong>) by and among Manhattan Holdings LLC, a Delaware LLC (the <strong>"Company"</strong>), and the persons listed on <strong>Exhibit&nbsp;A</strong> hereto (each, a <strong>"Member"</strong> and collectively, the <strong>"Members"</strong>).</p>
+
+  <h3 class="pkg-article">RECITALS</h3>
+  <p>WHEREAS, the Company was formed as a Delaware LLC by the filing of Certificate of Formation with Delaware Division of Corporations on June 1, 2026;</p>
+  <p>WHEREAS, the Members desire to set forth the terms governing the operation and management of the Company in accordance with the Delaware Limited Liability Company Act;</p>
+  <p>WHEREAS, the Company holds direct or indirect interests in the following entities, which form part of the consolidated deal structure: <strong>450 Park Avenue Owner LLC</strong>, a New York LLC (Property Opco (Operating Company));</p>
+  <p>NOW, THEREFORE, in consideration of the mutual covenants herein contained, the Members agree as follows:</p>
+
+  
+
+  <h3 class="pkg-article">ARTICLE I — DEFINITIONS</h3>
+  <p><strong>1.1 Definitions.</strong> For purposes of this Agreement, the following terms have the meanings indicated:</p>
+  <p><strong>"Act"</strong> means the Delaware Limited Liability Company Act, 6 Del. C. §§ 18-101 et seq., as amended.</p>
+  <p><strong>"Capital Account"</strong> means the capital account of each Member maintained in accordance with Section&nbsp;3.6 and Treasury Regulations § 1.704-1(b)(2)(iv).</p>
+  <p><strong>"Capital Contribution"</strong> means the cash or fair market value of property contributed by a Member to the capital of the Company.</p>
+  <p><strong>"Code"</strong> means the Internal Revenue Code of 1986, as amended.</p>
+  <p><strong>"Distribution"</strong> means any cash or other property distributed by the Company to a Member in respect of its Membership Interest.</p>
+  <p><strong>"Fiscal Year"</strong> means the Company's fiscal year, which shall end on December&nbsp;31 of each year unless otherwise required by the Code.</p>
+  <p><strong>"Manager"</strong> means Donovan Capital Management LLC, a Wyoming LLC, or such successor as may be appointed pursuant to this Agreement.</p>
+  <p><strong>"Member"</strong> means each person listed on Exhibit A and any additional or substituted person admitted as a Member in accordance with this Agreement.</p>
+  <p><strong>"Membership Interest"</strong> means a Member's entire interest in the Company, including its right to receive Distributions, its share of Profits and Losses, and any voting or consent rights.</p>
+  <p><strong>"Preferred Return"</strong> has the meaning set forth in Section&nbsp;5.2.</p>
+  <p><strong>"Profits"</strong> and <strong>"Losses"</strong> mean, for each Fiscal Year, the Company's taxable income or loss, computed in accordance with Code § 703(a) and adjusted as set forth in this Agreement.</p>
+  <p><strong>"Treasury Regulations"</strong> means the regulations promulgated under the Code, as in effect from time to time.</p>
+
+  <h3 class="pkg-article">ARTICLE II — FORMATION AND PURPOSE</h3>
+  <p><strong>2.1 Formation.</strong> The Company was formed under the Act by the filing of Certificate of Formation with Delaware Division of Corporations. The Members confirm and ratify the filing.</p>
+  <p><strong>2.2 Name.</strong> The name of the Company is Manhattan Holdings LLC.</p>
+  <p><strong>2.3 Principal Office.</strong> The principal office of the Company is c/o Corporation Trust, Wilmington DE.</p>
+  <p><strong>2.4 Registered Agent.</strong> The registered agent for service of process in Delaware shall be the person or entity designated in the Certificate of Formation, as may be changed from time to time by the Manager.</p>
+  <p><strong>2.5 Purpose.</strong> The purpose of the Company is to act as Holdco (Holding Company) in the deal structure described in the Recitals, and to engage in any lawful business or activity for which a LLC may be organized under the Act. The Company may also engage in any related or incidental activities approved by the Manager.</p>
+  <p><strong>2.6 Term.</strong> The Company shall continue in existence until terminated and dissolved as provided in Article XI.</p>
+
+  
+
+  <h3 class="pkg-article">ARTICLE III — CAPITAL CONTRIBUTIONS</h3>
+  <p><strong>3.1 Initial Capital Contributions.</strong> Each Member shall make the Initial Capital Contribution set forth opposite its name on <strong>Exhibit A</strong>.</p>
+  <p><strong>3.2 Additional Capital Contributions.</strong> No Member shall be required to make any Additional Capital Contribution. If the Manager determines that additional capital is required for the operation of the Company, the Manager may (but shall not be required to) call for Additional Capital Contributions from the Members pro rata in proportion to their respective Membership Interests.</p>
+  <p><strong>3.3 Failure to Fund.</strong> If any Member fails to fund a properly called Additional Capital Contribution within ten (10) Business Days of the call notice, the funding Members may (i) advance the shortfall as a member loan bearing interest at the prime rate plus four percent (4%) and repayable from distributions otherwise payable to the defaulting Member, or (ii) contribute the shortfall as additional capital and proportionately dilute the defaulting Member's Membership Interest.</p>
+  <p><strong>3.4 Loans by Members.</strong> A Member may, with the consent of the Manager, lend funds to the Company. Any such loan shall be on arm's-length terms and shall not be treated as a Capital Contribution.</p>
+  <p><strong>3.5 No Interest on Capital.</strong> No Member shall be entitled to interest on its Capital Contribution except as expressly provided herein.</p>
+  <p><strong>3.6 Capital Accounts.</strong> A separate Capital Account shall be maintained for each Member in accordance with Treas. Reg. § 1.704-1(b)(2)(iv). Capital Accounts shall be increased by Capital Contributions and allocations of Profits, and decreased by Distributions and allocations of Losses.</p>
+
+  <h3 class="pkg-article">ARTICLE IV — ALLOCATIONS OF PROFITS AND LOSSES</h3>
+  <p><strong>4.1 General Allocation.</strong> Except as otherwise provided in this Article IV, Profits and Losses shall be allocated to the Members in accordance with the <strong>targeted</strong> method, in a manner consistent with Treas. Reg. § 1.704-1(b) and the economic intent of the Members as reflected in the Distribution provisions of Article V.</p>
+  <p><strong>4.2 § 704(c) Allocations.</strong> If any property is contributed to the Company with a fair market value different from its adjusted tax basis, items of income, gain, loss, and deduction with respect to such property shall be allocated among the Members so as to take account of the variation between the basis of the property and its fair market value in accordance with Code § 704(c) and Treas. Reg. § 1.704-3, using the <strong>traditional</strong> method.</p>
+  <p><strong>4.3 Regulatory Allocations.</strong> Notwithstanding any other provision, the following allocations shall be made in the following order: (a) minimum gain chargeback under Treas. Reg. § 1.704-2(f); (b) chargeback of member nonrecourse debt minimum gain under Treas. Reg. § 1.704-2(i)(4); (c) qualified income offset under Treas. Reg. § 1.704-1(b)(2)(ii)(d); (d) gross income allocation; and (e) nonrecourse deductions and member nonrecourse deductions in accordance with Treas. Reg. §§ 1.704-2(b) and 1.704-2(i)(2).</p>
+  <p><strong>4.4 Recapture.</strong> To the extent permitted by Treas. Reg. § 1.1245-1(e) and § 1.1250-1(f), depreciation recapture shall be allocated to the Members who received the related depreciation deductions.</p>
+  <p><strong>4.5 Tax Allocations Generally Follow Book Allocations.</strong> Except as otherwise provided in Section 4.2, tax allocations of Profits, Losses, and other tax items shall follow the corresponding book allocations.</p>
+
+  <h3 class="pkg-article">ARTICLE V — DISTRIBUTIONS</h3>
+  <p><strong>5.1 Available Cash.</strong> The Manager shall cause the Company to distribute Available Cash to the Members in accordance with Section 5.2 (Distribution Waterfall).</p>
+  <p><strong>5.2 Distribution Waterfall.</strong> Available Cash shall be distributed in accordance with the waterfall set forth in the operating agreement of the Issuer entity, as flowed through to this Company on a pro-rata basis.</p>
+  
+  <p><strong>5.3 Tax Distributions.</strong> Within thirty (30) days following the end of each Fiscal Year, the Manager may cause the Company to make Tax Distributions to each Member in an amount equal to its allocated share of taxable income for such year multiplied by the Assumed Tax Rate.</p>
+  <p><strong>5.4 Withholding.</strong> The Company shall withhold and pay over to the appropriate tax authorities any amounts required to be withheld pursuant to the Code or applicable state, local, or foreign tax law (including FIRPTA withholding under Code § 1445 and § 1446 with respect to foreign Members).</p>
+
+  <h3 class="pkg-article">ARTICLE VI — MANAGEMENT</h3>
+  <p><strong>6.1 Manager.</strong> The business and affairs of the Company shall be managed by Donovan Capital Management LLC, a Wyoming LLC (the <strong>"Manager"</strong>). The Manager shall have all powers necessary or appropriate to carry out the purposes of the Company.</p>
+  <p><strong>6.2 Statutory Default.</strong> Default under § 18-402 is member management unless the LLC agreement provides for manager management.</p>
+  <p><strong>6.3 Powers of the Manager.</strong> Without limiting the generality of Section 6.1, the Manager shall have full power and authority to: (a) acquire, develop, finance, refinance, lease, manage, and dispose of Company assets; (b) execute and deliver all documents on behalf of the Company; (c) employ professionals, contractors, and consultants; (d) maintain books and records; (e) cause the Company to obtain insurance; (f) prosecute and defend legal actions; (g) make tax elections; and (h) take such other actions as the Manager deems necessary or appropriate.</p>
+  <p><strong>6.4 Major Decisions.</strong> Notwithstanding Section 6.3, the following actions shall require the affirmative vote of Members holding more than majority of the Membership Interests: (i) sale of all or substantially all Company assets; (ii) merger, consolidation, or conversion; (iii) admission of additional Members; (iv) amendment of this Agreement adversely affecting a class disproportionately; (v) dissolution (other than at end of term); (vi) commencement of bankruptcy; and (vii) any transaction with the Manager or its affiliates not on arm's-length terms.</p>
+  <p><strong>6.5 Standard of Care and Fiduciary Duties.</strong> The Manager shall perform its duties in good faith and with the care of an ordinarily prudent person.</p>
+  
+    <p>To the extent permitted by 6 Del. C. § 18-1101(c), the duties (including fiduciary duties) of the Manager and any other person to the Company or to any Member or other person bound by the Agreement may be expanded, restricted, or eliminated by the express provisions of this Agreement; provided, however, that the implied contractual covenant of good faith and fair dealing may not be eliminated. The Members acknowledge and agree to such modification.</p>
+  
+  <p><strong>6.6 Compensation.</strong> The Manager shall be entitled to receive the fees set forth on <strong>Exhibit B</strong>.</p>
+  <p><strong>6.7 Removal.</strong> The Manager may be removed only for Cause upon the affirmative vote of Members holding seventy-five percent (75%) or more of the Membership Interests held by Members other than the Manager and its affiliates.</p>
+
+  <h3 class="pkg-article">ARTICLE VII — INDEMNIFICATION</h3>
+  <p>The Company shall indemnify and hold harmless the Manager, its affiliates, and their respective officers, directors, members, partners, employees, and agents from and against any and all losses, claims, damages, liabilities, judgments, fines, settlements, and reasonable expenses arising out of or relating to the business of the Company, except to the extent attributable to gross negligence, willful misconduct, or fraud.</p>
+
+  <h3 class="pkg-article">ARTICLE VIII — BOOKS, RECORDS, AND REPORTING</h3>
+  <p><strong>8.1 Books and Records.</strong> The Manager shall maintain complete and accurate books and records of the Company at its principal office.</p>
+  <p><strong>8.2 Annual Statements.</strong> Within one hundred twenty (120) days after the end of each Fiscal Year, the Manager shall deliver to each Member unaudited annual financial statements and tax information necessary to enable each Member to prepare its tax returns, including a Schedule K-1.</p>
+  <p><strong>8.3 Partnership Representative.</strong> The Manager (or such other Member as the Manager may designate) shall serve as the <strong>"Partnership Representative"</strong> within the meaning of Code § 6223.</p>
+  <p><strong>8.4 Tax Elections.</strong> The Manager shall make all tax elections deemed appropriate, including the election under Code § 754 if the Manager determines such election is in the best interests of the Members.</p>
+
+  <h3 class="pkg-article">ARTICLE IX — TRANSFERS, ASSIGNMENTS, AND CHARGING ORDER</h3>
+  <p><strong>9.1 Restrictions on Transfer.</strong> No Member may sell, assign, transfer, pledge, or otherwise dispose of all or any portion of its Membership Interest (a <strong>"Transfer"</strong>) without the prior written consent of the Manager. Any purported Transfer in violation of this Article shall be null and void.</p>
+  <p><strong>9.2 Permitted Transfers.</strong> A Member may Transfer all or part of its Membership Interest, without Manager consent, to: (i) an affiliate; (ii) a revocable trust for estate planning; or (iii) by reason of death to the Member's estate.</p>
+  <p><strong>9.3 Right of First Refusal.</strong> Any proposed Transfer (other than a Permitted Transfer) shall be subject to a right of first refusal in favor of the Company and then the other Members.</p>
+  <p><strong>9.4 Securities Law Compliance.</strong> No Transfer shall be permitted unless the proposed transferee provides representations satisfactory to the Manager that the Transfer is exempt from registration under the Securities Act of 1933 and applicable state securities laws.</p>
+  <p><strong>9.5 Charging Order.</strong></p>
+  
+    <p>On application to a court of competent jurisdiction by a judgment creditor of a member, the court may charge the membership interest of the member with payment of the unsatisfied amount of the judgment. To the extent so charged, the judgment creditor has only the rights of an assignee of the membership interest. The charging order constitutes the exclusive remedy by which a judgment creditor may satisfy a judgment from a member’s interest in the Company. No foreclosure of the membership interest is permitted.</p>
+  
+
+  <h3 class="pkg-article">ARTICLE X — REPRESENTATIONS AND WARRANTIES</h3>
+  <p>Each Member represents and warrants that: (a) it has full power and authority to enter into this Agreement; (b) it is acquiring its Membership Interest for investment for its own account; (c) it qualifies as an "accredited investor" within the meaning of Rule 501(a) of Regulation D; (d) it has had the opportunity to ask questions of the Manager; and (e) it can bear the economic risk of its investment, including total loss.</p>
+
+  <h3 class="pkg-article">ARTICLE XI — DISSOLUTION AND WINDING UP</h3>
+  <p><strong>11.1 Events of Dissolution.</strong></p>
+  
+    <p>Dissolution per § 18-801: occurrence of an event specified in the LLC agreement; written consent of all members; (judicial dissolution under § 18-802) determination that it is no longer reasonably practicable to carry on the business.</p>
+  
+  <p><strong>11.2 Winding Up.</strong> Upon dissolution, the Manager (or, if none, a liquidator) shall wind up the affairs of the Company, liquidate its assets, pay or provide for its liabilities, and distribute any remaining assets in accordance with Section 11.3.</p>
+  <p><strong>11.3 Final Distribution.</strong> The proceeds of liquidation shall be distributed: (a) to creditors (other than Members); (b) to establish reserves; (c) to Members in repayment of any member loans; and (d) to Members in accordance with positive Capital Account balances.</p>
+
+  <h3 class="pkg-article">ARTICLE XII — MISCELLANEOUS</h3>
+  <p><strong>12.1 Notices.</strong> All notices required under this Agreement shall be in writing and delivered to the address on Exhibit A.</p>
+  <p><strong>12.2 Governing Law.</strong> This Agreement shall be governed by and construed in accordance with the laws of the State of Delaware, without regard to its conflicts of laws principles.</p>
+  <p><strong>12.3 Dispute Resolution.</strong> Any dispute shall be resolved by binding arbitration administered by the American Arbitration Association under its Commercial Arbitration Rules in Delaware. The parties acknowledge the availability of the Delaware Court of Chancery for matters of corporate governance under the LLC Agreement; the parties may agree by separate instrument to designate the Court of Chancery as the forum for such matters.</p>
+  <p><strong>12.4 Entire Agreement.</strong> This Agreement (with its Exhibits) constitutes the entire agreement among the Members.</p>
+  <p><strong>12.5 Amendments.</strong> This Agreement may be amended only by a written instrument signed by the Manager and Members holding majority of the Membership Interests.</p>
+  <p><strong>12.6 Counterparts.</strong> This Agreement may be executed in counterparts.</p>
+  <p><strong>12.7 Severability.</strong> If any provision is held invalid, the remainder shall continue in full force.</p>
+
+  <p style="margin-top:2rem;"><strong>IN WITNESS WHEREOF,</strong> the parties have executed this Agreement as of the Effective Date.</p>
+
+  <div class="pkg-signature-block">
+    <p><strong>MANAGER:</strong></p>
+    <p>Donovan Capital Management LLC<br></p>
+    
+      <p>By: __________________________________<br>
+      Name: Paul K. Donovan, Esq.<br>
+      Title: Manager<br>
+      Capacity: Manager</p>
+    
+  </div>
+
+  <p style="margin-top:2rem;"><strong>MEMBERS:</strong> Each Member shall execute a separate counterpart signature page incorporated herein as part of <strong>Exhibit A</strong>.</p>
+
+  <h3 class="pkg-article">EXHIBIT A — MEMBER ROSTER AND CAPITAL CONTRIBUTIONS</h3>
+  <table class="pkg-table">
+    <thead><tr><th>Member Legal Name</th><th>Mailing Address</th><th>Capital Contribution</th></tr></thead>
+    <tbody><tr><td colspan="3"><em>This entity is not the Issuer. Member roster reflects the parent entity in the structure: Donovan Capital Management LLC.</em></td></tr></tbody>
+  </table>
+
+  
+
+  
+  <h3 class="pkg-article">EXHIBIT D — STATE-SPECIFIC PROVISIONS (Delaware)</h3>
+  <p><strong>Statute.</strong> This Agreement is governed by Delaware Limited Liability Company Act, 6 Del. C. §§ 18-101 et seq..</p>
+  <p><strong>Filing Office.</strong> Delaware Division of Corporations; formation document is the Certificate of Formation.</p>
+  <p><strong>Charging Order.</strong> Charging order is the exclusive remedy of a judgment creditor; foreclosure of a member interest is not permitted.</p>
+  <p><strong>Fiduciary Duties.</strong> Waivability: broad (6 Del. C. § 18-1101(c)).</p>
+  
+  <p><strong>Annual Fees.</strong> flat franchise tax of $300, due June 1.</p>
+  <p><strong>Notable Features.</strong></p>
+  <ul><li>Contractual freedom doctrine — broad ability to waive default rules</li><li>Sophisticated Court of Chancery for governance disputes</li><li>No state income tax on out-of-state-source income of out-of-state LLCs</li><li>Most widely used formation state for sophisticated deals</li><li>Robust Series LLC framework under § 18-215</li></ul>
+  
+</div>
+<div class="pkg-section pkg-doc">
+      <h2 class="pkg-doc-title">5. OPERATING AGREEMENT of 450 Park Avenue Owner LLC</h2>
+      <p class="pkg-doc-subtitle">450 Park Avenue Owner LLC (New York LLC) — Property Opco (Operating Company) · ISSUER</p>
+    </div>
+<div class="pkg-section pkg-doc">
+  <h2 class="pkg-doc-title">OPERATING AGREEMENT</h2>
+  <p class="pkg-doc-subtitle">450 PARK AVENUE OWNER LLC, a New York LLC</p>
+
+  <p class="pkg-recital">This Operating Agreement (this <strong>"Agreement"</strong>) is entered into as of June 1, 2026 (the <strong>"Effective Date"</strong>) by and among 450 Park Avenue Owner LLC, a New York LLC (the <strong>"Company"</strong>), and the persons listed on <strong>Exhibit&nbsp;A</strong> hereto (each, a <strong>"Member"</strong> and collectively, the <strong>"Members"</strong>).</p>
+
+  <h3 class="pkg-article">RECITALS</h3>
+  <p>WHEREAS, the Company was formed as a New York LLC by the filing of Articles of Organization with New York Department of State, Division of Corporations on June 1, 2026;</p>
+  <p>WHEREAS, the Members desire to set forth the terms governing the operation and management of the Company in accordance with the New York Limited Liability Company Law;</p>
+  
+  <p>NOW, THEREFORE, in consideration of the mutual covenants herein contained, the Members agree as follows:</p>
+
+  <p><strong>NEW YORK PUBLICATION REQUIREMENT.</strong> Within 120 days of formation, the Company must publish notice of formation in two newspapers (one daily, one weekly) designated by the county clerk of the county in which the Company’s office is located, for six consecutive weeks, and file a Certificate of Publication with the Department of State. Failure to comply suspends the Company’s authority to do business in New York. Publication costs typically $1,000-$2,000 in New York County and less in other counties.</p>
+
+  <h3 class="pkg-article">ARTICLE I — DEFINITIONS</h3>
+  <p><strong>1.1 Definitions.</strong> For purposes of this Agreement, the following terms have the meanings indicated:</p>
+  <p><strong>"Act"</strong> means the New York Limited Liability Company Law, N.Y. LLC Law §§ 101 et seq., as amended.</p>
+  <p><strong>"Capital Account"</strong> means the capital account of each Member maintained in accordance with Section&nbsp;3.6 and Treasury Regulations § 1.704-1(b)(2)(iv).</p>
+  <p><strong>"Capital Contribution"</strong> means the cash or fair market value of property contributed by a Member to the capital of the Company.</p>
+  <p><strong>"Code"</strong> means the Internal Revenue Code of 1986, as amended.</p>
+  <p><strong>"Distribution"</strong> means any cash or other property distributed by the Company to a Member in respect of its Membership Interest.</p>
+  <p><strong>"Fiscal Year"</strong> means the Company's fiscal year, which shall end on December&nbsp;31 of each year unless otherwise required by the Code.</p>
+  <p><strong>"Manager"</strong> means Donovan Capital Management LLC, a Wyoming LLC, or such successor as may be appointed pursuant to this Agreement.</p>
+  <p><strong>"Member"</strong> means each person listed on Exhibit A and any additional or substituted person admitted as a Member in accordance with this Agreement.</p>
+  <p><strong>"Membership Interest"</strong> means a Member's entire interest in the Company, including its right to receive Distributions, its share of Profits and Losses, and any voting or consent rights.</p>
+  <p><strong>"Preferred Return"</strong> has the meaning set forth in Section&nbsp;5.2.</p>
+  <p><strong>"Profits"</strong> and <strong>"Losses"</strong> mean, for each Fiscal Year, the Company's taxable income or loss, computed in accordance with Code § 703(a) and adjusted as set forth in this Agreement.</p>
+  <p><strong>"Treasury Regulations"</strong> means the regulations promulgated under the Code, as in effect from time to time.</p>
+
+  <h3 class="pkg-article">ARTICLE II — FORMATION AND PURPOSE</h3>
+  <p><strong>2.1 Formation.</strong> The Company was formed under the Act by the filing of Articles of Organization with New York Department of State, Division of Corporations. The Members confirm and ratify the filing.</p>
+  <p><strong>2.2 Name.</strong> The name of the Company is 450 Park Avenue Owner LLC.</p>
+  <p><strong>2.3 Principal Office.</strong> The principal office of the Company is 450 Park Avenue, New York NY 10022.</p>
+  <p><strong>2.4 Registered Agent.</strong> The registered agent for service of process in New York shall be the person or entity designated in the Articles of Organization, as may be changed from time to time by the Manager.</p>
+  <p><strong>2.5 Purpose.</strong> The purpose of the Company is to acquire, develop, hold, lease, operate, finance, refinance, and dispose of the real property and improvements located at 450 Park Avenue, New York, NY (the <strong>"Property"</strong>) and to engage in any lawful business or activity for which a LLC may be organized under the Act in connection therewith. The Company may also engage in any related or incidental activities approved by the Manager.</p>
+  <p><strong>2.6 Term.</strong> The Company shall continue in existence until terminated and dissolved as provided in Article XI.</p>
+
+  
+
+  <h3 class="pkg-article">ARTICLE III — CAPITAL CONTRIBUTIONS</h3>
+  <p><strong>3.1 Initial Capital Contributions.</strong> Each Member shall make the Initial Capital Contribution set forth opposite its name on <strong>Exhibit A</strong>. The aggregate Initial Capital Contributions of all Members shall be $2,000,000.</p>
+  <p><strong>3.2 Additional Capital Contributions.</strong> No Member shall be required to make any Additional Capital Contribution. If the Manager determines that additional capital is required for the operation of the Company, the Manager may (but shall not be required to) call for Additional Capital Contributions from the Members pro rata in proportion to their respective Membership Interests.</p>
+  <p><strong>3.3 Failure to Fund.</strong> If any Member fails to fund a properly called Additional Capital Contribution within ten (10) Business Days of the call notice, the funding Members may (i) advance the shortfall as a member loan bearing interest at the prime rate plus four percent (4%) and repayable from distributions otherwise payable to the defaulting Member, or (ii) contribute the shortfall as additional capital and proportionately dilute the defaulting Member's Membership Interest.</p>
+  <p><strong>3.4 Loans by Members.</strong> A Member may, with the consent of the Manager, lend funds to the Company. Any such loan shall be on arm's-length terms and shall not be treated as a Capital Contribution.</p>
+  <p><strong>3.5 No Interest on Capital.</strong> No Member shall be entitled to interest on its Capital Contribution except as expressly provided herein.</p>
+  <p><strong>3.6 Capital Accounts.</strong> A separate Capital Account shall be maintained for each Member in accordance with Treas. Reg. § 1.704-1(b)(2)(iv). Capital Accounts shall be increased by Capital Contributions and allocations of Profits, and decreased by Distributions and allocations of Losses.</p>
+
+  <h3 class="pkg-article">ARTICLE IV — ALLOCATIONS OF PROFITS AND LOSSES</h3>
+  <p><strong>4.1 General Allocation.</strong> Except as otherwise provided in this Article IV, Profits and Losses shall be allocated to the Members in accordance with the <strong>targeted</strong> method, in a manner consistent with Treas. Reg. § 1.704-1(b) and the economic intent of the Members as reflected in the Distribution provisions of Article V.</p>
+  <p><strong>4.2 § 704(c) Allocations.</strong> If any property is contributed to the Company with a fair market value different from its adjusted tax basis, items of income, gain, loss, and deduction with respect to such property shall be allocated among the Members so as to take account of the variation between the basis of the property and its fair market value in accordance with Code § 704(c) and Treas. Reg. § 1.704-3, using the <strong>traditional</strong> method.</p>
+  <p><strong>4.3 Regulatory Allocations.</strong> Notwithstanding any other provision, the following allocations shall be made in the following order: (a) minimum gain chargeback under Treas. Reg. § 1.704-2(f); (b) chargeback of member nonrecourse debt minimum gain under Treas. Reg. § 1.704-2(i)(4); (c) qualified income offset under Treas. Reg. § 1.704-1(b)(2)(ii)(d); (d) gross income allocation; and (e) nonrecourse deductions and member nonrecourse deductions in accordance with Treas. Reg. §§ 1.704-2(b) and 1.704-2(i)(2).</p>
+  <p><strong>4.4 Recapture.</strong> To the extent permitted by Treas. Reg. § 1.1245-1(e) and § 1.1250-1(f), depreciation recapture shall be allocated to the Members who received the related depreciation deductions.</p>
+  <p><strong>4.5 Tax Allocations Generally Follow Book Allocations.</strong> Except as otherwise provided in Section 4.2, tax allocations of Profits, Losses, and other tax items shall follow the corresponding book allocations.</p>
+
+  <h3 class="pkg-article">ARTICLE V — DISTRIBUTIONS</h3>
+  <p><strong>5.1 Available Cash.</strong> The Manager shall cause the Company to distribute Available Cash to the Members in accordance with Section 5.2 (Distribution Waterfall).</p>
+  <p><strong>5.2 Distribution Waterfall.</strong> Available Cash shall be distributed as follows:</p>
+  <p style="margin-left:1.5rem;"><strong>(a) Preferred Return.</strong> First, 10.00% per annum, cumulative non_compound pari passu, on each Member's unreturned Capital Contributions until each Member has received Distributions equal to such Preferred Return.</p>
+  <p style="margin-left:1.5rem;"><strong>(b) Return of Capital.</strong> Second, in proportion to each Member's unreturned Capital Contributions, until each Member has received Distributions equal to its Capital Contributions.</p>
+  <p style="margin-left:1.5rem;"><strong>(c) Promote Tiers.</strong> Third, the remainder shall be distributed pursuant to the promote tiers set forth on <strong>Exhibit C</strong>.</p>
+  <p><strong>5.3 Tax Distributions.</strong> Within thirty (30) days following the end of each Fiscal Year, the Manager may cause the Company to make Tax Distributions to each Member in an amount equal to its allocated share of taxable income for such year multiplied by the Assumed Tax Rate.</p>
+  <p><strong>5.4 Withholding.</strong> The Company shall withhold and pay over to the appropriate tax authorities any amounts required to be withheld pursuant to the Code or applicable state, local, or foreign tax law (including FIRPTA withholding under Code § 1445 and § 1446 with respect to foreign Members).</p>
+
+  <h3 class="pkg-article">ARTICLE VI — MANAGEMENT</h3>
+  <p><strong>6.1 Manager.</strong> The business and affairs of the Company shall be managed by Donovan Capital Management LLC, a Wyoming LLC (the <strong>"Manager"</strong>). The Manager shall have all powers necessary or appropriate to carry out the purposes of the Company.</p>
+  <p><strong>6.2 Statutory Default.</strong> Default management is by members under § 401 unless the Articles or this Agreement provide for manager management.</p>
+  <p><strong>6.3 Powers of the Manager.</strong> Without limiting the generality of Section 6.1, the Manager shall have full power and authority to: (a) acquire, develop, finance, refinance, lease, manage, and dispose of Company assets; (b) execute and deliver all documents on behalf of the Company; (c) employ professionals, contractors, and consultants; (d) maintain books and records; (e) cause the Company to obtain insurance; (f) prosecute and defend legal actions; (g) make tax elections; and (h) take such other actions as the Manager deems necessary or appropriate.</p>
+  <p><strong>6.4 Major Decisions.</strong> Notwithstanding Section 6.3, the following actions shall require the affirmative vote of Members holding more than majority of the Membership Interests: (i) sale of all or substantially all Company assets; (ii) merger, consolidation, or conversion; (iii) admission of additional Members; (iv) amendment of this Agreement adversely affecting a class disproportionately; (v) dissolution (other than at end of term); (vi) commencement of bankruptcy; and (vii) any transaction with the Manager or its affiliates not on arm's-length terms.</p>
+  <p><strong>6.5 Standard of Care and Fiduciary Duties.</strong> The Manager shall perform its duties in good faith and with the care of an ordinarily prudent person.</p>
+  
+    <p>The Manager owes the Company and its Members the duty to act in good faith and with the degree of care of an ordinarily prudent person. This Agreement may modify these duties to the extent permitted by N.Y. LLC Law § 409; however, the duty of loyalty and the duty of good faith may not be eliminated.</p>
+  
+  <p><strong>6.6 Compensation.</strong> The Manager shall be entitled to receive the fees set forth on <strong>Exhibit B</strong>.</p>
+  <p><strong>6.7 Removal.</strong> The Manager may be removed only for Cause upon the affirmative vote of Members holding seventy-five percent (75%) or more of the Membership Interests held by Members other than the Manager and its affiliates.</p>
+
+  <h3 class="pkg-article">ARTICLE VII — INDEMNIFICATION</h3>
+  <p>The Company shall indemnify and hold harmless the Manager, its affiliates, and their respective officers, directors, members, partners, employees, and agents from and against any and all losses, claims, damages, liabilities, judgments, fines, settlements, and reasonable expenses arising out of or relating to the business of the Company, except to the extent attributable to gross negligence, willful misconduct, or fraud.</p>
+
+  <h3 class="pkg-article">ARTICLE VIII — BOOKS, RECORDS, AND REPORTING</h3>
+  <p><strong>8.1 Books and Records.</strong> The Manager shall maintain complete and accurate books and records of the Company at its principal office.</p>
+  <p><strong>8.2 Annual Statements.</strong> Within one hundred twenty (120) days after the end of each Fiscal Year, the Manager shall deliver to each Member unaudited annual financial statements and tax information necessary to enable each Member to prepare its tax returns, including a Schedule K-1.</p>
+  <p><strong>8.3 Partnership Representative.</strong> The Manager (or such other Member as the Manager may designate) shall serve as the <strong>"Partnership Representative"</strong> within the meaning of Code § 6223.</p>
+  <p><strong>8.4 Tax Elections.</strong> The Manager shall make all tax elections deemed appropriate, including the election under Code § 754 if the Manager determines such election is in the best interests of the Members.</p>
+
+  <h3 class="pkg-article">ARTICLE IX — TRANSFERS, ASSIGNMENTS, AND CHARGING ORDER</h3>
+  <p><strong>9.1 Restrictions on Transfer.</strong> No Member may sell, assign, transfer, pledge, or otherwise dispose of all or any portion of its Membership Interest (a <strong>"Transfer"</strong>) without the prior written consent of the Manager. Any purported Transfer in violation of this Article shall be null and void.</p>
+  <p><strong>9.2 Permitted Transfers.</strong> A Member may Transfer all or part of its Membership Interest, without Manager consent, to: (i) an affiliate; (ii) a revocable trust for estate planning; or (iii) by reason of death to the Member's estate.</p>
+  <p><strong>9.3 Right of First Refusal.</strong> Any proposed Transfer (other than a Permitted Transfer) shall be subject to a right of first refusal in favor of the Company and then the other Members.</p>
+  <p><strong>9.4 Securities Law Compliance.</strong> No Transfer shall be permitted unless the proposed transferee provides representations satisfactory to the Manager that the Transfer is exempt from registration under the Securities Act of 1933 and applicable state securities laws.</p>
+  <p><strong>9.5 Charging Order.</strong></p>
+  
+    <p>Pursuant to N.Y. LLC Law § 607, a judgment creditor of a Member may obtain a charging order against the membership interest. The statute does not designate the charging order as the exclusive remedy, and New York courts have permitted foreclosure of membership interests in appropriate circumstances. Members should not assume charging-order-exclusive protection in New York.</p>
+  
+
+  <h3 class="pkg-article">ARTICLE X — REPRESENTATIONS AND WARRANTIES</h3>
+  <p>Each Member represents and warrants that: (a) it has full power and authority to enter into this Agreement; (b) it is acquiring its Membership Interest for investment for its own account; (c) it qualifies as an "accredited investor" within the meaning of Rule 501(a) of Regulation D; (d) it has had the opportunity to ask questions of the Manager; and (e) it can bear the economic risk of its investment, including total loss.</p>
+
+  <h3 class="pkg-article">ARTICLE XI — DISSOLUTION AND WINDING UP</h3>
+  <p><strong>11.1 Events of Dissolution.</strong></p>
+  
+    <p>Dissolution per N.Y. LLC Law § 701: occurrence of an event specified in this Agreement; consent of majority members; or judicial dissolution.</p>
+  
+  <p><strong>11.2 Winding Up.</strong> Upon dissolution, the Manager (or, if none, a liquidator) shall wind up the affairs of the Company, liquidate its assets, pay or provide for its liabilities, and distribute any remaining assets in accordance with Section 11.3.</p>
+  <p><strong>11.3 Final Distribution.</strong> The proceeds of liquidation shall be distributed: (a) to creditors (other than Members); (b) to establish reserves; (c) to Members in repayment of any member loans; and (d) to Members in accordance with positive Capital Account balances.</p>
+
+  <h3 class="pkg-article">ARTICLE XII — MISCELLANEOUS</h3>
+  <p><strong>12.1 Notices.</strong> All notices required under this Agreement shall be in writing and delivered to the address on Exhibit A.</p>
+  <p><strong>12.2 Governing Law.</strong> This Agreement shall be governed by and construed in accordance with the laws of the State of New York, without regard to its conflicts of laws principles.</p>
+  <p><strong>12.3 Dispute Resolution.</strong> Any dispute shall be resolved by binding arbitration administered by the American Arbitration Association under its Commercial Arbitration Rules in New York. </p>
+  <p><strong>12.4 Entire Agreement.</strong> This Agreement (with its Exhibits) constitutes the entire agreement among the Members.</p>
+  <p><strong>12.5 Amendments.</strong> This Agreement may be amended only by a written instrument signed by the Manager and Members holding majority of the Membership Interests.</p>
+  <p><strong>12.6 Counterparts.</strong> This Agreement may be executed in counterparts.</p>
+  <p><strong>12.7 Severability.</strong> If any provision is held invalid, the remainder shall continue in full force.</p>
+
+  <p style="margin-top:2rem;"><strong>IN WITNESS WHEREOF,</strong> the parties have executed this Agreement as of the Effective Date.</p>
+
+  <div class="pkg-signature-block">
+    <p><strong>MANAGER:</strong></p>
+    <p>Donovan Capital Management LLC<br></p>
+    
+      <p>By: __________________________________<br>
+      Name: Paul K. Donovan, Esq.<br>
+      Title: Manager<br>
+      Capacity: Manager</p>
+    
+  </div>
+
+  <p style="margin-top:2rem;"><strong>MEMBERS:</strong> Each Member shall execute a separate counterpart signature page incorporated herein as part of <strong>Exhibit A</strong>.</p>
+
+  <h3 class="pkg-article">EXHIBIT A — MEMBER ROSTER AND CAPITAL CONTRIBUTIONS</h3>
+  <table class="pkg-table">
+    <thead><tr><th>Member Legal Name</th><th>Mailing Address</th><th>Capital Contribution</th></tr></thead>
+    <tbody><tr><td colspan="3"><strong>Class A LP</strong> (lp — 10.00% preferred return)</td></tr><tr><td>Smith Family Trust</td><td>50 Beacon St, Boston MA 02108</td><td>$2,000,000</td></tr></tbody>
+  </table>
+
+  
+  <h3 class="pkg-article">EXHIBIT B — MANAGER COMPENSATION AND FEES</h3>
+  <p>The Manager shall be entitled to the following fees:</p>
+  <ul>
+    <li><strong>Development Fee:</strong> 2.00% of Total Project Cost.</li>
+    <li><strong>Construction Management Fee:</strong> 5.00% of hard construction costs.</li>
+    <li><strong>Asset Management Fee:</strong> 0.50% per annum of unreturned Capital Contributions.</li>
+    <li><strong>Disposition Fee:</strong> 1.00% of gross sale proceeds.</li>
+    <li><strong>Promoted Interest:</strong> as set forth on Exhibit C.</li>
+  </ul>
+
+  <h3 class="pkg-article">EXHIBIT C — PROMOTE TIERS AND DISTRIBUTION WATERFALL</h3>
+  <p>Distributions shall be made pursuant to the following waterfall:</p>
+  <p style="margin-left:1rem;"><strong>Tier 1 — Preferred Return:</strong> 10.00% per annum, cumulative non_compound pari passu.</p>
+  <p style="margin-left:1rem;"><strong>Tier 2 — Return of Capital:</strong> pari passu return of Capital Contributions.</p>
+  <p style="margin-left:1rem;"><strong>Tier 3 — 10% Pref Hurdle:</strong> 80% to Members, 20% to Sponsor.</p>
+  
+
+  
+  <h3 class="pkg-article">EXHIBIT D — STATE-SPECIFIC PROVISIONS (New York)</h3>
+  <p><strong>Statute.</strong> This Agreement is governed by New York Limited Liability Company Law, N.Y. LLC Law §§ 101 et seq..</p>
+  <p><strong>Filing Office.</strong> New York Department of State, Division of Corporations; formation document is the Articles of Organization.</p>
+  <p><strong>Charging Order.</strong> Charging order remedy applies; foreclosure of a member interest is permitted in appropriate circumstances.</p>
+  <p><strong>Fiduciary Duties.</strong> Waivability: limited (N.Y. LLC Law § 409).</p>
+  <p><strong>Publication Requirement.</strong> Within 120 days of formation, the Company must publish notice of formation in two newspapers (one daily, one weekly) designated by the county clerk of the county in which the Company’s office is located, for six consecutive weeks, and file a Certificate of Publication with the Department of State. Failure to comply suspends the Company’s authority to do business in New York. Publication costs typically $1,000-$2,000 in New York County and less in other counties.</p>
+  <p><strong>Annual Fees.</strong> biennial statement + filing fee on income of income-based, due biennial.</p>
+  <p><strong>Notable Features.</strong></p>
+  <ul><li>Publication requirement under § 206 (cost $1,000-$2,000+)</li><li>High state income tax (up to 10.9% individual)</li><li>No Series LLC</li><li>Charging order with foreclosure permitted</li><li>Filing fee on LLCs based on gross income</li><li>Biennial Statement filing required</li></ul>
+  
+</div>
+
+<div class="pkg-section pkg-doc ppm-doc">
+  <h2 class="pkg-doc-title">6. PRIVATE PLACEMENT MEMORANDUM</h2>
+
+  <div class="ppm-cover-block">
+    <p style="text-align:center; font-size: 1.15rem; font-weight:700; letter-spacing:1.5px; margin-bottom: 1rem;">450 PARK AVENUE OWNER LLC</p>
+    <p style="text-align:center; font-size:0.9rem; margin-bottom:0.85rem;">a New York LLC</p>
+    <p style="text-align:center; font-size:1.1rem; font-weight:700; margin-bottom:1rem;">$2,000,000 OFFERING OF CLASS A MEMBERSHIP INTERESTS</p>
+    <p style="text-align:center; font-size:0.85rem; font-style:italic; margin-bottom:0.5rem;">Sophisticated 506(b) — Full Disclosure</p>
+    <p style="text-align:center; font-size:0.9rem;">Project: 450 Park Avenue</p>
+    <p style="text-align:center; font-size:0.85rem; color:#6b6b6b;">Located at: 450 Park Avenue, New York, NY</p>
+    <p style="text-align:center; margin-top:1.5rem; font-size:0.78rem; letter-spacing:1.5px;">DATED MAY 17, 2026</p>
+  </div>
+
+  <div class="ppm-legend-box">
+    <p style="font-weight:700; text-align:center; margin-bottom:0.85rem;">IMPORTANT NOTICES</p>
+    <p style="font-size:0.85rem;">THE SECURITIES OFFERED HEREBY HAVE NOT BEEN REGISTERED UNDER THE U.S. SECURITIES ACT OF 1933, AS AMENDED (THE "SECURITIES ACT"), OR UNDER THE SECURITIES LAWS OF ANY STATE. THESE SECURITIES ARE BEING OFFERED IN RELIANCE UPON EXEMPTIONS FROM REGISTRATION PROVIDED BY RULE 506(b) OF REGULATION D UNDER THE SECURITIES ACT AND APPLICABLE STATE SECURITIES LAW EXEMPTIONS. THE SECURITIES ARE SUBJECT TO RESTRICTIONS ON TRANSFER AND RESALE AND MAY NOT BE RESOLD OR OTHERWISE TRANSFERRED EXCEPT PURSUANT TO AN EFFECTIVE REGISTRATION STATEMENT OR AN AVAILABLE EXEMPTION.</p>
+    <p style="font-size:0.85rem;">NEITHER THE SECURITIES AND EXCHANGE COMMISSION NOR ANY STATE SECURITIES COMMISSION HAS PASSED UPON OR APPROVED THESE SECURITIES OR THE ADEQUACY OF THIS MEMORANDUM. ANY REPRESENTATION TO THE CONTRARY IS A CRIMINAL OFFENSE.</p>
+    <p style="font-size:0.85rem;">THIS OFFERING IS BEING CONDUCTED UNDER RULE 506(b) OF REGULATION D. THE COMPANY MAY NOT USE GENERAL SOLICITATION OR GENERAL ADVERTISING. EACH PURCHASER MUST HAVE A PRE-EXISTING SUBSTANTIVE RELATIONSHIP WITH THE COMPANY OR ITS PRINCIPALS.</p>
+    <p style="font-size:0.85rem;">THIS INVESTMENT INVOLVES SIGNIFICANT RISKS, INCLUDING THE POSSIBILITY OF TOTAL LOSS. PROSPECTIVE INVESTORS SHOULD CAREFULLY REVIEW THE RISK FACTORS BEGINNING ON THE PAGE TITLED "RISK FACTORS" AND CONSULT WITH THEIR OWN LEGAL, TAX, AND FINANCIAL ADVISORS.</p>
+    <p style="font-size:0.85rem;">NO OFFERING MEMORANDUM, NO REPRESENTATIONS BY THE COMPANY OR ITS MANAGER, AND NO PROJECTIONS OR FINANCIAL DATA CONTAINED HEREIN SHALL CONSTITUTE LEGAL, TAX, OR INVESTMENT ADVICE. THIS MEMORANDUM HAS BEEN PREPARED FROM INFORMATION DERIVED FROM SOURCES BELIEVED RELIABLE BUT WHICH HAS NOT BEEN INDEPENDENTLY VERIFIED. NO PROJECTIONS OR FINANCIAL FORECASTS SHOULD BE CONSIDERED A GUARANTEE OF RETURNS.</p>
+  </div>
+
+  <h3 class="pkg-article">PPM TABLE OF CONTENTS</h3>
+  <ol class="pkg-list">
+    <li>Executive Summary</li>
+    <li>Investment Summary &amp; Term Sheet</li>
+    <li>The Sponsor and Management</li>
+    <li>The Investment Opportunity</li>
+    <li>Use of Proceeds</li>
+    <li>Risk Factors</li>
+    <li>Federal Income Tax Considerations</li>
+    <li>State Tax Considerations</li>
+    <li>Securities Regulatory Considerations</li>
+    <li>Conflicts of Interest</li>
+    <li>Material Agreements</li>
+    <li>Reports to Investors</li>
+    <li>Subscription Procedure</li>
+    <li>Glossary of Defined Terms</li>
+  </ol>
+
+  <h3 class="pkg-article">1. EXECUTIVE SUMMARY</h3>
+  <p>450 Park Avenue Owner LLC (the <strong>"Company"</strong>) is a New York LLC formed to acquire, develop, hold, lease, operate, and ultimately dispose of the real property located at 450 Park Avenue, New York, NY (the <strong>"Property"</strong>). The Company is offering Class A Membership Interests in the aggregate amount of $2,000,000 to qualified investors pursuant to this Memorandum.</p>
+  <p>The Company is managed by Donovan Capital Management LLC, a Wyoming LLC (the <strong>"Manager"</strong>). The Manager's principals have extensive experience in real estate development, transactional law, tax structuring, and capital deployment. The deal is structured to align the Manager's economic interests with those of investors through a preferred return, return of capital, and promoted interest waterfall, with the Manager earning incentive distributions only after investors achieve defined return hurdles.</p>
+  <p>The investment is expected to generate cash distributions over an anticipated hold period of approximately 5.0 years, culminating in a sale or refinancing event. Preliminary projections indicate a target LP IRR of approximately 18.0% and an MOIC of approximately 2.10x. <strong>These projections are estimates only, depend on numerous assumptions, and may not be achieved.</strong></p>
+
+  <h3 class="pkg-article">2. INVESTMENT SUMMARY &amp; TERM SHEET</h3>
+  <table class="pkg-table">
+    <tr><td><strong>Issuer:</strong></td><td>450 Park Avenue Owner LLC, a New York LLC</td></tr>
+    <tr><td><strong>Manager:</strong></td><td>Donovan Capital Management LLC, a Wyoming LLC</td></tr>
+    <tr><td><strong>Property:</strong></td><td>450 Park Avenue, New York, NY</td></tr>
+    <tr><td><strong>Project Type:</strong></td><td>Joint Venture — sponsor + LP(s)</td></tr>
+    <tr><td><strong>Total Project Cost:</strong></td><td>$10,000,000</td></tr>
+    <tr><td><strong>Capital Stack:</strong></td><td>$2,000,000 member equity + $8,000,000 senior debt</td></tr>
+    <tr><td><strong>Securities Offered:</strong></td><td>Class A Membership Interests</td></tr>
+    <tr><td><strong>Total Offering:</strong></td><td>$2,000,000</td></tr>
+    <tr><td><strong>Number of Investors:</strong></td><td>1</td></tr>
+    <tr><td><strong>Anticipated Hold Period:</strong></td><td>5.0 years</td></tr>
+    <tr><td><strong>Preferred Return:</strong></td><td>10.00% per annum, cumulative non_compound pari passu</td></tr>
+    <tr><td><strong>Waterfall Style:</strong></td><td>American</td></tr>
+    <tr><td><strong>Promote Tiers:</strong></td><td>1 tier(s)</td></tr>
+    <tr><td><strong>Catchup:</strong></td><td>none</td></tr>
+    <tr><td><strong>Clawback:</strong></td><td>lookback (12% threshold)</td></tr>
+    <tr><td><strong>Manager Fees:</strong></td><td>Dev 2.0% / CM 5.0% / AM 0.5% / Disp 1.0%</td></tr>
+    <tr><td><strong>Target LP IRR:</strong></td><td>18.0% (projected, not guaranteed)</td></tr>
+    <tr><td><strong>Target LP MOIC:</strong></td><td>2.10x (projected, not guaranteed)</td></tr>
+    <tr><td><strong>Securities Exemption:</strong></td><td>Rule 506(b) of Regulation D</td></tr>
+    <tr><td><strong>Investor Eligibility:</strong></td><td>Accredited Investors as defined in Rule 501(a); self-certification permitted under Rule 506(b)</td></tr>
+  </table>
+
+  <h3 class="pkg-article">3. THE STRUCTURE, SPONSOR, AND MANAGEMENT</h3>
+  <p><strong>Multi-Tier Entity Structure.</strong> The deal is conducted through a multi-tier entity structure consisting of 4 entities formed in Florida, Wyoming, Delaware, New York. Each entity in the structure is governed by the law of its state of formation, and the Operating Agreement(s) reflect state-specific statutory requirements. The Entity Structure Diagram (Section 2 of this Package) provides a visual representation of the ownership and management chain.</p>
+  <p><strong>Entities in the Structure.</strong></p>
+  <ul style="margin-left:1.5rem;"><li><strong>Reserve Family Trust</strong> — a Florida Trust (non-statutory) serving the role of Trust (top of structure). Governed by Florida Revised Limited Liability Company Act, Fla. Stat. ch. 605 (2014).</li><li><strong>Donovan Capital Management LLC</strong> — a Wyoming LLC serving the role of Sponsor / Manager Entity, owned by Reserve Family Trust. Governed by Wyoming Limited Liability Company Act, W.S. §§ 17-29-101 et seq..</li><li><strong>Manhattan Holdings LLC</strong> — a Delaware LLC serving the role of Holdco (Holding Company), owned by Donovan Capital Management LLC. Governed by Delaware Limited Liability Company Act, 6 Del. C. §§ 18-101 et seq..</li><li><strong>450 Park Avenue Owner LLC</strong> <em>(Issuer)</em> — a New York LLC serving the role of Property Opco (Operating Company), owned by Manhattan Holdings LLC. Governed by New York Limited Liability Company Law, N.Y. LLC Law §§ 101 et seq..</li></ul>
+  <p><strong>Issuer.</strong> Subscriptions and Capital Contributions are made to 450 Park Avenue Owner LLC, a New York LLC (the <strong>"Issuer"</strong>), which is the entity offering the securities described in this Memorandum. The Issuer's governing law (New York Limited Liability Company Law, N.Y. LLC Law §§ 101 et seq.) provides a charging order remedy that does not exclude foreclosure against judgment creditors of the members.</p>
+  <p><strong>Manager Principals.</strong> The principals identified in the Signatory section of this Memorandum and the Operating Agreement(s) bring substantial professional experience relevant to the Property and the deal structure, including (as applicable) tax planning for real estate developers, transactional legal representation, certified public accounting, real estate brokerage, and construction management.</p>
+  <p><strong>Authorized Signatories.</strong> The persons authorized to sign on behalf of each entity in the structure are identified in the signature blocks of the respective Operating Agreement(s), the Subscription Agreement, and related documents. Investors should review carefully which entity each signatory is binding when signing.</p>
+  <p><strong>Bad-Actor Disqualification.</strong> Each "covered person" within the meaning of Rule 506(d) has been evaluated and the Manager represents (and the Sponsor principals each have certified) that no disqualifying event under Rule 506(d)(1) has occurred within the applicable lookback periods.</p>
+
+  <h3 class="pkg-article">4. THE INVESTMENT OPPORTUNITY</h3>
+  <p>The Company will acquire 450 Park Avenue, New York, NY and lease and operate the Property over the anticipated hold period of approximately 5.0 years. The exit strategy is sale or refinancing at the conclusion of the hold period, with proceeds distributed pursuant to the waterfall set forth in the Operating Agreement.</p>
+  <p>The Manager has evaluated the Property based on a combination of market analysis, comparable sales, cost-of-replacement analysis, projected operating income, and exit valuation assumptions. The Sponsor's underwriting reflects judgments about market trajectory, leasing timing, construction cost, and disposition cap rates that may prove incorrect.</p>
+
+  <h3 class="pkg-article">5. USE OF PROCEEDS</h3>
+  <p>The Company will use the proceeds of this offering, together with senior debt and member debt (if any), to fund the Total Project Cost set forth in the budget. Approximate use of proceeds (subject to actual costs incurred):</p>
+  <table class="pkg-table">
+    <tr><td>Land Acquisition</td><td class="right">$8,000,000</td></tr>
+    
+    
+    
+    <tr><td>Soft Costs (architectural, engineering, legal, etc.)</td><td class="right">$200,000</td></tr>
+    <tr><td>Sponsor Fees (development, CM, asset mgmt, disposition)</td><td class="right">$200,000</td></tr>
+    <tr><td>Interest Carry</td><td class="right">$600,000</td></tr>
+    <tr><td>Tax &amp; Insurance Carry</td><td class="right">$50,000</td></tr>
+    <tr><td>Marketing &amp; Sales Reserve</td><td class="right">$25,000</td></tr>
+    <tr><td>Other / Working Capital</td><td class="right">$50,000</td></tr>
+    <tr class="total"><td><strong>Total Project Cost</strong></td><td class="right"><strong>$10,000,000</strong></td></tr>
+  </table>
+
+  <h3 class="pkg-article">6. RISK FACTORS</h3>
+  <p><em>Investors should consider all of the following risks in addition to those described elsewhere in this Memorandum. The risks described herein are not exclusive and other risks not currently known to the Manager or considered immaterial may also affect the investment.</em></p>
+
+  <p><strong>6.1 Total Loss of Investment.</strong> An investment in the Company is speculative and may result in the loss of all capital contributed. The Manager makes no representation that any return of capital, much less profit, will be achieved.</p>
+
+  <p><strong>6.2 Illiquidity and Transfer Restrictions.</strong> The Class A Membership Interests are not transferable except with the consent of the Manager and in compliance with applicable securities laws. There is no public market and none is anticipated. Investors must be prepared to hold their investment for the full term of the Company.</p>
+
+  <p><strong>6.3 Construction and Development Risk.</strong> The Project does not require substantial construction; however, capital improvements during the hold period may exceed budget.</p>
+
+  <p><strong>6.4 Leverage Risk.</strong> The Property is financed in part with senior debt of $8,000,000 at 7.50%. Leverage magnifies returns in both directions; failure to service debt may result in foreclosure and loss of equity.</p>
+
+  <p><strong>6.5 Real Estate Market Risk.</strong> Property values are subject to local and macroeconomic conditions, interest rate movements, cap rate changes, employment, and demographic trends. The Manager's exit value assumption may not be achieved.</p>
+
+  <p><strong>6.6 Leasing and Operating Risk.</strong> The Property's income depends on the ability to lease the space at projected rents to qualified tenants. Tenant defaults, vacancies, and rental concessions could reduce cash flow and exit value.</p>
+
+  <p><strong>6.7 Reliance on Manager.</strong> Investors have limited voting and control rights. The Manager controls operations, financing, leasing, and disposition decisions. Investors must rely on the Manager's judgment.</p>
+
+  <p><strong>6.8 Conflicts of Interest.</strong> The Manager and its affiliates earn substantial fees from the Company (development, CM, asset management, disposition, promoted interest). These fees create incentives that may conflict with investor interests. The Manager may engage in other real estate activities that compete for capital and management attention.</p>
+
+  <p><strong>6.9 Tax Risks.</strong> The federal and state tax consequences of this investment are complex and depend on each investor's individual circumstances. Specific concerns:</p>
+  <p style="margin-left:1rem;">(a) Allocation of taxable income without corresponding cash distributions ("phantom income");<br>
+  (b) Depreciation recapture under § 1245 (ordinary) and § 1250 unrecaptured gain (25% rate);<br>
+  (c) State income tax in the property state for nonresident investors, including potential withholding;<br>
+  (d) Net Investment Income Tax (3.8%) for high-income investors;<br>
+  (e) Limitations under § 461(l) (excess business loss), § 163(j) (interest), § 469 (passive activity), and § 199A (QBI);<br>
+  (f) other deal-type-specific considerations.</p>
+  <p>Investors should consult their own tax advisors. The Company makes no warranty as to tax consequences.</p>
+
+  <p><strong>6.10 Securities Law Risk.</strong> If the Manager fails to comply with Rule 506(b) (general solicitation rules, bad-actor disqualification, integration, Form D filing), the offering exemption could be lost. Rule 506(b) compliance depends on the absence of general solicitation; even inadvertent solicitation could disqualify the exemption.</p>
+
+  <p><strong>6.11 Regulatory Risk.</strong> Zoning, building codes, environmental regulations, fair housing laws, rent control, transfer taxes, and other regulatory requirements could increase costs, delay the Project, or reduce value. The Manager makes no representation about future regulatory developments.</p>
+
+  <p><strong>6.12 Force Majeure; Casualty.</strong> Hurricane, flood, fire, earthquake, terrorism, pandemic, or other casualty events could damage the Property, delay the timeline, or impair value. Insurance may be insufficient or unavailable.</p>
+
+  <h3 class="pkg-article">7. FEDERAL INCOME TAX CONSIDERATIONS</h3>
+  <p>The Company is anticipated to be classified as a partnership for federal income tax purposes (unless it elects to be taxed as a corporation, which is not currently anticipated). Each investor will receive an annual Schedule K-1 reporting its allocable share of income, deductions, and credits.</p>
+  <p><strong>Allocations.</strong> Items of income, gain, loss, deduction, and credit will be allocated under the partnership allocation rules of Subchapter K, in accordance with the Operating Agreement and Treas. Reg. § 1.704-1 et seq.</p>
+  <p><strong>§ 704(c).</strong> If any property is contributed at a value different from its tax basis, items of income, gain, loss, and deduction with respect to such property will be allocated to take account of the variation between basis and value under Code § 704(c), using the traditional method.</p>
+  <p><strong>Capital Accounts.</strong> The Company will maintain capital accounts for each Member in accordance with Treas. Reg. § 1.704-1(b)(2)(iv).</p>
+  <p><strong>§ 752 Debt Allocation.</strong> Each Member's share of partnership liabilities will be determined under Treas. Reg. §§ 1.752-1 through 1.752-7. The senior debt of $8,000,000 is anticipated to be classified as nonrecourse.</p>
+  <p><strong>§ 163(j).</strong> Interest deductions may be limited under § 163(j) unless the Company qualifies for a small business exception or elects real property trade or business status under § 163(j)(7)(B), in which case ADS depreciation is required.</p>
+  <p><strong>Depreciation.</strong> Buildings depreciate over 27.5 years (residential rental) or 39 years (nonresidential) under GDS; longer under ADS. Cost segregation may accelerate recovery of certain components into 5-, 7-, or 15-year recovery periods.</p>
+  <p><strong>Disposition.</strong> Sale of the Property will generate § 1231 gain (capital) plus § 1250 unrecaptured gain (25% rate) and § 1245 recapture (ordinary income to the extent of prior depreciation on personal property).</p>
+  <p><strong>Foreign Investors.</strong> Non-U.S. investors are subject to FIRPTA (15% withholding under § 1445 on disposition, plus possible § 1446(f) withholding on partnership interest transfers). Branch profits tax may apply to foreign corporate Members. Treaty benefits subject to LOB review.</p>
+  <p><strong>Tax-Exempt Investors.</strong> U.S. tax-exempt Members may have unrelated business taxable income (UBTI) and unrelated debt-financed income (UDFI) under §§ 511-514. § 514(c)(9) qualified organization status and fractions rule compliance may eliminate UBTI for certain qualifying institutions.</p>
+
+  <h3 class="pkg-article">8. STATE TAX CONSIDERATIONS</h3>
+  <p>The Property is located in New York. Each investor's allocable share of income will generally be sourced to that state and subject to state income tax. Nonresident Members may be subject to state nonresident withholding by the Company. The Manager may evaluate, and at the Members' direction may make, an entity-level pass-through entity tax (PTET) election to provide a federal deduction of state tax otherwise subject to the $10,000 SALT cap.</p>
+  <p>State tax considerations vary materially by investor residency. Investors should consult their own state tax advisors.</p>
+
+  <h3 class="pkg-article">9. SECURITIES REGULATORY CONSIDERATIONS</h3>
+  <p>This offering is conducted under Rule 506(b) of Regulation D under the Securities Act of 1933. Rule 506(b) prohibits general solicitation and permits self-certification of accredited status by purchasers.</p>
+  <p>The Company will file Form D with the SEC within 15 days of the first sale. State Blue Sky notices will be filed in each state where investors reside, as required.</p>
+  <p>The Manager has performed bad-actor disqualification analysis under Rule 506(d) for each covered person.</p>
+
+  <h3 class="pkg-article">10. CONFLICTS OF INTEREST</h3>
+  <p><strong>Manager Fees.</strong> The Manager receives substantial fees from the Company. The aggregate fee load incentivizes the Manager to consummate the transaction even if not optimal for investors. The fee structure is disclosed in the Operating Agreement (Exhibit B) and is subject to review by counsel.</p>
+  <p><strong>Affiliated Transactions.</strong> The Manager or its affiliates may contract with the Company to provide services (construction management, property management, brokerage). These contracts are required to be on arm's-length terms but the Manager's control of the Company makes the negotiation inherently conflicted.</p>
+  <p><strong>Other Investments.</strong> The Manager and its affiliates may invest in other real estate projects that compete with this Company.</p>
+  <p><strong>Counsel.</strong> Donovan Legal PLLC has prepared the offering documents on behalf of the Manager. Investors should retain their own counsel to evaluate the offering and to negotiate any individual concerns.</p>
+
+  <h3 class="pkg-article">11. MATERIAL AGREEMENTS</h3>
+  <p>The material agreements governing the investment are:</p>
+  <ul>
+    <li>Operating Agreement of the Company (forming part of this package).</li>
+    <li>Subscription Agreement executed by each investor.</li>
+    <li>Senior Loan Documents (between the Company and the senior lender).</li>
+    <li>Construction Manager Agreement (between the Company and the construction manager, if applicable).</li>
+    <li>Property Management Agreement (if and when entered into).</li>
+    <li>Brokerage / Listing Agreements (if and when entered into).</li>
+    <li>Form D filing materials.</li>
+  </ul>
+
+  <h3 class="pkg-article">12. REPORTS TO INVESTORS</h3>
+  <p>The Company will provide investors with: (a) within 120 days of fiscal year end, unaudited annual financial statements and Schedule K-1; (b) such interim reports as the Manager deems advisable; (c) notices of material events; (d) updates on the Project's progress; and (e) such other information as may be required by the Operating Agreement or by applicable law.</p>
+
+  <h3 class="pkg-article">13. SUBSCRIPTION PROCEDURE</h3>
+  <p>To subscribe for Class A Membership Interests, a prospective investor must (i) review this Memorandum, the Operating Agreement, and the Accredited Investor Questionnaire; (ii) execute and deliver the Subscription Agreement and the Accredited Investor Questionnaire; (iii) (iv) wire the Subscription Amount to the Company's designated account; and (v) receive written acceptance of the subscription from the Manager. Subscriptions are not binding on the Company until accepted in writing by the Manager. The Manager may reject any subscription in its sole discretion.</p>
+
+  <h3 class="pkg-article">14. GLOSSARY OF DEFINED TERMS</h3>
+  <p>Capitalized terms used in this Memorandum and not otherwise defined have the meanings set forth in the Operating Agreement.</p>
+
+  <div class="pkg-signature-block" style="margin-top:2rem;">
+    <p>This Private Placement Memorandum is dated May 17, 2026.</p>
+    <p style="margin-top:1.5rem;">450 Park Avenue Owner LLC</p>
+    
+      <p style="margin-top:0.85rem;">By: __________________________________<br>
+      Name: Paul K. Donovan, Esq.<br>
+      Title: Manager</p>
+    
+  </div>
+</div>
+<div class="pkg-section pkg-doc">
+    <h2 class="pkg-doc-title">7. SUBSCRIPTION AGREEMENT &mdash; Form and Executed Counterparts</h2>
+    <p class="pkg-doc-subtitle">1 counterpart follow, each personalized for the named subscriber and addressed to the Issuer entity (450 Park Avenue Owner LLC)</p>
+  </div>
+<div class="pkg-section pkg-doc">
+  <h2 class="pkg-doc-title">7.1. SUBSCRIPTION AGREEMENT</h2>
+  <p class="pkg-doc-subtitle">450 PARK AVENUE OWNER LLC — Investor: Smith Family Trust</p>
+
+  <p class="pkg-recital">This Subscription Agreement (this <strong>"Agreement"</strong>) is made and entered into as of the date set forth on the signature page below (the <strong>"Subscription Date"</strong>) by and between 450 Park Avenue Owner LLC, a New York LLC (the <strong>"Company"</strong>), and the subscriber identified on the signature page below (the <strong>"Subscriber"</strong>).</p>
+
+  <h3 class="pkg-article">1. SUBSCRIPTION</h3>
+  <p><strong>1.1 Subscription Amount.</strong> Subscriber hereby irrevocably subscribes for and agrees to purchase Class A Membership Interests of the Company (the <strong>"Securities"</strong>) in the aggregate principal amount of <strong>$2,000,000</strong> (the <strong>"Subscription Amount"</strong>), subject to the terms of this Agreement and the Operating Agreement of the Company (the <strong>"Operating Agreement"</strong>).</p>
+  <p><strong>1.2 Member Class.</strong> Subscriber's investment shall be allocated to the <strong>Class A LP</strong> class of membership interests, as defined in the Operating Agreement.</p>
+  <p><strong>1.3 Payment.</strong> Subscriber shall pay the Subscription Amount by wire transfer or other immediately available funds to the Company's designated account upon acceptance of this subscription by the Company.</p>
+  <p><strong>1.4 Acceptance by the Company.</strong> This subscription is not binding upon the Company until accepted in writing by the Manager. The Manager may, in its sole discretion, accept or reject this subscription in whole or in part. Upon acceptance, Subscriber shall be admitted to the Company as a Member.</p>
+
+  <h3 class="pkg-article">2. REPRESENTATIONS AND WARRANTIES OF SUBSCRIBER</h3>
+  <p>Subscriber represents and warrants to the Company that, as of the Subscription Date:</p>
+  <p><strong>2.1 Authority.</strong> Subscriber has the full power and authority to enter into this Agreement, to perform Subscriber's obligations hereunder, and to consummate the transactions contemplated hereby. This Agreement has been duly executed by Subscriber and constitutes a legal, valid, and binding obligation of Subscriber.</p>
+  <p><strong>2.2 Accredited Investor Status.</strong> Subscriber is an "accredited investor" as defined in Rule 501(a) of Regulation D under the Securities Act of 1933, as amended (the <strong>"Securities Act"</strong>). The specific category under which Subscriber qualifies as an accredited investor is set forth in the Accredited Investor Questionnaire executed concurrently herewith. </p>
+  <p><strong>2.3 Investment Purpose.</strong> Subscriber is acquiring the Securities for Subscriber's own account, for investment purposes only, and not with a view to or for resale or distribution. Subscriber has no present intention to sell, transfer, or otherwise dispose of the Securities or any portion thereof.</p>
+  <p><strong>2.4 No Public Market; Illiquidity.</strong> Subscriber understands that there is no public market for the Securities, none is anticipated to develop, and Subscriber must be prepared to bear the economic risk of investment in the Securities for an indefinite period. The Securities have not been registered under the Securities Act or any state securities laws and may not be resold or transferred except in a transaction registered under, or exempt from, such laws and in compliance with the Operating Agreement.</p>
+  <p><strong>2.5 Risk; Sophistication.</strong> Subscriber has sufficient knowledge and experience in financial and business matters to evaluate the merits and risks of an investment in the Securities. Subscriber acknowledges the substantial risks of this investment, including the possible loss of the entire Subscription Amount. Subscriber has carefully reviewed the Private Placement Memorandum furnished to Subscriber in connection with this offering and has had the opportunity to ask questions of, and receive answers from, the Manager.</p>
+  <p><strong>2.6 Reliance on Own Advisors.</strong> Subscriber has had the opportunity to consult with its own legal, tax, and financial advisors regarding the merits and risks of this investment. Subscriber is not relying on the Company, the Manager, Donovan Legal PLLC, or any of their affiliates for legal, tax, or investment advice.</p>
+  <p><strong>2.7 No General Solicitation.</strong> Subscriber did not learn of this investment opportunity through general solicitation or general advertising. Subscriber has a pre-existing substantive relationship with the Manager or its principals.</p>
+  <p><strong>2.8 No Regulatory Approval.</strong> Subscriber understands that no federal or state agency has approved or disapproved the Securities, passed upon the fairness of the terms of this offering, or endorsed any disclosure document.</p>
+  <p><strong>2.9 Truthful Information.</strong> All information provided by Subscriber in this Agreement and in the Accredited Investor Questionnaire is true, complete, and accurate. Subscriber agrees to promptly notify the Company of any change in such information prior to the acceptance of this subscription.</p>
+  <p><strong>2.10 Anti-Money-Laundering.</strong> No portion of the funds being used to purchase the Securities is derived from, or related to, any activity that is prohibited by U.S. or applicable foreign law. Subscriber is not, and is not acting on behalf of, any person on the U.S. Treasury Department's Office of Foreign Assets Control list of Specially Designated Nationals or otherwise subject to U.S. economic sanctions.</p>
+
+  <h3 class="pkg-article">3. REPRESENTATIONS AND WARRANTIES OF THE COMPANY</h3>
+  <p><strong>3.1 Organization and Authority.</strong> The Company is duly organized and validly existing under the laws of New York and has all corporate or limited liability company power to enter into this Agreement and the Operating Agreement.</p>
+  <p><strong>3.2 Authorization.</strong> The execution, delivery, and performance of this Agreement and the issuance and sale of the Securities have been duly authorized by all necessary action on the part of the Company.</p>
+  <p><strong>3.3 Reg D Exemption.</strong> The Company has structured this offering in reliance on the exemption from registration provided by Rule 506(b) of Regulation D under the Securities Act and applicable state securities exemptions.</p>
+
+  <h3 class="pkg-article">4. INDEMNIFICATION</h3>
+  <p>Subscriber agrees to indemnify and hold harmless the Company, the Manager, and each of their respective affiliates, officers, directors, members, partners, employees, agents, and counsel from and against any and all losses, damages, liabilities, and expenses (including reasonable attorneys' fees) arising out of or related to any breach by Subscriber of any representation, warranty, or covenant contained herein or in the Accredited Investor Questionnaire.</p>
+
+  <h3 class="pkg-article">5. RESTRICTIONS ON TRANSFER</h3>
+  <p>Subscriber acknowledges that the Securities are subject to the transfer restrictions set forth in Article IX of the Operating Agreement and that any certificate evidencing the Securities will bear a legend substantially as follows:</p>
+  <p class="pkg-legend">"THE SECURITIES REPRESENTED BY THIS CERTIFICATE HAVE NOT BEEN REGISTERED UNDER THE SECURITIES ACT OF 1933 OR ANY APPLICABLE STATE SECURITIES LAWS. THEY MAY NOT BE OFFERED FOR SALE, SOLD, TRANSFERRED, PLEDGED, OR HYPOTHECATED IN THE ABSENCE OF AN EFFECTIVE REGISTRATION STATEMENT UNDER SAID ACT AND APPLICABLE STATE LAWS, OR AN OPINION OF COUNSEL SATISFACTORY TO THE COMPANY THAT SUCH REGISTRATION IS NOT REQUIRED. THE SECURITIES ARE ALSO SUBJECT TO THE TRANSFER RESTRICTIONS SET FORTH IN THE COMPANY'S OPERATING AGREEMENT."</p>
+
+  <h3 class="pkg-article">6. MISCELLANEOUS</h3>
+  <p><strong>6.1 Governing Law.</strong> This Agreement shall be governed by the laws of New York.</p>
+  <p><strong>6.2 Entire Agreement.</strong> This Agreement, the Operating Agreement, and the Accredited Investor Questionnaire constitute the entire agreement between the parties.</p>
+  <p><strong>6.3 Counterparts.</strong> This Agreement may be executed in counterparts and via electronic signature.</p>
+  <p><strong>6.4 Successors.</strong> This Agreement binds and benefits the parties and their respective successors and permitted assigns.</p>
+
+  <h3 class="pkg-article">SIGNATURE PAGE</h3>
+
+  <div class="pkg-signature-block">
+    <p><strong>SUBSCRIBER:</strong></p>
+    <p>Legal Name: Smith Family Trust</p>
+    <p>Investor Type: Revocable Trust</p>
+    <p>Mailing Address: 50 Beacon St, Boston MA 02108</p>
+    <p>Email: _______________________________</p>
+    <p>Subscription Amount: <strong>$2,000,000</strong></p>
+    <p>Member Class: Class A LP</p>
+    <p style="margin-top:1.5rem;">
+      Date: __________________________<br><br>
+      By: __________________________________<br>
+      Print Name: Smith Family Trust<br>
+      Capacity: Trustee
+    </p>
+  </div>
+
+  <div class="pkg-signature-block" style="margin-top:2rem;">
+    <p><strong>ACCEPTED BY THE COMPANY:</strong></p>
+    <p>450 Park Avenue Owner LLC</p>
+    
+      <p style="margin-top:1rem;">
+      By: __________________________________<br>
+      Name: Paul K. Donovan, Esq.<br>
+      Title: Manager<br>
+      Capacity: Manager<br>
+      Acceptance Date: __________________________
+      </p>
+    
+  </div>
+</div>
+<div class="pkg-section pkg-doc">
+    <h2 class="pkg-doc-title">8. ACCREDITED INVESTOR QUESTIONNAIRE &mdash; Form and Executed Counterparts</h2>
+    <p class="pkg-doc-subtitle">1 counterpart follow</p>
+  </div>
+<div class="pkg-section pkg-doc">
+  <h2 class="pkg-doc-title">8.1. ACCREDITED INVESTOR QUESTIONNAIRE</h2>
+  <p class="pkg-doc-subtitle">450 PARK AVENUE OWNER LLC — Investor: Smith Family Trust</p>
+
+  <p class="pkg-recital">This Questionnaire is being provided to determine whether the Subscriber qualifies as an "accredited investor" within the meaning of Rule 501(a) of Regulation D under the Securities Act of 1933, as amended. The information provided in this Questionnaire is necessary to satisfy the Issuer's obligations under federal and state securities laws and will be kept confidential except as required for legal compliance purposes.</p>
+
+  <h3 class="pkg-article">PART I — IDENTIFICATION</h3>
+  <p>Full Legal Name: <strong>Smith Family Trust</strong></p>
+  <p>Investor Type: <strong>Revocable Trust</strong></p>
+  <p>Mailing Address: <strong>50 Beacon St, Boston MA 02108</strong></p>
+  <p>Email: <strong>_______________________________</strong></p>
+  <p>Signing Capacity: <strong>Trustee</strong></p>
+
+  <h3 class="pkg-article">PART II — ACCREDITED INVESTOR CATEGORY ELECTION</h3>
+  <p>Subscriber represents that Subscriber qualifies as an accredited investor under the following category(ies) (check all that apply, primary category marked):</p>
+
+  
+      <p style="margin: 0.5rem 0; ">
+        ☐ <strong>Rule 501(a)(1)</strong> — Bank, savings institution, broker-dealer, insurance company, investment company, etc.
+      </p>
+      <p style="margin: 0.5rem 0; ">
+        ☐ <strong>Rule 501(a)(2)</strong> — Private business development company
+      </p>
+      <p style="margin: 0.5rem 0; ">
+        ☐ <strong>Rule 501(a)(3)</strong> — Tax-exempt organization, corporation, partnership, or LLC with assets > $5M
+      </p>
+      <p style="margin: 0.5rem 0; ">
+        ☐ <strong>Rule 501(a)(4)</strong> — Director, executive officer, or general partner of the issuer
+      </p>
+      <p style="margin: 0.5rem 0; ">
+        ☐ <strong>Rule 501(a)(5)</strong> — Individual with income > $200K (or $300K joint) for last 2 years and expected current year
+      </p>
+      <p style="margin: 0.5rem 0; ">
+        ☐ <strong>Rule 501(a)(5)</strong> — Individual with net worth > $1M (excluding primary residence)
+      </p>
+      <p style="margin: 0.5rem 0; font-weight:700;">
+        ☑ <strong>Rule 501(a)(6)</strong> — Trust with assets > $5M, not formed to acquire the securities, with sophisticated decision-maker
+      </p>
+      <p style="margin: 0.5rem 0; ">
+        ☐ <strong>Rule 501(a)(7)</strong> — Entity in which all equity owners are accredited investors
+      </p>
+      <p style="margin: 0.5rem 0; ">
+        ☐ <strong>Rule 501(a)(8)</strong> — Holder of designated professional certification (Series 7, 65, 82) in good standing
+      </p>
+      <p style="margin: 0.5rem 0; ">
+        ☐ <strong>Rule 501(a)(9)</strong> — Family office with > $5M AUM, not formed to acquire securities, directed by sophisticated person
+      </p>
+      <p style="margin: 0.5rem 0; ">
+        ☐ <strong>Rule 501(a)(10)</strong> — Family client of a family office described in (a)(9)
+      </p>
+      <p style="margin: 0.5rem 0; ">
+        ☐ <strong>Rule 501(a)(11)</strong> — Knowledgeable employee of a private fund issuer
+      </p>
+
+  <div class="pkg-callout"><strong>Selected category:</strong> Rule 501(a)(6) — Trust with assets > $5M, not formed to acquire the securities, with sophisticated decision-maker</div>
+
+  
+  <h3 class="pkg-article">PART III — SELF-CERTIFICATION</h3>
+  <p>Subscriber certifies under penalty of perjury that the foregoing accredited investor category election is accurate and complete. Subscriber acknowledges that the Issuer is relying on this self-certification under Rule 506(b) of Regulation D and is not required (and shall not be required) to take steps to verify Subscriber's accredited status beyond Subscriber's certification herein.</p>
+  
+
+  <h3 class="pkg-article">PART IV — SOPHISTICATION AND SUITABILITY</h3>
+  <p>Please indicate the most accurate description of Subscriber's investment experience and sophistication:</p>
+  <p>☐ Subscriber has substantial professional experience in finance, real estate investments, or related fields.</p>
+  <p>☐ Subscriber has previously invested in private placements of similar securities.</p>
+  <p>☐ Subscriber regularly utilizes the advice of an independent financial advisor, attorney, or CPA in evaluating investment opportunities.</p>
+  <p>☐ Subscriber is investing only a portion of liquid net worth that Subscriber can afford to lose without affecting Subscriber's lifestyle or financial security.</p>
+  <p>☐ Subscriber has no significant investment experience and is relying entirely on the disclosure documents and personal evaluation.</p>
+
+  <p><strong>Risk Tolerance Acknowledgment.</strong> Subscriber understands that this investment is speculative and involves substantial risks, including (i) the risk of total loss of the Subscription Amount; (ii) lack of liquidity (no public market); (iii) reliance on the Manager for the success of the investment; (iv) potential conflicts of interest; (v) tax risks; and (vi) risks specific to real estate (construction, market, leasing, regulatory, and operational risks). Subscriber represents that Subscriber can bear this economic risk and that the loss of the Subscription Amount would not materially affect Subscriber's financial security.</p>
+
+  <h3 class="pkg-article">PART V — SIGNATURE</h3>
+  <p>Subscriber represents and warrants that the information set forth in this Questionnaire is true, complete, and accurate as of the date hereof, and Subscriber agrees to promptly notify the Issuer of any change in such information prior to acceptance of the related subscription.</p>
+
+  <div class="pkg-signature-block" style="margin-top:1.5rem;">
+    <p>Subscriber: <strong>Smith Family Trust</strong></p>
+    <p style="margin-top:1.5rem;">
+      Date: __________________________<br><br>
+      Signature: __________________________________<br>
+      Print Name: Smith Family Trust<br>
+      Capacity: Trustee
+    </p>
+  </div>
+</div>
+
+<div class="pkg-section pkg-doc">
+  <h2 class="pkg-doc-title">9. FORM D FILING WORKSHEET</h2>
+  <p class="pkg-doc-subtitle">Data pre-fill for SEC Form D notice filing via EDGAR</p>
+
+  <div class="pkg-callout"><strong>Filing Deadline:</strong> Form D must be filed with the SEC via EDGAR no later than <strong>15 calendar days</strong> after the date of first sale of securities in the offering. Amendments are required upon material changes and annually for ongoing offerings.</div>
+
+  <h3 class="pkg-article">Item 1 — Issuer's Identity</h3>
+  <table class="pkg-table">
+    <tr><td>Legal Name of Issuer:</td><td>450 Park Avenue Owner LLC</td></tr>
+    <tr><td>Jurisdiction of Incorporation/Organization:</td><td>New York</td></tr>
+    <tr><td>Entity Type:</td><td>LLC</td></tr>
+    <tr><td>Year of Incorporation/Organization:</td><td>June 1, 2026</td></tr>
+    <tr><td>CIK (if any):</td><td>[Obtain via EDGAR filer registration]</td></tr>
+    <tr><td>Principal Place of Business:</td><td>450 Park Avenue, New York NY 10022</td></tr>
+    <tr><td>Telephone:</td><td>[Issuer phone]</td></tr>
+    <tr><td>EIN:</td><td>[Apply via Form SS-4 if not yet assigned]</td></tr>
+  </table>
+
+  <h3 class="pkg-article">Item 2 — Principal Place of Business and Contact Information</h3>
+  <p>Same as Item 1. Designate a contact person for SEC inquiries.</p>
+
+  <h3 class="pkg-article">Item 3 — Related Persons (Full Entity Structure)</h3>
+  <p>For each related person (including, for Form D purposes, all directors, executive officers, and persons performing similar functions of the Issuer, as well as all entities in the ownership/management chain), provide:</p>
+  <table class="pkg-table">
+    <thead><tr><th>Entity / Person Name</th><th>Entity Type and Jurisdiction</th><th>Relationship to Issuer</th><th>Address</th></tr></thead>
+    <tbody><tr>
+      <td><strong>Reserve Family Trust</strong></td>
+      <td>Trust (non-statutory) (Florida)</td>
+      <td>Trust holding indirect interest</td>
+      <td>301 W. Atlantic Ave, Delray Beach FL</td>
+    </tr><tr>
+      <td><strong>Donovan Capital Management LLC</strong></td>
+      <td>LLC (Wyoming)</td>
+      <td>Manager / Sponsor</td>
+      <td>301 W. Atlantic Ave, Delray Beach FL</td>
+    </tr><tr>
+      <td><strong>Manhattan Holdings LLC</strong></td>
+      <td>LLC (Delaware)</td>
+      <td>Holding Company in chain of ownership</td>
+      <td>c/o Corporation Trust, Wilmington DE</td>
+    </tr><tr>
+      <td><strong>450 Park Avenue Owner LLC</strong></td>
+      <td>LLC (New York)</td>
+      <td>Issuer (subject of Form D)</td>
+      <td>450 Park Avenue, New York NY 10022</td>
+    </tr></tbody>
+  </table>
+  <p>Each Related Person listed above must be evaluated against Rule 506(d) bad-actor disqualification. In addition to the entities listed above, all natural-person principals serving as managers, directors, executive officers, or general partners of any entity in the chain must be separately disclosed on Form D with full address. See the Signatory section of this Package for the natural persons.</p>
+
+  <h3 class="pkg-article">Item 4 — Industry Group</h3>
+  <p>Select: <strong>Real Estate</strong> — most likely sub-category:</p>
+  <p>☐ Commercial &nbsp;&nbsp; ☐ Construction &nbsp;&nbsp; ☐ REITs &amp; Finance &nbsp;&nbsp; ☐ Residential &nbsp;&nbsp; ☐ Other Real Estate</p>
+
+  <h3 class="pkg-article">Item 5 — Issuer Size</h3>
+  <p>Aggregate Net Asset Value of the Issuer (range): ☐ No Revenues &nbsp;&nbsp; ☐ $1 - $1M &nbsp;&nbsp; ☐ $1M - $5M &nbsp;&nbsp; ☐ $5M - $25M &nbsp;&nbsp; ☐ $25M - $100M &nbsp;&nbsp; ☐ Over $100M &nbsp;&nbsp; ☐ Decline to Disclose &nbsp;&nbsp; ☐ Not Applicable</p>
+
+  <h3 class="pkg-article">Item 6 — Federal Exemption(s) Claimed</h3>
+  <p style="font-weight:700;">☑ Rule 506(b) of Regulation D</p>
+  <p>☐ Rule 504 &nbsp;&nbsp; ☐ Rule 506(b) &nbsp;&nbsp; ☐ Rule 506(c) &nbsp;&nbsp; ☐ Securities Act § 4(a)(5) &nbsp;&nbsp; ☐ Investment Company Act § 3(c) [_____]</p>
+
+  <h3 class="pkg-article">Item 7 — Type of Filing</h3>
+  <p>☑ New Notice &nbsp;&nbsp; ☐ Amendment</p>
+  <p>Date of First Sale: __________________ (or check ☐ if first sale yet to occur)</p>
+
+  <h3 class="pkg-article">Item 8 — Duration of Offering</h3>
+  <p>Does the issuer intend the offering to continue for more than one year from the date of this filing? ☐ Yes &nbsp;&nbsp; ☐ No</p>
+
+  <h3 class="pkg-article">Item 9 — Type(s) of Securities Offered</h3>
+  <p>☑ Equity &nbsp;&nbsp; ☐ Debt &nbsp;&nbsp; ☐ Option to Acquire Another Security &nbsp;&nbsp; ☐ Security to be Acquired Upon Exercise of Option &nbsp;&nbsp; ☐ Tenant-in-Common &nbsp;&nbsp; ☐ Mineral Property &nbsp;&nbsp; ☐ Pooled Investment Fund Interests &nbsp;&nbsp; ☐ Other</p>
+  <p>Description: Class A Membership Interests of 450 Park Avenue Owner LLC</p>
+
+  <h3 class="pkg-article">Item 10 — Business Combination Transaction</h3>
+  <p>Is this offering being made in connection with a business combination transaction? ☐ Yes &nbsp;&nbsp; ☑ No</p>
+
+  <h3 class="pkg-article">Item 11 — Minimum Investment</h3>
+  <p>Minimum investment accepted from any outside investor: $2,000,000</p>
+
+  <h3 class="pkg-article">Item 12 — Sales Compensation</h3>
+  <p>Will any person receive sales compensation in connection with this offering? ☐ Yes &nbsp;&nbsp; ☑ No (typical for principals' offering)</p>
+  <p>If yes, list each recipient (broker-dealer name, CRD number, states of solicitation).</p>
+
+  <h3 class="pkg-article">Item 13 — Offering and Sales Amounts</h3>
+  <table class="pkg-table">
+    <tr><td>Total Offering Amount:</td><td class="right">$2,000,000 (or check ☐ Indefinite)</td></tr>
+    <tr><td>Total Amount Sold as of filing date:</td><td class="right">[$_______]</td></tr>
+    <tr><td>Total Remaining to be Sold:</td><td class="right">[$_______]</td></tr>
+  </table>
+
+  <h3 class="pkg-article">Item 14 — Investors</h3>
+  <table class="pkg-table">
+    <tr><td>Number of Non-Accredited Investors who have invested:</td><td class="right">0</td></tr>
+    <tr><td>Total Number of Investors who have invested:</td><td class="right">1</td></tr>
+  </table>
+  
+
+  <h3 class="pkg-article">Item 15 — Sales Commissions &amp; Finders' Fees</h3>
+  <p>Sales Commissions: $_______&nbsp;&nbsp; Finders' Fees: $_______</p>
+
+  <h3 class="pkg-article">Item 16 — Use of Proceeds</h3>
+  <p>Amount of gross proceeds used or proposed to be used for payments to executive officers, directors, or promoters: $_______ (or estimate)</p>
+
+  <h3 class="pkg-article">Item 17 — Signature and Submission</h3>
+  <p>Filed pursuant to Regulation D Rule 506(b). The Issuer certifies that, if the Issuer is claiming a Rule 505 exemption, the Issuer is not disqualified from relying on Rule 505 for one of the reasons stated in Rule 505(b)(2)(iii).</p>
+  <p>Signature: __________________________________&nbsp;&nbsp; Date: __________________</p>
+  <p>Name of Signer: Paul K. Donovan, Esq.&nbsp;&nbsp; Title: Manager</p>
+
+  <h3 class="pkg-article">State Blue Sky Notice Filings</h3>
+  <p>Identify each state in which an investor resides. Most states require a notice filing (often called "Blue Sky" filing) within 15 days of first sale in that state, typically accompanied by a filing fee. The following states are likely to require notice based on the investor roster:</p>
+  <p>MA</p>
+  <p><em>Each state's notice filing requirements should be verified independently. The NASAA Electronic Filing Depository (EFD) is available for many states.</em></p>
+</div>
+
+<div class="pkg-section pkg-doc">
+  <h2 class="pkg-doc-title">10.1. STATE BLUE SKY NOTICE</h2>
+  <p class="pkg-doc-subtitle">Florida (Form FL F-X)</p>
+
+  <div class="pkg-callout"><strong>Filing Timing:</strong> Most states require notice within 15 days after the first sale in the state. Some states require pre-sale filing or accept the federal Form D as the notice. Filing fees vary by state ($100 - $1,500 typical). The NASAA Electronic Filing Depository (EFD) is available for many states.</div>
+
+  
+  <h3 class="pkg-article">Florida Uniform Notice of Federal Covered Securities (Form F-X)</h3>
+  <p>Pursuant to Florida Statutes § 517.082 and Rule 69W-500.014 F.A.C., the Issuer files this notice with the Florida Office of Financial Regulation Division of Securities for the offer and sale of federal covered securities under Rule 506(b) of Regulation D.</p>
+  
+
+  <table class="pkg-table">
+    <tr><td><strong>Issuer:</strong></td><td>450 Park Avenue Owner LLC, a Florida LLC</td></tr>
+    <tr><td><strong>Principal Place of Business:</strong></td><td>450 Park Avenue, New York NY 10022</td></tr>
+    <tr><td><strong>State of Formation:</strong></td><td>Florida</td></tr>
+    <tr><td><strong>Federal Exemption Relied Upon:</strong></td><td>Rule 506(b) of Regulation D</td></tr>
+    <tr><td><strong>Type of Securities:</strong></td><td>Class A Membership Interests</td></tr>
+    <tr><td><strong>Total Offering Amount:</strong></td><td>$2,000,000</td></tr>
+    <tr><td><strong>Date of First Sale in this State:</strong></td><td>[MM/DD/YYYY]</td></tr>
+    <tr><td><strong>Amount Sold to Date in this State:</strong></td><td>$_______</td></tr>
+  </table>
+
+  <h3 class="pkg-article">Filing Materials</h3>
+  <p>The Issuer is filing concurrently:</p>
+  <ul>
+    <li>Copy of federal Form D (filed with SEC via EDGAR)</li>
+    <li>This Notice (Form F-X or state equivalent)</li>
+    <li>Consent to Service of Process (Form U-2)</li>
+    <li>Filing fee of $200 (per FL Statutes § 517.082(2))</li>
+  </ul>
+
+  <h3 class="pkg-article">Filer's Signature</h3>
+  <div class="pkg-signature-block">
+    <p>450 Park Avenue Owner LLC</p>
+    
+      <p style="margin-top:0.85rem;">By: __________________________________<br>
+      Name: Paul K. Donovan, Esq.<br>
+      Title: Manager<br>
+      Date: __________________</p>
+    
+  </div>
+
+  <p style="font-size:0.85rem; font-style:italic; margin-top:1rem;">Counsel should verify the current filing requirements, forms, fees, and submission method for Florida as of the filing date, as state rules change. Additional state notices are required wherever an investor resides; see Form D Worksheet, "State Blue Sky Notice Filings."</p>
+</div>
+
+<div class="pkg-section pkg-doc">
+  <h2 class="pkg-doc-title">10.2. STATE BLUE SKY NOTICE</h2>
+  <p class="pkg-doc-subtitle">Wyoming Notice of Sale of Securities</p>
+
+  <div class="pkg-callout"><strong>Filing Timing:</strong> Most states require notice within 15 days after the first sale in the state. Some states require pre-sale filing or accept the federal Form D as the notice. Filing fees vary by state ($100 - $1,500 typical). The NASAA Electronic Filing Depository (EFD) is available for many states.</div>
+
+  
+  <h3 class="pkg-article">Notice of Sale of Securities (Wyoming)</h3>
+  <p>Pursuant to applicable Wyoming state securities law, the Issuer files this notice with the Wyoming state securities administrator for the offer and sale of federal covered securities under Rule 506(b) of Regulation D.</p>
+  
+
+  <table class="pkg-table">
+    <tr><td><strong>Issuer:</strong></td><td>450 Park Avenue Owner LLC, a Wyoming LLC</td></tr>
+    <tr><td><strong>Principal Place of Business:</strong></td><td>450 Park Avenue, New York NY 10022</td></tr>
+    <tr><td><strong>State of Formation:</strong></td><td>Wyoming</td></tr>
+    <tr><td><strong>Federal Exemption Relied Upon:</strong></td><td>Rule 506(b) of Regulation D</td></tr>
+    <tr><td><strong>Type of Securities:</strong></td><td>Class A Membership Interests</td></tr>
+    <tr><td><strong>Total Offering Amount:</strong></td><td>$2,000,000</td></tr>
+    <tr><td><strong>Date of First Sale in this State:</strong></td><td>[MM/DD/YYYY]</td></tr>
+    <tr><td><strong>Amount Sold to Date in this State:</strong></td><td>$_______</td></tr>
+  </table>
+
+  <h3 class="pkg-article">Filing Materials</h3>
+  <p>The Issuer is filing concurrently:</p>
+  <ul>
+    <li>Copy of federal Form D (filed with SEC via EDGAR)</li>
+    <li>This Notice (Form F-X or state equivalent)</li>
+    <li>Consent to Service of Process (Form U-2)</li>
+    <li>[State filing fee per state-specific rule]</li>
+  </ul>
+
+  <h3 class="pkg-article">Filer's Signature</h3>
+  <div class="pkg-signature-block">
+    <p>450 Park Avenue Owner LLC</p>
+    
+      <p style="margin-top:0.85rem;">By: __________________________________<br>
+      Name: Paul K. Donovan, Esq.<br>
+      Title: Manager<br>
+      Date: __________________</p>
+    
+  </div>
+
+  <p style="font-size:0.85rem; font-style:italic; margin-top:1rem;">Counsel should verify the current filing requirements, forms, fees, and submission method for Wyoming as of the filing date, as state rules change. Additional state notices are required wherever an investor resides; see Form D Worksheet, "State Blue Sky Notice Filings."</p>
+</div>
+
+<div class="pkg-section pkg-doc">
+  <h2 class="pkg-doc-title">10.3. STATE BLUE SKY NOTICE</h2>
+  <p class="pkg-doc-subtitle">Delaware Notice of Sale of Securities</p>
+
+  <div class="pkg-callout"><strong>Filing Timing:</strong> Most states require notice within 15 days after the first sale in the state. Some states require pre-sale filing or accept the federal Form D as the notice. Filing fees vary by state ($100 - $1,500 typical). The NASAA Electronic Filing Depository (EFD) is available for many states.</div>
+
+  
+  <h3 class="pkg-article">Notice of Sale of Securities (Delaware)</h3>
+  <p>Pursuant to applicable Delaware state securities law, the Issuer files this notice with the Delaware state securities administrator for the offer and sale of federal covered securities under Rule 506(b) of Regulation D.</p>
+  
+
+  <table class="pkg-table">
+    <tr><td><strong>Issuer:</strong></td><td>450 Park Avenue Owner LLC, a Delaware LLC</td></tr>
+    <tr><td><strong>Principal Place of Business:</strong></td><td>450 Park Avenue, New York NY 10022</td></tr>
+    <tr><td><strong>State of Formation:</strong></td><td>Delaware</td></tr>
+    <tr><td><strong>Federal Exemption Relied Upon:</strong></td><td>Rule 506(b) of Regulation D</td></tr>
+    <tr><td><strong>Type of Securities:</strong></td><td>Class A Membership Interests</td></tr>
+    <tr><td><strong>Total Offering Amount:</strong></td><td>$2,000,000</td></tr>
+    <tr><td><strong>Date of First Sale in this State:</strong></td><td>[MM/DD/YYYY]</td></tr>
+    <tr><td><strong>Amount Sold to Date in this State:</strong></td><td>$_______</td></tr>
+  </table>
+
+  <h3 class="pkg-article">Filing Materials</h3>
+  <p>The Issuer is filing concurrently:</p>
+  <ul>
+    <li>Copy of federal Form D (filed with SEC via EDGAR)</li>
+    <li>This Notice (Form F-X or state equivalent)</li>
+    <li>Consent to Service of Process (Form U-2)</li>
+    <li>[State filing fee per state-specific rule]</li>
+  </ul>
+
+  <h3 class="pkg-article">Filer's Signature</h3>
+  <div class="pkg-signature-block">
+    <p>450 Park Avenue Owner LLC</p>
+    
+      <p style="margin-top:0.85rem;">By: __________________________________<br>
+      Name: Paul K. Donovan, Esq.<br>
+      Title: Manager<br>
+      Date: __________________</p>
+    
+  </div>
+
+  <p style="font-size:0.85rem; font-style:italic; margin-top:1rem;">Counsel should verify the current filing requirements, forms, fees, and submission method for Delaware as of the filing date, as state rules change. Additional state notices are required wherever an investor resides; see Form D Worksheet, "State Blue Sky Notice Filings."</p>
+</div>
+
+<div class="pkg-section pkg-doc">
+  <h2 class="pkg-doc-title">10.4. STATE BLUE SKY NOTICE</h2>
+  <p class="pkg-doc-subtitle">New York Notice of Sale of Securities</p>
+
+  <div class="pkg-callout"><strong>Filing Timing:</strong> Most states require notice within 15 days after the first sale in the state. Some states require pre-sale filing or accept the federal Form D as the notice. Filing fees vary by state ($100 - $1,500 typical). The NASAA Electronic Filing Depository (EFD) is available for many states.</div>
+
+  
+  <h3 class="pkg-article">Notice of Sale of Securities (New York)</h3>
+  <p>Pursuant to applicable New York state securities law, the Issuer files this notice with the New York state securities administrator for the offer and sale of federal covered securities under Rule 506(b) of Regulation D.</p>
+  
+
+  <table class="pkg-table">
+    <tr><td><strong>Issuer:</strong></td><td>450 Park Avenue Owner LLC, a New York LLC</td></tr>
+    <tr><td><strong>Principal Place of Business:</strong></td><td>450 Park Avenue, New York NY 10022</td></tr>
+    <tr><td><strong>State of Formation:</strong></td><td>New York</td></tr>
+    <tr><td><strong>Federal Exemption Relied Upon:</strong></td><td>Rule 506(b) of Regulation D</td></tr>
+    <tr><td><strong>Type of Securities:</strong></td><td>Class A Membership Interests</td></tr>
+    <tr><td><strong>Total Offering Amount:</strong></td><td>$2,000,000</td></tr>
+    <tr><td><strong>Date of First Sale in this State:</strong></td><td>[MM/DD/YYYY]</td></tr>
+    <tr><td><strong>Amount Sold to Date in this State:</strong></td><td>$_______</td></tr>
+  </table>
+
+  <h3 class="pkg-article">Filing Materials</h3>
+  <p>The Issuer is filing concurrently:</p>
+  <ul>
+    <li>Copy of federal Form D (filed with SEC via EDGAR)</li>
+    <li>This Notice (Form F-X or state equivalent)</li>
+    <li>Consent to Service of Process (Form U-2)</li>
+    <li>[State filing fee per state-specific rule]</li>
+  </ul>
+
+  <h3 class="pkg-article">Filer's Signature</h3>
+  <div class="pkg-signature-block">
+    <p>450 Park Avenue Owner LLC</p>
+    
+      <p style="margin-top:0.85rem;">By: __________________________________<br>
+      Name: Paul K. Donovan, Esq.<br>
+      Title: Manager<br>
+      Date: __________________</p>
+    
+  </div>
+
+  <p style="font-size:0.85rem; font-style:italic; margin-top:1rem;">Counsel should verify the current filing requirements, forms, fees, and submission method for New York as of the filing date, as state rules change. Additional state notices are required wherever an investor resides; see Form D Worksheet, "State Blue Sky Notice Filings."</p>
+</div>
+
+  
+<div class="pkg-section pkg-doc">
+  <h2 class="pkg-doc-title">11. NEW YORK §206 PUBLICATION COMPLIANCE</h2>
+  <p class="pkg-doc-subtitle">450 Park Avenue Owner LLC — Compliance with N.Y. LLC Law § 206</p>
+
+  <h3 class="pkg-article">A. Statutory Requirement</h3>
+  <p>Within 120 days of formation, the Company must publish notice of formation in two newspapers (one daily, one weekly) designated by the county clerk of the county in which the Company’s office is located, for six consecutive weeks, and file a Certificate of Publication with the Department of State. Failure to comply suspends the Company’s authority to do business in New York. Publication costs typically $1,000-$2,000 in New York County and less in other counties.</p>
+
+  <h3 class="pkg-article">B. Compliance Checklist</h3>
+  <table class="pkg-table">
+    <thead><tr><th>Step</th><th>Action</th><th>Deadline</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Confirm the county in which the Company's office is located</td><td>Upon formation</td><td>☐</td></tr>
+      <tr><td>2</td><td>Contact the County Clerk to obtain the designated newspapers (one daily, one weekly)</td><td>Within 30 days of formation</td><td>☐</td></tr>
+      <tr><td>3</td><td>Submit notice text to the designated newspapers for six consecutive weeks of publication</td><td>Within 60 days of formation</td><td>☐</td></tr>
+      <tr><td>4</td><td>Obtain Affidavits of Publication from both newspapers</td><td>Upon completion of 6-week run</td><td>☐</td></tr>
+      <tr><td>5</td><td>File Certificate of Publication with N.Y. Department of State</td><td><strong>By September 29, 2026</strong> (120 days from formation)</td><td>☐</td></tr>
+      <tr><td>6</td><td>Pay Certificate of Publication filing fee ($50) and retain DOS-stamped copy in corporate book</td><td>At time of filing</td><td>☐</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Penalty for Non-Compliance.</strong> Failure to timely complete publication and file the Certificate of Publication results in <strong>suspension of the Company's authority to do business in New York</strong>, including the ability to maintain an action in New York courts, until publication is completed. Publication may be made at any time, even after the 120-day deadline.</p>
+
+  <h3 class="pkg-article">C. Notice of Formation — Required Content</h3>
+  <p>The notice to be published in the designated newspapers must contain the following information (substantially in the following format):</p>
+  <div style="margin:1rem 0;padding:1.25rem;background:#fafaf5;border:1px solid #d4d4d0;font-family:Georgia,serif;">
+    <p style="margin:0 0 0.85rem 0;text-align:center;"><strong>NOTICE OF FORMATION OF LIMITED LIABILITY COMPANY</strong></p>
+    <p style="margin:0;"><strong>Notice of formation of 450 Park Avenue Owner LLC</strong> (the "LLC"). Articles of Organization filed with the Secretary of State of New York (SSNY) on June 1, 2026. Office located in [_____________] County. SSNY designated as agent of LLC upon whom process against it may be served. SSNY shall mail process to the LLC at 450 Park Avenue, New York NY 10022. Purpose: any lawful business activity.</p>
+  </div>
+  <p><em>Note:</em> The notice must run unchanged for six consecutive weeks. Any variation between the published notice and the Articles of Organization (including in the LLC name, county, address, or purpose statement) may invalidate the publication.</p>
+
+  <h3 class="pkg-article">D. Certificate of Publication — Filing Instructions</h3>
+  <p>Upon completion of the six-week publication run, file the Certificate of Publication with:</p>
+  <div style="margin:1rem 0;padding:1rem 1.25rem;background:#fafaf5;border-left:3px solid #1a1a1a;">
+    <p style="margin:0;font-family:Open Sans,sans-serif;">
+      <strong>New York Department of State</strong><br>
+      Division of Corporations<br>
+      One Commerce Plaza<br>
+      99 Washington Avenue<br>
+      Albany, NY 12231<br>
+      <em>Filing fee: $50.00 (check payable to "Department of State")</em>
+    </p>
+  </div>
+  <p>Include with the Certificate of Publication: (i) an original or certified copy of each Affidavit of Publication (one daily newspaper, one weekly newspaper); and (ii) the $50 filing fee. The DOS will return a stamped, filed copy as confirmation. Retain the stamped copy permanently in the LLC's records.</p>
+
+  <h3 class="pkg-article">E. Estimated Cost</h3>
+  <table class="pkg-table">
+    <thead><tr><th>Cost Item</th><th>Estimated Range</th></tr></thead>
+    <tbody>
+      <tr><td>Daily newspaper publication (6 weeks)</td><td>$500 – $1,500 (New York County) / $100 – $400 (other counties)</td></tr>
+      <tr><td>Weekly newspaper publication (6 weeks)</td><td>$100 – $300</td></tr>
+      <tr><td>Certificate of Publication filing fee</td><td>$50</td></tr>
+      <tr><td><strong>Total estimated cost</strong></td><td><strong>$650 – $1,850 (New York County) / $250 – $750 (other counties)</strong></td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:1rem;"><em>Document prepared May 17, 2026 for 450 Park Avenue Owner LLC. The deadlines computed in this document assume the formation date entered in the tool; verify against the Articles of Organization as filed.</em></p>
+</div>
+</div>
+  <div class="pkg-footer">
+    Generated May 17, 2026 &middot; Donovan Legal PLLC &middot; Reserve Deal Builder &middot; DRAFT &mdash; for review under engagement letter
+  </div>
+</body>
+</html>

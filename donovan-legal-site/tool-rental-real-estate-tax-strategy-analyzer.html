@@ -1,0 +1,1222 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Rental Real Estate Tax Strategy Analyzer | Donovan Legal</title>
+  <meta name="description" content="A multi-year pro forma for rental real estate: the §469 passive activity tests, bonus depreciation, §461(l) and NOL limits, recapture, and after-tax IRR.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Rental Real Estate Tax Strategy Analyzer | Donovan Legal PLLC">
+  <meta property="og:site_name" content="Donovan Legal PLLC">
+  <meta property="og:url" content="https://www.donovan.law/tool-rental-real-estate-tax-strategy-analyzer">
+  <meta property="og:description" content="Multi-year pro forma for rental real estate tax strategies. Two-step §469 passive activity analysis (six exceptions + REPS + seven MP tests) plus §168(k), §461(l), §172, and after-tax IRR.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.donovan.law/img/PKD Headshot.jpg">
+  <link rel="apple-touch-icon" href="img/favicon.png">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link href="site.webmanifest" rel="manifest" />
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/fontawesome.min.css" rel="stylesheet" />
+  <link href="css/normalize.css" rel="stylesheet" />
+  <link href="css/main.css?v=20260721a" rel="stylesheet" />
+  <link href="css/tool-form-shared.css" rel="stylesheet" />
+  <link href="css/animate.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tool-rental-real-estate-tax-strategy-analyzer.css">
+  <style>
+    /* grouped Practice dropdown */
+    .dropdown-menu .dd-area, .collapse .dd-area{font-weight:800 !important;color:#107A4D !important;text-transform:uppercase;letter-spacing:.6px;margin-top:.35rem}
+    .dropdown-menu .dd-sub{padding-left:1.7rem !important}
+    .collapse .dd-sub{padding-left:1.5rem !important}
+
+    /* cascading Practice flyout (desktop) */
+    .dropdown-menu[aria-labelledby="navbarDropdown2"]{min-width:215px}
+    .practice-flyout-host .flyout-item{position:relative}
+    .flyout-item > .dd-area{display:flex;justify-content:space-between;align-items:center;font-weight:800 !important;color:#107A4D !important;text-transform:uppercase;letter-spacing:.5px}
+    .flyout-item .flyout-caret{margin-left:1rem;color:#107A4D;font-weight:700}
+    .flyout-item > .flyout-sub{display:none;position:absolute;top:-.35rem;left:100%;min-width:235px;background:#fff;border:1px solid rgba(0,0,0,.12);box-shadow:0 8px 24px rgba(0,0,0,.16);padding:.4rem 0;border-radius:4px;z-index:100002}
+    .flyout-item:hover > .flyout-sub{display:block}
+    .flyout-item > .flyout-sub .dropdown-item{padding-top:.42rem;padding-bottom:.42rem}
+
+    /* mobile nested Practice accordion */
+    .nav-mobile .mobile-parent .mm-parent-label{color:#000;text-decoration:none}
+    .nav-mobile .mobile-parent .mm-parent-label:hover{color:#107a4d}
+    .nav-mobile .m-area-toggle{display:block;width:100%;background:none;border:none;font-size:15px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#107A4D;padding:.45rem 0;margin:.5rem 0 .15rem;cursor:pointer}
+    .nav-mobile .m-area-toggle::after{content:" +";font-weight:700}
+    .nav-mobile .m-area-toggle[aria-expanded="true"]::after{content:" \2212"}
+    .nav-mobile #menu2 .dropdown-item.dd-sub{font-size:14px}
+
+    /* JORDAN-PAUL-CONTENT — content-column wrapper for the end-of-page blocks.
+       Bootstrap .container metrics under a name no combinator selects, so the
+       injected <main> cannot change what .box > .border-grey > .container matches. */
+    .dl-endcap{width:100%;padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}
+    @media (min-width:576px){.dl-endcap{max-width:540px}}
+    @media (min-width:768px){.dl-endcap{max-width:720px}}
+    @media (min-width:992px){.dl-endcap{max-width:960px}}
+    @media (min-width:1200px){.dl-endcap{max-width:1140px}}
+
+    /* JORDAN-PAUL-CONTENT (#225) — conversion call-out. Values as on tax-controversy.html. */
+    .dl-cta{margin:2.6rem 0;padding:30px 32px 28px;background:#0C5334;
+      border-left:6px solid #C9A961;border-radius:4px}
+    .dl-cta-q{font-family:Georgia,'Times New Roman',serif;font-size:1.44rem;font-weight:700;
+      color:#F6F5F1;line-height:1.25;margin:0}
+    .dl-cta-s{font-size:.92rem;color:#C6D8CC;margin:.5rem 0 0;line-height:1.55;max-width:62ch}
+    .dl-cta-act{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:1.5rem;
+      max-width:640px}
+    .dl-cta-btn{display:flex;flex-direction:column;justify-content:center;align-items:center;
+      min-height:78px;padding:12px 18px;border-radius:3px;text-align:center;font-family:inherit;
+      text-decoration:none;cursor:pointer;border:2px solid #C9A961;
+      transition:background .16s ease,color .16s ease}
+    .dl-cta-btn .l{display:block;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;
+      font-weight:700;margin-bottom:4px}
+    .dl-cta-btn .n{display:block;font-size:1.22rem;font-weight:700;letter-spacing:.4px;
+      line-height:1.2}
+    .dl-cta-btn-1{background:#C9A961;color:#0C5334}
+    .dl-cta-btn-1 .l{color:#0C5334;opacity:.72}
+    .dl-cta-btn-1 .n{color:#0C5334}
+    .dl-cta-btn-1:hover{background:#dcc07f;color:#0C5334;text-decoration:none}
+    .dl-cta-btn-2{background:transparent}
+    .dl-cta-btn-2 .l{color:#C6D8CC}
+    .dl-cta-btn-2 .n{color:#806633}
+    .dl-cta-btn-2:hover{background:rgba(201,169,97,.14);text-decoration:none}
+    .dl-cta-note{font-size:.76rem;color:#A1BDAA;margin:.9rem 0 0;line-height:1.5}
+    @media (max-width:860px){
+      .dl-cta{padding:24px}
+      .dl-cta-q{font-size:1.2rem}
+      .dl-cta-act{grid-template-columns:1fr}
+    }
+  </style>
+  <link rel="canonical" href="https://www.donovan.law/tool-rental-real-estate-tax-strategy-analyzer">
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Rental Real Estate Tax Strategy Analyzer","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"LegalService","name":"Donovan Legal PLLC","url":"https://www.donovan.law","telephone":"+1-561-666-6022","address":{"@type":"PostalAddress","streetAddress":"301 W. Atlantic Avenue, Suite 5","addressLocality":"Delray Beach","addressRegion":"FL","postalCode":"33444","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":26.461706,"longitude":-80.076278},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"]},"sameAs":["https://www.linkedin.com/company/donovan-legal-pllc/","https://www.facebook.com/people/Donovan-Legal-PLLC/61590654057720/","https://www.instagram.com/donovan_legalpllc","https://www.tiktok.com/@donovan.legal"],"areaServed":[{"@type":"State","name":"Florida"},{"@type":"AdministrativeArea","name":"Palm Beach County"}],"priceRange":"$$"},"url":"https://www.donovan.law/tool-rental-real-estate-tax-strategy-analyzer"}
+  </script>
+  <script src="/js/tier/client.js"></script>
+</head>
+<body>
+  <div class="box h-100">
+    <div class="border-grey">
+      <div class="container">
+        <nav class="navbar menubar padding-0 navbar-expand-lg d-flex align-items-center justify-content-between">
+          <div class="logo animate__animated animate__fadeIn animate__delay-1s">
+            <a href="index.html"><img class="logo" src="img/base-hover.png" / alt="Donovan Legal PLLC logo"></a>
+          </div>
+
+          <div class="burger-toggle animate__animated animate__fadeIn animate__delay-1s">
+            <div class="hamburger">
+              <span class="line"></span>
+              <span class="line"></span>
+              <span class="line"></span>
+            </div>
+          </div>
+
+          <ul id="menu-desktop" class="navbar-nav ml-auto animate__animated animate__fadeIn animate__delay-1s">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">HOME</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="ourfirm.html">ABOUT</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                <a class="dropdown-item" href="ourfirm.html">THE FIRM</a>
+                <a class="dropdown-item" href="profile.html">PAUL DONOVAN, JD, CPA, CCM</a>
+                <a class="dropdown-item" href="tefera.html">DR. TEFERA BEYENE, PhD, CPA</a>
+                <a class="dropdown-item" href="wendy.html">WENDY CARDENAS</a>
+                <a class="dropdown-item" href="leidy.html">LEIDY MEZA</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="practice.html">PRACTICE</a>
+              <div class="dropdown-menu practice-flyout-host" aria-labelledby="navbarDropdown2">
+                <div class="flyout-item">
+                  <a class="dropdown-item dd-area" href="tax.html">TAX<span class="flyout-caret">&rsaquo;</span></a>
+                  <div class="flyout-sub">
+                    <a class="dropdown-item" href="tax-planning.html">Planning</a>
+                    <a class="dropdown-item" href="tax-compliance.html">Compliance</a>
+                    <a class="dropdown-item" href="tax-controversy.html">Controversy</a>
+                  </div>
+                </div>
+                <div class="flyout-item">
+                  <a class="dropdown-item dd-area" href="real-estate.html">REAL ESTATE<span class="flyout-caret">&rsaquo;</span></a>
+                  <div class="flyout-sub">
+                    <a class="dropdown-item" href="re-acquisition.html">Acquisition</a>
+                    <a class="dropdown-item" href="re-ownership.html">Ownership</a>
+                    <a class="dropdown-item" href="re-disposition.html">Disposition</a>
+                  </div>
+                </div>
+                <div class="flyout-item">
+                  <a class="dropdown-item dd-area" href="special-counsel.html">SPECIAL COUNSEL<span class="flyout-caret">&rsaquo;</span></a>
+                  <div class="flyout-sub">
+                    <a class="dropdown-item" href="special-counsel.html#divorce">Divorce &amp; Marital Dissolution</a>
+                    <a class="dropdown-item" href="special-counsel.html#estate-trust">Estate, Trust &amp; Probate Disputes</a>
+                    <a class="dropdown-item" href="special-counsel.html#business-divorce">Business Divorce</a>
+                    <a class="dropdown-item" href="special-counsel.html#litigation-damages">Litigation Damages &amp; Settlement Tax</a>
+                  </div>
+                </div>
+              
+              
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="experience.html">EXPERIENCE</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="testimonials.html">TESTIMONIALS</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="blog.html">RESOURCES</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                <a class="dropdown-item" href="blog.html">BLOG</a>
+                <a class="dropdown-item" href="tools.html">TOOLS</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="engagement.html">MEMBERS</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
+                <a class="dropdown-item" href="gold/"><span class="brand-gold">GOLD</span></a>
+                <a class="dropdown-item" href="platinum/"><span class="brand-platinum">PLATINUM</span></a>
+                <a class="dropdown-item" href="diamond/"><span class="brand-diamond">DIAMOND</span></a>
+                <a class="dropdown-item" href="reserve/"><span class="brand-reserve"><span class="re">RE</span>SERVE</span></a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">CONTACT</a>
+            </li>
+          </ul>
+
+          <nav class="nav-mobile-overlay">
+            <div class="nav-mobile-wrapper">
+              <div class="container">
+                <div class="nav-mobile">
+                  <div class="nav-mobile-header">
+                    <div class="btn-close menu"><i class="fa fa-times"></i></div>
+                  </div>
+                  <div class="nav-mobile-list">
+                    <a href="index.html" class="mobile-menu-item">HOME</a>
+                    <a href="ourfirm.html" class="mobile-menu-item" data-toggle="collapse" data-target="#menu1"
+                      aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                      <span id="theFirm">ABOUT</span>
+                      <button id="btn-tf" class="btn btn-plus" data-toggle="collapse" data-target="#menu1"
+                        aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                        <div id="fa-tf" class="top-icon hidden"><i class="fa fa-minus"></i></div>
+                      </button>
+                      <div class="collapse" id="menu1">
+                        <a class="dropdown-item" href="ourfirm.html">THE FIRM</a>
+                        <a class="dropdown-item" href="profile.html">PAUL DONOVAN, JD, CPA, CCM</a>
+                        <a class="dropdown-item" href="tefera.html">DR. TEFERA BEYENE, PhD, CPA</a>
+                        <a class="dropdown-item" href="wendy.html">WENDY CARDENAS</a>
+                        <a class="dropdown-item" href="leidy.html">LEIDY MEZA</a>
+                      </div>
+                    </a>
+                    <div class="mobile-menu-item mobile-parent">
+                      <a href="practice.html" class="mm-parent-label">PRACTICE</a>
+                      <button id="btn-tp" class="btn btn-plus" data-toggle="collapse" data-target="#menu2"
+                        aria-controls="menu2" aria-expanded="false" aria-label="Toggle Practice">
+                        <div id="fa-tp" class="top-icon hidden"><i class="fa fa-minus"></i></div>
+                      </button>
+                      <div class="collapse" id="menu2">
+                        <button class="m-area-toggle" data-toggle="collapse" data-target="#m2-tax" aria-controls="m2-tax" aria-expanded="false">TAX</button>
+                        <div class="collapse" id="m2-tax">
+                          <a class="dropdown-item dd-sub" href="tax.html">Tax Overview</a>
+                          <a class="dropdown-item dd-sub" href="tax-planning.html">Planning</a>
+                          <a class="dropdown-item dd-sub" href="tax-compliance.html">Compliance</a>
+                          <a class="dropdown-item dd-sub" href="tax-controversy.html">Controversy</a>
+                        </div>
+                        <button class="m-area-toggle" data-toggle="collapse" data-target="#m2-re" aria-controls="m2-re" aria-expanded="false">REAL ESTATE</button>
+                        <div class="collapse" id="m2-re">
+                          <a class="dropdown-item dd-sub" href="real-estate.html">Real Estate Overview</a>
+                          <a class="dropdown-item dd-sub" href="re-acquisition.html">Acquisition</a>
+                          <a class="dropdown-item dd-sub" href="re-ownership.html">Ownership</a>
+                          <a class="dropdown-item dd-sub" href="re-disposition.html">Disposition</a>
+                        </div>
+                        <button class="m-area-toggle" data-toggle="collapse" data-target="#m2-sc" aria-controls="m2-sc" aria-expanded="false">SPECIAL COUNSEL</button>
+                        <div class="collapse" id="m2-sc">
+                          <a class="dropdown-item dd-sub" href="special-counsel.html">Special Counsel Overview</a>
+                          <a class="dropdown-item dd-sub" href="special-counsel.html#divorce">Divorce &amp; Marital Dissolution</a>
+                          <a class="dropdown-item dd-sub" href="special-counsel.html#estate-trust">Estate, Trust &amp; Probate Disputes</a>
+                          <a class="dropdown-item dd-sub" href="special-counsel.html#business-divorce">Business Divorce</a>
+                          <a class="dropdown-item dd-sub" href="special-counsel.html#litigation-damages">Litigation Damages &amp; Settlement Tax</a>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="experience.html" class="mobile-menu-item">EXPERIENCE</a>
+                    <a href="testimonials.html" class="mobile-menu-item">TESTIMONIALS</a>
+                    <a href="blog.html" class="mobile-menu-item" data-toggle="collapse" data-target="#menu3"
+                      aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                      <span id="theResources">RESOURCES</span>
+                      <button id="btn-tr" class="btn btn-plus" data-toggle="collapse" data-target="#menu3"
+                        aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                        <div id="fa-tr" class="top-icon hidden"><i class="fa fa-minus"></i></div>
+                      </button>
+                      <div class="collapse" id="menu3">
+                        <a class="dropdown-item" href="blog.html">BLOG</a>
+                        <a class="dropdown-item" href="tools.html">TOOLS</a>
+                      </div>
+                    </a>
+                    <a href="engagement.html" class="mobile-menu-item" data-toggle="collapse" data-target="#menu4"
+                      aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                      <span id="theMembers">MEMBERS</span>
+                      <button id="btn-tm" class="btn btn-plus" data-toggle="collapse" data-target="#menu4"
+                        aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                        <div id="fa-tm" class="top-icon hidden"><i class="fa fa-minus"></i></div>
+                      </button>
+                      <div class="collapse" id="menu4">
+                        <a class="dropdown-item" href="gold/"><span class="brand-gold">GOLD</span></a>
+                        <a class="dropdown-item" href="platinum/"><span class="brand-platinum">PLATINUM</span></a>
+                        <a class="dropdown-item" href="diamond/"><span class="brand-diamond">DIAMOND</span></a>
+                        <a class="dropdown-item" href="reserve/"><span class="brand-reserve"><span class="re">RE</span>SERVE</span></a>
+                      </div>
+                    </a>
+                    <a href="contact.html" class="mobile-menu-item">CONTACT</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </nav>
+      </div>
+
+      
+      <div class="box-practice keep-m">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <h1 class="title animate__animated animate__fadeIn animate__delay-1-5"><span class="g-light">RENTAL REAL ESTATE</span> <span class="g-bold green">TAX STRATEGY ANALYZER</span></h1>
+
+              <details class="dl-tool-disclaimer dl-mobile-collapse" role="note" style="margin:1rem 0 1.5rem; padding:0.9rem 1.1rem; background:#F4F1E8; border-left:4px solid #C9A961; border-radius:4px; font-size:0.92rem; line-height:1.55; color:#1F2A24;">
+
+
+                <summary style="cursor:pointer; list-style:none;"><strong>Educational tool &mdash; not legal advice.</strong><span class="dl-collapse-hint" style="font-weight:600; color:#806633; margin-left:0.4rem;">Tap for the full notice</span></summary>
+
+
+                <div>This calculator is provided by Donovan Legal PLLC for educational and illustrative purposes only. It applies simplified assumptions to the figures you enter, may not reflect current law or your circumstances, and its output is an estimate, not advice. Using it does not create an attorney&ndash;client relationship. Do not act on any result without advice specific to your facts from a qualified professional.<span style="display:block; margin-top:0.45rem; font-size:0.82rem; color:#5A6660;">Law current as of September 2026 &middot; model reviewed September 4, 2026.</span></div>
+
+
+              </details>
+              <!-- ============================================================
+                   HOOK + PRESETS BAR (lead with action)
+                   ============================================================ -->
+              <div class="tool-hook animate__animated animate__fadeIn animate__delay-1-5" style="margin: 0.5rem 0 1.25rem 0;">
+                <p style="font-size: 1.05rem; line-height: 1.55; color: #1a1a1a; margin-bottom: 0.35rem;">
+                  <strong>Can a rental real estate investment legally offset your W-2 wages, professional income, or business income?</strong> Under &sect;&nbsp;469 there are seven independent paths out of per se passive treatment &mdash; one for nearly every property strategy a sophisticated investor would consider. Pick the scenario closest to yours below to pre-fill the analyzer, or scroll past to read the framework first.
+                </p>
+              </div>
+
+              <div class="presets-bar animate__animated animate__fadeIn animate__delay-2s">
+                <div class="presets-label">START WITH YOUR SCENARIO &mdash; SEVEN PATHS, NINE STARTING POINTS</div>
+                <div class="presets-subtitle">Each scenario pre-fills the analyzer with realistic inputs for that property strategy. Adjust to match your facts; the tool walks the &sect;&nbsp;469 eligibility analysis, then projects federal and state tax economics over your hold period.</div>
+                <div class="presets-buttons">
+                  <button type="button" class="preset-btn" data-dvn-on="click" data-dvn-do="loadPreset('beach')">
+                    <div class="preset-icon">&#9728;&#65039;</div>
+                    <div class="preset-name">STR &mdash; Vacation Rental</div>
+                    <div class="preset-desc">$1.2M coastal STR &mdash; Exception (A) &le; 7 days</div>
+                  </button>
+                  <button type="button" class="preset-btn" data-dvn-on="click" data-dvn-do="loadPreset('ski')">
+                    <div class="preset-icon">&#9975;&#65039;</div>
+                    <div class="preset-name">STR &mdash; Seasonal Resort</div>
+                    <div class="preset-desc">$1.5M mountain STR &mdash; Exception (A) &le; 7 days</div>
+                  </button>
+                  <button type="button" class="preset-btn" data-dvn-on="click" data-dvn-do="loadPreset('urban')">
+                    <div class="preset-icon">&#127961;&#65039;</div>
+                    <div class="preset-name">STR &mdash; Urban Year-Round</div>
+                    <div class="preset-desc">$800K downtown STR &mdash; Exception (A) &le; 7 days</div>
+                  </button>
+                  <button type="button" class="preset-btn" data-dvn-on="click" data-dvn-do="loadPreset('corporate')">
+                    <div class="preset-icon">&#128188;</div>
+                    <div class="preset-name">Medium-Term Furnished</div>
+                    <div class="preset-desc">$1.4M with concierge services &mdash; Exception (B) 8&ndash;30 days</div>
+                  </button>
+                  <button type="button" class="preset-btn" data-dvn-on="click" data-dvn-do="loadPreset('hotel')">
+                    <div class="preset-icon">&#127976;</div>
+                    <div class="preset-name">Hotel / B&amp;B</div>
+                    <div class="preset-desc">$2.5M inn with on-site staff &mdash; Exception (C)</div>
+                  </button>
+                  <button type="button" class="preset-btn" data-dvn-on="click" data-dvn-do="loadPreset('incidental')">
+                    <div class="preset-icon">&#127968;</div>
+                    <div class="preset-name">Incidental Rental</div>
+                    <div class="preset-desc">$900K held for sale, rented during marketing &mdash; Exception (D)</div>
+                  </button>
+                  <button type="button" class="preset-btn" data-dvn-on="click" data-dvn-do="loadPreset('businesshours')">
+                    <div class="preset-icon">&#9971;</div>
+                    <div class="preset-name">Business-Hours Facility</div>
+                    <div class="preset-desc">$3M golf course / marina &mdash; Exception (E)</div>
+                  </button>
+                  <button type="button" class="preset-btn" data-dvn-on="click" data-dvn-do="loadPreset('selfrental')">
+                    <div class="preset-icon">&#127970;</div>
+                    <div class="preset-name">Self-Rental to S-Corp</div>
+                    <div class="preset-desc">$1.6M leased to taxpayer's operating business &mdash; Exception (F)</div>
+                  </button>
+                  <button type="button" class="preset-btn" data-dvn-on="click" data-dvn-do="loadPreset('reps')">
+                    <div class="preset-icon">&#129489;&#8205;&#127970;</div>
+                    <div class="preset-name">REPS &mdash; Real Estate Professional</div>
+                    <div class="preset-desc">$1.3M LTR with spouse REPS qualification &mdash; &sect; 469(c)(7)</div>
+                  </button>
+                  <button type="button" class="preset-btn" data-dvn-on="click" data-dvn-do="loadPreset('ltr')">
+                    <div class="preset-icon">&#127960;</div>
+                    <div class="preset-name">LTR Baseline</div>
+                    <div class="preset-desc">$1M long-term rental, no exception &mdash; Per Se Passive</div>
+                  </button>
+                </div>
+                <div class="presets-clear">
+                  <button type="button" class="preset-clear-btn" data-dvn-on="click" data-dvn-do="clearSavedInputs()">&#8635; Clear All Saved Inputs</button>
+                </div>
+              </div>
+
+              <div class="dl-scenario-chips" style="margin:0 0 1.25rem;">
+                <div style="font-size:0.8rem; letter-spacing:1px; text-transform:uppercase; color:#806633; font-weight:700; margin-bottom:0.5rem;">Start with your scenario &mdash; one tap pre-fills the analyzer</div>
+                <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+                  <a href="#preset=beach" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.45rem 0.8rem; border:1px solid #C9A961; border-radius:999px; background:#fff; color:#1F2A24; font-size:0.86rem; font-weight:600; text-decoration:none;"><span aria-hidden="true">&#9728;&#65039;</span>STR &mdash; Vacation Rental</a>
+                  <a href="#preset=ski" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.45rem 0.8rem; border:1px solid #C9A961; border-radius:999px; background:#fff; color:#1F2A24; font-size:0.86rem; font-weight:600; text-decoration:none;"><span aria-hidden="true">&#9975;&#65039;</span>STR &mdash; Seasonal Resort</a>
+                  <a href="#preset=urban" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.45rem 0.8rem; border:1px solid #C9A961; border-radius:999px; background:#fff; color:#1F2A24; font-size:0.86rem; font-weight:600; text-decoration:none;"><span aria-hidden="true">&#127961;&#65039;</span>STR &mdash; Urban Year-Round</a>
+                  <a href="#preset=corporate" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.45rem 0.8rem; border:1px solid #C9A961; border-radius:999px; background:#fff; color:#1F2A24; font-size:0.86rem; font-weight:600; text-decoration:none;"><span aria-hidden="true">&#128188;</span>Medium-Term Furnished</a>
+                  <a href="#preset=hotel" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.45rem 0.8rem; border:1px solid #C9A961; border-radius:999px; background:#fff; color:#1F2A24; font-size:0.86rem; font-weight:600; text-decoration:none;"><span aria-hidden="true">&#127976;</span>Hotel / B&amp;B</a>
+                  <a href="#preset=incidental" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.45rem 0.8rem; border:1px solid #C9A961; border-radius:999px; background:#fff; color:#1F2A24; font-size:0.86rem; font-weight:600; text-decoration:none;"><span aria-hidden="true">&#127968;</span>Incidental Rental</a>
+                  <a href="#preset=businesshours" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.45rem 0.8rem; border:1px solid #C9A961; border-radius:999px; background:#fff; color:#1F2A24; font-size:0.86rem; font-weight:600; text-decoration:none;"><span aria-hidden="true">&#9971;</span>Business-Hours Facility</a>
+                  <a href="#preset=selfrental" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.45rem 0.8rem; border:1px solid #C9A961; border-radius:999px; background:#fff; color:#1F2A24; font-size:0.86rem; font-weight:600; text-decoration:none;"><span aria-hidden="true">&#127970;</span>Self-Rental to S-Corp</a>
+                  <a href="#preset=reps" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.45rem 0.8rem; border:1px solid #C9A961; border-radius:999px; background:#fff; color:#1F2A24; font-size:0.86rem; font-weight:600; text-decoration:none;"><span aria-hidden="true">&#129489;&#8205;&#127970;</span>REPS &mdash; Real Estate Professional</a>
+                </div>
+                <p style="margin:0.75rem 0 0; font-size:0.88rem; color:#555;">Real estate professional or material participation in view? Keep the hours as you go: <a href="tool-material-participation-tracker.html" style="color:#107A4D; font-weight:600;">Material Participation &amp; REPS Tracker</a>.</p>
+              </div>
+              <div class="tool-intro animate__animated animate__fadeIn animate__delay-2s">
+                <p style="margin-bottom: 0.75rem;">
+                  <strong>About the framework.</strong> Under &sect;&nbsp;469, "rental activities" are passive by default &mdash; losses generally cannot offset non-passive income (your salary, your professional practice income, your operating-business income). But six rental-activity exceptions in Reg. &sect;&nbsp;1.469-1T(e)(3)(ii) remove particular configurations from the definition of "rental activity" entirely (short-term rentals; medium-term furnished with significant personal services; hotels and B&amp;Bs with extraordinary personal services; rentals incidental to a non-rental business; business-hours nonexclusive-use facilities; self-rentals to a partnership, S corporation, or JV in which the taxpayer participates). And a seventh path &mdash; Real Estate Professional Status under &sect;&nbsp;469(c)(7), the 750-hour, more-than-50%-of-personal-services threshold &mdash; removes per se passive treatment for taxpayers (or their spouses on a joint return) who qualify as real estate professionals. The analyzer walks each path, identifies which applies, then evaluates material participation under the seven tests of Reg. &sect;&nbsp;1.469-5T to determine whether the losses are non-passive and available to offset other income.
+                </p>
+                <details style="margin-top:0.5rem;">
+                  <summary style="cursor:pointer; color:#107A4D; font-weight:700;">How the analysis works &mdash; the &sect;&nbsp;469 paths, the tests, and what the model assumes</summary>
+                  <div style="margin-top:0.75rem;">
+                                        <p style="margin-bottom: 0.75rem;">
+                  <strong>Who this is for.</strong> The analyzer is built for the individual investor acquiring a property &mdash; typically through a single-member LLC or direct ownership &mdash; who wants to model the federal and state tax economics before closing. If you are a high earner (W-2, professional services, or business income) considering rental real estate as a tax-advantaged component of a diversified portfolio, this is the tool to use. For multi-member deal structuring with promote waterfalls, &sect;&nbsp;704(b)/(c) allocations, member debt classification under &sect;&nbsp;752, and Reg D securities compliance, see the Deal Builder (member tool, currently paused).
+                </p>
+                    <p style="margin-bottom: 0.75rem;">
+                  <strong>Under the hood.</strong> The tool implements the &sect;&nbsp;469 analysis as a sequential two-step framework (Step 1: the six exceptions of Reg. &sect;&nbsp;1.469-1T(e)(3)(ii) plus &sect;&nbsp;469(c)(7) REPS; Step 2: the seven material participation tests of Reg. &sect;&nbsp;1.469-5T applied to the activity once Step 1 has removed per se passive treatment), the &sect;&nbsp;461(l) excess business loss limitation as modified by OBBBA (with the 2026 threshold reduction), &sect;&nbsp;172 NOL carryforward subject to the 80% post-2017 limitation, federal and state-level depreciation (including OBBBA-restored 100% bonus depreciation under &sect;&nbsp;168(k) for qualifying property placed in service after January 19, 2025), state non-conformity to federal bonus depreciation across all 50 states, sale-year &sect;&nbsp;1245 ordinary recapture and &sect;&nbsp;1250 unrecaptured gain allocation, NIIT, and after-tax internal rate of return computed against the actual cash-flow series including acquisition outflow and net sale proceeds.
+                </p>
+                    <p style="margin-bottom: 0;">
+                  <strong>This tool is informational only.</strong> The classification of a rental activity under &sect;&nbsp;469, the application of the six exceptions in Reg. &sect;&nbsp;1.469-1T(e)(3)(ii), Real Estate Professional Status under &sect;&nbsp;469(c)(7), material participation under Reg. &sect;&nbsp;1.469-5T, and the engineering basis for cost segregation reclassification are all fact-specific determinations. The tool produces an estimate based on the inputs provided and simplifying assumptions; specific facts may produce a different result. Engage qualified counsel before any investment decision.
+                </p>
+                  </div>
+                </details>
+              </div>
+
+              <!-- ============================================================
+                   WIZARD PROGRESS INDICATOR (Batch B.2)
+                   ============================================================ -->
+              <!-- ============================================================
+                   WIZARD PROGRESS INDICATOR — 8 steps grouped by lifecycle
+                   Standalone Taxpayer Profile, then 3 phase groups
+                   (Acquisition / Ownership / Disposition) each with their steps
+                   ============================================================ -->
+              <div class="wizard-progress" id="wizard_progress">
+                <div class="wizard-progress-label">Complete each section below; results appear after you click Analyze</div>
+                <details class="wp-details dl-mobile-collapse" open>
+                  <summary class="wp-summary">Your progress &mdash; eight steps <span class="dl-collapse-hint">(tap to expand)</span></summary>
+
+                <!-- Standalone: Taxpayer Profile (meta to the property) -->
+                <a href="#step_1" class="wp-step wp-standalone" id="wp_step_1" data-step="1">
+                  <div class="wp-step-num">1</div>
+                  <div class="wp-step-name">Taxpayer Profile</div>
+                  <div class="wp-step-status">Start here</div>
+                </a>
+
+                <!-- Three lifecycle phase groups -->
+                <div class="wp-phase-grid">
+
+                  <!-- ACQUISITION -->
+                  <div class="wp-phase-group wp-pg-acquisition">
+                    <div class="wp-phase-header wp-h-acquisition">ACQUISITION</div>
+                    <div class="wp-phase-steps">
+                      <a href="#step_2" class="wp-step wp-acquisition" id="wp_step_2" data-step="2">
+                        <div class="wp-step-num">2</div>
+                        <div class="wp-step-name">Property</div>
+                        <div class="wp-step-status"></div>
+                      </a>
+                      <a href="#step_3" class="wp-step wp-acquisition" id="wp_step_3" data-step="3">
+                        <div class="wp-step-num">3</div>
+                        <div class="wp-step-name">Financing</div>
+                        <div class="wp-step-status"></div>
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- OWNERSHIP -->
+                  <div class="wp-phase-group wp-pg-ownership">
+                    <div class="wp-phase-header wp-h-ownership">OWNERSHIP</div>
+                    <div class="wp-phase-steps">
+                      <a href="#step_4" class="wp-step wp-ownership" id="wp_step_4" data-step="4">
+                        <div class="wp-step-num">4</div>
+                        <div class="wp-step-name">Per Se Passive</div>
+                        <div class="wp-step-status"></div>
+                      </a>
+                      <a href="#step_5" class="wp-step wp-ownership" id="wp_step_5" data-step="5">
+                        <div class="wp-step-num">5</div>
+                        <div class="wp-step-name">Material Part.</div>
+                        <div class="wp-step-status"></div>
+                      </a>
+                      <a href="#step_6" class="wp-step wp-ownership" id="wp_step_6" data-step="6">
+                        <div class="wp-step-num">6</div>
+                        <div class="wp-step-name">Operations</div>
+                        <div class="wp-step-status"></div>
+                      </a>
+                      <a href="#step_7" class="wp-step wp-ownership" id="wp_step_7" data-step="7">
+                        <div class="wp-step-num">7</div>
+                        <div class="wp-step-name">Hold &amp; Assump.</div>
+                        <div class="wp-step-status"></div>
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- DISPOSITION -->
+                  <div class="wp-phase-group wp-pg-disposition">
+                    <div class="wp-phase-header wp-h-disposition">DISPOSITION</div>
+                    <div class="wp-phase-steps">
+                      <a href="#step_8" class="wp-step wp-disposition" id="wp_step_8" data-step="8">
+                        <div class="wp-step-num">8</div>
+                        <div class="wp-step-name">Disposition</div>
+                        <div class="wp-step-status"></div>
+                      </a>
+                    </div>
+                  </div>
+
+                </div>
+                              </details>
+</div>
+
+              <!-- ============================================================
+                   STEP 5 - TAXPAYER PROFILE
+                   ============================================================ -->
+              <div class="step-card" id="step_1">
+                <h4><span class="step-number">1</span>Taxpayer Profile</h4>
+                <p class="step-subtitle">Filing status, tax year, and income profile. Year affects the &sect;&nbsp;461(l) threshold ($313K/$626K for 2025; ~$256K/~$512K for 2026 due to the OBBBA reset).</p>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="filing_status">Filing Status</label>
+                    <select id="filing_status">
+                      <option value="single">Single</option>
+                      <option value="mfj" selected>Married Filing Jointly</option>
+                      <option value="hoh">Head of Household</option>
+                      <option value="mfs">Married Filing Separately</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="tax_year">Acquisition Tax Year</label>
+                    <select id="tax_year">
+                      <option value="2025">2025</option>
+                      <option value="2026" selected>2026</option>
+                    </select>
+                    <div class="field-help">2026 has a lower &sect;&nbsp;461(l) threshold than 2025 due to OBBBA reset.</div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="w2_wages">Annual W-2 Wages</label>
+                    <div class="input-prefix"><input type="text" inputmode="decimal" id="w2_wages" placeholder="0"></div>
+                    <div class="field-help">Wages are non-business income for &sect;&nbsp;461(l). Wages do not increase the loss-utilization threshold.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="business_income">Business Income (or Loss)</label>
+                    <div class="input-prefix"><input type="text" inputmode="decimal" id="business_income" placeholder="0"></div>
+                    <div class="field-help">Schedule C, K-1 ordinary business income, etc. Positive amounts absorb rental loss before the &sect;&nbsp;461(l) threshold cap; negative amounts increase the aggregate business loss subject to &sect;&nbsp;461(l).</div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="other_nonbusiness">Other Non-Business Income</label>
+                    <div class="input-prefix"><input type="text" inputmode="decimal" id="other_nonbusiness" placeholder="0"></div>
+                    <div class="field-help">Portfolio income such as interest, non-qualified dividends, short-term capital gains. Taxed at ordinary rates and subject to NIIT (3.8%) above thresholds.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="lt_cap_gains">Long-Term Capital Gains / Qualified Dividends</label>
+                    <div class="input-prefix"><input type="text" inputmode="decimal" id="lt_cap_gains" placeholder="0"></div>
+                    <div class="field-help">Taxed at preferential rates (0%/15%/20%) bracketed against your other ordinary income, plus NIIT (3.8%) where applicable.</div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group" style="grid-column: span 2;">
+                    <label for="state">State of Residence</label>
+                    <select id="state"></select>
+                    <div class="field-help" id="state_note">Determines state-level depreciation and tax conformity.</div>
+                  </div>
+                </div>
+
+                <div class="form-row" id="locality_row" style="display: none;">
+                  <div class="form-group" style="grid-column: span 2;">
+                    <label for="locality">City / Locality Income Tax (optional)</label>
+                    <select id="locality"><option value="NONE">None &mdash; state only</option></select>
+                    <div class="field-help" id="locality_note">Optional city/local income tax layer that stacks on top of the state rate. Choose one if the taxpayer is a resident of an enumerated locality.</div>
+                  </div>
+                </div>
+
+                <div style="background: #f5f5f0; border-left: 3px solid #107A4D; padding: 0.85rem 1.15rem; margin-top: 1rem; font-size: 0.88rem; line-height: 1.55;">
+                  <strong style="color: #107A4D;">How federal tax is computed.</strong> The model computes federal income tax on your inputs using the actual 2026 IRS tax brackets (per Rev. Proc. 2025-32) and the standard deduction for your filing status ($16,100 single / $32,200 MFJ / $24,150 HoH). Federal tax savings are the difference between baseline tax (without the rental loss) and after-rental tax (with the rental loss applied subject to &sect;&nbsp;461(l) and &sect;&nbsp;172). The effective and marginal rates produced by your inputs are displayed in the results section.
+                  <br><br>
+                  <strong>Itemized deductions, exemptions, and credits are not modeled.</strong> If you itemize (mortgage interest on your primary residence, charitable contributions, SALT up to $40,400 for 2026, medical above 7.5% AGI, etc.) or claim significant credits (child tax credit, dependent care, education, etc.), your actual federal tax may be materially lower than this model shows. The simplification is intentional &mdash; itemized deductions are taxpayer-specific and would require many additional inputs &mdash; but it means tax savings figures should be interpreted as a marginal-cost analysis of the rental investment, not an absolute prediction of total tax owed.
+                </div>
+              </div>
+
+              <!-- LIFECYCLE PHASE BAND -->
+              <div class="lifecycle-phase-band">
+                <div class="lpb-label">ACQUISITION</div>
+                <div class="lpb-sub">How the property is acquired, structured, and financed</div>
+              </div>
+              <!-- ============================================================
+                   STEP 2 - PROPERTY DETAILS
+                   ============================================================ -->
+              <div class="step-card" id="step_2">
+                <h4><span class="step-number">2</span>Property Information</h4>
+                <p class="step-subtitle">Purchase price and basis allocation. Land is not depreciable; allocate land at acquisition based on assessor records, appraisal, or comparable land values.</p>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="purchase_price">Total Purchase Price</label>
+                    <div class="input-prefix"><input type="text" inputmode="decimal" id="purchase_price" placeholder="0"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="closing_costs">Closing Costs (Capitalized to Basis)</label>
+                    <div class="toggle-group">
+                      <button type="button" class="toggle-btn active" data-target="closing_costs" data-mode="dollar" data-dvn-on="click" data-dvn-do="toggleInputMode(this)">$&nbsp;DOLLAR</button>
+                      <button type="button" class="toggle-btn" data-target="closing_costs" data-mode="percent" data-dvn-on="click" data-dvn-do="toggleInputMode(this)">%&nbsp;OF&nbsp;PRICE</button>
+                    </div>
+                    <div id="closing_costs_dollar_wrap" class="input-prefix"><input type="text" inputmode="decimal" id="closing_costs" placeholder="0"></div>
+                    <div id="closing_costs_percent_wrap" class="input-suffix" style="display:none;"><input type="number" id="closing_costs_pct" min="0" max="15" step="0.1" value="2.5"></div>
+                    <div class="field-help">Title, escrow, transfer taxes, lender fees that are capitalized rather than deductible. Typical range: 2&ndash;5% of purchase price.</div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="land_pct">Land Allocation</label>
+                    <div class="input-suffix"><input type="number" id="land_pct" min="0" max="60" step="0.5" value="20"></div>
+                    <div class="field-help">Typical range: 15&ndash;25% for residential, higher for premium-location properties.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="reclass_pct">Cost Segregation Reclassification (% of Total Purchase Price)</label>
+                    <div class="input-suffix"><input type="number" id="reclass_pct" min="0" max="60" step="0.5" value="20"></div>
+                    <div class="field-help">Portion of <strong>total purchase price</strong> reclassified to 5-, 7-, or 15-year MACRS property by a qualified cost segregation study. (Land is excluded from depreciation; this percentage applies to the total acquisition cost as the marketing and engineering convention.) <button type="button" class="expandable-help-btn" data-dvn-on="click" data-dvn-do="toggleHelp(\'reclass_help\')">What affects this?</button></div>
+                    <div id="reclass_help" class="expandable-help-content">
+                      The reclassification percentage is determined by the engineering analysis of a qualified cost segregation study and varies substantially based on factors including: property type (single-family vs. condo vs. townhome vs. multifamily), level of furnishing and FF&amp;E, presence of a pool/spa/jacuzzi, paver/stamped concrete driveway, dock or waterfront features, landscape complexity (including hardscape/irrigation), interior finish level, mechanical/electrical/plumbing density, and degree of personal-property components. Expressed as a percentage of <strong>total purchase price</strong>: residential STRs with significant FF&amp;E and hardscape commonly fall in the 20&ndash;30% range; bare-bones residential properties may see 12&ndash;18%; commercial-character properties (medical office, restaurant, hotel-like) may see 25&ndash;35%+. The actual percentage requires an engineering-and-tax-professional study. The default value (20%) is illustrative only.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-row three-col">
+                  <div class="form-group">
+                    <label for="property_type">Property Type (Drives Shell Recovery Period)</label>
+                    <select id="property_type">
+                      <option value="residential" selected>Residential (27.5-year shell)</option>
+                      <option value="commercial">Commercial / Nonresidential (39-year shell)</option>
+                    </select>
+                    <div class="field-help">Determines whether the building shell depreciates over 27.5 years (residential rental) or 39 years (commercial / nonresidential). Both use the straight-line method with the mid-month convention.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="month_placed_in_service">Month Placed in Service (Year 1)</label>
+                    <select id="month_placed_in_service">
+                      <option value="1" selected>January</option>
+                      <option value="2">February</option>
+                      <option value="3">March</option>
+                      <option value="4">April</option>
+                      <option value="5">May</option>
+                      <option value="6">June</option>
+                      <option value="7">July</option>
+                      <option value="8">August</option>
+                      <option value="9">September</option>
+                      <option value="10">October</option>
+                      <option value="11">November</option>
+                      <option value="12">December</option>
+                    </select>
+                    <div class="field-help">Month the property was acquired and placed in service. Drives the mid-month convention factor for the building shell in Year 1. January placement yields the maximum Year 1 deduction; December the minimum. (With 100% bonus, this does not affect the reclass deduction; the reclass is fully bonused regardless of month.)</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="month_disposition">Month of Disposition (Sale Year)</label>
+                    <select id="month_disposition">
+                      <option value="1">January</option>
+                      <option value="2">February</option>
+                      <option value="3">March</option>
+                      <option value="4">April</option>
+                      <option value="5">May</option>
+                      <option value="6">June</option>
+                      <option value="7">July</option>
+                      <option value="8">August</option>
+                      <option value="9">September</option>
+                      <option value="10">October</option>
+                      <option value="11">November</option>
+                      <option value="12" selected>December</option>
+                    </select>
+                    <div class="field-help">Month in the final hold year that the property is sold. Drives the mid-month convention factor for the building shell in the year of disposition (months held times monthly depreciation). January sale captures only a half-month; December captures 11.5 months.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ============================================================
+                   STEP 4 - FINANCING
+                   ============================================================ -->
+              <div class="step-card" id="step_3">
+                <h4><span class="step-number">3</span>Financing</h4>
+                <p class="step-subtitle">Mortgage parameters. The model assumes a fixed-rate loan with monthly amortization over the term. The cap rate is assumed equal to the mortgage rate (a simplifying assumption that produces NOI = property value &times; rate, before debt service).</p>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="down_payment_pct">Down Payment (% of Purchase Price)</label>
+                    <div class="input-suffix"><input type="number" id="down_payment_pct" min="0" max="100" step="0.5" value="25"></div>
+                    <div class="field-help">Typical investment property minimums: 20&ndash;25% (conventional) or 20&ndash;30% (DSCR).</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="mortgage_rate">Mortgage Interest Rate</label>
+                    <div class="input-suffix"><input type="number" id="mortgage_rate" min="0" max="20" step="0.001" placeholder="7.000"></div>
+                    <div class="field-help">Enter your rate, or use the estimator below.</div>
+                  </div>
+                </div>
+
+                <div class="rate-estimator-box">
+                  <div style="font-family: \'Gotham Bold\', sans-serif; font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase; color: #107A4D; margin-bottom: 0.6rem;">Estimate My Rate</div>
+                  <div class="form-row three-col">
+                    <div class="form-group" style="margin-bottom: 0.5rem;">
+                      <label for="fico">Credit Score Range</label>
+                      <select id="fico" data-dvn-on="change" data-dvn-do="autoEstimateRate()">
+                        <option value="780">780+</option>
+                        <option value="760">760–779</option>
+                        <option value="740" selected>740–759</option>
+                        <option value="720">720–739</option>
+                        <option value="700">700–719</option>
+                        <option value="680">680–699</option>
+                        <option value="660">660–679</option>
+                        <option value="640">640–659</option>
+                      </select>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0.5rem;">
+                      <label for="ltv_band">LTV (Down Payment)</label>
+                      <select id="ltv_band" data-dvn-on="change" data-dvn-do="autoEstimateRate()">
+                        <option value="60">35%+ down (LTV ≤65%)</option>
+                        <option value="70">25–35% down</option>
+                        <option value="75" selected>20–25% down</option>
+                        <option value="80">15–20% down</option>
+                      </select>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0.5rem;">
+                      <label for="loan_type">Loan Product</label>
+                      <select id="loan_type" data-dvn-on="change" data-dvn-do="autoEstimateRate()">
+                        <option value="conv">Conventional investment</option>
+                        <option value="dscr">DSCR loan</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-row" style="margin-top: 0.25rem;">
+                    <div class="form-group" style="margin-bottom: 0;">
+                      <label for="prop_type">Property Type</label>
+                      <select id="prop_type" data-dvn-on="change" data-dvn-do="autoEstimateRate()">
+                        <option value="sfr">Single-family residence</option>
+                        <option value="condo">Condo / townhome (warrantable)</option>
+                        <option value="multi">2–4 unit residential</option>
+                      </select>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                      <label>&nbsp;</label>
+                      <button type="button" class="calc-btn-secondary" style="width: 100%; margin-left: 0; padding: 0.55rem 1rem; font-size: 0.78rem;" data-dvn-on="click" data-dvn-do="autoEstimateRate()">Re-Estimate</button>
+                    </div>
+                  </div>
+                  <div id="estimated_rate_display" class="estimated-rate-display"></div>
+                </div>
+
+                <div class="form-row" style="margin-top: 1rem;">
+                  <div class="form-group">
+                    <label for="mortgage_term">Mortgage Term (Years)</label>
+                    <select id="mortgage_term">
+                      <option value="30" selected>30 years</option>
+                      <option value="25">25 years</option>
+                      <option value="20">20 years</option>
+                      <option value="15">15 years</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- LIFECYCLE PHASE BAND -->
+              <div class="lifecycle-phase-band">
+                <div class="lpb-label">OWNERSHIP</div>
+                <div class="lpb-sub">How the property is operated, taxed, and held over time</div>
+              </div>
+              <!-- ============================================================
+                   STEP 1 - ELIGIBILITY (§469 ANALYSIS)
+                   ============================================================ -->
+              <div class="step-card" id="step_4">
+                <h4><span class="step-number">4</span>Can Your Losses Offset W-2 / Active Income? &mdash; The Seven Paths Out of Per Se Passive Treatment</h4>
+                <p class="step-subtitle">Under &sect;&nbsp;469(c)(2), a "rental activity" is per se passive regardless of how many hours you put in, which means losses generally cannot offset W-2, professional, or business income. There are seven independent paths out of this default: the six rental-activity exceptions in Reg. &sect;&nbsp;1.469-1T(e)(3)(ii) (Exceptions A through F below), each suited to a different property configuration, plus Real Estate Professional Status under &sect;&nbsp;469(c)(7). Answer the questions below; the tool identifies which path applies, then evaluates whether you materially participate in the activity (the Step 2 analysis under the seven tests of Reg. &sect;&nbsp;1.469-5T) so the losses are non-passive and available to offset other income.</p>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="rental_period">Average Period of Customer Use</label>
+                    <select id="rental_period">
+                      <option value="le7">7 days or less &mdash; Exception (A)</option>
+                      <option value="le30">8 to 30 days &mdash; Exception (B) if significant personal services provided</option>
+                      <option value="gt30">More than 30 days</option>
+                    </select>
+                    <div class="field-help">Average period of customer use determines applicability of Exceptions (A) and (B). Compute as total days rented &divide; number of distinct customer rentals during the year.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="sig_personal_services">Significant Personal Services Provided?</label>
+                    <select id="sig_personal_services">
+                      <option value="no">No</option>
+                      <option value="yes">Yes &mdash; daily cleaning, linens, concierge-type services</option>
+                    </select>
+                    <div class="field-help">Reg. &sect;&nbsp;1.469-1T(e)(3)(iv): hotel-like services beyond what a long-term lease tenant would expect. Required for Exception (B) if period is 8&ndash;30 days.</div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="extra_personal_services">Extraordinary Personal Services Provided?</label>
+                    <select id="extra_personal_services">
+                      <option value="no">No</option>
+                      <option value="yes">Yes &mdash; hospital, hotel with on-site staff, B&amp;B with daily housekeeping</option>
+                    </select>
+                    <div class="field-help">Reg. &sect;&nbsp;1.469-1T(e)(3)(v): services where the rental use is incidental to receiving services (e.g., hospital room, B&amp;B). Triggers Exception (C) regardless of average period.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="incidental_rental">Incidental to Non-Rental Activity?</label>
+                    <select id="incidental_rental">
+                      <option value="no">No</option>
+                      <option value="yes">Yes &mdash; rental is incidental to a non-rental trade or business</option>
+                    </select>
+                    <div class="field-help">Reg. &sect;&nbsp;1.469-1T(e)(3)(vi): rental income &le; 2% of the lesser of unadjusted basis or FMV, or property held for sale primarily and rental is incidental. Triggers Exception (D).</div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="business_hours_avail">Customarily Available During Defined Business Hours for Non-Exclusive Use?</label>
+                    <select id="business_hours_avail">
+                      <option value="no">No</option>
+                      <option value="yes">Yes &mdash; golf course, parking lot, marina, etc.</option>
+                    </select>
+                    <div class="field-help">Reg. &sect;&nbsp;1.469-1T(e)(3)(ii)(E): property used by multiple customers concurrently during business hours. Triggers Exception (E).</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="jv_use">Used in Non-Rental Activity of a Partnership / S Corp / JV You Own?</label>
+                    <select id="jv_use">
+                      <option value="no">No</option>
+                      <option value="yes">Yes &mdash; property provided to passthrough entity's non-rental activity</option>
+                    </select>
+                    <div class="field-help">Reg. &sect;&nbsp;1.469-1T(e)(3)(ii)(F): property provided for use in a non-rental activity conducted by a partnership, S corporation, or joint venture in which the taxpayer owns an interest. Triggers Exception (F).</div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="reps">Real Estate Professional Status (&sect;&nbsp;469(c)(7))</label>
+                    <select id="reps">
+                      <option value="no">Not a real estate professional</option>
+                      <option value="yes">Yes &mdash; taxpayer: 750+ hours AND &gt;50% of personal services in real property trades or businesses</option>
+                      <option value="spouse">Yes &mdash; spouse qualifies (joint filing); aggregation under &sect;&nbsp;469(c)(7)(B) flush language</option>
+                    </select>
+                    <div class="field-help">REPS converts a rental activity to a non-passive activity if the taxpayer (or spouse on a joint return) materially participates in the specific rental activity. For W-2 earners, the &gt;50% test is generally not satisfied.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ============================================================
+                   STEP 2 - MATERIAL PARTICIPATION (Reg. § 1.469-5T)
+                   ============================================================ -->
+              <div class="step-card" id="step_5">
+                <h4><span class="step-number">5</span>Material Participation &mdash; Reg. &sect;&nbsp;1.469-5T (Seven Tests)</h4>
+                <p class="step-subtitle">If Step 1 establishes that the activity is not per se passive (one of the six exceptions applies, or REPS is established), the taxpayer must materially participate in the activity to claim losses against non-passive income. Reg. &sect;&nbsp;1.469-5T provides seven independent tests; satisfying any one is sufficient.</p>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="management">Management Arrangement</label>
+                    <select id="management">
+                      <option value="self">Self-managed (taxpayer handles operations)</option>
+                      <option value="cohost">Co-host model (taxpayer + helper, taxpayer dominant)</option>
+                      <option value="full">Full-service property manager (Vacasa/Evolve/etc.)</option>
+                    </select>
+                    <div class="field-help">A full-service property manager will generally exceed any individual owner&rsquo;s hours, defeating Test 3.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="taxpayer_hours">Taxpayer&rsquo;s Hours This Year</label>
+                    <input type="number" id="taxpayer_hours" min="0" step="1" placeholder="0">
+                    <div class="field-help">Hours spent on rental management, cleaning, guest communication, supply runs, maintenance, listing management, etc. Must be contemporaneously documented. Used in Tests 1, 3, 4, and 7.</div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="other_hours">Highest Hours by Any Single Other Individual</label>
+                    <input type="number" id="other_hours" min="0" step="1" placeholder="0">
+                    <div class="field-help">Hours of the property manager, co-host, cleaning crew member, contractor, etc. &mdash; the <em>single individual</em> who spends the most time (not the aggregate). Used in Tests 2 and 3.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="total_spa_hours">Total Hours in All Other Significant Participation Activities (Test 4)</label>
+                    <input type="number" id="total_spa_hours" min="0" step="1" placeholder="0">
+                    <div class="field-help">A "Significant Participation Activity" is one in which the taxpayer participates 100+ hours but does not materially participate. Enter the SUM of hours across all such other activities. Used in Test 4 (sum of SPA hours &gt; 500).</div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="prior_5_of_10">Material Participation in 5 of Prior 10 Years (Test 5)</label>
+                    <select id="prior_5_of_10">
+                      <option value="unknown">Not yet determined</option>
+                      <option value="yes">Yes &mdash; materially participated in this activity in any 5 of the prior 10 tax years</option>
+                      <option value="no">No</option>
+                    </select>
+                    <div class="field-help">Reg. &sect;&nbsp;1.469-5T(a)(5): satisfies material participation regardless of current year hours. Especially useful for taxpayers who have stepped back from a long-held activity.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="regular_continuous">Test 7 Facts &amp; Circumstances</label>
+                    <select id="regular_continuous">
+                      <option value="unknown">Not yet determined</option>
+                      <option value="yes">Yes &mdash; participation is regular, continuous, and substantial</option>
+                      <option value="no">No</option>
+                    </select>
+                    <div class="field-help">Reg. &sect;&nbsp;1.469-5T(a)(7) + (b): 100-hour floor required, plus a facts-and-circumstances showing of regular, continuous, and substantial participation. Management work that is incidental and limited to a few hours is generally insufficient.</div>
+                  </div>
+                </div>
+
+                <div style="background: #f5f5f0; border-left: 3px solid #107A4D; padding: 0.85rem 1.15rem; margin-top: 1rem; font-size: 0.88rem; line-height: 1.55;">
+                  <strong style="color: #107A4D;">The seven tests of Reg. &sect;&nbsp;1.469-5T at a glance.</strong> <strong>Test 1:</strong> 500+ hours in current year. <strong>Test 2:</strong> Taxpayer's participation is substantially all of the participation by anyone. <strong>Test 3:</strong> 100+ hours and not less than any other individual. <strong>Test 4:</strong> Significant participation activity (100+ hours, non-MP) + total SPA hours across all SPAs &gt; 500. <strong>Test 5:</strong> Material participation in any 5 of prior 10 years. <strong>Test 6:</strong> Personal service activity, MP in any 3 prior years &mdash; real estate is excluded from "personal service activity," so this test is generally not available for STR/LTR taxpayers. <strong>Test 7:</strong> Facts and circumstances with 100-hour floor.
+                </div>
+              </div>
+
+              <!-- ============================================================
+                   STEP 3 - PROPERTY OPERATIONS (NOI MODELING)
+                   ============================================================ -->
+              <div class="step-card" id="step_6">
+                <h4><span class="step-number">6</span>Property Operations</h4>
+                <p class="step-subtitle">Net Operating Income (NOI) from rental operations. NOI grows 3% annually in the model. Choose your input method based on the precision you want for STR vs. LTR economics.</p>
+
+                <div class="form-group">
+                  <label>NOI Input Method</label>
+                  <div class="toggle-group" style="margin-top: 0.4rem;">
+                    <button type="button" class="toggle-btn active" data-target="noi_method" data-mode="caprate" data-dvn-on="click" data-dvn-do="toggleNOIMethod(this)">CAP&nbsp;RATE</button>
+                    <button type="button" class="toggle-btn" data-target="noi_method" data-mode="grossrent" data-dvn-on="click" data-dvn-do="toggleNOIMethod(this)">GROSS&nbsp;RENTS&nbsp;+&nbsp;OPEX</button>
+                  </div>
+                  <div class="field-help" style="margin-top: 0.5rem;">
+                    <strong>Cap Rate</strong> &mdash; Simpler. Enter expected NOI as % of purchase price (typical STR cap rates: 5&ndash;7%; typical LTR cap rates: 4&ndash;6%).
+                    <br>
+                    <strong>Gross Rents + OpEx</strong> &mdash; More precise. Enter gross annual rents and operating expense ratio. Recommended for STR analysis because operating costs run materially higher (cleaning between guests, listing platform fees, supplies, higher utilities) than for long-term rentals.
+                  </div>
+                </div>
+
+                <div id="caprate_inputs">
+                  <div class="form-group">
+                    <label for="cap_rate">Year 1 Cap Rate (NOI &divide; Purchase Price)</label>
+                    <div class="input-suffix"><input type="number" id="cap_rate" min="0" max="20" step="0.1" value="6.0"></div>
+                    <div class="field-help">Year 1 NOI = Purchase Price &times; Cap Rate. Typical STR cap rates: 5&ndash;7% in vacation markets. Typical LTR cap rates: 4&ndash;6% in major metros, higher in tertiary markets. Distinct from mortgage rate.</div>
+                  </div>
+                </div>
+
+                <div id="grossrent_inputs" style="display:none;">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="gross_rents">Year 1 Gross Annual Rents</label>
+                      <div class="input-prefix"><input type="text" inputmode="decimal" id="gross_rents" placeholder="0"></div>
+                      <div class="field-help">Total expected rental revenue in Year 1 before operating expenses. For STR, account for occupancy variance (typical 60&ndash;75% in vacation markets) and ADR.</div>
+                    </div>
+                    <div class="form-group">
+                      <label for="opex_ratio">Operating Expense Ratio</label>
+                      <div class="input-suffix"><input type="number" id="opex_ratio" min="0" max="100" step="0.5" value="50"></div>
+                      <div class="field-help">Operating expenses as % of gross rents. <strong>STR: typical 45&ndash;55%</strong> (cleaning between guests, supplies, listing platform fees of 15&ndash;20%, utilities, higher turnover wear). <strong>LTR: typical 25&ndash;35%</strong>. Excludes mortgage interest and depreciation.</div>
+                    </div>
+                  </div>
+                  <div class="field-help" style="background: #f5f5f0; padding: 0.65rem 1rem; border-left: 2px solid #107A4D; margin-top: 0.5rem;">
+                    <strong>Year 1 NOI =</strong> Gross Rents &times; (1 &minus; OpEx Ratio)
+                  </div>
+                </div>
+              </div>
+
+              <!-- ============================================================
+                   STEP 6 - HOLD PERIOD
+                   ============================================================ -->
+              <div class="step-card" id="step_7">
+                <h4><span class="step-number">7</span>Hold Period &amp; Modeling Assumptions</h4>
+                <p class="step-subtitle">Hold period determines when the property is sold and IRR is computed. The model assumes 3% annual escalation on rents, expenses, and property value, and 7% selling costs at exit.</p>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="hold_period">Hold Period (Years)</label>
+                    <select id="hold_period">
+                      <option value="3">3 years</option>
+                      <option value="5" selected>5 years</option>
+                      <option value="7">7 years</option>
+                      <option value="10">10 years</option>
+                      <option value="15">15 years</option>
+                      <option value="20">20 years</option>
+                      <option value="30">30 years</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="bonus_rate">Bonus Depreciation Rate</label>
+                    <select id="bonus_rate">
+                      <option value="100" selected>100% (acquired/placed in service after Jan 19, 2025)</option>
+                      <option value="40">40% (TCJA transition / pre-Jan 20, 2025 binding contract)</option>
+                      <option value="20">20% (placed in service in 2026 under pre-OBBBA contract)</option>
+                      <option value="0">0% (no bonus elected; full MACRS)</option>
+                    </select>
+                    <div class="field-help">OBBBA permanently restored 100% bonus for property acquired after Jan 19, 2025.</div>
+                  </div>
+                </div>
+
+                <div class="form-row three-col">
+                  <div class="form-group">
+                    <label for="appreciation_rate">Annual Property Value Appreciation</label>
+                    <div class="input-suffix"><input type="number" id="appreciation_rate" min="-10" max="20" step="0.1" value="3.0"></div>
+                    <div class="field-help">Used for property value at sale and IRR computation.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="rent_growth">Annual Rent Growth</label>
+                    <div class="input-suffix"><input type="number" id="rent_growth" min="-10" max="20" step="0.1" value="3.0"></div>
+                    <div class="field-help">Drives NOI growth (cap rate mode) or gross rent growth (gross rents mode).</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="opex_growth">Annual Operating Expense Growth</label>
+                    <div class="input-suffix"><input type="number" id="opex_growth" min="-10" max="20" step="0.1" value="3.0"></div>
+                    <div class="field-help">Applied only in Gross Rents + OpEx mode. Insurance and property taxes have outpaced general inflation in many STR markets.</div>
+                  </div>
+                </div>
+
+              </div>
+              <!-- LIFECYCLE PHASE BAND -->
+              <div class="lifecycle-phase-band">
+                <div class="lpb-label">DISPOSITION</div>
+                <div class="lpb-sub">End-of-hold treatment: sale, &sect; 1031 exchange, or &sect; 1014 estate step-up</div>
+              </div>
+              <!-- ============================================================
+                   STEP 8 - DISPOSITION STRATEGY  (new — split from old step 7)
+                   ============================================================ -->
+              <div class="step-card" id="step_8">
+                <h4><span class="step-number">8</span>Disposition Strategy &amp; Selling Costs</h4>
+                <p class="step-subtitle">End-of-hold treatment determines whether the deferred gain is recognized now (Sale), rolled forward (&sect;&nbsp;1031), or permanently eliminated (&sect;&nbsp;1014 estate step-up). Selling costs reduce the amount realized at sale.</p>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="selling_costs_pct">Selling Costs (% of Sale Price)</label>
+                    <div class="input-suffix"><input type="number" id="selling_costs_pct" min="0" max="15" step="0.1" value="7.0"></div>
+                    <div class="field-help">Brokerage commissions, transfer taxes, and closing costs at sale. Typical range 5&ndash;8%; default 7%.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="disposition_strategy">Disposition Strategy at End of Hold</label>
+                    <select id="disposition_strategy">
+                      <option value="sale" selected>Sale &mdash; full recognition (current tax)</option>
+                      <option value="1031">&sect; 1031 Like-Kind Exchange &mdash; deferred</option>
+                      <option value="stepup">Estate Step-Up under &sect; 1014 &mdash; permanent elimination</option>
+                    </select>
+                    <div class="field-help">
+                      <strong>Sale:</strong> &sect; 1245 recapture (ordinary) + &sect; 1250 unrecap (25% max) + LTCG + NIIT + state tax all paid at sale.
+                      <strong>&sect; 1031:</strong> No current tax; gain rolls into replacement property's basis (deferred until eventual taxable disposition or another &sect; 1031).
+                      <strong>Estate Step-Up:</strong> Property in decedent's estate gets basis stepped up to FMV under &sect; 1014; depreciation taken during life is not recaptured; deferred gain is permanently eliminated.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="calc-row">
+                <button type="button" class="calc-btn" data-dvn-on="click" data-dvn-do="calculateSTR()">Run Analysis</button>
+                <button type="button" class="calc-btn-secondary" data-dvn-on="click" data-dvn-do="resetSTR()">Reset</button>
+              </div>
+
+              <!-- ============================================================
+                   RESULTS
+                   ============================================================ -->
+              <div class="results-section" id="results">
+                <div id="tier_banner"></div>
+                <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem; gap: 0.5rem;">
+                  <button type="button" class="calc-btn-secondary no-print" style="margin: 0; padding: 0.5rem 1.25rem; font-size: 0.78rem;" data-dvn-on="click" data-dvn-do="window.print()">&#128424; Print / Save as PDF</button>
+                  <button type="button" class="calc-btn-secondary no-print" style="margin: 0; padding: 0.5rem 1.25rem; font-size: 0.78rem;" data-dvn-on="click" data-dvn-do="exportToCSV()">&darr; Export to Excel (CSV)</button>
+                </div>
+                <div id="headline_panel"></div>
+                <div id="eligibility_banner_top"></div>
+                <div id="verdict_panel"></div>
+                <div id="financing_health_panel"></div>
+
+                <div id="heat_map_panel" style="background: #FFFFFF; padding: 1.5rem; margin: 0 0 1.75rem 0; border: 1px solid #d4d4d0;">
+                  <div style="font-family: 'Open Sans', sans-serif; font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; color: #107A4D; font-weight: 700; margin-bottom: 0.5rem;">Sensitivity Analysis</div>
+                  <div style="font-family: 'Gotham Bold', sans-serif; font-size: 1.25rem; color: #1a1a1a; line-height: 1.2; margin-bottom: 0.5rem;">How Returns Vary With Your Assumptions</div>
+                  <div style="font-size: 0.9rem; color: #6b6b6b; line-height: 1.5; margin-bottom: 1.25rem;">
+                    Pick two variables to vary; the grid shows the selected metric across the parameter space. The "YOU" cell marks the location closest to your inputs. Use this to identify whether your scenario is in a stable region or near the edge of a cliff — small assumption errors near the cliff can flip the outcome.
+                  </div>
+
+                  <div class="form-row three-col" style="margin-bottom: 1rem;">
+                    <div class="form-group">
+                      <label for="hm_x_axis">X-axis Variable</label>
+                      <select id="hm_x_axis" data-dvn-on="change" data-dvn-do="renderHeatMap()">
+                        <option value="purchasePrice" selected>Purchase Price</option>
+                        <option value="capRate">Year 1 Cap Rate</option>
+                        <option value="mortgageRate">Mortgage Rate</option>
+                        <option value="holdPeriod">Hold Period</option>
+                        <option value="reclassPct">Cost Seg Reclass %</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="hm_y_axis">Y-axis Variable</label>
+                      <select id="hm_y_axis" data-dvn-on="change" data-dvn-do="renderHeatMap()">
+                        <option value="purchasePrice">Purchase Price</option>
+                        <option value="capRate" selected>Year 1 Cap Rate</option>
+                        <option value="mortgageRate">Mortgage Rate</option>
+                        <option value="holdPeriod">Hold Period</option>
+                        <option value="reclassPct">Cost Seg Reclass %</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="hm_metric">Metric to Visualize</label>
+                      <select id="hm_metric" data-dvn-on="change" data-dvn-do="renderHeatMap()">
+                        <option value="irr" selected>After-Tax IRR (Standard)</option>
+                        <option value="irrStrategy">After-Tax IRR (With Strategy)</option>
+                        <option value="year1Benefit">Year 1 Net Cash Benefit</option>
+                        <option value="totalProfit">Total Profit (Standard)</option>
+                        <option value="totalProfitStrategy">Total Profit (With Strategy)</option>
+                        <option value="cumEffRate">Cumulative Effective Federal Tax Rate</option>
+                        <option value="cumStateEffRate">Cumulative Effective State + Locality Rate</option>
+                        <option value="cumCombinedEffRate">Cumulative Effective Combined Rate (Fed + State)</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div id="heat_map_grid"></div>
+
+                  <div style="font-size: 0.78rem; color: #6b6b6b; line-height: 1.5; margin-top: 1rem; padding-top: 0.85rem; border-top: 1px dashed #d4d4d0;">
+                    <strong>Reading the heat map.</strong> Green cells indicate favorable outcomes for the selected metric; red cells unfavorable. The "YOU" marker shows the cell closest to your inputs. All other parameters in the calculation engine are held at your input values; only the X and Y axes vary across cells. The grid uses 5 values per axis (25 cells total), each computed by running the full calculation engine. This sensitivity analysis is intended to surface assumption fragility, not to predict outcomes. Engage qualified counsel to validate the inputs that matter most for your specific scenario.
+                  </div>
+                </div>
+
+                <div id="strategy_comparison_panel"></div>
+
+                <div id="eligibility_panel"></div>
+                <div id="state_status_panel"></div>
+
+                <h4>Summary Metrics</h4>
+                <div class="summary-grid" id="summary_grid"></div>
+
+                <h4>Multi-Year Projection (After Federal + State Tax)</h4>
+                <div class="multi-year-table-wrapper">
+                  <table class="multi-year-table" id="projection_table"></table>
+                </div>
+
+                <h4>Sale-Year Tax Analysis</h4>
+                <div id="sale_analysis"></div>
+
+                <h4 style="margin-top: 2rem;">Disposition Strategy Comparison</h4>
+                <div id="disposition_comparison"></div>
+
+                <div id="state_comparison"></div>
+              </div>
+
+              <!-- ============================================================
+                   METHODOLOGY — How is this calculated? (Batch C.1)
+                   ============================================================ -->
+              <details class="methodology-section">
+                <summary>
+                  <span class="methodology-summary-label">METHODOLOGY</span>
+                  <span class="methodology-summary-title">How is this calculated? &mdash; tap to expand</span>
+                </summary>
+                <div class="methodology-body">
+
+                  <h5>Federal Income Tax</h5>
+                  <p>Federal income tax is computed using the actual 2026 IRS tax brackets (Rev. Proc. 2025-32) and the standard deduction for the selected filing status ($16,100 single / $32,200 MFJ / $24,150 HoH). Itemized deductions, exemptions, and credits are not modeled. Tax savings are computed as the difference between baseline tax (no rental loss) and after-rental tax (rental loss applied), subject to &sect;&nbsp;461(l) and &sect;&nbsp;172.</p>
+
+                  <h5>&sect;&nbsp;469 Passive/Non-Passive Analysis &mdash; Two-Step Framework</h5>
+                  <p>The tool implements the &sect;&nbsp;469 analysis as two distinct inquiries. <strong>Step 1 (Per Se Passive Analysis)</strong> evaluates whether the activity falls within the definition of a "rental activity" under &sect;&nbsp;469(c)(2) and Reg. &sect;&nbsp;1.469-1T(e)(3)(i), or whether one of the six exceptions in Reg. &sect;&nbsp;1.469-1T(e)(3)(ii) applies: (A) average use &le; 7 days; (B) average use 8&ndash;30 days with significant personal services; (C) extraordinary personal services regardless of period; (D) incidental rental; (E) defined business hours / nonexclusive use; or (F) property used in a non-rental activity of a passthrough entity in which the taxpayer owns an interest. The Real Estate Professional Status path under &sect;&nbsp;469(c)(7) is a separate route out of per se passive treatment that requires the qualifying spouse to materially participate in the specific rental activity. <strong>Step 2 (Material Participation)</strong> runs all seven tests of Reg. &sect;&nbsp;1.469-5T: (1) 500+ hours; (2) substantially all of the participation; (3) 100+ hours and not less than any other individual; (4) significant participation activity with total SPA hours &gt; 500; (5) MP in 5 of prior 10 years; (6) personal service activity (real estate excluded); (7) facts and circumstances with 100-hour floor. Satisfying any one test establishes material participation. The activity is non-passive only if BOTH steps are satisfied: Step 1 escape from per se passive AND Step 2 material participation.</p>
+
+                  <h5>Depreciation &mdash; Federal vs. State</h5>
+                  <p>Federal depreciation uses the appropriate straight-line MACRS recovery period for the building shell &mdash; <strong>27.5 years</strong> for residential rental property or <strong>39 years</strong> for nonresidential / commercial property &mdash; under the <strong>mid-month convention</strong> (Reg. &sect;&nbsp;1.168(d)-2). The Year 1 factor is (12 &minus; month + 0.5) &divide; 12 &times; (1 &divide; recovery years); the year-of-disposition factor is (sale month &minus; 0.5) &divide; 12 &times; (1 &divide; recovery years). January placement on residential 27.5-year property produces a 3.485% Year-1 factor; December placement produces 0.152%. The cost segregation reclassification (5-, 7-, and 15-year MACRS property) uses the half-year convention with the user-selected bonus depreciation rate applied to the reclass in year 1. Mid-quarter convention does not apply when the reclass is fully bonused (100% bonus removes the property from the mid-quarter test under Reg. &sect;&nbsp;1.168(d)-1). State depreciation diverges where states decouple from &sect;&nbsp;168(k); the tool maintains conformity rules for all 51 jurisdictions (50 states + DC) and applies regular MACRS to states that do not conform to bonus. Where states have specific decoupling schedules (e.g., &sect;&nbsp;179 caps, additional first-year depreciation rules), those are modeled to the extent practicable.</p>
+
+                  <h5>&sect;&nbsp;461(l) Excess Business Loss Limitation</h5>
+                  <p>For 2026, the &sect;&nbsp;461(l) threshold is $256,000 (single, HoH, MFS) / $512,000 (MFJ) (post-OBBBA reset, indexed). Rental losses in excess of the threshold are disallowed in the current year and converted to a Net Operating Loss carryforward under &sect;&nbsp;172. The 80% NOL absorption cap is applied to subsequent years; some states decouple from &sect;&nbsp;172 (e.g., CA NOL suspension through 2026, NJ no individual carryforward, PA 40% cap, MN 70% cap, AR full deduction allowed). The model reflects these state-level variations.</p>
+
+                  <h5>Sale-Year Recapture and Capital Gains</h5>
+                  <p>At sale, depreciation is recaptured under &sect;&nbsp;1245 (personal property and qualified improvements from the cost segregation reclass) and &sect;&nbsp;1250 (building shell). &sect;&nbsp;1245 recapture is taxed at the taxpayer's marginal rate using bracket-walking; &sect;&nbsp;1250 unrecaptured gain is taxed at the maximum 25% rate; long-term capital gain is taxed at 0%, 15%, or 20% based on the combined taxable income.</p>
+
+                  <h5>Disposition Strategy &mdash; Sale vs. &sect;&nbsp;1031 Exchange vs. Estate Step-Up under &sect;&nbsp;1014</h5>
+                  <p>The tool models three disposition strategies at the end of the hold period. <strong>Sale</strong> recognizes the full federal and state tax liability at disposition: &sect;&nbsp;1245 recapture at ordinary rates, &sect;&nbsp;1250 unrecaptured gain at the maximum 25% rate, residual long-term capital gain at preferential federal rates, &sect;&nbsp;1411 NIIT at 3.8%, and state tax under the applicable jurisdiction's treatment. <strong>&sect;&nbsp;1031 Like-Kind Exchange</strong> defers the gain into the basis of replacement real property under &sect;&nbsp;1031(a)(1), with no recognition at the exchange moment provided the like-kind, 45-day identification (Reg. &sect;&nbsp;1.1031(k)-1(b)), 180-day acquisition (&sect;&nbsp;1031(a)(3)), and qualified-intermediary requirements are satisfied. The deferred gain reduces the basis of the replacement property and becomes due when the replacement is sold in a taxable disposition, or is permanently eliminated if held until death. <strong>Estate Step-Up under &sect;&nbsp;1014</strong> permanently eliminates the deferred gain: at the decedent's death, the heir's basis in property included in the gross estate is stepped up to fair market value, depreciation taken during the decedent's lifetime is not recaptured, and the entire latent gain (including all prior &sect;&nbsp;1031 deferrals) is forgiven. Operating losses claimed during life remain claimed under both deferral paths. The Disposition Strategy Comparison panel computes all three outcomes for the user's specific scenario to facilitate planning analysis. State conformity to &sect;&nbsp;1031 is general but not universal; verify state treatment before structuring an exchange. The &sect;&nbsp;1014 step-up is a settled feature of current law subject to legislative risk.</p>
+
+                  <h5>&sect;&nbsp;1411 Net Investment Income Tax</h5>
+                  <p>NIIT is applied at 3.8% on the long-term capital gain portion and the &sect;&nbsp;1250 unrecaptured portion of the sale. The model does not include a granular AGI threshold test for NIIT (which begins at $200K single / $250K MFJ); for high-income taxpayers utilizing this strategy, the threshold is typically exceeded and NIIT applies in full. NIIT does not apply to operating rental losses where the taxpayer materially participates under &sect;&nbsp;469 (the activity is non-passive for &sect;&nbsp;1411 purposes when material participation is established).</p>
+
+                  <h5>State Treatment of Capital Gains</h5>
+                  <p>State capital gains treatment varies materially. 33 jurisdictions tax LTCG as ordinary income at full state rates; 3 apply a preferential rate (HI 7.25%, MA 5%, MT 3.9%); 6 provide a partial exclusion (AR 50%, NM 40%, ND 40%, SC 44%, VT 40%, WI 30%); WA imposes a 7% tax above $262K/$524K but generally exempts real estate sales under RCW 82.87. 9 states impose no state income tax (AK, FL, NV, NH, SD, TN, TX, WA, WY) and produce no state tax at sale. State conformity reflects information current as of May 2026.</p>
+
+                  <h5>After-Tax IRR</h5>
+                  <p>IRR is computed on the levered after-tax cash flows: initial equity outlay (down payment plus closing costs) as the year-zero negative, annual after-tax cash flow (operating cash flow plus federal and state tax savings) for years 1 through hold period, and the final-year net sale proceeds (gross sale price less selling costs, less mortgage payoff, less federal and state sale tax) added to the year-of-sale cash flow. Solver uses bisection with 300 iterations.</p>
+
+                  <h5>Simplifications and Limitations</h5>
+                  <ul>
+                    <li><strong>Partial-year sale.</strong> The model assumes full-year operations and end-of-hold-period sale. Actual transactions involve partial-year sale conventions (half-year / mid-month depreciation, prorated NOI and interest) that materially affect sale-year tax.</li>
+                    <li><strong>Cost segregation split.</strong> The reclassification is treated as predominantly 5-year MACRS property. A defensible study typically also identifies 7-year and 15-year property; the model does not split these.</li>
+                    <li><strong>Itemized deductions.</strong> Not modeled. If the taxpayer itemizes (mortgage interest, SALT up to $40,400, charitable, medical above 7.5% AGI), actual tax may be materially lower.</li>
+                    <li><strong>Selling costs.</strong> Default 7% covers brokerage, transfer taxes, and closing; the user can edit this in Step 6.</li>
+                    <li><strong>Single property, single hold.</strong> The model does not handle &sect;&nbsp;1031 exchanges, refinancing during the hold period, partial dispositions, or multi-property portfolios.</li>
+                  </ul>
+
+                </div>
+              </details>
+
+              <div class="tool-disclaimer">
+                <p style="margin-bottom: 0;">
+                  <strong>Important.</strong> This tool produces estimates based on simplified assumptions and the inputs provided. Material participation under &sect;&nbsp;469, the &sect;&nbsp;1.469-1T(e)(3)(ii) short-term rental exception, real estate professional status under &sect;&nbsp;469(c)(7), the &sect;&nbsp;461(l) excess business loss limitation, the &sect;&nbsp;172 NOL carryforward rules, the cost segregation reclassification percentages, federal and state depreciation conformity, sale-year recapture under &sect;&nbsp;1245 and &sect;&nbsp;1250, the &sect;&nbsp;1411 net investment income tax, and state-level tax treatment all involve fact-specific determinations that this tool does not and cannot fully model. <strong>Specific facts and circumstances may produce a different result.</strong> The model assumes annual periodicity (full-year operations and end-of-hold-period sale); actual transactions involve partial-year sale conventions (year-of-sale depreciation under the half-year or mid-month convention, prorated mortgage interest, prorated NOI) that materially affect the sale-year analysis and that the model does not compute. The state conformity table reflects information current as of May 2026 and is updated periodically; users should verify state-specific rules before acting. The cost segregation reclassification percentage entered must be supported by a qualified engineering-and-tax study to be defensible on examination. Where the State Tax Treatment at Exit toggle is set to apply exit planning, results assume a bona fide change of domicile prior to disposition and a property in a no-tax state; the defensibility of any residency change against an audit by the former state is fact-specific. Reading or using this tool does not create an attorney-client relationship with Donovan Legal PLLC or any of its attorneys. <strong>Engage qualified counsel before any acquisition, contribution, or other transaction in reliance on the projections produced by this tool.</strong>
+                </p>
+              </div>
+
+              <div class="tool-back">
+                <a href="tools.html">&larr; All Calculators</a>
+                <span style="margin: 0 0.75rem; color: #C0C0C0;">&middot;</span>
+                Related: <a href="tax-planning.html" style="color: #107A4D; font-weight: 600;">Tax Planning</a> &middot; <a href="real-estate.html" style="color: #107A4D; font-weight: 600;">Real Estate</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JORDAN-PAUL-CONTENT (#225): conversion call-out. -->
+      <div class="dl-endcap">
+        <div class="dl-cta">
+          <p class="dl-cta-q">The strategy is only as good as the log.</p>
+          <p class="dl-cta-s">Material participation, real estate professional status, and grouping elections are decided on evidence. What the analyzer models, an examiner will ask you to prove.</p>
+          <div class="dl-cta-act">
+            <a href="book.html" class="dl-cta-btn dl-cta-btn-1">
+              <span class="l">No charge, 30 minutes</span>
+              <span class="n">Book a Free Consultation</span>
+            </a>
+            <a href="tel:+15616666022" class="dl-cta-btn dl-cta-btn-2">
+              <span class="l">Call Donovan Legal</span>
+              <span class="n">(561)&nbsp;666-6022</span>
+            </a>
+          </div>
+          <p class="dl-cta-note">This tool provides general estimates only and is not legal or tax advice. Scheduling does not create an attorney-client relationship.</p>
+        </div>
+      </div>
+
+      <!-- JORDAN-LAUNCH-POLISH: click-to-call / email / social. Styles live in css/main.css. -->
+      <div class="dl-connect">
+        <a class="dl-connect-cta" href="tel:+15616666022"><svg class="dl-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.03-.24c1.12.37 2.33.57 3.56.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>Click Here To Call Donovan Legal</a>
+        <p class="dl-connect-direct">
+          <a href="tel:+15616666022">(561) 666-6022</a>
+          <span class="dl-connect-sep">|</span>
+          <a href="mailto:info@donovan.law">info@donovan.law</a>
+        </p>
+        <ul class="dl-social">
+          <li><a href="https://www.facebook.com/people/Donovan-Legal-PLLC/61590654057720/" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.324.103a8.16 8.16 0 0 1 1.021.215v3.324c-.153-.015-.33-.03-.582-.045a8.98 8.98 0 0 0-.594-.023c-.673 0-1.194.092-1.583.276a1.73 1.73 0 0 0-.786.732c-.179.303-.256.68-.256 1.155v1.821h3.86l-.334 1.847-.335 1.82h-3.191v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647z"/></svg></a></li>
+          <li><a href="https://www.tiktok.com/@donovan.legal" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on TikTok" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a></li>
+          <li><a href="https://www.instagram.com/donovan_legalpllc" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227a3.81 3.81 0 0 1-.899 1.382 3.744 3.744 0 0 1-1.38.896c-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421a3.716 3.716 0 0 1-1.379-.899 3.644 3.644 0 0 1-.9-1.38c-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.846-10.405a1.441 1.441 0 0 1-2.881 0 1.441 1.441 0 0 1 2.881 0z"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/company/donovan-legal-pllc/" target="_blank" rel="noopener noreferrer" aria-label="Donovan Legal PLLC on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="copy-inside margin-practice">&copy; Donovan Legal PLLC. 2026. | <a class="disclaimer-link" href="disclaimer.html">DISCLAIMER</a></div>
+    </div>
+  </div>
+  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/js/vendor/jquery-fallback.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+<script src="js/tool-rental-real-estate-tax-strategy-analyzer.js" defer></script>
+
+  <!-- B3: dispatches data-dvn-on/-do, the CSP-safe replacement for inline on*= handlers. -->
+  <script src="/js/inline-actions.js" defer></script>
+  <!-- JORDAN-LAUNCH-POLISH: sticky click-to-call bar (mobile only, see css/main.css). -->
+  <div class="dl-callbar">
+    <a href="tel:+15616666022"><svg class="dl-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.03-.24c1.12.37 2.33.57 3.56.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>Click Here To Call Donovan Legal</a>
+  </div>
+</body>
+</html>

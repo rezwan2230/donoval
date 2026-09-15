@@ -1,0 +1,39 @@
+# Cloudflare Pages headers — static security headers.
+#
+# ── WHERE THE CSP WENT (Dr. Insane RE-GATE R2, blocker B3) ────────────────────
+# The Content-Security-Policy is NO LONGER SET HERE. It moved to
+# functions/_middleware.js, which issues a fresh per-request nonce and stamps it
+# onto every inline <script> as the HTML streams out.
+#
+# It had to move because this file is static and a nonce is per-request. The old
+# policy carried script-src 'unsafe-inline', which made the CSP decorative against
+# XSS on pages that hold caller PII — the whole point of having one here.
+#
+# Do NOT add a Content-Security-Policy line back to this file. Two policies means
+# the browser enforces both intersected, so a stale 'unsafe-inline' left here
+# would not widen the live policy, but it WOULD make the effective policy
+# impossible to reason about from either file alone. One owner, in the middleware.
+#
+# Everything below is genuinely static and stays here.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  # X-Frame-Options is NOT set here. Framing is owned by functions/_middleware.js,
+  # which emits frame-ancestors and X-Frame-Options together so the two can never
+  # disagree. It formerly stayed permissive to let the vendor concierge shell iframe
+  # this site; that shell is gone and the policy is now 'self' unconditionally.
+  Permissions-Policy: microphone=(), camera=()
+
+# CSS is no-cache during active development so style fixes actually reach users
+# (immutable year-long caching meant edits never propagated). Before go-live,
+# version the asset filenames (main.[hash].css) and restore immutable caching.
+/css/*
+  Cache-Control: no-cache
+/js/*
+  Cache-Control: no-cache
+/img/*
+  Cache-Control: public, max-age=31536000, immutable
+/webfonts/*
+  Cache-Control: public, max-age=31536000, immutable

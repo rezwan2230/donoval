@@ -1,0 +1,380 @@
+/* ── JORDAN-PERCH-A21: styles for the persistent overlay layer ───────────────
+ *
+ * Loaded ONLY on pages that get a swap container (injected alongside
+ * js/perch-layer.js by functions/_lib/perch-layer-inject.js). The Perch shell
+ * `perch.html` is not such a page — A0.1 skips it because it hosts an orb of its
+ * own — so the shell keeps rendering from its own inline <style> and nothing
+ * here can reach it.
+ *
+ * ── EVERY RULE IS SCOPED UNDER #perch-persistent, ON PURPOSE ────────────────
+ * These rules were authored inside perch.html, a document with a global
+ * `*{margin:0;padding:0;box-sizing:border-box}` reset and no site stylesheet.
+ * The 143 content pages have the opposite: Bootstrap, main.css, Animate.css and
+ * their own resets. Dropping the orb's rules into that cascade unscoped would
+ * both inherit Bootstrap's box model and leak `.opt`/`.card`/`.step` selectors
+ * into page content that legitimately uses those class names.
+ *
+ * So the layer carries its own reset, scoped to its subtree, and every selector
+ * is anchored to the layer root. Specificity (1,x,y) also puts these above any
+ * single-class site rule without a single !important.
+ *
+ * Custom properties are namespaced `--perch-*` rather than the shell's bare
+ * `--gold` / `--green` / `--ink`, so a page that later defines its own design
+ * tokens cannot repaint the concierge by accident.
+ */
+
+#perch-persistent {
+  /* Full-viewport overlay. `pointer-events:none` so the layer itself never
+   * swallows a click meant for the page; children opt back in below. */
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  pointer-events: none;
+
+  --perch-gold: #c1a221;
+  --perch-gold-bright: #ffca18;
+  --perch-green: #074c23;
+  --perch-ink: #15140f;
+  --perch-display: Georgia, serif;
+  --perch-body: system-ui, sans-serif;
+}
+
+/* Only the concierge chrome is hit-testable. */
+#perch-persistent > * { pointer-events: auto; }
+
+/* The layer's own reset.
+ *
+ * Scoped to named subtrees rather than to `#perch-persistent *`, because the
+ * layer also HOSTS chrome it did not author: js/donovan-widget.js appends
+ * `#dvn-perch-launcher` here and, in its BARE form, styles it entirely with
+ * inline properties sized against the browser default box model. A blanket
+ * `box-sizing: border-box` under the layer root would silently reshape a
+ * launcher this file never designed.
+ *
+ * JORDAN-PERCH-LAUNCHER-PARITY adds `.perch-concierge` to the list, and only
+ * that class. When the widget dresses itself as the concierge it FIRST clears
+ * those inline properties (see dressAsConcierge()), so the box it hands over is
+ * this file's to size — the exclusion above is about the bare launcher, and the
+ * dressed one is no longer that launcher. An undressed launcher never matches
+ * the class, so the carve-out it relies on is untouched. */
+#perch-persistent #concierge, #perch-persistent #concierge *,
+#perch-persistent #dvn-perch-launcher.perch-concierge,
+#perch-persistent #dvn-perch-launcher.perch-concierge *,
+#perch-persistent #caption, #perch-persistent #caption *,
+#perch-persistent #qual, #perch-persistent #qual *,
+#perch-persistent #concierge *::before, #perch-persistent #concierge *::after,
+#perch-persistent #qual *::before, #perch-persistent #qual *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#perch-persistent #concierge,
+#perch-persistent #dvn-perch-launcher.perch-concierge,
+#perch-persistent #caption,
+#perch-persistent #qual { font-family: var(--perch-body); line-height: normal; }
+
+/* ── The orb ──────────────────────────────────────────────────────────────────
+ *
+ * ── JORDAN-PERCH-LAUNCHER-PARITY: TWO SELECTORS, ONE SET OF VALUES ──────────
+ * Every rule below is shared by the two concierges this codebase has:
+ *
+ *   #concierge                            the shell orb, built by
+ *                                         js/perch/chrome.js and adopted from
+ *                                         perch.html's own markup at `/perch`.
+ *   #dvn-perch-launcher.perch-concierge   the widget launcher on the 139 content
+ *                                         pages, dressed by js/donovan-widget.js
+ *                                         once it mounts into this layer.
+ *
+ * They are grouped rather than duplicated because parity IS the ticket: two
+ * blocks with the same values today are two blocks that disagree after the next
+ * edit, and the reviewer would have to diff them by eye to notice. Grouping makes
+ * "the content pages match /perch" a property of the file instead of a claim
+ * about it. The class is required in the second selector — an undressed launcher
+ * must keep its own inline 66px presentation and match nothing here.
+ *
+ * The shell's copy in perch.html is the third instance and stays separate on
+ * purpose: it is a different document with a different reset and no layer root
+ * to scope against. test/perch-launcher-parity.test.mjs pins the values that
+ * matter across all three so the split cannot drift silently. */
+#perch-persistent #concierge,
+#perch-persistent #dvn-perch-launcher.perch-concierge {
+  position: fixed; right: 26px; bottom: 26px; z-index: 80;
+  width: 116px; height: 116px; cursor: grab;
+  display: flex; align-items: center; justify-content: center;
+  touch-action: none; user-select: none; background: transparent;
+}
+/* The launcher is a <button>, which the shell orb is not: neutralise the UA and
+ * Bootstrap defaults that a <div> never carried. `overflow: visible` is the
+ * load-bearing one — the CTA pill sits ENTIRELY above the button's box
+ * (`bottom: calc(100% - 2px)`) and the rings pulse out past it, so a clipping
+ * button would render the concierge as a bare disc with no invitation on it. */
+#perch-persistent #dvn-perch-launcher.perch-concierge {
+  -webkit-appearance: none; appearance: none;
+  border: 0; overflow: visible; text-align: center; color: inherit;
+  font: inherit; text-transform: none;
+}
+
+#perch-persistent #concierge.dragging,
+#perch-persistent #dvn-perch-launcher.perch-concierge.dragging { cursor: grabbing; }
+#perch-persistent #concierge .ring,
+#perch-persistent #dvn-perch-launcher.perch-concierge .ring {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 2px solid rgba(193, 162, 33, .5);
+  animation: perch-pulse 2.6s ease-out infinite; pointer-events: none;
+}
+#perch-persistent #concierge .ring.r2,
+#perch-persistent #dvn-perch-launcher.perch-concierge .ring.r2 { animation-delay: 1.3s; }
+@keyframes perch-pulse {
+  0%   { transform: scale(.7);   opacity: .9; }
+  100% { transform: scale(1.25); opacity: 0; }
+}
+/* IDLE = gold (tap me), LIVE = green (connected — green means go). */
+#perch-persistent #concierge .disc,
+#perch-persistent #dvn-perch-launcher.perch-concierge .disc {
+  width: 92px; height: 92px; border-radius: 50%; overflow: hidden; position: relative;
+  background: radial-gradient(circle at 32% 28%, #d9b62f, #b08e15 72%);
+  border: 3px solid var(--perch-gold);
+  box-shadow: 0 10px 28px rgba(193, 162, 33, .5);
+  flex: 0 0 auto;
+}
+#perch-persistent #concierge.live .disc,
+#perch-persistent #dvn-perch-launcher.perch-concierge.live .disc { border-color: #107a4d; box-shadow: 0 10px 30px rgba(7, 76, 35, .55); }
+#perch-persistent #concierge.live .ring,
+#perch-persistent #dvn-perch-launcher.perch-concierge.live .ring { border-color: rgba(16, 122, 77, .55); }
+#perch-persistent #concierge .disc .face,
+#perch-persistent #dvn-perch-launcher.perch-concierge .disc .face {
+  width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;
+  max-width: none; /* Bootstrap sets img{max-width:100%} — the face is cover-cropped */
+}
+/* Idle call-to-action pill; hidden once a call is live. */
+#perch-persistent #concierge .cta,
+#perch-persistent #dvn-perch-launcher.perch-concierge .cta {
+  position: absolute; bottom: calc(100% - 2px); right: 22px;
+  background: rgba(21, 20, 15, .92); border: 1px solid rgba(193, 162, 33, .45);
+  color: #fff; font-size: 13px; font-weight: 500; padding: 9px 16px; border-radius: 24px;
+  white-space: nowrap; box-shadow: 0 6px 18px rgba(0, 0, 0, .35);
+  pointer-events: none; transition: opacity .25s;
+  font-family: var(--perch-body); line-height: normal; letter-spacing: normal;
+}
+#perch-persistent #concierge .cta .p,
+#perch-persistent #dvn-perch-launcher.perch-concierge .cta .p {
+  color: var(--perch-gold-bright); font-family: var(--perch-display);
+  font-weight: 700; letter-spacing: .5px; margin-left: 5px;
+}
+#perch-persistent #concierge.live .cta,
+#perch-persistent #dvn-perch-launcher.perch-concierge.live .cta { opacity: 0; }
+/* `busy` is the launcher's own state, and it has no shell counterpart: the widget
+ * reports "Connecting…" / "Call ended." in a status pill of its own, and that pill
+ * occupies the same corner the CTA does. Hiding the invitation while the status is
+ * up is the same rule `.live .cta` expresses, one beat earlier — the call is not
+ * live yet during the mint, and two stacked pills is the visible defect. */
+#perch-persistent #dvn-perch-launcher.perch-concierge.busy .cta { opacity: 0; }
+
+/* ── JORDAN-LAUNCHER-FOCUS-OUTLINE: the focus ring ──────────────────────────
+ *
+ * ── WHAT WAS PAINTING ──────────────────────────────────────────────────────
+ * Nothing in this repo set an outline on the launcher. The black box was the UA
+ * default — measured on production, not inferred:
+ *
+ *     outline: rgb(16, 16, 16) auto 5px   outline-offset: 3px
+ *
+ * `#concierge` never showed it because the shell orb is a <div>. The launcher is
+ * a <button>, so it takes focus, and the UA-neutralisation block that opens this
+ * section carried `outline-offset: 3px` with no `outline` of its own — an offset
+ * waiting for a ring nobody had chosen, which is why the black box looked
+ * deliberate. The button's box is the full 116px SQUARE (the round
+ * part is the 92px `.disc` inside it) and it has no border-radius, so the ring
+ * Chrome supplied was a hard black RECTANGLE standing 3px off the concierge.
+ *
+ * ── WHY IT SHOWED UP MID-CALL, WITHOUT ANYONE PRESSING A KEY ───────────────
+ * js/consent-gate.js:221 captures `document.activeElement` — the launcher, which
+ * the opening click focused — and :278 calls `prevFocus.focus()` when the modal
+ * closes. So the ring lands the instant consent is settled and stays for the
+ * whole call. Both dismissal paths were measured on www.donovan.law and both
+ * painted, Esc and mouse alike, which is why `:focus` is reset here and not only
+ * `:focus-visible`: the UA ring did not wait for `:focus-visible` to match.
+ *
+ * ── WHAT REPLACES IT ───────────────────────────────────────────────────────
+ * A keyboard-only ring, concentric with the disc instead of boxing the button:
+ *
+ *     .disc (92px) │ ink hairline 92→98 │ gold ring 98→104 │ button box (116px)
+ *
+ * `:focus-visible` is what keeps a mouse click clean — a pointer gesture matches
+ * `:focus` and not `:focus-visible`, so the click that starts a call paints no
+ * ring, while Tab still does. Removing the indicator outright was never on the
+ * table; this is a REPLACEMENT, and test/perch-launcher-focus.test.mjs fails if a
+ * later edit leaves the reset without it.
+ *
+ * ── ONE THING THIS DOES NOT SUPPRESS, DELIBERATELY ─────────────────────────
+ * Chrome grants `:focus-visible` to a SCRIPT focus whatever modality preceded
+ * it, so the consent gate's restore still lands the ring, and it stays for the
+ * call. Measured, not assumed: verify-launcher-focus.mjs arm E records it beside
+ * the screenshot. What changes is which ring — the round brand one on the disc
+ * rather than the UA's rectangle around the button. Suppressing it on `.live`
+ * was considered and rejected: it would hide the indicator from a keyboard
+ * caller at the one moment they most need to know the orb is what Enter acts on.
+ * Making the orb clean mid-call for a mouse caller means changing the restore in
+ * js/consent-gate.js, which is the recorded-consent path and not a CSS question.
+ *
+ * The two-tone is a contrast requirement, not decoration. `--perch-gold-bright`
+ * alone is ~1.6:1 on the cream and white page backgrounds these 139 pages use,
+ * which fails WCAG 2.2 SC 2.4.11; the ink hairline underneath it gives the
+ * indicator an edge that reads on cream, on white and against the gold disc. */
+#perch-persistent #dvn-perch-launcher.perch-concierge:focus { outline: none; }
+#perch-persistent #dvn-perch-launcher.perch-concierge:focus-visible .disc {
+  outline: 3px solid var(--perch-gold-bright);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px var(--perch-ink), 0 10px 28px rgba(193, 162, 33, .5);
+}
+/* The connected state keeps its own drop shadow; only the ring is added. */
+#perch-persistent #dvn-perch-launcher.perch-concierge.live:focus-visible .disc {
+  box-shadow: 0 0 0 3px var(--perch-ink), 0 10px 30px rgba(7, 76, 35, .55);
+}
+/* Forced-colors ignores author colours by design. Hand the indicator back to the
+ * system rather than leaving a high-contrast user with the reset and nothing
+ * else — a rectangle is the correct answer in that mode, and only in that mode. */
+@media (forced-colors: active) {
+  #perch-persistent #dvn-perch-launcher.perch-concierge:focus-visible {
+    outline: 3px solid Highlight;
+    outline-offset: 3px;
+  }
+}
+
+/* ── The caption strip ────────────────────────────────────────────────────── */
+#perch-persistent #caption {
+  position: fixed; left: 50%; bottom: 36px;
+  transform: translateX(-50%) translateY(20px); z-index: 90;
+  background: rgba(21, 20, 15, .92); color: #fff; padding: 14px 22px; border-radius: 30px;
+  font-size: 15px; max-width: 84vw; box-shadow: 0 14px 40px rgba(0, 0, 0, .3);
+  opacity: 0; transition: .35s; pointer-events: none;
+  border: 1px solid rgba(193, 162, 33, .4);
+}
+#perch-persistent #caption.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+#perch-persistent #caption .who {
+  color: var(--perch-gold-bright); font-family: var(--perch-display);
+  font-size: 12px; letter-spacing: 2px; margin-right: 8px;
+}
+
+/* ── Qualifier modal ──────────────────────────────────────────────────────── */
+#perch-persistent #qual {
+  position: fixed; inset: 0; z-index: 120; display: none;
+  align-items: center; justify-content: center;
+  background: rgba(7, 20, 12, .72); backdrop-filter: blur(3px); padding: 18px;
+}
+#perch-persistent #qual.show { display: flex; }
+#perch-persistent #qual .card {
+  background: #fffdf7; width: 100%; max-width: 440px; border-radius: 18px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .5); overflow: hidden;
+  border-top: 5px solid var(--perch-green);
+}
+#perch-persistent #qual.done-state .card,
+#perch-persistent #qual.handoff-state .card { border-top-color: var(--perch-gold); }
+#perch-persistent #qual .hd { display: flex; align-items: center; gap: 10px; padding: 16px 20px 0; }
+#perch-persistent #qual .hd .mk {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, #1a6b36, #074c23 70%);
+  flex: 0 0 auto; position: relative; overflow: hidden;
+}
+/* JORDAN-PERCH-PHOTO-PAULA: the header mark is the concierge's face rather than the
+ * firm's logo mark. The logo needed to be oversized (67px in a 30px circle) and
+ * nudged to bring the emblem into frame; a portrait does not — it fills the circle
+ * and `border-radius` on `.mk` does the clipping. Same `cover` + `center` pair as
+ * `.disc .face` above, which is what lets ONE asset read correctly at 92px in the
+ * orb and at 30px here without a second crop.
+ *
+ * `max-width: none` is load-bearing on the 139 content pages and not on the shell:
+ * Bootstrap ships `img { max-width: 100% }`, and the layer's rules have to outrank
+ * it — the same reason the orb's face rule carries it. */
+#perch-persistent #qual .hd .mk .mkemb {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center; display: block;
+  pointer-events: none; max-width: none;
+}
+#perch-persistent #qual .hd .nm {
+  font-family: var(--perch-display); font-size: 12px; letter-spacing: 2px;
+  color: var(--perch-green); text-transform: uppercase;
+}
+#perch-persistent #qual .bd { padding: 14px 20px 22px; }
+#perch-persistent #qual .step {
+  font-size: 11px; letter-spacing: 1px; color: #9a8f6f;
+  text-transform: uppercase; margin-bottom: 6px;
+}
+#perch-persistent #qual h2 {
+  font-family: var(--perch-display); font-size: 21px; color: var(--perch-ink);
+  line-height: 1.25; margin-bottom: 4px;
+}
+#perch-persistent #qual .sub { font-size: 13px; color: #6b6552; margin-bottom: 14px; }
+#perch-persistent #qual .opts { display: flex; flex-direction: column; gap: 9px; }
+#perch-persistent #qual .opt {
+  display: flex; align-items: center; justify-content: space-between; text-align: left;
+  font-size: 15px; font-weight: 600; color: var(--perch-ink); background: #fff;
+  border: 1.5px solid #e3dcc6; border-radius: 11px; padding: 15px 16px;
+  cursor: pointer; transition: .14s; min-height: 52px; width: 100%;
+}
+#perch-persistent #qual .opt:hover,
+#perch-persistent #qual .opt:focus {
+  border-color: var(--perch-gold); background: #fffbe9;
+  transform: translateY(-1px); outline: none;
+}
+#perch-persistent #qual .opt.declined { font-weight: 500; color: #8a8368; font-size: 13.5px; min-height: 44px; }
+#perch-persistent #qual .opt .arrow { color: var(--perch-gold); font-size: 17px; opacity: .55; }
+#perch-persistent #qual .foot {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 15px; min-height: 22px;
+}
+/* ── JORDAN-SITE-UX-FIXES-R1: the explicit decline ──────────────────────────
+ *
+ * The one non-completing route to the calendar, and it has to LOOK like a
+ * deliberate control — the thing it replaces was a click on the dark area
+ * outside the card, which nobody presses on purpose. Deliberately quiet: the
+ * same muted weight `.opt.declined` carries, on its own row under the footer,
+ * so it reads as the way out rather than as the recommended answer.
+ *
+ * `outline` and `outline-offset` together, never the offset alone — an offset
+ * with no ring of its own paints nothing and only stands a UA ring further off
+ * the button. Same rule test/perch-launcher-focus.test.mjs holds the launcher to.
+ */
+#perch-persistent #qual .exit {
+  display: flex; justify-content: center; margin-top: 14px;
+  padding-top: 12px; border-top: 1px solid #efe9d8;
+}
+#perch-persistent #qual .declinebk {
+  background: none; border: 0; color: #8a8368; font-size: 13px; font-weight: 500;
+  cursor: pointer; padding: 8px 6px; min-height: 36px; text-decoration: underline;
+  text-underline-offset: 3px; font-family: inherit;
+}
+#perch-persistent #qual .declinebk:hover { color: var(--perch-green); }
+#perch-persistent #qual .declinebk:focus-visible {
+  outline: 2px solid var(--perch-gold); outline-offset: 2px; border-radius: 6px;
+}
+#perch-persistent #qual .back {
+  background: none; border: 0; color: #9a8f6f; font-size: 13px; cursor: pointer; padding: 4px 2px;
+}
+#perch-persistent #qual .back:hover { color: var(--perch-green); }
+#perch-persistent #qual .back[hidden] { visibility: hidden; display: block; }
+#perch-persistent #qual .dots { display: flex; gap: 6px; }
+#perch-persistent #qual .dots i { width: 7px; height: 7px; border-radius: 50%; background: #e0d9c2; transition: .2s; }
+#perch-persistent #qual .dots i.on { background: var(--perch-gold); }
+#perch-persistent #qual .info { position: relative; }
+#perch-persistent #qual .info .ibtn {
+  width: 19px; height: 19px; border-radius: 50%; border: 1.4px solid #c9c0a3;
+  color: #9a8f6f; background: #fff; font-size: 12px; font-style: italic;
+  font-family: Georgia, serif; cursor: pointer; line-height: 1;
+}
+#perch-persistent #qual .info .blurb {
+  display: none; position: absolute; right: 0; bottom: 26px; width: 240px;
+  background: var(--perch-ink); color: #f6f3e9; font-size: 12px; font-weight: 400;
+  line-height: 1.5; padding: 10px 12px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
+}
+#perch-persistent #qual .info.open .blurb { display: block; }
+#perch-persistent #qual .msg { font-size: 14.5px; color: #4a4636; line-height: 1.55; }
+#perch-persistent #qual .msg strong { color: var(--perch-green); }
+
+/* Respect a reduced-motion preference for the orb's attention pulse. The site's
+ * own stylesheets do not, but new chrome should not add to that. */
+@media (prefers-reduced-motion: reduce) {
+  #perch-persistent #concierge .ring,
+  #perch-persistent #dvn-perch-launcher.perch-concierge .ring { animation: none; opacity: .35; }
+  #perch-persistent #caption { transition: none; }
+  #perch-persistent #qual .opt { transition: none; }
+}
