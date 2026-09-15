@@ -327,9 +327,12 @@ class NonceStamper {
 export async function onRequest(context) {
   const { request, next } = context;
   const localHost = ['localhost', '127.0.0.1', '::1'].includes(new URL(request.url).hostname);
-  const runtimeEnv = localHost && !context.env?.ANALYTICS
-    ? { ...context.env, ANALYTICS: 'on' }
-    : context.env;
+  // Pages Functions does not guarantee a CF_PAGES runtime variable. Keep the
+  // production tag on by default and allow an explicit off switch instead of
+  // silently dropping analytics when deployment variables are unavailable.
+  const runtimeEnv = context.env?.ANALYTICS
+    ? context.env
+    : { ...context.env, ANALYTICS: 'on' };
 
   // A51's `homepageRequest` stood here, substituting `/home` for `/`. With the
   // shell deleted there is nothing to substitute away from — `/` is the real
