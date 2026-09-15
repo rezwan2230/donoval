@@ -325,6 +325,10 @@ class NonceStamper {
 
 export async function onRequest(context) {
   const { request, next } = context;
+  const localHost = ['localhost', '127.0.0.1', '::1'].includes(new URL(request.url).hostname);
+  const runtimeEnv = localHost && !context.env?.ANALYTICS
+    ? { ...context.env, ANALYTICS: 'on' }
+    : context.env;
 
   // A51's `homepageRequest` stood here, substituting `/home` for `/`. With the
   // shell deleted there is nothing to substitute away from — `/` is the real
@@ -371,7 +375,7 @@ export async function onRequest(context) {
   // The analytics allowance travels with the flag that decides whether the tag is
   // injected at all, so the policy and the page can never disagree: no tag means
   // no hosts, and a host allowance is never left behind by a rollback.
-  const analyticsOn = analyticsEnabled(context.env);
+  const analyticsOn = analyticsEnabled(runtimeEnv);
   out.headers.set('Content-Security-Policy', buildCsp(nonce, { analytics: analyticsOn }));
   // Set alongside the CSP and above the non-HTML early return, for the same reason
   // the CSP is: a response that is not HTML today can still be rendered in a frame.
@@ -430,9 +434,9 @@ export async function onRequest(context) {
     + floatStylesheetTag(new URL(request.url).pathname)
     + footerStylesheetTag(wantsFooterLine)
     + navStylesheetTag(navState)
-    + analyticsTag(context.env)
-    + gtmTag(context.env, nonce)
-    + (analyticsEnabled(context.env) ? regionTag(context.request) : '')
+    + analyticsTag(runtimeEnv)
+    + gtmTag(runtimeEnv, nonce)
+    + (analyticsEnabled(runtimeEnv) ? regionTag(context.request) : '')
     // JAY-SEO-E2. NOT gated on ANALYTICS, deliberately — a console re-checks its
     // token and un-verifies a property whose tag has vanished, so tying this to
     // the tracking flag would mean switching tracking off for an afternoon
@@ -465,7 +469,7 @@ export async function onRequest(context) {
   // appending is documented in _lib/book-float-inject.js.
   for (const [selector, handler] of floatHandlers(new URL(request.url).pathname)) rewriter = rewriter.on(selector, handler);
   for (const [selector, handler] of barHandlers(plan)) rewriter = rewriter.on(selector, handler);
-  for (const [selector, handler] of gtmBodyHandlers(context.env)) rewriter = rewriter.on(selector, handler);
+  for (const [selector, handler] of gtmBodyHandlers(runtimeEnv)) rewriter = rewriter.on(selector, handler);
   // #223. Registered after the bar for the same reason the bar is registered last:
   // nothing above depends on it. It writes into the footer, far below anything the
   // container/layer/router ordinals are measured against, and injected content is
