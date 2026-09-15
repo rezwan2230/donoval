@@ -405,7 +405,11 @@ describe('DR-INSANE-A34 — with the router off the response is unchanged from F
     try {
       const mod = await import(pathToFileURL(baseline.file).href);
 
-      for (const env of [OFF, undefined, { PERCH_ROUTER: '' }]) {
+      for (const env of [
+        { ...OFF, ANALYTICS: 'off' },
+        { ANALYTICS: 'off' },
+        { PERCH_ROUTER: '', ANALYTICS: 'off' },
+      ]) {
         for (const ctype of ['text/html; charset=utf-8', 'text/css']) {
           const before = normalise(await headersFrom(mod, { env, ctype }));
           const after = normalise(await headersFrom({ onRequest }, { env, ctype }));

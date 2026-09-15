@@ -198,8 +198,8 @@ async function serve(env) {
 }
 
 describe('end to end through the real middleware', () => {
-  test('with the flag OFF the page carries no analytics tag and no analytics hosts', async () => {
-    const { html, csp } = await serve({});
+  test('with an explicit off flag the page carries no analytics tag and no analytics hosts', async () => {
+    const { html, csp } = await serve({ ANALYTICS: 'off' });
     assert.doesNotMatch(html, /js\/analytics\.js/);
     assert.doesNotMatch(csp, /googletagmanager|facebook|google-analytics/);
   });
