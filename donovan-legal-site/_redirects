@@ -154,9 +154,7 @@
 # plus deletion of the old files. The site moved to Cloudflare before that happened, so the
 # .htaccess rule never applied here and the old page kept answering 200 — and got a card on
 # /tools by mistake in the 2026-09-04 index rewrite. Both spellings, per the /desclimer lesson.
-# The file itself stays on disk for the test suites that mount it; the 301 fires first.
-/tool-str-strategy-analyzer.html   /tool-rental-real-estate-tax-strategy-analyzer   301
-/tool-str-strategy-analyzer        /tool-rental-real-estate-tax-strategy-analyzer   301
+# The file itself stays on disk for the test suites that mount it; the earlier 301s fire first.
 
 # ---- 2026-09-05 — the four-tier members program is retired ----
 # Tier roots and their copies of the tools → the portal explanation; the four
