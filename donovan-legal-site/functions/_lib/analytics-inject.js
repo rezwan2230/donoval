@@ -51,10 +51,11 @@ function gtmEnabled(env) {
  * conversions do not merely look untidy in a report: Smart Bidding learns from
  * them, so a week of QA clicks teaches the algorithm to buy the wrong people.
  *
- * So: OFF everywhere unless someone explicitly says `on`. Merging this PR
- * changes nothing observable; deploying it changes nothing observable; setting
- * `ANALYTICS=on` in the Cloudflare environment is the single act that starts
- * tracking, and unsetting it is the whole rollback.
+ * Cloudflare Pages is the production runtime, so it is ON there unless an
+ * operator explicitly sets `ANALYTICS=off`. The Cloudflare runtime marker is
+ * used as the fallback because Pages deployment config can be overridden or
+ * omitted by the dashboard. Local development is still ON through the
+ * middleware's local-runtime override.
  *
  * Preview verification does not need the tags anyway — `window.__dlAnalytics`
  * records every event with or without a vendor tag present, which is how the
@@ -63,7 +64,7 @@ function gtmEnabled(env) {
 export function analyticsEnabled(env) {
   const flag = env && typeof env.ANALYTICS === 'string' ? env.ANALYTICS.trim().toLowerCase() : '';
   if (flag) return flag === 'on';
-  return !!(env && env.CF_PAGES === '1' && env.CF_PAGES_BRANCH === 'local');
+  return !!(env && env.CF_PAGES === '1');
 }
 
 /**

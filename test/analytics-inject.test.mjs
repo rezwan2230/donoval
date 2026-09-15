@@ -40,6 +40,11 @@ describe('the flag', () => {
     }
   });
 
+  test('is on in Cloudflare Pages when the deployment flag is absent', () => {
+    assert.equal(analyticsEnabled({ CF_PAGES: '1' }), true);
+    assert.equal(analyticsEnabled({ CF_PAGES: '1', ANALYTICS: 'off' }), false);
+  });
+
   test('does not default on for preview hosts the way routerEnabled does', () => {
     // Deliberate divergence. A preview running the real tags would send test
     // traffic to the real GA4 property, the real Ads conversions and the real
