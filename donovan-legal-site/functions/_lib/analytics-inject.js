@@ -32,7 +32,9 @@ const TAG = `<script type="module" src="${ANALYTICS_MODULE_SRC}"></script>`;
 const GTM_TAG = `<script type="module" src="${GTM_MODULE_SRC}"></script>`;
 const GTM_NOSCRIPT = `<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_CONTAINER_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`;
 
-const gtmBootstrap = (nonce) => `<script nonce="${nonce}">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_CONTAINER_ID}');</script>`;
+function gtmEnabled(env) {
+  return analyticsEnabled(env) || env?.CF_PAGES === '1';
+}
 
 /**
  * Is analytics switched on for this deployment?
@@ -75,14 +77,14 @@ export function analyticsTag(env) {
   return analyticsEnabled(env) ? TAG + tagConfigTags(env) : '';
 }
 
-/** The GTM module is separate so the existing analytics tag contract stays stable. */
-export function gtmTag(env, nonce) {
-  return analyticsEnabled(env) ? gtmBootstrap(nonce) : '';
+/** GTM is enabled for local/Cloudflare Pages deployments. */
+export function gtmTag(env) {
+  return gtmEnabled(env) ? GTM_TAG : '';
 }
 
-/** The GTM fallback belongs immediately after <body>, when analytics is on. */
+/** The GTM fallback belongs immediately after <body> on enabled deployments. */
 export function gtmBodyHandlers(env) {
-  return analyticsEnabled(env)
+  return gtmEnabled(env)
     ? [['body', { element: (el) => el.prepend(GTM_NOSCRIPT, { html: true }) }]]
     : [];
 }

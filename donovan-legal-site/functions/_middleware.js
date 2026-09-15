@@ -188,7 +188,8 @@ import { siteVerificationTags } from './_lib/site-verification.js';
  *   `lockFrameAncestors` used to live here too — see the FRAME-ANCESTORS note
  *   inside for why the policy no longer has two states to choose between.
  */
-export function buildCsp(nonce, { analytics = false } = {}) {
+export function buildCsp(nonce, { analytics = false, gtm = false } = {}) {
+  const googleTags = analytics || gtm;
   return [
     "default-src 'self'",
     // No 'unsafe-inline'. Inline blocks are admitted ONLY by this request's nonce.
@@ -207,7 +208,7 @@ export function buildCsp(nonce, { analytics = false } = {}) {
     // the tree at all. Same argument as `esm.sh` above: an allowance for a host
     // the site has no relationship with is an entry someone later restores
     // rather than questions.
-    `script-src 'self' 'nonce-${nonce}' https://code.jquery.com https://cdnjs.cloudflare.com https://challenges.cloudflare.com${analytics ? ' https://*.googletagmanager.com https://www.googleadservices.com https://pagead2.googlesyndication.com https://connect.facebook.net https://*.clarity.ms' : ''}`,
+    `script-src 'self' 'nonce-${nonce}' https://code.jquery.com https://cdnjs.cloudflare.com https://challenges.cloudflare.com${googleTags ? ' https://*.googletagmanager.com' : ''}${analytics ? ' https://www.googleadservices.com https://pagead2.googlesyndication.com https://connect.facebook.net https://*.clarity.ms' : ''}`,
     // ── ANALYTICS HOSTS (JAY-TRACKING-B1) ───────────────────────────────────
     //
     // Added ONLY when the ANALYTICS flag is on, so a deployment that is not
@@ -232,12 +233,12 @@ export function buildCsp(nonce, { analytics = false } = {}) {
     // beacon: `functions/booking/_lib/vantage-{lead,upsert}.js` are deleted, so no
     // fetch to `vantage.ticoai.net/upsert-lead` is issued from anywhere any more.
     // Leads reach Clio Grow and Clio Manage through the site's own Functions.
-    `connect-src 'self' https://challenges.cloudflare.com${analytics ? ' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://*.doubleclick.net https://*.google.com https://www.googleadservices.com https://pagead2.googlesyndication.com https://*.facebook.com https://*.clarity.ms https://c.bing.com' : ''}`,
+    `connect-src 'self' https://challenges.cloudflare.com${googleTags ? ' https://*.googletagmanager.com' : ''}${analytics ? ' https://*.google-analytics.com https://*.analytics.google.com https://*.g.doubleclick.net https://*.doubleclick.net https://*.google.com https://www.googleadservices.com https://pagead2.googlesyndication.com https://*.facebook.com https://*.clarity.ms https://c.bing.com' : ''}`,
     // See the STYLE-SRC note above — tracked follow-up, not an oversight.
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com data:",
     "img-src 'self' data: https:",
-    `frame-src 'self' https://challenges.cloudflare.com${analytics ? ' https://*.doubleclick.net https://*.googletagmanager.com' : ''}`,
+    `frame-src 'self' https://challenges.cloudflare.com${googleTags ? ' https://*.googletagmanager.com' : ''}${analytics ? ' https://*.doubleclick.net' : ''}`,
     // ── FRAME-ANCESTORS (DR-INSANE-A34, #59) — NOW UNCONDITIONAL ────────────
     //
     // A34 made this a two-state policy because the Perch shell iframed this site
@@ -376,7 +377,7 @@ export async function onRequest(context) {
   // injected at all, so the policy and the page can never disagree: no tag means
   // no hosts, and a host allowance is never left behind by a rollback.
   const analyticsOn = analyticsEnabled(runtimeEnv);
-  out.headers.set('Content-Security-Policy', buildCsp(nonce, { analytics: analyticsOn }));
+  out.headers.set('Content-Security-Policy', buildCsp(nonce, { analytics: analyticsOn, gtm: context.env?.CF_PAGES === '1' || analyticsOn }));
   // Set alongside the CSP and above the non-HTML early return, for the same reason
   // the CSP is: a response that is not HTML today can still be rendered in a frame.
   // Only ever ADDED — with the flag off this header is absent exactly as it is
@@ -435,7 +436,7 @@ export async function onRequest(context) {
     + footerStylesheetTag(wantsFooterLine)
     + navStylesheetTag(navState)
     + analyticsTag(runtimeEnv)
-    + gtmTag(runtimeEnv, nonce)
+    + gtmTag(runtimeEnv)
     + (analyticsEnabled(runtimeEnv) ? regionTag(context.request) : '')
     // JAY-SEO-E2. NOT gated on ANALYTICS, deliberately — a console re-checks its
     // token and un-verifies a property whose tag has vanished, so tying this to
