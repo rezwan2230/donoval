@@ -431,7 +431,7 @@ export async function onRequest(context) {
     + footerStylesheetTag(wantsFooterLine)
     + navStylesheetTag(navState)
     + analyticsTag(context.env)
-    + gtmTag(context.env)
+    + gtmTag(context.env, nonce)
     + (analyticsEnabled(context.env) ? regionTag(context.request) : '')
     // JAY-SEO-E2. NOT gated on ANALYTICS, deliberately — a console re-checks its
     // token and un-verifies a property whose tag has vanished, so tying this to
