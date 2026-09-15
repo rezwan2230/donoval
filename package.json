@@ -4,6 +4,7 @@
   "type": "module",
   "description": "Donovan Legal PLLC — Cloudflare Pages site + Perch voice concierge functions.",
   "scripts": {
+    "build:cloudflare": "node scripts/vercel-build.mjs",
     "build:vercel": "node scripts/vercel-build.mjs",
     "test": "node --test \"test/**/*.test.mjs\"",
     "test:hygiene": "node --test \"hygiene/**/*.test.mjs\"",
